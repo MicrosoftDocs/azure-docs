@@ -148,7 +148,7 @@ Deploying a solution makes any included security content, such as data connector
 
 |Name  |Description  |Includes  |Categories  |
 |---------|---------|---------|---------|
-| **Microsoft Sentinel Deception** | Enables you to deceive attackers by distributing a collecting of traps and decoys across the infrastructure to imitate genuine access. <br><br>Plants fake Azure Key Vault keys or secrets, and has Azure Sentinel monitor the fakes, and then alert on access. <br><br>**Supported by**: Microsoft| Analytics rules and workbooks  | |
+| **Microsoft Sentinel Deception** | Enables you to deceive attackers by distributing a collecting of traps and decoys across the infrastructure to imitate genuine access. <br><br>Plants fake Azure Key Vault keys or secrets, and has Azure Sentinel monitor the fakes, and then alert on access. <br><br>For more information, see [Plant and monitor Azure Key Vault decoys with Microsoft Sentinel](monitor-key-vault-decoys.md).<br><br>**Supported by**: Microsoft| Analytics rules and workbooks  | |
 | | | | |
 
 ## Oracle
