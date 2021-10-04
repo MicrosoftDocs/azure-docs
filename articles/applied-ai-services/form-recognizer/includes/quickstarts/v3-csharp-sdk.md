@@ -144,7 +144,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
-## **Try it**: general document model
+## **Try it**: General document model
 
 > [!div class="checklist"]
 >
@@ -152,10 +152,11 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * Add the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 
-### Add the following code to the **Main** method
+### Add the following code to your general document application **Main** method
 
 ```csharp
-string fileUri = "<fileUri>";
+// sample form document
+string fileUri = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
 
@@ -264,10 +265,11 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * Add the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
-### Add the following code to the **Main** method
+### Add the following code to your layout application **Main** method
 
 ```csharp
-string fileUri = "<fileUri>";
+// sample form document
+string fileUri = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
 
@@ -348,19 +350,20 @@ This sample demonstrates how to analyze data from certain types of common docume
 > * Add the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
-### Choose the prebuilt model ID
+### Choose the invoice prebuilt model ID
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the IDs of the prebuilt models currently supported by the Form Recognizer service:
+You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
-* prebuilt-businessCard: extracts text and key information from business cards.
-* prebuilt-idDocument: extracts text and key information from driver licenses and international passports. 
-* prebuilt-invoice: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* prebuilt-receipt: extracts text and key information from receipts.
+* **prebuilt-invoice**: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* **prebuilt-businessCard**: extracts text and key information from business cards.
+* **prebuilt-idDocument**: extracts text and key information from driver licenses and international passports.
+* **prebuilt-receipt**: extracts text and key information from receipts.
 
-### Add the following code to the **Main** method
+### Add the following code to your prebuilt invoice application **Main** method
 
 ```csharp
-string filePath = "<filePath>";
+// sample invoice document
+string filePath = "(https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
 using var stream = new FileStream(filePath, FileMode.Open);
 
