@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-author: souchak
-ms.author: saasguide
+author: saasguide
+ms.author: souchak
 ---
 
 # Register a SaaS application

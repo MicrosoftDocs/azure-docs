@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/04/2020
-author: souchak
-ms.author: saasguide
+author: saasguide
+ms.author: souchak
 ---
 
 # SaaS Fulfillment APIs version 1 (deprecated)
