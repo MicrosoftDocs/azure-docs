@@ -9,7 +9,7 @@
  ms.author: albecker1
  ms.custom: include file
 ---
-### On-demand bursting (preview)
+### On-demand bursting
 
 Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
 
