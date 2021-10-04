@@ -444,7 +444,7 @@ anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO    
 
 ### Use the persistent volume
 
-After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The manifest below can be used to define a NGINX pod that mounts the Azure NetApp Files volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The manifest below can be used to define an NGINX pod that mounts the Azure NetApp Files volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
 
 Create a file named `anf-nginx-pod.yaml` which contains the following manifest:
 
