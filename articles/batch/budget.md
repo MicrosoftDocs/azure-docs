@@ -2,7 +2,7 @@
 title: Get cost analysis and set budgets for Azure Batch
 description: Learn how to get a cost analysis, set a budget, and reduce costs for the underlying compute resources and software licenses used to run your Batch workloads.
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 10/04/2021
 ---
 
 # Get cost analysis and set budgets for Azure Batch
@@ -47,7 +47,7 @@ Depending on which services you use with your Batch solution, you may incur addi
 
 In the Azure portal, you can create budgets and spending alerts for your Batch pools or Batch accounts. Budgets and alerts are useful for notifying stakeholders of any risks of overspending, although it's possible for there to be a delay in spending alerts and to slightly exceed a budget.
 
-The following screenshot shows the **Cost analysis** view for a subscription, filtered to only display the accumulated costs associated with all Batch accounts. The lower charts show how the total cost for the period selected can be categorized by consumed service, location, and meter.  This example is typical in that the largest cost is for the virtual machines that are allocated for Batch pool nodes.
+The following screenshot shows an example of the **Cost analysis** view for a subscription, filtered to only display the accumulated costs associated with all Batch accounts. The lower charts show how the total cost for the period selected can be categorized by consumed service, location, and meter. While this is an example and is not meant to be reflective of costs you may see for your subscriptions, it is typical in that the largest cost is for the virtual machines that are allocated for Batch pool nodes.
 
 :::image type="content" source="media/batch-budget/subscription-cost-analysis.png" alt-text="Screenshot showing cost analysis in the Azure portal for all Batch accounts in a subscription.":::
 
@@ -63,7 +63,7 @@ For Batch accounts created with the Batch service pool allocation mode:
 1. Select your subscription in the **Billing scopes** section.
 1. Under **Cost Management**, select **Cost analysis**.
 1. Select **Add Filter**. In the first drop-down, select **Resource**.
-1. In the second drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for the pool, similar to the example shown here.
+1. In the second drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for your pool. The screenshot below shows example data.
    :::image type="content" source="media/batch-budget/pool-cost-analysis.png" alt-text="Screenshot showing cost analysis of a Batch pool in the Azure portal.":::
 
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
@@ -82,7 +82,7 @@ For Batch accounts created with the user subscription pool allocation mode:
 1. Under **Cost Management**, select **Cost analysis**.
 1. Select **Add Filter**. In the first drop-down, select **Tag**.
 1. In the second drop-down, select **poolname**.
-1. In the third drop-down, select the Batch pool.
+1. In the third drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for your pool. The screenshot below shows example data.
    :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Screenshot showing cost analysis of a user subscription Batch pool in the Azure portal.":::
 
 Note that if you're interested in viewing cost data for all pools in a user subscription Batch account, you can select **batchaccountname** in the second drop-down and the name of your Batch account in the third drop-down. 
