@@ -2,7 +2,6 @@
 title: Run or reset indexers
 titleSuffix: Azure Cognitive Search
 description: Reset an indexer, skills, or individual documents to refresh all or part of and index or knowledge store.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -41,7 +40,7 @@ Indexer execution is subject to the following limits:
 
 + Maximum number of indexer jobs is 1 per replica  No concurrent jobs.
 
-  If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '<indexer-name>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
+  If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '\<indexer-name\>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
 
 + Maximum running time is 2 hours if using a skillset, and 24 hours without. 
 

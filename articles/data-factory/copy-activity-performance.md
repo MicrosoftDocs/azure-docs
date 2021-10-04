@@ -12,7 +12,7 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 # Copy activity performance and scalability guide
 
@@ -78,7 +78,7 @@ The table below shows the calculation of data movement duration. The duration in
 
 Copy is scalable at different levels:
 
-![How copy scales](media/copy-activity-performance/adf-copy-scalability.png)
+:::image type="content" source="media/copy-activity-performance/adf-copy-scalability.png" alt-text="How copy scales":::
 
 * Control flow can start multiple copy activities in parallel, for example using [For Each loop](control-flow-for-each-activity.md).
 

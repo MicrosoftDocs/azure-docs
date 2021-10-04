@@ -65,7 +65,7 @@ The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based o
 
 In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Live Video Analytics on IoT Edge.
 
-In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
+In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
@@ -319,7 +319,7 @@ In the messages, notice the following details:
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
 ## Run the sample program to detect persons or vehicles or bikes
-To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
+To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
 
 ```
 "Env":[

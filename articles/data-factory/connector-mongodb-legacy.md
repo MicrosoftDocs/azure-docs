@@ -1,27 +1,27 @@
 ---
 title: Copy data from MongoDB using legacy
+description: Learn how to copy data from Mongo DB to supported sink data stores using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Mongo DB to supported sink data stores by using a copy activity in a legacy Azure Data Factory pipeline.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
-# Copy data from MongoDB using Azure Data Factory (legacy)
+# Copy data from MongoDB using Azure Data Factory or Synapse Analytics (legacy)
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Current version](connector-mongodb.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->ADF release a new MongoDB connector which provides better native MongoDB support comparing to this ODBC-based implementation, refer to [MongoDB connector](connector-mongodb.md) article on details. This legacy MongoDB connector is kept supported as-is for backward compability, while for any new workload, please use the new connector.
+>The service has released a new MongoDB connector which provides better native MongoDB support comparing to this ODBC-based implementation, refer to [MongoDB connector](connector-mongodb.md) article on details. This legacy MongoDB connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
 
 ## Supported capabilities
 
@@ -81,7 +81,7 @@ The following properties are supported for MongoDB linked service:
 | databaseName |Name of the MongoDB database that you want to access. |Yes |
 | authenticationType | Type of authentication used to connect to the MongoDB database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |User account to access MongoDB. |Yes (if basic authentication is used). |
-| password |Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (if basic authentication is used). |
+| password |Password for the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (if basic authentication is used). |
 | authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |No. For basic authentication, default is to use the admin account and the database specified using databaseName property. |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is false.  | No |
 | allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
@@ -193,9 +193,9 @@ Azure Data Factory service infers schema from a MongoDB collection by using the 
 
 ## Data type mapping for MongoDB
 
-When copying data from MongoDB, the following mappings are used from MongoDB data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from MongoDB, the following mappings are used from MongoDB data types to interim data types used within the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MongoDB data type | Data factory interim data type |
+| MongoDB data type | Interim service data type |
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
@@ -215,12 +215,12 @@ When copying data from MongoDB, the following mappings are used from MongoDB dat
 
 ## Support for complex types using virtual tables
 
-Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your MongoDB database. For complex types such as arrays or objects with different types across the documents, the driver re-normalizes data into corresponding virtual tables. Specifically, if a table contains such columns, the driver generates the following virtual tables:
+The service uses a built-in ODBC driver to connect to and copy data from your MongoDB database. For complex types such as arrays or objects with different types across the documents, the driver re-normalizes data into corresponding virtual tables. Specifically, if a table contains such columns, the driver generates the following virtual tables:
 
 * A **base table**, which contains the same data as the real table except for the complex type columns. The base table uses the same name as the real table that it represents.
 * A **virtual table** for each complex type column, which expands the nested data. The virtual tables are named using the name of the real table, a separator “_" and the name of the array or object.
 
-Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. You can access the content of MongoDB arrays by querying and joining the virtual tables.
+Virtual tables refer to the data in the real table, enabling the driver to access the de-normalized data. You can access the content of MongoDB arrays by querying and joining the virtual tables.
 
 ### Example
 
@@ -262,4 +262,4 @@ The following tables show the virtual tables that represent the original arrays 
 | 2222 |1 |2 |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

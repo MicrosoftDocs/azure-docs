@@ -126,6 +126,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Analyzers
+    href: search-analyzers.md
   - name: Semantic search
     href: semantic-search-overview.md
   - name: Relevance scoring
@@ -182,8 +184,6 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
-    - name: Troubleshoot issues with creating Shared Private Link Resource
-      href: troubleshoot-shared-private-link-resources.md
   - name: Security
     items:
     - name: Data encryption
@@ -202,6 +202,8 @@
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
     - name: Outbound security (indexers)  
       items:
       - name: Data access over an IP range
@@ -266,8 +268,6 @@
       href: index-sql-relational-data.md
   - name: Analyzers
     items:
-    - name: Adding analyzers
-      href: search-analyzers.md
     - name: Add a language analyzer
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
@@ -442,8 +442,6 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: Facet filters
-      href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Troubleshoot collection filters

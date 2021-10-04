@@ -146,7 +146,7 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 ## Scaling encoding in v3
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
-For accounts created in with the **2020-05-01** version of the API or through the Azure portal, scaling and media reserved units are no longer required. Scaling will be automatic and handled by the service internally.
+For accounts created with the **2020-05-01** or later version of the API or through the Azure portal, scaling and media reserved units are no longer required. Scaling will be automatic and handled by the service internally.
 
 ## Billing
 

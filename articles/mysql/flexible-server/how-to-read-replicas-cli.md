@@ -21,6 +21,7 @@ In this article, you will learn how to create and manage read replicas in the Az
 > [!Note]
 >
 > * Replica is not supported on high availability enabled server. 
+>* The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
 >
 > * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 

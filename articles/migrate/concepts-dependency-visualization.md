@@ -26,7 +26,7 @@ There are two options for deploying dependency analysis
 
 **Option** | **Details** | **Public cloud** | **Azure Government**
 ----  |---- | ----
-**Agentless** | Polls data from servers on VMware using vSphere APIs.<br/><br/> You don't need to install agents on servers.<br/><br/> This option is currently in preview, only for  servers on VMware. | Supported. | Supported.
+**Agentless** | Polls data from servers on VMware using vSphere APIs.<br/><br/> You don't need to install agents on servers.<br/><br/> This option is currently only for  servers on VMware. | Supported. | Supported.
 **Agent-based analysis** | Uses the [Service Map solution](../azure-monitor/vm/service-map.md) in Azure Monitor, to enable dependency visualization and analysis.<br/><br/> You need to install agents on each on-premises server that you want to analyze. | Supported | Not supported.
 
 ## Agentless analysis

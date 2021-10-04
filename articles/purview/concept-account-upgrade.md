@@ -34,15 +34,15 @@ When your account is upgraded, you won't need to make any changes to use the ela
 
 Collections exist in legacy Purview accounts, but have new functionality and are managed in a different way in upgraded Purview accounts.
 
-Legacy collections were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data map, through collections your access management experience will match your data map.
+[Legacy collections](how-to-create-and-manage-collections.md#legacy-collection-guide) were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data map, through collections your access management experience will match your data map.
 
-Collections give you fine-grained control over your data sources, but also over discoverability. Users will only see assets in collections that they have access to, and so will only see the information they need.
+[Collections](how-to-create-and-manage-collections.md) give you fine-grained control over your data sources, but also over discoverability. Users will only see assets in collections that they have access to, and so will only see the information they need.
 
 When your Purview account is upgraded, your collections will be updated as well. All your current assets will be migrated into these new collections. In the sections below, we'll discuss where you can find your collections and your existing assets.
 
 ### Locate and manage collections
 
-To find your new collections, we'll start in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
+To find your new collections, we'll start in the [Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
 
 Select Data Map > Collections from the left pane to open the collection management page.
 
@@ -67,7 +67,7 @@ To edit role assignments in a collection, select the **Role assignments** tab to
 
 For more information about collections in upgraded accounts, please read our [guide on creating and managing collections](how-to-create-and-manage-collections.md).
 
-### What happens to your collections during upgrade
+### What happens to your collections during upgrade?
 
 1. A root collection is created. The root collection is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it's called Contoso Purview.
 
@@ -75,7 +75,7 @@ For more information about collections in upgraded accounts, please read our [gu
 
 1. Your previously existing collections will be connected to the root collection. You'll see them listed below the root collection, and can interact with them there.
 
-### What happens to your sources during upgrade
+### What happens to your sources during upgrade?
 
 1. Any sources that weren't previously associated with a collection are automatically added to the root collection.
 
@@ -93,7 +93,7 @@ For your scheduled scans, you only need to wait for the next run of these scans,
 
 For one-time scans, you'll need to rerun these manually to populate the assets in your collection.
 
-1. In the Purview Studio, open the Data Map, select **Sources**. Select the source you want to scan.
+1. In the [Purview Studio](https://web.purview.azure.com/resource/), open the Data Map, select **Sources**. Select the source you want to scan.
 
     :::image type="content" source="./media/concept-account-upgrade/select-sources.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the sources highlighted." border="true":::
 
@@ -104,6 +104,53 @@ For one-time scans, you'll need to rerun these manually to populate the assets i
 1. Select **Run scan now** to run the scan again.
 
     :::image type="content" source="./media/concept-account-upgrade/run-scan-now.png" alt-text="Screenshot of Purview studio window, opened to a scan, with Run scan now highlighted." border="true":::
+
+### What happens when your upgraded account doesn't have a collection admin?
+
+Your upgraded Purview account will have default collection admin(s) if the process can identify at least one user or group in the following order: 
+
+1. Owner (explicitly assigned)
+
+1. User Access Administrator (explicitly assigned)
+
+1. Data Source Administrator and Data Curator
+
+If your account did not have any user or group matched with the above criteria, the upgraded Purview account will have no collection admin. 
+
+You can still manually add a collection admin by using the management API. The user who calls this API must have Owner or User Access Administrator permission on Purview account to execute a write action. You will need to know the `objectId` of the new collection admin to submit via the API.
+
+#### Request
+
+   ```
+    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<accountName>/addRootCollectionAdmin?api-version=2021-07-01
+   ```    
+    
+#### Request body
+
+   ```json
+    {
+        "objectId": "<objectId>"
+    }
+   ```    
+
+`objectId` is the objectId of the new collection admin to add.
+
+#### Response body
+
+If success, you will get an empty body response with `200` code.
+
+If failure, the format of the response body is as follows.
+
+   ```json
+    {
+        "error": {
+            "code": "19000",
+            "message": "The caller does not have Microsoft.Authorization/roleAssignments/write permission on resource: [/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>].",
+            "target": null,
+            "details": []
+        }
+    }
+   ```
 
 ## Permissions
 

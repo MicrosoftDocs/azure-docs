@@ -1,6 +1,6 @@
 ---
-title: Migrate your application to use the Azure Cosmos DB .NET SDK 3.0 (com.azure.cosmos)
-description: Learn how to upgrade your existing .NET application from the v2 SDK to the newer .NET SDK v3 (com.azure.cosmos package) for Core (SQL) API.
+title: Migrate your application to use the Azure Cosmos DB .NET SDK 3.0 (Microsoft.Azure.Cosmos)
+description: Learn how to upgrade your existing .NET application from the v2 SDK to the newer .NET SDK v3 (Microsoft.Azure.Cosmos package) for Core (SQL) API.
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -50,8 +50,7 @@ Most of the networking, retry logic, and lower levels of the SDK remain largely 
 ## Why migrate to the .NET v3 SDK
 
 In addition to the numerous usability and performance improvements, new feature investments made in the latest SDK will not be back ported to older versions.
-
-While there are no immediate plans to [retire support for the 2.0 SDKs](sql-api-sdk-dotnet.md), the SDKs will be replaced by newer versions in the future and the SDK will go into maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
+The v2 SDK is currently in maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
 
 ## Major name changes from v2 SDK to v3 SDK
 

@@ -104,7 +104,7 @@ The variables you set up earlier are used in the headers and URL. The following 
 > All of the requests in the collection set `api-key` and `Content-type` headers, which are required. If Postman recognizes a variable, the variable appears in orange text, as with `{{admin-key}}` in the preceding screenshot. If the variable is misspelled, it appears in red text.
 >
 
-## Create an Azure Cognitive Search index
+## Create an index
 
 Use the [Create Index (REST API)](/rest/api/searchservice/create-index) to create a search index on the search service. A search index is unrelated to a knowledge store, but the indexer requires that you create one. The search index will contain the same content as the knowledge store. If you want an alternative approach for exploring your content, you can query this index by sending query requests to your search service. 
 
@@ -137,7 +137,7 @@ You should see the status `201 - Created`. If you see a different status, in the
 
 At this point, the index is created but not loaded. Importing documents occurs later when you run the indexer. 
 
-## Create the data source
+## Create a data source
 
 Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
 
@@ -155,7 +155,7 @@ In Postman, go to the **Create Datasource** request, and then to the **Body** pa
 
 Select **Send** to issue the POST request. 
 
-## Create the skillset 
+## Create a skillset 
 
 The next step creates the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. This request sends a [Create Skillset](/rest/api/searchservice/create-skillset) PUT request to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
 
@@ -192,7 +192,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "languageCode", "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "score", "targetName": "sentiment" }
+                { "name": "sentiment", "targetName": "sentiment" }
             ]
         },
         {
@@ -252,7 +252,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     "source": "/document/reviews_text/pages/*/translated_text"
                     },
                     { 
-                    "name": "sentimentScore",
+                    "name": "sentiment",
                     "source": "/document/reviews_text/pages/*/sentiment"
                     },
                     {
@@ -299,7 +299,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     { 
                         "tableName": "hotelReviews5InlineProjectionPages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
                         "inputs": [
-                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/sentiment"},
+                            { "name": "Sentiment", "source": "/document/reviews_text/pages/*/sentiment"},
                             { "name": "LanguageCode", "source": "/document/language"},
                             { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases"},
                             { "name": "TranslatedText", "source": "/document/reviews_text/pages/*/translated_text"},
@@ -320,7 +320,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
 }
 ```
 
-## Create the indexer
+## Create an indexer
 
 The final step is the [Create Indexer](/rest/api/searchservice/create-indexer) request. The indexer reads the data and activates the skillset. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
 
@@ -361,21 +361,21 @@ Select **Send** in Postman to create and run the indexer. Data import, skillset 
 }
 ```
 
-## Check indexer status
+## Check status
 
 After you send each request, the search service should respond with a 201 success message. If you get errors, re-check your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
 
 In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-## Check tables in Azure Storage
+## Check tables in Storage Explorer
 
-In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
+In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables, one for each projection defined in the skillset.
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
-In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. The first three rely on a Shaper skill to provide the columns and data values.
+In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. Tables one through three use output from a Shaper skill to determine the columns and rows. Tables four through six are created from inline shaping instructions, embedded within the projection itself. You can use either approach to achieve the same outcome.
 
 | Table | Description |
 |-------|-------------|

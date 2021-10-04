@@ -4,7 +4,7 @@ description: This article explains what Insights are in Azure Purview.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
 ---
@@ -13,7 +13,10 @@ ms.date: 12/02/2020
 
 This article provides an overview of the Insights feature in Azure Purview.
 
-Insights are one of the key pillars of Purview. The feature provides customers, a single pane of glass view into their catalog and further aims to provide specific insights to the data source administrators, business users, data stewards, data officer and, security administrators. Currently, Purview has the following Insights reports that will be available to customers at public preview.
+Insights are one of the key pillars of Purview. The feature provides customers, a single pane of glass view into their catalog and further aims to provide specific insights to the data source administrators, business users, data stewards, data officer and, security administrators. Currently, Purview has the following Insights reports that will be available to customers during Insight's public preview.
+
+> [!IMPORTANT]
+> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Asset Insights
 
