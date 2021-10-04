@@ -603,6 +603,7 @@ Create and manage virtual machines, manage disks and disk snapshots, install and
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Create and manage compute availability sets |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/cloudServices/* | Create and manage Cloud Services (extended support) |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Create and manage compute locations |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Perform all virtual machine actions including create, update, delete, start, restart, and power off virtual machines. Execute scripts on virtual machines. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |
