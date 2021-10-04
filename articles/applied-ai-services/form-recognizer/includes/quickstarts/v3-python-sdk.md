@@ -292,7 +292,7 @@ def analyze_layout():
 
 ## **Try it**: Prebuilt invoice model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](concept-prebuilt.md&tabs=receipt#key-value-pair-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-prebuilt.md?tabs=invoice#key-value-pair-extraction)
 
 > [!div class="checklist"]
 >
