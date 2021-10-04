@@ -37,30 +37,30 @@ The content of the question and answer pair includes:
 * Metadata tags used to filter answer choices during the search
 * Follow-up prompts to continue the search refinement
 
-After you publish your knowledge base, a client application sends a user's question to your endpoint. Your QnA Maker service processes the question and responds with the best answer.
+After you publish your knowledge base, a client application sends a user's question to your endpoint. Your question answering service processes the question and responds with the best answer.
 
 ## Create a chat bot programmatically
 
-Once a question answering knowledge base is published, a client application sends a question to your knowledge base endpoint and receives the results as a JSON response. A common client application for QnA Maker is a chat bot.
+Once a question answering knowledge base is published, a client application sends a question to your knowledge base endpoint and receives the results as a JSON response. A common client application for question answering is a chat bot.
 
 ![Ask a bot a question and get answer from knowledge base content](../../qnamaker/media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
 |Step|Action|
 |:--|:--|
 |1|The client application sends the user's _question_ (text in their own words), "How do I programmatically update my Knowledge Base?" to your knowledge base endpoint.|
-|2|QnA Maker uses the trained knowledge base to provide the correct answer and any follow-up prompts that can be used to refine the search for the best answer. QnA Maker returns a JSON-formatted response.|
+|2|Question answering uses the trained knowledge base to provide the correct answer and any follow-up prompts that can be used to refine the search for the best answer. Question answering returns a JSON-formatted response.|
 |3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer and presenting more choices to refine the search for the best answer. |
 |||
 
 ## Build low code chat bots
 
-The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer pairs. Each pair is analyzed for follow-up prompts and connected to other pairs. The final _markdown_ format supports rich presentation including images and links.
+The language studio portal provides the complete project/knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer pairs. Each pair is analyzed for follow-up prompts and connected to other pairs. The final _markdown_ format supports rich presentation including images and links.
 
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download it and continue development.
 
 ## High quality responses with layered ranking
 
-The question answering system uses a layered ranking approach. The data is stored in Azure search, which also serves as the first ranking layer. The top results from Azure search are then passed through QnA Maker's NLP re-ranking model to produce the final results and confidence score.
+The question answering system uses a layered ranking approach. The data is stored in Azure search, which also serves as the first ranking layer. The top results from Azure search are then passed through question answering's NLP re-ranking model to produce the final results and confidence score.
 
 ## Multi-turn conversations
 
@@ -68,7 +68,7 @@ Question answering provides multi-turn prompts and active learning to help you i
 
 **Multi-turn prompts** give you the opportunity to connect question and answer pairs. This connection allows the client application to provide a top answer and provides more questions to refine the search for a final answer.
 
-After the knowledge base receives questions from users at the published endpoint, QnA Maker applies **active learning** to these real-world questions to suggest changes to your knowledge base to improve the quality.
+After the knowledge base receives questions from users at the published endpoint, question answering applies **active learning** to these real-world questions to suggest changes to your knowledge base to improve the quality.
 
 ## Development lifecycle
 
@@ -79,7 +79,7 @@ Question answering provides authoring, training, and publishing along with colla
 
 ## Complete a quickstart
 
-We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
+We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes.
 
 * [Get started with QnA Maker client library](./quickstart/sdk.md)
 
