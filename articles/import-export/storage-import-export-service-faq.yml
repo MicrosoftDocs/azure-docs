@@ -18,9 +18,9 @@ sections:
   - name: About Import/Export service
     questions:
       - question: |
-          Can I copy Azure File storage using the Azure Import/Export service?
+          Can I copy to Azure Files storage using the Azure Import/Export service?
         answer: |
-          Yes. The Azure Import/Export service supports import into Azure File Storage. It does not support export of Azure Files at this time.
+          Yes. The Azure Import/Export service supports import into Azure Files storage. It does not support export from Azure Files at this time.
 
       - question: |
           Is the Azure Import/Export service available for CSP subscriptions?
@@ -84,7 +84,7 @@ sections:
   - name: Shipping disks
     questions:
       - question: |
-          What is the maximum number of HDD for in one shipment?
+          What is the maximum number of HDDs for in one shipment?
         answer: |
           There is no limit to the number of HDDs in one shipment. If the disks belong to multiple jobs, we recommend that you:
           
