@@ -89,7 +89,7 @@ For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass a
 
 Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
 
-[!NOTE] Refer to [image metrics](#Metrics-for-image-models)) section for additional details on metrics for image models like epoch-level metrics.
+[!NOTE] Refer to [image metrics](#Metrics-for-image-models) section for additional details on metrics for image models like epoch-level metrics.
 
 ## Confusion matrix
 
