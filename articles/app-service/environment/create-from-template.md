@@ -46,13 +46,21 @@ To automate your ASEv2 creation:
 
 
 ## Create the ASEv3
+<<<<<<< HEAD
 A Resource Manager template that creates an ASE and its associated parameters file is available [in an example](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/) on GitHub.
+=======
+A Resource Manager template that creates an ASE and its associated parameters file is available [in an example](https://azure.microsoft.com/en-us/resources/templates/web-app-asp-app-on-asev3-create/) on GitHub.
+>>>>>>> 1335914650b662a6504dcd0fbb84c90c22768520
 
 If you want to make an ASEv3, use these Resource Manager template [example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asp-app-on-asev3-create). They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet:
 
 * *aseName*: Required. This parameter defines an unique ASE name. 
 * *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
+<<<<<<< HEAD
 * *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy).
+=======
+* *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy).
+>>>>>>> 1335914650b662a6504dcd0fbb84c90c22768520
 * *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
 * *useExistingVnetandSubnet*: Required. Set to true if using an existing VNet and subnet. 
 * *vNetResourceGroupName*: Required if an using existing VNET and Subnet. This parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
