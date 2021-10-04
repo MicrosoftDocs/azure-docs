@@ -16,7 +16,7 @@ This article shows you how to control access using Kubernetes RBAC in an AKS clu
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster enabled with Azure AD integration. If you need an AKS cluster, see [Integrate Azure Active Directory with AKS][azure-ad-aks-cli].
+This article assumes that you have an existing AKS cluster enabled with Azure AD integration. If you need an AKS cluster, see [Integrate Azure Active Directory with AKS](https://docs.microsoft.com/azure/aks/managed-aad).
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
