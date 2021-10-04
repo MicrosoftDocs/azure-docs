@@ -14,6 +14,8 @@
       href: ./resource-bridge/overview.md
     - name: Deploy on vSphere
       href: ./resource-bridge/deploy-vmware-vsphere.md
+    - name: Custom Locations
+      href: ./resource-bridge/conceptual-custom-locations.md
     - name: Troubleshooting
       href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
