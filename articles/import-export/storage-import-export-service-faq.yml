@@ -74,7 +74,7 @@ sections:
       - question: | 
           I found problems in the data copy logs for an import/export job. Can I repair the job?
         answer: |
-          No The current versions of the the Azure ImportExport tool (version 1.5.0.300 for blobs and version 2.2.0.300 for files) don't support job repair. You'll need to create a new Import/Export job after you resolve the issues. See [Create an import job for blobs](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) or [Create an import job for files](storage-import-export-data-to-files.md#step-2-create-an-import-job).
+          No The current versions of the Azure ImportExport tool (version 1.5.0.300 for blobs and version 2.2.0.300 for files) don't support job repair. You'll need to create a new Import/Export job after you resolve the issues. See [Create an import job for blobs](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) or [Create an import job for files](storage-import-export-data-to-files.md#step-2-create-an-import-job).
 
       - question: |
           The uploaded blob shows status as "Lease expired". What should I do?
@@ -112,7 +112,7 @@ sections:
       - question: |
           Are there any restrictions with shipping and returning my drive internationally?
         answer: |
-          Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+          Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. Checking in advance will help to ensure that it reaches Microsoft in a timely manner.
           
           After the upload is complete, the process to return drive(s) to an international address can take longer than the typical 2-3 days needed for local shipping. During the stage listed in the Azure portal as Packaging, the Data Box team is ensuring that the correct documentation is provided to ensure the shipment complies with the various international import and export requirements.
           
@@ -160,13 +160,13 @@ sections:
       - question: |
           After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
         answer: |
-          When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in the dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
+          When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in the dataset CSV. That is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
 
       - question: |
           If a drive has files that already exist in my storage account, does the service overwrite existing blobs or files?
         answer: |
           Yes. The most recent releases of the Azure ImportExport tool - versions 1.5.0.300 (for blobs) and 2.2.0.300 (for files) - automatically overwrite blobs or files that already exist in your storage if an import includes a file or blob with the same name. 
-          Earlier tool versions renamed an incoming file by default if an existing blob or file had the same name. A Disposition field in the dataset CSV file let you specify whether to rename, not overwrite, or overwrite the destination file or blob. The Disposition field had this format: `Disposition:<rename|no-overwrite|overwrite>`.
+          Earlier tool versions renamed an incoming file by default if an existing blob or file had the same name. A Disposition field in the dataset CSV file lets you specify whether to rename, not overwrite, or overwrite the destination file or blob. The Disposition field had this format: `Disposition:<rename|no-overwrite|overwrite>`.
           
       - question: |
           I'm creating a new job. Can I still use the old Azure Import/Export tool?
@@ -182,8 +182,8 @@ sections:
       - question: |
           What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
         answer: |
-          - Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
-          - Max Page Blob size is 8TB.
+          - Max Block Blob size is approximately 4.768 TB  or 5,000,000 MB.
+          - Max Page Blob size is 8 TB.
           
       - question: |
           Does Azure Import/Export support AES-256 encryption?
