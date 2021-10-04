@@ -30,7 +30,7 @@ The scenario shown above presumes the container app is in following state:
 - [Ingress](overview.md) is enabled, which makes the container app available via HTTP.
 - The first revision is deployed as _Revision 1_.
 - After the container was updated, a new revision was activated as _Revision 2_.
-- [Traffic splitting](#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, while _Revision 2_ receives the remaining 20%.
+- [Traffic splitting](overview.md) rules are configured so that _Revision 1_ receives 80% of the requests, while _Revision 2_ receives the remaining 20%.
 
 ## Change types
 

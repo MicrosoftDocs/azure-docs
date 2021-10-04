@@ -25,7 +25,7 @@ As a container app is deployed, the first revision is automatically created.
 
 ## Update
 
-As a container app is updated with a [revision scope-change](revisions.md#revision-scope-change), a new revision is created. You can choose whether to [automatically deactivate new old revisions, or allow them to remain available](overview.md).
+As a container app is updated with a [revision scope-change](revisions.md#revision-scope-changes), a new revision is created. You can choose whether to [automatically deactivate new old revisions, or allow them to remain available](overview.md).
 
 :::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-update.png" alt-text="Azure Container Apps: Update phase":::
 
