@@ -285,6 +285,8 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
+    - name: Migrate from QnA Maker
+      href: custom-question-answering/how-to/migrate-qnamaker.md
     - name: Query with REST APIs
       href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
