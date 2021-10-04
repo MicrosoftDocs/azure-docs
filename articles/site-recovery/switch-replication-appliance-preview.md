@@ -3,7 +3,7 @@ title: Switch replication appliance in Azure Site Recovery - Preview
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
+ms.date: 09/01/2021
 ---
 
 # Switch Azure Site Recovery replication appliance
@@ -73,4 +73,4 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
 ## Next steps
-Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
+Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md) to Azure.

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jmartens
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/02/2021
+ms.date: 09/22/2021
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -111,6 +111,7 @@ When deploying models as web services, you can enable transport-layer security (
 
 ## Next steps
 
+* [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)

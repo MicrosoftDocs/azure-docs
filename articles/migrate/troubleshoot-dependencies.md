@@ -23,6 +23,9 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
 ## Dependencies export CSV shows "Unknown process" with agentless dependency analysis
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it isn't feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process."
 
+## Unable to export dependency data in a CSV due to the error "403: This request is not authorized to perform this operation"
+If your Azure Migrate project has private endpoint connectivity, the request to export dependency data should be initiated from a client connected to the Azure virtual network over a private network. To resolve this error, open the Azure portal in your on-premises network or on your appliance server and try exporting again.
+
 ## Common agentless dependency analysis errors
 
 Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. Agentless dependency analysis is currently supported for VMware only. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about the requirements for agentless dependency analysis.

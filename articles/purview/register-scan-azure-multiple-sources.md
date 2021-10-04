@@ -4,7 +4,7 @@ description: Learn how to scan an entire Azure subscription or resource group in
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
