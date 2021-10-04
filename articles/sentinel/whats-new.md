@@ -28,7 +28,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-
 ## September 2021
 
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
