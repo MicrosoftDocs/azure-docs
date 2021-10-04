@@ -34,10 +34,7 @@ You can follow the steps below to migrate knowledge bases:
 
 3. Visit [https://www.qnamaker.ai](https://www.qnamaker.ai) and select **Start Migration** in the migration note on the knowledge base page. A dialog box will open to initiate the migration.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of message at the top of qnamaker.ai UI with a button for "Start Migration"](../media/migrate-qnamaker/start-migration.png)
-
-        :::image type="content" source="../media/migrate-qnamaker/start-migration.png" alt-text="Add chit-chat QnAs" lightbox="../media/migrate-qnamaker/start-migration.png":::
+   :::image type="content" source="../media/migrate-qnamaker/start-migration.png" alt-text="Add chit-chat QnAs" lightbox="../media/migrate-qnamaker/start-migration.png":::
 
 4. Fill in the details required to initiate migration. The tenant will be auto-selected. You can choose to switch the tenant.
 
