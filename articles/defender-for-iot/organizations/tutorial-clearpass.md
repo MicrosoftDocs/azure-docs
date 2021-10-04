@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Azure Defender fo
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.custom: template-tutorial
 ---
 
