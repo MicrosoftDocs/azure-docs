@@ -13,7 +13,7 @@
   - name: Custom question answering (preview)
     href: custom-question-answering.md
   - name: Migrate to custom question answering
-    href:      href: ../language/custom-question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
+    href: ../language/custom-question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
