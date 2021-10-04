@@ -160,7 +160,7 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: how-to-permissions.md
-        - name: Use a TLS/SSL certificate in your Azure Spring Cloud application
+        - name: Use a TLS/SSL certificate
           href: how-to-use-tls-certificate.md
         - name: Enable end-to-end Transport Layer Security
           href: how-to-enable-end-to-end-tls.md

@@ -11,15 +11,14 @@ ms.custom: devx-track-java
 ---
 # Use a TLS/SSL certificate in your Azure Spring Cloud application
 
-This article shows you how to use public certificates in your application code. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
+This article shoes you how to use public certificates in Azure Spring Cloud for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
 
 When you let Azure Spring Cloud manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Cloud instance.
 
 ## Prerequisites
 
 - An application deployed to Azure Spring Cloud.  See our [quickstart on deploying via the Azure CLI](./quickstart.md), or use an existing app.
-- Either a certificate file with `.crt`, `.cer`, `.pem`, or `.der` extension,
-- Or a deployed instance of Azure Key Vault with a private certificate.
+- Either a certificate file with `.crt`, `.cer`, `.pem`, or `.der` extension, or a deployed instance of Azure Key Vault with a private certificate.
 
 ## Import a certificate
 
@@ -73,7 +72,7 @@ For a java application, you can choose **Load into trust store** for the selecte
 
 You can see the below log from your app to indicate the certificate is successfully loaded.
 
-```log
+```
 Load certificate from specific path. alias = <certificate alias>, thumbprint = <certificate thumbprint>, file = <certificate name>
 ```
 
