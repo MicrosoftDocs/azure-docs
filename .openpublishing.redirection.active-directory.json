@@ -19,6 +19,11 @@
         "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-registration-portal.md",
         "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/access-panel-manage-self-service-access.md",
+        "redirect_url": "/azure/active-directory/manage-apps/manage-self-service-access",
+        "redirect_document_id": false
       }
     ]
 }
