@@ -82,7 +82,9 @@ describe("ClientTest", () => {
 
 ```
 
-You can then use the following npm scripts:
+## Running tests
+
+You can add the following npm scripts in your project's package.json to run tests:
 
 ```json
 "scripts": {
@@ -92,3 +94,13 @@ You can then use the following npm scripts:
     "test:local": "start-server-and-test start:local 7070 test:mocha"
 }
 ```
+
+To install the dependencies required by the scripts above, you can use the following command:
+
+```bash
+npm install cross-env start-server-and-test mocha
+```
+
+The `test:local` script uses the [start-server-and-test](https://www.npmjs.com/package/start-server-and-test) library to
+start the local server, wait until port 7070 (the default port used by the local server) responds, run the test
+script, and then terminate the local server.
