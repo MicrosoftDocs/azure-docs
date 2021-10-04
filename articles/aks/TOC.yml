@@ -199,10 +199,8 @@
           href: azure-files-volume.md
         - name: NFS Server - Static
           href: azure-nfs-volume.md
-        - name: Azure NetApp Files - Static
+        - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Azure NetApp Files - Dynamic
-          href: azure-netapp-files-dynamic.md
         - name: Use Azure Ultra Disks (preview)
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
@@ -213,8 +211,6 @@
               href: azure-disk-csi.md
             - name: Azure Files CSI drivers (preview)
               href: azure-files-csi.md
-            - name: Azure NetApp Files CSI driver
-              href: azure-netapp-files-csi.md
             - name: CSI Secrets Store driver (preview)
               href: csi-secrets-store-driver.md
     - name: Configure networking
