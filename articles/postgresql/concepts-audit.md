@@ -21,7 +21,7 @@ If you want Azure resource-level logs for operations like compute and storage sc
 
 By default, pgAudit log statements are emitted along with your regular log statements by using the Postgres standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the Azure CLI. The maximum storage for the collection of files is 1 GB. Each file is available for a maximum of seven days. The default is three days. This service is a short-term storage option.
 
-Alternatively, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Monitor resource logging, your logs are automatically sent in JSON format to Azure Storage, Azure Event Hubs, or Monitor Logs, depending on your choice.
+Alternatively, you can configure all logs to be sent to the Azure Monitor Logs store for later analytics in Log Analytics. If you enable Monitor resource logging, your logs are automatically sent in JSON format to Azure Storage, Azure Event Hubs, or Monitor Logs, depending on your choice.
 
 Enabling pgAudit generates a large volume of logging on a server, which affects performance and log storage. We recommend that you use Monitor Logs, which offers longer-term storage options and analysis and alerting features. Turn off standard logging to reduce the performance impact of additional logging:
 
@@ -37,7 +37,7 @@ To install pgAudit, you need to include it in the server's shared preloaded libr
 To use the [portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL server.
-   1. On the left under **Settings**, select **Server parameters**.
+   1. On the left, under **Settings**, select **Server parameters**.
    1. Search for **shared_preload_libraries**.
    1. Select **PGAUDIT**.
    
@@ -72,7 +72,7 @@ After you [install pgAudit](#install-pgaudit), you can configure its parameters 
 To configure pgAudit, in the [portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL server.
-   1. On the left under **Settings**, select **Server parameters**.
+   1. On the left, under **Settings**, select **Server parameters**.
    1. Search for the **pg_audit** parameters.
    1. Select appropriate settings parameters to edit. For example, to start logging, set **pgaudit.log** to **WRITE**.
    
@@ -81,7 +81,7 @@ To configure pgAudit, in the [portal](https://portal.azure.com):
 
 The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first, and confirm that you're getting the expected behavior. For example:
 
-- When turned on, the setting **pgaudit.log_client** redirects logs to a client process like psql instead of being written to a file. In general, leave this setting disabled.
+- When the setting **pgaudit.log_client** is turned on, it redirects logs to a client process like psql instead of being written to a file. In general, leave this setting disabled.
 - The parameter **pgaudit.log_level** is only enabled when **pgaudit.log_client** is on.
 
 > [!NOTE]
