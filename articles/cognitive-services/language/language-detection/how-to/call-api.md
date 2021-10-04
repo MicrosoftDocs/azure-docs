@@ -31,7 +31,7 @@ By default, language detection will use the latest available AI model on your te
 
 | Supported Versions | latest version |
 |--|--|
-| Language Detection | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
+|  `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 
 ### Input languages
 
@@ -42,7 +42,7 @@ If you have content expressed in a less frequently used language, you can try th
 ## Submitting data
 
 > [!TIP]
-> You can use a [Docker container](use-containers)for language detection, so you can use the API on-premises.
+> You can use a [Docker container](use-containers.md)for language detection, so you can use the API on-premises.
 
 Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits below.
 

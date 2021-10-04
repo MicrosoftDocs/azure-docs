@@ -55,7 +55,7 @@ The [health feature container](use-containers.md) uses separate model versioning
 
 ### Input languages
 
-Currently the health feature only [supports](../language-support) the English language. 
+Currently the health feature only [supports](../language-support.md) the English language. 
 
 ## Submitting data
 
