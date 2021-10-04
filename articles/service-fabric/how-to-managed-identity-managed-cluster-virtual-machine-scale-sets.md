@@ -38,13 +38,13 @@ A user-assigned managed identity can be defined in the resources section of an A
     "name": "[parameters('userAssignedIdentityName')]", 
     "apiVersion": "2018-11-30", 
     "location": "[resourceGroup().location]"  
-},
+}
 ```
 
 or created via PowerShell:
 
 ```powershell
- New-AzResourceGroup -Name <managedIdentityRGName> -Location <location>
+New-AzResourceGroup -Name <managedIdentityRGName> -Location <location>
 New-AzUserAssignedIdentity -ResourceGroupName <managedIdentityRGName> -Name <userAssignedIdentityName>
 ```
 
@@ -93,7 +93,7 @@ This role assignment can be defined in the resources section template using the 
         "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
         "principalId": "00000000-0000-0000-0000-000000000000" 
     } 
-}, 
+}
 ```
 > [!NOTE]
 > vmIdentityRoleNameGuid should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
@@ -118,7 +118,6 @@ New-AzResourceGroupDeployment -ResourceGroupName <managedIdentityRGName> -Templa
 Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition with the full resource ID of the identity created on the first step. Be sure to use **2021-05-01** or later for the `apiVersion`.
 
 ```json
-
  {
     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
     "apiVersion": "2021-05-01",
