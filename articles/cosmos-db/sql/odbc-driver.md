@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/02/2019
+ms.date: 10/04/2021
 ms.author: sngun
 
 ---
