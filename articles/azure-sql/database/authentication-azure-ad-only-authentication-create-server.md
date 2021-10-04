@@ -78,6 +78,9 @@ To change the existing properties after server or managed instance creation, oth
 
 1. Select **Next: Security** at the bottom of the page. Configure any of the settings for **Azure Defender for SQL**, **Ledger**, **Identity**, and **Transparent data encryption** for your environment. You can also skip these settings.
 
+   > [!NOTE]
+   > Using a user-assigned managed identity (UMI) is not supported with Azure AD-only authentication. Do not set the the server identity in the **Identity** section as a UMI.
+
 1. Select **Review + create** at the bottom of the page.
 
 1. On the **Review + create** page, after reviewing, select **Create**.
