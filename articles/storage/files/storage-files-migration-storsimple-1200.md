@@ -24,9 +24,6 @@ StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.co
 
 ## Azure File Sync
 
-> [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan or assistance during the migration.
-
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
@@ -168,6 +165,12 @@ You can also run into other Azure File Sync issues.
 As unlikely as they may be, if that happens, take a look at the **LINK Azure File Sync troubleshooting guide**.
 
 [!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
+---
+
+> [!NOTE]
+> Still have questions or encountered any issues?</br>
+> We're here to help: :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="Email address in one word: Azure Files migration at microsoft dot com":::
 
 ## Relevant links
 

@@ -2,7 +2,7 @@
 title: Control a device from Azure IoT Hub (Android) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications. One application is a service application that can remotely control devices connected to your hub. The other application runs on a physical or simulated device connected to your hub that can be controlled remotely.
 author: wesmc7777
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java

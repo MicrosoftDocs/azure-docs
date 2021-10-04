@@ -21,9 +21,12 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 
 For more information, see [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
+See our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
+
 ## Tenancy considerations
 
-While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](/azure/active-directory/develop/quickstart-create-new-tenant), resulting from mergers and acquisitions or due to identity separation requirements.
+While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](../active-directory/develop/quickstart-create-new-tenant.md), resulting from mergers and acquisitions or due to identity separation requirements.
 
 When determining how many tenants and workspaces to use, consider that most Azure Sentinel features operate by using a single workspace or Azure Sentinel instance, and Azure Sentinel ingests all logs housed within the workspace.
 
@@ -34,12 +37,12 @@ When determining how many tenants and workspaces to use, consider that most Azur
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
 
-All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) or [Azure Active Directory](connect-azure-active-directory.md).
+All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Azure Active Directory](connect-azure-active-directory.md).
 
-Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants.
+Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Azure Sentinel instances in different tenants.
 
 > [!NOTE]
-> [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+> [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
 >
 
 
@@ -77,11 +80,11 @@ Consider the following when working with multiple regions:
 - Bandwidth costs vary depending on the source and destination region and collection method. For more information, see:
 
     - [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)
-    - [Data transfers charges using Log Analytics ](/azure/azure-monitor/logs/manage-cost-storage).
+    - [Data transfers charges using Log Analytics ](../azure-monitor/logs/manage-cost-storage.md).
 
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
 
-- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage#data-transfer-charges-using-log-analytics).
+- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md#data-transfer-charges-using-log-analytics).
 
 For example, if you decide to collect logs from Virtual Machines in East US and send them to an Azure Sentinel workspace in West US, you'll be charged ingress costs for the data transfer. Since the Log Analytics agent compresses the data in transit, the size charged for the bandwidth may be lower than the size of the logs in Azure Sentinel.
 
@@ -95,7 +98,7 @@ For more information, see [Data residency in Azure](https://azure.microsoft.com/
 
 You may have situations planned where different teams will need access to the same data. For example, your SOC team must have access to all Azure Sentinel data, while operations and applications teams will need access to only specific parts. Independent security teams may also need to access Azure Sentinel features, but with varying sets of data.
 
-Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](/azure/azure-monitor/logs/manage-access#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
+Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
 
 For more information, see [Permissions in Azure Sentinel](roles.md).
 
@@ -139,7 +142,7 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 - **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security Center will not appear as an available workspace for Azure Sentinel.
 
-- **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
+- **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
 
 ## Simplify working with multiple workspaces
 
@@ -170,4 +173,4 @@ For more information, see [Extend Azure Sentinel across workspaces and tenants](
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)

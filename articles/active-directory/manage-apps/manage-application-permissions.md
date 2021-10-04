@@ -8,14 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 
 ms.collection: M365-identity-device-management
+
+#customer intent: As an admin I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
+
 ---
 
-# Take action on overprivileged or suspicious applications in Azure Active Directory
+# Take action on over privileged or suspicious applications in Azure Active Directory
 
 Learn how to review and manage application permissions. This article provides different actions you can take to secure your application according to the scenario. These actions apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
 
@@ -24,6 +27,8 @@ For more information on consenting to applications, see [Azure Active Directory 
 ## Prerequisites
 
 To do the following actions, you must sign in as a global administrator, an application administrator, or a cloud application administrator.
+
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
@@ -94,12 +99,8 @@ We recommend that you disable the application to block users' access and to keep
 
 Retrieve the service principal object ID.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
-2. Select **Azure Active Directory** > **Enterprise applications**.
-3. Select the application that you want to restrict access to.
-4. Select **Properties**, and then copy the object ID.
-
    ```powershell
+   $app_name = "<Your App's display name>"
    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
    $sp.ObjectId
    ```

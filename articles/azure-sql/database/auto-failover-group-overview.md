@@ -217,7 +217,7 @@ To illustrate the change sequence, we will assume server A is the primary server
 
 ## Best practices for SQL Managed Instance
 
-The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance.
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All user databases in the instance will be replicated to the secondary instance. System databases like _master_ and _msdb_ will not be replicated.
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
@@ -315,13 +315,14 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
 
 ### Enable scenarios dependent on objects from the system databases
-System databases are not replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, on the secondary instance, make sure to create the same objects on the secondary. 
+System databases are **not** replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, make sure to create the same objects on the secondary instance and keep them synchronized with the primary instance. 
 For example, if you plan to use the same logins on the secondary instance, make sure to create them with the identical SID. 
 ```SQL
 -- Code to create login on the secondary instance
 CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
-
+### Synchronize instance properties and retention policies between primary and secondary instance
+Instances in failover group remain separate Azure resources, and no changes made to the configuration of the primary instance will be automatically replicated to the secondary instance. Make sure to perform all relevant changes both on primary _and_ secondary instance. For example, if you change backup storage redundancy or long-term backup retention policy on primary instance, make sure to change it on secondary instance as well.
 
 ## Failover groups and network security
 
@@ -367,7 +368,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 - The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below.
 
    > [!IMPORTANT]
-   > [On 9/22/2020 support for global virtual network peering for newly created virtual clusters was announced](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). It means that global virtual network peering is supported for SQL managed instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL managed instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. To be able to use global virtual network peering for SQL managed instances from virtual clusters created before the announcement date, consider configuring [maintenance window](./maintenance-window.md) on the instances, as it will move the instances into new virtual clusters that support global virtual network peering.
+   > [On 9/22/2020 support for global virtual network peering for newly created virtual clusters was announced](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). It means that global virtual network peering is supported for SQL managed instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL managed instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. To be able to use global virtual network peering for SQL managed instances from virtual clusters created before the announcement date, consider configuring [maintenance window](./maintenance-window.md) on the instances, as it will move the instances into new virtual clusters that support global virtual network peering.
 
 - The two SQL Managed Instance VNets cannot have overlapping IP addresses.
 - You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
@@ -407,7 +408,7 @@ Be aware of the following limitations:
 - Failover groups cannot be created between two servers or instances in the same Azure regions.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
-- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
+- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
 
 ## Programmatically managing failover groups
 

@@ -24,7 +24,7 @@ The App Configuration Java Spring client library supports updating configuration
 
 - Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](/azure/event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
+- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](../event-grid/handler-event-hubs.md), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a Java Spring app with App Configuration](./quickstart-java-spring-app.md) first.
 
@@ -65,7 +65,7 @@ In this tutorial, you learn how to:
            </dependency>
    ```
 
-1. Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase) so the application can be deployed to Azure App Service via Maven.
+1. Setup [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
    ```console
    mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -92,7 +92,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app locally
 
-Event Grid Web Hooks require validation on creation. You can validate by following this [guide](/azure/event-grid/webhook-event-delivery) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
+Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
 1. Set the environment variable to your App Configuration instance's connection string:
 
@@ -149,7 +149,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
 ## Verify and test application
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 09/13/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,17 +18,23 @@ The following two examples show how to:
 - Migrate an existing standard policy using Azure PowerShell
 - Migrate an existing standard firewall (with classic rules) to Azure Firewall Premium  with a Premium policy.
 
+If you use Terraform to deploy the Azure Firewall, you can use Terraform to migrate to Azure Firewall Premium. For more information, see [Migrate Azure Firewall Standard to Premium using Terraform](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json).
+
 ## Performance considerations
 
-Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU which scales to a maximum throughput of 30Gbps comparable with the standard SKU. The 30 Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
+Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU which scales to a maximum throughput of 30 Gbps comparable with the standard SKU. The 30 Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
 
 The firewall throughput might be lower than 30 Gbps when you have one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
+
+## Downtime
+
+Migrate your firewall during a planned maintenance time, as there will be some downtime during the migration.
 
 ## Migrate an existing policy using Azure PowerShell
 
 `Transform-Policy.ps1` is an Azure PowerShell script that creates a new Premium policy from an existing Standard policy.
 
-Given a standard firewall policy ID, the script transforms it to a Premium Azure Firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`.
+Given a standard firewall policy ID, the script transforms it to a Premium Azure Firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`. In case of child policy transformation, link to parent policy will remain.
 
 Usage example:
 
@@ -53,7 +59,7 @@ param (
     [string]
     $PolicyId,
 
-     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+    #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -114,7 +120,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy 
+                        BasePolicy = $Policy.BasePolicy.Id
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -144,7 +150,7 @@ function TransformPolicyToPremium {
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
     $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5)){
+    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
@@ -155,6 +161,7 @@ ValidateAzNetworkModuleExists
 $policy = Get-AzFirewallPolicy -ResourceId $script:PolicyId
 ValidatePolicy -Policy $policy
 TransformPolicyToPremium -Policy $policy
+
 ```
 
 ## Migrate an existing standard firewall using the Azure portal

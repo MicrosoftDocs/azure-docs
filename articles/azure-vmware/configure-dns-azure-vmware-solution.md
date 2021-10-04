@@ -54,7 +54,7 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
       It takes several minutes to complete, and you can follow the progress from **Notifications**. You’ll see a message in the Notifications when the DNS zone has been created.
 
-1. Ignore the message about a default DNS zone. A DNS zone is created for you as part of your private cloud.
+1. Ignore the message about a default DNS zone because one gets created for you as part of your private cloud.
 
 1. Select the **DNS service** tab and then select **Edit**.
 
@@ -71,7 +71,7 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
-   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
+   It takes several minutes to complete, and once finished, you'll see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
 
 1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
@@ -88,7 +88,7 @@ NSX-T Manager provides the DNS Forwarder Service statistics at the global servic
 
    :::image type="content" source="media/networking/dns/nsxt-manager-dns-services.png" alt-text="Screenshot showing the DNS Services tab in NSX-T Manager.":::
 
-1. Select **View Statistics** and then from the **Zone Statistics** drop-down, select your FQDN Zone.
+1. Select **View Statistics**, and then from the **Zone Statistics** drop-down, select your FQDN Zone.
 
    The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see the forwarded queries to the DNS services specified during the configuration of the FQDN zone.
 

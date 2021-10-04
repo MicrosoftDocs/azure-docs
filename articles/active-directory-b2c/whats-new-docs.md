@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,45 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## August 2021
+
+### New articles
+
+- [Deploy custom policies with GitHub Actions](deploy-custom-policies-github-action.md)
+- [Configure authentication in a sample WPF desktop app by using Azure AD B2C](configure-authentication-sample-wpf-desktop-app.md)
+- [Enable authentication options in a WPF desktop app by using Azure AD B2C](enable-authentication-wpf-desktop-app-options.md)
+- [Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C](identity-provider-adfs-saml.md)
+- [Configure authentication in a sample Python web application using Azure Active Directory B2C](configure-authentication-sample-python-web-app.md)
+- [Configure authentication options in a Python web application using Azure Active Directory B2C](enable-authentication-python-web-app-options.md)
+- [Tutorial: How to perform security analytics for Azure AD B2C data with Azure Sentinel](azure-sentinel.md)
+- [Enrich tokens with claims from external sources using API connectors](add-api-connector-token-enrichment.md)
+
+### Updated articles
+
+- [Customize the user interface with HTML templates in Azure Active Directory B2C](customize-ui-with-html.md)
+- [Configure authentication in a sample WPF desktop app by using Azure AD B2C](configure-authentication-sample-wpf-desktop-app.md)
+- [Enable authentication options in a WPF desktop app by using Azure AD B2C](enable-authentication-wpf-desktop-app-options.md)
+- [Configure authentication in a sample iOS Swift app by using Azure AD B2C](configure-authentication-sample-ios-app.md)
+- [Enable authentication options in an iOS Swift app by using Azure AD B2C](enable-authentication-ios-app-options.md)
+- [Enable authentication in your own iOS Swift app by using Azure AD B2C](enable-authentication-ios-app.md)
+- [Add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md)
+- [Configure authentication in a sample Android app by using Azure AD B2C](configure-authentication-sample-android-app.md)
+- [Configure authentication options in an Android app by using Azure AD B2C](enable-authentication-android-app-options.md)
+- [Enable authentication in your own Android app by using Azure AD B2C](enable-authentication-android-app.md)
+- [Configure authentication in a sample web app by using Azure AD B2C](configure-authentication-sample-web-app.md)
+- [Enable authentication options in a web app by using Azure AD B2C](enable-authentication-web-application-options.md)
+- [Enable authentication in your own web app by using Azure AD B2C](enable-authentication-web-application.md)
+- [Configure authentication options in a single-page application by using Azure AD B2C](enable-authentication-spa-app-options.md)
+- [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
+- [Add AD FS as an OpenID Connect identity provider using custom policies in Azure Active Directory B2C](identity-provider-adfs.md)
+- [Configure SAML identity provider options with Azure Active Directory B2C](identity-provider-generic-saml-options.md)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md)
+- [Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication](partner-bloksec.md)
+- [Add an API connector to a sign-up user flow](add-api-connector.md)
+- [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
+- [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
+
 
 ## July 2021
 
@@ -93,7 +132,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md)
 - [Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
 - [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)

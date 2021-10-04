@@ -59,5 +59,5 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## Next steps
 In this document, you learned how to customize alert details in Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
-- Get the complete picture on [scheduled query analytics rules](tutorial-detect-threats-custom.md).
+- Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).

@@ -17,9 +17,6 @@ ms.date: 04/21/2021
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
-
-<br>
-
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md).
@@ -274,9 +271,6 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 ### Only deploy workspace behind private endpoint
 
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
-
-> [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
 # [Azure CLI](#tab/azcli)
 
@@ -536,8 +530,8 @@ New-AzResourceGroupDeployment `
 
 ## Use the Azure portal
 
-1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **quickstarts** entry. When it appears, select the link labled "Click here to open template repository". This link takes you to the `quickstarts` directory in the Azure quickstart templates repository.
-1. In the list of quickstart templates, select `microsoft.machinelearningservices'. Finally, select `Deploy to Azure`.
+1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **quickstarts** entry. When it appears, select the link labeled "Click here to open template repository". This link takes you to the `quickstarts` directory in the Azure quickstart templates repository.
+1. In the list of quickstart templates, select `microsoft.machinelearningservices`. Finally, select `Deploy to Azure`.
 1. When the template appears, provide the following required information and any other parameters depending on your deployment scenario.
 
    * Subscription: Select the Azure subscription to use for these resources.

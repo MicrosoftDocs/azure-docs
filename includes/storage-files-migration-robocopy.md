@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 
 ```console
-robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+robocopy /MT:128 /R:1 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | Switch                | Meaning |
@@ -32,3 +32,6 @@ robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG
 | `/LFSM`               | **Only for targets with tiered storage** </br>Specifies that Robocopy operates in "low free space mode." This switch is useful only for targets with tiered storage that might run out of local capacity before Robocopy finishes. It was added specifically for use with a target enabled for Azure File Sync cloud tiering. It can be used independently of Azure File Sync. In this mode, Robocopy will pause whenever a file copy would cause the destination volume's free space to go below a "floor" value. This value can be specified by the `/LFSM:n` form of the flag. The parameter `n` is specified in base 2: `nKB`, `nMB`, or `nGB`. If `/LFSM` is specified with no explicit floor value, the floor is set to 10 percent of the destination volume's size. Low free space mode isn't compatible with `/MT`, `/EFSRAW`, `/B`, or `/ZB`. |
 | `/Z`                  | **Use cautiously** </br>Copies files in restart mode. This switch is recommended only in an unstable network environment. It significantly reduces copy performance because of extra logging. |
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
+
+> [!IMPORTANT]
+> Use a Windows Server 2019 with at least the August 26 2021 [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f). It contains important fixes for certain RoboCopy scenarios.

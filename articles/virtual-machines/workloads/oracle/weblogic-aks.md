@@ -9,9 +9,13 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
-
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
 ---
 # What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS). These solutions are jointly developed and supported by Oracle and Microsoft.
 

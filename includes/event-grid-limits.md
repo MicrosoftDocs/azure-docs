@@ -5,12 +5,15 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 02/17/2021
+ ms.date: 09/07/2021
  ms.author: spelluru
  ms.custom: include file
 ---
 
 The following limits apply to Azure Event Grid **topics** (system,  custom, and partner topics). 
+
+> [!NOTE]
+> These limits are per region. 
 
 | Resource | Limit |
 | --- | --- |

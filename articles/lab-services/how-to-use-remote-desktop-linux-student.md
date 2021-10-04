@@ -36,8 +36,11 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
 ## Connect to the student VM using GUI remote desktop
 The instructor may choose to configure VMs so that students can also connect using a GUI remote desktop.  In this case, students need to find out from their instructor whether to connect to their VMs using the **Microsoft Remote Desktop (RDP)** or **X2Go** client application.  Both of these applications allow a student to connect remotely to their VM and display the Linux graphical desktop on their local computer.
 
+> [!WARNING]
+>  We recommend using a different graphical desktop environment than [GNOME](https://www.gnome.org/).  You should avoid installing GNOME on lab VMs because GNOME has a conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  For example, we recommend using a graphical desktop environment, such as XFCE.
+
 ### Connect to the student VM using Microsoft Remote Desktop (RDP)
-Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on). Here are the steps to connect: 
+Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment (such as XFCE, MATE, and so on). Here are the steps to connect: 
 
 1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
@@ -48,10 +51,10 @@ Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs af
 
     Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
-   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).  
+   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
 
 ### Connect to the student VM using X2Go
-Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as XFCE, MATE, and so on).
 
 Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
 

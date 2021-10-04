@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -32,10 +32,10 @@ Public access to your data is always prohibited by default. There are two separa
 
 The following table summarizes how both settings together affect public access for a container.
 
-| Public access setting | Public access is disabled for a container (default setting) | Public access for a container is set to Container | Public access a container is set to Blob |
+|   | Public access level for the container is set to Private (default setting) | Public access level for the container is set to Container | Public access level for the container is set to Blob |
 |--|--|--|--|
-| Public access is disallowed for the storage account | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
-| Public access is allowed for the storage account (default setting) | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
+| **Public access is disallowed for the storage account** | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
+| **Public access is allowed for the storage account (default setting)** | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
 
 ## Allow or disallow public read access for a storage account
 
@@ -77,7 +77,7 @@ $location = "<location>"
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
-    -SkuName Standard_GRS
+    -SkuName Standard_GRS `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property for the newly created storage account.
@@ -198,7 +198,7 @@ To update the public access level for one or more existing containers in the Azu
 1. Select the desired public access level from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
 
     :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
-    
+
 When public access is disallowed for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is disallowed for the account.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disallowed":::
@@ -292,6 +292,17 @@ $ctx = $storageAccount.Context
 
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

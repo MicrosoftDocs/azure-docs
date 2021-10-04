@@ -580,9 +580,11 @@ Before you begin, it's a best practice to observe your new Azure File Sync deplo
 
 Your migration is complete.
 
+---
+
 > [!NOTE]
 > Still have questions or encountered any issues?</br>
-> We're here to help at AzureFilesMigration@microsoft.com.
+> We're here to help: :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="Email address in one word: Azure Files migration at microsoft dot com":::
 
 ## Next steps
 

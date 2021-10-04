@@ -91,14 +91,14 @@
     topicHref: /azure/applied-ai-services/
     items:
     - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
+      tocHref: /azure/applied-ai-services/immersive-reader/
+      topicHref: /azure/applied-ai-services/immersive-reader/
     - name: Metrics Advisor
-      tocHref: /azure/cognitive-services/metrics-advisor/
-      topicHref: /azure/cognitive-services/metrics-advisor/
+      tocHref: /azure/applied-ai-services/metrics-advisor/
+      topicHref: /azure/applied-ai-services/metrics-advisor/
     - name: Form Recognizer
-      tocHref: /azure/cognitive-services/form-recognizer/
-      topicHref: /azure/cognitive-services/form-recognizer/
+      tocHref: /azure/applied-ai-services/form-recognizer/
+      topicHref: /azure/applied-ai-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -119,8 +119,8 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
     - name: Mobile Apps
-      tocHref: /azure/app-service-mobile/
-      topicHref: /azure/app-service-mobile/
+      tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
+      topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
   - name: Azure Automanage
     tocHref: https://azure.microsoft.com/services/azure-automanage/
     topicHref: https://azure.microsoft.com/services/azure-automanage/
@@ -255,9 +255,6 @@
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
-      - name: IoT Solution Accelerators
-        tocHref: /azure/iot-accelerators/
-        topicHref: /azure/iot-accelerators/
       - name: IoT Hub Device Provisioning Service
         tocHref: /azure/iot-dps/
         topicHref: /azure/iot-dps/
@@ -502,6 +499,12 @@
     - name: Cassandra API
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
+    - name: Gremlin API
+      tocHref: /azure/cosmos-db/graph/
+      topicHref: /azure/cosmos-db/graph/
+    - name: SQL API
+      tocHref: /azure/cosmos-db/sql/
+      topicHref: /azure/cosmos-db/sql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -530,7 +533,7 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Labs
+  - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
@@ -628,9 +631,6 @@
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
-#    - name: IoT solution accelerators
-#     tocHref: /azure/iot-accelerators/
-#      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
 #      topicHref: /azure/iot-central/
@@ -776,7 +776,7 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
-      - name: Route Server (Preview)
+      - name: Route Server
         tocHref: /azure/route-server/
         topicHref: /azure/route-server/
       - name: Traffic Manager
@@ -789,6 +789,9 @@
           - name: NAT gateway
             tocHref: /azure/virtual-network/nat-gateway
             topicHref: /azure/virtual-network/nat-gateway
+          - name: IP services
+            tocHref: /azure/virtual-network/ip-services
+            topicHref: /azure/virtual-network/ip-services
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/

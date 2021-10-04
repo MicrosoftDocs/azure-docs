@@ -108,7 +108,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 
@@ -246,6 +246,9 @@ In this message, notice these details:
 * The number of `clockwiseTotal` crossings.
 * The number of `counterclockwiseTotal` crossings.
 * The `direction` contains the direction for this event.
+
+> [!NOTE] 
+> If you deployed Azure resources using the one-click deployment for this tutorial, a Standard DS1 Virtual Machine is created. However, to get accurate results from resource-intensive AI models like YOLO, you may have to increase the VM size. [Resize the VM](../../virtual-machines/resize-vm.md) to increase number of vcpus and memory based on your requirement. Then, reactivate the live pipeline to view inferences.
 
 ## Customize for your own environment
 

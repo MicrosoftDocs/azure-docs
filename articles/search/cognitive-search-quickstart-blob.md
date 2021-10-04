@@ -1,16 +1,16 @@
 ---
-title: 'Create a skillset in the Azure portal'
+title: "Quickstart: Create a skillset in the Azure portal"
 titleSuffix: Azure Cognitive Search
-description: In this portal quickstart, learn how to use the Import data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
+description: In this portal quickstart, use the Import Data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/21/2021
+ms.date: 08/17/2021
 ---
-# Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
+# Quickstart: Create an Azure Cognitive Search skillset in the Azure portal
 
 This quickstart demonstrates skillset support in the portal, showing how Optical Character Recognition (OCR) and entity recognition can be used to create searchable text content from images and application files.
 
@@ -26,10 +26,10 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ An Azure Storage account with [Blob storage](../storage/blobs/index.yml).
++ An Azure Storage account with [Blob Storage](../storage/blobs/index.yml).
 
 > [!NOTE]
-> This quickstart also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+> This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
 
 ## Set up your data
 
@@ -37,7 +37,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. Unzip the files.
 
-1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
 
@@ -57,11 +57,11 @@ You are now ready to move on the Import data wizard.
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Import data command" border="false":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 ### Step 1 - Create a data source
 
-1. In **Connect to your data**, choose **Azure Blob storage**, select the Storage account and container you created. Give the data source a name, and use default values for the rest. 
+1. In **Connect to your data**, choose **Azure Blob Storage**, select the Storage account and container you created. Give the data source a name, and use default values for the rest. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure blob configuration" border="false":::
 
@@ -104,9 +104,9 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 Notice the strike-through and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. 
 A field like this is unwieldy in search results and you should exclude it for this demo. 
 
-However, if you need to pass file contents to client code, make sure that **Retrievable** stays selected. Otherwise, consider clearing this attribute on `content` if the extracted elements (such as `people`, `organizations`, `locations`, and so forth) are sufficient.
+However, if you need to pass file contents to client code, make sure that **Retrievable** stays selected to allow the search engine to return that field.
 
-Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for providing manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
+Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
   
 Continue to the next page.
 
@@ -167,7 +167,7 @@ Another important concept is that skills operate over content types, and when wo
 
 Output is directed to a search index, and there is a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 
-Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
+Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted navigation](search-faceted-navigation.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
 
 ## Clean up resources
 

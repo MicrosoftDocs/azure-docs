@@ -1,6 +1,6 @@
 ---
-title: Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files | Microsoft Docs
-description: Describes how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping.
+title: Create a dual-protocol volume for Azure NetApp Files | Microsoft Docs
+description: Describes how to create a volume that uses the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB) with support for LDAP user mapping.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,19 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 09/16/2021
 ms.author: b-juche
 ---
-# Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
+# Create a dual-protocol volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol. This article shows you how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). This article shows you how to create a volume that uses dual protocol with support for LDAP user mapping. 
 
 To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). To create SMB volumes, see [Create an SMB volume](azure-netapp-files-create-volumes-smb.md). 
 
 ## Before you begin 
 
 * You must have already created a capacity pool.  
-    See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+    See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
@@ -38,7 +38,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Dual-protocol volumes support both Active Directory Domain Services (ADDS) and Azure Active Directory Domain Services (AADDS). 
 * Dual-protocol volumes do not support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
-* The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
+* The NFS version used by a dual-protocol volume can be NFSv3 or NFSv4.1. The following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
 
@@ -46,7 +46,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         
         | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
         |-	|-	|-	|-	|-	|
-        | `Unix` 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+        | `Unix` 	| NFS 	| NFSv3 or NFSv4.1 mode bits 	| UNIX 	| NFS and Windows	|
         | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
 
     * The direction in which the name mapping occurs (Windows to UNIX, or UNIX to Windows) depends on which protocol is used and which security style is applied to a volume. A Windows client always requires a Windows-to-UNIX name mapping. Whether a user is applied to review permissions depends on the security style. Conversely, an NFS client only needs to use a UNIX-to-Windows name mapping if the NTFS security style is in use. 
@@ -62,7 +62,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 * If you have large topologies, and you use the `Unix` security style with a dual-protocol volume or LDAP with extended groups, Azure NetApp Files might not be able to access all servers in your topologies.  If this situation occurs, contact your account team for assistance.  <!-- NFSAAS-15123 --> 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
-
 
 ## Create a dual-protocol volume
 
@@ -108,12 +107,14 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. Click **Protocol**, and then complete the following actions:  
-    * Select **dual-protocol (NFSv3 and SMB)** as the protocol type for the volume.   
+3. Click the **Protocol** tab, and then complete the following actions:  
+    * Select **Dual-protocol** as the protocol type for the volume.   
+
+    * Specify the **Active Directory** connection to use.
 
     * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
 
@@ -121,6 +122,24 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
+
+    * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
+
+        The feature to use **NFSv4.1 and SMB** dual protocol is currently in preview. If you are using this feature for the first time, you need to register the feature:  
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDualProtocolNFSv4AndSMB
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDualProtocolNFSv4AndSMB
+        ```
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 
@@ -144,6 +163,13 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
+
+    * If you selected NFSv4.1 and SMB for the dual-protocol volume versions, indicate whether you want to enable **Kerberos** encryption for the volume.
+
+        Additional configurations are required for Kerberos. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
+
+    *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
+        Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
@@ -172,16 +198,24 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 
 ## Manage LDAP POSIX Attributes
 
-You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor:  
+You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor: 
 
 ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 You need to set the following attributes for LDAP users and LDAP groups: 
 * Required attributes for LDAP users:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
+    `uid: Alice`,  
+    `uidNumber: 139`,  
+    `gidNumber: 555`,  
+    `objectClass: user, posixAccount`
 * Required attributes for LDAP groups:   
-    `objectClass: posixGroup`, `gidNumber: 555`
+    `objectClass: group, posixGroup`,  
+    `gidNumber: 555`
 * All users and groups must have unique `uidNumber` and `gidNumber`, respectively. 
+
+The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
+
+![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
 Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify POSIX attributes on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
@@ -204,7 +238,9 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Next steps  
 
+* [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
+* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)

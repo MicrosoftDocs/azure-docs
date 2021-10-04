@@ -207,8 +207,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
       GO
       ```
 
-> [!NOTE]
-> Azure AD guest users are supported for SQL Managed Instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD instance that the managed instance belongs to, from another Azure AD instance. For example, joe@contoso.com (Azure AD account) or steve@outlook.com (Microsoft account) can be added to a group in the Azure AD aadsqlmi instance. Once the users are added to a group, a login can be created in the SQL Managed Instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (for example, joe@contoso.com or steve@outlook.com).
+Guest users are supported as individual users (without being part of an AAD group (although they can be)) and the logins can be created in master directly (for example, joe@contoso.con) using the current login syntax.
 
 ## Create an Azure AD user from the Azure AD server principal (login)
 

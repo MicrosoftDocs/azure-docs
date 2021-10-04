@@ -21,14 +21,17 @@ ms.author: bagol
 
 # Azure Sentinel Process Event normalization schema reference (Public preview)
 
-The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems. A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. Note that processes do not run. Instead, processes manage threads that run and execute code.
+The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
+
+A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The Process Event normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Parsers
 
@@ -42,17 +45,17 @@ Azure Sentinel provides the following built-in, product-specific process event p
 
 To use the source-agnostic parsers that unify all of listed parsers and ensure that you analyze across all the configured sources, use the following table names in your queries:
 
-- **imProcessCreate**, for queries that require process creation information. This is the most common case.
+- **imProcessCreate**, for queries that require process creation information. These queries are the most common case.
 - **imProcessTerminate** for queries that require process termination information.
 - **imProcessEvents** for queries that require both process creation and termination information. In such cases, the `EventType` field enables you to distinguish between the events, and is set to `ProcessCreate` or `ProcessTerminate`, respectively. Process termination events generally include a lot less information than process creation events.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
 
 ## Add your own normalized parsers
 
-When implementing custom parsers for the [Process Event](normalization.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
+When implementing custom parsers for the [Process Event](normalization-about-schemas.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
 
-Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization.md#the-process-entity) model also uses your new parser.
+Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization-about-schemas.md#the-process-entity) model also uses your new parser.
 
 ## Normalized content for process activity data
 
@@ -60,37 +63,39 @@ The following Azure Sentinel content works with any process activity that's norm
 
 - **Analytics rules**:
 
-    - Probable AdFind Recon Tool Usage (Normalized Process Events)
-    - Base64 encoded Windows process command-lines (Normalized Process Events)
-    - Malware in the recycle bin (Normalized Process Events)
-    - NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)
-    - SUNBURST suspicious SolarWinds child processes (Normalized Process Events)
+   - [Probable AdFind Recon Tool Usage (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_AdFind_Usage.yaml)
+   - [Base64 encoded Windows process command-lines (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_base64_encoded_pefile.yaml)
+   - [Malware in the recycle bin (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_malware_in_recyclebin.yaml)
+   - [NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_NOBELIUM_SuspiciousRundll32Exec.yaml)
+   - [SUNBURST suspicious SolarWinds child processes (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_SolarWinds_SUNBURST_Process-IOCs.yaml)
 
-    For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+   For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
--	**Hunting queries**:
-    - Cscript script daily summary breakdown (Normalized Process Events)
-    - Enumeration of users and groups (Normalized Process Events)
-    - Exchange PowerShell Snapin Added (Normalized Process Events)
-    - Host Exporting Mailbox and Removing Export (Normalized Process Events)
-    - Invoke-PowerShellTcpOneLine Usage (Normalized Process Events)
-    - Nishang Reverse TCP Shell in Base64 (Normalized Process Events)
-    - Summary of users created using uncommon/undocumented commandline switches (Normalized Process Events)
-    - Powercat Download (Normalized Process Events)
-    - PowerShell downloads (Normalized Process Events)
-    - Entropy for Processes for a given Host (Normalized Process Events)
-    - SolarWinds Inventory (Normalized Process Events)
-    - Suspicious enumeration using Adfind tool (Normalized Process Events)
-    - Uncommon processes - bottom 5% (Normalized Process Events)
-    - Windows System Shutdown/Reboot (Normalized Process Events)
-    - Certutil (LOLBins and LOLScripts, Normalized Process Events)
-    - Rundll32 (LOLBins and LOLScripts, Normalized Process Events)
+- **Hunting queries**:
+    - [Cscript script daily summary breakdown (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_cscript_summary.yaml)
+    - [Enumeration of users and groups (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_enumeration_user_and_group.yaml)
+    - [Exchange PowerShell Snapin Added (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ExchangePowerShellSnapin.yaml)
+    - [Host Exporting Mailbox and Removing Export (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_HostExportingMailboxAndRemovingExport.yaml)
+    - [Invoke-PowerShellTcpOneLine Usage (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Invoke-PowerShellTcpOneLine.yaml)
+    - [Nishang Reverse TCP Shell in Base64 (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_NishangReverseTCPShellBase64.yaml)
+    - [Summary of users created using uncommon/undocumented commandline switches (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_persistence_create_account.yaml)
+    - [Powercat Download (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_PowerCatDownload.yaml)
+    - [PowerShell downloads (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_powershell_downloads.yaml)
+    - [Entropy for Processes for a given Host (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ProcessEntropy.yaml)
+    - [SolarWinds Inventory (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_SolarWindsInventory.yaml)
+    - [Suspicious enumeration using Adfind tool (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Suspicious_enumeration_using_adfind.yaml)
+    - [Windows System Shutdown/Reboot (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Windows%20System%20Shutdown-Reboot(T1529).yaml)
+    - [Certutil (LOLBins and LOLScripts, Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Certutil-LOLBins.yaml)
+    - [Rundll32 (LOLBins and LOLScripts, Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/inProcess_SignedBinaryProxyExecutionRundll32.yaml)
+    - [Uncommon processes    - bottom 5% (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_uncommon_processes.yaml)
+    - [Unicode Obfuscation in Command Line](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
+
 
     For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 
 ## Schema details
 
-The Process Event information model is aligned is the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/process.md).
+The Process Event information model is aligned to the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/process.md).
 
 ### Log Analytics fields
 
@@ -99,7 +104,8 @@ The following fields are generated by Log Analytics for each record, and can be 
 | Field         | Type     | Discussion      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | The time the event was generated by the reporting device.|
-| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF or WEF. |
+| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF, or WEF. |
+| **Type** | String | The original table from which the record was fetched. This field is useful when the same event can be received through multiple channels to different tables, and have the same EventVendor and EventProduct values.<br><br>For example, a Sysmon event can be collected either to the Event table or to the WindowsEvent table. |
 | | | |
 
 > [!NOTE]
@@ -117,7 +123,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
-| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the **EventResultDetails** field, which must be analyzed to get the **EventResult** value.<br><br>Note that Process Events commonly report only success. |
+| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the **EventResultDetails** field, which must be analyzed to get the **EventResult** value.<br><br>**Note**: Process Events commonly report only success. |
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4688`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
@@ -154,9 +160,9 @@ The process event schema references the following entities, which are central to
 | **CommandLine**    | Alias        |            |     Alias to [TargetProcessCommandLine](#targetprocesscommandline)  |
 | **Hash**           | Alias        |            |       Alias to the best available hash. |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
 | **ActingProcessCommandLine**       | Optional     | String     |   The command line used to run the acting process. <br><br>Example: `"choco.exe" -v`    |
 | **ActingProcessName**              | Optional     | string     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
@@ -168,7 +174,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessFileOriginalName** | Optional     | String     |The product original file name from the version information of the acting process image file.       <br><br> Example:  `Notepad++.exe` |
 | **ActingProcessIsHidden**          | Optional     | Boolean    |      An indication of whether the acting process is in hidden mode.  |
 | **ActingProcessInjectedAddress**   | Optional     | String     |      The memory address in which the responsible acting process is stored.           |
-| **ActingProcessId**| Mandatory    | int        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | **ActingProcessGuid**              | Optional     | string     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessIntegrityLevel**    | Optional     | String     |       Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ActingProcessMD5**               | Optional     | String     |The MD5 hash of the acting process image file.  <br><br>Example:  `75a599802f1fa166cdadb360960b1dd0`|
@@ -186,7 +192,7 @@ The process event schema references the following entities, which are central to
 | **ParentProcessFileVersion**       | Optional     | String     | The product version from the version information in parent process image file.    <br><br> Example:  `7.9.5.0` |
 | **ParentProcessIsHidden**          | Optional     | Boolean    |   An indication of whether the parent process is in hidden mode.  |
 | **ParentProcessInjectedAddress**   | Optional     | String     |    The memory address in which the responsible parent process is stored.           |
-| **ParentProcessId**| Mandatory    | integer    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
+| **ParentProcessId**| Mandatory    | String    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
 | **ParentProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the parent process.  Enables identifying the process across systems.    <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 | **ParentProcessIntegrityLevel**    | Optional     | String     |   Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ParentProcessMD5**               | Optional     | MD5        | The MD5 hash of the parent process image file.  <br><br>Example: `75a599802f1fa166cdadb360960b1dd0`|
@@ -197,9 +203,9 @@ The process event schema references the following entities, which are central to
 | **ParentProcessTokenElevation**    | Optional     | String     |A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the parent process.     <br><br>  Example: `None` |
 | **ParentProcessCreationTime**      | Optional    | DateTime   |    The date and time when the parent process was started. |
 | <a name="targetusername"></a>**TargetUsername** | Mandatory for process create events. | String     | The username of the target user.  <br><br>Example:   `CONTOSO\WIN-GG82ULGC9GO$`      |
-| **TargetUsernameType**             | Mandatory for process create events.   | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization.md#the-user-entity).          <br><br>  Example:  `Windows`        |
-|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A unique ID of the target user. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example: `S-1-5-18`    |
-| **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
+| **TargetUsernameType**             | Mandatory for process create events.   | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).          <br><br>  Example:  `Windows`        |
+|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A unique ID of the target user. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example: `S-1-5-18`    |
+| **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example:  `SID`  |
 | **TargetUserSessionId**            | Optional     | String     |The unique ID of the target user's login session. <br><br>Example: `999`          <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.     |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Mandatory    | string     |The name of the target process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.   <br><br>     Example:  `C:\Windows\explorer.exe`     |
 | **TargetProcessFileCompany**       | Optional     | String     |The name of the company that created the target process image file.   <br><br>   Example:  `Microsoft` |

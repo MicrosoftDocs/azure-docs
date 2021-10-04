@@ -8,9 +8,10 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
 
@@ -66,12 +67,13 @@ The capabilities that are available to you depend on the country that you're ope
 
 The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS features associated with these phone number types.
 
-|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To       | Receive Messages From |
+|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From*                                    |Send Messages To       | Receive Messages From |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more*| US, Canada, United Kingdom, Germany, France,. +more* |Not available| Not available |
+| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more**| US, Canada, United Kingdom, Germany, France,. +more** |Not available| Not available |
 | Toll-Free | US                 | US                                                   | US                                                    |US                | US |
 
-*For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
+*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony)
+**For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
 
 ## Next steps
