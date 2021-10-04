@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell - Secure WebHook delivery with Azure AD in Azure Event Grid
-description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
+title: Azure PowerShell - Secure WebHook delivery with Azure AD Application in Azure Event Grid
+description: Describes how to deliver events to HTTPS endpoints protected by Azure AD Application using Azure Event Grid
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 09/29/2021
