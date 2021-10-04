@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how network traffic flows between components when your Azure Machine Learning workspace is in a secured virtual network.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
