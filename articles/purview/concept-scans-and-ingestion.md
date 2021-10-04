@@ -4,7 +4,7 @@ description: This article explains scans and ingestion in Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ---

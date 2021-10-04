@@ -11,7 +11,7 @@ ms.date: 04/07/2020
 
 # Integrate a static website with Azure CDN
 
-You can enable [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. You can use Azure CDN to configure the custom domain endpoint for your static website, provision custom TLS/SSL certificates, and configure custom rewrite rules. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides TLS encryption with your own certificate. 
+You can enable [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. You can use Azure CDN to configure the custom domain endpoint for your static website, provision custom TLS/SSL certificates, and configure custom rewrite rules. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides TLS encryption with your own certificate.
 
 For information on Azure CDN pricing, see [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -31,7 +31,7 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure and provides the first part of the endpoint URL. The form validates that the endpoint name is unique.
 
-1. Specify your static website endpoint in the **Origin hostname** field. 
+1. Specify your static website endpoint in the **Origin hostname** field.
 
    To find your static website endpoint, navigate to the **Static website** settings for your storage account.  Copy the primary endpoint and paste it into the CDN configuration.
 
@@ -59,9 +59,9 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 If you no longer want to cache an object in Azure CDN, you can take one of the following steps:
 
-* Make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](./anonymous-read-access-configure.md).
-* Disable or delete the CDN endpoint by using the Azure portal.
-* Modify your hosted service to no longer respond to requests for the object.
+- Make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](./anonymous-read-access-configure.md).
+- Disable or delete the CDN endpoint by using the Azure portal.
+- Modify your hosted service to no longer respond to requests for the object.
 
 An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is [purged](../../cdn/cdn-purge-endpoint.md). When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
 

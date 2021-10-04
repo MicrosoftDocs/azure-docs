@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/30/2021
 ms.author: lajanuar
 
 ---
@@ -16,6 +16,18 @@ ms.author: lajanuar
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+
+## September 2021
+
+[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) are available on your Form Recognizer resource overview page in the Azure portal.
+
+### Monitoring menu
+
+:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+
+### Charts
+
+:::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
 
 ## July 2021
 

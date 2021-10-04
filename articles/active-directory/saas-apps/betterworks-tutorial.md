@@ -87,7 +87,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL:
     `https://app.betterworks.com`
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+   > [!NOTE]
+   > If you're a European Union customer of BetterWorks, please use `eu.betterworks.com` as the domain name instead of `app.betterworks.com` in these URLs.
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
