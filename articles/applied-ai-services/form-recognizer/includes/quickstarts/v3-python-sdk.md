@@ -567,8 +567,6 @@ def analyze_invoice():
     analyze_invoice()
 ```
 
-
-
 ## Run your application
 
 1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
