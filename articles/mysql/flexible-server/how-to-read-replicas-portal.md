@@ -44,7 +44,7 @@ A read replica server can be created using the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
 
-5. Enter a name for the replica server.
+5. Enter a name for the replica server. If your region support Availability Zones, you can select Availability zone of your choice.
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - Replica name":::
 

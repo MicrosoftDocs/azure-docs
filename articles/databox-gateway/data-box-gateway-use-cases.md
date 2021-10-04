@@ -36,7 +36,7 @@ As the device fills up with data, it starts throttling the ingress rate (as need
 
 Use Data Box Gateway when you want to retain your data for long term in the cloud. You can use the Archive tier of storage for long-term retention.
 
-The Archive tier is optimized to store rarely accessed data for at least 180 days. The Archive tier offers the lowest storage costs but has the highest access costs. For more information, go to [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+The Archive tier is optimized to store rarely accessed data for at least 180 days. The Archive tier offers the lowest storage costs but has the highest access costs. For more information, go to [Archive access tier](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### Move data to the Archive tier
 
