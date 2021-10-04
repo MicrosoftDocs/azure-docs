@@ -17,7 +17,7 @@ Supporting multiple revisions in Azure Container Apps allows you to manage the v
 
 List all revisions associated with your container app with `az containerapp revision list`.
 
-```azurecli-interactive
+```azurecli
 az containerapp revision list \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -30,7 +30,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 Show details about a specific revision by using `az containerapp revision show`.
 
-```azurecli-interactive
+```azurecli
 az containerapp revision show \
   --name <REVISION_NAME> \
   --app <CONTAINER_APP_NAME> \
@@ -43,7 +43,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 To update a container app, use `az containerapp update`.
 
-```azurecli-interactive
+```azurecli
 az containerapp update \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -56,7 +56,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 Activate a revision by using `az containerapp revision activate`.
 
-```sh
+```azurecli
 az containerapp revision activate \
   --name <REVISION_NAME> \
   --app <CONTAINER_APP_NAME> \
@@ -69,7 +69,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 Deactivate revisions that are no longer in use with `az container app revision deactivate`. Deactivation stops all running replicas of a revision.
 
-```sh
+```azurecli
 az containerapp revision deactivate \
   --name <REVISION_NAME> \
   --app <CONTAINER_APP_NAME> \
@@ -82,7 +82,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 All existing container apps revisions will not have access to this secret until they are restarted
 
-```sh
+```azurecli
 az containerapp revision restart \
   --name <REVISION_NAME> \
   --app <APPLICATION_NAME> \
@@ -158,7 +158,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 # [Azure CLI](#tab/azure-cli)
 
-```sh
+```azurecli
 az containerapp update \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
