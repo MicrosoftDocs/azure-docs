@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/04/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon RDS service to set up, configure, and scan my Amazon RDS databases.
 ---
@@ -55,6 +55,7 @@ For this service, use Purview to provide a Microsoft account with secure access 
     - Selecting specific tables in your database to scan.
     - [Data lineage](concept-data-lineage.md).
 
+    Additionally, your RDS database must have a static IP address. The static IP address is used to configure AWS PrivateLink, as described in this article.
 
 For more information, see:
 
