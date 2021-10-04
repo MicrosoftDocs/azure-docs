@@ -19,7 +19,7 @@ keywords: speaker recognition, voice biometry
 The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics using voice biometry. Speaker Recognition is used to answer the question “who is speaking?”. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles, to see if it matches any profile in the group (speaker identification). In contrast, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) groups segments of audio by speaker in a batch operation.
 
 > [!NOTE]
-> Since Microsoft has limited the access and use of Speaker Recognition, please make sure you apply to use it in advance through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you will be able to access the Speaker Recognition APIs. 
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Speaker Verification
 
