@@ -265,7 +265,7 @@ No approximation is involved since the curve is piecewise constant.
 
 **COCO metrics**: 
 
-[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML also report all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales.
+[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML also report all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales. The image object detection model evaluation can use coco metrics if the 'validation_metric_type' hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
 
 #### Epoch-level metrics for object detection
 The mean_average_precision(mAP), precision and recall values are logged at epoch-level for image object detection models. The mAP, precision and recall metrics are also logged at a class level as a table metric in the object detection run under the name 'per_label_metrics'.
