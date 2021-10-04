@@ -48,7 +48,8 @@ Automated ML for images supports the following task types:
 * image object detection
 * image instance segmentation
 
-This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. For example:
+This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. 
+For example:
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
