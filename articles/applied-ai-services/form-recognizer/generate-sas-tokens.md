@@ -62,7 +62,7 @@ To get started, you'll need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the REST API uses form documents located at the root of your container. However, you can use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional).
+> By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
 
 ## Create a shared access signature with the Azure portal
 

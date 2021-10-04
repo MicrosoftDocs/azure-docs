@@ -92,8 +92,8 @@ These SDKs can run on any device that can support a higher-order language runtim
 #### Java Device SDK
 
 * [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java)
-* [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)
-* [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
+* [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples)
+* [Package](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-device-sdk)
 * [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.device)
 * [Edge Module Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
@@ -122,9 +122,9 @@ The IoT Hub service SDKs allow you to build applications that easily interact wi
 
 [**Learn more about IoT Hub**](https://azure.microsoft.com/services/iot-hub/) | [**Try controlling a device**](../iot-hub/quickstart-control-device.md)
 
-**C# IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices)
+**C# IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices)
 
-**Java IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.service)
+**Java IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/main/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-service-sdk) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.service)
 
 **JavaScript IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/)
 
@@ -150,9 +150,9 @@ The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub th
 
 [**Learn more about the Device Provisioning Service**](../iot-dps/index.yml) | [**Try creating a group enrollment for X.509 Devices**](../iot-dps/quick-enroll-device-x509.md)
 
-**C# Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices.provisioning.service)
+**C# Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices.provisioning.service)
 
-**Java Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-service-client/src) | [Package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
+**Java Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-service-client/src) | [Package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
 
 **Node.js Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service) | [Package](https://www.npmjs.com/package/azure-iot-provisioning-service) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples) | [Reference Documentation](/javascript/api/azure-iot-provisioning-service)
 
