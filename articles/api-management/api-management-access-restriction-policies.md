@@ -388,6 +388,9 @@ In the following example, the quota is keyed by the caller IP address.
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 
+> [!NOTE]
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
+
 ### Usage
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
