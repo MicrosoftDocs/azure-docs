@@ -34,11 +34,11 @@ Verify that:
    ```console
    kubectl cluster-info
    ```  
-- You have an Azure subscription that resources such as an Azure Arc data controller, Azure Arc-enabled SQL Managed Instance, or Azure Arc-enabled PostgreSQL Hyperscale server will be projected and billed to.
+- You have an Azure subscription that resources such as an Azure Arc data controller, Azure Arc-enabled SQL managed instance, or Azure Arc-enabled PostgreSQL Hyperscale server will be projected and billed to.
 
 After you're prepared the infrastructure, deploy Azure Arc-enabled data services in the following way:
 1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster.
-1. Create an Azure Arc-enabled SQL Managed Instance and/or an Azure Arc-enabled PostgreSQL Hyperscale server group.
+1. Create an Azure Arc-enabled SQL managed instance and/or an Azure Arc-enabled PostgreSQL Hyperscale server group.
 
 > [!CAUTION]
 > Some of the data services tiers and modes are in [general availability (GA)](release-notes.md), and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
@@ -72,8 +72,8 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - **Password**: The password for the Kibana/Grafana administrator user.
 - **Name of your Kubernetes namespace**: The name of the Kubernetes namespace where you want to create the data controller.
 - **Connectivity mode**: Determines the degree of connectivity from your Azure Arc-enabled data services environment to Azure. *Indirect* connectivity mode is generally available, and *direct* connectivity mode is in preview. Your choice of connectivity mode determines the options for deployment methods. For more information, see [Connectivity modes and requirements](./connectivity.md).
-- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure.  All Azure Arc-enabled SQL Managed Instances and Azure Database for PostgreSQL Hyperscale server groups are also created in and billed to this subscription.
-- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL Managed Instances and Azure Database for PostgreSQL Hyperscale server groups are also created in this resource group.
+- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Database for PostgreSQL Hyperscale server groups are also created in and billed to this subscription.
+- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Database for PostgreSQL Hyperscale server groups are also created in this resource group.
 - **Azure location**: The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page for Azure global infrastructure. The metadata and billing information about the Azure resources that are managed by your deployed data controller is stored only in the location in Azure that you specify as the location parameter. If you're deploying in direct connectivity mode, the location parameter for the data controller is the same as the location of your targeted custom location resource.
 - **Service principal information**: 
    - If you're deploying in direct connectivity mode during the creation of the Azure Arc data controller, you need the service principal information. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
@@ -93,7 +93,7 @@ As we've outlined in [Connectivity modes and requirements](./connectivity.md), y
 
    You can perform all three of these steps in a single step by using the Azure Arc data controller creation wizard in the Azure portal.
 
-After you've installed the Azure Arc data controller, you can access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL Hyperscale Server Group.
+After you've installed the Azure Arc data controller, you can access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL Hyperscale.
 
 
 ## Next steps
