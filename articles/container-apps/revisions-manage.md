@@ -116,7 +116,7 @@ The `activeRevisionsMode` property accepts two values:
 }
 ```
 
-## Verify revision endpoint
+The following configuration fragment shows how to set the `activeRevisionsMode` property. Changes made to this property require the context of the container app's full ARM.
 
 ## Traffic splitting
 
