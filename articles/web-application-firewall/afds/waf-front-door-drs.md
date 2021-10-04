@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall on Azure Front Door DRS rule groups and rules
 description: This article  provides information on Web Application Firewall DRS rule groups and rules.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
+ms.date: 07/29/2021
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -284,6 +283,9 @@ Front Door.
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
 
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 
 ### <a name="drs942-20"></a> SQLI - SQL Injection
 |RuleId|Description|
@@ -466,6 +468,9 @@ Front Door.
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ### <a name="drs942-11"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
@@ -643,6 +648,9 @@ Front Door.
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
+
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-10"></a> SQLI - SQL Injection
 |RuleId|Description|
