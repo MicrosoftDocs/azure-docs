@@ -6994,8 +6994,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "azure/azure-maps/quick-ios-app.md",
-      "redirect_url": "/azure/developer/mobile-apps/quick-demo-map-app",
+      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
+      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
       "redirect_document_id": false
     },
     {
