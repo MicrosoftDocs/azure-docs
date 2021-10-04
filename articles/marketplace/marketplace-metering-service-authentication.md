@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2021
-author: mingshen-ms
-ms.author: mingshen
+author: souchak
+ms.author: saasguide
 ---
 
 # Marketplace metering service authentication strategies
