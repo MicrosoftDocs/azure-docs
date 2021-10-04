@@ -32,7 +32,7 @@ In this tutorial, you will:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 - This tutorial is based on using [Line Crossing sample](use-line-crossing.md) to detect when objects cross a virtual line in a live video feed. You can choose to create visualization for other pipelines - **a pipeline with IoT Hub message sink is required**. Make sure to have the live pipeline created, but activate it only after creating a Stream Analytics job.
 
-  > [!NOTE]
+  > [!TIP]
   >
   > - The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).
   > - Refer Configuration and deployment section in [FAQs](faq-edge.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
@@ -141,7 +141,7 @@ In the Stream Analytics job, select Overview, then select **Start** > **Now** > 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/power-bi/start-asa.png" alt-text="Screenshot to Start and Run a Stream Analytics Job.":::
 
-> [!NOTE]
+> [!TIP]
 > IoT Hub allows data retention in the built-in Event Hubs by default for 1 day and for a maximum of 7 days. You can set the retention time during creation of your IoT Hub. Data retention time in IoT Hub depends on your chosen tier and unit type. Click [here](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) for more information. For longer data retention, use [Azure Storage as output](../../stream-analytics/blob-storage-azure-data-lake-gen2-output.md) and then connect Power BI to the files in storage account.
 
 ## Run a sample pipeline
