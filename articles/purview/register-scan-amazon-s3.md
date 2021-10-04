@@ -94,9 +94,9 @@ This procedure describes how to locate the values for your Azure Account ID and 
 
 1. Select **New** to create a new credential.
 
-    In the **New credential** pane that appears on the right, copy the **Microsoft account ID** and **External ID** values to a separate file, or have them handy for pasting into the relevant field in AWS.
-
-    For example:
+    In the **New credential** pane that appears on the right, in the **Authentication method** dropdown, select **Role ARN**. 
+    
+    Then copy the **Microsoft account ID** and **External ID** values that appear to a separate file, or have them handy for pasting into the relevant field in AWS. For example:
 
     [ ![Locate your Microsoft account ID and External ID values.](./media/register-scan-amazon-s3/locate-account-id-external-id.png) ](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
 
@@ -168,14 +168,12 @@ This procedure describes how to create a new Purview credential to use when scan
     |**Name**     |Enter a meaningful name for this credential.        |
     |**Description**     |Enter a optional description for this credential, such as `Used to scan the tutorial S3 buckets`         |
     |**Authentication method**     |Select **Role ARN**, since you're using a role ARN to access your bucket.         |
-    |**Microsoft account ID**     |Select to copy this value to the clipboard. Use this value as the **Microsoft account ID** when [creating your Role ARN in AWS](#create-a-new-aws-role-for-purview).           |
-    |**External ID**     |Select to copy this value to the clipboard. Use this value as the **External ID** when [creating your Role ARN in AWS.](#create-a-new-aws-role-for-purview)        |
     |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-purview), navigate to your role in the AWS IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::181328463391:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
     | | |
+    
+    The **Microsoft account ID** and the **External ID** values are used when [creating your Role ARN in AWS.](#create-a-new-aws-role-for-purview).
 
-    Select **Create** when you're done to finish creating the credential.
-
-1. If you haven't yet, copy and paste the **Microsoft account ID** and **External ID** values for use when [creating a new AWS role for Purview](#create-a-new-aws-role-for-purview), which is your next step.
+1. Select **Create** when you're done to finish creating the credential.
 
 For more information about Purview credentials, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
