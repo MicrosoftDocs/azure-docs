@@ -59,7 +59,9 @@ The default number of outbound IP addresses created with the NAT Gateway is one.
 az aks create --resource-group myresourcegroup 
     --name natcluster  \
     --node-count 3 \
-    --outbound-type managedNATGateway \ --nat-gateway-managed-outbound-ip-min-count 2
+    --outbound-type managedNATGateway \ 
+    --nat-gateway-managed-outbound-ip-min-count 2 \
+    --nat-gateway-idle-timeout 30
 ```
 
 ### Update the number of outbound IP addresses
@@ -72,7 +74,7 @@ az aks update \
 ```
 
 ## Create an AKS cluster and integrate with an existing NAT Gateway
-If you have already attached a NAT gateway to an existing subnet, your new AKS cluster can utilise this.
+If you have already attached a NAT gateway to an existing subnet, your new AKS cluster can set this as the outbound type for your egress traffic.
 
 ```azurecli-interactive
 
@@ -80,7 +82,7 @@ az aks create \
     --resource-group myresourcegroup \
     --name natcluster\
     --node-count 3\
-    --outbound-type natGateway\ 
+    --outbound-type userAssignedNATGateway\ 
     --vnet-subnet-id <subnetId>
 ```
 
@@ -88,15 +90,6 @@ az aks create \
 > When you are using an existing NAT gateway you will need to modify the number of external IP addresses manually.
 >
 
-## Create an AKS nodepool and integrate with an existing NAT Gateway
-If you have already attached a NAT gateway to an existing subnet, you can create a nodepool attached to the subnet.
-
-```azurecli-interactive
-az aks nodepool add\
-    --cluster-name natcluster\
-    --name pool2\
-    --vnet-subnet-id <subnetId>
-```
 
 
 ## Next Steps
