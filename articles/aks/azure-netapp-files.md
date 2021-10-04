@@ -113,7 +113,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -277,7 +277,7 @@ You can learn more from the [documentation](https://netapp-trident.readthedocs.i
 
 Before proceeding to the next step, you will need to:
 
-1. **Install Astra Trident**. This can be achieved using the operator/Helm chart/`tridentctl`. The instructions provided below explain how Astra Trident can be installed using the operator. To learn how the other install methods work, please take a look at the [Install Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html).
+1. **Install Astra Trident**. This can be achieved using the operator/Helm chart/`tridentctl`. The instructions provided below explain how Astra Trident can be installed using the operator. To learn how the other install methods work, see the [Install Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html).
 
 2. **Create a backend**. To instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes, a backend is created. This step requires details about the account that was created in the previous step.
 
