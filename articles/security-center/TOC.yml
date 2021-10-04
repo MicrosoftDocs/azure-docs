@@ -165,7 +165,7 @@
       href: security-center-adaptive-application.md
     - name: Review applications and software installed on your machines
       displayName: inventory, apps, software inventory, mde, tvm
-      href: tvm-software-inventory.md
+      href: asset-inventory.md#access-a-software-inventory
     - name: Track changes to files and registries
       items:
       - name: Overview of file integrity monitoring
