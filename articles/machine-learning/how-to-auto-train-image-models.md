@@ -187,7 +187,7 @@ The following table summarizes the supported models for each computer vision tas
 
 Task | supported model algorithms
 ---|---
-Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `mobilenetv2`<li> `seresnext`
+Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `mobilenetv2`<li> `seresnext` <li> `vits16r224` <li>`vitb16r224` <li>`vitl16r224`
 Object detection | <li>`yolov5` <li> `fasterrcnn_resnet50_fpn`<li> `fasterrcnn_resnet34_fpn`<li> `fasterrcnn_resnet18_fpn`<li> `retinanet_resnet50_fpn`
 Instance segmentation | `maskrcnn_resnet50_fpn`
 
@@ -198,8 +198,8 @@ The following table describes the hyperparameters that are model agnostic.
 | Parameter name | Description | Default|
 | -------------- | ------------- | ------- |
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All (not yolov5): 15 <br>yolov5: 30 |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br> Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. |Multi-class/multi-label: 78 <br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16<br><br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.  |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label (not vit): 78 <br> vits16r224: 128 <br>vitb16r224: 48 <br>vitl16r224:10<br><br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. |Multi-class/multi-label (not vit): 78 <br>vits16r224: 128 <br>vitb16r224: 48 <br>vitl16r224:10 <br><br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16<br><br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.  |
 | `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
 | `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
 | `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
@@ -216,6 +216,8 @@ The following table describes the hyperparameters that are model agnostic.
 |`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
 |`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
 |`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
+| `grad_clip_type` | Gradient clipping technique. <br> Must be either `value`, `norm`. | Non-vit models: 'value'<br> vit models: 'norm' |
+| `grad_accumulation_step` | Gradient accumulation step that accumulates the gradients of the configured steps before updating them. <br> Must be a positive integer. | 1 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
 |`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
@@ -247,7 +249,9 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-
+| `tile_grid_size` | The grid size to split the image into, if tiling is enabled. <br>*Note: will need to pass tile_grid_size to enable tiling logic!*<br> Optional, string of '[int, int]', for example, [2,3] | No Default |
+| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1] | 0.25 |
+| `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation. <br> Must be float in the range of [0, 1] | 0.25 |
 
 ### Model-specific hyperparameters
 
