@@ -55,3 +55,5 @@ Azure Communication Services Router applies flexible Policies to attach dynamic 
 ## Next steps
 
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
+- [Manage queues](../../how-tos/router-sdk/manage-queue.md)
+- [Job classification](../../how-tos/router-sdk/job-classification.md)
