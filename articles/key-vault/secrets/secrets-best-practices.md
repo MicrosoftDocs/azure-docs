@@ -36,7 +36,7 @@ Store the dynamic parts of credentials, which are generated during rotation, as 
 For more information about secrets, see [About Azure Key Vault secrets](about-secrets.md)
 
 ## Secrets rotation
-Secrets many times are stored in application memory as environment variables or configuration settings for entire application lifecycle, which makes them sensitive to unwanted exposure. Because of secrets being sensitive to leakage or exposure, it is important to rotate secrets often, at least every 60 days. 
+Secrets are often stored in application memory as environment variables or configuration settings for entire application lifecycle, which makes them sensitive to unwanted exposure. Because secrets are sensitive to leakage or exposure, it's important to rotate them often, at least every 60 days.
 
 For more information about the secret rotation process, see [Automate the rotation of a secret for resources that have two sets of authentication credentials](tutorial-rotation-dual.md). 
 
