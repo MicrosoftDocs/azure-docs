@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Implement IoT spatial analytics by using Azure Maps
 
-In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Examples include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution that tracks used car rental movement by using the Azure Maps APIs.
+In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Examples include fleet management, asset tracking, and smart city applications. This tutorial guides you through a solution that tracks used car rental movement by using the Azure Maps APIs.
 
 In this tutorial you will:
 
@@ -114,7 +114,7 @@ When you successfully create your storage account, you then need to create a con
 
 Next, use the [Postman app](https://www.getpostman.com) to [upload the geofence](./geofence-geojson.md) to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. You'll be using the geofence in your Azure function to determine whether a car has moved outside the geofence area.
 
-Follow these steps to upload the geofence by using the Azure Maps Data Upload API: 
+Follow these steps to upload the geofence by using the Azure Maps Data Upload API:
 
 1. Open the Postman app, select **New** again. In the **Create New** window, select **HTTP Request**, and enter a request name for the request.
 
@@ -244,7 +244,6 @@ When your Azure function is running, you can now send telemetry data to the IoT 
     dotnet run
     ```
 
-
   Your local terminal should look like the one below.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
@@ -281,7 +280,6 @@ There are no resources that require cleanup.
 ## Next steps
 
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
-
 
 > [!div class="nextstepaction"]
 > [Send telemetry from a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
