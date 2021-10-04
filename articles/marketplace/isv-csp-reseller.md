@@ -5,8 +5,8 @@ author:  Microsoft-KaranRao
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-  author: emerb19
-  ms.author: emerb
+author: emerb19
+ms.author: emerb
 ms.date: 10/07/2021
 ---
 
