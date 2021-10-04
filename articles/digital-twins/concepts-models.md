@@ -13,6 +13,8 @@ ms.service: digital-twins
 # ms.custom: can-be-multiple-comma-separated
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
+
+ms.custom: fasttrack-edit
 ---
 
 # Understand twin models in Azure Digital Twins
