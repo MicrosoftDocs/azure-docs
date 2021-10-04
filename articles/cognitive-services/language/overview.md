@@ -25,7 +25,7 @@ The service is the unification of the following Cognitive Services offerings:
 ## Available features
 
 > [!TIP]
-> See the [Language Studio quickstart](language-studio.md) to begin exploring these features using a web-based portal, and without needing to write code. 
+> Language Studio (linked below) helps you start exploring these features using a web-based portal, and without needing to write code. 
 
 Azure Cognitive Service for language provides the following features:
 
