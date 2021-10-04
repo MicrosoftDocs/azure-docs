@@ -534,8 +534,8 @@
               href: how-to-use-batch-endpoint.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
-      - name: Autoscale managed endpoints
-        href: how-to-autoscale-endpoints.md
+          - name: Autoscale managed endpoints
+            href: how-to-autoscale-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
