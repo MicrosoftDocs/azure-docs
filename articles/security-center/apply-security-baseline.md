@@ -1,0 +1,103 @@
+---
+title: Harden your Windows and Linux OS with Azure security baseline and Azure Security Center
+description: Learn how Azure Security Center uses the guest configuration to compare your OS hardening with the guidance from Azure Security Benchmark
+author: memildin
+manager: rkarlin
+ms.service: security-center
+ms.topic: how-to
+ms.date: 10/04/2021
+ms.author: memildin
+
+---
+# Harden a machine's OS configuration using guest configuration
+
+To reduce the attack surface and avoid known risks, it's important to configure the operating system (OS) on a machine as securely as possible. 
+
+Use the security recommendations described in this article to harden the OS of machines in your environment. 
+
+## Availability
+|Aspect|Details|
+|----|:----|
+|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+|Pricing:|Free|
+|Prerequisites:|<br>Guest Configuration extension is installed on a machine.<br>System-assigned managed-identity is deployed on a machine.<br>A supported OS is running on the Azure virtual machine: Windows Server 2012, 2012r2, 2016 and 2019<br>Linux Distros Ubuntu (14.04, 16.04, 17.04, 18.04 & 20.04), Debian (7, 8, 9, 10), CentOS (7& 8), RHEL (7& 8), Oracle Linux (7 & 8), and SLES (12) Workgroup Member|
+|Required roles and permissions:|**Write** permission is needed on the relevant machines to install the Guest Configuration extension and prerequisites.<br>**Read** permission is needed at the subscription level, to view the recommendation and explore the OS baseline data.|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|||
+
+## What are the hardening recommendations?
+
+Azure Security Center includes two recommendations that check whether the configuration of Windows and Linux machines in your environment meet the Azure security baseline configurations:
+
+- For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) compares the configuration with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md).
+- For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) compares the configuration with the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
+
+These recommendations use the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
+
+## Compare machines in your subscriptions with the OS security baselines
+
+To compare machines with the OS security baselines:
+ 
+1. From Security Center's portal pages, open the **Recommendations** page. 
+1. Select the relevant recommendation:
+    - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
+    - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+
+    :::image type="content" source="media/apply-security-baseline/recommendations-baseline.png" alt-text="The two recommendations for comparing the OS configuration of machines with the relevant Azure security baseline." lightbox="media/apply-security-baseline/recommendations-baseline.png":::
+
+1. On the recommendation details page you can see: 
+    1. The affected resources.
+    1. The specific security checks that failed.
+
+    :::image type="content" source="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png" alt-text="Recommendation details page for the Windows recommendation about vulnerabilities in the baseline configuration of Windows machines.":::
+
+1. To learn more about a specific finding, select it. 
+
+    :::image type="content" source="media/apply-security-baseline/finding-details.png" alt-text="Learning more about a specific finding from the guest configuration comparison of an OS configuration with the defined security baseline.":::
+
+1. Other investigation possibilities:
+
+    - To view the list of machines that have been assessed, open **Affected resources**
+    - To view the list of findings for one machine, select a machine from the **Unhealthy resources** tab. A page will open listing only the findings for that machine.
+
+
+## FAQ - Hardening an OS according to the security baseline
+
+- [How do I deploy the prerequisites for the security configuration recommendations?](#how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations)
+- [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
+- [My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center](#my-machine-has-the-guest-configuration-extension-installed-but-i-dont-see-the-data-in-security-center)
+
+### How do I deploy the prerequisites for the security configuration recommendations? 
+
+To deploy the Guest Configuration extension with its prerequisites:
+
+- For selected machines, follow the Security Center recommendation **Guest Configuration extension should be installed on your machines** from the **Implement security best practices** security control.
+
+- At scale, assign the following policy initiative: **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
+
+
+### Why is a machine shown as not applicable? 
+
+The list of resources in the **Not applicable** tab includes a **Reason** column. Some of the common reasons include:
+
+- **No scan data available on the machine** – There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension.
+- **Guest Configuration extension is not installed on the machine** – The machine is missing the Guest Configuration extension, which is a prerequisite for this procedure.
+- **System managed identity is not configured on the machine** – A system-assigned, managed identity must be deployed on the machine.
+- **The recommendation is disabled in policy** – The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine. 
+
+
+### My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center
+
+Security Center gets the data for these recommendations from the Guest Configuration cluster in Azure Resource Graph. To troubleshoot this scenario:
+
+1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples?tabs=azure-cli#azure-policy-guest-configuration)
+
+1. The Security Center job runs daily, so wait 24 hours and check again.
+
+
+## Next steps
+In this document, you learned how to use Security Center's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline. To learn more about these configuration settings, see:
+
+- [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md)
+- [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md)
+- [Azure Security Benchmark](/security/benchmark/azure/overview)

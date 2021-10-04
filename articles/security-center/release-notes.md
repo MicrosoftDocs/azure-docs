@@ -76,6 +76,7 @@ The following two recommendations have been released to assess your machines' co
 
 These recommendations make use of the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
 
+Learn more about using these recommendations in [Harden a machine's OS configuration using guest configuration](apply-security-baseline.md).
 
 ## August 2021
 

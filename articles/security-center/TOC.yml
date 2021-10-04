@@ -132,6 +132,9 @@
     - name: Overview of Azure Defender for servers
       displayName: VM
       href: defender-for-servers-introduction.md
+    - name: Harden your OS configuration
+      displayName: VM, guest configuration, vulnerabilities
+      href: apply-security-baseline.md
     - name: Vulnerability scanning
       items:
       - name: Scan your machines with the integrated VA scanner

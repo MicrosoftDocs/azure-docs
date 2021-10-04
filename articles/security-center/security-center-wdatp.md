@@ -16,7 +16,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 - Risk-based vulnerability management and assessment 
 - Attack surface reduction
 - Behavioral based and cloud-powered protection
-- Endpoint detection and response (EDR)
+- Endom point detection and response (EDR)
 - Automatic investigation and remediation
 - Managed hunting services
 
