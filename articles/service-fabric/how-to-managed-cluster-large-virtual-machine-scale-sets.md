@@ -23,24 +23,24 @@ To configure a secondary node type as a large scale set, set the **multiplePlace
 
 ```json
 {
-    "apiVersion": "[variables('sfApiVersion')]",
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-    "location": "[resourcegroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-    ],
-    "properties": {
-        "multiplePlacementGroups": true,
-        "isPrimary": false,
-        "vmImagePublisher": "[parameters('vmImagePublisher')]",
-        "vmImageOffer": "[parameters('vmImageOffer')]",
-        "vmImageSku": "[parameters('vmImageSku')]",
-        "vmImageVersion": "[parameters('vmImageVersion')]",
-        "vmSize": "[parameters('nodeTypeSize')]",
-        "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-        "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
-    }
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "multiplePlacementGroups": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
 }
 ```
 
