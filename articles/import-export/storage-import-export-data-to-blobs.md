@@ -37,7 +37,7 @@ You must:
 * Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 * Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* Download the current release of the Azure Import/Export version 1 tool (WAImportExportV1.zip), for blobs, on the Windows system. <!--The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.-->
+* Download the current release of the Azure Import/Export version 1 tool, for blobs, on the Windows system:
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 * Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.

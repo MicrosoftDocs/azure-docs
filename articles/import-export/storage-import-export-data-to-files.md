@@ -36,7 +36,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
   - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- Download the current release of the Azure Import/Export version 2 tool (WAImportExportV2.zip), for files, on the Windows system:
+- Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
   1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
   1. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
@@ -377,11 +377,7 @@ Install-Module -Name Az.ImportExport
 
 Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Check your copy logs for failures. For more information, see [Review copy logs](storage-import-export-tool-reviewing-job-status-v1.md). Delete the on-premises data only after you verify that upload was successful.
 
-<!--10/02: BULLET 2 PROBABLY WILL GO (Data Box Disk only). THIS SECTION TO BE REPLACED BY THE NOTE BELOW. - The Azure Import/Export version 2 tool has a couple of behavior changes from earlier tool versions (before 2.2.0.300):
-
-* If you try to import files in an unsupported file format to a managed disk, the files are no longer converted to blobs. Instead, the copy fails. **THIS PROBABLY ONLY AFFECTS DATA BOX DISK. Balaji will verify. 10/01.**
-
-*  If a file share doesn't have enough free space, the data is not auto split to multiple Azure file shares as it was in earlier tool versions. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For information on configuring large file shares, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).-->
+<!-- * If you try to import files in an unsupported file format to a managed disk, the files are no longer converted to blobs. Instead, the copy fails. **THIS PROBABLY ONLY AFFECTS DATA BOX DISK. Balaji will verify. 10/01.**-->
 
 > [!NOTE]
 > In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
