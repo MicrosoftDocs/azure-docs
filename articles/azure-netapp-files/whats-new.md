@@ -21,9 +21,6 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-
-* [Network features](configure-network-features.md) (Preview)  
-
     
 ## September 2021
 

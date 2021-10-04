@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 09/29/2021
+ms.date: 10/04/2021
 ---
 # FAQs About Azure NetApp Files
 

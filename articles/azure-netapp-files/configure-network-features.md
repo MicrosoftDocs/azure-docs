@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
 # Configure network features for an Azure NetApp Files volume
