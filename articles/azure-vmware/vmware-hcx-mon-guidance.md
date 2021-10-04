@@ -7,7 +7,8 @@ ms.date: 10/04/2021
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
 
->[!IMPORTANT] Before you enable HCX MON, please read the below limitations and unsupported configurations:
+>[!IMPORTANT] 
+>Before you enable HCX MON, please read the below limitations and unsupported configurations:
 >
 >[Unsupported source configurations for HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)
 > 
