@@ -58,8 +58,8 @@ A native browsing experience with hierarchical namespace is provided for each co
 
     :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.png" alt-text="Browse asset types page" border="true":::
 
-> [!TIP]
-> Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
+   > [!TIP]
+   > Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
 
 1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you will see a list of databases with assets in the data catalog.
 
