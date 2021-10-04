@@ -123,42 +123,175 @@ Your Azure Active Directory application is now ready for the Microsoft Sentinel 
 
         You may need to wait a few minutes as the data is populated. Refresh the page to show the additional Key Vaults that now have decoys deployed.
 
+1. To test the solution functionality:
 
+    1. Download the public key for one of your HoneyTokens. Go to Azure Key Vault and select one of your HoneyTokens and then select **Download public key**. This action creates a KeyGet log that should trigger a watchlist item in Azure Sentinel.
 
-1. Go to the **Microsoft Sentinel Watchlists** page. On the **My watchlists** tab, select then **HoneyTokens** watchlist.
+    1. Go back to Microsoft Sentinel. In the **Watchlists** page, select the **My watchlists** tab, select then **HoneyTokens** watchlist.
 
-    The HoneyTokens watchlist lists all HoneyTokens deployed in your key vaults, being watched and monitored by Microsoft Sentinel analytics rules.
+        In the HoneyTokens column, you should see the decoy key who's public key you downloaded listed.
 
-1. Go to the **Microsoft Sentinel Analytics** page. On the **Active rules** tab, filter for `<HoneyTokens>` to view all related analytics rules that will detect any suspicious HoneyToken access.
+    1. Go to the **Microsoft Sentinel Analytics** page. On the **Active rules** tab, filter for `<HoneyTokens>` to view all related analytics rules that will detect any suspicious HoneyToken access. For example, these will be called **`<HoneyTokens>` KeyVault HoneyTokens key accessed**.
 
-1. 
-    
-Alternatively, you can check the HoneyTokens watchlist in your Sentinel environment to see the honeytkens listed
+        Then, go to the **Incidents** page, where you should see a new incident, named **`<HoneyTokens>` KeyVault HoneyTokens key accessed**.
+
+    1. Select the incident to view its details, such as the key operation performed, the user who access the HoneyToken key, and the name of the compromised key vault.
+
+    Any access or operation with the HoneyToken keys and secrets will generate incidents that you can investigate in Microsoft Sentinel. Since there's no reason to actually use HoneyToken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
+
+1. View HoneyToken activity in the **HoneyTokensIncident** workbook. In the Microsoft Sentinel **Workbooks** page search for and open the **HoneyTokensIncident** workbook.
+
+    This workbook displays all HoneyToken-related incidents, the related entities, compromised key vaults, key operations performed, and accessed HoneyTokens.
+
+    Select specific incidents and operations to investigate all related activity further.
 
 ## Distribute the SOCHTManagement workbook to KeyVaults owners
 
-The link to the Management workbook should be distributed to other subscriptions in the same tenant, to deploy honeytokens in their KeyVault resources.
+We recommend that your distribute the **SOCHTManagement** workbook to other subscriptions in your tenant, so that other admins can deploy HoneyTokens in their key vaults as well.
 
-One option to do this, is through a custom ASC recommendation. For this, please follow the following steps:
+You may want to do this using a custom Microsoft Defender for Cloud recommendation. For example:
 
-1. Deploy the following Azure policies for each subscription:
-Deploy to Azure
+1. Deploy the following policies to your Azure subscription, providing the link to your SOCHTManagement workbook.
 
-(You'll have to provide the link to the HoneyTokens management workbook: open the management workbook, click the "Share Report" button and copy the link)
+    To get the link, open the workbook, select **Share Report** and then copy the link. 
 
-This creates 2 policies and one initiative in your management group under the 'Deception' category: deceptionPoliciesSnapshot
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+        "parameters": {
+        "ManagementWorkbookLink": {
+          "type": "string",
+          "metadata": {
+            "description": "The link to the honeytokens management workbook"
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/policyDefinitions",
+          "name": "KVReviewTag",
+          "apiVersion": "2019-09-01",
+          "properties": {
+            "displayName": "KVReviewTag",
+            "policyType": "Custom",
+            "description": "Add a KVReview tag on all KVs in the scope",
+            "metadata": {
+              "category": "Deception"
+            },
+            "mode": "Indexed",
+            "policyRule": {
+              "if": {
+                    "field": "type",
+                    "equals": "Microsoft.KeyVault/vaults"
+                  },
+              "then": {
+                "effect": "modify",
+                "details": {
+                  "roleDefinitionIds": [
+                    "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                  ],
+                  "operations": [
+                    {
+                      "operation": "add",
+                      "field": "tags[KVReview]",
+                      "value": "ReviewNeeded"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "Microsoft.Authorization/policyDefinitions",
+          "name": "KeyVault HoneyTokens",
+          "apiVersion": "2019-09-01",
+          "properties": {
+            "displayName": "KeyVault HoneyTokens",
+            "policyType": "Custom",
+            "mode": "All",
+            "description": "Install honey-tokens in KeyVault resources",
+            "metadata": {
+              "securityCenter": {
+                "RemediationDescription": "[concat('1.  <a href=\"',parameters('ManagementWorkbookLink'),'\">Click</a> to install honeytokens in Key Vaults<br>2.  Change the value of the KVReview tag on this KeyVault to Reviewed')]",
+                "Severity": "Medium"
+              },
+              "category": "Deception"
+            },
+            "parameters": {},
+            "policyRule": {
+              "if": {
+                "allOf": [
+                  {
+                    "field": "type",
+                    "equals": "Microsoft.KeyVault/vaults"
+                  },
+                  {
+                    "field": "tags[KVReview]",
+                    "exists": "true"
+                  },
+                  {
+                    "value": "tags[KVReview]",
+                    "notEquals": "ReviewNeeded"
+                  }
+                ]
+              },
+              "then": {
+                "effect": "audit"
+              }
+            }
+          }
+        },
+        {
+          "type": "Microsoft.Authorization/policySetDefinitions",
+          "apiVersion": "2019-09-01",
+          "name": "HoneyTokens",
+          "dependsOn": [
+            "[resourceId('Microsoft.Authorization/policyDefinitions', 'KeyVault HoneyTokens')]"
+          ],
+          "properties": {
+            "displayName": "HoneyTokens",
+            "description": "Deploy HoneyTokens into Azure resources",
+            "policyType": "Custom",
+            "metadata": {
+              "category": "Deception"
+            },
+            "policyDefinitions": [
+              {
+                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'KeyVault HoneyTokens')]"
+              }
+            ]
+          }
+        }
+      ]
+    }
+    ```
 
-2. Assign the KVReviewTag policy to the wanted scope.
-This will add a tag called 'KVReview' with a value 'ReviewNeeded' to all the KeyVaults in the selected scope.
+    In your Azure Policy **Definitions** page, you'll the following in your management group, under the **Deception** category:
 
-Make sure to check the remediation checkbox, to apply to existing KeyVaults.
+    - A new initiative, named **HoneyTokens**
+    - Two new policies, named **KeyVault HoneyTokens** and **KVReviewTag**.
 
-3. In Azure Security Center
-Select 'Regulatory compliance' on the left menu
-Click 'Manage Compliance Policies' at the top
-Select the wanted scope
-Click 'Add custom initiative' at the bottom
-Click 'Add' on the 'HoneyTokens' initiative
+1. Assign the **KVReviewTag** policy to the scope you need. This adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
 
-After some time an audit recommendation with link to the management workbook should appear for all the KeyVaults in the scope
+    Make sure to select the **Remediation** checkbox to apply the tag to existing key vaults.
 
+1. In Microsoft Defender for Cloud:
+
+    1. Select **Regulatory compliance > Manage compliance policies**, and then select the scope your need.
+    1. Select **Add custom initiative**. In the **HoneyTokens** initiative, select **Add**.
+
+An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope.
+
+For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
+
+## Next steps
+
+For more information, see:
+
+- [About Azure Sentinel solutions](sentinel-solutions.md)
+- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
+- [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
+- [Detect threats out-of-the-box](detect-threats-built-in.md)
+- [Commonly used Azure Sentinel workbooks](top-workbooks.md)
