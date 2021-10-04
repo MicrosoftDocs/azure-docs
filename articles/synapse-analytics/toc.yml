@@ -530,7 +530,7 @@ items:
         href: sql/query-json-files.md
       - name: Query nested types
         href: sql/query-parquet-nested-types.md
-      - name: Query Delta Lake (preview)
+      - name: Query Delta Lake
         href: sql/query-delta-lake-format.md
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
