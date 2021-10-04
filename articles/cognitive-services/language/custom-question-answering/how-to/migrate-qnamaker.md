@@ -21,7 +21,7 @@ To successfully migrate knowledge bases, **the account performing the migration 
 
 Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
 
-## QnA Maker knowledge base migration
+## Steps to migrate
 
 You can follow the steps below to migrate knowledge bases:
 
@@ -29,8 +29,7 @@ You can follow the steps below to migrate knowledge bases:
 
 2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://lanuage.azure.com) to create your first custom question answering project and select the first option as shown below. Language settings for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of language selection for creating a new project](../media/migrate-qnamaker/choose-language.png)
+    :::image type="content" source="../media/migrate-qnamaker/choose-language.png" alt-text="Add chit-chat QnAs" lightbox="../media/migrate-qnamaker/choose-language.png":::
 
 3. Visit [https://www.qnamaker.ai](https://www.qnamaker.ai) and select **Start Migration** in the migration note on the knowledge base page. A dialog box will open to initiate the migration.
 
