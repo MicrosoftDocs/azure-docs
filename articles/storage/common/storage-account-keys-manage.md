@@ -49,7 +49,6 @@ The following example retrieves the first key. To retrieve the second key, use `
 ```powershell
 $storageAccountKey = `
     (Get-AzStorageAccountKey
-    -ResourceGroupName rvdb_general -Name rvdbstorageGet-AzureStorageKey `
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
