@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
-## Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials
+# Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials
 
 Across all of Microsoft, we're focused on empowering developers to build better apps, faster. One way we accomplish that is by providing a range of products and services, covering all stages of the software development lifecycle. Products and services included:  
 

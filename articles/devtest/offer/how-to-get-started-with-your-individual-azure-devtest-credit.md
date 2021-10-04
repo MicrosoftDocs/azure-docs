@@ -9,7 +9,7 @@ ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
 
-## How to get started with your individual Azure Credit Subscription  
+# How to get started with your individual Azure Credit Subscription  
 
 When accessing your Azure Credit Subscription, you have two ways to sign in and use your credits.  
 
@@ -48,7 +48,7 @@ Remember, the account you sign in with will dictate what tenant your directory w
 > [!NOTE]  
 > Signing in this way provides more flexibility to whether or not you use a personal email or a corporate email account.  
 
-For more details to sign in go to my.visualstudio.com, or follow this link: [Use Microsoft Azure in Visual Studio subscriptions](~/visualstudio/subscriptions/vs-azure.md#:~:text=Eligibility%20%20%20%20Subscription%20Level%20%2F%20Program,%20%20Yes%20%2013%20more%20rows%20>)
+For more details to sign in go to my.visualstudio.com, or follow this link: [Use Microsoft Azure in Visual Studio subscriptions](https://docs.microsoft.com/visualstudio/subscriptions/vs-azure#:~:text=Eligibility%20%20%20%20Subscription%20Level%20%2F%20Program,%20%20Yes%20%2013%20more%20rows%20)
 
 ### Sign in through Azure - [portal.azure.com](https://portal.azure.com)
 
