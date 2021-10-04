@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about how to create a GitHub Actions workflow to train a model on Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
 ms.date: 10/19/2020

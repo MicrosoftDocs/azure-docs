@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
