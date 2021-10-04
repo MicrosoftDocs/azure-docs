@@ -106,16 +106,16 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
 
 6. To make the third pipeline more robust, you can ensure that the Web activities to start/stop your IR are retried if there are any transient errors due to network connectivity issues, etc. and only complete when your IR is actually started/stopped. To do so, you can replace each Web activity with an Until activity, which in turn contains two Web activities, one to start/stop your IR and another to check your IR status. Let's call the Until activities *Start SSIS IR* and *Stop SSIS IR*.  The *Start SSIS IR* Until activity contains *Try Start SSIS IR* and *Get SSIS IR Status* Web activities. The *Stop SSIS IR* Until activity contains *Try Stop SSIS IR* and *Get SSIS IR Status* Web activities. On the **Settings** tab of *Start SSIS IR*/*Stop SSIS IR* Until activities, for **Expression**, enter `@equals('Started', activity('Get SSIS IR Status').output.properties.state)`/`@equals('Stopped', activity('Get SSIS IR Status').output.properties.state)`, respectively.
 
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir.png" alt-text="ADF Until Activity On Demand SSIS IR":::
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir.png" alt-text="ADF Until Activity On-Demand SSIS IR":::
 
-   Within both Until activities, the *Try Start SSIS IR*/*Try Stop SSIS IR* Web activites are similar to those Web activities in the first/second pipelines. On the **Settings** tab of *Get SSIS IR Status* Web activities, do the following actions:
+   Within both Until activities, the *Try Start SSIS IR*/*Try Stop SSIS IR* Web activities are similar to those Web activities in the first/second pipelines. On the **Settings** tab of *Get SSIS IR Status* Web activities, do the following actions:
 
    1. For **URL**, enter the following URL for REST API that gets Azure-SSIS IR status, replacing `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, and `{integrationRuntimeName}` with the actual values for your IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}?api-version=2018-06-01`.
    2. For **Method**, select **GET**. 
    3. For **Authentication**, select **Managed Identity** to use the specified system managed identity for your ADF, see [Managed identity for Data Factory](./data-factory-service-identity.md) article for more info.
    4. For **Resource**, enter `https://management.azure.com/`.
     
-      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir2.png" alt-text="ADF Web Activity Schedule SSIS IR":::
+      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir2.png" alt-text="ADF Web Activity On-Demand SSIS IR":::
 
 7. Assign the managed identity for your ADF a **Contributor** role to itself, so Web activities in its pipelines can call REST API to start/stop Azure-SSIS IRs provisioned in it.  On your ADF page in Azure portal, click **Access control (IAM)**, click **+ Add role assignment**, and then on **Add role assignment** blade, do the following actions:
 
