@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -96,7 +96,7 @@ Perform the following steps to prepare the drives.
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 
     > [!NOTE]
-    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), the imported blob was renamed by default, and a \Disposition parameter could be used to specify whether to rename, overwrite, or disregard the blob in the import.
+    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), the imported blob was renamed by default, and a \Disposition parameter let you specify whether to rename, overwrite, or disregard the blob in the import.
 
 8. Repeat the previous step for each disk that needs to be shipped. 
 

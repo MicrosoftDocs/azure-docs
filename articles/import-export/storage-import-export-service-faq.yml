@@ -165,8 +165,14 @@ sections:
       - question: |
           If a drive has files that already exist in my storage account, does the service overwrite existing blobs or files?
         answer: |
-          Yes. The most recent releases of the Azure ImportExport tool - version 1.5.0.300 for blob imports and version 2.2.0.300 for file imports - automatically overwrite blobs or files that already exist in your storage if an import includes a file or blob with the same name. 
-          This behavior is a change from earlier tool releases, which let you specify whether to overwrite or ignore the destination files or blobs via a `Disposition` field in the dataset CSV file. The field had this format: `Disposition:<rename|no-overwrite|overwrite>`. By default, the service renamed the new files rather than overwrite existing blobs or files.
+          Yes. The most recent releases of the Azure ImportExport tool - versions 1.5.0.300 (for blobs) and 2.2.0.300 (for files) - automatically overwrite blobs or files that already exist in your storage if an import includes a file or blob with the same name. 
+          Earlier tool versions renamed an incoming file by default if an existing blob or file had the same name. A Disposition field in the dataset CSV file let you specify whether to rename, not overwrite, or overwrite the destination file or blob. The Disposition field had this format: `Disposition:<rename|no-overwrite|overwrite>`.
+          
+      - question: |
+          I'm creating a new job. Can I still use the old Azure Import/Export tool?
+        answer: |
+          You can still use the old Azure Import/Export tool with your existing jobs. However, we strongly suggest you move to the current tool version for new import/export jobs because the old tool is being phased out. You'll get a notification in the Azure portal when the old tool is no longer supported.
+          Here's where to find the current tool versions. [Download WAImportExport version 1.5.0.300](https://www.microsoft.com/download/details.aspx?id=42659), for blobs. [Download WAImportExport version 2.2.0.300](https://aka.ms/waiev2), for files.
           
       - question: |
           Is the WAImportExport tool compatible with 32-bit operating systems?

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -13,7 +13,7 @@ ms.subservice: common
 # Repairing an import job
 
 > [!IMPORTANT]
-> Beginning with version 1.5.0.300 (for blobs) and version 2.2.0.300 (for files), the Azure ImportExport tool no longer supports repairing file import jobs. To fix issues, [create a new import job for blobs](storage-import-export-data-to-blobs.md?tabs=azure-portal#step-2-create-an-import-job) or [create a new import job for files](storage-import-export-data-to-files.md?tabs=azure-portal#step-2-create-an-import-job) after you resolve the errors.
+> Job repair is no longer supported by the Azure Import/Export tool. In version 1.5.0.300 and later, you'll need to fix the issues in your blob import and then [create a new import job](storage-import-export-data-to-blobs.md?tabs=azure-portal#step-2-create-an-import-job).
 
 The Microsoft Azure Import/Export service may fail to copy some of your files or parts of a file to the Windows Azure Blob service. Some reasons for failures include:  
   
@@ -98,7 +98,7 @@ After making the necessary files available to the tool, or updating the path map
   
 ## Next steps
  
-* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)- ARCHIVED-->   
 * [Preparing hard drives for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -25,8 +25,6 @@ In this tutorial, you learn how to:
 > * Step 3: Ship the drives to Azure datacenter
 > * Step 4: Update the job with tracking information
 > * Step 5: Verify data upload to Azure
-
-<!--"Samples for journal files" section doesn't fit the tutorial schema. OK to just let it appear in right nav pane?-->
 
 ## Prerequisites
 
@@ -386,7 +384,7 @@ Track the job to completion. Once the job is complete, verify that your data has
 *  If a file share doesn't have enough free space, the data is not auto split to multiple Azure file shares as it was in earlier tool versions. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For information on configuring large file shares, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).-->
 
 > [!NOTE]
-> In the latest release of the Azure Import/Export tool (version 2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For information on configuring large file shares, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
 
 
 ## Samples for journal files
