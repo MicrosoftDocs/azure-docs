@@ -42,7 +42,7 @@ You must have previously published your app to Azure. If you haven't already don
 
 1. In Solution Explorer, right-click the function app project and choose **Publish**.
 
-1. On the **Publish** page, select the elipses (`...`) and chose **Manage Azure App Service settings**. 
+1. On the **Publish** page, select the ellipses (`...`) in the **Hosting** area, and choose **Manage Azure App Service settings**. 
 
     ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
 
