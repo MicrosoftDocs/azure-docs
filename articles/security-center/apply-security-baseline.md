@@ -95,7 +95,7 @@ The list of resources in the **Not applicable** tab includes a **Reason** column
 
 Security Center gets the data for these recommendations from the Guest Configuration cluster in Azure Resource Graph. To troubleshoot this scenario:
 
-1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples?tabs=azure-cli#azure-policy-guest-configuration)
+1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)
 
 1. The Security Center job runs daily, so wait 24 hours and check again.
 
