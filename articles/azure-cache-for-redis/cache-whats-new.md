@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: reference
 ms.date: 09/28/2020
-ms.author: yegu
+ms.author: cauribeg
 
 #Customer intent: As a user of Azure Cache for Redis, I want to find out what're the latest changes in the service.
 

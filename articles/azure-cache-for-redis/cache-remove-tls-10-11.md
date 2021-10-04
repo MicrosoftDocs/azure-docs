@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.author: yegu
+ms.author: cauribeg
 
 ---
 

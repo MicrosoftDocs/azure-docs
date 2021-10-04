@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: quickstart
 ms.date: 09/29/2020
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.

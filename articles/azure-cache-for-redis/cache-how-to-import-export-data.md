@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
-ms.author: yegu
+ms.author: cauribeg
 
 ---
 # Import and Export data in Azure Cache for Redis

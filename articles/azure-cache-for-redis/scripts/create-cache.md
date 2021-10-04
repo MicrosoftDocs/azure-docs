@@ -7,7 +7,7 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu 
+ms.author: cauribeg 
 ms.custom: devx-track-azurecli
 ---
 

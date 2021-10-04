@@ -2,7 +2,7 @@
 title: Get the hostname, ports, keys - Azure Cache for Redis - Azure CLI
 description: This Azure CLI code sample shows how to get the hostname, ports, and keys for an Azure Cache for Redis instance.
 author: curib
-ms.author: yegu
+ms.author: cauribeg
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli

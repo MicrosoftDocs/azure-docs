@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.author: yegu 
+ms.author: cauribeg 
 ms.custom: devx-track-azurepowershell
 
 ---

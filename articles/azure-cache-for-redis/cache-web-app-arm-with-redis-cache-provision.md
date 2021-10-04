@@ -7,7 +7,7 @@ author: curib
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
-ms.author: yegu 
+ms.author: cauribeg 
 ms.custom: devx-track-azurepowershell
 
 ---

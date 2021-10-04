@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Cache for 
 ms.date: 09/17/2021
 ms.topic: reference
 author: curib
-ms.author: yegu
+ms.author: cauribeg
 ms.service: cache
 ms.custom: subject-policy-reference
 ---

@@ -6,7 +6,7 @@ author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.author: yegu
+ms.author: cauribeg
 ---
 # Migrate to Azure Cache for Redis
 

@@ -5,7 +5,7 @@ author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
+ms.author: cauribeg
 ---
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances (Preview)
 
