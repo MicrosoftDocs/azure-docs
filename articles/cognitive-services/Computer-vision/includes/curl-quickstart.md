@@ -29,9 +29,11 @@ Use the Optical character recognition REST API to read printed and handwritten t
 
 
 
-## Read printed and handwritten text
+## Extract printed and handwritten text
 
-The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
+The OCR service can extract visible text in an image or document and convert it to a character stream. For more information on text extraction, see the [Optical character recognition (OCR) overview](../overview-ocr.md). 
+
+The Read API supports 122 languages for print text and 7 languages for handwritten text. See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the latest preview languages. The preview model includes any enhancements to the currently GA languages.
 
 ### Call the Read API
 
