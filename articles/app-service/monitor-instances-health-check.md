@@ -25,8 +25,8 @@ This article uses Health check in the Azure portal to monitor App Service instan
 - Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
-> Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->
+>- Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- Note, if your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
 
