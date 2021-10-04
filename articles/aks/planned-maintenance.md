@@ -127,7 +127,7 @@ az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCl
 
 ## List all maintenance windows in an existing cluster
 
-To see all current maintenance configuration windows in your AKS Cluster, use the `az aks maintenanceconfiguration list` command.
+To see all current maintenance configuration windows in your AKS cluster, use the `az aks maintenanceconfiguration list` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster

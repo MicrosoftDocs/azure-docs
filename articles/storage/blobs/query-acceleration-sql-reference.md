@@ -69,7 +69,7 @@ When reading values from CSV-formatted data, all values are read as strings. Str
 
 For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name. Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters (`"`), may contain spaces, and are case-sensitive. Unquoted field names are case-insensitive, and may not contain any special characters.
 
-In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character. For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
+In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (`_`) character. For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
 
 ### Operators
 
@@ -77,26 +77,26 @@ The following standard SQL operators are supported:
 
 |Operator|Description|
 |--|--|
-|[=](/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
-|[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
-|[<>](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
-|[<](/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
-|[<=](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
-|[>](/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
-|[>=](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
-|[+](/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
-|[-](/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
-|[/](/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
-|[*](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
-|[%](/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
-|[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
-|[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
-|[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
-|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
-|[BETWEEN](/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
-|[IN](/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
-|[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
-|[COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
+|[`=`](/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
+|[`!=`](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
+|[`<>`](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
+|[`<`](/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
+|[`<=`](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
+|[`>`](/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
+|[`>=`](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
+|[`+`](/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
+|[`-`](/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
+|[`/`](/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
+|[`*`](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
+|[`%`](/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
+|[`AND`](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
+|[`OR`](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
+|[`NOT`](/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
+|[`CAST`](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
+|[`BETWEEN`](/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
+|[`IN`](/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
+|[`NULLIF`](/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
+|[`COALESCE`](/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
 
 If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
@@ -153,7 +153,8 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 Examples:
 
 ```sql
-DATE_ADD(datepart, quantity, timestamp) DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+DATE_ADD(datepart, quantity, timestamp)
+DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 ```
 
 #### DATE_DIFF function
@@ -161,7 +162,8 @@ DATE_ADD(datepart, quantity, timestamp) DATE_ADD('minute', 1, CAST('2017-01-02T0
 The query acceleration SQL language supports year, month, day, hour, minute, second for the `DATE_DIFF` function.
 
 ```sql
-DATE_DIFF(datepart, timestamp, timestamp) DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
+DATE_DIFF(datepart, timestamp, timestamp)
+DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00') 
 ```
 
 #### EXTRACT function
@@ -171,7 +173,8 @@ For EXTRACT other than date part supported for the `DATE_ADD` function, the quer
 Examples:
 
 ```sql
-EXTRACT(datepart FROM timestampstring) EXTRACT(YEAR FROM '2010-01-01T')
+EXTRACT(datepart FROM timestampstring)
+EXTRACT(YEAR FROM '2010-01-01T')
 ```
 
 #### TO_STRING function
@@ -179,7 +182,8 @@ EXTRACT(datepart FROM timestampstring) EXTRACT(YEAR FROM '2010-01-01T')
 Examples:
 
 ```sql
-TO_STRING(TimeStamp , format) TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
+TO_STRING(TimeStamp , format)
+TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
 This table describes strings that you can use to specify the output format of the `TO_STRING` function.
@@ -221,7 +225,8 @@ Only IS08601 formats are supported.
 Examples:
 
 ```sql
-TO_TIMESTAMP(string) TO_TIMESTAMP('2007T')
+TO_TIMESTAMP(string)
+TO_TIMESTAMP('2007T')
 ```
 
 > [!NOTE]
@@ -290,7 +295,6 @@ This is our sample data:
     }
   ]
 }
-
 ```
 
 You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.

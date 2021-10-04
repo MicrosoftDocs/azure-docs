@@ -45,6 +45,8 @@ In this tutorial, you learn how to:
 > - Send Defender for IoT alerts to FortiSIEM
 > - Block a malicious source using the Fortigate firewall
 
+If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+
 ## Prerequisites
 
 There are no prerequisites for this tutorial.

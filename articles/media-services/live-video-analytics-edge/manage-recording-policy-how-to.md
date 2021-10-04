@@ -39,7 +39,7 @@ Your Media Service account is linked to an Azure Storage account, and when you r
 The above rule:
 
 * Applies to all block blobs in the Storage account.
-* Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+* Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](../../storage/blobs/access-tiers-overview.md?tabs=azure-portal).
 * And when blobs age beyond 90 days, they are to be deleted.
 
 When you use Live Video Analytics to record to an asset, you specify a `segmentLength` property that tells the module to aggregate a minimum duration of video (in seconds) before it's written to the cloud. Your asset will contain a series of segments, each with a creation timestamp that is `segmentLength` newer than the previous. When the lifecycle management policy kicks in, it deletes segments older than the specified threshold. However, you will continue to be able to access and play back the remaining segments via Media Service APIs. For more information, see [play back recordings](playback-recordings-how-to.md). 

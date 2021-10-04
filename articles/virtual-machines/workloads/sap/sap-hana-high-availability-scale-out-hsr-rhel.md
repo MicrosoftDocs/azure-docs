@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/26/2021
+ms.date: 09/24/2021
 ms.author: radeltch
 
 ---
@@ -315,12 +315,13 @@ Configure and prepare your OS by doing the following steps:
 
 2. **[A]** Install the NFS client package.  
 
-    ```yum install nfs-utils ```
+   `yum install nfs-utils`
 
 
 3. **[AH]** Red Hat for HANA configuration.  
 
-    Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:  
+   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:
+
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
@@ -332,7 +333,7 @@ Configure and prepare your OS by doing the following steps:
 
 In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.  
 
-1. **[AH]** Create mount points for the HANA database volumes.  
+1. **[AH]** Create mount points for the HANA database volumes.
 
     ```bash
     mkdir -p /hana/shared
@@ -914,12 +915,13 @@ Include all virtual machines, including the majority maker in the cluster.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # SAPHanaSR-ScaleOut needs for srHook
-     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
-     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
-     EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias HANA_S1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: HANA_S1_SOK, HANA_S1_SFAIL, HANA_S2_SOK, HANA_S2_SFAIL
     ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
