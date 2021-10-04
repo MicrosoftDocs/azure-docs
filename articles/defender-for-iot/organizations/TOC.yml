@@ -25,6 +25,10 @@
   items:
   - name: Azure Defender for IoT trial setup
     href: tutorial-onboarding.md
+  - name: Integrate ClearPass
+    href: tutorial-clearpass.md
+  - name: Integrate CyberArk
+    href: tutorial-cyberark.md
   - name: Integrate Forescout
     href: tutorial-forescout.md
   - name: Integrate Fortinet

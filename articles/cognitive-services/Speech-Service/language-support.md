@@ -82,6 +82,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |                          |
 | French (Switzerland)               | `fr-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Austria)                   | `de-AT` | Text<br>Pronunciation                  |                           |                          |
+| German (Switzerland)               | `de-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |                          |
 | Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |                          |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |                          |
