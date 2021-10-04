@@ -16,10 +16,7 @@
           href: tutorial-experiment-bring-data.md
 - name: Samples
 - name: Concepts
-  items: 
-  - name: Automated ML
-    displayName: automl, auto ml
-    href: concept-automated-ml.md     
+  items:
 - name: How-to guides
   items:
   - name: How to get started with your individual Azure DevTest credit

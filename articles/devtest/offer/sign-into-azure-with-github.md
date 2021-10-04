@@ -1,7 +1,4 @@
 ---
-# This basic template provides core metadata fields for Markdown articles on docs.microsoft.com.
-
-# Mandatory fields.
 title: Sign in with your GitHub Credentials to your individual Azure Dev/Test credit subscription.
 description: An overview of signing into an individual Monthly Azure Credit Subscription using GitHub credentials. Includes how to activate individual developer Azure Credits.
 author: j-martens
@@ -11,7 +8,7 @@ ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
-## Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials 
+# Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials
 
 Across all of Microsoft, we're focused on empowering developers to build better apps, faster. One way we accomplish that is by providing a range of products and services, covering all stages of the software development lifecycle. Products and services included:  
 
@@ -34,7 +31,7 @@ After signing into GitHub and authorizing the Microsoft application, you'll get 
 
 ## Sign in to Azure Credit Subscription  
 
-[Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers) offers you a suite of services. Use them to create, deploy, and manage applications on your preferred platforms and devices. Use your credits in Azure for learning, development, and test services. You can also access collaboration tools and Azure DevOps Services.  
+[Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) offers you a suite of services. Use them to create, deploy, and manage applications on your preferred platforms and devices. Use your credits in Azure for learning, development, and test services. You can also access collaboration tools and Azure DevOps Services.  
 
 GitHub authentication makes it easy to start experimenting with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use Windows Virtual Desktop to quickly deploy and manage hundreds of VMs for development and testing.  
 
@@ -44,7 +41,7 @@ To get started with the Azure Monthly Credit Subscription using your GitHub acco
 
 ![Screenshot of the Microsoft sign into Github to continue to Microsoft-Corporation.](media/sign-into-azure-with-github/mssignin.png "Sign into Github to continue to Microsoft-Corporation.")  
 
-If you haven’t activated your credits yet, go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers) page, select “Activate Your Credits” then “Sign in with GitHub” to get started.  
+If you haven’t activated your credits yet, go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) page, select “Activate Your Credits” then “Sign in with GitHub” to get started.  
 
 ![Screenshot of Monthly Azure credits for Visual Studio subscribers page.](media/sign-into-azure-with-github/activatecredits.png "Activate your credits.")  
 
@@ -68,6 +65,6 @@ While your GitHub account is used to log into your Microsoft account, they are s
 
 ## Start exploring Azure Visual Studio and Monthly Credit Subscription now  
 
-Go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) page to learn more to get started.  
+Go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) page to learn more to get started.  
 
-If you have questions, check out [this support page](https://support.microsoft.com/en-us/help/4501231/microsoft-account-link-your-github-account). Let us know what you think in the comments below. As always, we’d love to hear any feedback or suggestions you have.
+If you have questions, check out [this support page](https://support.microsoft.com/help/4501231/microsoft-account-link-your-github-account). Let us know what you think in the comments below. As always, we’d love to hear any feedback or suggestions you have.

@@ -9,13 +9,13 @@ ms.date: 09/30/2021
 ms.custom: devtestoffer
 ---
 
-## Change Directory Tenants with your Azure Subscriptions  
+# Change Directory Tenants with your Azure Subscriptions  
 
-Organizations may have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) \(AAD\).  
+Organizations may have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Azure Active Directory](~/active-directory/fundamentals/active-directory-whatis.md) \(AAD\).  
 
 AAD is Microsoft’s cloud-based identity and access management service that helps your employees sign in and access internal and external resources.  
 
-As an individual user, you may need to change the Active Directory you’re working in or [transfer your subscription to another Active Directory](https://docs.microsoft.com/en-us/azure/role-based-access-control/transfer-subscription).  
+As an individual user, you may need to change the Active Directory you’re working in or [transfer your subscription to another Active Directory](~/role-based-access-control/transfer-subscription.md).  
 
 When activating your subscription, your identity is created based on the email you use. That identity is either associated with your organization’s Active Directory tenant or a new directory tenant is created for that identity. You can see the identity you’re logged in under in the upper right-hand side of your Azure portal.  
 
@@ -75,4 +75,4 @@ Once you’ve been added and given the proper permissions, you can switch direct
 
  ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-tenants/switchdirectoriesoutlined.png "Click Switch Directories to access the new directory.")
 
-You can also add an Admin from the target directory as an Admin within your directory. Follow [these instructions](https://docs.microsoft.com/en-us/visualstudio/subscriptions/cloud-admin) on how to add an Admin to your subscription. Once that’s been done, the Admin has access to both directories and can change the tenant directory for you.  
+You can also add an Admin from the target directory as an Admin within your directory. Follow [these instructions](~/visualstudio/subscriptions/cloud-admin.md) on how to add an Admin to your subscription. Once that’s been done, the Admin has access to both directories and can change the tenant directory for you.  
