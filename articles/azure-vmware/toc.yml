@@ -180,8 +180,6 @@
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-failures.md
-    - name: Unable to reach vCenter and NSX-T Manager 
-      href: troubleshooting-unable-to-vcenter-server-appliance-and-nsx.md
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ

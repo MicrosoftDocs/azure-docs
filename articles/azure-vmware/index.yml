@@ -240,7 +240,5 @@ landingContent:
         links:
           - text: Open a support request for deployment failures
             url: fix-deployment-failures.md
-          - text: Unable to reach vCenter and NSX-T Manager 
-            url: troubleshooting-unable-to-vcenter-server-appliance-and-nsx.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927
