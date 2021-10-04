@@ -28,8 +28,6 @@ To avoid putting secrets in source control, the configuration looks into [applic
 
 # [Azure Active Directory](#tab/aad)
 
-Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
-
 To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
@@ -38,6 +36,9 @@ To create the registration, begin by creating the following [application setting
 | `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
+
+Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
+
 ### Azure Active Directory Version 1
 
 ```json
@@ -79,7 +80,7 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
 Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
-For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
+For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-use-an-existing-registration-created-separately) on using an existing registration.
 
 > [!NOTE]
 > While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
