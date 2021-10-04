@@ -154,7 +154,7 @@ The following example shows how to split traffic where:
 }
 ```
 
-As you interact with this example, replace the placeholders surrounded by `<>` with your values.
+In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -165,7 +165,7 @@ az containerapp update \
   --traffic-weight <REVISION1_NAME>=50,<REVISION2_NAME>=30,latest=20
 ```
 
-As you interact with this example, replace the placeholders surrounded by `<>` with your values.
+In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
 
 ---
 
