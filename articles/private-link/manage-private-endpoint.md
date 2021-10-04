@@ -13,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # Manage a Private Endpoint connection
 
-Azure Private Link works on an approval call flow model where the Private Link service consumer can request a connection to the service provider for consuming the service. 
+Azure Private Link works on an approval model where the Private Link service consumer can request a connection to the service provider for consuming the service. 
 
-The service provider can then decide whether to allow the consumer to connect or not. Azure Private Link enables the service providers to manage the private endpoint connection on their resources. 
+The service provider can then decide whether to allow the consumer to connect or not. Azure Private Link enables service providers to manage the private endpoint connection on their resources. 
 
 This article provides instructions about how to manage the Private Endpoint connections.
 
@@ -23,12 +23,12 @@ This article provides instructions about how to manage the Private Endpoint conn
 
 There are two connection approval methods that a Private Link service consumer can choose from:
 
-- **Automatic**: If the service consumer has Azure RBAC permissions on the service provider resource, the consumer can choose the automatic approval method. When the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
+- **Automatic**: If the service consumer has Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the automatic approval method. When the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
 
-- **Manual**: If the service consumer doesn’t have Azure RBAC permissions on the service provider resource, the consumer can choose the manual approval method. The connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
+- **Manual**: If the service consumer doesn’t have Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the manual approval method. The connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
 In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approved**, **Reject**, **Remove**.
 
-The below table shows the various service provider actions and the resulting connection states for Private Endpoints.  The service provider can also change the connection state of private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
+The below table shows the various service provider actions and the resulting connection states for Private Endpoints. The service provider can change the connection state at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
 
 
 | Service Provider Action  | Service Consumer Private Endpoint State | Description |
@@ -36,7 +36,7 @@ The below table shows the various service provider actions and the resulting con
 | None    |    Pending     |    Connection is created manually and is pending for approval by the Private Link resource owner.       |
 | Approve    |  Approved       |  Connection was automatically or manually approved and is ready to be used.     |
 | Reject     | Rejected        | Connection was rejected by the private link resource owner.        |
-| Remove    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up.        |
+| Remove    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean-up.        |
 
 ## Manage Private Endpoint connections on Azure PaaS resources
 
