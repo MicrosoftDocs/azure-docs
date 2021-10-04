@@ -13,7 +13,12 @@ ms.author: memildin
 
 To reduce the attack surface and avoid known risks, it's important to configure the operating system (OS) on a machine as securely as possible. 
 
-Use the security recommendations described in this article to harden the OS of machines in your environment. 
+The Azure Security Benchmark has guidance for OS hardening which has led to the security baseline documents for Windows and Linux. 
+
+Use the security recommendations described in this article to assess the machines in your environment and:
+
+- identify gaps in the security configurations
+- remediate those gaps
 
 ## Availability
 |Aspect|Details|
