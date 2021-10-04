@@ -18,7 +18,7 @@ The Azure Security Benchmark has guidance for OS hardening which has led to secu
 Use the security recommendations described in this article to assess the machines in your environment and:
 
 - Identify gaps in the security configurations
-- Remediate those gaps
+- Learn how to remediate those gaps
 
 ## Availability
 |Aspect|Details|
@@ -70,7 +70,6 @@ To compare machines with the OS security baselines:
 
 - [How do I deploy the prerequisites for the security configuration recommendations?](#how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations)
 - [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
-- [My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center](#my-machine-has-the-guest-configuration-extension-installed-but-i-dont-see-the-data-in-security-center)
 
 ### How do I deploy the prerequisites for the security configuration recommendations?
 
@@ -87,22 +86,11 @@ The list of resources in the **Not applicable** tab includes a **Reason** column
 
 | Reason                                                            | Details                                                                                                                                                                        |
 |-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **No scan data available on the machine**                         | There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension. |
+| **No scan data available on the machine**                         | There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension. You can check the data in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration).|
 | **Guest Configuration extension is not installed on the machine** | The machine is missing the Guest Configuration extension, which is a prerequisite for assessing the compliance with the Azure security baseline.                               |
 | **System managed identity is not configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
 | **The recommendation is disabled in policy**                      | The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine.                                                               |
 |                                                                   |                                                                                                                                                                                |
-
-### My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center
-
-Security Center gets the data for these recommendations from the Guest Configuration cluster in Azure Resource Graph.
-
-To troubleshoot this scenario:
-
-1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration).
-
-1. The Security Center job runs daily, so check whether it's been 24 hours since the solution was deployed.
-
 
 ## Next steps
 In this document, you learned how to use Security Center's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
