@@ -124,6 +124,20 @@ Newly supported solutions include:
 
 For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) and [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
+### Enriched threat intelligence with Geolocation and WhoIs data
+
+Now, any threat intelligence data that you bring in to Microsoft Sentinel via data connectors and logic app playbooks, or create in Microsoft Sentinel, is now enriched with Geolocation and WHoIs information.
+
+For example: 
+TBD SCREENSHOT
+
+For more information, see:
+
+- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
+- [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
+- [Enrich entities with geolocation data via API](geolocation-data-api.md)
+
 ### Use notebooks with Azure Synapse Analytics in Microsoft Sentinel
 
 Microsoft Sentinel now supports integrating notebooks with Azure Synapse Analytics, allowing you to:
