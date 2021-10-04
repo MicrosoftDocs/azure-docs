@@ -20,6 +20,7 @@ The **Move across region dashboard** page combines all monitoring information of
     ![Status and issues section](media\move-across-region-dashboard\Move_across_region_dashboard_status_issues.png)
 > [!NOTE]
 > Only the source-destination combination created by you within your subscription would be listed in the dashboard.
+
 3. Use the filters to choose your preferred **Subscription**, **Source region**, and **Destination region**.
     ![Filters](media\move-across-region-dashboard\Move_across_region_dashboard_Filters.png)
 4. Navigate to the details page by selecting on **View all resources** next to the source - destination.
