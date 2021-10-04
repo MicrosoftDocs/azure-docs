@@ -249,7 +249,7 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to split the image into, if tiling is enabled. <br>*Note: will need to pass tile_grid_size to enable tiling logic!*<br> Optional, string of '[int, int]', for example, [2,3] | No Default |
+| `tile_grid_size` | The grid size to split the image into, if tiling is enabled. <br>*Note: will need to pass tile_grid_size to enable tiling logic!*<br> String of '[int, int]', for example, [2,3] | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1] | 0.25 |
 | `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation. <br> Must be float in the range of [0, 1] | 0.25 |
 
@@ -444,5 +444,4 @@ For a detailed code example, see the [object detection notebook](https://github.
 
 
 ## Next steps
-
 [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
