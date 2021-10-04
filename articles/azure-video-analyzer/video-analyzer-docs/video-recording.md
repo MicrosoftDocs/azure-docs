@@ -3,18 +3,17 @@ title: Record video for playback with Azure Video Analyzer
 description: This article discusses recording of video for playback with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 
 ---
 
 # Record video for playback
 
-In the context of a video management system for CCTV cameras, video recording refers to the process of capturing video from the cameras and recording it for subsequent viewing via mobile and browser apps. Video recording can be categorized as continuous video recording and event-based video recording.
+In the context of a video management system for CCTV cameras, video recording refers to the process of capturing video from the cameras and recording it for subsequent viewing via mobile and browser apps. Video recording can be categorized into continuous video recording and event-based video recording.
 
 ## Continuous video recording
 
 Continuous video recording (CVR) refers to the process of continuously recording all the video being captured from a video source. CVR ensures that the desired duration of video is available (dictated by the **[retention policy](#retention-policy))** to analyze and/or audit at a later point in time.
-
 
 ## Event-based video recording
 
