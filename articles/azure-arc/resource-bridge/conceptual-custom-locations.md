@@ -22,7 +22,7 @@ You can visualize Custom Locations as an abstraction layer on top of an Azure Ar
 
 * Kubernetes cluster, cluster connect, and cluster extensions. Custom Locations creates the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster. These other Azure services require cluster access to manage resources the customer wants to deploy on their clusters.
 
-   [!INCLUDE [preview features note](./kubernetes/includes/preview/preview-callout.md)]
+   [!INCLUDE [preview features note](../kubernetes/includes/preview/preview-callout.md)]
 
 * VMware vSphere infrastructure compute and cluster extensions.
 
@@ -32,7 +32,7 @@ You can visualize Custom Locations as an abstraction layer on top of an Azure Ar
 
 When the admin enables the Custom Locations feature on the cluster, a ClusterRoleBinding is created on the cluster, authorizing the Azure AD application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
 
-[ ![Use custom locations](./kubernetes/media/conceptual-custom-locations-usage.png) ](./media/conceptual-custom-locations-usage.png#lightbox)
+[ ![Use custom locations](../kubernetes/media/conceptual-custom-locations-usage.png) ](../kubernetes/media/conceptual-custom-locations-usage.png#lightbox)
 
 When the user creates a data service instance on the cluster:
 1. The **PUT** request is sent to Azure Resource Manager.
@@ -47,4 +47,4 @@ The sequence of steps to create the SQL managed instance and PostgreSQL instance
 
 ## Next steps
 
-* Use our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md). Then [Create a custom location](./custom-locations.md) on your Azure Arc-enabled Kubernetes cluster.
+* Use our quickstart to [connect a Kubernetes cluster to Azure Arc](../kubernetes/quickstart-connect-cluster.md). Then [Create a custom location](../kubernetes/custom-locations.md) on your Azure Arc-enabled Kubernetes cluster.
