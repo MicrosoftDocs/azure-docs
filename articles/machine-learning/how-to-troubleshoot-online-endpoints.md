@@ -192,6 +192,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A package that was  imported but is not in the conda environment
     - A syntax error
     - A failure in the `init()` method
+- If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
