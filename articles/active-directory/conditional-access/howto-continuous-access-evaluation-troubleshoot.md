@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: jlu
+manager: karenhoran
+ms.reviewer: jlu, shreyamalik
 
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ Use filters to narrow your search. For example, if a user signed in to Teams, us
 
 ## Continuous access evaluation workbooks
 
-The continuous access evaluation insights workbook allows administrators to view and monitor CAE usage insights for their tenants. The first table displays authentication attempts with IP mismatches. The second table displays the support status of CAE across various applications. This workbook can be found as template under the Conditional Access category. 
+The continuous access evaluation insights workbook allows administrators to view and monitor CAE usage insights for their tenants. The table displays authentication attempts with IP mismatches. This workbook can be found as template under the Conditional Access category. 
 
 ### Accessing the CAE workbook template
 
@@ -51,9 +51,9 @@ Log Analytics integration must be completed before workbooks are displayed. For 
 
 [ ![Find the CAE insights workbook in the gallery to continue monitoring](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png#lightbox)
 
-The **Continuous access evaluation insights** workbook contains two tables:
+The **Continuous access evaluation insights** workbook contains the following table:
 
-### Table 1: Potential IP address mismatch between Azure AD and resource provider  
+### Potential IP address mismatch between Azure AD and resource provider  
 
 ![Workbook table 1 showing potential IP address mismatches](./media/howto-continuous-access-evaluation-troubleshoot/continuous-access-evaluation-insights-workbook-table-1.png)
 
@@ -83,16 +83,6 @@ To unblock users, administrators can add specific IP addresses to a trusted name
 
 For more information about named locations, see the article [Using the location condition](location-condition.md#named-locations)
  
-### Table 2: Continuous access evaluation support status
-
-![Workbook table 2 showing CAE supported apps and sign-in count](./media/howto-continuous-access-evaluation-troubleshoot/continuous-access-evaluation-insights-workbook-table-2.png)
-
-The continuous access evaluation support status table allows admins to differentiate between client applications that support CAE and those client applications that don't support CAE. The table displays the number of user sign-ins for each client application. 
-
-You may notice that the same application may appear as both supported and not supported. This duplication is because of a concept called client capability. Not all clients are CAE supported and capable. For example, if a customer has some users using the latest version of Outlook and others still using an older unsupported version, that customer will see Outlook instances as supported and non supported. The older version of Outlook isn't CAE capable can't do continuous access evaluation. For users that are using the most recent version of Outlook, the admin will see supported CAE status.
-
-Based on analysis, admins may choose to turn on strict enforcement within a Conditional Access policy. When strict enforcement is turned on, any client that isn't CAE capable will be rejected entirely. Admins can view records filtered by time range, application, and resource.
-
 ## Next steps
 
 - [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)

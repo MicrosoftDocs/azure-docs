@@ -20,11 +20,9 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 - Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
 - Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
 
-The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
-
 Install the remaining prerequisites for your operating system.
 
-### Linux
+### Linux or Raspberry Pi OS
 To complete this quickstart on Linux and Raspberry Pi OS, install the following software:
 
 Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
@@ -58,7 +56,7 @@ In this section, you configure your local environment, install the Azure IoT C d
 
 ### Configure your environment
 
-1. Open a console to install the Azure IoT C device SDK, and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands. 
+1. Open a console to install the Azure IoT C device SDK and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands. 
 
 1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
@@ -86,6 +84,8 @@ In this section, you configure your local environment, install the Azure IoT C d
     ```
 
 ### Install the SDK and samples
+
+1. Navigate to a local folder where you want to clone the sample repo.
 
 1. Copy the Azure IoT C device SDK to your local machine.
 

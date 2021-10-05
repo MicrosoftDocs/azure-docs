@@ -10,13 +10,9 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ---
 
-# Transform XML for workflows in Azure Logic Apps
+# Transform XML in workflows with Azure Logic Apps
 
-In enterprise integration business-to-business (B2B) scenarios, you might have to convert XML between formats. In Azure Logic Apps, your logic app workflow can transform XML using an Extensible Stylesheet Language Transformation (XSLT) map and the **Transform XML** action. A map is an XML document that describes how to convert data from XML to another format. This document consists of a source XML schema as input and a target XML schema as output.  You can use different built-in functions to help manipulate or control the data, including string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
-
-For example, suppose you regularly receive B2B orders or invoices from a customer that uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can create and use a map that transforms the YearMonthDay format to the MonthDayYear format before storing the order or invoice details in your customer activity database.
-
-After you [create a map](logic-apps-enterprise-integration-maps.md#create-maps) and confirm that the map works, you add this map to the integration account that's linked to your multi-tenant Consumption plan-based logic app or ISE plan-based logic app, or you can add that map directly to your single-tenant Standard plan-based logic app. For more information, review [Add XSLT maps for XML transformation in Azure Logic Apps](logic-apps-enterprise-integration-maps.md). Assuming that your workflow includes the **Transform XML** action, the action runs when your workflow is triggered and when XML content is available for transformation.
+In enterprise integration business-to-business (B2B) scenarios, you might have to convert XML between formats. Your logic app workflow can transform XML by using the **Transform XML** action and a predefined [*map*](logic-apps-enterprise-integration-maps.md). For example, suppose you regularly receive B2B orders or invoices from a customer that uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can create and use a map that transforms the YearMonthDay format to the MonthDayYear format before storing the order or invoice details in your customer activity database.
 
 If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
@@ -26,7 +22,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * A logic app workflow that already starts with a trigger so that you can add the **Transform XML** action where necessary in your workflow.
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
@@ -40,7 +36,11 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store maps in your integration account. Instead, you can [directly add maps to your logic app resource](logic-apps-enterprise-integration-maps.md) using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
 
-    You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+
+    > [!NOTE]
+    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
 ## Add Transform XML action
 
@@ -94,6 +94,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
    You're now finished setting up your **Transform XML** action. In a real world app, you might want to store the transformed data in a line-of-business (LOB) app such as SalesForce. To send the transformed output to Salesforce, add a Salesforce action.
 
 1. To test your transformation action, trigger and run your workflow. For example, for the Request trigger, send a request to the trigger's endpoint URL.
+
+   The **Transform XML** action runs after your workflow is triggered and when XML content is available for transformation.
 
 ## Advanced capabilities
 

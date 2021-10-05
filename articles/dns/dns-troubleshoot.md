@@ -85,7 +85,7 @@ Configuration errors can cause DNS zones to become unhealthy. The following are 
 
     **Recommendation:** Remove all records except glue records under delegation records in your zones.
 
-* **Zero TTL** - TTL (time to live) is a setting that tells the DNS resolver how long to cache a query before requesting a new one. The information gathered is then stored in the cache of the recursive or local resolver for the TTL duration before it reaches back out to the collect new and updated details.
+* **Zero TTL** - TTL (time to live) is a setting that tells the DNS resolver how long to cache a query before requesting a new one. The information gathered is then stored in the cache of the recursive or local resolver for the TTL duration before it reaches back out to collect new and updated details.
 
     If the TTL is set to 0 in the configuration, then you can experience one of the following issues:
 
