@@ -91,15 +91,18 @@ Serverless SQL pool relies on statistics to generate optimal query execution pla
 
 ### Use appropriate data types
 
-The data types you use in your query affect performance. You can get better performance if you follow these guidelines: 
+The data types you use in your query affect performance and concurrency. You can get better performance if you follow these guidelines: 
 
 - Use the smallest data size that will accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
   - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
+  - Use **varchar** type with some UTF8 collation if you are reading data from Parquet, CosmosDB, Delta Lake, or CSV with UTF-8 encoding.
+  - Use **varchar** type without UTF8 collation if you are reading data from CSV non-Unicode files (for example, ASCII). 
+  - Use **nvarchar** type if you are reading data from CSV UTF-16 file. 
 - Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
-- If you're using schema inference, [check inferred data types](#check-inferred-data-types).
+- If you're using schema inference, [check inferred data types](#check-inferred-data-types) and override them explicitly with the smaller types if possible.
 
 ### Check inferred data types
 
