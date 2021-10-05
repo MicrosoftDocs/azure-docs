@@ -220,11 +220,13 @@ In this section, you will test the application by invoking its REST endpoints.
     
     curl -i -X POST -H "Content-Type: application/json" -d '{"email":"mr.jim@foobar.com", "firstName": "mr", "lastName": "jim", "city": "Seattle"}' http://localhost:8080/users
     ```
+    
+    If successful, you should get an HTTP `201` response.
 
 1. Update user:
 
     ```bash
-    curl -i -X POST -H "Content-Type: application/json" -d '{"email":"john.doe@foobar.com", "firstName": "John", "lastName": "Doe", "city": "NYC"}' http://localhost:8080/users
+    curl -i -X POST -H "Content-Type: application/json" -d '{"email":"john.doe@foobar.com", "firstName": "John", "lastName": "Doe", "city": "Dallas"}' http://localhost:8080/users
     ```
 
 1. List all users.
@@ -233,10 +235,21 @@ In this section, you will test the application by invoking its REST endpoints.
     curl -i http://localhost:8080/users
     ```
 
-1. List an exiting user.
+1. Get an existing user.
 
     ```bash
     curl -i http://localhost:8080/users/john.doe@foobar.com
+    ```
+    
+    You should get back a JSON payload with the user details. For example:
+    
+    ```json
+    {
+      "email": "john.doe@foobar.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "city": "Dallas"
+    }
     ```
 
 1. List a user that does not exist.
@@ -244,6 +257,8 @@ In this section, you will test the application by invoking its REST endpoints.
     ```bash
     curl -i http://localhost:8080/users/not.there@foobar.com
     ```
+    
+    You should receive an HTTP `404` response.
 
 1. Replace user:
 
@@ -256,11 +271,13 @@ In this section, you will test the application by invoking its REST endpoints.
     ```bash
     curl -i -X PUT -H "Content-Type: application/json" -d '{"email":"not.there@foobar.com", "firstName": "john", "lastName": "doe","city": "New Jersey"}' http://localhost:8080/users/
     ```
+        
+    You should receive an HTTP `404` response.
 
 1. Delete a user:
 
     ```bash
-    curl -i -X DELETE http://localhost:8080/users/first1.last1@foo.com
+    curl -i -X DELETE http://localhost:8080/users/mr.jim@foobar.com
     ```
 
 1. Delete a user that does not exist:
@@ -268,6 +285,8 @@ In this section, you will test the application by invoking its REST endpoints.
     ```bash
     curl -X DELETE http://localhost:8080/users/go.nuts@foobar.com
     ```
+    
+    You should receive an HTTP `404` response.
 
 ### Access the application using a public IP address
 
