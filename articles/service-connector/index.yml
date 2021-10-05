@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Service Connector documentation
+summary: Service is an Azure-managed service that helps developers easily connect compute service to target backing services.
+
+metadata:
+  title: Service Connector documentation
+  description: Connect your Azure compute service to backing services easily with Service Connector.
+  ms.service: service-connector
+  ms.topic: landing-page
+  author: shizn
+  ms.author: xshi
+  ms.date: 10/29/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Service Connector
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Service Connector?
+            url: overview.md
+          - text: Key concepts in Service Connector
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create new service connection in App Service
+            url: overview.md
+          - text: Create new service connection in Spring Cloud
+            url: overview.md
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Python (Django) app with PostgreSQL
+            url: overview.md
+          - text: Spring Cloud app with Cosmos DB
+            url: overview.md
+          - text: PLACEHOLDER
+            url: overview.md
+          - text: PLACEHOLDER
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage a service connection
+            url: overview.md
+          - text: Supported service types
+            url: overview.md

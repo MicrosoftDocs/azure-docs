@@ -1,0 +1,107 @@
+- name: Service Connector documentation
+  href: index.yml
+
+- name: Service Connector overview
+  href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Service Connector in Azure App Service
+    expanded: true
+    items:
+    - name: Portal
+      href: overview.md
+    - name: CLI
+      href: overview.md
+  - name: Service Connector in Azure Spring Cloud
+    expanded: true
+    items:
+    - name: Portal
+      href: overview.md
+    - name: CLI
+      href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Python (Django) app with PostgreSQL
+    href: overview.md
+  - name: PLACEHOLDER
+    href: overview.md
+  - name: PLACEHOLDER
+    href: overview.md
+  - name: Spring Cloud app with Cosmos DB
+    href: overview.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Service Connection internals
+    href: overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Develop
+    items:
+    - name: Use connection with client library
+      href: overview.md
+  - name: Manage
+    items:
+    - name: Manage a service connection
+      href: overview.md
+    - name: Environment variable naming convention 
+      href: overview.md
+  - name: Integrate
+    items:
+    - name: Azure Database for PostgreSQL
+      href: overview.md
+    - name: Azure Database for MySQL
+      href: overview.md
+    - name: Azure SQL DB
+      href: overview.md
+    - name: Azure Cosmos DB
+      href: overview.md
+    - name: Azure Storage
+      href: overview.md
+    - name: Azure Key Vault
+      href: overview.md
+    - name: Azure Event Hubs
+      href: overview.md
+    - name: Azure Service Bus
+      href: overview.md
+    - name: Azure SignalR Service
+      href: overview.md
+    - name: Azure App Configuration
+      href: overview.md
+    - name: Azure Web Pub/Sub Service
+      href: overview.md
+    - name: Apache Kafka on Confluent Cloud
+      href: overview.md
+  - name: Monitor
+    items:
+    - name: Check connection status
+      href: overview.md
+  - name: Secure
+    items:
+    - name: Authentication type between services
+      href: overview.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshooting guide
+      href: overview.md
+- name: Reference
+  expanded: true
+  items:
+  - name: Azure Connection CLI for App Service
+    href: overview.md
+  - name: Azure Connection CLI for Spring Cloud
+    href: overview.md
+  - name: Rest API reference
+    href: overview.md
+  - name: Frequently asked questions
+    href: overview.md
+- name: Resources
+  expanded: true
+  items:
+  - name: Samples
+    href: overview.md
+  - name: Region availability
+    href: overview.md
