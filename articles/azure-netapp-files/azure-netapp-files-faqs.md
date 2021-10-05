@@ -1,20 +1,12 @@
 ---
 title: FAQs About Azure NetApp Files | Microsoft Docs
 description: Review frequently asked questions about Azure NetApp Files, such as networking, security, performance, capacity management, and data migration/protection.
-services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/29/2021
+author: b-juche
 ms.author: b-juche
+ms.date: 10/04/2021
 ---
 # FAQs About Azure NetApp Files
 
@@ -78,10 +70,6 @@ Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
 Yes, you can configure up to five rules in a single NFS export policy.
-
-### Does Azure NetApp Files support Network Security Groups?
-
-No, currently you cannot apply Network Security Groups to the delegated subnet of Azure NetApp Files or the network interfaces created by the service.
 
 ### Can I use Azure RBAC with Azure NetApp Files?
 
@@ -390,9 +378,12 @@ The scale-out architecture would be comprised of multiple IBM MQ multi-instance 
 
 Yes, if you are running the Apache ActiveMQ, it is recommended to deploy [ActiveMQ High Availability with Pluggable Storage Lockers](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq). 
 
-ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, simply called "lock". There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the "slave" isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ’s control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
+ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, simply called "lock". There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the "slave" isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ's control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
 
 Because the majority of the problems with this HA solution stem from inaccurate OS-level file locking, the ActiveMQ community [introduced the concept of a pluggable storage locker](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq) in version 5.7 of the broker. This approach allows a user to take advantage of a different means of the shared lock, using a row-level JDBC database lock as opposed to an OS-level filesystem lock. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
+
+>[!NOTE]
+> This section contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### I am running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. I have experienced disruptions due to storage service maintenance event despite using the *SMB* protocol. Do I need to take special precautions?
 
