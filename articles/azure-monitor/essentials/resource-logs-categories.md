@@ -98,7 +98,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ApplicationConsole|Application Console|No|
-|BuildLogs|Build Logs|Yes|
 |IngressLogs|Ingress Logs|Yes|
 |SystemLogs|System Logs|No|
 
