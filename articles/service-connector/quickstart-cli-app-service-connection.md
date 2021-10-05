@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a service connection in App Service
+title: Quickstart - Create a service connection in App Service with the Azure CLI
 description: Quickstart showing how to create a service connection in App Service with the Azure CLI
 author: shizn
 ms.author: xshi
