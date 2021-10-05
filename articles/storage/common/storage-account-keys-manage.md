@@ -89,7 +89,7 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-To create a key expiraion policy from the Azure portal:
+To create a key expiration policy from the Azure portal:
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
