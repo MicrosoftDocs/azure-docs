@@ -18,7 +18,8 @@ Azure Cognitive Service for language is updated on an ongoing basis. To stay up-
 
 ## November 2021
 
-* Preview for Azure Cognitive Service for language, with support for:
+* Azure Cognitive Service for Language release, with support for:
+    * General availability of [Question Answering](custom-question-answering/overview.md)
     * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)
     * [Key Phrase Extraction](key-phrase-extraction/overview.md)
     * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)
@@ -28,6 +29,7 @@ Azure Cognitive Service for language is updated on an ongoing basis. To stay up-
     * [Custom Named Entity Recognition (Custom NER)](custom-named-entity-recognition/overview.md)
     * [Custom Text Classification](custom-classification/overview.md)
     * [Custom Language Understanding](custom-language-understanding/overview.md)
+
 
 ## Next steps
 
