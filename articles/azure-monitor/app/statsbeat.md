@@ -8,9 +8,9 @@ ms.date: 09/20/2021
 
 # Statsbeat in Azure Application Insights
 
-Statsbeat is a new feature being added to the Application Insights SDKs and Auto-Instrumentation. Statsbeat collects essential and non-essential [custom metric](../essentials/metrics-custom-overview.md) about our SDKs and auto-instrumentation. Statsbeat serves three benefits for Azure Monitor Application insights customers:
+Statsbeat collects essential and non-essential [custom metric](../essentials/metrics-custom-overview.md) about Application Insights SDKs and auto-instrumentation. Statsbeat serves three benefits for Azure Monitor Application insights customers:
 -	Service Health and Reliability (outside-in monitoring of ingestion endpoint)
--	Support Diagnostics (self-help insights and CSS Insights)
+-	Support Diagnostics (self-help insights and CSS insights)
 -	Product Improvement (insights for design optimizations)
 
 Statsbeat data is stored in a Microsoft data store.  It doesn't impact customers' overall monitoring volume and cost. 
