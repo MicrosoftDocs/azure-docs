@@ -86,7 +86,7 @@ In this article, you'll learn how to:
 
     > [!NOTE]
     > You can specify multiple domains in the **Allowed Tenants** section. A global administration must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
-    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
+    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > 1. Enter the domain name of the Azure AD tenant to which they want to grant access.
     > 1. Select **Submit**. 
 
