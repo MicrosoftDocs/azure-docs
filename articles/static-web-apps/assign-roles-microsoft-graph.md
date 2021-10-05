@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 09/30/2021
+ms.date: 10/05/2021
 ms.author: cshoe
 
 ---
@@ -19,10 +19,10 @@ In this tutorial, you learn to:
 - Deploy a static web app
 - Create an Azure Active Directory app registration
 - Set up custom authentication with Azure Active Directory
-- Configure a [role assignment function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles
+- Configure an [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles
 
 > [!NOTE]
-> This tutorial uses the [role assignment function](authentication-authorization.md?tabs=function#role-management) feature that is currently in preview.
+> This tutorial requires the [ability to assign roles with a function](authentication-authorization.md?tabs=function#role-management) that is currently in preview.
 
 ## Prerequisites
 
