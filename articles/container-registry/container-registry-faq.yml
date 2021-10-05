@@ -4,7 +4,7 @@ metadata:
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
   ms.topic: article
-  ms.date: 03/15/2021
+  ms.date: 09/17/2021
   ms.author: sajaya
     
 title: Frequently asked questions - Azure Container Registry
@@ -256,25 +256,7 @@ sections:
       - question:  |
           How do I enable anonymous pull access?
         answer: |
-          Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
-          
-          To enable anonymous pull access, update a registry using the Azure CLI (version 2.21.0 or later) and pass the `--anonymous-pull-enabled` parameter to the [az acr update](/cli/azure/acr#az_acr_update) command:
-          
-          ```azurecli
-          az acr update --name myregistry --anonymous-pull-enabled
-          ``` 
-          
-          You may disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
-          
-          > [!NOTE]
-          > * Before attempting an anonymous pull operation, run `docker logout myregistry.azurecr.io` to ensure that you clear any existing Docker credentials.
-          > * Only data-plane operations are available to unauthenticated clients.
-          > * The registry may throttle a high rate of unauthenticated requests.
-          > * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
-          
-          > [!WARNING]
-          > Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
-          
+          For more information, see [Make your registry content publicly available](anonymous-pull-access.md).          
       - question:  |
           How do I push non-distributable layers to a registry?
         answer: |
