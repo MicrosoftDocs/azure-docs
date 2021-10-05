@@ -63,7 +63,7 @@ You will require the following files in your repository for running the load tes
 
 1. After creating the service connection, click on Manage Service Principal. This will give the details of the Service Principal. Note the Object ID.  
 
-1. Authorize the Service Principal to access Azure Load Testing Service.by assigning the **Load Test Contributor** role. Run the following Az CLI command.
+1. Authorize the Service Principal to access Azure Load Testing service by assigning the **Load Test Contributor** role. Run the following Az CLI command.
 
 ```azurecli
 az role assignment create --assignee "{ObjectID}}" \
@@ -97,7 +97,7 @@ Here's what happened when you ran the pipeline
 
 - The Azure Load testing task was used to create and run a load test on the App service deployed in the above step.
 
-The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress and detailed results, once the run is complete. You can view the summary of the test run and the client-side metrics in the pipeline logs. The results files are exported to the folder “dropResults\results.zip”
+The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip”
 
 ## Define test criteria for your load test
 
@@ -201,21 +201,21 @@ The Azure Load Testing task, passes the secret from the pipeline to the load tes
 
 ## Azure Load Testing Task
 
-This task creates and runs an Azure load test from an Azure Pipeline. The task works on cross-platform agents running Windows, Linux, or Mac.
+This task creates and runs an Azure load test from an Azure Pipeline. The task works on cross-platform agents running Windows, Linux, or Mac. It has the following parameters,
 
 |Parameters  |Description  |
 |---------|---------|
 |<code>azureSubscription</code><br/>(Azure subscription)     |  (Required) Name of the Azure Resource Manager service connection       |
-|<code>loadTestYAML</code><br/>(Load Test YAML)     | (Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory        |
+|<code>YAMLFilePath</code><br/>(Load Test YAML File)     | (Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory        |
 |<code>resourceGroup</code><br/>(Resource Group)     |  (Required) Name of the resource group.       |
 |<code>loadtestResource</code><br/>(Load Testing Resource)     |   (Required) Name of an existing load test resource      |
-|<code>parameters</code><br/>(Parameters)     |   <code>secrets</code>  and  <code>non-secrets</code> <br/> Enter Name and value of each parameter  |
+|<code>parameters</code><br/>(Parameters)     |   (Optional) <code>secrets</code>  and  <code>non-secrets</code> <br/> Enter Name and value of each parameter in JSON format |
 
 ```yaml
 - task: AzureLoadTest@1
   inputs:
     azureSubscription: '<Azure service connection>'
-    loadTestYAML: '< YAML File path>'
+    YAMLFilePath: '< YAML File path>'
     loadTestResource: '<name of the load test resource>'
     resourceGroup: '<name of the resource group of your load test resource>' 
     parameters: |

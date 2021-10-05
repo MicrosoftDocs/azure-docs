@@ -73,7 +73,15 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
       }
 ```
 
-1. Paste the json response from above Azure CLI to your GitHub Repository > Settings > Secrets > Add a new secret > AZURE_CREDENTIALS
+1. Paste the json response from above Azure CLI to your GitHub Repository > Settings > Secrets > Add a new secret > AZURE_CREDENTIALS.
+
+1. Authorize the Service Principal to access Azure Load Testing service by assigning the **Load Test Contributor** role. Run the following Az CLI command.
+
+    ```azurecli
+    az role assignment create --assignee "{ObjectID}}" \
+    --role "Load Test Contributor" \
+    --subscription "{subscriptionNameOrId}"
+    ```
 
 1. Now edit the the workflow file in your branch: .github/workflows/workflow.yml. Replace the following values of the variables.
 
@@ -85,7 +93,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 1. Commit the file directly to the main branch. The workflow should get triggered, you can check the same in the Actions tab.
 
-## View results in the Azure Pipeline
+## View results in GitHub
 
 Here's what happened when you ran the workflow
 
@@ -93,7 +101,7 @@ Here's what happened when you ran the workflow
 
 - The Azure Load testing action was used to create and run a load test on the App service deployed in the above step.
 
-The load test results are available in the workflow logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress and detailed results, once the run is complete. You can view the summary of the test run and the client-side metrics in the pipeline logs. The results files are exported to the folder “dropResults\results.zip”
+The load test results are available in the workflow logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip”
 
 ## Define test criteria for your load test
 
@@ -191,34 +199,45 @@ The Azure Load Testing task, passes the secret from the workflow to the load tes
 
 ## Azure Load Testing Action
 
-This task creates and runs an Azure load test from an Azure Pipeline. The task works on cross-platform agents running Windows, Linux, or Mac.
+This action creates and runs an Azure load test from a GitHub Workflow. The action runs on Windows, Linux, and Mac runners. Use the azure/load-testing@v1 action in your workflow. It has the following parameters.
 
 |Parameters  |Description  |
 |---------|---------|
-|<code>azureSubscription</code><br/>(Azure subscription)     |  (Required) Name of the Azure Resource Manager service connection       |
-|<code>loadTestYAML</code><br/>(Load Test YAML)     | (Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory        |
-|<code>resourceGroup</code><br/>(Resource Group)     |  (Required) Name of the resource group.       |
-|<code>loadtestResource</code><br/>(Load Testing Resource)     |   (Required) Name of an existing load test resource      |
-|<code>parameters</code><br/>(Parameters)     |   <code>secrets</code>  and  <code>non-secrets</code> <br/> Enter Name and value of each parameter  |
+|YAMLFilePath    | (Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory        |
+|resourceGroup     |  (Required) Name of the resource group.       |
+|loadtestResource     |   (Required) Name of an existing load test resource      |
+|parameters   |   (Optional) secrets  and  non-secrets parameters <br/> Enter Name and value of each parameter in JSON format  |
 
 ```yaml
-- task: AzureLoadTest@1
-inputs:
-    azureSubscription: '<Azure service connection>'
-    loadTestYAML: '< YAML File path>'
-    loadTestResource: '<name of the load test resource>'
-    resourceGroup: '<name of the resource group of your load test resource>' 
-    parameters:  
-    - secrets: 
-      - name: 'secret1' 
-        value: ${mySecret1}
-      - name: 'secret2' 
-        value: ${mySecret2}
-    -non-secrets: 
-      - name: 'param1' 
-        value: 'myParam1'
-      - name: 'param2' 
-        value: 'myParam2'
+- name: 'Azure Load Testing'
+  uses: azure/load-testing@v1
+  with:
+    YAMLFilePath: 'Application/SampleApp.yaml'
+    loadtestresource: 'nikita-sampleapp'
+    resourceGroup: 'nikita-sample-rg'
+    parameters: |
+      { 
+          "secrets": [ 
+              { 
+                  "name": "secret1", 
+                  "value": "$(mySecret1)" 
+              }, 
+              { 
+                  "name": "secret2", 
+                  "value": "$(mySecret2)" 
+              } 
+          ], 
+          "non-secrets": [ 
+              { 
+                  "name": "param1", 
+                  "value": "paramValue1" 
+              }, 
+              { 
+                  "name": "param2", 
+                  "value": "paramValue2" 
+              } 
+          ] 
+      }
 ```
 
 ## Clean up resources
@@ -227,9 +246,7 @@ inputs:
 
 ## Next steps
 
-You now have a CI/CD pipeline that builds, deploys, and triggers a load test on every build.
-
-Advance to the next article to learn how to set up CI/CD workflow in GitHub to run load tests automatically
+You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Load Testing with GitHub workflows]()
+> [Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
