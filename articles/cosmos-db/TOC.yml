@@ -33,10 +33,10 @@
     - name: Capacity
       items:
         - name: Request units
-          displayName: RUs, RU     
+          displayName: RUs, RU
           href: request-units.md
         - name: Convert vcores to request units
-          href: convert-vcore-to-request-unit.md                 
+          href: convert-vcore-to-request-unit.md
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
           href: set-throughput.md
@@ -90,12 +90,12 @@
           href: online-backup-and-restore.md
         - name: Continuous backup
           items:
-          - name: Continuous backup - Introduction
-            href: continuous-backup-restore-introduction.md
-          - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.yml
-          - name: Continuous backup - Resource model
-            href: continuous-backup-restore-resource-model.md
+            - name: Continuous backup - Introduction
+              href: continuous-backup-restore-introduction.md
+            - name: Continuous backup - FAQ
+              href: continuous-backup-restore-frequently-asked-questions.yml
+            - name: Continuous backup - Resource model
+              href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -130,7 +130,7 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness 
+    - name: Enterprise readiness
       items:
         - name: Compliance
           href: compliance.md
@@ -160,7 +160,7 @@
             - name: Spring Data app
               href: sql/create-sql-api-spring-data.md
             - name: Spark v3 app
-              href: sql/create-sql-api-spark.md              
+              href: sql/create-sql-api-spark.md
             - name: Node.js app
               href: sql/create-sql-api-nodejs.md
             - name: Python app
@@ -205,6 +205,8 @@
           href: sql/create-notebook-visualize-data.md
         - name: 5 - Distribute data globally
           href: sql/tutorial-global-distribution-sql-api.md
+        - name: Deploy to Azure Kubernetes Service
+          href: sql/tutorial-springboot-aks.md
     - name: Samples
       items:
         - name: .NET V2 SDK samples
@@ -942,13 +944,13 @@
             - name: Spring Data Connector v3
               href: sql/sql-api-sdk-java-spring-v3.md
             - name: Spark 3 OLTP Connector
-              href: sql/sql-api-sdk-java-spark-v3.md              
+              href: sql/sql-api-sdk-java-spark-v3.md
             - name: Spark 2 OLTP Connector
               href: sql/sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
               href: sql/sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db           
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
         - name: Node.js
           href: sql/sql-api-sdk-node.md
         - name: Python
@@ -1084,7 +1086,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: MongoDB API
   items:
     - name: Overview
@@ -1150,13 +1152,13 @@
             - name: Pre-migration guide
               href: mongodb/pre-migration-steps.md
             - name: MongoDB native tools (offline)
-              href: mongodb/tutorial-mongotools-cosmos-db.md                            
+              href: mongodb/tutorial-mongotools-cosmos-db.md
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Azure Databricks and Spark (offline)
-              href: mongodb/migrate-databricks.md 
+              href: mongodb/migrate-databricks.md
             - name: Post-migration guide
               href: mongodb/post-migration-optimization.md
         - name: Upgrade to API version 4.0 or 3.6
@@ -1226,7 +1228,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Gremlin API
   displayName: graph, graph database
   items:
@@ -1314,7 +1316,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Table API
   items:
     - name: Overview
@@ -1431,11 +1433,11 @@
             - name: Install and use the emulator
               href: local-emulator.md
             - name: Run the emulator on Docker
-              items:  
-              - name: Run the emulator on Docker for Linux
-                href: linux-emulator.md
-              - name: Run the emulator on Docker for Windows
-                href: local-emulator-on-docker-windows.md
+              items:
+                - name: Run the emulator on Docker for Linux
+                  href: linux-emulator.md
+                - name: Run the emulator on Docker for Windows
+                  href: local-emulator-on-docker-windows.md
             - name: Export emulator certificates
               href: local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -1481,7 +1483,7 @@
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md
         - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md 
+          href: configure-periodic-backup-restore.md
     - name: Security
       items:
         - name: Configure IP firewall
@@ -1514,7 +1516,7 @@
             - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
-              href: use-metrics.md 
+              href: use-metrics.md
             - name: Monitor server-side latency
               href: monitor-server-side-latency.md
             - name: Monitor request unit usage
@@ -1530,10 +1532,10 @@
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: cosmos-db-advanced-queries.md                      
+              href: cosmos-db-advanced-queries.md
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts 
+        - name: Configure alerts
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
