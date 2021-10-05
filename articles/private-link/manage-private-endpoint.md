@@ -86,7 +86,7 @@ Use [Deny-AzPrivateEndpointConnection](/powershell/module/az.network/deny-azpriv
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
 
-#### Remove Private Endpoint Connection 
+#### Remove Private Endpoint connection 
  
 Use [Remove-AzPrivateEndpointConnection](/powershell/module/az.network/remove-azprivateendpointconnection) cmdlet to remove a Private Endpoint connection. 
 
@@ -126,13 +126,13 @@ Use [az network private-endpoint-connection reject](/cli/azure/network/private-e
     --resource-group myResourceGroup
 ```
 
-#### Remove Private Endpoint Connection 
+#### Remove Private Endpoint connection 
  
 Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_delete) cmdlet to remove a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection delete \
-    --name myPrivateEndpointConnection 
+    --name myPrivateEndpointConnection \
     --resource-group myResourceGroup
 ```
 
