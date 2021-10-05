@@ -20,7 +20,7 @@ Examples of secrets that should be stored in Key Vault:
 - Client application secrets
 - Connection strings
 - Passwords
-- Access keys (Redis Cache, Azure Event Hub, Azure Cosmos DB)
+- Access keys (Redis Cache, Azure Event Hubs, Azure Cosmos DB)
 - SSH keys
 
 Other sensitive information like IP addresses, service names, and other configuration settings should be stored in [Azure App Configuration](../../azure-app-configuration/overview.md) rather than in Key Vault.
