@@ -10,8 +10,6 @@ ms.custom: template-how-to
 ---
 # Connect Azure Percept over 5G or LTE with USB modem Quectel 5G RM500-GL 
 
-:::image type="Image" source="media/connect-over-cellular/quectel-5-g-dk-75.png" alt-text="Quectel 5G DK":::
-S
 Here are steps on how to connect your Azure Percept using Quectel RM500-GL 5G modem. You can contact Quectel local sales team for more details on this 5G modem developer kit:
 
 northamerica-sales@quectel.com – for NA customers

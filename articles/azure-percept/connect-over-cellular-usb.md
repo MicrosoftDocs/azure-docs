@@ -27,7 +27,7 @@ Here below you can find steps to prepare and connect Azure Percept DK using USB 
 
 ## Step by step instructions for connecting three different modems
 
-Here below you can find instructions for three different USB modems. First one is a simple LTE CAT-4 USB dongle (Vodafone) that does not have any special features. The instructions for this modem can be used for similar simple cost efficient USB modems. The second one (Multitech) is an example of a USB modem that has different USB modes of operation. For this type of modem, you have to enable the proper USB mode first to enable the MBIM interface that ModemManager supports. The third one is a 5G modem (Quectel DK) and it also has different modes and you have to enable the proper MBIM mode first.  
+Here below you can find instructions for three different USB modems. First one is a simple LTE CAT-4 USB dongle (Vodafone) that does not have any special features. The instructions for this modem can be used for similar simple cost efficient USB modems. The second one (MultiTech) is an example of a USB modem that has different USB modes of operation. For this type of modem, you have to enable the proper USB mode first to enable the MBIM interface that ModemManager supports. The third one is a 5G modem (Quectel DK) and it also has different modes and you have to enable the proper MBIM mode first.  
 
 ### Vodafone USB Connect 4G v2 modem
 :::image type="Image" source="media/connect-over-cellular/vodafone-usb-modem-75.png" alt-text="Vodafone USB modem":::
@@ -36,12 +36,12 @@ Here are the instructions for connecting your Azure Percept DK using a simple US
 
 [Connecting using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md).   
 
-### Multitech Multiconnect USB modem
-:::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="Multitech USB modem":::
+### MultiTech Multiconnect USB modem
+:::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="MultiTech USB modem":::
 
-Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the Multitech USB modem (MTCM-LNA3-B03).
+Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the MultiTech USB modem (MTCM-LNA3-B03).
 
-[Connecting using Multitech USB modem](./connect-over-cellular-usb-multitech.md).   
+[Connecting using MultiTech USB modem](./connect-over-cellular-usb-multitech.md).   
 
 ### Quectel 5G developer kit
 :::image type="Image" source="media/connect-over-cellular/quectel-5-g-dk-75.png" alt-text="Quectel 5G DK":::
@@ -99,7 +99,7 @@ Now check out the instructions for different USB modems:
 
 [Connect using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md)
 
-[Connect using Multitech USB modem](./connect-over-cellular-usb-multitech.md)
+[Connect using MultiTech USB modem](./connect-over-cellular-usb-multitech.md)
 
 [Connect using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md)
 
