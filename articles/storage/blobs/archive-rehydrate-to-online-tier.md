@@ -101,7 +101,7 @@ To change a blob's tier from archive to hot or cool in the Azure portal, follow 
 
 ### [PowerShell](#tab/powershell)
 
-To change a blob's tier from archive to hot or cool with PowerShell, use the blob's **ICloudBlob** property to return a .NET reference to the blob, then call the **SetStandardBlobTier** method on that reference. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from archive to hot or cool with PowerShell, use the blob's **ICloudBlob** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference. Remember to replace placeholders in angle brackets with your own values:
 
 ```powershell
 # Initialize these variables with your values.
@@ -115,7 +115,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob's access tier to hot with standard priority.
+# Change the blob's access tier to hot with High priority. If you want to rehydrate using Standard Priority, pass "Standard" value in the method.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
