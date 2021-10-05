@@ -16,23 +16,18 @@ ms.author: aahi
 
 Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
 
-The service is the unification of the following Cognitive Services offerings:
-
-* Text Analytics
-* QnA Maker
-* Language Understanding (LUIS)
+This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well. These features can either be:
+* Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
+* Customizable, which means you'll train an AI model using our tools to fit your data specifically. 
 
 ## Available features
-
-> [!TIP]
-> Language Studio (linked below) helps you start exploring these features using a web-based portal, and without needing to write code. 
 
 Azure Cognitive Service for Language provides the following features:
 
 > [!div class="mx-tdCol2BreakAll"]
 > |Feature  |Description  | Deployment options| 
 > |---------|---------|---------|
-> | [Named Entity Recognition(NER) and sensitive information(PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories, including sensitive information.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](named-entity-recognition/quickstart.md) |
+> | [Named Entity Recognition (NER) and sensitive information (PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories, including sensitive information.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](named-entity-recognition/quickstart.md) |
 > | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](key-phrase-extraction/quickstart.md) <br> • [**Docker container**](key-phrase-extraction/how-to/use-containers.md)  |
 > |[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](entity-linking/quickstart.md) |
 > | [Extract information from healthcare-related text](health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](health/quickstart.md) <br> • [**Docker container**](health/how-to/use-containers.md) |
@@ -48,9 +43,11 @@ Azure Cognitive Service for Language provides the following features:
 
 After you've had a chance to get started with the Language service, try our tutorials that show you how to solve various scenarios.
 
-* Tutorial: Determine user intentions with the Language SDK, C#
-* Tutorial: Extract information in Excel with the Language SDK, C#
-* Tutorial: Add knowledge bases in multiple languages with Language SDK, C# 
+* [Extract key phrases from text stored in Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
+* [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
+* [Use Flask to translate text, analyze sentiment, and synthesize speech](/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language/context/context)
+* [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language/context/context)
+* [Create a FAQ Bot](custom-question-answering/tutorials/bot-service.md)
 
 ## Additional code samples
 
