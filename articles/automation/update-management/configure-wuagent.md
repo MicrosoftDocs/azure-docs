@@ -3,7 +3,7 @@ title: Configure Windows Update settings for Azure Automation Update Management
 description: This article tells how to configure Windows Update settings to work with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 10/05/2021
 ms.topic: conceptual
 ---
 # Configure Windows Update settings for Azure Automation Update Management
@@ -21,13 +21,18 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but allows downloading of updates outside the Update Management maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Management.
+To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates). There are two recommended values depending on the verison of the operating system:
+
+* For Windows Server 2016 and later, set to a value of **7**.
+* For versions of Windows Server earlier than 2016, set to a value of **3**.
+
+This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but allows downloading of updates outside the Update Management maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Management.
 
 You can enable this setting in PowerShell:
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
-$WUSettings.NotificationLevel = 3
+$WUSettings.NotificationLevel = <3 or 7>
 $WUSettings.Save()
 ```
 
