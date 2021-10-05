@@ -50,6 +50,8 @@ You will require the following files in your repository for running the load tes
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file using the syntax shown [here](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). Alternatively, if you have already run a load test before, you can download this file from the input files section on the dashboard as shown below.
 
+    :::image type="content" source="media/tutorial-continous-regression-testing-in-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.
 
@@ -61,7 +63,7 @@ You will require the following files in your repository for running the load tes
 
 1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) for your Azure subscription.
 
-1. After creating the service connection, click on Manage Service Principal. This will give the details of the Service Principal. Note the Object ID.  
+1. After creating the service connection, click on Manage Service Principal. This will give the details of the Service Principal. Note the Object ID for the Service Principal.  
 
 1. Authorize the Service Principal to access Azure Load Testing service by assigning the **Load Test Contributor** role. Run the following Az CLI command.
 

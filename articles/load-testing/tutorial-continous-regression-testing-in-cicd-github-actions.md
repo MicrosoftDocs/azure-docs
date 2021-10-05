@@ -49,6 +49,8 @@ You will require the following files in your repository for running the load tes
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file using the syntax shown [here](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). Alternatively, if you have already run a load test before, you can download this file from the input files section on the dashboard as shown below.
 
+    :::image type="content" source="media/tutorial-continous-regression-testing-in-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.
 
@@ -83,7 +85,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
     --subscription "{subscriptionNameOrId}"
     ```
 
-1. Now edit the the workflow file in your branch: .github/workflows/workflow.yml. Replace the following values of the variables.
+1. Now edit the workflow file in your branch: .github/workflows/workflow.yml. Replace the following values of the variables.
 
     ```yml
     webAppName: 'Name of the web App' #This should be same as the App name in the SampleApp.jmx
@@ -150,7 +152,7 @@ Add the test criteria to your pipeline load test as shown below
 
 1. Once the load test completes, the above workflow will fail. Go to the workflow logs and view the output of the Azure Load Testing action.
 
-1. The output of the task will show the outcome of the test criteria. For the above criteria the since the average response time is greater than 100 ms, the first criteria will fail. The other two criteria should pass.
+1. The output of the task will show the outcome of the test criteria. For the above criteria  since the average response time is greater than 100 ms, the first criteria will fail. The other two criteria should pass.
 
 1. Edit the SampleApp.yml file and change the above test criteria to the following
 
@@ -169,7 +171,7 @@ The Azure Load Testing service evaluates the criteria during the test execution.
 
 Now that you have set test criteria to pass or fail your test, the next step is to parameterize your load tests using workflow variables. These parameters may be secrets and /or non-secrets
 
-- Secret parameters: These are any sensitive variables you don't want to be checked in to your source control repository. These can be stored as a secret in GitHub or in any other secret store which can be fetched within the workflow.
+- Secret parameters: These are any sensitive variables you don't want to be checked in to your source control repository. These can be stored as a secret in GitHub or in any other secret store, which can be fetched within the workflow.
 
 - Non-secret parameters: These are values that may keep changing based on the test run. These can be provided as inputs at runtime, instead of defining in the test script.
 
@@ -177,7 +179,7 @@ To add parameters to your load test from the workflow
 
 1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to call *function* to fetch the parameters as shown below. Save and commit the file
 
-1. Go your GitHub Repository > Settings > Secrets > New repository secret > "mySecret". Add "" as the value and click on Add secret.
+1. Go your GitHub Repository > Settings > Secrets > New repository secret > "mySecret". Add "" as the value and select Add secret.
 
 1. In the workflow.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition
 
