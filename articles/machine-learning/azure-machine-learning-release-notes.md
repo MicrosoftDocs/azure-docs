@@ -30,7 +30,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-core**
     + Bug in specifying non-public clouds for Managed Identity authentication has been resolved.
     + Dataset.File.upload_directory() and Dataset.Tabular.register_pandas_dataframe() experimental flags are now removed.
+    + Experimental flags are now removed in partition_by() method of TabularDataset class.
     + Update the model test predictions.csv output format. The output columns now include the original target values and the features which were passed in to the test run. This can be turned off by setting `test_include_predictions_only=True` in `AutoMLConfig` or by setting `include_predictions_only=True` in `ModelProxy.test()`. If the user has requested to only include predictions then the output format looks like (forecasting is the same as regression): Classification => [predicted values] [probabilities] Regression => [predicted values] else (default): Classification => [original test data labels] [predicted values] [probabilities] [features] Regression => [original test data labels] [predicted values] [features] The `[predicted values]` column name = `[label column name] + "_predicted"`. The `[probabilities]` column names = `[class name] + "_predicted_proba"`. If no target column was passed in as input to the test run, then `[original test data labels]` will not be in the output.
+  + **azureml-pipeline-steps**
+    + Experimental flags are now removed for the `partition_keys` parameter of the ParallelRunConfig class.
   + **azureml-interpret**
     + azureml-interpret package updated to intepret-community 0.20.*
   + **azureml-mlflow**
