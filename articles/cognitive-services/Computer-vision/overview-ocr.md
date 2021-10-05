@@ -41,20 +41,26 @@ The **Read** call takes images and documents as its input. They have the followi
 * The file size must be less than 50 MB (6 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
 
 ## Supported languages
-The Read API supports a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten-style OCR is supported exclusively for English.
+The Read API supports 122 languages for print text and 7 languages for handwritten text. 
+
+OCR for print text includes support for English, French, German, Italian, Portuguese, Spanish, Chinese, Japanese, Korean, and Russian (preview), along with Latin and Cyrillic languages with the latest preview update.
+
+OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese languages.
+
+See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA languages.
 
 ## Key features
 
-The Read API includes the following features. 
+The Read API includes the following features.
 
-* Print text extraction in 73 languages
-* Handwritten text extraction in English
+* Print text extraction in 122 languages
+* Handwritten text extraction in seven languages
 * Text lines and words with location and confidence scores
 * No language identification required
 * Support for mixed languages, mixed mode (print and handwritten)
 * Select pages and page ranges from large, multi-page documents
-* Natural reading order for text lines
-* Handwriting classification for text lines
+* Natural reading order option for text line output (Latin only)
+* Handwriting classification for text lines (Latin only)
 * Available as Distroless Docker container for on-premise deployment
 
 Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api.md).
@@ -74,4 +80,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 ## Next steps
 
 - Get started with the [OCR (Read) REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
-- Learn about the [Read 3.2 REST API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
