@@ -32,6 +32,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * Volume alerts
 * Tiering alerts
 * Security alerts
+* Key vault alerts
 
 
 
@@ -98,6 +99,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Your device is almost out of storage space. If a disk fails, then you may not be able to restore data on this device. |Critical |Delete data to free up capacity on your device. |
 | The virtual hard disk {0} is nearing its capacity. |Warning | Delete some data to free capacity.  |
 
+
 ### Service health alerts
 
 |Alert text |Severity |Description / Recommended action |
@@ -127,6 +129,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support). |
 |The device has {0} files. A maximum of {1} files are supported. |Critical |Consider deleting some files from the device. |
 
+
 ### Security alerts
 
 |Alert text |Severity |Description / Recommended action |
@@ -140,6 +143,16 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |A support session is enabled. |Informational |This is an information alert to ensure that administrators can ensure that the enabling the support session is legitimate. No action is needed. |
 |A support session has started. |Informational |This is an information alert to ensure that administrators can ensure that the support session is legitimate. No action is needed. |
 
+
+### Key Vault alerts
+
+|Alert text |Severity |Description / Recommended action |
+|-----------|---------|---------------------------------|
+|Key Vault is not configured. |Critical/Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>If secrets are soft deleted, follow the steps in [Recover soft deleted secrets](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
+|Key Vault is deleted. |Critical |If the key vault is deleted and the purge protection duration of 90 days hasn't elapsed, follow the steps in [List, recover, or purge a soft deleted key vault](../key-vault-recovery.md#list-recover-or-purge-a-soft-deleted-key-vault) to recover your key vault. *Verify link target.*|
+|Key Vault is not configured. |Warning |Configure the Key Vault for your Azure Stack Edge resource. For detailed steps, see [Create a key vault](../key-vault/general/quick-create-portal.md). |
+|Couldn’t retrieve secret(s) from the Key Vault. |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. Required permissions are listed in [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
+|Couldn’t access the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 
 
 ## Next steps
