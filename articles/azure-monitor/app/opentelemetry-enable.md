@@ -144,7 +144,7 @@ Placeholder
 
 ##### [.NET](#tab/net)
 
-The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add the same logic to your own application.
+The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add similar logic to your own application.
 
 ```csharp
 using System.Diagnostics;
@@ -182,6 +182,9 @@ public class Program
 > [!NOTE]
 > The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
 
+> [!NOTE]
+> Are you wondering why the terms `ActivitySource` and `Activity` are used instead of `Tracer` and `Span` per the OpenTelemetry specification? It's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. At a high-level, this means is that the `Activity` and `ActivitySource` classes from the .NET runtime represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
 ##### [JavaScript](#tab/javascript)
 
 placeholder
@@ -211,7 +214,7 @@ Run your application and open your Application Insights Resource blade on the Az
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more micro-services using the same connection string, you are required to set role names to represent them properly on the Application Map.
+> If you have two or more micro-services using the same connection string, you are required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
 
 ## Set Cloud Role Name and Cloud Role Instance
 
