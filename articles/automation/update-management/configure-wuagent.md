@@ -21,7 +21,7 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates). There are two recommended values depending on the verison of the operating system:
+To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates). There are two recommended values depending on the version of the operating system:
 
 * Windows Server 2016 and later, set to a value of **7**.
 * Windows Server 2012 R2 and earlier, set to a value of **3**.
