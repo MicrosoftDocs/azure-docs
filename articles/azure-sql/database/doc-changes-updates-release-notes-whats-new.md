@@ -48,7 +48,6 @@ The following table lists the features of Azure SQL Database that have transitio
 | Feature | GA Month | Details |
 | ---| --- |--- |
 | [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals).| 
-| [AAD directory readers and guest users](authentication-aad-guest-users.md)  | September 2021  | Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. | 
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 |||| 
 
