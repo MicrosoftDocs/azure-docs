@@ -21,6 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+    
 ## September 2021
 
 * [Azure NetApp Files backup](backup-introduction.md) (Preview)
