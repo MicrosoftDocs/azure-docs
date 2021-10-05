@@ -228,7 +228,7 @@ Currently, portal console support, and persistence to firewall storage accounts 
 
 You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**.
 
-:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="private endpoint dns settings":::
+:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
