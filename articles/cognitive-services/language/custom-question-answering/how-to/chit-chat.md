@@ -47,7 +47,7 @@ Chitchat data sets are supported in the following languages:
 |Spanish|
 
 ## Add chitchat source
-After you create your project you can add sources from URLs, Files, as well as chitchat from the Manage sources pane.
+After you create your project you can add sources from URLs, files, as well as chitchat from the **Manage sources** pane.
 
 > [!div class="mx-imgBorder"]
 > ![Add source chitchat](../media/chit-chat/add-source.png)
@@ -66,7 +66,7 @@ When you edit your knowledge base, you will see a new source for chitchat, based
 
 To turn the views for context and metadata on and off, select **Show columns** in the toolbar.
 
-## Add additional chitchat questions and answers
+## Add more chitchat questions and answers
 
 You can add a new chitchat question pair that is not in the predefined data set. Ensure that you are not duplicating a question pair that is already covered in the chitchat set. When you add any new chitchat question pair, it gets added to your **Editorial** source. To ensure the ranker understands that this is chitchat, add the metadata key/value pair "Editorial: chitchat", as seen in the following image:
 
