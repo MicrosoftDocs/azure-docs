@@ -8,8 +8,7 @@ ms.date: 09/10/2021
 ---
 
 # Tutorial: Analyze logs from an Azure resource
-
-Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must configure where they should be collected. This tutorial takes you through the process of creating a diagnostic setting to send resource logs to a Log Analytics workspace where you can analyze them with log queries.
+Log data stored in Azure Monitor includes resource logs and performance data from Azure resources and guest logs from virtual machines. This data is stored in a Log Analytics database where it can retrieved using log queries. Interactively work with the results using Log Analytics, alert on them using a log query alert, or include them in a workbook. 
 
 In this tutorial, you learn how to:
 
@@ -23,10 +22,8 @@ In this tutorial, you learn how to:
 To complete this tutorial you need an Azure resource with resource logs or other data being collected in a Log Analytics workspace. Complete one of the following tutorials to collect this data.
 
 - [Tutorial: Collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
+- [Collect guest metrics and logs from Azure virtual machine](../vm/tutorial-data-collection-rule-vm.md)
 
-
-   
- 
  ## Use a log query to retrieve logs
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. 
 
