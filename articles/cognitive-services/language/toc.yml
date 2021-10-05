@@ -1,10 +1,10 @@
 items:
-- name: Language services documentation
+- name: Azure Cognitive Service for Language documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What are Language services?
+  - name: What is Azure Cognitive Service for Language?
     href: overview.md
   - name: What's new
     href: whats-new.md
@@ -14,7 +14,7 @@ items:
     href: language-studio.md
 - name: Responsible use of AI
   items: 
-  - name: Transparency note for Azure Cognitive Service for language
+  - name: Transparency note for Azure Cognitive Service for Language
     href: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context
     displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
   - name: Integration and responsible use

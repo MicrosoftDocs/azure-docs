@@ -1,7 +1,7 @@
 ---
 title: Named Entity Recognition (NER) and PII detection language support 
 titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the NER and PII detection features of Azure Cognitive Service for language.
+description: This article explains which natural languages are supported by the NER and PII detection features of Azure Cognitive Service for Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
