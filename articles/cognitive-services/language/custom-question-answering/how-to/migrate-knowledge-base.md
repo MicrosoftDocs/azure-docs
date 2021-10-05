@@ -1,84 +1,63 @@
 ---
-title: Migrate knowledge bases - custom question answering
-description: Migrating a custom question answering knowledge base requires exporting from one knowledge base, then importing into another.
+title: Migrate projects and knowledge bases - custom question answering
+description: Migrating a custom question answering project requires exporting a project from one resource, and then importing into another.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 10/04/2021
 ---
-# Migrate a knowledge base
+# Migrate projects and knowledge bases
 
-You may want to create a copy of your knowledge base for several reasons:
+You may want to create a copy of your project for several reasons:
 
-* Copy a knowledge base from QnA Maker GA to Custom question answering 
-* To implement a backup and restore process 
-* Integrate with your CI/CD pipeline 
+* To implement a backup and restore process
+* Integrate with your CI/CD pipeline
 * When you wish to move your data to different regions
 
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource. <!--TODO: Change link-->
+> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource.
 
-<!-- TODO: Replace Link
-> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
--->
-## Export a knowledge base
-1. Sign in to [QnA Maker portal](https://qnamaker.ai).
-1. Select the knowledge base you want to migrate.
+## Export a project
 
-1. On the **Settings** page, you have the options to export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can choose to download the data in .tsv/.xlsx.
+Exporting a project allows you to migrate or backup all the sources/knowledge bases that are contained within a single project.
 
-   1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
-   2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
-   4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
+1. Sign in to the [Language Studio](https://language.azure.com/).
+1. Select the language resource you want to migrate a project from.
 
-## Import a knowledge base
-1. Select **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then select **Create your KB**. 
+1. On the **Projects** page, you have the options to export in two formats, Excel or TSV. This will determine the contents of the file. The file itself will be exported as a .zip containing all of your knowledge bases.
 
-1. In this new knowledge base, open the **Settings** tab and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+## Import a project  
 
-   1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
-   2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
-   3. **Knowledge Base Replica**: This option can be used to import KB replica with QnAs, Synonyms and Settings. You can refer [KBReplicaSampleExcel](https://aka.ms/qnamaker-samplereplica), [KBReplicaSampleTSV](https://aka.ms/qnamaker-samplereplicatsv) for more details. If you also want to add unstructured content to the replica, refer [CustomQnAKBReplicaSample](https://aka.ms/qnamaker-samplev2replica).
+1. Select the language resource which will be the destination for your previously exported project.
+1. On the **Projects** page, select **Import** and choose the format used when you selected export. Then browse to the local .zip file containing your exported project. Enter a name for your newly imported project and select **Done**.
 
-      Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
-      Synonyms file is not mandatory when importing replica.
-      Settings file is mandatory when importing replica.
+## Export question and answers
 
-         |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
-         |:--|--|--|
-         |DefaultAnswerForKB|No|Yes|
-         |EnableActiveLearning (True/False)|Yes|No|
-         |EnableMultiTurnExtraction (True/False)|Yes|Yes|
-         |DefaultAnswerforMultiturn|Yes|Yes|
-         |Language|No|No|
+1. Select the language resource you want to migrate an individual question answer source from.
+1. Select the project that contains the question and answer source you wish to export.
+1. On the **Edit knowledge base** page select the three elipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV. 
 
+## Import question and answers
+
+1. Select the language resource which will be the destination for your previously exported question and answer source.
+1. Select the project where you want to import a question and answer source.
+1. On the **Edit knowledge base** page select the three elipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either a Excel or TSV file.
+1. Browse to the local location of the file with the **Choose File** option and select **Done**.
 
 <!-- TODO: Replace Link-->
-3. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+3. **Test** the question answer source by selecting the **Test** option from the toolbar in the **Edit knowledge base** which will launch the test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
 
 <!-- TODO: Replace Link-->
-4. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+4. **Deploy** the knowledge base and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/migrate-knowledge-base/import-export-kb.png)
 
-## Programmatically migrate a knowledge base
-
-The migration process is programmatically available using the following REST APIs:
-
-**Export**
-
-* [Download knowledge base API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
-
-**Import**
-
-* [Replace API (reload with same knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Create API (load with new knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
-
 ## Chat logs
-There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs.
+
+There is no way to migrate chat logs in conjunction with projects or knowledge bases. If diagnostic logs are enabled chat logs are stored in the associated Azure Monitor resource.
 
 ## Next steps
 
