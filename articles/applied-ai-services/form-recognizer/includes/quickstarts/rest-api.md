@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Azure Form Recognizer REST API"
 description: Use the Form Recognizer REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

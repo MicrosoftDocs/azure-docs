@@ -1,12 +1,12 @@
 ---
 title: Networking features
 description: Learn about the networking features in Azure App Service, and learn which features you need for security or other functionality.
-author: ccompy
+author: madsd
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/26/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -58,7 +58,7 @@ The following outbound use cases suggest how to use App Service networking featu
 | Outbound use case | Feature |
 |---------------------|-------------------|
 | Access resources in an Azure virtual network in the same region | VNet Integration </br> ASE |
-| Access resources in an Azure virtual network in a different region | Gateway-required VNet Integration </br> ASE and virtual network peering |
+| Access resources in an Azure virtual network in a different region | VNet Integration and virtual network peering </br> Gateway-required VNet Integration </br> ASE and virtual network peering |
 | Access resources secured with service endpoints | VNet Integration </br> ASE |
 | Access resources in a private network that's not connected to Azure | Hybrid Connections |
 | Access resources across Azure ExpressRoute circuits | VNet Integration </br> ASE | 
@@ -118,7 +118,10 @@ To learn how to enable this feature, see [Configuring access restrictions][ipres
 
 #### Access restriction rules based on service endpoints 
 
-Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks. 
+Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
+
+> [!NOTE]
+> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#app-assigned-address)).
 
 Some use cases for this feature:
 
@@ -148,9 +151,9 @@ Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
 * Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
 
-### Private Endpoint
+### Private endpoint
 
-Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
+Private endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
 For more information, see
 [Using private endpoints for Azure Web App][privateendpoints].
 
@@ -194,23 +197,25 @@ Gateway-required App Service VNet Integration enables your app to make *outbound
 
 This feature solves the problem of accessing resources in other virtual networks. It can even be used to connect through a virtual network to either other virtual networks or on-premises. It doesn't work with ExpressRoute-connected virtual networks, but it does work with site-to-site VPN-connected networks. It's usually inappropriate to use this feature from an app in an App Service Environment (ASE) because the ASE is already in your virtual network. Use cases for this feature:
 
-* Access resources on private IPs in your Azure virtual networks. 
-* Access resources on-premises if there's a site-to-site VPN. 
-* Access resources in peered virtual networks. 
+* Access resources on private IPs in your Classic virtual networks.
+* Access resources on-premises if there's a site-to-site VPN.
+* Access resources in cross region VNets that are not peered to a VNet in the region. 
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service VNet Integration][vnetintegrationp2s]. 
 
-### VNet Integration
+### Regional VNet Integration
 
 Gateway-required VNet Integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another VNet Integration capability can meet these needs. 
 
-The new VNet Integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
+The regional VNet Integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
 
 * Access resources in Resource Manager virtual networks in the same region.
+* Access resources in peered virtual networks, including cross region connections.
 * Access resources that are secured with service endpoints. 
 * Access resources that are accessible across ExpressRoute or VPN connections.
-* Help to secure all outbound traffic. 
-* Force tunnel all outbound traffic. 
+* Access resources in private networks without the need and cost of a Virtual Network gateway.
+* Help to secure all outbound traffic.
+* Force tunnel all outbound traffic.
 
 ![Diagram that illustrates VNet Integration.](media/networking-features/vnet-integration.png)
 

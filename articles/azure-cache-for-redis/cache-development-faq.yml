@@ -2,8 +2,8 @@
 metadata:
   title: Azure Cache for Redis development FAQs
   description: Learn the answers to common questions that help you develop for Azure Cache for Redis
-  author: yegu-ms
-  ms.author: yegu
+  author: curib
+  ms.author: cauribeg
   ms.service: cache
   ms.topic: conceptual
   ms.custom: devx-track-csharp
@@ -66,7 +66,7 @@ sections:
         answer: |
           One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md).
           
-          [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+          [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
           
       - question: |
           Is there a local emulator for Azure Cache for Redis?

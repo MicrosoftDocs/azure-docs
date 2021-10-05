@@ -18,8 +18,11 @@
     - name: Create container registry - PowerShell
       href: container-registry-get-started-powershell.md
     - name: Create container registry - ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager,ARM
       href: container-registry-get-started-geo-replication-template.md
+    - name: Create container registry - Bicep
+      displayName: Resource Manager,ARM
+      href: container-registry-get-started-bicep.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
     - name: Manage content with client libraries
@@ -137,11 +140,11 @@
         - name: Authenticate from Kubernetes
           items:
           - name: Kubernetes scenarios
-            href: authenticate-kubernetes-options.md  
+            href: authenticate-kubernetes-options.md
           - name: Attach registry to Azure Kubernetes Service (AKS)
             href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
           - name: Cross-tenant authentication from AKS
-            href: authenticate-aks-cross-tenant.md 
+            href: authenticate-aks-cross-tenant.md
           - name: Authenticate using Kubernetes pull secret
             href: container-registry-auth-kubernetes.md
       - name: Azure role-based access control
@@ -162,9 +165,9 @@
       expanded: false
       items:
         - name: Monitor Container Registry
-          href: monitor-service.md  
+          href: monitor-service.md
         - name: Audit compliance using Azure Policy
-          href: container-registry-azure-policy.md 
+          href: container-registry-azure-policy.md
         - name: Scan container images
           expanded: false
           items:
@@ -238,7 +241,7 @@
           href: container-registry-tasks-cross-registry-authentication.md
         - name: External authentication using key vault
           href: container-registry-tasks-authentication-key-vault.md
-      - name: Quick task run with Resource Manager template 
+      - name: Quick task run with Resource Manager template
         href: container-registry-task-run-template.md
       - name: Run task on dedicated agent pool (preview)
         href: tasks-agent-pools.md

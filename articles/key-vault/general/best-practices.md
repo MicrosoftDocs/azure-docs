@@ -18,6 +18,10 @@ ms.author: mbaldwin
 
 Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
 
+### Why we recommend separate key vaults
+
+Access policies are an "all or nothing" concept in Azure Key Vault. If an identity has a specific permission (**Get**, for example), the identity can get *any* secret, key, or certificate in the vault. This means that grouping sensitive data into the same vault increases the *blast radius* of a security event because attacks might be able to access sensitive information across concerns. To mitigate this, consider what sensitive information a specific application *should* have access to, and then separate your key vaults based on this delineation. Separating key vaults by app is the most common boundary.
+
 ## Control Access to your vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
@@ -53,3 +57,6 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.
+
+## Learn more
+- [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)

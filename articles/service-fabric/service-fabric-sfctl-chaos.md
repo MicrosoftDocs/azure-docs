@@ -2,7 +2,6 @@
 title: Azure Service Fabric CLI- sfctl chaos
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing chaos.
 author: jeffj6123
-
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
@@ -72,7 +71,7 @@ Get the status of Chaos indicating whether or not Chaos is running, the Chaos pa
 ## sfctl chaos start
 Starts Chaos in the cluster.
 
-If Chaos is not already running in the cluster, it starts Chaos with the passed in Chaos parameters. If Chaos is already running when this call is made, the call fails with the error code FABRIC_E_CHAOS_ALREADY_RUNNING. Refer to the article [Induce controlled Chaos in Service Fabric clusters](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) for more details.
+If Chaos is not already running in the cluster, it starts Chaos with the passed in Chaos parameters. If Chaos is already running when this call is made, the call fails with the error code FABRIC_E_CHAOS_ALREADY_RUNNING. Refer to the article [Induce controlled Chaos in Service Fabric clusters](service-fabric-controlled-chaos.md) for more details.
 
 ### Arguments
 

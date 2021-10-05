@@ -24,11 +24,6 @@ A Capacity Reservation creation succeeds or fails in its entirety. For a request
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-
 ## Considerations
 
 The Capacity Reservation must meet the following rules: 
