@@ -137,6 +137,7 @@ The domain object that represents your storage account must meet the following r
 If your domain object doesn't meet those requirements, delete it and create a new domain object that does.
 
 Replace `<domain-object-identity>` and `<domain-name>` with your values, then use the following command to configure AES256 support: 
+
 ```powershell
 Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
