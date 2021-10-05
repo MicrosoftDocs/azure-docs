@@ -32,7 +32,7 @@
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Language identification
-        - href: language-identification.md
+          href: language-identification.md
         - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
