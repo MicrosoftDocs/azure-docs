@@ -36,10 +36,10 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 We'll be deprecating the following preview alert:
 
-PREVIEW - Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)
-Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.
-These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.
-Requires an active Microsoft Cloud App Security license.
+|Alert name| Description|
+|----------------------|---------------------------|
+|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Cloud App Security license.|
+|||
 
 We've created new alerts that provide this information and add to it. In addition, the newer alert (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Cloud App Security.
 
