@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Percept over LTE with USB modem Multitech Multiconnect
-description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using Multitech USB modem.
+title: Connect Azure Percept over LTE with USB modem MultiTech Multiconnect
+description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using MultiTech USB modem.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
@@ -9,8 +9,8 @@ ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
 
-# Connect Azure Percept over LTE with USB modem Multitech Multiconnect 
-Here are steps how to connect your Azure Percept using Multitech Multiconnect (MTCM-LNA3-B03) USB modem. 
+# Connect Azure Percept over LTE with USB modem MultiTech Multiconnect 
+Here are steps how to connect your Azure Percept using MultiTech Multiconnect (MTCM-LNA3-B03) USB modem. 
 
 > [!Note]
 > There are several models and we used LNA3 that works at least with Verizon and Vodafone SIM cards. We were not able to connect to an AT&T network, but we are investigating that and will modify this if we find the root cause. More info on this particular modem HW can be found following this page: https://www.multitech.com/brands/multiconnect-microcell
@@ -26,7 +26,7 @@ We use AT command `AT#USBCFG=<mode>` to configure the right USB mode to enable M
 
 The AT command reference guide lists all possible modes, but we are interested in mode `3`, the default is `0`.
 
-Easiest way to configure the mode is to connect the Multitech modem to a PC and use terminal SW like TeraTerm or Putty PC software. Using Windows Device Manager you can see what USB port is assigned for the modem, you might need to test which one is responding to AT commands, if there are several. The COM port settings should be:
+Easiest way to configure the mode is to connect the MultiTech modem to a PC and use terminal SW like TeraTerm or Putty PC software. Using Windows Device Manager you can see what USB port is assigned for the modem, you might need to test which one is responding to AT commands, if there are several. The COM port settings should be:
 Baudrate: 9600 (or 115200)
 StopBits: 1
 Parity: None
@@ -34,7 +34,7 @@ ByteSize: 8
 Flow Control: No ctrl flow
 
 And here are the AT commands:
-To check which USB mode Multitech device is currently:
+To check which USB mode MultiTech device is currently:
 ```
 AT#USBCFG?
 ```
@@ -53,9 +53,9 @@ At this point, the modem should disconnect and later reconnect to the USB port u
 ## Using the modem to connect
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 
-**1. Plug a SIM card in the Multitech modem**
+**1. Plug a SIM card in the MultiTech modem**
 
-**2. Plug the Multitech modem into the Azure Percept USB A port**
+**2. Plug the MultiTech modem into the Azure Percept USB A port**
 
 **3. Power-up Azure Percept**
 
