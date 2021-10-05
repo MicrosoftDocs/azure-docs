@@ -13,7 +13,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 Java auto-instrumentation can be enabled without any code changes, and it works in any environment.
 
 > [!NOTE]
-> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to use the `opentelemetry-api`. For versions older than 3.2.0 you'll need the the [Java 2.x SDK](./java-2x-get-started.md).
+> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to use the `opentelemetry-api`. For versions older than 3.2.0 you'll need the the [Java 2.x SDK](./java-2x-get-started.md) for the same.
 
 ## Get started
 
@@ -200,7 +200,7 @@ Adding one or more custom dimensions will populate the _customDimensions_ field 
 > [!NOTE]
 > This feature is only in 3.2.0 and later
 
-Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
+Add `opentelemetry-api-1.6.0.jar` to your application
 
 ```xml
 <dependency>
@@ -218,8 +218,8 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
-#### Set user ID or authenticated user ID
-Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
+#### Set user ID
+Populate the User Id field in the requests, dependencies, and/or exceptions table.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before setting Authenticated User ID.
@@ -227,7 +227,7 @@ Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependen
 > [!NOTE]
 > This feature is only in 3.2.0 and later
 
-Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
+Add `opentelemetry-api-1.6.0.jar` to your application
 
 ```xml
 <dependency>
@@ -255,7 +255,7 @@ You may use `opentelemetry-api` to override span name. This updates Operation Na
 > [!NOTE]
 > This feature is only in 3.2.0 and later
 
-Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
+Add `opentelemetry-api-1.6.0.jar` to your application
 
 ```xml
 <dependency>
@@ -283,7 +283,7 @@ You may use `opentelemetry-api` to get trace ID or span ID. This may be done to 
 > [!NOTE]
 > This feature is only in 3.2.0 and later
 
-Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
+Add `opentelemetry-api-1.6.0.jar` to your application
 
 ```xml
 <dependency>
