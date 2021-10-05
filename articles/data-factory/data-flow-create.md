@@ -52,7 +52,7 @@ Filter on Category:Data Flow there to choose from the available templates.
 
 :::image type="content" source="media/data-flow-create/synapse-template-gallery-filtered-for-data-flow.png" alt-text="Shows the template gallery filtered for data flows.":::
 
-You can also add data flows directly to your workspace without using a template. Select the **Integrate** tab in Data Factory Studio and click the plus sign to choose **Pipeline**.  Then in your pipeline, expand the **Move & transform** Activities section and drag a **Data flow** onto the canvas for the pipeline.
+You can also add data flows directly to your workspace without using a template. Select the **Integrate** tab in Synapse Studio and click the plus sign to choose **Pipeline**.  Then in your pipeline, expand the **Move & transform** Activities section and drag a **Data flow** onto the canvas for the pipeline.
 
 :::image type="content" source="media/data-flow-create/create-pipeline-in-synapse.png" alt-text="Shows a screenshot of how to create an empty pipeline directly.":::
 
