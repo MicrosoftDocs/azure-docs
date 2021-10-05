@@ -42,9 +42,9 @@ You must set up authentication on each resource within your subscription or reso
 
 To learn how to add permissions on each resource type within a subscription or resource group, see the following resources:
     
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#prerequisites-for-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#prerequisites-for-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#prerequisites-for-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
