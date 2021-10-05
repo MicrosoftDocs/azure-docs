@@ -120,9 +120,15 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Auto-collected dependencies plus downstream distributed trace propagation:
 
-* Apache HttpClient and HttpAsyncClient
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
 * gRPC
 * java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS Client
+* Jetty HttpClient
 * JMS
 * Kafka
 * Netty client
