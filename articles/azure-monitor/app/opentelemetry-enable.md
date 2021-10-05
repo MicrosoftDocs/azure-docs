@@ -131,6 +131,8 @@ Placeholder
 
 ##### 1. Install Pypi Package
 
+Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) Pypi package.
+
 ```sh
 pip install azure-monitor-opentelemetry-exporter 
 ```
@@ -200,7 +202,7 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
 
 exporter = AzureMonitorTraceExporter.from_connection_string(
-    os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+    "<Your Connection String>"
 )
 
 trace.set_tracer_provider(TracerProvider())
@@ -523,7 +525,7 @@ Placeholder
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
 ```python
-Placeholder
+span._attributes["enduser.id"] = "<User ID>"
 ```
 
 > [!TIP]
@@ -580,10 +582,9 @@ DjangoInstrumentation().instrument(request_hook=request_hook, response_hook=resp
 
 You may use following ways to filter out telemetry before leaving your application.
 
-1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
-
 #### [.NET](#tab/net)
 
+1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 
 2. Using custom processor:
     
@@ -661,13 +662,62 @@ For more information, see [GitHub Repo](link).
 
 #### [Python](#tab/python)
 
-You may use a Span Processor to filter out telemetry before leaving your application. Span Processors may be used to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
+1. Exclude url option provided by many http instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
+
+Below is an example of how to exclude a certain url from being tracked using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation.
 
 ```python
-Placeholder
+...
+import flask
+
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+
+# You may also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
+# List will consist of comma delimited regexes representing which URLs to exclude
+excluded_urls = "client/.*/info,healthcheck"
+
+FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
+app = flask.Flask(__name__)
+...
 ```
 
-For more information, see [GitHub Repo](link).
+2. Using custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set their `TraceFlag` to `DEFAULT`.
+    
+```python
+...
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+trace.set_tracer_provider(TracerProvider())
+span_processor = BatchSpanProcessor(exporter)
+span_filter_processor = SpanFilteringProcessor()
+trace.get_tracer_provider().add_span_processor(span_filter_processor)
+trace.get_tracer_provider().add_span_processor(span_processor)
+...
+```
+
+Add `SpanFilteringProcessor.py` to your project with the code below.
+
+```python
+from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
+from opentelemetry.sdk.trace import SpanProcessor
+
+class SpanFilteringProcessor(SpanProcessor):
+
+    # prevents exporting spans from internal activities
+    def on_start(self, span):
+        if span._kind is SpanKind.INTERNAL:
+            span._context = SpanContext(
+                span.context.trace_id,
+                span.context.span_id,
+                span.context.is_remote,
+                TraceFlags.DEFAULT,
+                span.context.trace_state,
+            )
+
+```
+
+<!-- For more information, see [GitHub Repo](link). -->
 <!---
 ### Get Trace ID or Span ID
 You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
