@@ -11,7 +11,7 @@ Automatic Extension Upgrade is available for Azure Arc-enabled servers that have
 
  Automatic Extension Upgrade has the following features:
 
-- You can opt out of automatic upgrades at any time.
+- You can opt in and out of automatic upgrades at any time.
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
 - Supported in all public cloud regions.
 
@@ -94,5 +94,61 @@ az connectedmachine extension set \
 A machine managed by Arc-enabled servers can have multiple extensions with automatic extension upgrade enabled. The same machine can also have other extensions without automatic extension upgrade enabled.  
 
 If multiple extension upgrades are available for a machine, the upgrades may be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension does not impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
+
+## Disable Automatic Extension Upgrade
+
+To disable Automatic Extension Upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `false` and added to every extension definition individually.
+
+### Using the REST API
+
+To disable automatic extension upgrade for an extension (in this example the Dependency Agent extension), use the following:
+
+```
+PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.HybridCompute/machines/<machineName>/extensions/<extensionName>?api-version=2019-12-01`
+```
+
+```json
+{    
+    "name": "extensionName",
+    "type": "Microsoft.Compute/HybridMachines/extensions",
+    "location": "<location>",
+    "properties": {
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade":false, 
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.5"
+        }
+}
+```
+
+### Using Azure PowerShell
+
+Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet:
+
+```azurepowershell-interactive
+Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
+    -ResourceGroupName "myResourceGroup" `
+    -VMName "myVM" `
+    -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
+    -ExtensionType "DependencyAgentWindows" `
+    -TypeHandlerVersion 9.5 `
+    -Location WestUS `
+    -EnableAutomaticUpgrade $false
+```
+
+### Using the Azure CLI
+
+Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet:
+
+```azurecli-interactive
+az connectedmachine extension set \
+    --resource-group myResourceGroup \
+    --vm-name myVM \
+    --name DependencyAgentLinux \
+    --publisher Microsoft.Azure.Monitoring.DependencyAgent \
+    --version 9.5 \
+    --enable-auto-upgrade false
+```
 
 ## Next steps
