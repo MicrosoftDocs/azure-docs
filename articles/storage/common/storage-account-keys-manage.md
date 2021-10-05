@@ -30,13 +30,15 @@ To view and copy your storage account access keys or connection string from the 
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-2. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+2. Under **Security + networking**, select **Access keys**. The access keys blade appears, with your access keys as well as the complete connection string for each key. The values are hidden by default.
 
-3. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
+3. Click the **Show keys** button on the top left to show your access keys and connection strings, and to enable buttons to copy the values.
 
-4. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+4. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
+5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+
+    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string-202110.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -46,7 +48,7 @@ The following example retrieves the first key. To retrieve the second key, use `
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
