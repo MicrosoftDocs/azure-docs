@@ -18,13 +18,15 @@ To test your workflows without actually calling or accessing live apps, data, se
 
 For example, if you set up mock data for the Outlook 365 send mail action, Azure Logic Apps just returns the mock data that you provided, rather than call Outlook and send an email.
 
-This article shows how to set up mock testing on an action for the [**Logic App (Consumption)** and the **Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences). You can also reuse previous outputs as mock data and find workflow runs that use these mock data.
+This article shows how to set up mock data on an action in a workflow for the [**Logic App (Consumption)** and the **Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences). You can find previous workflow runs that use these mock data and reuse existing action outputs as mock data.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">sign up for a free Azure account</a>.
 
-* The logic app resource and workflow where you want to set up mock data. If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
+* The logic app resource and workflow where you want to set up mock data. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
+
+  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
 
 <a name="enable-mock-data"></a>
 
@@ -34,19 +36,13 @@ This article shows how to set up mock testing on an action for the [**Logic App 
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. On the action that you want to return mock data, follow these steps:
+1. On the action where you want to return mock data, follow these steps:
 
    1. In the action's upper-right corner, select the ellipses (*...*) button, and then select **Testing**, for example:
 
       ![Screenshot showing the Azure portal, workflow designer, action shortcut menu, and "Testing" selected.](./media/test-logic-apps-mock-data-static-results/select-testing.png)
 
-   1. On the **Testing** pane, select **Enable Static Result (Preview)**.
-
-   1. For the required (*) properties, specify the mock output values that you want to return as the action's response.
-
-      > [!TIP]
-      > To enter the values in JavaScript Object Notation (JSON) format, 
-      > select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+   1. On the **Testing** pane, select **Enable Static Result (Preview)**. When the action's required (*) properties appear, specify the mock output values that you want to return as the action's response.
 
       The properties differ based on the selected action type. For example, the HTTP action has the following required properties:
 
@@ -58,6 +54,10 @@ This article shows how to set up mock testing on an action for the [**Logic App 
       |||
 
       ![Screenshot showing the "Testing" pane after selecting "Enable Static Result".](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
+
+      > [!TIP]
+      > To enter the values in JavaScript Object Notation (JSON) format, 
+      > select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
 
    1. For optional properties, open the **Select optional fields** list, and select the properties that you want to mock.
 
@@ -72,6 +72,43 @@ This article shows how to set up mock testing on an action for the [**Logic App 
    To find workflow runs that use mock data, review [Find runs that use static results](#find-runs-mock-data) later in this topic.
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. On the designer, select the action where you want to return mock data so that the action details pane appears.
+
+1. After the action details pane opens to the right side, select **Testing**.
+
+   ![Screenshot showing the Azure portal, workflow designer, action details pane, and "Testing" selected.](./media/test-logic-apps-mock-data-static-results/select-testing-standard.png)
+
+1. On the **Testing** tab, select **Enable Static Result (Preview)**. When the action's required (*) properties appear, specify the mock output values that you want to return as the action's response.
+
+   The properties differ based on the selected action type. For example, the HTTP action has the following required properties:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Status** | The action's status to return |
+   | **Status Code** | The specific status code to return as output |
+   | **Headers** | The header content to return |
+   |||
+
+   ![Screenshot showing the "Testing" tab after selecting "Enable Static Result".](./media/test-logic-apps-mock-data-static-results/enable-static-result-standard.png)
+
+   > [!TIP]
+   > To enter the values in JavaScript Object Notation (JSON) format, 
+   > select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+
+1. For optional properties, open the **Select optional fields** list, and select the properties that you want to mock.
+
+   ![Screenshot showing the "Testing" pane with "Select optional fields" list opened.](./media/test-logic-apps-mock-data-static-results/optional-properties-standard.png)
+
+1. When you're ready, select **Done**.
+
+   The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you've enabled static results.
+
+   ![Screenshot showing an action with the static result icon on designer.](./media/test-logic-apps-mock-data-static-results/static-result-enabled-standard.png)
+
+   To find workflow runs that use mock data, review [Find runs that use static results](#find-runs-mock-data) later in this topic.
 
 ---
 
@@ -118,6 +155,8 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 1. On your logic app resource menu, select **Overview**.
 
 1. Under the **Essentials** section, select **Runs history**, if not already selected. From the list that appears, select the workflow run that you want.
+
+   ![Screenshot showing workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run.png)
 
 1. After the **Logic app run** pane opens, expand the action that has the outputs that you want.
 
