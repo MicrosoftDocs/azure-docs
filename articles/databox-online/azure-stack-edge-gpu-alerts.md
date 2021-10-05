@@ -71,7 +71,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 ### Minimum configuration alerts
 
-*Do virtual devices = VMs?*
+*Do virtual devices = VMs? This context is different from "Virtual machine alerts"?*
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
