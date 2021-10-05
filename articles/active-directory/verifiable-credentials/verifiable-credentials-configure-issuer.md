@@ -142,11 +142,6 @@ To upload the configuration files, follow these steps:
               "firstName": { "claim": "$.given_name" },
               "lastName": { "claim": "$.family_name" }
             },
-            "issuers": [
-              {
-                "iss": "did:ion: this is the DID of your issuer"
-              }
-            ],
             "configuration": "https://self-issued.me",
             "client_id": "",
             "redirect_uri": ""
