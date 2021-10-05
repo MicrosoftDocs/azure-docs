@@ -56,6 +56,9 @@ then create private endpoints in the bypass network. You can choose any form of 
   Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See
   [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
 
+> [!NOTE]
+> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) to perform the manual installation. 
+
  ## Create and use private endpoints for site recovery
 
  The following sections describe the steps you need to take to create and use private endpoints for site

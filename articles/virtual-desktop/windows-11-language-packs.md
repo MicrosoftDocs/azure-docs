@@ -23,7 +23,7 @@ The second option is more efficient in terms of resources and cost, but requires
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
 -   An Azure VM with Windows 11 Enterprise installed
--   A Language and Feature on Demand (FOD) ISO. You can download the iso at  [Windows 11 Language and FOD ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+-   A Language and Optional Features (LoF) ISO. You can download the ISO at  [Windows 11 Language and Optional Features LoF ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
 -   An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]
@@ -42,7 +42,7 @@ To create the content repository you'll use to add languages and features to you
 4. Copy all content from the **LanguagesAndOptionalFeatures** folder in the ISO to the folder you created.
 
      >[!NOTE]
-     > If you're working with limited storage, you can use the mounted "Languages and Features On Demand" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
+     > If you're working with limited storage, you can use the mounted "Languages and Optional Features" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
 
      >[!IMPORTANT]
      > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
