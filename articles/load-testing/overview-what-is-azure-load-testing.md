@@ -26,7 +26,17 @@ You can create a load test directly from the Azure portal or enable continuous r
 
 ## Use high-scale loads to identify performance bottlenecks
 
+Performance bottlenecks often remain undetected until the application is under high load. Using a load test you can simulate a large number of *virtual users* simultaneously accessing the application. Azure Load Testing's test engines abstract the required infrastructure for running a high-scale, geo-distributed load test.
+
+To specify the test scenario, you define a *test plan*, which lists the web requests to be called. For a JMeter test, you can use an Apache JMeter script to create the test plan in Azure Load Testing.
+
+Applications usually consist of multiple application components. For example, an application service, relational database, storage, and so on. You can select the Azure services that will be monitored during the load test execution. Azure Load Testing integrates with Azure Monitor to track the performance metrics of each service.
+
 ## Enable continuous regression testing early in the development lifecycle
+
+You can integrate Azure Load Testing in your Continuous Integration/Continuous Deployment (CI/CD) pipeline. This allows you to run a load test with each application build, compare the results against a baseline and identify performance regressions early.
+
+You can run an Azure Load Testing load test from Azure Pipelines or GitHub Actions workflows.
 
 ## Analyze test results for insights
 
