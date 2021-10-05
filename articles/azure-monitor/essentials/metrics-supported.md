@@ -610,24 +610,24 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|cachehits|Yes|Cache Hits|Count|Total|No Dimensions|No Dimensions|
-|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|No Dimensions|InstanceId|
-|cachemisses|Yes|Cache Misses|Count|Total|No Dimensions|InstanceId|
-|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum|No Dimensions|InstanceId|
-|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum|No Dimensions|InstanceId|
-|connectedclients|Yes|Connected Clients|Count|Maximum|No Dimensions|InstanceId|
-|errors|Yes|Errors|Count|Maximum|No Dimensions|InstanceId, ErrorType|
-|evictedkeys|Yes|Evicted Keys|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys|Yes|Expired Keys|Count|Total|No Dimensions|No Dimensions|
-|getcommands|Yes|Gets|Count|Total|No Dimensions|No Dimensions|
-|operationsPerSecond|Yes|Operations Per Second|Count|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime|Yes|CPU|Percent|Maximum|No Dimensions|InstanceId|
-|serverLoad|Yes|Server Load|Percent|Maximum|No Dimensions|No Dimensions|
-|setcommands|Yes|Sets|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed|Yes|Total Operations|Count|Total|No Dimensions|No Dimensions|
-|totalkeys|Yes|Total Keys|Count|Maximum|No Dimensions|No Dimensions|
-|usedmemory|Yes|Used Memory|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|No Dimensions|InstanceId|
+|cachehits|Yes|Cache Hits|Count|Total||No Dimensions|
+|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average||InstanceId|
+|cachemisses|Yes|Cache Misses|Count|Total||InstanceId|
+|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||InstanceId|
+|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||InstanceId|
+|connectedclients|Yes|Connected Clients|Count|Maximum||InstanceId|
+|errors|Yes|Errors|Count|Maximum||InstanceId, ErrorType|
+|evictedkeys|Yes|Evicted Keys|Count|Total||No Dimensions|
+|expiredkeys|Yes|Expired Keys|Count|Total||No Dimensions|
+|getcommands|Yes|Gets|Count|Total||No Dimensions|
+|operationsPerSecond|Yes|Operations Per Second|Count|Maximum||No Dimensions|
+|percentProcessorTime|Yes|CPU|Percent|Maximum||InstanceId|
+|serverLoad|Yes|Server Load|Percent|Maximum||No Dimensions|
+|setcommands|Yes|Sets|Count|Total||No Dimensions|
+|totalcommandsprocessed|Yes|Total Operations|Count|Total||No Dimensions|
+|totalkeys|Yes|Total Keys|Count|Maximum||No Dimensions|
+|usedmemory|Yes|Used Memory|Bytes|Maximum||No Dimensions|
+|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum||InstanceId|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
