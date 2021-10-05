@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph"
-description: Learn to use a role assignment function to assign custom roles based on Active Directory group membership.
+description: Learn to use a serverless function to assign custom roles based on Active Directory group membership.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -185,7 +185,7 @@ In this tutorial, you learn to:
 
 ## Test the custom roles
 
-The sample application that you deployed contains a role assignment function (*api/GetRoles/index.js*) that queries Microsoft Graph using the logged in user's access token to determine if they are in pre-defined groups. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
+The sample application that you deployed contains a serverless function (*api/GetRoles/index.js*) that queries Microsoft Graph using the logged in user's access token to determine if they are in pre-defined groups. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
 
 1. In your GitHub repository, navigate to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps static web app custom role names to Azure Active Directory groups.
 
