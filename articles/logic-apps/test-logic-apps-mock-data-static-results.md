@@ -116,9 +116,9 @@ This article shows how to set up mock data on an action in a workflow for the [*
 
 ## Find runs that use mock data
 
-To find earlier workflow runs where the actions use mock data, review that workflow's run history.
-
 ### [Consumption](#tab/consumption)
+
+To find earlier workflow runs where the actions use mock data, review that workflow's run history.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
@@ -140,17 +140,21 @@ To find earlier workflow runs where the actions use mock data, review that workf
 
 ### [Standard](#tab/standard)
 
+To find other workflow runs where the actions use mock data, you have to check each run.
+
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. On the workflow menu, select **Overview**.
 
 1. Under the **Essentials** section, select **Run History**, if not already selected.
 
-1. In the **Run History** table, find the **Static Results** column.
+1. In the **Run History** table, select the run that you want to review.
 
-   Any run that includes actions with mock data output has the **Static Results** column set to **Enabled**, for example:
+   ![Screenshot showing the workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
 
-1. To view that actions in a run that uses mock data, select the run that you want where the **Static Results** column is set to **Enabled**.
+1. On the run details pane, check whether any actions show the test beaker (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)) icon, for example:
+
+   ![Screenshot showing workflow run history with actions that use static result.](./media/test-logic-apps-mock-data-static-results/run-history-static-result-standard.png)
 
 ---
 
@@ -170,7 +174,7 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 
    ![Screenshot showing workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run.png)
 
-1. After the **Logic app run** pane opens, expand the action that has the outputs that you want.
+1. After the run details pane opens, expand the action that has the outputs that you want.
 
 1. In the **Outputs** section, select **Show raw outputs**.
 
@@ -196,7 +200,39 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 
 ### [Standard](#tab/standard)
 
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
+1. On the workflow menu, select **Overview**.
+
+1. Under the **Essentials** section, select **Run History**, if not already selected.
+
+1. In the **Run History** table, select the run that you want to review.
+
+   ![Screenshot showing the workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
+
+1. After the run details pane opens, select the action that has the outputs that you want.
+
+1. In the **Outputs** section, select **Show raw outputs**.
+
+1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection you want to use, for example, the outputs section, or even just the headers section.
+
+1. Review the earlier section about how to [set up mock data](#enable-mock-data) for an action, and follow the steps to open the action's **Testing** tab.
+
+1. After the **Testing** tab opens, choose either step:
+
+   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+
+     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete-standard.png)
+
+   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
+
+     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output-standard.png)
+
+1. In the JSON editor, paste your previously copied JSON.
+
+   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode-standard.png)
+
+1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 ---
 
@@ -218,35 +254,13 @@ Turning off static results on an action doesn't remove the values from your last
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer. Select the action where you want to disable mock data.
 
-1. On the workflow menu, select **Overview**.
+1. In the action details pane, select the **Testing** tab.
 
-1. Under the **Essentials** section, select **Run History**, if not already selected.
+1. Select **Disable Static Result** > **Done**.
 
-1. After the workflow run pane opens, select the action that has the outputs that you want.
-
-1. In the **Outputs** section, select **Show raw outputs**.
-
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection you want to use, for example, the outputs section, or even just the headers section.
-
-1. Review the earlier section about how to [set up mock data](#enable-mock-data) for an action, and follow the steps to open the action's **Testing** pane.
-
-1. After the **Testing** pane opens, choose either step:
-
-   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete-standard.png)
-
-   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output-standard.png)
-
-1. In the JSON editor, paste your previously copied JSON.
-
-   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode-standard.png)
-
-1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+   ![Screenshot showing the "Disable Static Result" selected for Standard.](./media/test-logic-apps-mock-data-static-results/disable-static-result-button-standard.png)
 
 ---
 
