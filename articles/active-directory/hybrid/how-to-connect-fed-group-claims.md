@@ -133,6 +133,20 @@ Filters can be configured to be applied to the group’s display name or SAMAcco
 
  ![Screenshot of filtering](media/how-to-connect-fed-group-claims/group-filter-1.png)
 
+#### Group transformation
+Some applications might require the groups in a different format to how they are represented in Azure AD. To support this, you can apply a transformation to each group that will be emitted in the group claim. This is achieved by allowing the configuration of a regex and a replacement value on custom group claims. 
+
+ ![Screenshot of group transformation](media/how-to-connect-fed-group-claims/group-transform-1.png)\
+
+ - **Regex Pattern**:  Use a regular expression (regex) to parse text strings according to the pattern you will set in this field. If the pattern you outline in a regex pattern evaluates to true, then we will run the regex replacement pattern you will outline below.  
+ - **Regex replacement pattern**:  Here, outline in regular expressions (regex) notation how you would like to replace your string if your regex pattern outlined above evaluates to true. Use capture groups to match subexpressions in this replace regular expression. 
+
+For more information about regex replace and capture groups see [The Regular Expression Engine - The Captured Group0(https://docs.microsoft.com/dotnet/standard/base-types/the-regular-expression-object-model?WT.mc_id=Portal-fx#the-captured-group) 
+
+>[!NOTE]
+> As per the Azure AD documentation a restricted claim cannot be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. The "Groups" claim is still a restricted claim, hence you need to customize the groups by changing the name, if you select a restricted name for the name of your custom group claim then the claim will be ignored at runtime. 
+>
+>The regex transform feature can also be used as a filter since any groups that don’t match the regex pattern will not be emitted in the resulting claim. 
 
 ### Edit the group claims configuration
 
