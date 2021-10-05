@@ -353,10 +353,11 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue**
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
+- **TreatAsMultiValue** is a Boolean flag indicating if the transform should be applied to all values or just the first. By default, transformations will only be applied to the first element in a multi value claim, by setting this value to true it ensures it is applied to all. ProxyAddresses and groups are 2 examples for input claims that you would likely want to treat as a multi value. 
 
 **InputParameters:** Use an InputParameters element to pass a constant value to a transformation. It has two attributes: **Value** and **ID**.
 
