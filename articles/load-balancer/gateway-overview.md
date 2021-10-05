@@ -1,65 +1,49 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+title: Gateway load balancer (Preview)
+titleSuffix: Azure Load Balancer
+description: Overview of gateway load balancer SKU for Azure Load Balancer.
+ms.service: load-balancer
+author: asudbring
+ms.author: allensu
+ms.date: 10/4/2021
+ms.topic: conceptual
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+# Gateway load balancer (Preview)
 
-<!--
-This template provides the basic structure of a service/product overview article.
-See the [overview guidance](contribute-how-write-overview.md) in the contributor guide.
+Azure load balancer consists of standard, basic, and gateway SKUs. Gateway load balancer is a SKU catered specifically for high performance and high availability scenarios with Network Virtual Appliances (NVAs). With the capabilities of gateway load balancer, you can easily deploy, scale, and manage NVAs. Chaining a gateway load balancer to your standard load balancer or public IP, only requires one click. In scenarios with NVAs, it's important that flows are "sticky". This "stickiness" ensures the sessions are maintained.
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+## Benefits
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
+Gateway load balancer has the following benefits:
 
-# What is <product/service>?
+* Integrate virtual appliances into the network path with ease. 
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+* Easily add or remove network virtual appliances in the network path. 
 
-[add your introductory paragraph]
+* Scale with ease while managing costs.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+* Improve network virtual appliance availability.
 
-## [Section 1 H2]
-<!-- add your content here -->
+## Technology and components
 
-## [Section 2 H2]
-<!-- add your content here -->
+Gateway load balancer uses the VXLAN protocol and supports a maximum transmission unit of size XXXX bytes.
 
-## [Section n H2]
-<!-- add your content here -->
+Gateway load balancer consists of the following components:
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+* Frontend IP configuration
+
+* Load-balancing rules
+
+* Backend pool(s)
+
+* Tunnel interfaces
+
+## Limitations
+
+* Gateway load balancer doesn't work with the cross-region load balancer tier.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- See [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md) to create a cross-region load balancer.
+- Learn more about [Azure Load Balancer](load-balancer-overview.md).
