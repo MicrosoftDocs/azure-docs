@@ -23,8 +23,8 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates). There are two recommended values depending on the verison of the operating system:
 
-* For Windows Server 2016 and later, set to a value of **7**.
-* For versions of Windows Server earlier than 2016, set to a value of **3**.
+* Windows Server 2016 and later, set to a value of **7**.
+* Windows Server 2012 R2 and earlier, set to a value of **3**.
 
 This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but allows downloading of updates outside the Update Management maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Management.
 
