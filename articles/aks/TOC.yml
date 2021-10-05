@@ -388,6 +388,8 @@
                   href: open-service-mesh-nginx-ingress.md
                 - name: Configure observability using Prometheus, Grafana, and Jaeger
                   href: open-service-mesh-open-source-observability.md
+                - name: Customize OSM CLI experience
+                  href: open-service-mesh-customize-add-on-experience.md
             - name: Configure Azure Monitor
               href: open-service-mesh-azure-monitor.md
             - name: Troubleshoot OSM
