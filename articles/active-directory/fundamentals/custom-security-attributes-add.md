@@ -152,20 +152,20 @@ Get-AzureADMSAttributeSet
 #### Get an attribute set
 
 ```powershell
-Get-AzureADMSAttributeSet -Id "testAttributeSet"
+Get-AzureADMSAttributeSet -Id "Engineering"
 ```
  
 #### Add an attribute set
 
 ```powershell
-New-AzureADMSAttributeSet -Id "testAttributeSet" -Description "TestAttributeDescription" -MaxAttributesPerSet 10 
+New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for engineering team" -MaxAttributesPerSet 10 
 ```
 
 #### Update an attribute set
 
 ```powershell
-Set-AzureADMSAttributeSet -Id "testAttributeSet" -Description "New Test Description"
-Set-AzureADMSAttributeSet -Id "testAttributeSet" -MaxAttributesPerSet 20
+Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud engineering team"
+Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 ```
 
 #### Get all custom security attributes
@@ -177,44 +177,44 @@ Get-AzureADMSCustomSecurityAttributeDefinition
 #### Get a custom security attribute
 
 ```powershell
-Get-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute"
+Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
 ```
  
 #### Add a custom security attribute
 
 ```powershell
-New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "TestSet" -Name "TestAttribute" -Description "TestAttributeDescription" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
+New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
 ```
  
 #### Update a custom security attribute
 
 ```powershell
-Set-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute" -Description "New Test Description"
-Set-AzureADMSCustomSecurityAttributeDefinition -Id Storage_Project2 -Status "Deprecated" -UsePreDefinedValuesOnly $false
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -Description "Target completion date (YYYY/MM/DD)"
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated" -UsePreDefinedValuesOnly $false
 ```
 
 #### Get all predefined values
 
 ```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "TestSet_TestAttribute"
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project"
 ```
  
 #### Get a predefined value
 
 ```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue 
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
 ```
  
 #### Add a predefined value
 
 ```powershell
-Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id "TestAllowedValue" -IsActive $true
+Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
 ```
  
 #### Deactivate a predefined value
 
 ```powershell
-Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $false
+Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
 ```
 
 ## Microsoft Graph API
@@ -272,12 +272,6 @@ PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
 ```
 
-#### Get a custom security attribute
-
-```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
-```
-
 #### Filter custom security attributes
 
 ```http
@@ -286,6 +280,12 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
+```
+
+#### Get a custom security attribute
+
+```http
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 ```
 
 #### Add a custom security attribute

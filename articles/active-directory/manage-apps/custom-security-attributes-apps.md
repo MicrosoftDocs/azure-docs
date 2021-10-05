@@ -118,7 +118,7 @@ You can filter the list of custom security attributes assigned to applications o
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
 
-#### List custom security attribute assignments for an application (service principal)
+#### Get the custom security attribute assignments for an application (service principal)
 
 ```powershell
 Get-AzureADMSServicePrincipal -Select CustomSecurityAttributes
@@ -127,14 +127,14 @@ Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select 
 
 #### Assign a custom security attribute with a multi-string value to an application (service principal)
 
-For this example, the attribute set name is `testAttributeSet1` and the custom security attribute name is `testAttribute`.
+For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
 
 ```powershell
 $attributes = @{
-    testAttributeSet1 = @{
+    Engineering = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
-        "testAttribute@odata.type" = "#Collection(String)"
-        testAttribute = @("Value3","Value1")
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Baker","Cascade")
     }
 }
 Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributes
@@ -142,14 +142,14 @@ Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSe
 
 #### Update a custom security attribute with a multi-string value for an application (service principal)
 
-For this example, the attribute set name is `testAttributeSet1` and the custom security attribute name is `testAttribute`.
+For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
 
 ```powershell
 $attributesUpdate = @{
-    testAttributeSet1 = @{
+    Engineering = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
-        "testAttribute@odata.type" = "#Collection(String)"
-        testAttribute = @("Value5")
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Alpine","Baker")
     }
 }
 Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributesUpdate 
@@ -159,11 +159,13 @@ Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSe
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments.
 
-#### List custom security attribute assignments for an application (service principal)
+#### Get the custom security attribute assignments for an application (service principal)
 
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/<id>?$select=customSecurityAttributes
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}?$select=customSecurityAttributes
 ```
+
+A successful response is 200 OK.
 
 If there are no custom security attributes assigned to the application or if the calling principal does not have access, the response will look like:
 
@@ -173,9 +175,27 @@ If there are no custom security attributes assigned to the application or if the
 }
 ```
 
+#### Assign a custom security attribute with a string value to an application (service principal)
+
+```http
+PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+{
+    "customSecurityAttributes":
+    {
+        "Engineering":
+        {
+            "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
+            "ProjectDate":"2022-10-01"
+        }
+    }
+}
+```
+
+A successful response is 204 No Content.
+
 #### Other examples
 
-For other similar Microsoft Graph API examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api)
+For other similar Microsoft Graph API examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api).
 
 ## Next steps
 

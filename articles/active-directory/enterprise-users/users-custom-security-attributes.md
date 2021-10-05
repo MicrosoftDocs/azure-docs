@@ -119,7 +119,7 @@ You can filter the list of custom security attributes assigned to users on the A
 
 To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
 
-#### List custom security attribute assignments for a user
+#### Get the custom security attribute assignments for a user
 
 ```powershell
 $user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
@@ -128,14 +128,14 @@ $user1.CustomSecurityAttributes
 
 #### Assign a custom security attribute with a multi-string value to a user
 
-For this example, the attribute set name is `Storage` and the custom security attribute name is `Project`.
+For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
 
 ```powershell
 $attributes = @{
-    Storage = @{
+    Engineering = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
         "Project@odata.type" = "#Collection(String)"
-        Project = @("Value3","Value1")
+        Project = @("Baker","Cascade")
     }
 }
 Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributes
@@ -143,14 +143,14 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 
 #### Update a custom security attribute with a multi-string value for a user
 
-For this example, the attribute set name is `Storage` and the custom security attribute name is `Project`.
+For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
 
 ```powershell
 $attributesUpdate = @{
-    Storage = @{
+    Engineering = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
         "Project@odata.type" = "#Collection(String)"
-        Project = @("Value3","Value1")
+        Project = @("Alpine","Baker")
     }
 }
 Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributesUpdate 
@@ -160,10 +160,10 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 
 To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments.
 
-#### List custom security attribute assignments for a user
+#### Get the custom security attribute assignments for a user
 
 ```http
-GET https://graph.microsoft.com/beta/users/<id>?$select=customSecurityAttributes
+GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
 ```
 
 If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
@@ -177,108 +177,98 @@ If there are no custom security attributes assigned to the user or if the callin
 #### Assign a custom security attribute with a string value to a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "SingleProject":"String1"
+            "ProjectDate":"2022-10-01"
         }
     }
 }
 ```
-
-A successful response is Success 204.
 
 #### Assign a custom security attribute with a multi-string value to a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
             "Project@odata.type":"#Collection(String)",
-            "Project":["String1","String2","String3"]
+            "Project":["Baker","Cascade"]
         }
     }
 }
 ```
-
-A successful response is Success 204.
 
 #### Assign a custom security attribute with an integer value to a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "Project@odata.type":"#Int32",
-            "Project":12
+            "NumVendors@odata.type":"#Int32",
+            "NumVendors":4
         }
     }
 }
 ```
-
-A successful response is Success 204.
 
 #### Assign a custom security attribute with a multi-integer value to a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "Project@odata.type":"#Collection(Int32)",
-            "Project":[12, 13]
+            "CostCenter@odata.type":"#Collection(Int32)",
+            "CostCenter":[1001,1003]
         }
     }
 }
 ```
-
-A successful response is Success 204.
 
 #### Assign a custom security attribute with a Boolean value to a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "Project":true
+            "Certification":true
         }
     }
 }
 ```
 
-A successful response is Success 204.
-
 #### Update a custom security attribute with an integer value for a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "Project@odata.type":"#Int32",
-            "Project":280
+            "NumVendors@odata.type":"#Int32",
+            "NumVendors":8
         }
     }
 }
@@ -287,14 +277,14 @@ PATCH https://graph.microsoft.com/beta/users/<id>
 #### Update a custom security attribute with a Boolean value for a user
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "ProjectBool":true
+            "Certification":false
         }
     }
 }
@@ -306,14 +296,14 @@ To remove custom security attribute assignments, depending on the properties of 
 For single-valued custom security attributes, set the value to null, similar to the following example:
 
 ```http
-PATCH  https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "ProjectSingle":null
+            "ProjectDate":null
         }
     }
 }
@@ -322,41 +312,41 @@ PATCH  https://graph.microsoft.com/beta/users/<id>
 For multi-valued properties, you should use an empty collection to reset values, similar to the following example:
 
 ```http
-PATCH  https://graph.microsoft.com/beta/users/<id>
+PATCH https://graph.microsoft.com/beta/users/{id}
 {
     "customSecurityAttributes":
     {
-        "Storage":
+        "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "ProjectBlock":[]
+            "Project":[]
         }
     }
 }
 ```
 
-#### Filter all users who have Storage/State as Washington
+#### Filter all users who have Operations/State as Washington
 
 You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State eq 'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Operations/State%20eq%20'Washington'
 ```
 
-#### Filter all users whose employee/ID starts with 111
+#### Filter all users whose Operations/employeeId starts with 111
 
 You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= startsWith(customSecurityAttributes/Employee/Id,'111')
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Employee/Id,'111')
 ```
 
-#### Filter all users with Storage/State not in Washington
+#### Filter all users with Operations/State not in Washington
 
-You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly. This query will also retrieve users that do not have the attribute Storage/State defined.
+You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly. This query will also retrieve users that do not have the attribute Operations/State defined.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State ne 'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Operations/State%20ne%20'Washington'
 ```
 
 ## Frequently asked questions
