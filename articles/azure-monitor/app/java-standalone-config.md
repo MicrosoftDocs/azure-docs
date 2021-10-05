@@ -268,30 +268,6 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry (preview)
-
-Many of the latest Azure SDK libraries emit telemetry (see the [full list](./java-in-process-agent.md#azure-sdks-preview)).
-
-Starting from Application Insights Java 3.0.3, you can enable capturing this telemetry.
-
-If you want to enable this feature:
-
-```json
-{
-  "preview": {
-    "instrumentation": {
-      "azureSdk": {
-        "enabled": true
-      }
-    }
-  }
-}
-```
-
-You can also enable this feature by setting the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` to `true`
-(which will then take precedence over enabled specified in the json configuration).
-
 ## Suppressing specific auto-collected telemetry
 
 Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
@@ -299,6 +275,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 ```json
 {
   "instrumentation": {
+    "azureSdk": {
+      "enabled": false
+    },
     "cassandra": {
       "enabled": false
     },
@@ -317,6 +296,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
     "mongo": {
       "enabled": false
     },
+    "rabbitmq": {
+      "enabled": false
+    },
     "redis": {
       "enabled": false
     },
@@ -329,12 +311,14 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 
 You can also suppress these instrumentations by setting these environment variables to `false`:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_AZURE_SDK_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
