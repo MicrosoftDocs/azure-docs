@@ -1,5 +1,5 @@
 ---
-title: Change directory tenants with your individual VSS Azure Subscriptions
+title: Change directory tenants with your individual VSS Azure subscriptions
 description: How-to guide for changing directory tenants with your Azure subscriptions. Provides an overview of identity and access management.
 author: j-martens
 ms.author: jmartens
@@ -25,7 +25,7 @@ From here, you can either switch identities or switch directories. You may need 
 
 If the identity you’re sign in as is associated with multiple directories, you can easily switch by clicking “Switch directory.” You'll then see the directories that identity is associated with.  
 
-![A screenshot of the Directory and Subscription window in Azure portal.](media/change-directory-tenants/switchdirectory.png "Switch directories by clicking switch directory. Choose the directory you want.")  
+![A screenshot of the Directory and Subscription window in Azure portal.](media/change-directory-tenants/switch-directory.png "Switch directories by clicking switch directory. Choose the directory you want.")  
 
 Your experience within the portal is highly dependent on the directory associated with the identity used to sign in. To change directory tenants, an Admin will have to add your identity as a user within the target directory.  
 
@@ -37,17 +37,17 @@ If you set up your credit subscription using a personal account, your identity a
 
 Below is a simple diagram that shows the basic steps you'll take when changing or transferring your subscription.
 
-![A diagram illustrating changing or transferring your subscription.](media/change-directory-tenants/changediagram.png "A diagram of what happens when you change or transfer your subscription.)
+![A diagram illustrating changing or transferring your subscription.](media/change-directory-tenants/change-diagram.png "A diagram of what happens when you change or transfer your subscription.")  
 
 ## Identity and Access Management
 
 Where and how you have access dictates what you see based on your logged in credentials. This access can be given at different levels within the organization’s hierarchy. You can be given access at the directory level, subscription level or within resource groups.  
 
-![A screenshot of Azure access levels.](media/change-directory-tenants/accessmanagement.png "The access levels available in Azure.")  
+![A screenshot of Azure access levels.](media/change-directory-tenants/access-management.png "The access levels available in Azure.")  
 
 You can see and manage your access levels within Access Control. You can also manage others' access to the subscription depending on your access levels.  
 
-![A screenshot of the Visual Studio Subscription access control page.](media/change-directory-tenants/accesscontrol.png "Manage access to your subscription.")
+![A screenshot of the Visual Studio Subscription access control page.](media/change-directory-tenants/access-control.png "Manage access to your subscription.")
 
 ## How to Change your Azure Directory Tenant
 
@@ -61,22 +61,22 @@ Once you’ve been added and given the proper permissions, you can switch direct
 1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)  
 2. Select “Change Directory”  
 
- ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/change-directory-tenants/changedirectory.png "Select Change Directory.")
+ ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/change-directory-tenants/change-directory.png "Select Change Directory.")
 
 ...
 3. A pop-up will surface to choose the new directory  
 4. Select “Change”  
 ...
 
-> [!NOTE]
-> If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you will receive a success message.  
+ [!NOTE]
+ If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you will receive a success message.  
 
-![A screenshot of the Change Directory validation page.](media/change-directory-tenants/changebutton.png "Select the directory from the dropdown and click the Change button.")
+ ![A screenshot of the Change Directory validation page.](media/change-directory-tenants/change-button.png "Select the directory from the dropdown and click the Change button.")
 
 ...
 5. Select “Switch Directories” on the subscription page to access the new directory  
 ...
 
- ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-tenants/switchdirectoriesoutlined.png "Click Switch Directories to access the new directory.")
+ ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-tenants/switch-directories-outlined.png "Click Switch Directories to access the new directory.")
 
 You can also add an Admin from the target directory as an Admin within your directory. Use our [guide on how to add and admin](/visualstudio/subscriptions/cloud-admin) to your subscription. Once that’s been done, the Admin has access to both directories and can change the tenant directory for you.  
