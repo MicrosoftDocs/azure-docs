@@ -844,6 +844,7 @@
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
-    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json"
   ]
 }
