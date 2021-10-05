@@ -1,5 +1,5 @@
 ---
-title: Add users to your Developer directory tenant
+title: Add users to your Azure Dev/Test developer directory tenant
 description: A how-to guide for adding users to your Azure credit subscription and managing their access with role-based controls.
 author: j-martens
 ms.author: jmartens
@@ -35,7 +35,7 @@ Once you’ve determined you need to add a user, you must understand where you'r
 
 If the project and tasks you're working on need to be monitored by IT to enable security protocols, you'll need that user to have an Admin role within the Management group to have full access and permissions within the subscription.  
 
-![A screenshot of the access levels in Azure.](media/add-users-to-your-directory/accessmanagement.png "Managing roles with management groups in Azure.")
+![A screenshot of the access levels in Azure.](media/add-users-to-your-directory/access-management.png "Managing roles with management groups in Azure.")
 
 However, if you're collaborating with another developer or a colleague, they may only need access at the resource or resource group level.  
 
