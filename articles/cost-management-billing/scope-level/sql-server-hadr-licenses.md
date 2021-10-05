@@ -13,7 +13,11 @@ ms.reviewer: chrisrin
 
 # SQL Server HADR and scope-level Azure Hybrid Benefit coexistence
 
-One of the benefits of Software Assurance (SA) is that it allows Azure customers to install and run passive SQL Server instances for disaster recovery in anticipation of a failover event. Scope-level management of Azure Hybrid Benefit supports the SQL Server HADR benefit by ensuring that the qualified disaster recovery replicas don't consume assigned SQL Server licenses. As a result, you don't have to manage the replicas separately. To use the HADR benefit, select **HADR** using the **Configure** pane of the **SQL Virtual Machine** resource, as shown in the following image.
+One of the benefits of Software Assurance (SA) is that it allows Azure customers to install and run passive SQL Server instances for disaster recovery in anticipation of a failover event. Scope-level management of Azure Hybrid Benefit supports the SQL Server HADR benefit by ensuring that the qualified disaster recovery replicas don't consume assigned SQL Server licenses. As a result, you don't have to manage the replicas separately. 
+
+## HADR benefit selection
+
+To use the HADR benefit, select **HADR** using the **Configure** pane of the **SQL Virtual Machine** resource, as shown in the following image.
 
 :::image type="content" source="./media/sql-server-hadr-licenses/select-hadr-benefit.png" alt-text="Screenshot showing the HADR option in the SQL virtual machine configuration." lightbox="./media/sql-server-hadr-licenses/select-hadr-benefit.png" :::
 

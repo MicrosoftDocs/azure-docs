@@ -17,6 +17,8 @@ This article provides a detailed explanation about how the Azure Hybrid Benefit 
 
 Each resource reports its usage once an hour using the appropriate full price or pay-as-you-go meters. Internally in Azure, the Usage Application engine evaluates the available NCLs and applies them for that hour. For a given hour of vCore resource consumption, the pay-as-you-go meters are switched to the corresponding Azure Hybrid Benefit meter with a zero ($0) price if there's enough unutilized NCLs in the selected scope.
 
+## License discount 
+
 The following diagram shows the discounting process when there's enough unutilized NCLs to discount the entire vCore consumption by all the SQL resources for the hour.
 
 :::image type="content" source="./media/manage-licenses-centrally/fully-discounted-consumption.svg" alt-text="Diagram showing fully discounted vCore consumption." border="false" lightbox="./media/manage-licenses-centrally/fully-discounted-consumption.svg":::
