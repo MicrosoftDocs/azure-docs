@@ -80,9 +80,9 @@ Audit logs are integrated with Azure Monitor diagnostic settings to allow you to
 1. Provide a diagnostic setting name.
 
 1. Specify which destinations to send the audit logs (Log Analytics workspace, storage account and/or event hub).
->[!Note]
-> For the scope of the tutorial we would need to send the slow query logs to Log Analytics workspace
-
+    >[!Note]
+    > For the scope of the tutorial we would need to send the slow query logs to Log Analytics workspace
+    
 1. Select **MySqlAuditLogs** as the log type.
     :::image type="content" source="./media/tutorial-configure-audit/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting":::
 

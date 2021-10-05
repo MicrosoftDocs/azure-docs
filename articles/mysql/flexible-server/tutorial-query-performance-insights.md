@@ -118,7 +118,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
  
 ## View query insights using Log Analytics 
 
-Navigate to **Logs** under the **Monitoring** section. Close the 
+Navigate to **Logs** under the **Monitoring** section. Close the **Queries** window.
 
 :::image type="content" source="./media/tutorial-query-performance-insights/log-query.png" alt-text="Screenshot of Log analytics":::
 
