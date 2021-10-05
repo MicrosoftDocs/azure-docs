@@ -330,7 +330,7 @@ These attributes may include adding a custom business property to your telemetry
 
 #### Add custom property
 
-Any [attributes](#add-activity-or-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+Any [attributes](#add-activityspan-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
@@ -431,7 +431,7 @@ Placeholder
 
 You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting `xyz` or `xyz` attribute on activity/span. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
 
-#### [.NET](#tab/net)
+##### [.NET](#tab/net)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
@@ -442,7 +442,7 @@ Placeholder
 > [!TIP]
 > The .NET exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
-#### [JavaScript](#tab/javascript)
+##### [JavaScript](#tab/javascript)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
@@ -453,7 +453,7 @@ Placeholder
 > [!TIP]
 > The JavaScript exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
-#### [Python](#tab/python)
+##### [Python](#tab/python)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
@@ -463,13 +463,14 @@ Placeholder
 
 > [!TIP]
 > The Python exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+
 ---
 
 ### Override activity display or span name
 
 #### [.NET](#tab/net)
 
-You may use Enrich option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activity-attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+You may use Enrich option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activityspan-attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 > [!NOTE]
 > Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.g
