@@ -56,7 +56,7 @@ items:
   - name: Integrate
     items:
     - name: Azure Database for PostgreSQL
-      href: overview.md
+      href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: overview.md
     - name: Azure SQL DB

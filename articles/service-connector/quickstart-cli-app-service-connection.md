@@ -4,7 +4,7 @@ description: Quickstart showing how to create a service connection in App Servic
 author: shizn
 ms.author: xshi
 ms.service: service-connector
-ms.topic: overview 
+ms.topic: quickstart 
 ms.date: 10/29/2021
 ---
 
