@@ -17,20 +17,25 @@ In this article, you will learn about the various workbooks template available f
 
 We have three default templates available for Azure Database for MySQL - Flexible Server
  
-1.	Overview: Gives the Instance Summary and  top-level metrics to help understand the resource utilization on your server. You will be able to see the below details for the Azure Database for MySQL – Flexible Server
+- Overview: Gives the Instance Summary and  top-level metrics to help understand the resource utilization on your server. You will be able to see the below details for the Azure Database for MySQL – Flexible Server
+
     * Server Summary 
     * Database Summary
     * Connection Metrics 
     * Performance Metrics 
     * Storage Metrics 
-2. Auditing: Summary and details of the Auditing events collected for the server. The following views are available with this template for the Azure Database for MySQL – Flexible Server
+
+* Auditing: Summary and details of the Auditing events collected for the server. The following views are available with this template for the Azure Database for MySQL – Flexible Server
+
     * Administrative Actions on the service
     * Audit Summary
     * Audit Connection Events Summary
     * Audit Connection Events
     * Table Access Summary
     * Errors Identified
-3. Query Performance Insights: Summary and details of query workload on the instance, long running query, slow query analysis and connection metrics. The following view is available with this template for the Azure Database for MySQL – Flexible Server.
+
+* Query Performance Insights: Summary and details of query workload on the instance, long running query, slow query analysis and connection metrics. The following view is available with this template for the Azure Database for MySQL – Flexible Server.
+
     * Query Load
     * Total Active Connections
     * Slow Query Trend (>10 seconds Query Time)
@@ -40,17 +45,17 @@ We have three default templates available for Azure Database for MySQL - Flexibl
 
 You can also edit these templates and customize as per your requirement. For more information, see, [Azure Monitor Workbooks Overview - Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode)
 
- ## How to Access Workbook Templates for Azure Database for MySQL – Flexible Server
+ ## How to access Workbook templates
 
 For viewing the templates, on the Azure portal, Navigate to **Monitoring** blade for Azure Database for MySQL – Flexible Server and select **Workbooks**.
 
 :::image type="content" source="./media/concept-workbook/monitor-workbooks-all.png" alt-text="Diagram that shows the workbooks.":::
 
-You can also see the list of templates navigating to **Public Templates**
+You can also see the list of templates navigating to **Public Templates**.
 
 :::image type="content" source="./media/concept-workbook/monitor-workbooks-public.png" alt-text="Diagram that shows templates of workbooks":::
 
 
-## Next step
+## Next steps
 - [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md) and learning more about workbooks many rich visualizations options.
 - [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.

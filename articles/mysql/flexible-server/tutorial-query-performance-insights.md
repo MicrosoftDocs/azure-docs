@@ -19,8 +19,8 @@ Query Performance Insight proposes to provide intelligent query analysis for dat
 In this tutorial you will learn how you can use MySQL Slow query logs, Log Analytics tool or Workbooks template to visualize the Query performance insights for Azure Database for MySQL – Flexible Server. 
 
 ## Prerequisites
-1. You would need to create an Instance of Azure Database for MySQL – Flexible Server. For step by step procedure please refer to [Create Instance of Azure Database for MySQL - Flexible Server](./quickstart-create-server-portal.md)
-2. You would need to create Log Analytics Workspace created. For step-by-step procedure please refer to [Create Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
+- You would need to create an Instance of Azure Database for MySQL – Flexible Server. For step by step procedure please refer to [Create Instance of Azure Database for MySQL - Flexible Server](./quickstart-create-server-portal.md)
+- You would need to create Log Analytics Workspace created. For step-by-step procedure please refer to [Create Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -29,7 +29,7 @@ In this tutorial you will learn how to:
 > * View slow query using Log Analytics 
 > * View slow query using workbooks 
 
-## Configure Slow Query logs From Portal 
+## Configure slow query logs from portal 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -52,7 +52,7 @@ From the **Server Parameters** page, you can return to the list of logs by closi
 
 **OR**
 
-## Configure Slow Query logs From Azure CLI
+## Configure slow query logs from Azure CLI
  
 In case you wish to do the above using Azure CLI , you can enable and configure slow query logs for your server using CLI 
 
@@ -104,8 +104,8 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. Specify which destinations to send the slow query logs ( Log Analytics workspace,storage account or event hub)
 
->[!Note]
-> For the scope of the tutorial we would need to send the slow query logs to Log Analytics workspace
+    >[!Note]
+    > For the scope of the tutorial we would need to send the slow query logs to Log Analytics workspace
 
 1. Select **MySqlSlowLogs** as the log type.
     :::image type="content" source="./media/tutorial-query-performance-insights/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::
@@ -113,14 +113,12 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 1. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
     :::image type="content" source="./media/tutorial-query-performance-insights/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::
 
->[!Note]
->You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
+    >[!Note]
+    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
  
 ## View query insights using Log Analytics 
-</br>
 
-Navigate to **Logs** under the **Monitoring** section. Close the **Queries** window.  
-</br>
+Navigate to **Logs** under the **Monitoring** section. Close the 
 
 :::image type="content" source="./media/tutorial-query-performance-insights/log-query.png" alt-text="Screenshot of Log analytics":::
 
@@ -137,12 +135,12 @@ Select the **Time range** and **Run** the query. You will see the results of the
 
 :::image type="content" source="./media/tutorial-query-performance-insights/slow-query.png" alt-text="Screenshot of slow query log":::
 
-## View query insights using workbooks 
+## View query insights using Workbooks 
 
 1.	On the Azure portal, Navigate to **Monitoring** blade for Azure Database for MySQL – Flexible Server and select **Workbooks**.
 2.	You should be able to able to see the templates. Select **Query Performance insight** 
 
-:::image type="content" source="./media/tutorial-query-performance-insights/monitor-workbooks.png" alt-text="Screenshot of workbook template":::
+    :::image type="content" source="./media/tutorial-query-performance-insights/monitor-workbooks.png" alt-text="Screenshot of workbook template":::
 
 You will be able to see the following Visualization 
 >[!div class="checklist"]
@@ -153,8 +151,8 @@ You will be able to see the following Visualization
 > * List top 5 longest queries
 > * Summarize slow queries by minimum, maximum, average, and standard deviation query time
 
-
-:::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Screenshot of long queries":::
+    
+    :::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Screenshot of long queries":::
 
 >[!Note]
 > * For resource utilization you can use the Overview template.
@@ -164,7 +162,7 @@ You will be able to see the following Visualization
 Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count. Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. 
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency. So execution count can help to find frequently executed ("chatty") queries. These queries are the best candidates for optimization. 
 
-## Next step
+## Next steps
 - [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.
 - Learn more about [slow query logs](concepts-slow-query-logs.md)
 

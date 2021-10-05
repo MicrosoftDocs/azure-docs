@@ -20,8 +20,8 @@ Azure Database for MySQL Flexible Server provides users with the ability to conf
 In this tutorial you will learn how can you use MySQL Audit logs, Log Analytics tool or Workbooks template to visualize the auditing information for Azure Database for MySQL – Flexible Server. 
 
 ## Prerequisites
-1. You would need to create an Instance of Azure Database for MySQL – Flexible Server. For step-by-step procedure, please refer to [Create Instance of Azure Database for MySQL - Flexible Server](./quickstart-create-server-portal.md)
-2. You would need to create Log Analytics Workspace created. For step-by-step procedure, please refer to [Create Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
+- You would need to create an Instance of Azure Database for MySQL – Flexible Server. For step-by-step procedure, please refer to [Create Instance of Azure Database for MySQL - Flexible Server](./quickstart-create-server-portal.md)
+- You would need to create Log Analytics Workspace created. For step-by-step procedure, please refer to [Create Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -30,7 +30,7 @@ In this tutorial you will learn how to:
 > * View audit logs using Log Analytics 
 > * View audit logs using workbooks 
 
-## Configure Auditing from Portal 
+## Configure auditing from portal 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -38,23 +38,23 @@ In this tutorial you will learn how to:
 1. Select your flexible server.
 
 1. Under the **Settings** section in the sidebar, select **Server parameters**.
-    :::image type="content" source="./media/tutorial-auditing/server-parameters.png" alt-text="Server parameters":::
+    :::image type="content" source="./media/tutorial-configure-audit/server-parameters.png" alt-text="Server parameters":::
 
 1. Update the **audit_log_enabled** parameter to ON.
-    :::image type="content" source="./media/tutorial-auditing/audit-log-enabled.png" alt-text="Enable audit logs":::
+    :::image type="content" source="./media/tutorial-configure-audit/audit-log-enabled.png" alt-text="Enable audit logs":::
 
 1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
-    :::image type="content" source="./media/tutorial-auditing/audit-log-events.png" alt-text="Audit log events":::
+    :::image type="content" source="./media/tutorial-configure-audit/audit-log-events.png" alt-text="Audit log events":::
 
 1. Add any MySQL users to be included or excluded from logging by updating the **audit_log_exclude_users** and **audit_log_include_users** parameters. Specify users by providing their MySQL user name.
-    :::image type="content" source="./media/tutorial-auditing/audit-log-exclude-users.png" alt-text="Audit log exclude users":::
+    :::image type="content" source="./media/tutorial-configure-audit/audit-log-exclude-users.png" alt-text="Audit log exclude users":::
 
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
-    :::image type="content" source="./media/tutorial-auditing/save-parameters.png" alt-text="Save":::
+    :::image type="content" source="./media/tutorial-configure-audit/save-parameters.png" alt-text="Save":::
 
 **OR**
 
-## Configure Auditing  From Azure CLI
+## Configure auditing  From Azure CLI
  
 In case you wish to do the above using Azure CLI, you can enable and configure auditing for your server using CLI 
 
@@ -75,7 +75,7 @@ Audit logs are integrated with Azure Monitor diagnostic settings to allow you to
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
 
 1. Click on "+ Add diagnostic setting"
-    :::image type="content" source="./media/tutorial-auditing/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::
+    :::image type="content" source="./media/tutorial-configure-audit/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::
 
 1. Provide a diagnostic setting name.
 
@@ -84,21 +84,19 @@ Audit logs are integrated with Azure Monitor diagnostic settings to allow you to
 > For the scope of the tutorial we would need to send the slow query logs to Log Analytics workspace
 
 1. Select **MySqlAuditLogs** as the log type.
-    :::image type="content" source="./media/tutorial-auditing/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting":::
+    :::image type="content" source="./media/tutorial-configure-audit/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting":::
 
 1. Once you've configured the data sinks to pipe the audit logs to, you can click **Save**.
-    :::image type="content" source="./media/tutorial-auditing/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::
+    :::image type="content" source="./media/tutorial-configure-audit/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::
 
->[!Note]
->You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
+    >[!Note]
+    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
 
 ## View audit logs using Log Analytics 
-</br>
 
 Navigate to **Logs** under the **Monitoring** section. Close the **Queries** window.  
-</br>
 
-:::image type="content" source="./media/tutorial-auditing/log-query.png" alt-text="Screenshot of Log analytics":::
+:::image type="content" source="./media/tutorial-configure-audit/log-query.png" alt-text="Screenshot of Log analytics":::
 
 On the query window, you can write the query to be executed.  Here we have used query to find the Summarize audited events on a particular server
 
@@ -110,7 +108,7 @@ AzureDiagnostics
     |order by event_class_s 
 ```
   
-:::image type="content" source="./media/tutorial-auditing/audit-query.png" alt-text="Screenshot of Log analytics Query":::
+:::image type="content" source="./media/tutorial-configure-audit/audit-query.png" alt-text="Screenshot of Log analytics Query":::
 
 ## View audit logs using workbooks 
  
@@ -118,20 +116,20 @@ The workbook template that we use for auditing requires us to create diagnostic 
 
 1.	For sending platform logs, click Activity log in the Azure Monitor menu and then **Diagnostic settings**. 
 
-:::image type="content" source="./media/tutorial-auditing/activity-diagnostics.png" alt-text="Screenshot of diagnostics Settings":::
+    :::image type="content" source="./media/tutorial-configure-audit/activity-diagnostics.png" alt-text="Screenshot of diagnostics Settings":::
 
 2.	Add a new setting or Edit setting to edit an existing one. Each setting can have no more than one of each of the destination types.
 
-:::image type="content" source="./media/tutorial-auditing/activity-settings-daig.png" alt-text="Screenshot of diagnostics Settings Selection":::
+    :::image type="content" source="./media/tutorial-configure-audit/activity-settings-diagnostic.png" alt-text="Screenshot of diagnostic Settings Selection":::
 
->[!Note]
->You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
+    >[!Note]
+    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
 
 3.	On the Azure portal, Navigate to **Monitoring** blade for Azure Database for MySQL – Flexible Server and select **Workbooks**.
 4.	You should be able to see the templates. Select **Auditing** 
 
-:::image type="content" source="./media/tutorial-auditing/monitor-workbooks.png" alt-text="Screenshot of workbook template":::
-
+    :::image type="content" source="./media/tutorial-configure-audit/monitor-workbooks.png" alt-text="Screenshot of workbook template":::
+    
 You will be able to see the following Visualization 
 >[!div class="checklist"]
 > * Administrative Actions on the service
@@ -142,9 +140,9 @@ You will be able to see the following Visualization
 > * Errors Identified
 
 
-:::image type="content" source="./media/tutorial-auditing/admin-events.png" alt-text="Screenshot of workbook template admin events":::
+:::image type="content" source="./media/tutorial-configure-audit/admin-events.png" alt-text="Screenshot of workbook template admin events":::
 
-:::image type="content" source="./media/tutorial-auditing/audit-summary.png" alt-text="Screenshot of workbook template audit summary events":::
+:::image type="content" source="./media/tutorial-configure-audit/audit-summary.png" alt-text="Screenshot of workbook template audit summary events":::
 
 >[!Note]
 > * You can also edit these templates and customize as per your requirement. For more information, see [Azure Monitor Workbooks Overview - Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode)
@@ -154,6 +152,6 @@ Administrative Actions on the service give you details on activity performed on 
 
 Other visualizations will help you get details of database activity. Database security is composed of four parts. These are the server security, database connection, table access control and restricting database access. The server security is the one responsible in preventing unauthorized personnel from accessing the database. In terms of database connections, the administrator should also check whether the updates done on the database are done by authorized personnel. Restricting database access is important especially for those who have their database uploaded in the internet. This will help prevent any outside source from entering or getting access to your database. 
 
-## Next step
+## Next steps
 - [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.
 - Learn more about [audit logs](concepts-audit-logs.md)
