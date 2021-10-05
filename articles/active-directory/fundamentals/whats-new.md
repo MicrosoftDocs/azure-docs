@@ -117,7 +117,7 @@ This feature allows Azure AD users to manage their work or school accounts withi
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-New APIs for role management to MS Graph v1.0 endpoint are generally available. Instead of old [directory roles](/graph/api/resources/directoryrole?view=graph-rest-1.0), use [unifiedRoleDefinition](graph/api/resources/unifiedroledefinition?view=graph-rest-1.0) and [unifiedRoleAssignment](/graph/api/resources/unifiedroleassignment?view=graph-rest-1.0).
+New APIs for role management to MS Graph v1.0 endpoint are generally available. Instead of old [directory roles](https://docs.microsoft.com/graph/api/resources/directoryrole?view=graph-rest-1.0), use [unifiedRoleDefinition](https://docs.microsoft.com/graph/api/resources/unifiedroledefinition?view=graph-rest-1.0) and [unifiedRoleAssignment](https://docs.microsoft.com/graph/api/resources/unifiedroleassignment?view=graph-rest-1.0).
  
 ---
 
@@ -1178,4 +1178,3 @@ Azure AD connect cloud sync now has an updated agent (version# - 1.1.359). For m
 Check out the newly available [expression builder](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
 
 ---
-
