@@ -129,13 +129,11 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Add code to xyz.file in your application
+##### 1. Install Pypi Package
 
-```python
-Placeholder
+```sh
+pip install azure-monitor-opentelemetry-exporter 
 ```
-
-
 ---
 
 ### Enable OpenTelemetry
@@ -191,8 +189,29 @@ placeholder
 
 ##### [Python](#tab/python)
 
-placeholder
+The following code demonstrates enabling OpenTelemetry in a simple Python application.
 
+```python
+import os
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+
+exporter = AzureMonitorTraceExporter.from_connection_string(
+    os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+)
+
+trace.set_tracer_provider(TracerProvider())
+tracer = trace.get_tracer(__name__)
+span_processor = BatchSpanProcessor(exporter)
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+with tracer.start_as_current_span("hello"):
+    print("Hello, World!")
+
+```
 ---
 
 
@@ -255,10 +274,25 @@ For more information, see [GitHub Repo](link).
 ### [Python](#tab/python)
 
 ```python
-Placeholder
+...
+from opentelemetry.sdk.resources import SERVICE_NAME, SERVICE_NAMESPACE, SERVICE_INSTANCE_ID, Resource
+trace.set_tracer_provider(
+    TracerProvider(
+        resource=Resource.create(
+            {
+                SERVICE_NAME: "my-helloworld-service",
+                SERVICE_NAMESPACE: "my-namespace",
+                SERVICE_INSTANCE_ID: "my-instance",
+            }
+        )
+    )
+)
+...
 ```
 
-For more information, see [GitHub Repo](link).
+Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
+
+<!-- For more information, see [GitHub Repo](link). -->
 
 ---
 
@@ -296,7 +330,12 @@ The following libraries are validated to work with the Preview Release:
 
 #### [Python](#tab/python)
 
-- XYZ (version X.X)
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) Version:
+  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) Version:
+  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) Version:
+  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
 
 ---
 
@@ -314,7 +353,8 @@ The following libraries are validated to work with the Preview Release:
 
 #### [Python](#tab/python)
 
-- XYZ (version X.X)
+- [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) Version:
+  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.24b0/)
 
 ---
 
@@ -383,9 +423,31 @@ Placeholder
 If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
 
 ```python
-Placeholder
+...
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+trace.set_tracer_provider(TracerProvider())
+span_processor = BatchSpanProcessor(exporter)
+span_enrich_processor = SpanEnrichingProcessor()
+trace.get_tracer_provider().add_span_processor(span_enrich_processor)
+trace.get_tracer_provider().add_span_processor(span_processor)
+...
 ```
 
+Add `SpanEnrichingProcessor.py` to your project with the code below.
+
+```python
+from opentelemetry.sdk.trace import SpanProcessor
+
+class SpanEnrichingProcessor(SpanProcessor):
+
+    def on_end(self, span):
+        span._name = "Updated-" + span.name
+        span._attributes["CustomDimension1"] = "Value1"
+        span._attributes["CustomDimension2"] = "Value2"
+
+```
 ---
 
 #### Set user IP
@@ -419,10 +481,10 @@ Placeholder
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+Use the add [custom property example](#add-custom-property), except change out the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
-Placeholder
+span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
 > [!TIP]
@@ -491,16 +553,25 @@ Populate the _client_IP_ field in the requests and dependencies table. Applicati
 Placeholder
 ```
 
-
 #### [Python](#tab/python)
 
-Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You may use Request/Response hook option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activityspan-attributes) to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
+> [!NOTE]
+> Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.
+
+Below is an example of how to use request/reponse hooks using the [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/instrumentation/opentelemetry-instrumentation-django) instrumentation.
 
 ```python
-Placeholder
+...
+def request_hook(span, request):
+    span._name = "Override" + request.method
+
+def response_hook(span, request, response):
+    pass
+
+DjangoInstrumentation().instrument(request_hook=request_hook, response_hook=response_hook)
+...
 ```
 
 ---
