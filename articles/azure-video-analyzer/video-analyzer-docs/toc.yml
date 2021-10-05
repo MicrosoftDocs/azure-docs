@@ -161,6 +161,8 @@
       href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: troubleshoot.md
+  - name: Camera discovery
+    href: camera-discovery.md
 - name: Reference 
   items:
   - name: Access policies
