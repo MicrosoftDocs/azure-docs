@@ -51,10 +51,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Follow [the tutorial for Azure AD SSO integration with BenQ IAM](benq-iam-tutorial.md) to complete the required settings.
 
 4. After finishing the settings for SSO by SAML, you will see a success message as shown in the image below. Click on **Create Token** in the Automated User Provisioning section.
-	![created-token](media/benq-iam-provisioning-tutorial/create_token.png)
+	![created-token](media/benq-iam-provisioning-tutorial/create-token.png)
 
 5. Copy the token to a safe place. This token will be used in Azure portal in **Step 5**.
-	![copying-token](media/benq-iam-provisioning-tutorial/copy_token.png)
+	![copying-token](media/benq-iam-provisioning-tutorial/copy-token.png)
 
 ## Step 3. Add BenQ IAM from the Azure AD application gallery
 
