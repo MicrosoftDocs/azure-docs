@@ -344,6 +344,34 @@ You can also suppress these instrumentations by setting these environment variab
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
+## Preview instrumentations
+
+Starting from version 3.2.0, the following preview instrumentations can be enabled:
+
+```
+{
+  "preview": {
+    "instrumentation": {
+      "apacheCamel": {
+        "enabled": true
+      },
+      "grizzly": {
+        "enabled": true
+      },
+      "quartz": {
+        "enabled": true
+      },
+      "rabbitmq": {
+        "enabled": true
+      },
+      "springIntegration": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
 ## Heartbeat
 
 By default, Application Insights Java 3.x sends a heartbeat metric once every 15 minutes.
