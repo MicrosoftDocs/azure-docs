@@ -7,15 +7,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 10/04/2021
 ms.author: alkohli
+zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure network for Azure Stack Edge Pro with GPU
 
+::: zone pivot="single-node"
+
 This tutorial describes how to configure network for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
 
 The connection process can take around 20 minutes to complete.
+
+::: zone-end
+
+::: zone pivot="two-node"
+
+
+::: zone-end
 
 In this tutorial, you learn about:
 
@@ -34,6 +44,16 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 * You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
 
+## Get started
+
+1. Go to the **Get started** page.
+1. In the **Set up a single node device** tile, select **Start**.
+
+1. In the local UI for one of the devices, go to the **Get started** page.
+1. In the **Set up a 2-node cluster** tile, select **Start**.
+
+1. In the local UI for the second device, go to the **Get started** page.
+1. In the **Prepare a node** tile, select **Start**.
 
 ## Configure network
 
@@ -68,7 +88,7 @@ Follow these steps to configure the network for your device.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
     * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
-    * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. 
+    * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. <!--NIC teaming should work for 2-node-->
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
@@ -82,6 +102,56 @@ Follow these steps to configure the network for your device.
 
     After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
 
+
+::: zone pivot="two-node"
+
+To configure the network for a 2-node device, follow these steps:
+
+1. In the local UI of the 1st node, go to the **Network** page. Choose the topology for cluster and the storage traffic between nodes from the following options: 
+
+    - **Switchless**. Use this option when high speed switches aren't available for storage and clustering traffic.
+    - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/technologies/nic-teaming/nic-teaming).
+    - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
+
+
+1. Make sure that your node is cabled as per the selected topology.
+1. Select **Apply**.
+1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology with a device reset. Select **Yes** to confirm the network setting. The network setting takes a few minutes to apply and you see a notification when the network settings are successfully applied.
+1. Once the network settings are applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch is created at Port 2 and another virtual switch is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed NICs are then connected via switches.
+
+
+
+## Configure cluster witness
+
+Create a cluster witness. A cluster witness helps establish quorum if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
+
+A cluster witness can be: 
+
+- **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file which is then used as an arbitration point in case of split-brain resolution. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](windows-server/failover-clustering/deploy-cloud-witness).
+- **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. For more information on file share witness, see [Deploy a file share witness for Failover cluster](/windows-server/failover-clustering/file-share-witness).
+
+Before you create a cluster witness, make sure that you've reviewed the cluster witness requirements.
+
+Follow these steps to configure the cluster witness.
+
+### Configure cloud witness
+
+1. In the local UI of the 1st node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+1. In the **Modify cluster witness** blade, enter the following inputs.
+    1. Choose the **Witness type** as **Cloud.**
+    1. Enter the **Azure Storage account name**.
+    1. Specify Storage account authentication from Access key or SAS token.
+    1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
+
+### Configure local witness
+1. In the local UI of the 1st node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+1. In the **Modify cluster witness** blade, enter the following inputs.
+    1. Choose the **Witness type** as **Local.**
+    1. Enter the **Azure Storage account name**.
+    1. Specify Storage account authentication from Access key or SAS token.
+    1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
+
+::: zone-end
 ## Enable compute network
 
 Follow these steps to enable compute and configure compute network. 
