@@ -1,5 +1,5 @@
 ---
-title: What is entity linking in Azure Cognitive Service for language?
+title: What is entity linking in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of entity linking in Azure Cognitive Services, which helps you extract entities from text, and provides links to an online knowledge base.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 09/20/2021
 ms.author: aahi
 ---
 
-# What is entity linking in Azure Cognitive Service for language?
+# What is entity linking in Azure Cognitive Service for Language?
 
-Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word "*Seattle*" would be identified, with a link to more information on Wikipedia.
+Entity linking is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word "*Seattle*" would be identified, with a link to more information on Wikipedia.
 
 This documentation contains the following types of articles:
 
@@ -34,5 +34,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

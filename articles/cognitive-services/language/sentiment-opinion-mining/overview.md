@@ -1,5 +1,5 @@
 ---
-title: What is sentiment analysis and opinion mining in Azure Cognitive Service for language?
+title: What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of the sentiment analysis feature in Azure Cognitive Services, which helps you find out what people think of a topic by mining text for clues.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is sentiment analysis and opinion mining in Azure Cognitive Service for language?
+# What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
 
-Sentiment analysis and opinion mining are features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
+Sentiment analysis and opinion mining are features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
@@ -42,5 +42,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

@@ -1,5 +1,5 @@
 ---
-title: What is key phrase extraction in Azure Cognitive Service for language?
+title: What is key phrase extraction in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of key phrase extraction in Azure Cognitive Services, which helps you identify main concepts in unstructured text
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is key phrase extraction in Azure Cognitive Service for language?
+# What is key phrase extraction in Azure Cognitive Service for Language?
 
-Key phrase extraction is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use key phrase extraction to quickly identify the main concepts in text. For example, in the text "*The food was delicious and the staff were wonderful.*", key phrase extraction will return the main topics: "*food*" and "*wonderful staff*".
+Key phrase extraction is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use key phrase extraction to quickly identify the main concepts in text. For example, in the text "*The food was delicious and the staff were wonderful.*", key phrase extraction will return the main topics: "*food*" and "*wonderful staff*".
 
 This documentation contains the following types of articles:
 
@@ -36,5 +36,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

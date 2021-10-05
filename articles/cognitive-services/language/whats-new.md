@@ -1,7 +1,7 @@
 ---
-title: What's new in Azure Cognitive Service for language?
+title: What's new in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
-description: Find out about new releases and features for the Azure Cognitive Service for language.
+description: Find out about new releases and features for the Azure Cognitive Service for Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 09/13/2021
 ms.author: aahi
 ---
 
-# What's new in Azure Cognitive Service for language?
+# What's new in Azure Cognitive Service for Language?
 
-Azure Cognitive Service for language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## November 2021
 
-* Preview for Azure Cognitive Service for language, with support for:
+* Preview for Azure Cognitive Service for Language, with support for:
     * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)
     * [Key Phrase Extraction](key-phrase-extraction/overview.md)
     * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)
@@ -31,4 +31,4 @@ Azure Cognitive Service for language is updated on an ongoing basis. To stay up-
 
 ## Next steps
 
-* [What is Azure Cognitive Service for language?](overview.md)  
+* [What is Azure Cognitive Service for Language?](overview.md)  
