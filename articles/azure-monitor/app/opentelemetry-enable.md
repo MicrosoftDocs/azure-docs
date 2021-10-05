@@ -394,10 +394,10 @@ You can populate the _client_IP_ field for requests by setting `http.client_ip` 
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+Use the add [custom property example](#add-custom-property), except change out the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
-Placeholder
+activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
 > [!TIP]
