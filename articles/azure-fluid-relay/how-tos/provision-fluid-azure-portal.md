@@ -4,7 +4,7 @@ description: How to provision an Azure Fluid Relay service using the Azure porta
 services: azure-fluid
 author: hickeys
 ms.author: hickeys
-ms.date: 08/19/2021
+ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 ---

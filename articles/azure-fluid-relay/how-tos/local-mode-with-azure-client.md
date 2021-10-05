@@ -2,17 +2,19 @@
 title: 'How to: Use AzureClient for local testing'
 description: How to use AzureClient to test an application without a service
 services: azure-fluid
-author: timtwang
-ms.author: wangtim
-ms.date: 09/30/2021
+author: hickeys
+ms.author: hickeys
+ms.date: 10/05/2021
 ms.topic: reference
 ms.service: azure-fluid
 ---
 
 # How to: Use AzureClient for local testing
 
-This article walks through the steps to configure **AzureClient** in local mode and use it to test your Fluid application locally.
+> [!NOTE]
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
+This article walks through the steps to configure **AzureClient** in local mode and use it to test your Fluid application locally.
 
 ## Configure and create an AzureClient
 

@@ -4,7 +4,7 @@ description: Overview of Azure Fluid Relay Architecture
 services: azure-fluid
 author: hickeys
 ms.author: hickeys
-ms.date: 08/19/2021
+ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/overview/
