@@ -413,7 +413,7 @@ Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Mic
 
 * For all other Azure Maps services, contact [Azure support](https://azure.com/support).
 
-* For question or comments on specific Azure Maps Features use the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* For question or comments on specific Azure Maps Features use the [Azure Maps developer forums](/answers/topics/azure-maps.html).
 
 ## Next steps
 
