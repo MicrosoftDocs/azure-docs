@@ -38,7 +38,7 @@ items:
   items:
   - name: Use Purview Studio
     href: use-purview-studio.md
-  - name: Best practices & Guidelines
+  - name: Best practices and guidelines
     items:
       - name: Deployment best practices
         href: deployment-best-practices.md
