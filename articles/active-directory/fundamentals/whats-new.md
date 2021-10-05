@@ -68,16 +68,6 @@ The load time of My Apps has been improved. Users going to myapps.microsoft.com 
 **Product capability:** Developer Experience
  
 The modern Edge browser is now included in the requirement to provide an `Origin` header when redeeming a [single page app authorization code](../develop/v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps). A compatibility fix accidentally exempted the modern Edge browser from CORS controls, and that bug is being fixed during October. A subset of applications depended on CORS being disabled in the browser, which has the side effect of removing the `Origin` header from traffic. This is an unsupported configuration for using Azure AD, and these apps that depended on disabling CORS can no longer use modern Edge as a security workaround.  All modern browsers must now include the `Origin` header per HTTP spec, to ensure CORS is enforced. [Learn more](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt). 
- 
----
-
-### Public Preview - Azure AD single Sign on and device-based Conditional Access support in Firefox on Windows 10
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** SSO
- 
-Native single sign-on (SSO) support and device-based Conditional Access to Firefox browser on Windows 10 and Windows Server 2019 starting in Firefox version 91 is now supported. [Learn more](../conditional-access/require-managed-devices.md#prerequisites).
 
 ---
 
