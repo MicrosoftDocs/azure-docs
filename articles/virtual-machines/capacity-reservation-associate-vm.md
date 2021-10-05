@@ -19,11 +19,6 @@ This article walks you through the steps of associating a new or existing virtua
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
 ## Associate a new VM
 
 To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that aren't intended to use it.  

@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -72,6 +72,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
 | On-demand provisioning|● |● |
+| Support for US Government|● |● |
 
 ## Next steps 
 

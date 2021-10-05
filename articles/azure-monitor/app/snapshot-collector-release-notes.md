@@ -17,7 +17,7 @@ For bug reports and feedback, open an issue on GitHub at https://github.com/micr
 
 ## Release notes
 
-## [1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.1)
+## [1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.2)
 A point release to address a user-reported bug.
 ### Bug fixes
 - Fix [ArgumentException: Delegates must be of the same type.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/16)
