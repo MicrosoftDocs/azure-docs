@@ -16,7 +16,7 @@ ms.author: aahi
 
 Custom NER is a cloud-based API service that is built using transformer-based models from [Microsoft Turing](https://msturing.org/about) to extract information from unstructured documents.
 
-[Azure Cognitive Services for language](../overview.md) offers a pre-configured [Named Entity Recognition API](../named-entity-recognition/overview.md) for common named entity types, but custom NER lets you extract specific entities that are more relevant to your data. 
+[Azure Cognitive Service for Language](../overview.md) offers a pre-configured [Named Entity Recognition API](../named-entity-recognition/overview.md) for common named entity types, but custom NER lets you extract specific entities that are more relevant to your data. 
 
 Building custom models can be a complex process that requires AI expertise. Custom NER simplifies many of the details required, letting you focus on building a model around your data. Your data can be previously tagged or you can tag it within the [Language Studio](https://language.azure.com).
 

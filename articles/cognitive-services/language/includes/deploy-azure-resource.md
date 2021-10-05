@@ -38,7 +38,7 @@ To use Language Studio, you will need an Azure resource for language for authent
     :::image type="content" source="../media/language-studio-main-screen.png" alt-text="A screenshot showing the main screen in Language Studio." lightbox="../media/language-studio-main-screen.png":::
 
 
-5. This feature has a section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your pricing tier. 
+5. This feature has a section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://aka.ms/unifiedLanguagePricing).
 
     :::image type="content" source="../media/language-studio-feature.png" alt-text="A screenshot showing a feature in Language Studio" lightbox="../media/language-studio-feature.png":::
 

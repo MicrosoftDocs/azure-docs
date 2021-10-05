@@ -1,5 +1,5 @@
 ---
-title: What is language detection in Azure Cognitive Service for language?
+title: What is language detection in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of language detection in Azure Cognitive Services, which helps you detect the language that text is written in by returning language codes.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is language detection in Azure Cognitive Service for language?
+# What is language detection in Azure Cognitive Service for Language?
 
-Language detection is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Language detection can detect the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages. 
+Language detection is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Language detection can detect the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages. 
 
 This documentation contains the following types of articles:
 
@@ -36,5 +36,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

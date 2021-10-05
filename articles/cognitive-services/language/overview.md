@@ -12,15 +12,15 @@ ms.date: 09/16/2021
 ms.author: aahi
 ---
 
-# What are Azure Language services? 
+# What is Azure Cognitive Service for Language? 
 
-Azure Cognitive Service for language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
+Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
 
 This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well.
 
 ## Available features
 
-Azure Cognitive Service for language provides the following features:
+Azure Cognitive Service for Language provides the following features:
 
 > [!div class="mx-tdCol2BreakAll"]
 > |Feature  |Description  | Deployment options| 

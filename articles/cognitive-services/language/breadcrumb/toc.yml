@@ -6,7 +6,7 @@
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/index
     items:
-    - name: Azure Cognitive Service for language
+    - name: Azure Cognitive Service for Language
       tocHref: /azure/cognitive-services/
       topicHref: /azure/cognitive-services/language/index
 - name: Azure
@@ -17,6 +17,6 @@
     tocHref: /legal/cognitive-services/language    # Destination doc set route
     topicHref: /azure/cognitive-services/index    # Original doc set route
     items:
-    - name: Azure Cognitive Service for language       # Destination doc set name
+    - name: Azure Cognitive Service for Language       # Destination doc set name
       tocHref: /legal/cognitive-services/language      # Destination doc set route
       topicHref: /azure/cognitive-services/language/index    # Original doc set route
