@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 10/04/2021
 ---
-# Migrate projects and knowledge bases
+# Migrate projects and question answer sources
 
 You may want to create a copy of your project for several reasons:
 
@@ -21,7 +21,7 @@ You may want to create a copy of your project for several reasons:
 
 ## Export a project
 
-Exporting a project allows you to migrate or back up all the sources/knowledge bases that are contained within a single project.
+Exporting a project allows you to migrate or back up all the sources question answer sources that are contained within a single project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/).
 1. Select the language resource you want to migrate a project from.
