@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 09/30/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,10 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## October 2021
+
+* Quality improvements for the [Extractive Summarization](how-tos/extractive-summarization.md) feature in model-version `2021-08-01`.
 
 ## September 2021
 
