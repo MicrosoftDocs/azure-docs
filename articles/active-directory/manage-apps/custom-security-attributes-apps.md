@@ -165,8 +165,6 @@ To manage custom security attribute assignments for applications in your Azure A
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}?$select=customSecurityAttributes
 ```
 
-A successful response is 200 OK.
-
 If there are no custom security attributes assigned to the application or if the calling principal does not have access, the response will look like:
 
 ```http
@@ -190,8 +188,6 @@ PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
     }
 }
 ```
-
-A successful response is 204 No Content.
 
 #### Other examples
 
