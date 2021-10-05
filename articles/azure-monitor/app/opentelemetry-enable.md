@@ -22,8 +22,9 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Snapshot Debugger](snapshot-debugger.md)
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
- - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
  - [Sampling](sampling.md)
+ - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
@@ -37,8 +38,9 @@ Please consider carefully whether this preview is right for you. It enables dist
  - Auto-capture of unhandled exceptions
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
- - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
  - [Sampling](sampling.md)
+ - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
@@ -54,8 +56,9 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Auto-capture of unhandled exceptions
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
- - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
  - [Sampling](sampling.md)
+ - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
 
  Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -530,51 +533,6 @@ span._attributes["enduser.id"] = "<User ID>"
 
 > [!TIP]
 > The Python exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
----
-
-### Override activity display or span name
-
-#### [.NET](#tab/net)
-
-You may use Enrich option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activityspan-attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
-
-> [!NOTE]
-> Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.g
-
-<!-- For more information, see [GitHub Repo](link). -->
-
-#### [JavaScript](#tab/javascript)
-
-Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
-
-```javascript
-Placeholder
-```
-
-#### [Python](#tab/python)
-
-You may use Request/Response hook option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activityspan-attributes) to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
-
-> [!NOTE]
-> Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.
-
-Below is an example of how to use request/reponse hooks using the [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/instrumentation/opentelemetry-instrumentation-django) instrumentation.
-
-```python
-...
-def request_hook(span, request):
-    span._name = "Override" + request.method
-
-def response_hook(span, request, response):
-    pass
-
-DjangoInstrumentation().instrument(request_hook=request_hook, response_hook=response_hook)
-...
-```
 
 ---
 
