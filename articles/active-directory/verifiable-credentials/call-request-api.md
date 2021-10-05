@@ -11,12 +11,18 @@ ms.subservice: verifiable-credentials
 ms.date: 10/01/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
+#Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application
 ---
 
 # Request Service REST API (Preview)
 
-Azure Active Directory verifiable credentials Request Service REST API allows you to issue and verify a veritable credential. This article shows you how to issue a verifiable credential, presentation request.
+Azure Active Directory verifiable credentials Request Service REST API allows you to issue and verify verifiable credentials using the Azure AD Verifiable Credentials Service. This article shows you how to start using the Request Service REST API.
+
+> [!IMPORTANT]
+> The Request Service REST API is currently in public preview (beta).
+> This preview version is provided without a service level agreement, you can expect breaking changes and deprecation of the API while in preview version from time to time. The API is not recommended for production workloads while in preview. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## API access token
 
