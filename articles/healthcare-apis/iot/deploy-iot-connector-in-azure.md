@@ -1,11 +1,11 @@
 ---
-title: Deploy the IoT connector in the Azure portal - Azure Healthcare APIs
+title: Deploy IoT connector in the Azure portal - Azure Healthcare APIs
 description: In this article, you'll learn how to deploy the IoT connector in the Azure portal. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this quickstart, you'll learn how to deploy IoT connector in the Azure portal. Configuring an IoT connector will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service using an Azure Event Hub.
+In this quickstart, you'll learn how to deploy the IoT connector in the Azure portal. Configuring an IoT connector will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service using an Azure Event Hub.
 
 ## Prerequisites
 
@@ -78,9 +78,13 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 ## Configure Device mapping properties
 
 > [!TIP]
-> The Device Mapper is a tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test devices, FHIR mappings, and export the data to upload to an IoT connector in the Azure portal. This tool also helps developers understand their device's mapping configurations.
+> The IoMT Connector Data Mapper is an open source tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test Devices and FHIR destination mappings, and to export the data to upload to an IoT connector in the Azure portal. This tool also helps developers understand their device's Device and FHIR destination mapping configurations.
 >
-> For more information, see the open source documentation [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
+> For more information, see the open source documentation:
+>
+> [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
+>
+> [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping)
 
 1. Under the **Device Mapping** tab, enter the Device mapping JSON code associated with your IoT connector.
 

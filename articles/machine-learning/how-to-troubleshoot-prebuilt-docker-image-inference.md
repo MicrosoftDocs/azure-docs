@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Troubleshooting steps for using prebuilt Docker images for inference.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.date: 05/25/2021
