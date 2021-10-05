@@ -125,7 +125,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoKeyVault. You'll use this name for other Key Vault commands.
-* **vaultUri**: In the example, the URI is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
+* **vaultUri**: In the example, the URI is `https://contosokeyvault.vault.azure.net`. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
 

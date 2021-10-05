@@ -1,6 +1,7 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang

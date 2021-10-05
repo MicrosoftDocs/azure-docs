@@ -16,7 +16,9 @@ Azure Database for MySQL Flexible Server is a managed service that you can use t
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.

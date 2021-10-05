@@ -2,13 +2,11 @@
 title: Author entry script for advanced scenarios
 titleSuffix: Azure Machine Learning entry script authoring
 description: Learn how to write Azure Machine Learning entry scripts for pre- and post-processing during deployment.
-author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.date: 09/17/2020
-ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
 ---

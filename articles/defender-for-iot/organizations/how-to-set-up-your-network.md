@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 09/01/2021
+ms.date: 10/05/2021
 ms.topic: how-to
 ---
 
@@ -27,7 +27,11 @@ Site deployment tasks include:
 
 - [Prepare a configuration workstation](#prepare-a-configuration-workstation)
 
-- [Planning rack installation](#planning-rack-installation)
+- [Set up Certificates](#set-up-certificates)
+
+- [Prepare a configuration workstation](#prepare-a-configuration-workstation)
+
+- [Plan rack installation](#plan-rack-installation)
 
 ### Collect site information
 
@@ -85,6 +89,10 @@ The following browsers are supported for the sensors and on-premises management 
 
 For more information on supported browsers, see [recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
+### Set up certificates
+
+Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor web application. When signing in to Defender for IoT for the first time, Administrator users are prompted to provide an SSL/TLS certificate. In addition, an option to validate to this certificate  as well other system certificates is automatically is enabled. See [About Certificates](how-to-deploy-certificates.md) for details.
+
 ### Network access requirements
 
 Verify that your organizational security policy allows access to the following:
@@ -135,7 +143,7 @@ Access extra capabilities by opening these other ports.
 | DNS |  | In/Out | 53 | DNS | DNS server port | On-premises management console and Sensor | DNS server |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
 
-### Planning rack installation
+### Plan rack installation
 
 To plan your rack installation:
 
@@ -147,7 +155,7 @@ To plan your rack installation:
 
 1. Prepare the LAN cable for connecting the management to the network switch.
 
-1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance.
+1. Prepare the LAN cables for connecting switch SPAN (mirror) ports, and network taps to the Defender for IoT appliance.
 
 1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
 
@@ -167,7 +175,7 @@ The following sections describe Purdue levels.
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model.":::
 
-####  Level 0: Cell and area  
+#### Level 0: Cell and area  
 
 Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
 
@@ -263,7 +271,7 @@ Here are some recommendations for deploying multiple sensors:
 
 #### Traffic mirroring  
 
-To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic. 
+To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your setup.":::
 
@@ -594,7 +602,7 @@ Review this list before site deployment:
 
 An overview of the industrial network diagram will allow you to define the proper location for the Defender for IoT equipment.
 
-1.  **Global network diagram** - View a global network diagram of the industrial OT environment. For example:
+1. **Global network diagram** - View a global network diagram of the industrial OT environment. For example:
 
     :::image type="content" source="media/how-to-set-up-your-network/backbone-switch.png" alt-text="Diagram of the industrial OT environment for the global network.":::
 
@@ -603,7 +611,7 @@ An overview of the industrial network diagram will allow you to define the prope
 
 1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
-1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional). 
+1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional).
 
     |  **#**  | **Subnet name** | **Description** |
     |--| --------------- | --------------- |
@@ -643,25 +651,25 @@ An overview of the industrial network diagram will allow you to define the prope
     - Rockwell automation – Ethernet or IP
 
     - Emerson – DeltaV, Ovation
-    
-1.  **Serial connection** - Are there devices that communicate via a serial connection in the network? Yes or No 
 
-    If yes, specify which serial communication protocol: ________________ 
+1. **Serial connection** - Are there devices that communicate via a serial connection in the network? Yes or No
 
-    If yes, mark on the network diagram what devices communicate with serial protocols, and where they are: 
- 
-    *Add your network diagram with marked serial connection* 
+    If yes, specify which serial communication protocol: ________________
 
-1. **Quality of Service** - For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+    If yes, mark on the network diagram what devices communicate with serial protocols, and where they are:
 
-   Business unit (BU): ________________ 
+    *Add your network diagram with marked serial connection*
 
-1.  **Sensor** - Specifications for site equipment
+1. **Quality of Service** - For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________
+
+   Business unit (BU): ________________
+
+1. **Sensor** - Specifications for site equipment
 
     The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
-    
-    Provide address details for the sensor NIC that will be connected in the corporate network: 
-    
+
+    Provide address details for the sensor NIC that will be connected in the corporate network:
+
     | Item | Appliance 1 | Appliance 2 | Appliance 3 |
     |--|--|--|--|
     | Appliance IP address |  |  |  |
@@ -670,7 +678,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | DNS |  |  |  |
     | Host name |  |  |  |
 
-1.  **iDRAC/iLO/Server management**
+1. **iDRAC/iLO/Server management**
 
     | Item | Appliance 1 | Appliance 2 | Appliance 3 |
     |--|--|--|--|
@@ -679,7 +687,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | Default gateway |  |  |  |
     | DNS |  |  |  |
 
-1. **On-premises management console** 
+1. **On-premises management console**
 
     | Item | Active | Passive (when using HA) |
     |--|--|--|
@@ -704,18 +712,18 @@ An overview of the industrial network diagram will allow you to define the prope
 1. **On-premises management console SSL certificate**
 
     Are you planning to use an SSL certificate? Yes or No
-    
+
     If yes, what service will you use to generate it? What attributes will you include in the certificate (for example, domain or IP address)?
 
 1. **SMTP authentication**
 
     Are you planning to use SMTP to forward alerts to an email server? Yes or No
-    
+
     If yes, what authentication method you will use?  
-    
+
 1. **Active Directory or local users**
 
-    Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
+    Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day.
 
 1. IoT device types in the network
 

@@ -4,7 +4,7 @@ description: This article teaches users how to deploy a FHIR service in the Azur
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: quickstart
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ms.author: ginle
 ---
 
@@ -54,5 +54,5 @@ To validate that the new FHIR API account is provisioned, fetch a capability sta
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](using-postman.md)
+>[Access the FHIR service using Postman](../use-postman.md)
 

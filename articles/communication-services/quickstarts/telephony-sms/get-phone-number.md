@@ -9,6 +9,7 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: pstn
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
 ---

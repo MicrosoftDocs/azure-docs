@@ -52,7 +52,7 @@ All the API for MongoDB versions run on the same codebase, making upgrades a sim
 
 * There are three ways to deploy Azure Cosmos DB API for MongoDB:
      * [Provisioned throughput](../set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.
-     * [Autoscale]../(provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Throughput instantly scales to match your needs. This model best fits workloads that change frequently and optimizes their costs.
+     * [Autoscale](../provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Throughput instantly scales to match your needs. This model best fits workloads that change frequently and optimizes their costs.
      * [Serverless](../serverless.md): Only pay for the throughput you use, period. This model best fits dev/test workloads. 
 
 * Sharded cluster performance is dependent on the shard key you choose when creating a collection. Choose a shard key carefully to ensure that your data is evenly distributed across shards.

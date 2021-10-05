@@ -10,6 +10,7 @@ ms.date: 08/31/2021
 # Configure Linux desired state with Azure Automation State Configuration using PowerShell
 
 In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to an Azure Linux virtual machine to check whether it complies with a desired state. The desired state is to identify if the apache2 service is present on the node.
+
 Azure Automation State Configuration allows you to specify configurations for your machines and ensure those machines are in a specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
 
 In this tutorial, you learn how to:

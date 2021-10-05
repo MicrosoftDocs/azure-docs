@@ -306,7 +306,7 @@ For all premium SSDs or ultra disks, you may be able to disable “barriers” f
 
 * For **reiserFS**, use the barrier=none mount option to disable barriers.  To explicitly enable barriers, use barrier=flush.
 * For **ext3/ext4**, use the barrier=0 mount option to disable barriers.  To explicitly enable barriers, use barrier=1.
-* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier.  Note that in later Linux kernel versions, the design of XFS file system always ensures durability, and disabling barriers has no effect.  
+* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier. As of version 4.10 of the mainline Linux kernel, the design of XFS file system always ensures durability. Disabling barriers has no effect and the “nobarrier” option is deprecated. However, some Linux distributions may have backported the changes to a distribution release with an earlier kernel version, check with your distribution vendor for the status in the distribution and version you are running.
 
 ## Disk striping
 

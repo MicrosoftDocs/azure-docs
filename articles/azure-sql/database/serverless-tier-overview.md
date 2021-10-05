@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: mathoma, wiassaf
-ms.date: 7/29/2021
+ms.date: 9/28/2021
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Serverless is price-performance optimized for single databases with intermittent
 
 ### Scenarios well suited for serverless compute
 
-- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity and lower average compute utilization over time.
+- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity, and lower average compute utilization over time.
 - Single databases in the provisioned compute tier that are frequently rescaled and customers who prefer to delegate compute rescaling to the service.
 - New single databases without usage history where compute sizing is difficult or not possible to estimate prior to deployment in SQL Database.
 
@@ -155,7 +155,7 @@ If the result set is non-empty, it indicates that there are sessions currently p
 
 If the result set is empty, it is still possible that sessions were open, possibly for a short time, at some point earlier during the auto-pause delay period. To see if such activity has occurred during the delay period, you can use [Azure SQL Auditing](auditing-overview.md) and examine audit data for the relevant period.
 
-The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected. Note that some [features](#auto-pausing) don't support auto-pausing, but do support auto-scaling.
+The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected.
 
 ### Auto-resuming
 
@@ -180,11 +180,11 @@ Auto-resuming is triggered if any of the following conditions are true at any ti
 
 Monitoring, management, or other solutions performing any of the operations listed above will trigger auto-resuming.
 
-Auto-resuming is also triggered during the deployment of some service updates which require the database be online.
+Auto-resuming is also triggered during the deployment of some service updates that require the database be online.
 
 ### Connectivity
 
-If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
+If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.  For connection retry logic options that are built-in to the SqlClient driver, see [configurable retry logic in SqlClient](/sql/connect/ado-net/configurable-retry-logic).
 
 ### Latency
 
@@ -371,7 +371,7 @@ The [Azure SQL Database pricing calculator](https://azure.microsoft.com/pricing/
 
 ### Example scenario
 
-Consider a serverless database configured with 1 min vCore and 4 max vCores.  This corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
+Consider a serverless database configured with 1 min vCore and 4 max vCores.  This configuration corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
 
 In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the second hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24-hour period while the database is paused.
 

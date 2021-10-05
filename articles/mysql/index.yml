@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server (Preview) to deploy your MySQL database in Azure."
   author: savjani
   ms.author: pariks
-  ms.date: 09/03/2019
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
 
@@ -123,6 +123,8 @@ landingContent:
           url: concepts-migrate-import-export.md
         - text: Migrate Amazon RDS for MySQL with MySQL Workbench
           url: how-to-migrate-rds-mysql-workbench.md
+        - text: Migrate Amazon RDS for MySQL using Data-in replication
+          url: how-to-migrate-rds-mysql-data-in-replication.md
         - text: Minimal-downtime migration
           url: howto-migrate-online.md
         - text: Common errors during or post migration
@@ -186,8 +188,10 @@ landingContent:
             url: https://dev.mysql.com/doc/connector-net/en/
       - linkListType: deploy
         links:
-          - text: Azure CLI scripts for common tasks
+          - text: Azure CLI Samples - Single Server
             url: ./sample-scripts-azure-cli.md
+          - text: Azure CLI Samples - Flexible Server
+            url: flexible-server/sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions
       - linkListType: reference

@@ -1,19 +1,19 @@
 ---
 title: Save for Azure App Service with reserved capacity
-description: Learn how you can save costs for Azure App Service Premium v3 and Premium v2 reserved instances and Isolated Stamp Fees.
-author: yashesvi
-ms.reviewer: yashar
+description: Learn how you can save costs for Azure App Service Premium v3 and Isolated v2 reserved instances and Isolated Stamp Fees.
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 10/04/2021
 ms.author: banders
 ms.custom: references_regions
 ---
 
 # Save costs with Azure App Service reserved instances
 
-This article explains how you can save with Azure App Service reserved instances for Premium v3 and Premium v2 instances and Isolated Stamp Fees.
+This article explains how you can save with Azure App Service reserved instances for Premium v3 and Isolated v2 instances and Isolated Stamp Fees.
 
 ## Save with Premium v3 reserved instances
 
@@ -58,7 +58,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 | **Field** | **Description** |
 |---|---|
 | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
-| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only. </li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li></ul> |
+| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only. </li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li><li>**Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.</li></ul> |
 | Region | The Azure region that's covered by the reservation. |
 | Premium v3 reserved instance size | The size of the Premium v3 reserved instances. |
 | Term | One year or three years. There's also a 5-year term available only for HBv2 Premium v3 reserved instances. |
@@ -84,7 +84,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 | **Field** | **Description** |
 | --- | --- |
 | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
-| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<UL><LI>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.</li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li> |
+| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<UL><LI>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.</li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li><li>**Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.</li></ul> |
 | Region | The Azure region that's covered by the reservation. |
 | Isolated v2 reserved instance size | The size of the Isolated v2 reserved instances. |
 | Term | One year or three years. There's also a 5-year term available only for HBv2 Isolated v2 reserved instances. |
@@ -129,6 +129,7 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
     - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
     - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+    - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select a **Region** to choose an Azure region that's covered by the reserved capacity and add the reservation to the cart.
 1. Select an Isolated Plan type and then click **Select**.  
     ![Example ](./media/prepay-app-service/app-service-isolated-stamp-select.png)
