@@ -81,7 +81,7 @@ Question answering provides authoring, training, and publishing along with colla
 
 We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes.
 
-* [Get started with QnA Maker client library](./quickstart/sdk.md)
+* [Get started with the question answering client library](./quickstart/sdk.md)
 
 ## Next steps
 Question answering provides everything you need to build, manage, and deploy your custom knowledge base.
