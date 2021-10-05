@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Azure Defender f
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.custom: template-tutorial
 ---
 
