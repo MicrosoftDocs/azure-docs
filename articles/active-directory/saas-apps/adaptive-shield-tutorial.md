@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 10/04/2021
 ms.author: jeedes
 
 ---
@@ -83,7 +83,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | **Sandbox** |`https://staging-dashboard.adaptive-shield.com/api/sso/saml` |
     | **Production** |`https://dashboard.adaptive-shield.com/api/sso/saml` |
 
-	b. In the **Sign on URL** text box, type one of the following URLs:
+	b. In the **Reply URL** text box, type one of the following URLs:
+
+    | **Environment** | **URL** |
+    |---------|--------|
+    | **Sandbox** | `https://staging-dashboard.adaptive-shield.com/api/sso/saml` |
+    | **Production** | `https://dashboard.adaptive-shield.com/api/sso/saml` |
+    
+    c. In the **Sign on URL** text box, type one of the following URLs:
 
     | **Environment** | **URL** |
     |---------|--------|
