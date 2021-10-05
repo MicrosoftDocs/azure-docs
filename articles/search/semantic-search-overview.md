@@ -84,16 +84,14 @@ Semantic search is available through [sign-up registration](https://aka.ms/Seman
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
-| Spell check | Supported on Basic and above | All | Not applicable | None (free) |
+| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
+| Spell check | Basic and above | All | None | None (free) |
 
-Previous versions of this article indicated that preview sign-up was required for spell check. That restriction no longer applies.
-
-Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged, even if queryType is set to `semantic`.
+Charges for semantic search are levied when query requests include "queryType=semantic" and the search string is not empty (for example, "search=pet friendly hotels in new york". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
 
 ## Disable semantic search
 
-For full protection against accidental usage and charges, set ["semanticSearch": "disabled"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
+For full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)  using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
 * Management REST API version 2021-04-01-Preview provides this option
 

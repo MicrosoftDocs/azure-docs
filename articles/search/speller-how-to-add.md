@@ -32,11 +32,13 @@ To use spell check, you will need the following:
 
 Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
-+ REST API, version [2021-04-30-Preview](/rest/api/searchservice/index-preview) or **2020-06-30-Preview**
-+ Azure SDK for .NET, [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)
-+ Azure SDK for Java, [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) 
-+ Azure SDK for JavaScript, [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)
-+ Azure SDK for Python, [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/)
+| Client library | Versions |
+|----------|----------|
+| REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
+| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
+| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
+| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
+| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## Spell correction with simple search
 
