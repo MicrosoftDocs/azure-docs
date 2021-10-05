@@ -293,15 +293,16 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 ## Conditional Access
 
-[Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure and stay out of your user's way when not needed. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies for your search service.
+[Conditional Access](../active-directory/conditional-access/overview.md) is the tool used by Azure Active Directory to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
 
 To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
-1. Navigate to the Azure portal.
+1. [Sign in](https://portal.azure.com) to the Azure portal.
 1. Search for **Azure AD Conditional Access**.
 1. Select **Policies**.
 1. Select **+ New policy**.
 1. In the **Cloud apps or actions** section of the policy, add **Azure Cognitive Search** as a cloud app depending on how you want to set up your policy.
-1. Update the remaining parameters of the policy and save the policy.
+1. Update the remaining parameters of the policy. For example, specify which users and groups this policy applies to. 
+1. Save the policy.
 
 > [!IMPORTANT]
 > If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies cannot be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.
