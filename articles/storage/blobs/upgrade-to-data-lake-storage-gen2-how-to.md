@@ -18,11 +18,11 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
 
-## Disable unsupported features
+## Review feature support
 
-Before you upgrade, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you are using in your account will be supported in your upgraded accounts. 
+You're account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. 
 
-Some features aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step.
+Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
 
 ## Perform the upgrade
 
