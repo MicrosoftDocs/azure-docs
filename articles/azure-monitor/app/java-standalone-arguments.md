@@ -89,7 +89,7 @@ Locate the file `<tomcat>/bin/tomcat8w.exe`.  Run that executable and add `-java
 Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to the existing `JAVA_OPTS` environment variable in the file `JBOSS_HOME/bin/standalone.conf` (Linux) or `JBOSS_HOME/bin/standalone.conf.bat` (Windows):
 
 ```java    ...
-    JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.1.1.jar</b> -Xms1303m -Xmx1303m ..."
+    JAVA_OPTS="-javaagent:path/to/applicationinsights-agent-3.1.1.jar -Xms1303m -Xmx1303m ..."
     ...
 ```
 
