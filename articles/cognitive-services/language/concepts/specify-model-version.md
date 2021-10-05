@@ -30,6 +30,7 @@ Use the table below to find which model versions are supported by each hosted en
 | Entity Recognition (`PII`)     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
 | Health API              | `2021-05-15`                           | `2021-05-15`   |
 | Key Phrase Extraction                   | `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
+| Extractive summarization                   | `2021-08-01`  | `2021-08-01`   |
 
 ## Health API container
 
