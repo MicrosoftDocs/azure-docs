@@ -1,20 +1,20 @@
 ---
-title: Adding chit-chat to a custom question answering knowledge base
+title: Adding chitchat to a custom question answering knowledge base
 titleSuffix: Azure Cognitive Services
-description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. Custom question answering allows you to easily add a pre-populated set of the top chit-chat, into your KB.
+description: Adding personal chitchat to your bot makes it more conversational and engaging when you create a project. Custom question answering allows you to easily add a pre-populated set of the top chitchat, into your knowledge bases.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/04/2021
 ---
 
-# Use Chit-chat with a knowledge base
+# Use chitchat with a knowledge base
 
-Adding chit-chat to your bot makes it more conversational and engaging. The chit-chat feature in custom question answering allows you to easily add a pre-populated set of the top chit-chat, into your knowledge base (KB). This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
+Adding chitchat to your bot makes it more conversational and engaging. The chitchat feature in custom question answering allows you to easily add a pre-populated set of the top chitchat, into your knowledge base (KB). This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
-This dataset has about 100 scenarios of chit-chat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA.
+This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, question answering tries to match it with the closest known chitchat question and answer.
 
 Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md) along with details of the personalities.
 
@@ -30,10 +30,9 @@ For the user query of `When is your birthday?`, each personality has a styled re
 |Enthusiastic|I'm a bot, so I don't have an age.|
 ||
 
-
 ## Language support
 
-Chit-chat data sets are supported in the following languages:
+Chitchat data sets are supported in the following languages:
 
 |Language|
 |--|
@@ -47,36 +46,40 @@ Chit-chat data sets are supported in the following languages:
 |Portuguese|
 |Spanish|
 
-## Add chit-chat during KB creation
-During knowledge base creation, after adding your source URLs and files, there is an option for adding chit-chat. Choose the personality that you want as your chit-chat base. If you do not want to add chit-chat, or if you already have chit-chat support in your data sources, choose **None**.
+## Add chitchat source
+After you create your project you can add sources from URLs, files, as well as chitchat from the **Manage sources** pane.
 
-## Add Chit-chat to an existing KB
-Select your KB, and navigate to the **Settings** page. There is a link to all the chit-chat datasets in the appropriate **.tsv** format. Download the personality you want, then upload it as a file source. Make sure not to edit the format or the metadata when you download and upload the file.
+> [!div class="mx-imgBorder"]
+> ![Add source chitchat](../media/chit-chat/add-source.png)
 
-![Add chit-chat to existing KB preview release](../media/chit-chat/add-chit-chat-dataset-v2.png)
+Choose the personality that you want as your chitchat base.
 
-## Edit your chit-chat questions and answers
-When you edit your KB, you will see a new source for chit-chat, based on the personality you selected. You can now add altered questions or edit the responses, just like with any other source.
+> [!div class="mx-imgBorder"]
+> ![Menu of different chitchat personalities](../media/chit-chat/personality.png)
 
-![Edit chit-chat QnAs](../media/chit-chat/edit-chit-chat.png)
+## Edit your chitchat questions and answers
 
-To view the metadata, select **View Options** in the toolbar, then select **Show metadata**.
+When you edit your knowledge base, you will see a new source for chitchat, based on the personality you selected. You can now add altered questions or edit the responses, just like with any other source.
 
-## Add additional chit-chat questions and answers
-You can add a new chit-chat QnA pair that is not in the predefined data set. Ensure that you are not duplicating a QnA pair that is already covered in the chit-chat set. When you add any new chit-chat QnA, it gets added to your **Editorial** source. To ensure the ranker understands that this is chit-chat, add the metadata key/value pair "Editorial: chitchat", as seen in the following image:
+> [!div class="mx-imgBorder"]
+> ![Edit chitchat question pairs](../media/chit-chat/edit-chit-chat.png)
 
-:::image type="content" source="../media/chit-chat/add-new-chit-chat.png" alt-text="Add chit-chat QnAs" lightbox="../media/chit-chat/add-new-chit-chat.png":::
+To turn the views for context and metadata on and off, select **Show columns** in the toolbar.
 
-## Delete chit-chat from an existing KB
-Select your KB, and navigate to the **Settings** page. Your specific chit-chat source is listed as a file, with the selected personality name. You can delete this as a source file.
+## Add more chitchat questions and answers
 
-![Delete chit-chat from KB](../media/chit-chat/delete-chit-chat.png)
+You can add a new chitchat question pair that is not in the predefined data set. Ensure that you are not duplicating a question pair that is already covered in the chitchat set. When you add any new chitchat question pair, it gets added to your **Editorial** source. To ensure the ranker understands that this is chitchat, add the metadata key/value pair "Editorial: chitchat", as seen in the following image:
+
+:::image type="content" source="../media/chit-chat/add-new-chit-chat.png" alt-text="Add chitchat question answer pairs" lightbox="../media/chit-chat/add-new-chit-chat.png":::
+
+## Delete chitchat from your project
+
+Select the **manage sources** pane, and choose your chitchat source. Your specific chitchat source is listed as a tsv file, with the selected personality name. Select **Delete** from the toolbar.
+
+> [!div class="mx-imgBorder"]
+> ![Delete chitchat source](../media/chit-chat/delete-chit-chat.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Import a knowledge base](./migrate-knowledge-base.md)
-
-## See also
-<!-- TODO: Replace Link-->
-[QnA Maker overview](../../../qnamaker/Overview/overview.md)
