@@ -32,6 +32,7 @@ RDP files have the following properties by default:
 >[!NOTE]
 >- Multi-monitor mode is only enabled for Desktop app groups and will be ignored for RemoteApp app groups.
 >- All default RDP file properties are exposed in the Azure Portal.
+>- By default, the CustomRdpProperty field is empty in the Azure portal. If you're using PowerShell or REST API to configure RDP properties, then the empty CustomRdpProperty field will apply all default RDP properties to your configuration.
 
 ## Prerequisites
 

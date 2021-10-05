@@ -36,12 +36,12 @@ landingContent:
             url: how-to-use-device-mapping-iot.md
           - text: FHIR destination mapping templates
             url: how-to-use-fhir-mapping-iot.md
-          
-            
+          - text: IoMT Connector Data Mapper tool
+            url: https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper  
+                   
   - title: Azure IoT Hub
     linkLists:
       - linkListType: tutorial
         links:
           - text: Receive device data through Azure IoT Hub
             url: device-data-through-iot-hub.md 
-    
