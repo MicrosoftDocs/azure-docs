@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 10/01/2021
+ms.date: 10/04/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -117,7 +117,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | UK West | :heavy_check_mark: | :x: | 
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: (v3 only) | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
 
 <!-- We continue to add more regions for flexible server. -->
 
