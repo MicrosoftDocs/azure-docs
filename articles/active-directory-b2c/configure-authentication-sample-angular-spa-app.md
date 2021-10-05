@@ -59,7 +59,7 @@ Before you follow the procedures in this article, make sure that your computer i
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
 * [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-* [Angular LCI](https://angular.io/cli).
+* [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
 

@@ -25,11 +25,11 @@ Azure storage allows three different tiers to store data in the most cost-effect
 
 Cool storage tier is for infrequently accessed data that needs to be stored for a minimum of 30 days. The storage cost for cold tier is lower than that of hot storage tier but the data access charges are high when compared to Hot tier.
 
-The Azure Archive tier is offline and offers the lowest storage costs but also the highest access costs. This tier is meant for data that remains in archival storage for a minimum of 180 days. For details of each of these tiers and the pricing model, go to [Comparison of the storage tiers](../storage/blobs/storage-blob-storage-tiers.md).
+The Azure Archive tier is offline and offers the lowest storage costs but also the highest access costs. This tier is meant for data that remains in archival storage for a minimum of 180 days. For details of each of these tiers and the pricing model, go to [Comparison of the storage tiers](../storage/blobs/access-tiers-overview.md).
 
 The data from the Data Box or Data Box Heavy is uploaded to a storage tier that is associated with the storage account. When you create a storage account, you can specify the access tier as Hot or Cold. Depending upon the access pattern of your workload and cost, you can move this data from the default tier to another storage tier.
 
-You may only tier your object storage data in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. To choose the correct storage tier for your data, review the considerations detailed in [Azure Blob storage: Premium, Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md).
+You may only tier your object storage data in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. To choose the correct storage tier for your data, review the considerations detailed in [Azure Blob storage: Premium, Hot, Cool, and Archive storage tiers](../storage/blobs/access-tiers-overview.md).
 
 ## Set a default blob tier
 
