@@ -10,7 +10,7 @@ ms.date: 04/22/2018
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
-The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](/aspnet/core/performance/caching/response). 
+The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](/aspnet/core/performance/caching/response).
 
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -24,10 +24,7 @@ Run the following command from the `Package Manager Console` window.
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package isn't present in your project, it's installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
-
->[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it; otherwise, you will experience naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis package. If the StackExchange.Redis package isn't present in your project, it's installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Redis Output Cache Provider.
 
