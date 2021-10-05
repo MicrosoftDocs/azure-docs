@@ -25,6 +25,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Propagating Operation Name to Dependency Telemetry
  
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
@@ -41,6 +42,7 @@ Please consider carefully whether this preview is right for you. It enables dist
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Propagating Operation Name to Dependency Telemetry
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
@@ -59,6 +61,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Propagating Operation Name to Dependency Telemetry
 
  Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -182,11 +185,11 @@ public class Program
 }
 ```
 
-> [!NOTE]
+> [!TIP]
 > The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
 
 > [!NOTE]
-> Are you wondering why the terms `ActivitySource` and `Activity` are used instead of `Tracer` and `Span` per the OpenTelemetry specification? It's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. At a high-level, this means is that the `Activity` and `ActivitySource` classes from the .NET runtime represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+> The `Activity` and `ActivitySource` classes from the .NET runtime represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. This is because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### [JavaScript](#tab/javascript)
 
@@ -459,9 +462,6 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 You can populate the _client_IP_ field for requests by setting `http.client_ip` attribute on activity/span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
-> [!IMPORTANT]
-> Consult applicable privacy laws before setting Authenticated User ID.
-
 ##### [.NET](#tab/net)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code in `ActivityEnrichingProcessor.cs`:
@@ -500,6 +500,9 @@ span._attributes["http.client_ip"] = "<IP Address>"
 #### Set user ID or authenticated user ID
 
 You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting `xyz` or `xyz` attribute on activity/span. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before setting Authenticated User ID.
 
 ##### [.NET](#tab/net)
 
