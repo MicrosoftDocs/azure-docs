@@ -37,17 +37,21 @@ Exporting a project allows you to migrate or back up all the sources question an
 
 1. Select the language resource you want to migrate an individual question answer source from.
 1. Select the project that contains the question and answer source you wish to export.
-1. On the Edit knowledge base page, select the three ellipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV. 
+1. On the Edit knowledge base page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV.
 
 ## Import question and answers
 
 1. Select the language resource, which will be the destination for your previously exported question and answer source.
 1. Select the project where you want to import a question and answer source.
-1. On the Edit knowledge base page, select the three ellipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either an Excel or TSV file.
+1. On the Edit knowledge base page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either an Excel or TSV file.
 1. Browse to the local location of the file with the **Choose File** option and select **Done**.
 
 <!-- TODO: Replace Link-->
-3. **Test** the question answer source by selecting the **Test** option from the toolbar in the **Edit knowledge base** which will launch the test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+### Test
+
+**Test** the question answer source by selecting the **Test** option from the toolbar in the **Edit knowledge base** page which will launch the test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+
+### Deploy
 
 <!-- TODO: Replace Link-->
 4. **Deploy** the knowledge base and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
