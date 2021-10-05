@@ -3,12 +3,12 @@ title: Discovering ONVIF-capable cameras in the local subnet
 description: This how-to shows you how you can use Video Analyzer edge module to discover ONVIF-capable cameras in your local subnet.
 
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/05/2021
 ---
 
 # Discovering ONVIF-capable cameras in the local subnet
 
-This how to guide walks you through how to use the Azure Video Analyzer edge module to discover ONVIF compliant cameras on the same subnet as the IoT Edge device.  Open Network Video Interface Forum or ONVIF is a open standard where discrete IP-based physical devices, such as surveillance cameras, can communicate with additional networked devices and software.  For more information about ONVIF please visit the [ONVIF](https://www.onvif.org/about/mission/) website.
+This how to guide walks you through how to use the Azure Video Analyzer edge module to discover ONVIF compliant cameras on the same subnet as the IoT Edge device.  Open Network Video Interface Forum or ONVIF is an open standard where discrete IP-based physical devices, such as surveillance cameras, can communicate with additional networked devices and software.  For more information about ONVIF please visit the [ONVIF](https://www.onvif.org/about/mission/) website.
 
 ## Prerequisites
 
@@ -261,7 +261,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 - The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 
-- Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
+- Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF-compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
 
 - Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast.  This also requires that port 3702 is available. 
 
