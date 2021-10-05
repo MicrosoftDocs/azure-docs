@@ -7,8 +7,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.topic: overview
-ms.date: 06/23/2021
+ms.topic: reference
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
