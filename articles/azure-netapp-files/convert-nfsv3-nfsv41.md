@@ -38,7 +38,7 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 * You cannot convert an NFSv4.1 volume with Kerberos enabled to NFSv3. 
 * You cannot change the NFS version of a dual-protocol volume. 
 * You cannot convert a single-protocol NFS volume to a dual-protocol volume, or the other way around. 
-* You cannot convert a source or destination volume in a cross-region replication relationship. 
+* You cannot convert a destination volume in a cross-region replication relationship. 
 * Converting an NFSv4.1 volume to NFSv3 will cause all advanced NFSv4.1 features such as ACLs and file locking to become unavailable. 
 
 ## Register the option 
