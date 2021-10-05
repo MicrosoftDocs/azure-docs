@@ -27,7 +27,7 @@ Any other sensitive information, like IP addresses, service names, and other con
 
 Each individual key vault defines security boundaries for secrets. For a single key vault per application, per region, per environment, we recommend that you provide granular isolation of secrets for an application.
 
-For more information about best practices for Key Vault, see: [Best practices to use Key Vault](../general/best-practices.md).
+For more information about best practices for Key Vault, see [Best practices to use Key Vault](../general/best-practices.md).
 
 ## Configuration and storing 
 
