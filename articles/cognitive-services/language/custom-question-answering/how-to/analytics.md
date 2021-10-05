@@ -1,5 +1,5 @@
 ---
-title: Analytics on knowledgebase - custom question answering
+title: Analytics on knowledge bases - custom question answering
 titleSuffix: Azure Cognitive Services
 description: Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs
 services: cognitive-services
@@ -13,17 +13,17 @@ ms.date: 08/25/2021
 
 # Get analytics for your knowledge base
 
-Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your QnA Maker knowledge base.
+Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your custom question answering project.
 
 1. [Enable diagnostics logging](../../../diagnostic-logging.md) for your language resource with custom question answering enabled.
 
 2. In the previous step, select **Trace** in addition to **Audit, RequestResponse and AllMetrics** for logging
 
-    ![Enable trace logging in QnA Maker managed (Preview)](../media/analytics/qnamaker-v2-enable-trace-logging.png)
+    ![Enable trace logging in custom question answering](../media/analytics/qnamaker-v2-enable-trace-logging.png)
 
 ## Kusto queries
 
-### All QnA chat log
+### Chat log
 
 ```kusto
 // All QnA Traffic
