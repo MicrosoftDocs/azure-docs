@@ -35,9 +35,7 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
 {
   "apiVersion": "2021-05-01",
   "type": "Microsoft.ServiceFabric/managedclusters",
-  "...": null,
   "properties": {
-    "...": null,
     "networkSecurityRules": [
       {
         "name": "AllowCustomers",
