@@ -54,6 +54,7 @@ items:
     - name: Environment variable naming convention 
       href: overview.md
   - name: Integrate
+    expanded: true
     items:
     - name: Azure Database for PostgreSQL
       href: how-to-integrate-postgres.md
