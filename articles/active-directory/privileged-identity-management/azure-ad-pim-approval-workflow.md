@@ -103,7 +103,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSche
 
 1. Select **Approve**. You will receive an Azure notification of your approval.
 
-    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
+    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 ## Approve pending requests using Graph API
 

@@ -22,12 +22,30 @@ By default, pgAudit log statements are emitted along with your regular log state
 
 To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor logs, visit the resource logs section of the [server logs article](concepts-logging.md).
 
-## Enabling pgAudit
+## Installing pgAudit
 
-To enable pgAudit, you need to connect to your server using a client (like psql) and enable the pgAudit extension by running the following command:
-```SQL
-CREATE EXTENSION pgaudit;
-```
+To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
+
+Using the [Azure portal](https://portal.azure.com):
+
+   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   2. On the sidebar, select **Server Parameters**.
+   3. Search for the `shared_preload_libraries` parameter.
+   4. Select **pgaudit**.
+     :::image type="content" source="./media/concepts-audit/shared-preload-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - enabling shared_preload_libraries for pgaudit ":::
+   5. You can check that **pgaudit** is loaded in shared_preload_libraries by executing following query in psql:
+        ```SQL
+      show shared_preload_libraries;
+      ```
+      You should see **pgaudit** in the query result that will return shared_preload_libraries
+
+   6. Connect to your server using a client (like psql) and enable the pgAudit extension
+      ```SQL
+      CREATE EXTENSION pgaudit;
+      ```
+
+> [!TIP]
+> If you see an error, confirm that you restarted your server after saving `shared_preload_libraries`.
 
 ## pgAudit settings
 
@@ -36,7 +54,19 @@ pgAudit allows you to configure session or object audit logging. [Session audit 
 > [!NOTE]
 > pgAudit settings are specified globally and cannot be specified at a database or role level.
 
-Once you have [enabled pgAudit](#enabling-pgaudit), you can configure its parameters to start logging. The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
+Once you have [enabled pgAudit](#installing-pgaudit), you can configure its parameters to start logging. 
+To configure pgAudit you can follow below instructions. 
+Using the [Azure portal](https://portal.azure.com):
+
+   1. Select your Azure Database for PostgreSQL server.
+   2. On the sidebar, select **Server Parameters**.
+   3. Search for the `pg_audit` parameters.
+   4. Pick appropriate settings parameter to edit. For example to start logging set `pgaudit.log` to `WRITE`
+       :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Screenshot showing Azure Database for PostgreSQL - configuring logging with pgaudit ":::
+   5. Click **Save** button to save changes
+
+
+The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
 
 > [!NOTE]
 > Setting `pgaudit.log_client` to ON will redirect logs to a client process (like psql) instead of being written to file. This setting should generally be left disabled. <br> <br>

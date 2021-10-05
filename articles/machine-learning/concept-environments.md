@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
-author: BlackMist
-ms.date: 11/16/2020
+author: Blackmist
+ms.date: 09/23/2021
 ---
 
 # What are Azure Machine Learning environments?

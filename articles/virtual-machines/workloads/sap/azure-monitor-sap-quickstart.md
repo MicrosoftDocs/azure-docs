@@ -63,7 +63,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
-**Logged as <sidadm>** 
+**Logged as \<sidadm\>** 
    `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
 
 **Logged as different user** 
