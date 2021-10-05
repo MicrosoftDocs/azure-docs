@@ -1,5 +1,5 @@
 ---
-title: Monitor and tune - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: How to view metrics - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to access database metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/05/2021
 ---
 
-# Monitoring in Azure Database for PostgreSQL - Hyperscale (Citus)
+# How to view metrics in Azure Database for PostgreSQL - Hyperscale (Citus)
 
 Resource metrics are available for every node of a Hyperscale (Citus) server
 group, and in aggregate across the nodes.
