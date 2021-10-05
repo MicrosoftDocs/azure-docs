@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 
-title: Azure DevTest Offer documentation
+title: Azure Dev/Test offer documentation
 summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
 
 metadata:
-  title: Azure DevTest Offer documentation
+  title: Azure Dev/Test offer documentation
   description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
  
   ms.topic: hub-page

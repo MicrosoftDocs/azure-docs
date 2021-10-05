@@ -1,5 +1,5 @@
 ---
-title: Sign in with your GitHub Credentials to your individual Azure Dev/Test credit subscription.
+title: Sign in with your GitHub credentials to your individual Azure Dev/Test credit subscription
 description: An overview of signing into an individual Monthly Azure Credit Subscription using GitHub credentials. Includes how to activate individual developer Azure Credits.
 author: j-martens
 ms.author: jmartens

@@ -13,11 +13,11 @@ ms.custom: devtestoffer
 
 If you currently have a subscription with pay-as-you-go rates, you can switch your Azure subscription to another offer. Your reasons for changing offers may be specific to your organizational structure. But here are some common reasons you may want to change your subscription offer or remove credit limits.  
 
-1. The credit limit allows you to run experiments, tests, and so on, without charging your credit card. Money can be spent quickly when running services. The credit limit puts guard rails around your subscription. You can create your desired architecture and run it as long as needed without overspending.  
-2. Working with other organizations or changes within your organization may require you to change offer types.  
-3. Your needs may change for an Azure subscription such that you need to continue to modify the current offer type. You may also need to change how you work on a project. In this case, you may need to switch from a credit limit structure to a pay-as-you-go structure to run the services you need.  
-4. You have a critical project to run and need more time. You may remove limits if you need a little more than the $150 or $50 limit.  
-5. Your current offer has expired.  
+- The credit limit allows you to run experiments, tests, and so on, without charging your credit card. Money can be spent quickly when running services. The credit limit puts guard rails around your subscription. You can create your desired architecture and run it as long as needed without overspending.  
+- Working with other organizations or changes within your organization may require you to change offer types.  
+- Your needs may change for an Azure subscription such that you need to continue to modify the current offer type. You may also need to change how you work on a project. In this case, you may need to switch from a credit limit structure to a pay-as-you-go structure to run the services you need.  
+- You have a critical project to run and need more time. You may remove limits if you need a little more than the $150 or $50 limit.  
+- Your current offer has expired.  
 
 Changing your subscription offer is easy for certain offer types. You can follow [our Switching Azure Offers documentation](../../cost-management-billing/manage/switch-azure-offer.md), or contact support for more assistance.  
 

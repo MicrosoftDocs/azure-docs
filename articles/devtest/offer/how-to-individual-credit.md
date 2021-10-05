@@ -15,16 +15,18 @@ When accessing your Azure Credit Subscription, you have two ways to sign in and 
 
 You have the opportunity to use a personal or corporate email address when signing in.  
 
-**It’s important to note that the email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.**  
+> [!NOTE]
+> It’s important to note that the email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
 
 ## Using a personal email address versus a work account  
 
 The email you use at sign-in should follow your organization’s requirements – either you use a personal email OR your organization’s provided email.
 
-1. **Using a Personal Email Account or Microsoft Account (MSA)**  
- If you sign in using a personal account like Gmail, Yahoo, or Hotmail, your organization won't have access to your work, nor will you have access to their Active Directory unless that email is added by an admin. When you sign in with a personal email, a new Azure Directory will be created along with an Azure Tenancy on your behalf. Your profile will be created as the Top-Level Admin with access for adding other admins and users.  
-2. **Using a Corporate Email Account or Work School Account (WSA)**  
- If you sign in with your organization’s account, you'll be added as a user within your organization's Active Directory, giving your organization access to manage your account and work.  
+**Using a Personal Email Account or Microsoft Account (MSA)**  
+If you sign in using a personal account like Gmail, Yahoo, or Hotmail, your organization won't have access to your work, nor will you have access to their Active Directory unless that email is added by an admin. When you sign in with a personal email, a new Azure Directory will be created along with an Azure Tenancy on your behalf. Your profile will be created as the Top-Level Admin with access for adding other admins and users.  
+
+**Using a Corporate Email Account or Work School Account (WSA)**  
+If you sign in with your organization’s account, you'll be added as a user within your organization's Active Directory, giving your organization access to manage your account and work.  
 
 ## How to activate your Azure Credit Subscription  
 
@@ -36,14 +38,10 @@ Remember, the account you sign in with will dictate what tenant your directory w
 1. Select 'Activate' to access the appropriate subscription
 
  ![A screenshot of the Azure Monthly credit activation page.](media/how-to-get-started-with-your-individual-azure-devtest-credit/activate.png "Click Activate to access your subscription.")  
-
-...
 2. Enter the email you want associated with your credit subscription in the pop-up  
 
  ![A screenshot of the Welcome to your Visual Studio subscription page with an enter your email pop up box open.](media/how-to-get-started-with-your-individual-azure-devtest-credit/enteremail.png "Enter the email address you want to use in the pop up window.")  
-...
 3. Select 'Next' to finish subscription activation  
-...
 
 > [!NOTE]  
 > Signing in this way provides more flexibility to whether or not you use a personal email or a corporate email account.  
