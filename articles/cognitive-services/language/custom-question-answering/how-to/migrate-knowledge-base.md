@@ -16,8 +16,8 @@ You may want to create a copy of your project for several reasons:
 
 ## Prerequisites
 
-> * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource.
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource.
 
 ## Export a project
 
@@ -25,7 +25,6 @@ Exporting a project allows you to migrate or back up all the sources question an
 
 1. Sign in to the [Language Studio](https://language.azure.com/).
 1. Select the language resource you want to migrate a project from.
-
 1. On the **Projects** page, you have the options to export in two formats, Excel or TSV. This will determine the contents of the file. The file itself will be exported as a .zip containing all of your knowledge bases.
 
 ## Import a project  
@@ -54,7 +53,7 @@ Exporting a project allows you to migrate or back up all the sources question an
 ### Deploy
 
 <!-- TODO: Replace Link-->
-4. **Deploy** the knowledge base and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+**Deploy** the knowledge base and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## Chat logs
 
