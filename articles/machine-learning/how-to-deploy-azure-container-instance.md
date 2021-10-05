@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Container Instances.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: deploy
 ms.author: jordane
@@ -103,7 +103,7 @@ See [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
 
 ## Next steps
 
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Update the web service](how-to-deploy-update-web-service.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

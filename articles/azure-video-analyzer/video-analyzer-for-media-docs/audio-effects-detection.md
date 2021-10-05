@@ -1,13 +1,8 @@
 ---
 title: Audio effects detection  
-titleSuffix: Azure Video Analyzer
 description: Audio Effects Detection is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
-author: Juliako
-manager: femila
 
-ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer-media
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: juliako
 ---
@@ -31,7 +26,7 @@ Audio Events Detection can be used in many domains. Two examples are:
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
-|**Preset Name** |**"Audio Only”** <br/>**“Video + Audio”** |**“Advance Audio”**<br/> **“Advance Video + Audio”**|
+|**Preset Name** |**"Audio Only"** <br/>**"Video + Audio"** |**"Advance Audio"**<br/> **"Advance Video + Audio"**|
 |**Appear in insights pane**|| V|
 |Crowd Reaction |V| V|
 | Silence| V| V|
@@ -78,7 +73,7 @@ audioEffects: [{
                 start: "0:00:47.9",
                 end: "0:00:52.5"
             },
-			{
+            {
                 confidence: 0.7314,
                 adjustedStart: "0:04:57.67",
                 adjustedEnd: "0:05:01.57",
@@ -92,7 +87,7 @@ audioEffects: [{
 
 ## How to index Audio Effects
 
-In order to set the index process to include the detection of Audio Effects, the user should chose one of the Advanced presets under “Video + audio indexing” menu as can be seen below.
+In order to set the index process to include the detection of Audio Effects, the user should chose one of the Advanced presets under "Video + audio indexing" menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="Index Audio Effects image":::
@@ -105,7 +100,7 @@ When Audio Effects are retrieved in the closed caption files, they will be retri
 |---|---|
 |SRT |00:00:00,000  00:00:03,671<br/>[Gunshot]|
 |VTT |00:00:00.000  00:00:03.671<br/>[Gunshot]|
-|TTML|Confidence: 0.9047 <br/> <p begin="00:00:00.000" end="00:00:03.671">[Gunshot]</p>|
+|TTML|Confidence: 0.9047 <br/> `<p begin="00:00:00.000" end="00:00:03.671">[Gunshot]</p>`|
 |TXT |[Gunshot]|
 |CSV |0.9047,00:00:00.000,00:00:03.671, [Gunshot]|
 

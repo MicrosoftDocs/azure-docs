@@ -8,17 +8,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
-A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
+A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable string field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
 
 ## When to use a language analyzer
 
 You should consider a language analyzer when awareness of word or sentence structure adds value to text parsing. A common example is the association of irregular verb forms ("bring" and "brought) or plural nouns ("mice" and "mouse"). Without linguistic awareness, these strings are parsed on physical characteristics alone, which fails to catch the connection. Since large chunks of text are more likely to have this content, fields consisting of descriptions, reviews, or summaries are good candidates for a language analyzer.
 
-You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings tends is more applicable to Western languages than non-Western ones. 
+You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer (Standard Lucene)](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings is more applicable to Western languages than non-Western ones. 
 
 For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a space is not necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
 
@@ -35,7 +35,7 @@ A better experience is to search for individual words: 明るい (Bright), 私�
 
 Azure Cognitive Search supports 35 language analyzers backed by Lucene, and 50 language analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
 
-Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene language analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit. 
+Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene language analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit. You can use [Analyze API](/rest/api/searchservice/test-analyzer) to see the tokens generated from a given text using a specific analyzer.
 
 Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance should not be significantly affected for average size queries. 
 
@@ -49,9 +49,17 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## How to specify a language analyzer
 
-Set a language analyzer on "searchable" fields of type Edm.String during field definition.
+Set the analyzer during index creation, before it's loaded with data.
 
-Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the support analyzers list.
+1. In the field definition, make sure the field is attributed as "searchable" and is of type Edm.String.
+
+1. Set the "analyzer" property to one of the language analyzers from the [supported analyzers list](#language-analyzer-list).
+
+   The "analyzer" property is the only property that will accept a language analyzer, and it's used for both indexing and queries. Other analyzer-related properties ("searchAnalyzer" and "indexAnalyzer") will not accept a language analyzer.
+
+Language analyzers cannot be customized. If an analyzer isn't meeting your requirements, you can try creating a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+
+The following example illustrates a language analyzer specification in an index:
 
 ```json
 {

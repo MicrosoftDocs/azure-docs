@@ -19,7 +19,7 @@ This quickstart shows you how to build a containerized Java app and push it to A
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure Command-Line Interface (CLI)](/cli/azure/overview).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
 * A [Git](https://git-scm.com) client.
 * A [Docker](https://www.docker.com) client.

@@ -14,7 +14,7 @@ This article explains how to configure common settings for web apps, mobile back
 
 ## Configure app settings
 
-In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
 
 In the [Azure portal], search for and select **App Services**, and then select your app. 
 
@@ -197,9 +197,9 @@ Here, you can configure some common settings for the app. Some settings require 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
-      > [!NOTE]
-      > With the Always On feature, the front end load balancer sends a request to the application root. This application endpoint of the App Service can't be configured.
+    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
+    
+        Always On is required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
@@ -280,6 +280,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 
 ## Next steps
 
+- [Environment variables and app settings reference](reference-app-settings.md)
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
 - [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

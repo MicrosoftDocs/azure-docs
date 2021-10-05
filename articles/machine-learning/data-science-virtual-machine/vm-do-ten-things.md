@@ -258,7 +258,7 @@ The data is read as a data frame:
 ### Azure Synapse Analytics and databases
 Azure Synapse Analytics is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
-You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
+You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](/azure/architecture/data-science-process/sqldw-walkthrough) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. You can use it to work with documents like JSON, and to store and query the documents.
@@ -329,7 +329,7 @@ In addition to the framework-based samples, you can get a set of comprehensive w
 
 - [A how-to guide to build an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. This technology has the potential to bring huge rewards in many real-life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
 
-- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). It also provides an overview of how to work with audio data.
+- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://urbansounddataset.weebly.com/). It also provides an overview of how to work with audio data.
 
 - [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. 
 

@@ -218,7 +218,7 @@ In addition to these operations, the solution back end can query the module twin
 
 The module app operates on the module twin using the following atomic operations:
 
-* **Retrieve module twin**. This operation returns the module twin document (including tags and desired and reported system properties) for the currently connected module.
+* **Retrieve module twin**. This operation returns the module twin document (including desired and reported system properties) for the currently connected module.
 
 * **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
 

@@ -1,14 +1,12 @@
 ---
 title: How to use Azure Service Bus topics with PHP
-description: In this tutorial, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
+description: In this article, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 07/27/2021
 ---
 
-# Quickstart: How to use Service Bus topics and subscriptions with PHP
-
-[!INCLUDE [service-bus-selector-topics](./includes/service-bus-selector-topics.md)]
+# How to use Service Bus topics and subscriptions with PHP
 
 This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). The scenarios covered include:
 
@@ -18,12 +16,16 @@ This article shows you how to use Service Bus topics and subscriptions. The samp
 - Receiving messages from a subscription
 - Deleting topics and subscriptions
 
+> [!IMPORTANT]
+> As of February 2021, the Azure SDK for PHP has entered a retirement phase and is no longer officially supported by Microsoft. For more information, see [this Announcement](https://github.com/Azure/azure-sdk-for-php#important-annoucement) on GitHub. This article will be retired soon. 
+ 
+
 ## Prerequisites
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete steps in this article, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
 
     > [!NOTE]
-    > You will create a **topic** and a **subscription** to the topic by using **PHP** in this quickstart. 
+    > You will create a **topic** and a **subscription** to the topic by using **PHP** in this article. 
 
 ## Create a PHP application
 The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.

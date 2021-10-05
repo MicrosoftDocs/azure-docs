@@ -204,6 +204,7 @@ For example:
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
@@ -251,6 +252,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
+
+> [!NOTE]
+> If the command fails with the error that a policy parameter is required, then check the protection status of the backup item. It is likely that the protection is stopped and hence a policy is required to resume the protection and also to reset all previous disk exclusion settings.
 
 ### Restore selective disks with PowerShell
 

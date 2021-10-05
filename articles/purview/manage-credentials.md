@@ -4,7 +4,7 @@ description: Learn about the steps to create and manage credentials in Azure Pur
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
@@ -47,7 +47,7 @@ If you are using the Purview managed identity to set up scans, you will not have
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and Open Azure Purview Studio. Navigate to the **Management Center** on Azure Purview Studio and then navigate to **credentials**.
+1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and open the [Purview Studio](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
 
 2. From the **Credentials** page, select **Manage Key Vault connections**.
 
@@ -72,7 +72,7 @@ Before assigning access to Purview managed identity, first identify your Azure K
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model"::: 
 
-### Option 1 - Assign access using using Key Vault Access Policy  
+### Option 1 - Assign access using Key Vault Access Policy  
 
 Follow these steps only if permission model in your Azure Key Vault resource is set to **Vault Access Policy**:
 

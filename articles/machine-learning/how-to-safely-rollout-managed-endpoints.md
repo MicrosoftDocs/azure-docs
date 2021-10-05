@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Roll out newer versions of ML models without disruption.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.custom: how-to 
+ms.custom: how-to, devplatv2
 ---
 
 # Safe rollout for online endpoints (preview)
@@ -34,7 +34,7 @@ In this article, you'll learn to:
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
@@ -151,4 +151,4 @@ If you are not going use the deployment, you should delete it with:
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
 - [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)

@@ -360,7 +360,7 @@ If you used the `az ml environment scaffold` command, it generates a template `a
     },
     "docker": {
         "enabled": false,
-        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "baseImage": "mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1",
         "baseDockerfile": null,
         "sharedVolumes": true,
         "shmSize": "2g",
@@ -427,7 +427,7 @@ The following commands demonstrate how to work with machine learning pipelines:
 + Schedule a pipeline:
 
     ```azurecli-interactive
-    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    az ml pipeline create-schedule -n myschedule -e myexperiment -i mypipelineid -y myschedule.yml
     ```
 
     For more information, see [az ml pipeline create-schedule](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create-schedule).

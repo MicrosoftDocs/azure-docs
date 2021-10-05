@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/16/2021
 ---
 # Documentation resources for AI enrichment in Azure Cognitive Search
 
@@ -39,7 +39,7 @@ The following is a consolidated list of the documentation for AI enrichment.
 + [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
 + [View a knowledge store with Storage Explorer](knowledge-store-view-storage-explorer.md)
 + [Connect a knowledge store with Power BI](knowledge-store-connect-power-bi.md)
-+ [Projection examples (how to shape and export enrichments)](knowledge-store-projections-examples.md)
++ [Define projections in a knowledge store](knowledge-store-projections-examples.md)
 
 ## Custom skills (advanced)
 

@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1
 
 # Choose how to authorize access to blob data in the Azure portal
 
-When you access blob data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.  
+When you access blob data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.
 
 You can also specify how to authorize an individual blob upload operation in the Azure portal. By default the portal uses whichever method you are already using to authorize a blob upload operation, but you have the option to change this setting when you upload a blob.
 
@@ -50,7 +50,7 @@ To access blob data from the Azure portal using your Azure AD account, both of t
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
-For information about the built-in roles that support access to blob data, see [Azure roles for blobs](assign-azure-role-data-access.md#azure-roles-for-blobs).
+For information about the built-in roles that support access to blob data, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
@@ -106,5 +106,5 @@ To specify how to authorize a blob upload operation, follow these steps:
 
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)

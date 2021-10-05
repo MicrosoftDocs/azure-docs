@@ -11,13 +11,13 @@ ms.date: 5/21/2021
 
 # Commonly encountered errors during or post migration to Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you'll see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL for the first time.
 
 ## Common Connection Errors
 
-#### ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+### ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
 
 The above error occurs after successful sign-in but before executing any command when session is established. The above message indicates you have set an incorrect value of `init_connect` server parameter, which is causing the session initialization to fail.
 
@@ -36,7 +36,7 @@ ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'h
 
 The SUPER privilege and DBA role aren't supported on the service. As a result, you may encounter some common errors listed below:
 
-#### ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
+### ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
 
 The above error may occur while creating a function, trigger as below or importing a schema. The DDL statements like CREATE FUNCTION or CREATE TRIGGER are written to the binary log, so the secondary replica can execute them. The replica SQL thread has full privileges, which can be exploited to elevate privileges. To guard against this danger for servers that have binary logging enabled, the MySQL engine requires that stored function creators have the SUPER privilege, in addition to the usual CREATE ROUTINE privilege.
 
@@ -106,7 +106,7 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 When an Azure Database for MySQL server is created, a server admin sign-in is provided by the end user during the server creation. The server admin sign-in allows you to create new databases, add new users and grant permissions. If the server admin sign-in is deleted, its permissions are revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors
 
-#### ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES)
+### ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES)
 
 The above error occurs if:
 

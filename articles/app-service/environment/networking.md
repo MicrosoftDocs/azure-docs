@@ -1,21 +1,34 @@
 ---
 title: App Service Environment Networking
 description: App Service Environment networking details
-author: ccompy
+author: madsd
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
-ms.date: 06/21/2021
-ms.author: ccompy
+ms.date: 06/30/2021
+ms.author: madsd
 ms.custom: seodec18
 ---
 
 # App Service Environment networking
 
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network (VNet) that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the VNet you specify. The ASE is deployed into a single subnet in your VNet. Nothing else can be deployed into that same subnet. The subnet needs to be delegated to Microsoft.Web/HostingEnvironments
+
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network (VNet) that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the VNet you specify. The ASE is deployed into a single subnet in your VNet. Nothing else can be deployed into that same subnet.
+
+## Subnet requirements
+
+The subnet must be delegated to Microsoft.Web/hostingEnvironments and must be empty.
+
+The size of the subnet can affect the scaling limits of the App Service Plan instances within the ASE. We recommend using a /24 address space (256 addresses) for your subnet to ensure enough addresses to support production scale.
+
+To use a smaller subnet, you should be aware of the following details of the ASE and network setup.
+
+Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration, scale, and load. The remaining addresses can be used for instances in the App Service Plan. The minimal size of your subnet is a /27 address space (32 addresses).
+
+The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
 
 ## Addresses 
 
@@ -26,7 +39,7 @@ The ASE has the following network information at creation:
 | ASE virtual network | The VNet the ASE is deployed into |
 | ASE subnet | The subnet that the ASE is deployed into |
 | Domain suffix | The domain suffix that is used by the apps made in this ASE |
-| Virtual IP | This is the VIP type used by the ASE. The two possible values are internal and external |
+| Virtual IP | This setting is the VIP type used by the ASE. The two possible values are internal and external |
 | Inbound address | The inbound address is the address your apps on this ASE are reached at. If you have an internal VIP, it is an address in your ASE subnet. If the address is external, it will be a public facing address |
 | Default outbound addresses | The apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 
@@ -38,7 +51,11 @@ As you scale your App Service plans in your ASE, you'll use more addresses out o
 
 ## Ports
 
-The ASE receives application traffic on ports 80 and 443. If those ports are blocked, you can't reach your apps. Port 80 needs to be open from the load balancer to the ASE subnet as this port is used for keep alive traffic. 
+The ASE receives application traffic on ports 80 and 443. If those ports are blocked, you can't reach your apps. 
+
+> [!NOTE]
+> Port 80 must be allowed from AzureLoadBalancer to the ASE subnet for keep alive traffic between the load balancer and the ASE infrastructure. You can still control port 80 traffic to your ASE virtual IP.
+> 
 
 ## Extra configurations
 
@@ -60,7 +77,7 @@ If you want to use your own DNS server, you need to add the following records:
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`
 1. create an A record in that zone that points * to the inbound IP address
 1. create an A record in that zone that points @ to the inbound IP address
 1. create an A record in that zone that points *.scm to the inbound IP address
@@ -78,3 +95,6 @@ While the ASE does deploy into a customer VNet, there are a few networking featu
 * send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
 * Use of Network Watcher or NSG Flow to monitor outbound traffic
 
+## More resources
+
+- [Environment variables and app settings reference](../reference-app-settings.md)

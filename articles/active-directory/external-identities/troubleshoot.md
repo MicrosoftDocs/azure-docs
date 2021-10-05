@@ -5,11 +5,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.reviewer: mal
 ms.custom:
   - it-pro
   - seo-update-azuread-jan"
@@ -21,7 +20,9 @@ ms.collection: M365-identity-device-management
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
 
    > [!IMPORTANT]
-   > - **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
@@ -61,6 +62,10 @@ If you are using federation authentication and the user does not already exist i
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
+### External user has a proxyAddress that conflicts with a proxyAddress of an existing local user
+
+When we check whether a user is able to be invited to your tenant, one of the things we check for is for a collision in the proxyAddress. This includes any proxyAddresses for the user in their home tenant and any proxyAddress for local users in your tenant. For external users, we will add the email to the proxyAddress of the existing B2B user. For local users, you can ask them to sign in using the account they already have.
+
 ## I can't invite an email address because of a conflict in proxyAddresses
 
 This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
@@ -82,7 +87,9 @@ External users can be added only to “assigned” or “Security” groups and 
 The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
 
 > [!NOTE]
-> For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.
+>
+> - For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.
+> - For the Azure AD Government cloud, the sender address is invites@azuread.us.
 
 ## I notice that the custom message does not get included with invitation messages at times
 
@@ -131,7 +138,7 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 
 You should now see the restored app in the Azure portal.
 
-## A guest user was invited succesfully but the email attribute is not populating
+## A guest user was invited successfully but the email attribute is not populating
 
 Let's say you inadvertently invite a guest user with an email address that matches a user object already in your directory. The guest user object is created, but the email address is added to the `otherMail` property instead of to the `mail` or `proxyAddresses` properties. To avoid this issue, you can search for conflicting user objects in your Azure AD directory by using these PowerShell steps:
 

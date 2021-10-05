@@ -20,9 +20,9 @@ GPUs are a popular choice for artificial intelligence computations, because they
 
 Azure IoT Edge for Linux on Windows supports several GPU passthrough technologies, including:
 
-* **Direct Device Assignment (DDA)** - GPU cores are wholly dedicated to the Linux virtual machine.
+* **Direct Device Assignment (DDA)** - GPU cores are allocated either to the Linux virtual machine or the host.
 
-* **GPU-Paravirtualization (GPU-PV)** - The GPU is shared between the Linux VM and host.
+* **GPU-Paravirtualization (GPU-PV)** - The GPU is shared between the Linux virtual machine and the host.
 
 The Azure IoT Edge for Linux on Windows deployment will automatically select the appropriate passthrough method to match the supported capabilities of your device's GPU hardware.
 
@@ -54,10 +54,10 @@ Once you register, follow the instructions on the **2. Flight** tab to get acces
 
 ### T4 GPUs
 
-For **T4 GPUs**, Microsoft recommends a device mitigation driver from your GPU's vendor. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
+For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from your GPU's vendor. While optional, installing a mitigation driver may improve the security of your deployment. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
-> Enabling hardware device passthrough may increase security risks.
+> Enabling hardware device passthrough may increase security risks. We recommend that you install a device mitigation driver from your GPU's vendor.
 
 ### GeForce/Quadro GPUs
 
@@ -71,4 +71,6 @@ Now you are ready to deploy and run GPU-accelerated Linux modules in your Window
 
 * [Create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md)
 
-* Learn more about GPU passthrough technologies by visiting the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda).
+* Try our [GPU-enabled sample featuring Vision on Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/blob/master/factory-ai-vision/Tutorial/Eflow.md), a solution template illustrating how to build your own vision-based machine learning application.
+
+* Learn more about GPU passthrough technologies by visiting the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda) and [GPU-PV blog post](https://devblogs.microsoft.com/directx/directx-heart-linux/#gpu-virtualization).

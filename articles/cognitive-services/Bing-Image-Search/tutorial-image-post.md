@@ -115,4 +115,4 @@ If there are identifiable people or places in the image, this request will retur
 
 ## See also
 
-* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](/rest/api/cognitiveservices/bing-images-api-v7-reference)

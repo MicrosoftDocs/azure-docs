@@ -97,8 +97,8 @@ To use this migration option:
 7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
 
 ```sql
-INSERT INTO <new_memory_optimized_table>
-        SELECT * FROM <old_disk_based_table>;
+INSERT INTO [<new_memory_optimized_table>]
+        SELECT * FROM [<old_disk_based_table>];
 ```
 
 ## Step 5 (optional): Migrate stored procedures

@@ -58,9 +58,12 @@ Azure Front Door supports HTTP, HTTPS and HTTP/2.
 
 HTTP/2 protocol support is available to clients connecting to Azure Front Door only. The communication to backends in the backend pool is over HTTP/1.1. HTTP/2 support is enabled by default.
 
-### What resources are supported today as part of origin group?
+### What resources are supported today as part of an origin group?
 
-Origin group can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door requires that the origins are defined either via a public IP or a publicly resolvable DNS hostname. Members of origin group can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+Origin groups can be composed of two types of origins:
+
+- Public origins include storage accounts, App Service apps, Kubernetes instances, or any other custom hostname that has public connectivity. These origins must be defined either via a public IP address or a publicly resolvable DNS hostname. Members of origin groups can be deployed across availability zones, regions, or even outside of Azure as long as they have public connectivity. Public origins are supported for Azure Front Door Standard and Premium tiers.
+- [Private Link origins](concept-private-link.md) are available when you use Azure Front Door (Premium).
 
 ### What regions is the service available in?
 
@@ -119,6 +122,8 @@ Alternative way to lock down your application to accept traffic only from your s
     </configuration>
     ```
 
+* Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+
 ### Can the anycast IP change over the lifetime of my Front Door?
 
 The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly don't take any direct dependencies on the IP.
@@ -136,7 +141,7 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
  > [!Note]  
-  > Most custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
+  > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
 
 Any updates to routes or backend pools are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates won't cause any outage, unless you're switching from 'Azure Front Door Managed' to 'Use your own cert' or the other way around.
 
@@ -145,7 +150,9 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
 
-Azure Front Door (AFD) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](concept-private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 

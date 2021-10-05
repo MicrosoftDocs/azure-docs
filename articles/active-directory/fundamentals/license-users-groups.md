@@ -31,7 +31,7 @@ There are several license plans available for the Azure AD service, including:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
 
 Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 

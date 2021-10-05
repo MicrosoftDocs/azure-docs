@@ -1,12 +1,12 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
 ## Prerequisites
 
@@ -14,11 +14,11 @@ To complete the steps in this article, you need the following resources:
 
 [!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
-- A development machine with Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/).
+- A development machine with Java SE Development Kit 8 or later. For more information, see [Install the JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 - [Apache Maven 3](https://maven.apache.org/download.cgi).
 
-- A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+- A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/main.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 

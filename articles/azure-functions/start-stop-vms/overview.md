@@ -4,7 +4,7 @@ description: This article describes version two of the Start/Stop VMs (preview) 
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ---
 
 # Start/Stop VMs v2 (preview) overview
@@ -23,15 +23,16 @@ An HTTP trigger endpoint function is created to support the schedule and sequenc
 
 |Name |Trigger |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStopVM** is always available.|
-|AutoStop |HTTP |This function supports the **AutoStop** scenario, which is the entry point function that is called from Logic App.|
-|AutoStopAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStop** is always available.|
-|AutoStopVM |HTTP |This function is triggered automatically by the VM alert when the alert condition is true.|
-|CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the **AutoStop** function to create the alert on the VM.|
 |Scheduled |HTTP |This function is for both scheduled and sequenced scenario (differentiated by the payload schema). It is the entry point function called from the Logic App and takes the payload to process the VM start or stop operation. |
-|ScheduledAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **Scheduled** is always available.|
-|VirtualMachineRequestExecutor |Queue |This function performs the actual start and stop operation on the VM.|
+|AutoStop |HTTP |This function supports the **AutoStop** scenario, which is the entry point function that is called from Logic App.|
+|AutoStopVM |HTTP |This function is triggered automatically by the VM alert when the alert condition is true.|
 |VirtualMachineRequestOrchestrator |Queue |This function gets the payload information from the **Scheduled** function and orchestrates the VM start and stop requests.|
+|VirtualMachineRequestExecutor |Queue |This function performs the actual start and stop operation on the VM.|
+|CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the **AutoStop** function to create the alert on the VM.|
+|HeartBeatAvailabilityTest |Timer |This function monitors the availability of the primary HTTP functions.|
+|CostAnalyticsFunction |Timer |This function calculates the cost to run the Start/Stop V2 solution on a monthly basis.|
+|SavingsAnalyticsFunction |Timer |This function calculates the total savings achieved by the Start/Stop V2 solution on a monthly basis.|
+|VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
 
 For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 

@@ -23,7 +23,7 @@ This article will cover concepts about how your web application deployment works
 
 ## Origin
 
-Azure Front Door Standard/Premium origin refers to the host name or public IP of your application that serves your client requests. Azure Front Door Standard/Premium supports both Azure and non-Azure resources in an origin group. The application can also be hosted in your on-premises datacenter or with another cloud provider. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the public endpoint for your application backend. When you add an origin to an Azure Front Door Standard/Premium origin group, you must also add the following information:
+Azure Front Door Standard/Premium origin refers to the host name or public IP of your application that serves your client requests. Azure Front Door Standard/Premium supports both Azure origins and also non-Azure origins, such as when application your application is hosted in your on-premises datacenter or with another cloud provider. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the endpoint for your application backend. When you add an origin to an Azure Front Door Standard/Premium origin group, you must also add the following information:
 
 * **Origin type:** The type of resource you want to add. Front Door supports autodiscovery of your application backends from App Service, Cloud Service, or Storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 

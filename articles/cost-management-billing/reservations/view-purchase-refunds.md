@@ -11,7 +11,7 @@ ms.author: banders
 
 # View reservation purchase and refund transactions
 
-There are a few different ways to view reservation purchase and refund transactions. You can use the Azure portal, Power BI, and REST APIs.
+There are a few different ways to view reservation purchase and refund transactions. You can use the Azure portal, Power BI, and REST APIs. You can view an exchanged reservation as refund and purchase in the transactions.
 
 ## View reservation purchases in the Azure portal
 

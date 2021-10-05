@@ -5,6 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021

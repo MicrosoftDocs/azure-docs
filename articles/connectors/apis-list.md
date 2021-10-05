@@ -1,27 +1,28 @@
 ---
-title: Connectors for Azure Logic Apps
-description: Overview about using connectors to build automated workflows with Azure Logic Apps. Learn how different triggers, actions, and connectors work.
+title: Connectors overview for Azure Logic Apps
+description: Learn about connectors and how they help you quickly and easily build automated integration workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 09/13/2021
 ms.custom: contperf-fy21q4
 ---
 
-# Connectors for Azure Logic Apps
+# About connectors in Azure Logic Apps
 
-In Azure Logic Apps, *connectors* help you quickly access data, events, and other resources from other apps, services, systems, protocols, and platforms. When you use connectors, you can build logic app workflows that use, process, and integrate information across cloud-based, on-premises, and hybrid environments - often without having to write any code.
+When you build workflows using Azure Logic Apps, you can use *connectors* to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code. A connector provides prebuilt operations that you can use as steps in your workflows. Azure Logic Apps provides hundreds of connectors that you can use. If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can [create a custom connector](#custom-apis-and-connectors).
 
-You can choose from hundreds of connectors to use in your workflows. As a result, this documentation focuses on some popular and commonly used connectors for Logic Apps. For complete information about connectors across Logic Apps, Microsoft Power Automate, and Microsoft Power Apps, review the [Connectors documentation](/connectors). For information on pricing, review the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+This overview offers an introduction to connectors, how they generally work, and the more popular and commonly used connectors in Azure Logic Apps. For more information, review the following documentation:
 
-> [!NOTE]
-> To integrate your workflow with a service or API that doesn't have a connector, you can either call 
-> the service over a protocol, such as HTTP, or [create a custom connector](#custom-apis-and-connectors).
+* [Connectors overview for Azure Logic Apps, Microsoft Power Automate, and Microsoft Power Apps](/connectors)
+* [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Pricing and billing models in Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
+* [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 ## What are connectors?
 
-Connectors provide *triggers* and *actions* that you use to perform tasks in your logic app's workflow. Each trigger and action has properties that you can configure. Some triggers and actions require that you [create and configure connections](#connection-configuration) so that your workflow can access a specific service or system.
+Technically, a connector is a proxy or a wrapper around an API that the underlying service uses to communicate with Azure Logic Apps. This connector provides operations that you use in your workflows to perform tasks. An operation is available either as a *trigger* or *action* with properties you can configure. Some triggers and actions also require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, for example, so that you can authenticate access to a user account.
 
 ### Triggers
 
@@ -40,7 +41,7 @@ An *action* is an operation that follows the trigger and performs some kind of t
 
 ## Connector categories
 
-In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+In Azure Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A few triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 [Built-in triggers and actions](built-in.md) run natively on the Logic Apps runtime, don't require creating connections, and perform these kinds of tasks:
 
@@ -55,13 +56,27 @@ In Logic Apps, most triggers and actions are available in either a *built-in* ve
 - [Integration account connectors](managed.md#integration-account-connectors) that support business-to-business (B2B) communication scenarios.
 - [Integration service environment (ISE) connectors](managed.md#ise-connectors) that are a small group of [managed connectors available only for ISEs](#ise-and-connectors).
 
+<a name="connection-configuration"></a>
+
 ## Connection configuration
 
-Most connectors require that you first create a *connection* to the target service or system before you can use its triggers or actions in your workflow. To create a connection, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account.
+To create or manage logic app resources and connections, you need certain permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has these specific roles:
+
+* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+
+* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
+
+* [Contributor](../role-based-access-control/built-in-roles.md#contributor): Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+
+  For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
+
+Before you can use a connector's triggers or actions in your workflow, most connectors require that you first create a *connection* to the target service or system. To create a connection from within a logic app workflow, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For a small number of built-in operations and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
+
+<a name="connection-security-encyrption"></a>
 
 ### Connection security and encryption
 
-For connectors that use Azure Active Directory (Azure AD) OAuth, such as Office 365, Salesforce, or GitHub, you must sign into the service where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also [encrypted and securely stored in Azure](../security/fundamentals/encryption-overview.md).
+Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Azure Active Directory Open Authentication (Azure AD OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
 
 Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, the Logic Apps service refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
 
@@ -70,11 +85,13 @@ Although you create connections from within a workflow, connections are separate
 > [!TIP]
 > If your organization doesn't permit you to access specific resources through Logic Apps connectors, you can [block the capability to create such connections](../logic-apps/block-connections-connectors.md) using [Azure Policy](../governance/policy/overview.md).
 
+For more information about securing logic apps and connections, review [Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md).
+
 <a name="firewall-access"></a>
 
 ### Firewall access for connections
 
-If you use a firewall that limits traffic, and your logic app workflows need to communicate through that firewall, you have to set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app workflows exist. If your workflows also use managed connectors, such as the Office 365 Outlook connector or SQL connector, or use custom connectors, your firewall also needs to allow access for *all* the [managed connector outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound) in your logic app's Azure region. For more information, review [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
+If you use a firewall that limits traffic, and your logic app workflows need to communicate through that firewall, you have to set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app workflows exist. If your workflows also use managed connectors, such as the Office 365 Outlook connector or SQL connector, or use custom connectors, your firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in your logic app's Azure region. For more information, review [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
 
 ## Recurrence behavior
 
@@ -115,7 +132,7 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 * When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
-* If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
+* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
 
 * Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
@@ -129,7 +146,7 @@ For workflows that need direct access to resources in an Azure virtual network, 
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic apps in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, logic apps in an ISE can use those connectors.
 
-In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are specifically designed to work with an ISE.
+In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are designed to work with an ISE.
 
 :::row:::
     :::column:::

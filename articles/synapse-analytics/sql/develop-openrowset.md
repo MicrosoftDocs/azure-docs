@@ -108,10 +108,10 @@ You have two choices for input files that contain the target data for querying. 
 **'unstructured_data_path'**
 
 The unstructured_data_path that establishes a path to the data may be an absolute or relative path:
-- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>' enables a user to directly read the files.
-- Relative path in the format '<storage_path>' that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
+- Absolute path in the format `\<prefix>://\<storage_account_path>/\<storage_path>` enables a user to directly read the files.
+- Relative path in the format `<storage_path>` that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
-Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
+Below you'll find the relevant \<storage account path> values that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -185,7 +185,10 @@ ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
-ESCAPECHAR = 'char'
+> [!NOTE]
+> When you use PARSER_VERSION='1.0' and specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
+
+ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
@@ -217,6 +220,8 @@ CSV parser version 1.0 is default and feature rich. Version 2.0 is built for per
 CSV parser version 1.0 specifics:
 
 - Following options aren't supported: HEADER_ROW.
+- Default terminators are \r\n, \n and \r. 
+- If you specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
 
 CSV parser version 2.0 specifics:
 
@@ -229,6 +234,7 @@ CSV parser version 2.0 specifics:
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
+- Default terminators are \r\n and \n.
 
 HEADER_ROW = { TRUE | FALSE }
 

@@ -14,22 +14,15 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 06/29/2021
 ms.author: yelevin
 
 ---
 # Manage your SOC better with incident metrics
 
-> [!IMPORTANT]
-> The incident metrics features are currently in public preview.
-> These features are provided without a service level agreement, and are not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-
 As a Security Operations Center (SOC) manager, you need to have overall efficiency metrics and measures at your fingertips to gauge the performance of your team. You'll want to see incident operations over time by many different criteria, like severity, MITRE tactics, mean time to triage, mean time to resolve, and more. Azure Sentinel now makes this data available to you with the new **SecurityIncident** table and schema in Log Analytics and the accompanying **Security operations efficiency** workbook. You'll be able to visualize your team's performance over time and use this insight to improve efficiency. You can also write and use your own KQL queries against the incident table to create customized workbooks that fit your specific auditing needs and KPIs.
-
 
 ## Use the security incidents table
 
@@ -41,12 +34,24 @@ Every time you create or update an incident, a new log entry will be added to th
 
 For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [summarize operator](/azure/data-explorer/kusto/query/summarizeoperator) with the `arg_max()` [aggregation function](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
-
 ```Kusto
 SecurityIncident
 | summarize arg_max(LastModifiedTime, *) by IncidentNumber
 ```
 ### More sample queries
+
+Incident state - all incidents by status and severity in a given time frame:
+
+```Kusto
+let startTime = ago(14d);
+let endTime = now();
+SecurityIncident
+| where TimeGenerated >= startTime
+| summarize arg_max(TimeGenerated, *) by IncidentNumber
+| where LastModifiedTime  between (startTime .. endTime)
+| where Status in  ('New', 'Active', 'Closed')
+| where Severity in ('High','Medium','Low', 'Informational')
+```
 
 Mean time to closure:
 ```Kusto
@@ -95,4 +100,4 @@ You can use the template to create your own custom workbooks tailored to your sp
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](get-visibility.md).

@@ -135,18 +135,6 @@ The following telemetry queries are specific to metrics that impact the cost of 
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 
-## Azure Monitor metrics
-
-In addition to telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). Along with the usual [metrics available to App Service apps](../app-service/web-sites-monitor.md#understand-metrics), there are two metrics specific to Functions that are of interest:
-
-| Metric | Description |
-| ---- | ---- |
-| **FunctionExecutionCount** | Function execution count indicates the number of times your function app has executed. This correlates to the number of times a function runs in your app. |
-| **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
-
-To learn more about calculating costs for a Consumption plan using Application Insights data, see [Estimating Consumption plan costs](functions-consumption-costs.md). To learn more about using Monitor Explorer to view metrics, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
-
-
 ## Next steps
 
 Learn more about monitoring Azure Functions:

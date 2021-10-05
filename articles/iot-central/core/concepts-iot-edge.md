@@ -3,7 +3,7 @@ title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
 description: Understand how to use Azure IoT Edge with an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/19/2021
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -18,6 +18,7 @@ Azure IoT Edge moves cloud analytics and custom business logic to devices so you
 
 This article describes:
 
+* IoT Edge gateway patterns with IoT Central.
 * How IoT Edge devices connect to an IoT Central application.
 * How to use IoT Central to manage your IoT Edge devices.
 
@@ -25,30 +26,72 @@ To learn more about IoT Edge, see [What is Azure IoT Edge?](../../iot-edge/about
 
 ## IoT Edge
 
+![Azure IoT Central with Azure IoT Edge](./media/concepts-iot-edge/iotedge.png)
+
 IoT Edge is made up of three components:
 
 * *IoT Edge modules* are containers that run Azure services, partner services, or your own code. Modules are deployed to IoT Edge devices, and run locally on those devices. To learn more, see [Understand Azure IoT Edge modules](../../iot-edge/iot-edge-modules.md).
 * The *IoT Edge runtime* runs on each IoT Edge device, and manages the modules deployed to each device. The runtime consists of two IoT Edge modules: *IoT Edge agent* and *IoT Edge hub*. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](../../iot-edge/iot-edge-runtime.md).
 * A *cloud-based interface* enables you to remotely monitor and manage IoT Edge devices. IoT Central is an example of a cloud interface.
 
+IoT Central enables the following capabilities to for IoT Edge devices:
+
+* Device templates to describe the capabilities of an IoT Edge device, such as:
+  * Deployment manifest upload capability, which helps you manage a manifest for a fleet of devices.
+  * Modules that run on the IoT Edge device.
+  * The telemetry each module sends.
+  * The properties each module reports.
+  * The commands each module responds to.
+  * The relationships between an IoT Edge gateway device and downstream device.
+  * Cloud properties that aren't stored on the IoT Edge device.
+  * Customizations that change how the UI shows device capabilities.
+  * Device views and forms.
+* The ability to provision IoT Edge devices at scale using Azure IoT device provisioning service.
+* Rules and actions.
+* Custom dashboards and analytics.
+* Continuous data export of telemetry from IoT Edge devices.
+
 An IoT Edge device can be:
 
 * A standalone device composed of modules.
 * A *gateway device*, with downstream devices connecting to it.
 
-## IoT Edge as a gateway
+![IoT Central with IoT Edge Overview](./media/concepts-iot-edge/gatewayedge.png)
 
-An IoT Edge device can operate as a gateway that provides a connection between other downstream devices on the network and your IoT Central application.
+A gateway device can be a:
 
-There are two gateway patterns:
+* *Transparent gateway* where the IoT Edge hub module behaves like IoT Central and handles connections from devices registered in IoT Central. Messages pass from downstream devices to IoT Central as if there's no gateway between them.
 
-* In the *transparent gateway* pattern, the IoT Edge hub module behaves like IoT Central and handles connections from devices registered in IoT Central. Messages pass from downstream devices to IoT Central as if there's no gateway between them.
+    > [!NOTE]
+    > IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
 
-* In the *translation gateway* pattern, devices that can't connect to IoT Central on their own, connect to a custom IoT Edge module instead. The module in the IoT Edge device processes incoming downstream device messages and then forwards them to IoT Central.
+* *Translation gateway* where devices that can't connect to IoT Central on their own, connect to a custom IoT Edge module instead. The module in the IoT Edge device processes incoming downstream device messages and then forwards them to IoT Central.
 
-The transparent and translation gateway patterns aren't mutually exclusive. A single IoT Edge device can function as both a transparent gateway and a translation gateway.
+A single IoT Edge device can function as both a transparent gateway and a translation gateway.
 
 To learn more about the IoT Edge gateway patterns, see [How an IoT Edge device can be used as a gateway](../../iot-edge/iot-edge-as-gateway.md).
+
+## IoT Edge patterns
+
+IoT Central supports the following IoT Edge device patterns:
+
+### IoT Edge as leaf device
+
+![IoT Edge as leaf device](./media/concepts-iot-edge/edgeasleafdevice.png)
+
+The IoT Edge device is provisioned in IoT Central and any downstream devices and their telemetry is represented as coming from the IoT Edge device. Downstream devices connected to the IoT Edge device aren't provisioned in IoT Central.
+
+### IoT Edge gateway device connected to downstream devices with identity
+
+![IoT Edge with downstream device identity](./media/concepts-iot-edge/edgewithdownstreamdeviceidentity.png)
+
+The IoT Edge device is provisioned in IoT Central along with the downstream devices connected to the IoT Edge device. Runtime support for provisioning downstream devices through the gateway isn't currently supported.
+
+### IoT Edge gateway device connected to downstream devices with identity provided by the IoT Edge gateway
+
+![IoT Edge with downstream device without identity](./media/concepts-iot-edge/edgewithoutdownstreamdeviceidentity.png)
+
+The IoT Edge device is provisioned in IoT Central along with the downstream devices connected to the IoT Edge device. Currently, IoT Central doesn't have runtime support for a gateway to provide an identity and to provision downstream devices. If you bring your own identity translation module, IoT Central can support this pattern.
 
 ### Downstream device relationships with a gateway and modules
 
@@ -276,6 +319,10 @@ You can also install the IoT Edge runtime in the following environments:
 If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
 To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
+
+## Monitor your IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## Next steps
 

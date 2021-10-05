@@ -5,6 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jonburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018

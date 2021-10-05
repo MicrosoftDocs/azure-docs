@@ -120,4 +120,4 @@ Related links:
 
 ## Miscellaneous
 
-* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

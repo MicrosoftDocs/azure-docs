@@ -37,18 +37,6 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 - The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. The fact that Key Vault still supports older TLS versions won’t impair the security of connections using newer TLS versions.
 - Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
 
-## Identity management
-
-When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. Anyone trying to manage or retrieve content from a vault must be authenticated by Azure AD. In both cases, applications can access Key Vault in three ways:
-
-- **Application-only**: The application represents a service principal or managed identity. This identity is the most common scenario for applications that periodically need to access certificates, keys, or secrets from the key vault. For this scenario to work, the `objectId` of the application must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`.
-- **User-only**: The user accesses the key vault from any application registered in the tenant. Examples of this type of access include Azure PowerShell and the Azure portal. For this scenario to work, the `objectId` of the user must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`.
-- **Application-plus-user** (sometimes referred as _compound identity_): The user is required to access the key vault from a specific application _and_ the application must use the on-behalf-of authentication (OBO) flow to impersonate the user. For this scenario to work, both `applicationId` and `objectId` must be specified in the access policy. The `applicationId` identifies the required application and the `objectId` identifies the user. Currently, this option isn't available for data plane Azure RBAC.
-
-In all types of access, the application authenticates with Azure AD. The application uses any [supported authentication method](../../active-directory/develop/authentication-vs-authorization.md) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
-
-For full details, see [Key Vault Authentication Fundamentals](/azure/key-vault/general/authentication)
-
 ## Key Vault authentication options
 
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in three ways:
@@ -65,6 +53,8 @@ The model of a single mechanism for authentication to both planes has several be
 - If a user leaves, they instantly lose access to all key vaults in the organization.
 - Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security.
 
+For more information, see [Key Vault authentication fundamentals](authentication.md).
+
 ## Access model overview
 
 Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
@@ -79,7 +69,7 @@ A security principal is an object that represents a user, group, service, or app
 - A **group** security principal identifies a set of users created in Azure Active Directory. Any roles or permissions assigned to the group are granted to all of the users within the group.
 - A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
 
-For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md)
+For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
 ## Privileged access
 
@@ -135,7 +125,7 @@ Azure Key Vault soft-delete and purge protection allows you to recover deleted v
 
 You should also take regular back ups of your vault on update/delete/create of objects within a Vault.  
 
-## Next Steps
+## Next steps
 
 - [Azure Key Vault security baseline](security-baseline.md)
 - [Azure Key Vault best practices](security-baseline.md)
