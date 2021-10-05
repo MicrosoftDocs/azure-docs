@@ -26,6 +26,9 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 Before deploying each connected registry to the IoT Edge device in the hierarchy, you need to retrieve the configuration from the connected registry resource in Azure. Run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command for each connected registry to retrieve the configuration.
 
+> [!WARNING]
+> If you previously retrieved the configuration for a connected registry, running `az acr connected-registry install renew-credentials` generates a new connection string with new sync token credentials. The previous connection string and sync token password are no longer valid.
+
 ```azurecli
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
 REGISTRY_NAME=<container-registry-name>

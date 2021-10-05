@@ -17,7 +17,7 @@ ms.author: danlep
 
     > [!IMPORTANT]
     > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value (if specified) must include the port. Example: `192.168.0.100:8080`.
-* A `HostPort` binding for the connected registry be set if the API proxy module isn't used. Example:
+* A `HostPort` binding for the connected registry should be set if the API proxy module isn't used. Example:
 
     ```azurecli
      "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"],\"PortBindings\":{\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
