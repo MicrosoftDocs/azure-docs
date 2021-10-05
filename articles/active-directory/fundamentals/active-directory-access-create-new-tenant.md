@@ -54,6 +54,11 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
     <kbd>![Azure Active Directory - Review and create tenant page](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
+**PROPOSED CHANGE**
+1. Complete the Captcha challenge.
+*Example image of Captcha*
+**
+
 Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Your user account in the new tenant
