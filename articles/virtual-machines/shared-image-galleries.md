@@ -202,10 +202,10 @@ You can create Azure Compute Gallery resource using templates. There are several
 
 ## Frequently asked questions 
 
-* [How can I list all the Azure Compute Gallery resources across subscriptions?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
-* [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [How can I list all the Azure Compute Gallery resources across subscriptions?](#how-can-i-list-all-the-azure-compute-gallery-resources-across-subscriptions) 
+* [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-the-azure-compute-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
-* [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
 * [Can I replicate my image versions across clouds such as Azure China 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
@@ -213,11 +213,11 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
 * [How do I specify the number of image version replicas to be created in each region?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
-* [Can I create the gallery in a different location than the one for the image definition and image version?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
-* [What are the charges for using the Azure Compute Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
-* [What API version should I use to create image resources?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [Can I create the gallery in a different location than the one for the image definition and image version?](#can-i-create-the-azure-compute-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [What are the charges for using the Azure Compute Gallery?](#what-are-the-charges-for-using-the-azure-compute-gallery)
+* [What API version should I use to create image resources?](#what-api-version-should-i-use-to-create-azure-compute-gallery-and-image-definition-and-image-version)
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
+* [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 

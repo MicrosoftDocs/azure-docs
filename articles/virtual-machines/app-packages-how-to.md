@@ -124,9 +124,86 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ### [REST](#tab/rest)
 
 ---
-## Do something
 
-Choose an option below for creating your app definition and version:
+## Sample app
+
+This section will create a very simple sample app to use for creating a VM application. If you already have an app, you can skip this section and replace the values in the rest of the article with your own.
+
+### Installer
+
+Our installer will simply read the contents of our configuration file and write it to a new file. Name the file MyAppInstaller.ps1 and copy the following into the file:
+
+``` 
+$contents = Get-Content -Path .\FirstVMApp.config
+$contents | Out-File -FilePath .\AppInstall.txt
+```
+
+### Config file 
+
+Create a text file called MyAppInstaller.config with the following contents:
+
+```
+Hello world!
+```
+
+### Byte align the files
+
+```azurepowershell-interactive
+$inputFile = ./MyAppInstaller.ps1
+
+$fileInfo = Get-Item -Path $inputFile
+
+$remainder = $fileInfo.Length % 512
+
+if ($remainder -ne 0){
+
+    $difference = 512 - $remainder
+
+    $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
+
+    Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+    }
+    ```
+
+### Create the package blobs
+All VM Applications must have a package. Fill in the blanks for the following script to upload the byte aligned package to two storage blobs.
+
+```azurepowershell-interactive
+Login-AzureRMAccount
+
+$subid = {your subscription id}
+Set-AzureRmContext -SubscriptionId $subid
+
+$rg = {your resource group}
+$saName = {your storage account name}
+$containerName = {container name where your blobs will be stored}
+
+# Uncomment to create a new storage account if you don't already have one
+#New-AzureRmStorageAccount -name $saName -ResourceGroupName $rg -SkuName "Standard_LRS" -Location $location
+
+$sa = Get-AzureRMStorageAccount -Name $saName -ResourceGroupName $rg
+New-AzureStorageContainer -Name $containerName -Context $sa.Context -Permission Blob
+
+$packageFile = ".\MyAppInstaller.ps1"
+$packageBlob = "MyAppPackage"
+Set-AzureStorageBlobContent -BlobType Page -File $packageFile -Container $containerName -Blob $packageBlob -Context $sa.Context
+```
+
+## Create the default config blob
+
+The default config is optional, but if provided will be downloaded to each VM unless it is overridden.
+
+```azurepowershell-interactive
+$configFile = ".\MyAppInstaller.config"
+$configBlob = "MyAppConfig"
+Set-AzureStorageBlobContent -BlobType Page -File $configFile -Container $containerName -Blob $configBlob -Context $sa.Context
+```
+
+
+
+## Create the VM application
+
+Choose an option below for creating your VM application definition and version:
 
 ### [Portal](#tab/portal2)
 
@@ -165,18 +242,30 @@ In this example, we are creating version number *1.0.0*. Replace the values of t
 
 ```azurepowershell-interactive
 $version = 1.0.0
-New-AzGalleryApplicationVersion -ResourceGroupName $rgName -GalleryName $galleryName -ApplicationName $applicationName -Version $version
+New-AzGalleryApplicationVersion `
+   -ResourceGroupName $rgName `
+   -GalleryName $galleryName `
+   -ApplicationName  `
+   -Name $applicationName
+   -Version $version
+   -PackageFileLink 
+   -Location <String>
+   -Install <String>
+   -Remove <String>
 ```
 
 To add the application to a VM, get the application version and use that to get the version ID. Use the ID to add the application to the VM configuration.
 
-%%%% This seems wrong - should you get the vm, not the version? Why do new-azvmgalleryapplicationversion again?%%%%
 ```azurepowershell-interactive
-$version = Get-AzGalleryApplicationVersion -ResourceGroupName $rgname -GalleryName $galleryname -ApplicationName $applicationname -Version $version
+$version = Get-AzGalleryApplicationVersion `
+   -ResourceGroupName $rgname `
+   -GalleryName $galleryname `
+   -ApplicationName $applicationname `
+   -Version $version
 
-$vmapp = New-AzVmGalleryApplication -PackageReferenceId $version.Id
-
-$vm = Add-AzVmGalleryApplication -VM $vm -Id $vmapp.Id
+$vm = Add-AzVmGalleryApplication `
+   -VM $vm `
+   -Id $vmapp.Id
 
 Update-AzVm -ResourceGroupName $rgname -VM $vm
 ```
@@ -654,11 +743,37 @@ PUT
 
 ### Creating a VM Application Version
 
+```rest
 PUT
-
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>/versions/\<**versionName**\>?api-version=2019-03-01
 
-![](media/image2.emf)
+{
+  "location": "$location",
+  "properties": {
+    "publishingProfile": {
+      "source": {
+        "mediaLink": "$mediaLink",
+        "defaultConfigurationLink": "$configLink"
+      },
+      "manageActions": {
+        "install": "echo installed",
+        "remove": "echo removed",
+        "update": "echo update"
+      },
+      "targetRegions": [
+        {
+          "name": "$location1",
+          "regionalReplicaCount": 1 
+        },
+        { "name": "$location1" }
+      ]
+    },
+    "endofLifeDate": "datetime",
+    "excludeFromLatest": "true | false"
+  }
+}
+
+```
 
 | Field Name                         | Description                                                                                                                                             | Limitations                       |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
@@ -677,18 +792,54 @@ PUT
 
 To add a VM application version to a VM, perform a PUT on the VM.
 
+```rest
 PUT
-
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/virtualMachines/\<**VMName**\>?api-version=2019-03-01
 
-![](media/image3.emf)
+{
+  "properties": {
+    "applicationProfile": {
+      "galleryApplications": [
+        {
+          "order": 1,
+          "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
+          "configurationReference": "{path to configuration storage blob}"
+        }
+      ]
+    }
+  },
+  "name": "{vm name}",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resource group}/providers/Microsoft.Compute/virtualMachines/{vm name}",
+  "location": "{vm location}"
+}
+```
 
+
+```rest
 PUT
-
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/
 virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
 
-![](media/image4.emf)
+{
+  "properties": {
+    "virtualMachineProfile": {
+      "applicationProfile": {
+        "galleryApplications": [
+          {
+            "order": 1,
+            "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
+            "configurationReference": "{path to configuration storage blob}"
+          }
+        ]
+      }
+    }
+  },
+  "name": "{vm name}",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resource group}/providers/Microsoft.Compute/virtualMachines/{vm name}",
+  "location": "{vm location}"
+}
+```
+
 
 | Field Name             | Description                                                                                                                                                        | Limitations                         |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
@@ -708,7 +859,30 @@ applications. The rules for order are the following.
 The response will include the full VM model. The following are the
 relevant parts.
 
-![](media/image5.emf)
+```rest
+{
+  "name": "{vm name}",
+  "id": "{vm id}",
+  "type": "Microsoft.Compute/virtualMachines",
+  "location": "{vm location}",
+  "properties": {
+    "applicationProfile": {
+      "galleryApplications": ""
+    },
+    "provisioningState": "Updating"
+  },
+  "resources": [
+    {
+      "name": "VMAppExtension",
+      "id": "{extension id}",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "location": "centraluseuap",
+      "properties": "@{autoUpgradeMinorVersion=True; forceUpdateTag=7c4223fc-f4ea-4179-ada8-c8a85a1399f5; provisioningState=Creating; publisher=Microsoft.CPlat.Core; type=VMApplicationManagerLinux; typeHandlerVersion=1.0; settings=}"
+    }
+  ]
+}
+
+```
 
 Note that the VM applications have not yet been installed on the VM, so
 the value will be empty. Also note that the VMAppExtension will
@@ -716,22 +890,47 @@ automatically be installed on the VM. It is not possible to remove it.
 
 To see the current deployment status, run:
 
+```azurepowershell-interactive
 Get-AzVM -Status -ResourceGroupName $rg -Name $VMName
+```
 
-![](media/image6.emf)
+The output will look something like this:
+
+```json
+Extensions[0]           :
+  Name                  : VMAppExtension
+  Type                  : Microsoft.CPlat.Core.VMApplicationManagerLinux
+  TypeHandlerVersion    : 1.0.4
+  Statuses[0]           :
+    Code                : ProvisioningState/succeeded
+    Level               : Info
+    DisplayStatus       : Provisioning succeeded
+    Message             : Enable succeeded: {
+ "CurrentState": [
+  {
+   "applicationName": "go_linux",
+   "version": "1.16.0",
+   "result": "Install SUCCESS"
+  }
+ ],
+ "ActionsPerformed": [
+  {
+   "package": "go_linux",
+   "version": "1.16.0",
+   "operation": "Install",
+   "result": "SUCCESS"
+  }
+ ]
+}
+```
 
 **Important note for modifying Application Profile for VM or VMSS:**
 
-Modifying VM application profile will get rid of existing extensions.
-All extensions (besides VMAppExtension) will have to be added back. This
-is a known bug we are deploying a fix for.
+Modifying VM application profile will get rid of existing extensions. All extensions (besides VMAppExtension) will have to be added back. This is a known bug we are deploying a fix for.
 
-If *updating* the application profiles on VMSS, at least one extension
-(other than VMAppExtension) must be present in the request. Also, all
-extensions not a part of the request will be removed. This is due to a
-bug. The easiest way to preserve all existing extensions while modifying
-application profile is as follows:
+If *updating* the application profiles on VMSS, at least one extension (other than VMAppExtension) must be present in the request. Also, all extensions not a part of the request will be removed. This is due to a bug. The easiest way to preserve all existing extensions while modifying application profile is as follows:
 
+```
 #get vm information
 
 $uri =
@@ -789,36 +988,53 @@ $params = @{ Headers = @{'authorization'="Bearer $($token)"}; Method =
 $response = Invoke-RestMethod @params
 
 $response \| convertto-json -Depth 8
+```
+
 
 ### Deleting VM Applications and VM Application Versions
 
-To delete a VM Application. Note that the application **must not** have
-any versions in it.
+To delete a VM Application. Note that the application **must not** have any versions in it.
 
+```rest
 DELETE
 
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>?api-version=2019-03-01
+```
 
-To delete a VM Application version. Note that this will *not* check
-whether any VMs have the version. For those who do, the application will
-continue unaffected there, but the version may not be installed to any
-more VMs.
+To delete a VM Application version. Note that this will *not* check whether any VMs have the version. For those who do, the application will continue unaffected there, but the version may not be installed to any more VMs.
 
+```rest
 DELETE
 
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>/versions/\<**versionName**\>?api-version=2019-03-01
+```
 
 ### Listing VM Applications and VM Application Versions
 
 To list the VM Applications in a gallery:
 
+```rest
 GET
 
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications?api-version=2019-03-01
+```
 
 Sample response:
 
-![](media/image7.emf)
+```
+{
+  "value": [
+    {
+      "name": "jcalevTestApp",
+      "id": "/subscriptions/a53f7094-a16c-47af-abe4-b05c05d0d79a/resourceGroups/JCALEV-TIP-1610039672.47613/providers/Microsoft.Compute/galleries/jcalevGallery/applications/jcalevTestApp",
+      "type": "Microsoft.Compute/galleries/applications",
+      "location": "eastus2euap",
+      "properties": "@{supportedOSType=Linux; description=sample gallery app}"
+    }
+  ]
+}
+
+``````
 
 To list the VM Application Version in the VM Application
 

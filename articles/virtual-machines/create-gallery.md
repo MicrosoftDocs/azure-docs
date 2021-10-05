@@ -1,16 +1,15 @@
 ---
 title: Create an Azure Compute Gallery for sharing resources
-description: Learn how to create an Azure Compute Gallery
+description: Learn how to create an Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.author: cynthn
 ms.custom: template-how-to 
 
-#Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
 # Create a gallery for storing and sharing resources
@@ -39,13 +38,13 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
 1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
 1. In **Name**, type *myGallery* for the name of the gallery.
 1. Leave the default for **Region**.
-1. You can type a short description of the gallery, like *My image gallery for testing.* and then click **Review + create**.
+1. You can type a short description of the gallery, like *My gallery for testing.* and then click **Review + create**.
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
 ### [CLI](#tab/cli)
 
-Create an image gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create a gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -54,7 +53,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ### [PowerShell](#tab/powershell)
 
-Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+Create a gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -96,12 +95,10 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Next steps
 
-Create an [image definition and an image version](image-version.md).
+- Create an [image definition and an image version](image-version.md).
 
-[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
+- [Create a VM application](app-packages-how-to.md) in your gallery.
 
-You can also create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
+- You can also create Azure Compute Gallery [create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/) using a template.
 
-- [Create a Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Azure Image Builder](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
