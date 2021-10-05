@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop session host autoscaling
-description: How to use the autoscaling feature to allocate resources in your deployment.
+title: Azure Virtual Desktop session host autoscale
+description: How to use the autoscale feature to allocate resources in your deployment.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/21/2021
@@ -10,17 +10,17 @@ manager: femila
 # Autoscale for Azure Virtual Desktop host pools
 
 > [!IMPORTANT]
-> The autoscaling feature is currently in preview.
+> The autoscale feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The autoscaling feature (preview) lets you scale your Azure Virtual Desktop deployment's virtual machines (VMs) up or down to optimize deployment costs. Based on your needs, you can make a scaling plan based on:
+The autoscale feature (preview) lets you scale your Azure Virtual Desktop deployment's virtual machines (VMs) up or down to optimize deployment costs. Based on your needs, you can make a scaling plan based on:
 
 - Time of day
 - Specific days of the week
 - Session limits per session host
 
 >[!NOTE]
->Windows Virtual Desktop (classic) doesn't support the autoscaling feature. It also doesn't support scaling ephermal disks.
+>Windows Virtual Desktop (classic) doesn't support the autoscale feature. It also doesn't support scaling ephermal disks.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
@@ -169,7 +169,7 @@ To create a scaling plan:
 
 6. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan.
 
-7. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. Currently, autoscaling only supports the Central US and East US 2 regions. To learn more about regions, see [Data locations](data-locations.md).
+7. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. Currently, autoscale only supports the Central US and East US 2 regions. To learn more about regions, see [Data locations](data-locations.md).
 
 8. For **Time zone**, select the time zone you'll use with your plan.
 
@@ -179,7 +179,7 @@ To create a scaling plan:
 
 ## Configure a schedule
 
-Schedules let you define when autoscaling activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscaling only turns off VMs when a session host has no sessions active. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
+Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when a session host has no sessions active. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
 
 To create or change a schedule:
 
@@ -245,5 +245,5 @@ Once you're done, go to the **Review + create** tab and select **Create** to dep
 
 Now that you've created your scaling plan, here are some things you can do:
 
-- [Assign your scaling plan to new and existing host pools](autoscaling-new-existing.md)
-- [Enable diagnostics for your scaling plan](autoscaling-diagnostics.md)
+- [Assign your scaling plan to new and existing host pools](autoscale-new-existing.md)
+- [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)

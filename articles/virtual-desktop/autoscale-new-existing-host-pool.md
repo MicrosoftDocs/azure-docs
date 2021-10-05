@@ -10,7 +10,7 @@ manager: femila
 # Enable scaling plans for existing and new host pools
 
 > [!IMPORTANT]
-> The autoscaling feature is currently in preview.
+> The autoscale feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can enable scaling plans for any existing host pools in your deployment. When you apply your scaling plan to the host pool, the plan will also apply to all session hosts within that host pool. Scaling also automatically applies to any new session hosts you create in your assigned host pool.
@@ -51,5 +51,5 @@ To assign a scaling plan to an existing host pool:
 
 ## Next steps
 
-- Review how to create a scaling plan at [Autoscaling for Azure Virtual Desktop session hosts](autoscaling-new-existing.md).
-- Learn how to troubleshoot your scaling plan at [Enable diagnostics for your scaling plan](autoscaling-diagnostics.md).
+- Review how to create a scaling plan at [Autoscale for Azure Virtual Desktop session hosts](autoscale-new-existing.md).
+- Learn how to troubleshoot your scaling plan at [Enable diagnostics for your scaling plan](autoscale-diagnostics.md).

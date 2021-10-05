@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Virtual Desktop autoscaling FAQ - Azure
+  title: Azure Virtual Desktop autoscale FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: conceptual
@@ -9,30 +9,30 @@ metadata:
   ms.custom: devx-track-azurepowershell
   manager: femila
     
-title: Azure Virtual Desktop autoscaling FAQ
-summary: This article answers frequently asked questions about how to use the autoscaling feature for Azure Virtual Desktop.
+title: Azure Virtual Desktop autoscale FAQ
+summary: This article answers frequently asked questions about how to use the autoscale feature for Azure Virtual Desktop.
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-         How do I configure autoscaling so I run 0 session hosts after working hours?
+         How do I configure autoscale so I run zero session hosts after working hours?
         answer: |
          Ramp-down mode always uses the lowest possible number of session hosts possible. However, the lowest number possible doesn’t include zero. Instead, you can configure a time limit policy to sign out all disconnected users.
           
       - question: |
-         Does autoscaling create or delete virtual machines (VMs) based on service load?
+         Does autoscale create or delete virtual machines (VMs) based on service load?
         answer: |
          No.
 
       - question: |
          Can I configure scaling for specific dates like holidays?
         answer: |
-         No. Autoscaling doesn’t currently support ramping down on specific dates.
+         No. Autoscale doesn’t currently support ramping down on specific dates.
 
       - question: |
-         Will I be charged extra for using the autoscaling feature?
+         Will I be charged extra for using the autoscale feature?
         answer: |
          No. For more information on rates, see [our pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
           

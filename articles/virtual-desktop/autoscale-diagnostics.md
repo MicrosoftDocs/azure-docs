@@ -82,5 +82,5 @@ The following JSON file is an example of what you'll see when you open a report:
 
 ## Next steps
 
-- Review how to create a scaling plan at [Autoscale for Azure Virtual Desktop session hosts](autoscaling-new-existing.md).
-- [Assign your scaling plan to new and existing host pools](autoscaling-new-existing.md)
+- Review how to create a scaling plan at [Autoscale for Azure Virtual Desktop session hosts](autoscale-scaling-plan.md).
+- [Assign your scaling plan to new or existing host pools](autoscale-new-existing-host-pool.md).
