@@ -86,7 +86,7 @@ Next, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spee
 
 ## Text-independent verification
 
-In contrast to **text-dependent** verification, **text-independent** verification does not require three audio samples, but does require 20 seconds of total audio.
+In contrast to **text-dependent** verification, **text-independent** verification does not require three audio samples, but *does* require 20 seconds of total audio.
 
 ### TextIndependentVerification function
 
