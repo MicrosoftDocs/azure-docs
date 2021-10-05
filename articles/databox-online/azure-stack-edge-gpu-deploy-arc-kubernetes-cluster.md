@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 10/05/2021
 ms.author: alkohli
 ---
 
@@ -136,14 +136,16 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 1. Type:
 
-    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
+    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" 
+    
+    When this command is run, there is a followup prompt to enter the `ClientSecret`. `ClientSecret` is a secure string.
 
-    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`,       `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
+    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
     > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). 
     > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-    > - `ClientId` and `ClientSecret` are required parameters. `ClientSecret` is a secure string.
+    > - `ClientId` is a required parameter. 
     
     Here is an example:
    
