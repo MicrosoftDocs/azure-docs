@@ -184,7 +184,7 @@ To validate your passphrase, follow these steps:
    - A Security PIN (see [the steps to generate the Security PIN](#generate-security-pin)).
    - A secure location on the server to save the newly generated passphrase.
 
-   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase-inline.png" alt-text="Screenshot showing the process to generate passphrase with the required details." lightbox="./media/backup-azure-manage-mars/generate-passphrase-expanded.png":::
+   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase.png" alt-text="Screenshot showing the process to generate passphrase with the required details.":::
 
 ### Validate passphrase for DPM/MABS agent
 
@@ -202,14 +202,14 @@ You can find the tool in one of the following locations:
 
 The passphrase validator opens and prompts for the current passphrase. If the passphrase doesn’t meet the updated requirements, regenerate the passphrase.
    
-:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase-inline.png" alt-text="Screenshot showing passphrase validator prompts for the current passphrase." lightbox="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase-expanded.png":::
+:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase.png" alt-text="Screenshot showing passphrase validator prompts for the current passphrase.":::
 
 Use the following steps:
 
 1. From the management console, navigate to the **Management** tab, and select **Online** -> **Configure**.
 1. Follow the **Configure Subscription Settings Wizard**, and at the **Encryption Setting** step, provide the updated passphrase.
 
-:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard-inline.png" alt-text="Screenshot showing the process to provide passphrase following the Configure Subscription Settings Wizard." lightbox="./media/backup-azure-manage-mars/configure-subscription-settings-wizard-expanded.png":::
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="Screenshot showing the process to provide passphrase following the Configure Subscription Settings Wizard.":::
 
 ## Generate Security PIN
 
