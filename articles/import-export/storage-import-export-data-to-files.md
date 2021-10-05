@@ -38,7 +38,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
   1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
-  1. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
+  1. Unzip to the default folder `WaImportExportV2`. For example, `C:\WaImportExportV2`.
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
