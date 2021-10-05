@@ -17,6 +17,8 @@ Welcome to what's new in Azure Active Directory application proxy documentation.
 
 ## September 2021
 
+### Updated articles
+
 - [What's New in Docs](whats-new-docs.md)
 
 ## August 2021
