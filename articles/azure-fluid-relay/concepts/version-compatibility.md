@@ -44,3 +44,9 @@ npx install-peerdeps @fluidframework/azure-client
 | @fluidframework/test-client-utils   | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
 [0.48.4]: https://fluidframework.com/docs/updates/v0.48/
+
+## Next steps
+
+- [Provision an Azure Fluid Relay service](../how-tos/connect-fluid-azure-service.md)
+- [Connect to an Azure Fluid Relay service](../how-tos/connect-fluid-azure-service.md)
+- [Use AzureClient for local testing](../how-tos/local-mode-with-azure-client.md)
