@@ -145,7 +145,7 @@ MSAL has two methods for acquiring tokens: `AcquireTokenInteractive` and `Acquir
 
 #### Get a user token interactively
 
-Some situations require forcing users interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users interact with the Microsoft identity platform through a pop-up window to either validate their credentials or to give consent. Some examples include:
 
 - The first time users sign in to the application
 - When users may need to reenter their credentials because the password has expired

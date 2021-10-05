@@ -284,8 +284,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
-
-This starts discovery. It takes approximately 2 minutes per server for metadata of discovered server to appear in the Azure portal.
+It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 
 ## Verify servers in the portal
 
@@ -293,6 +292,13 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+
+## Delete servers
+After the discovery has been initiated, you can delete any of the added servers from the appliance configuration manager by searching for the server name in the **Add discovery source** table and by clicking **Delete**.
+
+>[!NOTE]
+> If you choose to delete a server where discovery has been initiated, it will stop the ongoing discovery and assessment which may impact the confidence rating of the assessment that includes this server. [Learn more](https://go.microsoft.com/fwlink/?linkid=2171565)
+
 ## Next steps
 
 - [Assess physical servers](tutorial-assess-physical.md) for migration to Azure VMs.
