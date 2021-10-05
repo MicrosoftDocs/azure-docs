@@ -1,6 +1,6 @@
+items:
 - name: Service Connector documentation
   href: index.yml
-
 - name: Service Connector overview
   href: overview.md
 - name: Quickstarts
@@ -10,20 +10,24 @@
     expanded: true
     items:
     - name: Portal
-      href: overview.md
+      href: quickstart-portal-app-service-connection.md 
     - name: CLI
-      href: overview.md
+      href: quickstart-cli-app-service-connection.md
   - name: Service Connector in Azure Spring Cloud
     expanded: true
     items:
     - name: Portal
-      href: overview.md
+      href: quickstart-portal-spring-cloud-connection.md
     - name: CLI
-      href: overview.md
+      href: quickstart-cli-spring-cloud-connection.md
 - name: Tutorials
   expanded: true
   items:
   - name: Python (Django) app with PostgreSQL
+    href: overview.md
+  - name: ASP.NET app with SQL Database
+    href: overview.md
+  - name: PLACEHOLDER
     href: overview.md
   - name: PLACEHOLDER
     href: overview.md
