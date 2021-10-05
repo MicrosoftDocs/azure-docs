@@ -2,13 +2,13 @@
 title: Shared database
 description: Azure Synapse Analytics provides a shared metadata model where creating a database in serverless Apache Spark pool will make it accessible from its serverless SQL pool and SQL pool engines. 
 services: synapse-analytics 
-author: MikeRys
+author: jocaplan
 ms.service: synapse-analytics  
 ms.topic: overview
 ms.subservice: metadata
-ms.date: 09/27/2021
-ms.author: mrys 
-ms.reviewer: jrasnick
+ms.date: 10/05/2021
+ms.author: jocaplan 
+ms.reviewer: jrasnick, mrys
 ms.custom: devx-track-csharp
 ---
 

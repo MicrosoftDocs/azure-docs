@@ -2,13 +2,13 @@
 title: Shared metadata tables
 description: Azure Synapse Analytics provides a shared metadata model where creating a table in serverless Apache Spark pool will make it accessible from serverless SQL pool and dedicated SQL pool without duplicating the data. 
 services: sql-data-warehouse 
-author: MikeRys 
+author: jocaplan 
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
-ms.date: 09/27/2021
-ms.author: mrys 
-ms.reviewer: jrasnick
+ms.date: 10/05/2021
+ms.author: jocaplan 
+ms.reviewer: jrasnick, mrys
 ms.custom: devx-track-csharp
 ---
 
@@ -50,7 +50,7 @@ Azure Synapse currently only shares managed and external Spark tables that store
 The shareable managed and external Spark tables exposed in the SQL engine as external tables with the following properties:
 
 - The SQL external table's data source is the data source representing the Spark table's location folder.
-- The SQL external table's file format is Parquet.
+- The SQL external table's file format is Parquet or CSV.
 - The SQL external table's access credential is pass-through.
 
 Since all Spark table names are valid SQL table names and all Spark column names are valid SQL column names, the Spark table and column names will be used for the SQL external table.
