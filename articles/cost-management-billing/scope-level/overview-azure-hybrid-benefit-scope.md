@@ -17,9 +17,10 @@ Azure Hybrid Benefit is a licensing benefit that helps you to significantly redu
 
 You can manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. At a high level, here's how it works:
 
-- First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
-- Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and the number of qualifying licenses that you want to assign to cover the resources in the scope.  
+1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
+1. Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and the number of qualifying licenses that you want to assign to cover the resources in the scope.  
     :::image type="content" source="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" alt-text="Screenshot showing setting a scope and assigning licenses." lightbox="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" :::
+
 - Each hour as resources in the scope run, Azure automatically assigns the licenses to them and discounts the costs correctly. Different resources can be covered each hour.
 - Any usage above the number of assigned licenses is billed at normal, pay-as-you-go prices.
 - When you choose to manage the benefit by assigning licenses at a scope level, you can't manage individual resources in the scope any longer.

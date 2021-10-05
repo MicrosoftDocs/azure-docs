@@ -23,6 +23,8 @@ To use the HADR benefit, select **HADR** using the **Configure** pane of the **S
 
 If the HADR property is selected, then licenses centrally assigned to a scope aren't used to discount the SQL software cost of that resource. Instead, the pay-as-you-go meter automatically switches to a $0 HADR meter. This method ensures that the assigned SQL licenses are only used for the resources that require licensing. You don't need to inflate the SQL license assignments to account for the HADR benefits. The following diagram illustrates this concept.
 
+Prices shown in the following image are for example purposes only.
+
 :::image type="content" source="./media/sql-server-hadr-licenses/fully-discounted-consumption-hadr.svg" alt-text="Diagram showing fully discounted vCore consumption with HADR selected." border="false" lightbox="./media/sql-server-hadr-licenses/fully-discounted-consumption-hadr.svg":::
 
 > [!NOTE]

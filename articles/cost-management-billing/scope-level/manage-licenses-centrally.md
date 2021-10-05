@@ -21,10 +21,14 @@ Each resource reports its usage once an hour using the appropriate full price or
 
 The following diagram shows the discounting process when there's enough unutilized NCLs to discount the entire vCore consumption by all the SQL resources for the hour.
 
+Prices shown in the following image are for example purposes only.
+
 :::image type="content" source="./media/manage-licenses-centrally/fully-discounted-consumption.svg" alt-text="Diagram showing fully discounted vCore consumption." border="false" lightbox="./media/manage-licenses-centrally/fully-discounted-consumption.svg":::
 
 
 When the vCore consumption by the SQL resources in the scope exceeds the number of unutilized NCLs, the excess vCore consumption is billed using the appropriate pay-as-you-go meter. The following diagram shows the discounting process when the vCore consumption exceeds the number of unutilized NCLs.
+
+Prices shown in the following image are for example purposes only.
 
 :::image type="content" source="./media/manage-licenses-centrally/partially-discounted-consumption.svg" alt-text="Diagram showing partially discounted consumption." border="false" lightbox="./media/manage-licenses-centrally/partially-discounted-consumption.svg":::
 
