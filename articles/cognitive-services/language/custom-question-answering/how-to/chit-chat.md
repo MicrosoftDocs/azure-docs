@@ -77,7 +77,7 @@ You can add a new chitchat question pair that is not in the predefined data set.
 Select the **manage sources** pane, and choose your chitchat source. Your specific chitchat source is listed as a tsv file, with the selected personality name. Select **Delete** from the toolbar.
 
 > [!div class="mx-imgBorder"]
-> ![Edit chitchat question pairs](../media/chit-chat/delete-chit-chat.png)
+> ![Delete chitchat source](../media/chit-chat/delete-chit-chat.png)
 
 ## Next steps
 
