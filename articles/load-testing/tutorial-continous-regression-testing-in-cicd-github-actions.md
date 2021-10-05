@@ -177,7 +177,9 @@ Now that you have set test criteria to pass or fail your test, the next step is 
 
 To add parameters to your load test from the workflow
 
-1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to call *function* to fetch the parameters as shown below. Save and commit the file
+1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.
+
+`{{get_param(APIKey)}}`
 
 1. Go your GitHub Repository > Settings > Secrets > New repository secret > "mySecret". Add "" as the value and select Add secret.
 

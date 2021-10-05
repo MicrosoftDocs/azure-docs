@@ -173,13 +173,15 @@ Now that you have set test criteria to pass or fail your test, the next step is 
 
 To add parameters to your load test from pipeline
 
-1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to call *function* to fetch the parameters as shown below. Save and commit the file
+1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.
+
+`{{get_param(APIKey)}}`
 
 1. Go to the Pipelines page, select the appropriate pipeline, and then select Edit.
 
 1. Locate the Variables for this pipeline.
 
-1. Add a variable with Name "secret" and Value "".
+1. Add a variable with Name "APIKey" and Value as your token.
 
 1. Check the option Keep this value secret, to store the variable in an encrypted manner. Save the changes
 
@@ -190,8 +192,8 @@ To add parameters to your load test from pipeline
       { 
           "secrets": [ 
               { 
-                  "name": "secret", 
-                  "value": "$(mySecret)" 
+                  "name": "APIKey", 
+                  "value": "$(APIKey)" 
               }
           ]
       }
