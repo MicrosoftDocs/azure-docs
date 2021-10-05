@@ -19,7 +19,7 @@ ms.author: thwimmer
 This tutorial describes the steps you need to perform in both BenQ IAM and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [BenQ IAM](https://service-portaltest.benq.com/login) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Supported capabilities
 > [!div class="checklist"]
 > * Create users in BenQ IAM
 > * Remove users in BenQ IAM when they do not require access anymore
@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 4. After finishing the settings for SSO by SAML, you will see a success message as shown in the image below. Click on **Create Token** in the Automated User Provisioning section.
 	![created-token](media/benq-iam-provisioning-tutorial/create_token.png)
 
-5. Copy the token to a safe place. This token will be used in Azure Portal in **Step 5**.
+5. Copy the token to a safe place. This token will be used in Azure portal in **Step 5**.
 	![copying-token](media/benq-iam-provisioning-tutorial/copy_token.png)
 
 ## Step 3. Add BenQ IAM from the Azure AD application gallery
@@ -133,10 +133,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
-
-## Troubleshooting Tips
-* `**[If applicable, to be added by Microsoft's support team]**`
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Additional resources
 
