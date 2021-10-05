@@ -42,6 +42,8 @@ Please consider carefully whether this preview is right for you. It enables dist
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
+> [!WARNING] 
+> At present, this exporter only works for Node.js serverside environments. Use the [Application Insights JavaScript SDK](javascript.md) for web/browser scenarios.
 
 ### [Python](#tab/python)
 
@@ -318,13 +320,19 @@ The following libraries are validated to work with the Preview Release:
 
 ## Modify telemetry
 
-### Add activity or span attributes
+### Add activity/span attributes
 
-#### [.NET](#tab/net)
-
-Activity attributes can be added using either of the following two options.
+Activity/span attributes can be added using either of the following two options.
 1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
-2. Adding your custom processor:
+2. Adding a custom processor.
+
+These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
+
+#### Add custom property
+
+Any [attributes](#add-activity-or-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+
+##### [.NET](#tab/net)
 
 If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
 
@@ -357,119 +365,104 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
     }
 }
 ```
-These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as <!--- User ID or ---> Client IP. Below are three examples that show common scenarios.
 
-For more information, see [GitHub Repo](link).
-
-
-#### [JavaScript](#tab/javascript)
-
-You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
-
-#### [Python](#tab/python)
-
-You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
-
----
-
-#### Add custom dimension
-
-##### [.NET](#tab/net)
-
-Any [attributes](#add-activity-or-span-attributes) which are added to activity will be exported as custom dimensions to Application Insights.
-
-<!---
-#### Set User ID or Authenticated User ID
-Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
-
-> [!IMPORTANT]
-> Consult applicable privacy laws before setting Authenticated User ID.
-
-```C#
-Placeholder
-```
---->
 
 ##### [JavaScript](#tab/javascript)
 
-Populate the _customDimensions_ field in the requests and dependencies table.
+If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
 
 ```javascript
 Placeholder
 ```
-<!---
-#### Set User ID or Authenticated User ID
-Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
-
-> [!IMPORTANT]
-> Consult applicable privacy laws before setting Authenticated User ID.
-
-```javascript
-Placeholder
-```
---->
 
 ##### [Python](#tab/python)
 
-Populate the _customDimensions_ field in the requests and dependencies table.
+If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
 
 ```python
 Placeholder
 ```
-<!---
-#### Set User ID or Authenticated User ID
-Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
-
-> [!IMPORTANT]
-> Consult applicable privacy laws before setting Authenticated User ID.
-
-```python
-Placeholder
-```
---->
 
 ---
 
 #### Set user IP
 
+You can populate the _client_IP_ field for requests by setting `http.client_ip` attribute on activity/span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before setting Authenticated User ID.
+
 ##### [.NET](#tab/net)
 
-You can populate the client_IP field for requests by setting `http.client_ip` attribute on activity. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+
+```C#
+Placeholder
+```
 
 > [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
+> The .NET exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
 ##### [JavaScript](#tab/javascript)
 
-Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
 ```javascript
 Placeholder
 ```
 
+> [!TIP]
+> The JavaScript exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
 ##### [Python](#tab/python)
 
-Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
-
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
 ```python
 Placeholder
 ```
+
+> [!TIP]
+> The Python exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+
+---
+
+#### Set user ID or authenticated user ID
+
+You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting `xyz` or `xyz` attribute on activity/span. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
+
+#### [.NET](#tab/net)
+
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+
+```C#
+Placeholder
+```
+
+> [!TIP]
+> The .NET exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+
+#### [JavaScript](#tab/javascript)
+
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+
+```javascript
+Placeholder
+```
+
+> [!TIP]
+> The JavaScript exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+
+#### [Python](#tab/python)
+
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
+
+```python
+Placeholder
+```
+
+> [!TIP]
+> The Python exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 ---
 
 ### Override activity display or span name
