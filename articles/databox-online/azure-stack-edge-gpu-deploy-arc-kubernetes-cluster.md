@@ -136,7 +136,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 1. Type:
 
-    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" 
+    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
     
     When this command is run, there is a followup prompt to enter the `ClientSecret`. `ClientSecret` is a secure string.
 
@@ -145,7 +145,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
     > [!NOTE]
     > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). 
     > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-    > - `ClientId` is a required parameter. 
+    > - `ClientId` and `ClientSecret` are required. 
     
     Here is an example:
    
