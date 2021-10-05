@@ -12,8 +12,8 @@ ms.topic: reference
 In this scenario, we will be deleting an existing Fluid container. Once a container is deleted, applications referencing the container will no longer be able to access the container or its data. 
 
 ## Requirements to Delete a Fluid Container
-1. To get started, you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). If you already have Azure CLI installed, please ensure your version is 2.0.67 or greater by running `az version`.
-2. In order to delete a Fluid container, you must ensure your application and its clients are no longer connected to the container.
+- To get started, you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). If you already have Azure CLI installed, please ensure your version is 2.0.67 or greater by running `az version`.
+- In order to delete a Fluid container, you must ensure your application and its clients are no longer connected to the container.
 
 ## List the Containers within a Fluid Relay Resource
 To see all of the containers belonging to your Fluid Relay resource, you can run the following command:
