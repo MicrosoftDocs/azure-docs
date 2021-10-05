@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 09/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -22,6 +22,9 @@ In the following tables, the term alphanumeric refers to:
 * **A** through **Z** (uppercase letters)
 * **0** through **9** (numbers)
 
+> [!NOTE]
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+
 ## Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
@@ -34,39 +37,39 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | service | global | 1-50 | Alphanumerics, and hyphens.<br><br>Start with letter, and end with alphanumeric. |
-> | service / apis | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues / attachments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues / comments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / operations | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / operations / tags | operation | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service | global | 1-50 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues / attachments | issue | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues / comments | issue | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / operations | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / operations / tags | operation | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 > | service / apis / releases | api | 1-80 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric or underscore. |
-> | service / apis / schemas | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / tagDescriptions | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / tags | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / api-version-sets | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / authorizationServers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / backends | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / certificates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / diagnostics | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / groups | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / groups / users | group | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / identityProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / loggers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / notifications | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / notifications / recipientEmails | notification | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / openidConnectProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / policies | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / apis | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / groups | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / tags | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / properties | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / subscriptions | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / tags | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / templates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / users | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / schemas | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / tagDescriptions | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / tags | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / api-version-sets | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / authorizationServers | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / backends | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / certificates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / diagnostics | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / groups | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / groups / users | group | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / identityProviders | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / loggers | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / notifications | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / notifications / recipientEmails | notification | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / openidConnectProviders | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / policies | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / apis | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / groups | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / tags | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / properties | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / subscriptions | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / tags | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / templates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / users | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 
 ## Microsoft.AppConfiguration
 
@@ -81,24 +84,24 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | locks | scope of assignment | 1-90 | Alphanumerics, periods, underscores, hyphens, and parenthesis.<br><br>Can't end in period. |
-> | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
-> | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
-> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space.  |
+> | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 
 ## Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter, and end with alphanumeric. |
-> | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space.  |
-> | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
-> | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space.  |
+> | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
+> | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 > | automationAccounts / runbooks | automation account | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start with letter.  |
-> | automationAccounts / schedules | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
-> | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / schedules | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
+> | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 > | automationAccounts / watchers | automation account | 1-63 |  Alphanumerics, underscores, and hyphens.<br><br>Start with letter. |
-> | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` or control characters <br><br>Can't end with space. |
 
 > [!NOTE]
 > Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.
@@ -166,6 +169,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
@@ -175,8 +179,8 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
@@ -186,7 +190,14 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+> | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't use underscores. |
+
+## Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.ContainerInstance
 
@@ -241,8 +252,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | associations | resource group | 1-180 | Can't use:<br>`%&\\?/`<br><br>Can't end with period or space. |
-> | resourceProviders | resource group | 3-64 | Can't use:<br>`%&\\?/`<br><br>Can't end with period or space. |
+> | associations | resource group | 1-180 | Can't use:<br>`%&\\?/` or control characters<br><br>Can't end with period or space. |
+> | resourceProviders | resource group | 3-64 | Can't use:<br>`%&\\?/` or control characters<br><br>Can't end with period or space. |
 
 ## Microsoft.DataBox
 
@@ -256,7 +267,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Alphanumerics, underscores, and hyphens |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, and hyphens |
 
 ## Microsoft.DataFactory
 
@@ -264,13 +275,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | factories | global | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
-> | factories / dataflows | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
-> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / dataflows | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
 > | factories / integrationRuntimes | factory | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
-> | factories / linkedservices | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
-> | factories / pipelines | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
-> | factories / triggers | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
-> | factories / triggers / rerunTriggers | trigger | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / linkedservices | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / pipelines | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / triggers | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / triggers / rerunTriggers | trigger | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
 
 ## Microsoft.DataLakeAnalytics
 
@@ -376,7 +387,7 @@ In the following tables, the term alphanumeric refers to:
 > | clusters | resource group | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / disasterRecoveryConfigs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 > | namespaces / eventhubs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
@@ -400,11 +411,11 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
-> | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
-> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
-> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |
-> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#` <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
+> | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period.  |
+> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` or control characters <br><br>Can't end with space or period.  |
+> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` or control characters <br><br>Can't end with space or period.  |
+> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#` or control characters <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
 
@@ -454,9 +465,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | commitmentPlans | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
-> | webServices | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
-> | workspaces | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
+> | commitmentPlans | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\` or control characters<br><br>Can't end with a space. |
+> | webServices | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\` or control characters<br><br>Can't end with a space. |
+> | workspaces | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\` or control characters<br><br>Can't end with a space. |
 
 ## Microsoft.MachineLearningServices
 
@@ -605,9 +616,33 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
 > | resourcegroups | subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, periods, and unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate).<br><br>Can't end with period. |
-> | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` |
+> | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` or control characters |
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 > | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
+
+## Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | resource group | see value | Must be `current` |
+> | alertsSuppressionRules | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessmentMetadata | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessments | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | automations | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | autoProvisioningSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | connectors | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | deviceSecurityGroups | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / applicationWhitelistings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / jitNetworkAccessPolicies | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | ingestionSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | pricings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | securityContacts | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | settings | subscription | see values | Use one of:<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | resource type | see value | Must be `Default` |
+> | sqlVulnerabilityAssessments / baselineRules | Vulnerability assessment | 1-260 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.ServiceBus
 
@@ -647,11 +682,11 @@ In the following tables, the term alphanumeric refers to:
 > | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have any special characters, such as `@`. |
 > | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
-> | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |
+> | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
-> | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |
+> | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
-> | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?`<br><br>Can't end with period. |
+> | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
 
 ## Microsoft.Storage
 
@@ -699,9 +734,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | environments | resource group | 1-90 | Can't use:<br>`'<>%&:\?/#` |
-> | environments / accessPolicies | environment | 1-90 | Can't use:<br> `'<>%&:\?/#` |
-> | environments / eventSources | environment | 1-90 | Can't use:<br>`'<>%&:\?/#` |
+> | environments | resource group | 1-90 | Can't use:<br>`'<>%&:\?/#` or control characters |
+> | environments / accessPolicies | environment | 1-90 | Can't use:<br> `'<>%&:\?/#` or control characters |
+> | environments / eventSources | environment | 1-90 | Can't use:<br>`'<>%&:\?/#` or control characters |
 > | environments / referenceDataSets | environment | 3-63 | Alphanumerics |
 
 ## Microsoft.Web
@@ -721,4 +756,6 @@ In the following tables, the term alphanumeric refers to:
 
 ## Next steps
 
-For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).

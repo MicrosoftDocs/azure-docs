@@ -3,7 +3,7 @@ title: Certificate management in a Service Fabric cluster
 description: Learn about managing certificates in a Service Fabric cluster secured with X.509 certificates.
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.custom: sfrev
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Certificate management in Service Fabric clusters
 
@@ -446,7 +446,7 @@ In either case, transport fails and the cluster may go down; the symptoms vary. 
 
 To mitigate against such incidents, we recommend:
   - do not mix the SANs of different vault certificates; each vault certificate should serve a distinct purpose, and their subject and SAN should reflect that with specificity
-  - include the subject common name in the SAN list (as, literally, "CN=<subject common name>")  
+  - include the subject common name in the SAN list (as, literally, `CN=<subject common name>`)  
   - if unsure, disable linking on renewal for certificates provisioned with the KVVM extension 
 
 #### Why use a user-assigned managed identity? What are the implications of using it?

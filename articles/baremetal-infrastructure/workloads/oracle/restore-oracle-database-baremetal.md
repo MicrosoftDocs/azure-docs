@@ -2,7 +2,7 @@
 title: Restore Oracle Database
 description: Learn how to restore your Oracle Database on BareMetal Infrastructure using SnapCenter.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/07/2021
 ---
 

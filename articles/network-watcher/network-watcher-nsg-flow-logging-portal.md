@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     |---|---|
     |Name|myVm|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|

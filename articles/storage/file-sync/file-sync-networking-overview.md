@@ -19,6 +19,9 @@ This article focuses on how to configure networking for when your use case calls
 
 Networking configuration for Azure File Sync spans two different Azure objects: a Storage Sync Service and an Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. A Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship. 
 
+> [!Important]  
+> Azure File Sync does not support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
+
 ## Connecting Windows file server to Azure with Azure File Sync 
 To set up and use Azure Files and Azure File Sync with an on-premises Windows file server, no special networking to Azure is required beyond a basic internet connection. To deploy Azure File Sync, you install the Azure File Sync agent on the Windows file server you would like to sync with Azure. The Azure File Sync agent achieves synchronization with an Azure file share via two channels:
 

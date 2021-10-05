@@ -4,7 +4,6 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search. 
 
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
@@ -18,7 +17,7 @@ This article explains how to formulate REST API requests interactively using the
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT] 
-> This feature is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 

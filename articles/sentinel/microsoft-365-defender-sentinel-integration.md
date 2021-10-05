@@ -70,9 +70,10 @@ Once the Microsoft 365 Defender integration is connected, all the component aler
 
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365 - see Cloud App Security below) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365, and Cloud App Security) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
-- For Microsoft Cloud App Security alerts, not all alert types are currently onboarded to Microsoft 365 Defender. To make sure you are still getting incidents for all Cloud App Security alerts, you must keep or create **Microsoft incident creation rules** for the [alert types *not onboarded* to Microsoft 365 Defender](microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md).
+    > [!NOTE]
+    > All Microsoft Cloud App Security alert types are now being onboarded to Microsoft 365 Defender.
 
 ### Working with Microsoft 365 Defender incidents in Azure Sentinel and bi-directional sync
 
@@ -102,4 +103,4 @@ The Microsoft 365 Defender connector also lets you stream **advanced hunting** e
 In this document, you learned how to benefit from using Microsoft 365 Defender together with Azure Sentinel, using the Microsoft 365 Defender connector.
 
 - Get instructions for [enabling the Microsoft 365 Defender connector](connect-microsoft-365-defender.md).
-- Create [custom alerts](tutorial-detect-threats-custom.md) and [investigate incidents](tutorial-investigate-cases.md).
+- Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-cases.md).

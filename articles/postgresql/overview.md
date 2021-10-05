@@ -75,4 +75,4 @@ Learn more about the three deployment modes for Azure Database for PostgreSQL an
 
 - [Single Server](./overview-single-server.md)
 - [Flexible Server](./flexible-server/overview.md)
-- Hyperscale (Citus)
+- [Hyperscale (Citus)](./hyperscale-overview.md)

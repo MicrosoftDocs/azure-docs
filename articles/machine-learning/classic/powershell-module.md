@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): PowerShell modules - Azure'
-description: Use PowerShell to create and manage Azure Machine Learning Studio (classic) workspaces, experiments, web services, and more. 
+description: Use PowerShell to create and manage Machine Learning Studio (classic) workspaces, experiments, web services, and more. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -10,10 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
 ---
-# PowerShell modules for Azure Machine Learning Studio (classic)
+# PowerShell modules for Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Using PowerShell modules, you can programmatically manage your Studio (classic) resources and assets such as workspaces, datasets, and web services.
 
@@ -21,7 +22,7 @@ You can interact with Studio (classic) resources using three PowerShell modules:
 
 * [Azure PowerShell Az](#az-rm) released in 2018, includes all functionality of AzureRM, although with different cmdlet names
 * [AzureRM](#az-rm) released in 2016, replaced by PowerShell Az
-* [Azure Machine Learning PowerShell classic](#classic) released in 2016
+* [Machine Learning PowerShell classic](#classic) released in 2016
 
 Although these PowerShell modules have some similarities, each is designed for particular scenarios. This article describes the differences between the PowerShell modules, and helps you decide which ones to choose.  
 

@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfdocs
+ms.custom: bfdocs, devx-track-azurepowershell
 ---
 
 # Connect to Azure Germany by using PowerShell

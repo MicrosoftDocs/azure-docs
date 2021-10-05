@@ -3,13 +3,13 @@ title: Deploy a Spatial Analysis web app
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Spatial Analysis in a web application.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # How to: Deploy a Spatial Analysis web application
@@ -37,8 +37,6 @@ This app will showcase below scenarios:
 * A configured [host computer](spatial-analysis-container.md).
 
 ## Deploy the Spatial Analysis container
-
-Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
 Follow [the Host Computer Setup](./spatial-analysis-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
 
@@ -75,7 +73,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

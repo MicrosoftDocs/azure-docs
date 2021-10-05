@@ -16,7 +16,7 @@ The *host.json* metadata file contains global configuration options that affect 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
+Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-develop-local.md#local-settings-file) file (for local development).
 
 Configurations in host.json related to bindings are applied equally to each function in the function app. 
 
@@ -216,6 +216,28 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
 
+## console
+
+This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|DisableColors|false| Supresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|isEnabled|false|Enables or disables console logging.| 
+
 ## cosmosDb
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -344,26 +366,6 @@ Controls the logging behaviors of the function app, including Application Insigh
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
-## console
-
-This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Enables or disables console logging.| 
-
 ## managedDependency
 
 Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
@@ -460,7 +462,7 @@ An array of one or more names of files that are monitored for changes that requi
 
 ## Override host.json values
 
-There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values be creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
+There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values by creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
 
 For example, say that you wanted to disable Application Insight sampling when running locally. If you changed the local host.json file to disable Application Insights, this change might get pushed to your production app during deployment. The safer way to do this is to instead create an application setting as `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` in the `local.settings.json` file. You can see this in the following `local.settings.json` file, which doesn't get published:
 

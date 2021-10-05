@@ -13,11 +13,11 @@ ms.date: 11/12/2019
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-
 In the two previous tutorials, you created and customized an IoT Central application using the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
 In this tutorial, you will learn how to:
 > [!div class="checklist"]
+
 > * Configure an IoT Central application to export telemetry to an event hub.
 > * Use Logic Apps to send data from an event hub to a Power BI streaming dataset.
 > * Create a Power BI dashboard to visualize data in the streaming dataset.
@@ -26,7 +26,7 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need:
 
-* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
@@ -68,7 +68,7 @@ Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use
 
 You now have an event hub you can use when you configure data export from your IoT Central application:
 
-![Event hub](./media/tutorial-in-store-analytics-visualize-insights/event-hub.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/event-hub.png" alt-text="Event hub.":::
 
 ## Configure data export
 
@@ -85,7 +85,7 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 
 The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page:
 
-![Continuous data export configuration](./media/tutorial-in-store-analytics-visualize-insights/export-configuration.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Continuous data export configuration.":::
 
 ## Create the Power BI datasets
 
@@ -112,7 +112,8 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 
 You now have two streaming datasets. The logic app will route telemetry from the two environmental sensors connected to your **In-store analytics - checkout** application to these two datasets:
 
-![Zone datasets](./media/tutorial-in-store-analytics-visualize-insights/dataset-1.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Zone datasets.":::
+
 
 This solution uses one streaming dataset for each sensor because it's not possible to apply filters to streaming data in Power BI.
 
@@ -136,7 +137,7 @@ You also need a streaming dataset for the occupancy telemetry:
 
 You now have a third streaming dataset that stores values from the simulated occupancy sensor. This sensor reports the queue length at the two checkouts in the store, and how long customers are waiting in these queues:
 
-![Occupancy dataset](./media/tutorial-in-store-analytics-visualize-insights/dataset-2.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-2.png" alt-text="Occupancy dataset.":::
 
 ## Create a logic app
 
@@ -148,7 +149,7 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 1. Select **Devices** in the left pane. Then select **RuuviTag**.
 1. Make a note of the **Device IDs**. In the following screenshot, the IDs are **f5dcf4ac32e8** and **e29ffc8d5326**:
 
-    ![Device IDs](./media/tutorial-in-store-analytics-visualize-insights/device-ids.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Device IDs.":::
 
 The following steps show you how to create the logic app in the Azure portal:
 
@@ -362,7 +363,7 @@ To add the logic to your logic app design, select **Code view**:
 
 1. Select **Save** and then select **Designer** to see the visual version of the logic you added:
 
-    ![Logic app design](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/logic-app.png" alt-text="Logic app design.":::
 
 1. Select **Switch by DeviceID** to expand the action. Then select **Zone 1 environment**, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
@@ -377,7 +378,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humidity**.
     * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temperature**.
     * Select **Save** to save your changes. The **Zone 1 environment** action looks like the following screenshot:
-    ![Zone 1 environment](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png" alt-text="Zone 1 environment.":::
 1. Select the **Zone 2 environment** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
@@ -390,7 +391,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humidity**.
     * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temperature**.
     Select **Save** to save your changes.  The **Zone 2 environment** action looks like the following screenshot:
-    ![Zone 2 environment](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png" alt-text="Zone 2 environment.":::
 1. Select the **Occupancy** action, and then select the **Switch by Interface ID** action.
 1. Select the **Dwell Time interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
@@ -404,7 +405,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Dwell Time 1** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime1**.
     * Select the **Dwell Time 2** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime2**.
     * Select **Save** to save your changes. The **Dwell Time interface** action looks like the following screenshot:
-    ![Screenshot that shows the "Dwell Time interface" action.](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png" alt-text="Dwell Time interface.":::
 1. Select the **People Count interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
@@ -417,7 +418,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Queue Length 1** field, and then select **See more** next to **Parse Telemetry**. Then select **count1**.
     * Select the **Queue Length 2** field, and then select **See more** next to **Parse Telemetry**. Then select **count2**.
     * Select **Save** to save your changes. The **People Count interface** action looks like the following screenshot:
-    ![Occupancy action](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png" alt-text="Occupancy action.":::
 
 The logic app runs automatically. To see the status of each run, navigate to the **Overview** page for the logic app in the Azure portal:
 
@@ -446,7 +447,7 @@ Add four line chart tiles to show the temperature and humidity from the two envi
 
 The following screenshot shows the settings for the first chart:
 
-![Line chart settings](./media/tutorial-in-store-analytics-visualize-insights/line-chart.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/line-chart.png" alt-text="Line chart settings.":::
 
 ### Add cards to show environmental data
 
@@ -462,7 +463,7 @@ Add four card tiles to show the most recent temperature and humidity values from
 
 The following screenshot shows the settings for the first card:
 
-![Card settings](./media/tutorial-in-store-analytics-visualize-insights/card-settings.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/card-settings.png" alt-text="Card settings.":::
 
 ### Add tiles to show checkout occupancy data
 
@@ -480,11 +481,11 @@ Add four card tiles to show the queue length and dwell time for the two checkout
 
 Resize and rearrange the tiles on your dashboard to look like the following screenshot:
 
-![Screenshot that shows the Power B I dashboard with resized and rearranged tiles.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Screenshot that shows the Power B I dashboard with resized and rearranged tiles..":::
 
 You could add some addition graphics resources to further customize the dashboard:
 
-![Power BI dashboard](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Power BI dashboard.":::
 
 ## Clean up resources
 

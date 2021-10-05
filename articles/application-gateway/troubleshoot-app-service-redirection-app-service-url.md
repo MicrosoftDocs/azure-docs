@@ -87,7 +87,7 @@ Using App Service's Custom Domain feature is another solution to always redirect
 
 You can follow the given method for both the Redirection and ARRAffinity's cookie domain mismatch issues. This method will need you to have your custom domain's DNS zone access.
 
-**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id).
 The records would look similar to
 -  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
 -  `asuid.www.contoso.com` IN TXT "`<verification id string>`"

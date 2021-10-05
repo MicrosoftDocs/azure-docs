@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Translator?
-    href: translator-info-overview.md
+    href: translator-overview.md
   - name: Language Support
     href: language-support.md
   - name: Pricing
@@ -16,6 +16,8 @@
 - name: Text Translation
   expanded: true
   items:
+  - name: What is Text Translation?
+    href: text-translation-overview.md
   - name: Quickstart
     href: quickstart-translator.md
   - name: Samples
@@ -52,6 +54,14 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
+    - name: Use the Translator container
+      items:
+      - name: Install and run containers
+        href: containers/translator-how-to-install-container.md
+      - name: Configure containers
+        href: containers/translator-container-configuration.md
+      - name: "Container: Translate"
+        href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#
@@ -62,10 +72,10 @@
     items:
     - name: v3 Translator reference
       href: reference/v3-0-reference.md
+    - name: Text Translator REST APIs
+      href:  reference/rest-api-guide.md
     - name: Languages
       href: reference/v3-0-languages.md
-    - name: Request limits
-      href: request-limits.md
     - name: Translate
       href: reference/v3-0-translate.md
     - name: Transliterate
@@ -78,18 +88,26 @@
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
+    - name: Request limits
+      href: request-limits.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
+    - name: Client-library SDKs
+      href: document-translation/client-sdks.md
     - name: Quickstart
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
-      - name: Create SAS tokens for Document Translation
+      - name: Generate SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
+      - name: Create and use managed identity
+        href: document-translation/managed-identity.md
     - name: Reference
       items:
+      - name:  Document Translation REST APIs
+        href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
       - name: Get supported glossary formats
@@ -108,6 +126,8 @@
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
+    - name: FAQ
+      href: document-translation/faq.md   
 - name: Custom Translator
   items:
   - name: What is the Custom Translator?
@@ -134,8 +154,6 @@
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
       href: custom-translator/how-to-manage-settings.md
-    - name: Migrate from Hub
-      href: custom-translator/how-to-migrate.md
     - name: Unsupported language deployments
       href: custom-translator/unsupported-language-deployments.md
   - name: Concepts

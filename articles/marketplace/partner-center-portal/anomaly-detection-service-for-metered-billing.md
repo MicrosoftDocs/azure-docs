@@ -4,14 +4,14 @@ description: Describes how anomaly detection works, when notifications are sent 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.author: mingshen
-author: mingshen-ms
-ms.date: 06/10/2020
+author: saasguide
+ms.author: souchak
+ms.date: 09/27/2021
 ---
 
 # Anomaly detection service for metered billing
 
-The [Marketplace metering service](marketplace-metering-service-apis-faq.md) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
+The [Marketplace metering service](../marketplace-metering-service-apis-faq.yml) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
 
 Incorrect usage data could come from a variety of causes, such as bugs, misconfigurations in your consumption tracking, or fraud. Incorrect usage data would result in incorrect customer charges and billing disputes.
 
@@ -62,7 +62,26 @@ If one of the following cases applies, you can adjust the usage amount in Partne
 
 To submit a support ticket related to metered billing anomalies:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account.
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
+1. On the Home page, select the **Help + support** tile.
+
+    [ ![Illustrates the Help and Support tile on the Partner Center home page.](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. Under **My support requests**, select **+ New request**.
+1. In the **Problem summary** box, enter **metered billing**.
+1. In the **Problem type** box, select one of the following:
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer**
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for SaaS offer**
+1. Under **Next step**, select **Review solutions**.
+1. Review the recommended documents, if any or select **Provide issue details** to submit a support ticket.
+
+For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
 1. For help with the commercial marketplace, select **Commercial Marketplace**.
    ![Illustrates the support pane.](../media/support/commercial-marketplace-support-pane.png)
@@ -75,7 +94,9 @@ To submit a support ticket related to metered billing anomalies:
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
 
+---
+
 ## Next steps
 
-- Learn about the [Marketplace metering service API](marketplace-metering-service-apis.md).
+- Learn about the [Marketplace metering service API](../marketplace-metering-service-apis.md).
 - [Manage metered billing anomalies in Partner Center](../anomaly-detection.md)

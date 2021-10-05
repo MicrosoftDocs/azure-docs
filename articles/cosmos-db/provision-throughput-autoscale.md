@@ -5,7 +5,7 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 05/18/2021
 ms.custom: "seo-nov-2020"
 ---
 
@@ -54,7 +54,7 @@ The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, whi
 
 ## Enable autoscale on existing resources
 
-Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager template](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) for more information.
+Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) for more information.
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
@@ -81,5 +81,8 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 

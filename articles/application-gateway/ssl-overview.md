@@ -5,7 +5,7 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 06/03/2021
 ms.author: victorh
 
 ---
@@ -102,7 +102,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 >
 > In order for a TLS/SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is well-known. If the certificate was not issued by a trusted CA, the application gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the application gateway will mark the backend unhealthy). Therefore, it is recommended the backend server certificate contain both the root and intermediate CAs.
 
-- If the certificate is self-signed, or signed by unknown intermediaries, then to enable end-to-end TLS in the v2 SKU a trusted root certificate must be defined. Application Gateway only communicates with backends whose server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
+- If the backend server certificate is self-signed, or signed by unknown CA/intermediaries, then to enable end to end TLS in Application Gateway v2 a trusted root certificate must be uploaded. Application Gateway will only communicate with backends whose server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
 
 - In addition to the root certificate match, Application Gateway v2 also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s TLS/SSL certificate. When trying to establish a TLS connection to the backend, Application Gateway v2 sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
 
@@ -121,9 +121,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 ---
 Scenario | v1 | v2 |
 | --- | --- | --- |
-| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Return the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener configured (in the order)|
-| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener configured (in the order)
-| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate of the first HTTPS listener configured (in the order) |
+| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
+| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
+| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
 
 ### Backend TLS connection (application gateway to the backend server)
 

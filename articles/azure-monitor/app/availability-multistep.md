@@ -2,7 +2,7 @@
 title: Monitor with multi-step web tests - Azure Application Insights
 description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 07/21/2021
 ---
 
 # Multi-step web tests
@@ -10,10 +10,16 @@ ms.date: 02/14/2021
 You can monitor a recorded sequence of URLs and interactions with a website via multi-step web tests. This article will walk you through the process of creating a multi-step web test with Visual Studio Enterprise.
 
 > [!NOTE]
-> Multi-step web tests depend on Visual Studio webtest files. It was [announced](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) that Visual Studio 2019 will be the last version with webtest functionality. It is important to understand that while no new features will be added, webtest functionality in Visual Studio 2019 is still currently supported and will continue to be supported during the support lifecycle of the product. The Azure Monitor product team has addressed questions regarding the future of multi-step availability tests [here](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
-> </br>
 > Multi-step web tests **are not supported** in the [Azure Government](../../azure-government/index.yml) cloud.
 
+> [!NOTE]
+> Multi-step web tests are categorized as classic tests and can be found under **Add Classic Test** in the Availability pane.
+
+## Multi-step webtest alternative
+
+Multi-step web tests depend on Visual Studio webtest files. It was [announced](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) that Visual Studio 2019 will be the last version with webtest functionality. It's important to understand that while no new features will be added, webtest functionality in Visual Studio 2019 is still currently supported and will continue to be supported during the support lifecycle of the product. 
+
+We recommend using the [TrackAvailability](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) to submit [custom availability tests](./availability-azure-functions.md) instead of Multi-step web tests. This is the long term supported solution for multi request or authentication test scenarios. With TrackAvailability() and custom availability tests, you can run tests on any compute you want and use C# to easily author new tests.
 
 ## Pre-requisites
 
@@ -36,9 +42,10 @@ For guidance on creating Visual Studio web tests consult the [official Visual St
 
 ## Upload the web test
 
-1. In the Application Insights portal on the Availability pane select **Create Test** > **Test type** > **Multi-step web test**.
-
-2. Set the test locations, frequency, and alert parameters.
+1. In the Application Insights portal on the Availability pane select **Add Classic test**, then select **Multi-step** as the *SKU*.
+2. Upload your multi-step web test.
+3. Set the test locations, frequency, and alert parameters.
+4. Select **Create**.
 
 ### Frequency & location
 

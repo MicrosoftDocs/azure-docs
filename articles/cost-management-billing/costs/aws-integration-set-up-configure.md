@@ -3,7 +3,7 @@ title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -22,7 +22,7 @@ Watch the video [How to set up Connectors for AWS in Cost Management](https://ww
 
 ## Create a Cost and Usage report in AWS
 
-Using a Cost and Usage report is the AWS-recommended way to collect and process AWS costs. For more information, see the [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentation.
+Using a Cost and Usage report is the AWS-recommended way to collect and process AWS costs. The Cost Management cross cloud connector supports cost and usage reports configured at the management (consolidated) account level. For more information, see the [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentation.
 
 Use the **Cost & Usage Reports** page of the Billing and Cost Management console in AWS to create a Cost and Usage report with the following steps:
 
@@ -48,6 +48,9 @@ If you don't specify a prefix, the default prefix is the name that you specified
     Note the report name. You'll use it in later steps.
 
 It can take up to 24 hours for AWS to start delivering reports to your Amazon S3 bucket. After delivery starts, AWS updates the AWS Cost and Usage report files at least once a day. You can continue configuring your AWS environment without waiting for delivery to start.
+
+> [!NOTE]
+> Cost and usage reports configured at the member (linked) account level aren't currently supported.
 
 ## Create a role and policy in AWS
 

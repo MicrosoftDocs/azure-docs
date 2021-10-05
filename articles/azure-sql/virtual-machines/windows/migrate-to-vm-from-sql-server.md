@@ -108,6 +108,6 @@ Use the [Windows Import/Export Service method](../../../import-export/storage-im
 For more information, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 > [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 For instructions on creating SQL Server on an Azure Virtual Machine from a captured image, see [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](/archive/blogs/psssql/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images) on the CSS SQL Server Engineers blog.

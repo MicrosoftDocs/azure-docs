@@ -4,12 +4,12 @@ description: Create a transactionally consistent copy of an existing database in
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sashan
-ms.reviewer: wiassaf
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 03/10/2021
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
@@ -24,6 +24,14 @@ A database copy is a transactionally consistent snapshot of the source database 
 
 > [!NOTE]
 > Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Brazil South and generally available in Southeast Asia Azure region only. In the preview, if the source database is created with locally-redundant or zone-redundant backup storage redundancy, database copy to a server in a different Azure region is not supported. 
+
+## Database Copy for Azure SQL Hyperscale
+
+For Azure SQL Hyperscale the target database determines whether the copy will be a fast copy or a size of data copy.
+
+Fast copy: When the copy is done in the same region as the source, the copy will be created from the snapshots of blobs, this copy is a fast operation regardless of the database size.
+
+Size of data copy:  When the target database is in a different region than the source or if the database backup storage redundancy (Local, Zonal, Geo) from the target differs from the source database, the copy operation will be a size of data operation. Copy time will not be directly proportional to size as page server blobs are copied in parallel.
 
 ## Logins in the database copy
 
@@ -80,7 +88,12 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](/sql
 
 > [!NOTE]
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
->
+> [!NOTE]
+> Database copy is not supported when the source and/or destination servers have a private endpoint configured and public network access is disabled. 
+If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address will succeed.
+To determine the source IP address of current connection, execute `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`
+ 
+
 
 > [!IMPORTANT]
 > Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 

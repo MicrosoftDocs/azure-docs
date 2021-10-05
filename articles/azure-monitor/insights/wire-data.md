@@ -120,7 +120,7 @@ VMConnection
 
 ### More examples queries
 
-Refer to the [VM insights log search documentation](../vm/vminsights-log-search.md) and the [VM insights alert documentation](../vm/vminsights-alerts.md#sample-alert-queries) for additional example queries.
+Refer to the [VM insights log search documentation](../vm/vminsights-log-search.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
 
 ## Uninstall Wire Data 2.0 Solution
 

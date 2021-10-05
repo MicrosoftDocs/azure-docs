@@ -178,7 +178,7 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 
 ## Next steps
 
-* Learn more about [the ORAS Library](https://github.com/deislabs/oras/tree/master/docs), including how to configure a manifest for an artifact
+* Learn more about [the ORAS Library](https://github.com/deislabs/oras), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
 

@@ -18,7 +18,6 @@ This article focuses on running your cluster and workloads from an application d
 > [!div class="checklist"]
 > * Pod resource requests and limits.
 > * Ways to develop and deploy applications with Bridge to Kubernetes and Visual Studio Code.
-> * How to use the `kube-advisor` tool to check for issues with deployments.
 
 ## Define pod resource requests and limits
 
@@ -108,18 +107,6 @@ The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you d
 
     ![VS Code extension for Kubernetes warning about missing memory limits](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
-## Regularly check for application issues with kube-advisor
-
-> **Best practice guidance** 
-> 
-> Regularly run the latest version of `kube-advisor` open-source tool to detect issues in your cluster. Run `kube-advisor` before applying resource quotas on an existing AKS cluster to find pods that don't have resource requests and limits defined.
-
-The [kube-advisor][kube-advisor] tool is an associated AKS open-source project that scans a Kubernetes cluster and reports on identified issues. One useful check is to identify pods without resource requests and limits in place.
-
-While the `kube-advisor` tool can report on resource requests and limits missing in PodSpecs for Windows and Linux applications, `kube-advisor` itself must be scheduled on a Linux pod. Use a [node selector][k8s-node-selector] in the pod's configuration to schedule a pod to run on a node pool with a specific OS.
-
-In an AKS cluster that hosts many development teams and applications, you'll find it easier to track pods using resource requests and limits. As a best practice, regularly run `kube-advisor` on your AKS clusters.
-
 ## Next steps
 
 This article focused on how to run your cluster and workloads from a cluster operator perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
@@ -127,16 +114,13 @@ This article focused on how to run your cluster and workloads from a cluster ope
 To implement some of these best practices, see the following articles:
 
 * [Develop with Bridge to Kubernetes][btk]
-* [Check for issues with kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
 [k8s-resource-limits]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [vscode-kubernetes]: https://github.com/Azure/vscode-kubernetes-tools
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [minikube]: https://kubernetes.io/docs/setup/minikube/
 
 <!-- INTERNAL LINKS -->
-[aks-kubeadvisor]: kube-advisor-tool.md
 [btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas

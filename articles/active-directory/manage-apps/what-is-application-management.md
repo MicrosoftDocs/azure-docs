@@ -2,20 +2,20 @@
 title: What is application management in Azure Active Directory
 description: An overview of using Azure Active Directory (AD) as an Identity and Access Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: iangithinji
-ms.reviewer: 
+ms.author: davidmu
+ms.reviewer: sureshja, napuri
 ---
 
 # What is application management?
 
-Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
+Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
 
 Azure AD must be configured to integrate with an application. In other words, it needs to know what apps are using it for identities. Making Azure AD aware of these apps, and how it should handle them, is known as application management.
 
@@ -24,6 +24,7 @@ You manage applications on the **Enterprise applications** page located in the M
 ![The Enterprise applications option under the Manage section of the Azure AD portal.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
 ## What is an Identity and Access Management (IAM) system?
+
 An application is a piece of software that is used for some purpose. Most apps require users to sign in.
 
 A centralized identity system provides a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Access Management (IAM) systems. Azure Active Directory is the IAM system for the Microsoft cloud.
@@ -40,18 +41,18 @@ Organizations often have hundreds of applications that users depend on to get th
 
 ## How does Azure AD work with apps?
 
-Azure AD sits in the middle and provides identity management for cloud and on-premises apps. 
+Azure AD sits in the middle and provides identity management for cloud and on-premises apps.
 
 ![Diagram that shows apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 >[!TIP]
->Reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md) so that users are automatically added to Azure AD when you add them to your company HR system. 
+>Reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md) so that users are automatically added to Azure AD when you add them to your company HR system.
 
 ## What types of applications can I integrate with Azure AD?
 
-You can use Azure AD as your identity system for just about any app. Many apps are already pre-configured and can be set up with minimal effort. These pre-configured apps are published in the [Azure AD App Gallery](/azure/active-directory/saas-apps/). 
+You can use Azure AD as your identity system for just about any app. Many apps are already pre-configured and can be set up with minimal effort. These pre-configured apps are published in the [Azure AD App Gallery](/azure/active-directory/saas-apps/).
 
-You can manually configure most apps for single sign-on if they aren't already in the gallery. Azure AD provides several SSO options. Some of the most popular are SAML-based SSO and OIDC-based SSO. To learn more about integrating apps to enable SSO, see [single sign-on options](sso-options.md). 
+You can manually configure most apps for single sign-on if they aren't already in the gallery. Azure AD provides several SSO options. Some of the most popular are SAML-based SSO and OIDC-based SSO. To learn more about integrating apps to enable SSO, see [single sign-on options](sso-options.md).
 
 Does your organization use on-premises apps? You can integrate them using App Proxy. To learn more, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](../app-proxy/application-proxy.md).
 
@@ -60,7 +61,7 @@ Does your organization use on-premises apps? You can integrate them using App Pr
 
 ## Manage risk with Conditional Access policies
 
-Coupling Azure AD single sign-on (SSO) with [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) provides high levels of security for accessing applications. Conditional Access policies provide granular control to apps based on conditions you set. 
+Coupling Azure AD single sign-on (SSO) with [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) provides high levels of security for accessing applications. Conditional Access policies provide granular control to apps based on conditions you set.
 
 ## Improve productivity with single sign-on
 

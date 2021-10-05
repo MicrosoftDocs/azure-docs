@@ -11,6 +11,9 @@ ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]

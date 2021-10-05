@@ -21,7 +21,7 @@ The Get supported document formats method returns a list of document formats sup
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/documents/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/documents/formats
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -84,64 +84,219 @@ Status code: 200
 
 ```JSON
 {
-  "value": [
-    {
-      "format": "PlainText",
-      "fileExtensions": [
-        ".txt"
-      ],
-      "contentTypes": [
-        "text/plain"
-      ]
-    },
-    {
-      "format": "PortableDocumentFormat",
-      "fileExtensions": [
-        ".pdf"
-      ],
-      "contentTypes": [
-        "application/pdf"
-      ]
-    },
-    {
-      "format": "OpenXmlWord",
-      "fileExtensions": [
-        ".docx"
-      ],
-      "contentTypes": [
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-      ]
-    },
-    {
-      "format": "OpenXmlPresentation",
-      "fileExtensions": [
-        ".pptx"
-      ],
-      "contentTypes": [
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-      ]
-    },
-    {
-      "format": "OpenXmlSpreadsheet",
-      "fileExtensions": [
-        ".xlsx"
-      ],
-      "contentTypes": [
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      ]
-    },
-    {
-      "format": "HtmlFile",
-      "fileExtensions": [
-        ".html",
-        ".htm"
-      ],
-      "contentTypes": [
-        "text/html"
-      ]
-    }
-  ]
+    "value": [
+        {
+            "format": "PlainText",
+            "fileExtensions": [
+                ".txt"
+            ],
+            "contentTypes": [
+                "text/plain"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenXmlWord",
+            "fileExtensions": [
+                ".docx"
+            ],
+            "contentTypes": [
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenXmlPresentation",
+            "fileExtensions": [
+                ".pptx"
+            ],
+            "contentTypes": [
+                "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenXmlSpreadsheet",
+            "fileExtensions": [
+                ".xlsx"
+            ],
+            "contentTypes": [
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OutlookMailMessage",
+            "fileExtensions": [
+                ".msg"
+            ],
+            "contentTypes": [
+                "application/vnd.ms-outlook"
+            ],
+            "versions": []
+        },
+        {
+            "format": "HtmlFile",
+            "fileExtensions": [
+                ".html",
+                ".htm"
+            ],
+            "contentTypes": [
+                "text/html"
+            ],
+            "versions": []
+        },
+        {
+            "format": "PortableDocumentFormat",
+            "fileExtensions": [
+                ".pdf"
+            ],
+            "contentTypes": [
+                "application/pdf"
+            ],
+            "versions": []
+        },
+        {
+            "format": "XLIFF",
+            "fileExtensions": [
+                ".xlf"
+            ],
+            "contentTypes": [
+                "application/xliff+xml"
+            ],
+            "versions": [
+                "1.0",
+                "1.1",
+                "1.2"
+            ]
+        },
+        {
+            "format": "TSV",
+            "fileExtensions": [
+                ".tsv",
+                ".tab"
+            ],
+            "contentTypes": [
+                "text/tab-separated-values"
+            ],
+            "versions": []
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
+            ],
+            "contentTypes": [
+                "text/csv"
+            ],
+            "versions": []
+        },
+        {
+            "format": "RichTextFormat",
+            "fileExtensions": [
+                ".rtf"
+            ],
+            "contentTypes": [
+                "application/rtf"
+            ],
+            "versions": []
+        },
+        {
+            "format": "WordDocument",
+            "fileExtensions": [
+                ".doc"
+            ],
+            "contentTypes": [
+                "application/msword"
+            ],
+            "versions": []
+        },
+        {
+            "format": "PowerpointPresentation",
+            "fileExtensions": [
+                ".ppt"
+            ],
+            "contentTypes": [
+                "application/vnd.ms-powerpoint"
+            ],
+            "versions": []
+        },
+        {
+            "format": "ExcelSpreadsheet",
+            "fileExtensions": [
+                ".xls"
+            ],
+            "contentTypes": [
+                "application/vnd.ms-excel"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenDocumentText",
+            "fileExtensions": [
+                ".odt"
+            ],
+            "contentTypes": [
+                "application/vnd.oasis.opendocument.text"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenDocumentPresentation",
+            "fileExtensions": [
+                ".odp"
+            ],
+            "contentTypes": [
+                "application/vnd.oasis.opendocument.presentation"
+            ],
+            "versions": []
+        },
+        {
+            "format": "OpenDocumentSpreadsheet",
+            "fileExtensions": [
+                ".ods"
+            ],
+            "contentTypes": [
+                "application/vnd.oasis.opendocument.spreadsheet"
+            ],
+            "versions": []
+        },
+        {
+            "format": "Markdown",
+            "fileExtensions": [
+                ".markdown",
+                ".mdown",
+                ".mkdn",
+                ".md",
+                ".mkd",
+                ".mdwn",
+                ".mdtxt",
+                ".mdtext",
+                ".rmd"
+            ],
+            "contentTypes": [
+                "text/markdown",
+                "text/x-markdown",
+                "text/plain"
+            ],
+            "versions": []
+        },
+        {
+            "format": "Mhtml",
+            "fileExtensions": [
+                ".mhtml",
+                ".mht"
+            ],
+            "contentTypes": [
+                "message/rfc822",
+                "application/x-mimearchive",
+                "multipart/related"
+            ],
+            "versions": []
+        }
+    ]
 }
+
 ```
 
 ### Example error response

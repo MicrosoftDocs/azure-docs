@@ -13,6 +13,7 @@ To start working with Azure Digital Twins in an open [Azure Cloud Shell](https:/
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
+
 > [!TIP]
 > You can also use your subscription name instead of the ID in the command above. 
 

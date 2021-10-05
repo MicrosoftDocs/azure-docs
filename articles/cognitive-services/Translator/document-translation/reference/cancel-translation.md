@@ -9,20 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/20/2021
 ms.author: v-jansk
 ---
 
 # Cancel translation
 
-Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed or failed or canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
+Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed, has failed, or is canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
 ## Request URL
 
 Send a `DELETE` request to:
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).

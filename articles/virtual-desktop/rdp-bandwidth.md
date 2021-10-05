@@ -1,7 +1,7 @@
 ---
-title: Remote Desktop Protocol bandwidth requirements Windows Virtual Desktop - Azure
+title: Remote Desktop Protocol bandwidth requirements Azure Virtual Desktop - Azure
 titleSuffix: Azure
-description: Understanding RDP bandwidth requirements for Windows Virtual Desktop.
+description: Understanding RDP bandwidth requirements for Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
@@ -11,7 +11,7 @@ ms.author: denisgun
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.
 
-Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and more. Windows Virtual Desktop partners can also use their extensions that use DVC interfaces.
+Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and more. Azure Virtual Desktop partners can also use their extensions that use DVC interfaces.
 
 The amount of the data sent over RDP depends on the user activity. For example, a user may work with basic textual content for most of the session and consume minimal bandwidth, but then generate a printout of a 200-page document to the local printer. This print job will use a significant amount of network bandwidth.
 
@@ -141,6 +141,6 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## Next steps
 
-* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
-* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
-* To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
+* To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+* To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).

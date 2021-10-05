@@ -5,7 +5,8 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ---
 

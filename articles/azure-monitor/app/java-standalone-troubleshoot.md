@@ -11,7 +11,7 @@ In this article, we cover some of the common issues that you might face while in
 
 ## Check the self-diagnostic log file
 
-By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.1.0.jar` file.
+By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.1.1.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
 

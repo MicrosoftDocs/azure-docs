@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 09/08/2021
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -24,8 +24,10 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
  |Event name |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br><br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** instead of when the Block Blob is completely committed.    |
+ |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.   |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
+ |**Microsoft.Storage.BlobTierChanged** |Triggered when the blob access tier is changed. Specifically, when clients call the `Set Blob Tier` operation that is available in the Blob REST API, this event is triggered after the tier change completes. |
+|**Microsoft.Storage.AsyncOperationInitiated** |Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.|
 
 ### List of the events for Azure Data Lake Storage Gen 2 REST APIs
 
@@ -177,6 +179,61 @@ If the blob storage account has a hierarchical namespace, the data looks similar
   "metadataVersion": "1"
 }]
 ```
+
+### Microsoft.Storage.BlobTierChanged event
+
+```json
+{
+	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
+	"eventType": "Microsoft.Storage.BlobTierChanged",
+	"id": "0fdefc06-b01e-0034-39f6-4016610696f6",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
+		"requestId": "0fdefc06-b01e-0034-39f6-401661000000",
+		"contentType": "image/jpeg",
+		"contentLength": 105891,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
+		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
+		"storageDiagnostics": {
+			"batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
+		}
+	},
+	"dataVersion": "",
+	"metadataVersion": "1",
+	"eventTime": "2021-05-04T15:00:00.8350154Z"
+}
+```
+
+### Microsoft.Storage.AsyncOperationInitiated event
+
+```json
+{
+	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
+	"eventType": "Microsoft.Storage.AsyncOperationInitiated",
+	"id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
+		"requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
+		"contentType": "application/octet-stream",
+		"contentLength": 3660,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
+		"sequencer": "000000000000000000000000000089A4000000000018c6d7",
+		"storageDiagnostics": {
+			"batchId": "34128c8a-7006-0014-00f4-406dc6000000"
+		}
+	},
+	"dataVersion": "",
+	"metadataVersion": "1",
+	"eventTime": "2021-05-04T14:44:59.3204652Z"
+}
+```
+
 
 ### Microsoft.Storage.BlobRenamed event
 

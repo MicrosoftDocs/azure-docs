@@ -37,7 +37,8 @@ A manual is typically guidance material that accompanies a product. It helps the
 
 Below is an example of a manual with an index page, and hierarchical content
 
- ![Product Manual example for a knowledge base](./media/qnamaker-concepts-datasources/product-manual.png)
+> [!div class="mx-imgBorder"]
+> ![Product Manual example for a knowledge base](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
@@ -48,7 +49,22 @@ Many other types of documents can also be processed to generate QA pairs, provid
 
 Below is an example of a semi-structured doc, without an index:
 
- ![Azure Blob storage semi-structured Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Azure Blob storage semi-structured Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+
+### Unstructured document support
+
+Custom question answering now supports unstructured documents. A  document that does not have its content organized in a well defined hierarchical manner, is missing a set structure or has its content free flowing can be considered as an unstructured document.
+
+Below is an example of an unstructured PDF document:
+
+> [!div class="mx-imgBorder"]
+> ![Unstructured  document example for a knowledge base](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+
+ Currently this functionality is available only via document upload and only for PDF and DOC file formats.
+
+> [!IMPORTANT]
+> Support for unstructured file/content is available only in Custom question answering (preview)
 
 ### Structured QnA Document
 
@@ -66,11 +82,12 @@ Answer2
 
 Below is an example of a structured QnA word document:
 
- ![Structured QnA document example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Structured QnA document example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### Structured *TXT*, *TSV* and *XLS* Files
 
-QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to QnA Maker to create or augment a knowledge base.  These can either be plain text, or can have content in RTF or HTML.
+QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to QnA Maker to create or augment a knowledge base.  These can either be plain text, or can have content in RTF or HTML. [QnA pairs](./How-To/edit-knowledge-base.md#question-and-answer-pairs) have an optional metadata field that can be used to group QnA pairs into categories.
 
 | Question  | Answer  | Metadata (1 key: 1 value) |
 |-----------|---------|-------------------------|
@@ -83,21 +100,24 @@ Any additional columns in the source file are ignored.
 
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
- ![Structured QnA excel example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
+> [!div class="mx-imgBorder"]
+> ![Structured QnA excel example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 #### Example of alternate questions for single answer in Excel file
 
 Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
 
- ![Example of alternate questions for single answer in Excel file](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+> [!div class="mx-imgBorder"]
+> ![Example of alternate questions for single answer in Excel file](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
 After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
 
- ![Screenshot of alternate questions for single answer imported into knowledge base](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of alternate questions for single answer imported into knowledge base](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source. [QnA pairs](./How-To/edit-knowledge-base.md#question-and-answer-pairs) have an optional metadata field that can be used to group QnA pairs into categories.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |
 |-----------|---------|----|---------------------|
@@ -128,7 +148,8 @@ This is the most common type of FAQ page, in which the answers immediately follo
 
 Below is an example of a plain FAQ page:
 
-![Plain FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/plain-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Plain FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/plain-faq.png)
 
 
 ### FAQ pages with links
@@ -137,7 +158,8 @@ In this type of FAQ page, questions are aggregated together and are linked to an
 
 Below is an example of an FAQ page with links in sections that are on the same page:
 
- ![Section Link FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Section Link FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### Parent Topics page links to child answers pages
@@ -146,7 +168,8 @@ This type of FAQ has a Topics page where each topic is linked to a corresponding
 
 Below is an example of a Topics page with links to FAQ sections in different pages.
 
- ![Deep link FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/topics-faq.png)
+> [!div class="mx-imgBorder"]
+> ![Deep link FAQ page example for a knowledge base](./media/qnamaker-concepts-datasources/topics-faq.png)
 
 ### Support URLs
 
@@ -155,7 +178,8 @@ QnA Maker can process semi-structured support web pages, such as web articles th
 > [!NOTE]
 > Extraction for support articles is a new feature and is in early stages. It works best for simple pages, that are well structured, and do not contain complex headers/footers.
 
-![QnA Maker supports extraction from semi-structured web pages where a clear structure is presented with hierarchical headings](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+> [!div class="mx-imgBorder"]
+> ![QnA Maker supports extraction from semi-structured web pages where a clear structure is presented with hierarchical headings](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 ## Import and export knowledge base
 

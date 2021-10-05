@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 11/21/2020
+  ms.date: 07/14/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
       links:
       - text: What is Cost Management and Billing?
         url: cost-management-billing-overview.md
+      - text: What's new?
+        url: https://azure.microsoft.com/blog/tag/cost-management/
     - linkListType: get-started
       links:
       - text: Learn at your own pace

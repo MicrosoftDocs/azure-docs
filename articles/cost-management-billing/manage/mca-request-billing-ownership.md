@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/26/2021
 ms.author: banders
 ---
 
@@ -177,7 +177,7 @@ Azure Marketplace products transfer along with their respective subscriptions.
 
 ### Azure Reservations transfer
 
-If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations automatically move with the subscriptions.
 
 ### Access to Azure services
 

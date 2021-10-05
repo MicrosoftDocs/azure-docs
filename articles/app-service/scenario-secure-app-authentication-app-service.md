@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/02/2021
+ms.date: 09/14/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1

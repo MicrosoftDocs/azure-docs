@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack Edge Pro FPGA power cord technical specifications based on location| Microsoft Docs
+title: Azure Stack Edge Pro FPGA power cord technical specifications by location
 description: Learn about the technical specifications for your Azure Stack Edge Pro FPGA power cords.
 services: databox
 author: alkohli

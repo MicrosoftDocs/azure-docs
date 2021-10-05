@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
 ---
 
 # Dynamically scale database resources with minimal downtime
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database and SQL Managed Instance enable you to dynamically add more resources to your database with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic.
+Azure SQL Database and SQL Managed Instance enable you to dynamically add more resources to your database with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic.
 
 ## Overview
 
@@ -24,7 +24,7 @@ When demand for your app grows from a handful of devices and customers to millio
 
 You can mitigate performance issues due to increased usage of your application that cannot be fixed using indexing or query rewrite methods. Adding more resources enables you to quickly react when your database hits the current resource limits and needs more power to handle the incoming workload. Azure SQL Database also enables you to scale-down the resources when they are not needed to lower the cost.
 
-You don’t need to worry about purchasing hardware and changing underlying infrastructure. Scaling a database can be easily done via the Azure portal using a slider.
+You don't need to worry about purchasing hardware and changing underlying infrastructure. Scaling a database can be easily done via the Azure portal using a slider.
 
 ![Scale database performance](./media/scale-resources/scale-performance.svg)
 

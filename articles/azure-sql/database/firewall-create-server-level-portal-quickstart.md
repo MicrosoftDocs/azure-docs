@@ -7,9 +7,9 @@ ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: vanto, sstein
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: mathoma, vanto
 ms.date: 02/11/2019
 ---
 # Quickstart: Create a server-level firewall rule using the Azure portal

@@ -468,4 +468,4 @@ Leave the command window open while you use the sample app; closing the window s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web Search API v7 reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [Bing Web Search API v7 reference](/rest/api/cognitiveservices/bing-web-api-v7-reference)

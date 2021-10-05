@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/15/2021
-ms.author: amverma
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Windows
@@ -20,7 +21,7 @@ ms.author: amverma
 
 This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](../windows/n-series-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series NVIDIA GPU driver setup for Windows](../windows/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
 
 ## Prerequisites

@@ -8,9 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image and plan information when you create a VM.
 

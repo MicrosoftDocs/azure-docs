@@ -9,7 +9,7 @@ ms.date: 01/10/2020
 
 # Use MapReduce with Apache Hadoop on HDInsight with SSH
 
-[!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDInsight.
 
