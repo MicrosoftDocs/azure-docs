@@ -108,7 +108,7 @@ Define the following function to enroll a voice profile.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_independent":::
 
-In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio remaining, and required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) prompts you to speak the passphrase into your microphone, and adds the sample to the voice profile.
+In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio still needed to complete enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) prompts you to speak the passphrase into your microphone, and adds the sample to the voice profile.
 
 ## Speaker identification
 
