@@ -33,7 +33,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 The following considerations apply when you use Azure NetApp Files:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
-* After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically.
+* After the initial deployment of an AKS cluster, you can choose to provision Azure NetApp Files volumes statically or dynamically.
 * To use dynamic provisioning with Azure NetApp Files, install and configure [Astra Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later.
 
 ## Configure Azure NetApp Files
@@ -268,7 +268,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 ### Install and configure Astra Trident
 
-To dynamically provision volumes, you will need to install Astra Trident. Astra Trident is NetApp's dynamic storage provisioner that is purpose-built for Kubernetes. Simplify the consumption of storage for Kubernetes applications using Astra Trident's industry-standard [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) drivers. Astra Trident deploys in Kubernetes clusters as pods and provides dynamic storage orchestration services for your Kubernetes workloads.
+To dynamically provision volumes, you need to install Astra Trident. Astra Trident is NetApp's dynamic storage provisioner that is purpose-built for Kubernetes. Simplify the consumption of storage for Kubernetes applications using Astra Trident's industry-standard [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) drivers. Astra Trident deploys in Kubernetes clusters as pods and provides dynamic storage orchestration services for your Kubernetes workloads.
 
 You can learn more from the [documentation](https://netapp-trident.readthedocs.io/en/latest/index.html).
 
@@ -280,12 +280,12 @@ Before proceeding to the next step, you will need to:
 
 #### Install Astra Trident using the operator
 
-This step walks you through the installation of Astra Trident using the operator. You can also choose to install using one of its other methods:
+This section walks you through the installation of Astra Trident using the operator. You can also choose to install using one of its other methods:
 
 * [Helm chart](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/operator-deploy.html#deploy-trident-operator-by-using-helm).
 * [tridentctl](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/tridentctl-deploy.html).
 
-Refer to the [documentation](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) to understand how each option works and identify the one that works best for you.
+See to [Deploying Trident](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) to understand how each option works and identify the one that works best for you.
 
 Download Astra Trident from its [GitHub repository](https://github.com/NetApp/trident/releases). Choose from the desired version and download the installer bundle.
 
@@ -480,7 +480,7 @@ $  kubectl apply -f anf-nginx-pod.yaml
 pod/nginx-pod created
 ```
 
-Kubernetes has now created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. Confirm by looking at the event logs for the pod using `kubectl describe`:
+Kubernetes has now created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. Confirm by checking the event logs for the pod using `kubectl describe`:
 
 ```console
 $  kubectl describe pod nginx-pod
