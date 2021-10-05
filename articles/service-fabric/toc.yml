@@ -421,6 +421,8 @@
       href: how-to-managed-cluster-app-deployment-template.md
     - name: Deploy an application with managed identity to a managed cluster
       href: how-to-managed-cluster-application-managed-identity.md
+    - name: Grant access to other Azure resources on a managed cluster
+      href: how-to-managed-cluster-grant-access-other-resources.md
     - name: Deploy stateless-only node types to a managed cluster 
       href: how-to-managed-cluster-stateless-node-type.md
     - name: Configure secondary node type for large scaling on a managed cluster
