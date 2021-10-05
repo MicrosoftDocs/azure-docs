@@ -20,8 +20,8 @@ Since you are using Azure Fluid Relay, you should first install the latest avail
 @fluidframework/azure-client and use that version to determine what version of the fluid-framework library to use. The library expresses a *peer dependency* on the version of the fluid-framework package on
 which it depends.
 
-You can use the [install-peerdeps]() tool to install both @fluidframework/azure-client and the compatible version of
-fluid-framework using the following command:
+You can use the [install-peerdeps](https://www.npmjs.com/package/install-peerdeps) tool to install both
+@fluidframework/azure-client and the compatible version of fluid-framework using the following command:
 
 ```bash
 npx install-peerdeps @fluidframework/azure-client
@@ -33,12 +33,11 @@ npx install-peerdeps @fluidframework/azure-client
 
 ## Compatibility table
 
-| npm package  | Minimum supported version  |
-|---------|---------|
-| @fluidframework/azure-client     | [0.48.4](https://fluidframework.com/docs/updates/v0.48/) |
-| fluid-framework     | [0.48.4](https://fluidframework.com/docs/updates/v0.48/) |
+| npm package                         | Minimum version | API                                                              |
+| ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
+| @fluidframework/azure-client        | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| fluid-framework                     | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
+| @fluidframework/azure-service-utils | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
-
-Fluid Framework releases new versions every two to three weeks, and Azure Fluid Relay service typically supports new
-releases within a few days. However, you should always use the latest available version of
-**@fluidframework/azure-client**, and use the corresponding version of **fluid-framework**.
+[0.48.4]: https://fluidframework.com/docs/updates/v0.48/
