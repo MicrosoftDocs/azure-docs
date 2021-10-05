@@ -27,12 +27,10 @@ items:
   items:
   - name: Overview
     href: custom-classification/overview.md
-  - name: FAQ
-    href: custom-classification/faq.md
-  - name: Language support
-    href: custom-classification/language-support.md
   - name: Quickstart
     href: custom-classification/quickstart.md
+  - name: Language support
+    href: custom-classification/language-support.md
   - name: How-to guides
     items:
     - name: Using Azure resources
@@ -140,10 +138,10 @@ items:
   items:
   - name: Overview
     href: health/overview.md
-  - name: Language support
-    href: health/language-support.md
   - name: Quickstart
     href: health/quickstart.md 
+  - name: Language support
+    href: health/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for the health feature
@@ -177,10 +175,10 @@ items:
   items:
   - name: Overview
     href: language-detection/overview.md
-  - name: Language support
-    href: language-detection/language-support.md 
   - name: Quickstart
     href: language-detection/quickstart.md 
+  - name: Language support
+    href: language-detection/language-support.md 
   - name: Responsible use of AI
     items: 
     - name: Transparency note for language detection
@@ -192,7 +190,7 @@ items:
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language/context/context
       displayName: Data privacy, logging, data retention
-  - name: How-to
+  - name: How-to guides
     items:
     - name: Call the API
       href: language-detection/how-to/call-api.md
@@ -206,10 +204,10 @@ items:
   items:
   - name: Overview
     href: key-phrase-extraction/overview.md
-  - name: Language support
-    href: key-phrase-extraction/language-support.md
   - name: Quickstart
     href: key-phrase-extraction/quickstart.md 
+  - name: Language support
+    href: key-phrase-extraction/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for key phrase detection
@@ -237,10 +235,10 @@ items:
   items:
   - name: Overview
     href: named-entity-recognition/overview.md
-  - name: Language support
-    href: named-entity-recognition/language-support.md
   - name: Quickstart
     href: named-entity-recognition/quickstart.md
+  - name: Language support
+    href: named-entity-recognition/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for NER and PII
@@ -337,10 +335,10 @@ items:
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
-  - name: Language support
-    href: sentiment-opinion-mining/language-support.md
   - name: Quickstart
     href: sentiment-opinion-mining/quickstart.md
+  - name: Language support
+    href: sentiment-opinion-mining/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for sentiment analysis and opinion mining
@@ -372,10 +370,10 @@ items:
   items:
   - name: Overview
     href: text-summarization/overview.md
-  - name: Language support
-    href: text-summarization/language-support.md
   - name: Quickstart
     href: text-summarization/quickstart.md
+  - name: Language support
+    href: text-summarization/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for text summarization
