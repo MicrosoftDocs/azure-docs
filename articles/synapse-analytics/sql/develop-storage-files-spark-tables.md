@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 10/05/2021
 ms.author: maburd
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, jocaplan
 ---
 
 # Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool
