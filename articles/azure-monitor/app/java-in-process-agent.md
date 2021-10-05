@@ -138,10 +138,9 @@ Auto-collected dependencies (without downstream distributed trace propagation):
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-## Azure SDKs (preview)
+## Azure SDKs
 
-See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
-to enable this preview feature and auto-collect the telemetry emitted by these Azure SDKs:
+Telemetry emitted by these Azure SDKs is auto-collected by default:
 
 * [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
