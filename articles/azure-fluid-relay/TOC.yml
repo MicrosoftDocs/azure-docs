@@ -18,6 +18,8 @@
     href: concepts/data-structures.md
   - name: 'Authentication and authorization in your app'
     href: concepts/authentication-authorization.md
+  - name: Version compatibility
+    href: concepts/version-compatibility.md
 - name: How-to guides
   items:
     - name: 'How to: Provision an Azure Fluid Relay service'
