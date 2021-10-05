@@ -121,7 +121,6 @@ Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to 
 {
   "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
   "apiVersion": "2021-05-01",
-  "...": null,
   "properties": {
     "isPrimary": true,
     "vmInstanceCount": 5,
