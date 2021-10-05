@@ -152,7 +152,7 @@ You will be able to see the following Visualization
 > * Summarize slow queries by minimum, maximum, average, and standard deviation query time
 
     
-    :::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Screenshot of long queries":::
+:::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Screenshot of long queries":::
 
 >[!Note]
 > * For resource utilization you can use the Overview template.
