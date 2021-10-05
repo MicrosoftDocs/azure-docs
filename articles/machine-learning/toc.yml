@@ -62,6 +62,11 @@
             - name: Auto-train an ML model
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
+        - name: Object detection with Automated ML
+          items: 
+            - name: Auto-train an object detection model
+              displayName: automl, automated, auto ml,
+              href: tutorial-auto-train-image-models.md
         - name: Batch score models with pipelines
           displayName: pipelines
           href: tutorial-pipeline-batch-scoring-classification.md
@@ -280,7 +285,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -366,13 +371,18 @@
     - name: Work with data
       items:
         - name: Label data
-          items:
-            - name: Get data labeled
-              displayName: data, dataset, labeling
-              href: how-to-create-labeling-projects.md
+          items: 
+            - name: Set up image labeling
+              displayName: data, dataset
+              href: how-to-create-image-labeling-projects.md
+            - name: Set up text labeling
+              displayName: data, dataset
+              href: how-to-create-text-labeling-projects.md
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Outsource labeling tasks
+              href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
@@ -499,7 +509,7 @@
           displayName: automl, auto ml
           items:
           - name: Use automated ML (Python)
-            displayName: SDK automl
+            displayName: SDK, automl
             href: how-to-configure-auto-train.md
           - name: Use automated ML (interface)
             href: how-to-use-automated-ml-for-ml-models.md
@@ -509,6 +519,9 @@
           - name: Auto-train a forecast model
             displayName: time series
             href: how-to-auto-train-forecast.md
+          - name: Auto-train computer vision models (Python)
+            displayName: SDK, automl, image
+            href: how-to-auto-train-image-models.md
           - name: Auto-train a small object detection model
             displayName: computer vision
             href: how-to-use-automl-to-train-small-od-model.md

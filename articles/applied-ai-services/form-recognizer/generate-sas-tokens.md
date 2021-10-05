@@ -6,14 +6,14 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 09/16/2021
+ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Generate SAS tokens for storage containers
 
- In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
+ In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob Storage containers. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
 At a high level, here's how it works: your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If the SAS is deemed invalid, the request is declined with error code 403 (Forbidden).
 
 Azure blob storage offers three types of resources:
@@ -63,7 +63,7 @@ To get started, you'll need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the REST API will use form documents that are located at the root of your container. However, you can use data organized in subfolders if specified in the API call. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> By default, the REST API will use form documents that are located at the root of your container. However, you can use data organized in subfolders if specified in the API call. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
 
 ## Create a SAS with the Azure portal
 

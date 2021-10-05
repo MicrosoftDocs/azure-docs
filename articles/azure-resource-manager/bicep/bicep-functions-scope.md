@@ -2,7 +2,7 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ---
 
 # Scope functions for Bicep
@@ -16,6 +16,8 @@ This article describes the Bicep functions for getting scope values.
 `managementGroup(name)`
 
 Returns an object used for setting the scope to a management group.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
@@ -59,6 +61,8 @@ Returns an object used for setting the scope to a resource group.
 Or
 
 Returns an object that represents the current resource group.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
@@ -151,6 +155,8 @@ Or
 
 Returns details about the subscription for the current deployment.
 
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
 ### Remarks
 
 The subscription function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current subscription. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
@@ -202,6 +208,8 @@ output subscriptionOutput object = subscription()
 `tenant()`
 
 Returns an object used for setting the scope to the tenant.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
