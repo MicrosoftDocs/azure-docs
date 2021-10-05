@@ -359,6 +359,7 @@ Do the following:
 * Ensure you are using a [supported browser](supported-browsers.md).
 
 **All my data is showing up on the other side of the world, what's going on?**
+
 Coordinates, also referred to as positions, in the Azure Maps SDKs aligns with the geospatial industry standard format of `[longitude, latitude]`. This same format is also how coordinates are defined in the GeoJSON schema; the core data formatted used within the Azure Maps SDKs. If your data is appearing on the opposite side of the world, it is most likely due to the longitude and latitude values being reversed in your coordinate/position information.
 
 **Why are HTML markers appearing in the wrong place in the web control?**
@@ -370,6 +371,7 @@ Things to check:
 * Inspect the HTML marker DOM element to see if any CSS from your app has appended itself to the marker and is affecting its position.
 
 **Why are icons or text in the symbol layer appearing in the wrong place?**
+
 Check that the `anchor` and the `offset` options are correctly configured to align with the part of your image or text that you want to have aligned with the coordinate on the map.
 If the symbol is only out of place when the map is rotated, check the `rotationAlignment` option. By default, symbols we will rotate with the maps viewport so that they appear upright to the user. However, depending on your scenario, it may be desirable to lock the symbol to the map's orientation. Set the `rotationAlignment` option to `'map'` to do this.
 If the symbol is only out of place when the map is pitched/tilted, check the `pitchAlignment` option. By default, symbols we will stay upright with the maps viewport as the map is pitched or tilted. However, depending on your scenario, it may be desirable to lock the symbol to the map's pitch. Set the `pitchAlignment` option to `'map'` to do this.
@@ -396,20 +398,22 @@ The following are the different ways to get support for Azure Maps depending on 
 
 **How do I report a data issue or an issue with an address?**
 
-Report data issues using the [Azure Maps data feedback tool](https://feedback.azuremaps.com). Each issue submitted generates a unique URL to tracks its progress. The time it takes to resolve a data issue varies depending on the type of issue and how easy it is to verify the change is correct. Once fixed, the render service will see the update in the weekly update, while other services such as geocoding and routing will see the update in the monthly update. For detailed instructions on how to report a data issue see the [Provide data feedback to Azure Maps](how-to-use-feedback-tool.md) article.
+Report data issues using the [Azure Maps data feedback tool](https://feedback.azuremaps.com). Detailed instructions on reporting data issues are provided in the [Provide data feedback to Azure Maps](how-to-use-feedback-tool.md) article.
+
+> [!NOTE]
+> Each issue submitted generates a unique URL to track it. Resolution times vary depending on issue type and the time required to verify the change is correct. The changes will appear in the render services weekly update, while other services such as geocoding and routing are updated monthly.
 
 **How do I report a bug in a service or API?**
 
-Problems can be reported on the [Azure support](https://azure.com/support) site.
+Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
 
 **Where do I get technical help for Azure Maps?**
 
-For all issues related to the Azure Maps visual in Power BI contact [Power BI support](https://powerbi.microsoft.com/support/).
-For all other Azure Maps services contact [Azure support](https://azure.com/support) or the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* For questions related to the Azure Maps visual in Power BI, contact [Power BI support](https://powerbi.microsoft.com/support/).
 
-**How do I make a feature request?**
+* For all other Azure Maps services, contact [Azure support](https://azure.com/support).
 
-Feature requests can be made on the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* For question or comments on specific Azure Maps Features use the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
 
 ## Next steps
 
