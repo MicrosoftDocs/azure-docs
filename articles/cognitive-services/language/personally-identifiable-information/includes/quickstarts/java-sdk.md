@@ -60,7 +60,7 @@ public class Example {
 
     public static void main(String[] args) {
         TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
-        recognizeEntitiesExample(client);
+        recognizePiiEntitiesExample(client);
     }
     // Method to authenticate the client object with your key and endpoint
     static TextAnalyticsClient authenticateClient(String key, String endpoint) {
@@ -69,22 +69,18 @@ public class Example {
                 .endpoint(endpoint)
                 .buildClient();
     }
-    // Example method for recognizing entities in text
-    static void recognizeEntitiesExample(TextAnalyticsClient client)
+
+    // Example method for detecting sensitive information (PII) from text 
+    static void recognizePiiEntitiesExample(TextAnalyticsClient client)
     {
         // The text that need be analyzed.
-        String text = "I had a wonderful trip to Seattle last week.";
-    
-        for (CategorizedEntity entity : client.recognizeEntities(text)) {
-            System.out.printf(
-                "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s, offset: %s, length: %s.%n",
-                entity.getText(),
-                entity.getCategory(),
-                entity.getSubcategory(),
-                entity.getConfidenceScore(),
-                entity.getOffset(),
-                entity.getLength());
-        }
+        String document = "My SSN is 859-98-0987";
+        PiiEntityCollection piiEntityCollection = client.recognizePiiEntities(document);
+        System.out.printf("Redacted Text: %s%n", piiEntityCollection.getRedactedText());
+        piiEntityCollection.forEach(entity -> System.out.printf(
+            "Recognized Personally Identifiable Information entity: %s, entity category: %s, entity subcategory: %s,"
+                + " confidence score: %f.%n",
+            entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getConfidenceScore()));
     }
 }
 
@@ -93,7 +89,6 @@ public class Example {
 ## Output
 
 ```console
-Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61, offset: 8, length: 4.
-Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.82, offset: 16, length: 7.
-Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8, offset: 24, length: 9.
+Redacted Text: My SSN is ***********
+Recognized Personally Identifiable Information entity: 859-98-0987, entity category: U.S. Social Security Number (SSN), entity subcategory: null, confidence score: 0.650000.
 ```

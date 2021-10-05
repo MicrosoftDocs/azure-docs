@@ -64,43 +64,33 @@ const endpoint = '<paste-your-endpoint-here>';
 // Authenticate the client with your key and endpoint
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for recognizing entities in text
-async function entityRecognition(client){
+// Example method for detecting sensitive information (PII) from text 
+async function piiRecognition(client) {
 
-    const entityInputs = [
-        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800",
-        "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+    const documents = [
+        "The employee's phone number is (555) 555-5555."
     ];
-    const entityResults = await client.recognizeEntities(entityInputs);
 
-    entityResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.confidenceScore}`);
-        });
-    });
+    const results = await client.recognizePiiEntities(documents, "en");
+    for (const result of results) {
+        if (result.error === undefined) {
+            console.log("Redacted Text: ", result.redactedText);
+            console.log(" -- Recognized PII entities for input", result.id, "--");
+            for (const entity of result.entities) {
+                console.log(entity.text, ":", entity.category, "(Score:", entity.confidenceScore, ")");
+            }
+        } else {
+            console.error("Encountered an error:", result.error);
+        }
+    }
 }
-entityRecognition(textAnalyticsClient);
+piiRecognition(textAnalyticsClient)
 ```
 
 ## Output
 
 ```console
-Document ID: 0
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.29
-        Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.78
-        Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.82
-        Name: April 4, 1975     Category: DateTime      Subcategory: Date
-        Score: 0.8
-        Name: 8800      Category: Quantity      Subcategory: Number
-        Score: 0.8
-Document ID: 1
-        Name: 21        Category: Quantity      Subcategory: Number
-        Score: 0.8
-        Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.25
+Redacted Text:  The employee's phone number is **************.
+ -- Recognized PII entities for input 0 --
+(555) 555-5555 : Phone Number (Score: 0.8 )
 ```

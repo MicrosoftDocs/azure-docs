@@ -49,23 +49,33 @@ namespace Example
     {
         private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
-        
-        // Example method for extracting named entities from text 
-        static void EntityRecognitionExample(TextAnalyticsClient client)
+
+        // Example method for detecting sensitive information (PII) from text 
+        static void RecognizePIIExample(TextAnalyticsClient client)
         {
-            var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
-            Console.WriteLine("Named Entities:");
-            foreach (var entity in response.Value)
+            string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+        
+            PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
+        
+            Console.WriteLine($"Redacted Text: {entities.RedactedText}");
+            if (entities.Count > 0)
             {
-                Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-                Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2},\tLength: {entity.Length},\tOffset: {entity.Offset}\n");
+                Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
+                foreach (PiiEntity entity in entities)
+                {
+                    Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No entities were found.");
             }
         }
 
         static void Main(string[] args)
         {
             var client = new TextAnalyticsClient(endpoint, credentials);
-            EntityRecognitionExample(client);
+            RecognizePIIExample(client);
 
             Console.Write("Press any key to exit.");
             Console.ReadKey();
@@ -78,13 +88,7 @@ namespace Example
 ## Output
 
 ```console
-Named Entities:
-        Text: trip,     Category: Event,        Sub-Category:
-                Score: 0.61,    Length: 4,      Offset: 18
-
-        Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Score: 0.82,    Length: 7,      Offset: 26
-
-        Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Score: 0.80,    Length: 9,      Offset: 34
+Recognized 2 PII entities:
+Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
+Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
 ```

@@ -35,16 +35,15 @@ To call the Language Services API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-
-## Named Entity Extraction (NER)
+## Personally Identifying Information (PII) detection
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.2-preview.1/entities/recognition/general \
+curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.2-preview.1/entities/recognition/pii \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
+-d '{ documents: [{ id: "1", language:"en", text: "Call our office at 312-555-1234, or send an email to support@contoso.com"}]}'
 ```
 
 ### JSON response
@@ -53,22 +52,21 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.2-pre
 {
    "documents":[
       {
+         "redactedText":"Call our office at ************, or send an email to *******************",
          "id":"1",
          "entities":[
             {
-               "text":"Seattle",
-               "category":"Location",
-               "subcategory":"GPE",
-               "offset":26,
-               "length":7,
-               "confidenceScore":0.99
+               "text":"312-555-1234",
+               "category":"PhoneNumber",
+               "offset":19,
+               "length":12,
+               "confidenceScore":0.8
             },
             {
-               "text":"last week",
-               "category":"DateTime",
-               "subcategory":"DateRange",
-               "offset":34,
-               "length":9,
+               "text":"support@contoso.com",
+               "category":"Email",
+               "offset":53,
+               "length":19,
                "confidenceScore":0.8
             }
          ],
