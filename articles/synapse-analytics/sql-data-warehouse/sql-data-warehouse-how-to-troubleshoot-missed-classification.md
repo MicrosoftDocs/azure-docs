@@ -1,36 +1,36 @@
 ---
-title: Troubleshoot missed workload classification in a dedicated SQL pool
-description: Identify and troubleshoot scenarios where workloads are mis-classified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.   
+title: Troubleshoot misclassified workload in a dedicated SQL pool
+description: Identify and troubleshoot scenarios where workloads are misclassified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.   
 author: SudhirRaparla
 ms.author: nvraparl
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to  
 ms.subservice: sql-dw 
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ms.custom: template-how-to  
 ms.reviewer: wiassaf
 ---
 
-# Troubleshooting a missed classification in a dedicated SQL pool in Azure Synapse Analytics
+# Troubleshooting a misclassified workload in Azure Synapse Analytics
 
-This article covers guidance on how to troubleshoot a missed workload classification, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
+This article covers guidance on how to troubleshoot a misclassified workload, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
 
 Azure Synapse Analytics provides workload management capabilities like [classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs. 
 
-However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting missed classification scenarios.
+However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting misclassified workload scenarios.
 
 > [!NOTE]
 > This article does not apply to serverless SQL pools in Azure Synapse Analytics.
 
 ## Basic troubleshooting information
 
-To troubleshoot a missed classification scenario the following information is needed:
+To troubleshoot a misclassified workload scenario the following information is needed:
 
-1. List of all [workload groups](#workload-groups)
-1. List of all [workload classifiers](#workload-classifiers) and associated workload groups
-1. List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
-1. List of [workload group and classifier details](#workload-group-and-classifier-details-of-a-request) of a request
+- List of all [workload groups](#workload-groups)
+- List of all [workload classifiers](#workload-classifiers) and associated workload groups
+- List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
+- List of [workload group and classifier details](#workload-group-and-classifier-details-of-a-request) of a request
 
 
 ### Workload groups
@@ -91,7 +91,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','st
 
 ### Workload group and classifier details of a request
 
-The first step in troubleshooting a missed classification problem is to identify the workload group and workload classifier for a query. Use the dynamic management view [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view submitted queries and their classification:
+The first step in troubleshooting a misclassified workload problem is to identify the workload group and workload classifier for a query. Use the dynamic management view [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view submitted queries and their classification:
 
 ```sql
 SELECT * FROM sys.dm_pdw_exec_requests;
@@ -99,9 +99,9 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 
 For more information, see [sys.dm_pdw_exec_requests](/sql/relational-databases/system-catalog-views/sys-dm-pdw-exec-requests-transact-sql).
 
-## Common scenarios of missed classifications
+## Common scenarios of misclassified workloads
 
-Here are some common scenarios where the unintended missed classification of workloads can occur:
+Here are some common scenarios where unintended misclassified workloads can occur:
 
 ### Mixed usage of resource classes and user-defined workload management
 
@@ -112,7 +112,7 @@ Consider following scenario:
 1. A database user, DBAUser, is assigned to largerc resource class role using `sp_addrolemember` procedure.
 1. DBAUser has created a new workload group and classifier using workload management.
 1. A newly-created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
-1. DBAUser is a member of the DBARole database role.
+1. DBAUser is a made a member of the DBARole database role.
 1. When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
 
 It's best to avoid mixing usage of resource classes and workload management groups to do workload management. For more information on steps to convert resource classes to workloads, see [Convert Resource Classes to Workload Groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). 
@@ -160,7 +160,7 @@ In scenarios where resource classes are being used it's best to create a dedicat
 
 #### If Workload Management Capabilities are used
 
-WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have **weight** score as shown below and this score determines order of precedence: 
+WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
 
 |**Classifier parameter** |**Weight**   |
 |---------------------|---------|
@@ -285,14 +285,14 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
               
 If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, both the classifiers have a tie as the query meets criteria for both. When user submits the query, consider the scenario where five concurrent queries are getting executed in the `wgUserqueries` group and ten queries are getting executed in the `wgDataLoad` group. The user request will be routed to `wgUserqueries` group using `CLASSIFIER-2`, as the `wgUserqueries` workload group has higher available concurrency at the time the user submitted a query.
 
-3. Next, the importance setting of the classified request is considered for tie-breakers. If there was a tie in workload classification using precedence rules, the request will be routed to workload group that has highest importance. For more information, see [workload importance](sql-data-warehouse-workload-importance.md).
+3. Next, the importance setting of the request is considered for tie-breakers. If there was a tie in workload classification using precedence rules, the request will be routed to workload group that has highest importance. For more information, see [workload importance](sql-data-warehouse-workload-importance.md).
 
 4. Finally, the creation time of the workload group is considered for tie-breakers. The user request will be routed to the workload group that was created most recently. 
 
 
 ## Next steps
-- For more information on classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
-- For more information on importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
+- For more information on workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information on workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)
