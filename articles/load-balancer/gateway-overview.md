@@ -11,7 +11,9 @@ ms.topic: conceptual
 
 # Gateway load balancer (Preview)
 
-Azure load balancer consists of standard, basic, and gateway SKUs. Gateway load balancer is a SKU catered specifically for high performance and high availability scenarios with Network Virtual Appliances (NVAs). With the capabilities of gateway load balancer, you can easily deploy, scale, and manage NVAs. Chaining a gateway load balancer to your standard load balancer or public IP, is a simple procedure. In scenarios with NVAs, it's important that flows are "sticky". This "stickiness" ensures the sessions are maintained.
+Azure load balancer consists of standard, basic, and gateway SKUs. Gateway Load Balancer is a SKU of Azure Load Balancer catered specifically for high performance and high availability scenarios with third party Network Virtual Appliances (NVAs). With the capabilities of gateway load balancer, you can deploy, scale, and manage NVAs with ease – chaining a gateway load balancer to your public endpoint merely requires one click. You can insert appliances for a variety of scenarios such as firewalls, advanced packet analytics, intrusion detection and prevention systems, or custom scenarios that suit your needs into the network path with gateway load balancer. In scenarios with NVAs, it is especially important that flows are ‘sticky’ – this ensures sessions are maintained and symmetrical. Gateway laod balancer maintains flow stickiness to a specific instance in the backend pool as well as flow symmetry. 
+
+Gateway load balancer operates at the network later of the Open Systems Interconnection (OSI) model. Leveraging the health probe, it listens for traffic across all ports and routes traffic to the backend instances levering the high availability rule. Traffic sent to and from gateway load balancer leverages the VXLAN protocol. 
 
 > [!IMPORTANT]
 > Gateway load balancer is currently in preview.
@@ -30,19 +32,32 @@ Gateway load balancer has the following benefits:
 
 * Improve network virtual appliance availability.
 
-## Technology and components
+Once chained to a Standard Public Load Balancer frontend or IP configuration on a virtual machine, no additional configuration is needed to ensure traffic to and from the application endpoint is sent to the Gateway LB. Traffic flows from the consumer virtual network to the provider virtual network and then returns to the consumer virtual network. The consumer virtual network and provider virtual network can be in different subscriptions, tenants, or regions enabling greater flexibility and ease of management. 
 
-Gateway load balancer uses the VXLAN protocol and supports a maximum transmission unit of <!--Insert size here-->
+:::image type="content" source="./media/gateway-overview/gateway-load-balancer-diagram.png" alt-text="Diagram of gateway load balancer":::
+
+*Figure: Diagram of gateway load balancer.*
+## Components
 
 Gateway load balancer consists of the following components:
 
-* Frontend IP configuration
+* **Frontend IP configuration** - The IP address of your gateway load balancer. This IP is private only. 
 
-* Load-balancing rules
+* **Load-balancing rules** - A load balancer rule is used to define how incoming traffic is distributed to all the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. 
 
-* Backend pool(s)
+    * Gateway load balancer rules can only be HA port rules. 
 
-* Tunnel interfaces
+    * A gateway load balancer rule can be associated with up to 2 backend pools. 
+
+* **Backend pool(s)** - The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in a single virtual network. 
+
+* **Tunnel interfaces** - Gateway load balancer backend pools have additional component called the tunnel interface. The tunnel interfaces enables the appliances in the backend to ensure network flows are handled as expected.  
+
+## Pricing
+
+There is no charge for gateway load balancer during preview. 
+
+For pricing that will be effective during the general availability release, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Limitations
 
