@@ -36,7 +36,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-The cURL response from QnA Maker includes the `operationId` , which is required to [get status of the operation](#get-status-of-operation).
+The cURL response from custom question answering includes the `operationId` , which is required to [get status of the operation](#get-status-of-operation).
 
 ```json
 {

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/28/2021
 ---
 
-Use the QnA Maker client library for .NET to:
+Use the custom question answering client library for .NET to:
 
  * Create a knowledgebase
  * Update a knowledgebase
@@ -50,7 +50,7 @@ Build succeeded.
 ...
 ```
 
-Within the application directory, install the QnA Maker client library for .NET with the following command:
+Within the application directory, install the custom question answering client library for .NET with the following command:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 3.0.0-preview.1
@@ -85,7 +85,7 @@ In the application's `Main` method, add variables and code, shown in the followi
 
 ## Object models
 
-[QnA Maker](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) uses the following object model:
+[Custom question answering](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) uses the following object model:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, download, and query the knowledgebase.
 
 
@@ -93,7 +93,7 @@ In the application's `Main` method, add variables and code, shown in the followi
 
 ### QnAMakerClient object model
 
-The authoring QnA Maker client is a [QnAMakerClient](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+The authoring client is a [QnAMakerClient](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
 Once the client is created, use the [Knowledge base](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) property to create, manage, and publish your knowledge base.
 
