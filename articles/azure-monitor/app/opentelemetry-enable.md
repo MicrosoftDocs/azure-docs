@@ -305,9 +305,6 @@ The following libraries are validated to work with the Preview Release:
   client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) Version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
 
-> [!NOTE]
-> The **preview** offering only includes instrumentations that handle HTTP and Database requests. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
-
 #### [JavaScript](#tab/javascript)
 
 - XYZ (version X.X)
@@ -317,6 +314,9 @@ The following libraries are validated to work with the Preview Release:
 - XYZ (version X.X)
 
 ---
+
+> [!NOTE]
+> The **preview** offering only includes instrumentations that handle HTTP and Database requests. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
 
 ## Modify telemetry
 
@@ -680,22 +680,6 @@ Placeholder
 
 ---
 
-### Known issues
-
-#### [.NET](#tab/net)
-
-Placeholder
-
-#### [JavaScript](#tab/javascript)
-
-Placeholder
-
-#### [Python](#tab/python)
-
-Placeholder
-
----
-
 ### Other steps
 
 #### [.NET](#tab/net)
@@ -714,6 +698,22 @@ You could try to specify the source with `-s` option.
 # Install the latest package with NuGet package source specified
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
+
+#### [JavaScript](#tab/javascript)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
+
+---
+
+### Known issues
+
+#### [.NET](#tab/net)
+
+Placeholder
 
 #### [JavaScript](#tab/javascript)
 
