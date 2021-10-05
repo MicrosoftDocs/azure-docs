@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a collection'
-description: This article describes how to create a collection and add permissions and sources in Azure Purview
+description: Collections are used for access control, and asset organization in Azure Purview. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ms.custom: template-quickstart 
 ---
 
@@ -33,7 +33,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it's called Contoso Purview.
 
@@ -53,9 +53,12 @@ To create your collection, we'll start in the [Purview Studio](use-purview-studi
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections-2.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select **+ Add a collection**.
+
+    :::image type="content" source="./media/quickstart-create-collection/select-add-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected and Add a Collection highlighted." border="true":::
+
 1. In the right panel, enter the collection name, description, and search for users to add them as collection admins.
 
     :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::

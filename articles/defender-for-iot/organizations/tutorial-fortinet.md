@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Azure Defender fo
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
 ---
 
@@ -44,6 +44,8 @@ In this tutorial, you learn how to:
 > - Block the source of suspicious alerts
 > - Send Defender for IoT alerts to FortiSIEM
 > - Block a malicious source using the Fortigate firewall
+
+If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
@@ -90,7 +92,7 @@ An application programming interface (API) key is a uniquely generated code that
 
 When the API key is generated, save it as it will not be provided again.
 
-:::image type="content" source="media/tutorial-fortinet/api-key.png" alt-text="Screenshot of the description automatically generates New API Key":::
+:::image type="content" source="media/tutorial-fortinet/api-key.png" alt-text="Screenshot of the description automatically generates New API Key.":::
 
 ## Set a forwarding rule to block malware-related alerts
 
@@ -120,7 +122,7 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 1. To configure the FortiGate forwarding rule, set the following parameters:
 
-    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the  configure the Create Forwarding Rule window":::
+    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the  configure the Create Forwarding Rule window.":::
 
     | Parameter | Description |
     |--|--|
@@ -194,7 +196,7 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 4. Enter the FortiSIEM server details.
 
-    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of the add the FortiSIEm details to the forwarding rule":::
+    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of the add the FortiSIEm details to the forwarding rule.":::
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -212,7 +214,7 @@ You can set policies to automatically block malicious sources in the FortiGate f
 
 For example, the following alert can block the malicious source:
 
-:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the the NotPetya Malware suspicion window":::
+:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the the NotPetya Malware suspicion window.":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 
