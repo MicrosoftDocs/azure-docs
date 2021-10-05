@@ -11,9 +11,11 @@ ms.date: 09/15/2021
 
 ---
 
-# Creating a Service Principal
+# Creating a service principal
 
-## App Registration
+You can create a new or use an existing service principal in your Azure Active Directory tenant.
+
+## App registration
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** from the left-hand side menu.
@@ -30,7 +32,6 @@ ms.date: 09/15/2021
 
 7. Then select **Register**.
 :::image type="content" source="media/create-service-principal-azure/create-service-principal-azure-register.png" alt-text="Screenshot that shows the details for the new app registration":::
-
 :::image type="content" source="media/create-service-principal-azure/create-service-principal-azure-new-app.png" alt-text="Screenshot that shows the newly created application":::
 
 ## Adding a secret to the client credentials

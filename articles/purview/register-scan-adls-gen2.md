@@ -11,7 +11,7 @@ ms.custom: template-how-to
 ---
 # Connect to Azure Data Lake Gen2 in Azure Purview
 
-[This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source]
+This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 
 ## Supported capabilities
 
@@ -33,36 +33,36 @@ This section will enable you to register the ADLS Gen2 data source and set up an
 
 ### Prerequisites for registration
 
-1. Ensure that the hierarchy, aligning with the organization’s strategy (for example, geographical, business function, source of data, etc.) is created using Collections to define the data sources to be registered and scanned
-2. Ensure permissions are set up at the Collection level in order to manage access control appropriately
-3. Ensure that the Purview Account User has appropriate permissions defined in the root Collection [Catalog Permissions](./catalog-permissions.md#who-should-be-assigned-to-what-role)
-4. [Azure Purview private endpoint](./catalog-private-link.md) is enabled for connectivity to the Azure Purview Studio using a private network
+* Ensure that the hierarchy, aligning with the organization’s strategy (for example, geographical, business function, source of data, etc.) is created using Collections to define the data sources to be registered and scanned
+* Ensure permissions are set up at the Collection level in order to manage access control appropriately
+* Ensure that the Purview Account User has appropriate permissions defined in the root Collection [Catalog Permissions](./catalog-permissions.md#who-should-be-assigned-to-what-role)
+* [Azure Purview private endpoint](./catalog-private-link.md) is enabled for connectivity to the Azure Purview Studio using a private network
 
 ### Steps to register
 
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and click on your _Purview account_
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
 
 2. **Open Purview Studio** and navigate to the **Data Map --> Sources**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
 3. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual sub-collections, as required
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-collections.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-collections.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
 
 4. Navigate to the appropriate collection under the **Sources** menu and click on the **Register** icon to register a new ADLS Gen2 data source
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-register-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-register-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
 
 5. Select the **Azure Data Lake Storage Gen2** data source and click **Continue**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
 6. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and click on **Apply**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
 7. The ADLS Gen2 storage account will be shown under the selected Collection
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-data-source-collection.png" alt-text="Screenshot that shows the data source mapped to the collection to initiate scanning":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-collection.png" alt-text="Screenshot that shows the data source mapped to the collection to initiate scanning":::
 
 ## Scan
 
@@ -74,14 +74,14 @@ The following options are supported:
 > [!Note]
 > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
 
-1. **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+* **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
 
-2. **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
+* **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
 
 > [!Note]
 > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
 
-3. **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+* **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 ### Authentication for a scan
 
@@ -93,13 +93,13 @@ It is important to give your Purview account the permission to scan the ADLS Gen
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen2 storage account) that you would like to allow the catalog to scan.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
  
 1. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
 1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
 
 > [!Note]
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
@@ -109,13 +109,13 @@ It is important to give your Purview account the permission to scan the ADLS Gen
 
 1. Go into your ADLS Gen2 storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Security + networking > Networking**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-networking.png" alt-text="Screenshot that shows the details to provide firewall access":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-networking.png" alt-text="Screenshot that shows the details to provide firewall access":::
 
 1. Choose **Selected Networks** under **Allow access from**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-network-access.png" alt-text="Screenshot that shows the details to allow access to selected networks":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-network-access.png" alt-text="Screenshot that shows the details to allow access to selected networks":::
 
 1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-permission-microsoft-services.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-permission-microsoft-services.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
 
 
 #### Using Account Key for scanning
@@ -124,22 +124,22 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 1. Navigate to your ADLS Gen2 storage account
 1. Select **Security + networking > Access keys**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-access-keys.png" alt-text="Screenshot that shows the access keys in the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-keys.png" alt-text="Screenshot that shows the access keys in the storage account":::
 
 1. Copy your *key* and save it separately for the next steps
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-key.png" alt-text="Screenshot that shows the access keys to be copied":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-key.png" alt-text="Screenshot that shows the access keys to be copied":::
 
 1. Navigate to your key vault
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-key-vault.png" alt-text="Screenshot that shows the key vault":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-key-vault.png" alt-text="Screenshot that shows the key vault":::
 
 1. Select **Settings > Secrets** and click on **+ Generate/Import**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-generate-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-generate-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret":::
 
 1. Enter the **Name** and **Value** as the *key* from your storage account
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-secret-values.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret-values.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
 
 1. Select **Create** to complete
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-secret.png" alt-text="Screenshot that shows the key vault option to create a secret":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret.png" alt-text="Screenshot that shows the key vault option to create a secret":::
 
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
@@ -153,7 +153,7 @@ If you need to [Create a new service principal](./create-service-principal-azure
 ##### Getting the Service Principal's Application ID
 
 1. Copy the **Application (client) ID** present in the **Overview** of the [_Service Principal_](./create-service-principal-azure.md) already created
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
 
 ##### Granting the Service Principal access to your ADLS Gen2 account
 
@@ -163,86 +163,88 @@ It is important to give your service principal the permission to scan the ADLS G
 > You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen2 storage account) that you would like to allow the catalog to scan.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
 
 2. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
 3. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
 
 ### Creating the scan
 
 1. Open your **Purview account** and click on the **Open Purview Studio**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Click on the **New Scan** icon under the **ADLS Gen2 data source** registered earlier
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
 #### If using Managed Identity
 
 1. Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan and click on **Test connection**. On a successful connection, click **Continue**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-managed-identity.png" alt-text="Screenshot that shows the Managed Identity option to run the scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Screenshot that shows the Managed Identity option to run the scan":::
 
 #### If using Account Key
 
 1. Provide a **Name** for the scan, choose the appropriate collection for the scan and select **Authentication method** as _Account Key_
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
 
 #### If using Service Principal
 
 1. Provide a **Name** for the scan, choose the appropriate collection for the scan and click on the **+ New** under **Credential**
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
 1. Select the appropriate **Key vault connection** and the **Secret name** that was used while creating the _Service Principal_. The **Service Principal ID** is the **Application (client) ID** copied earlier
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-service-principal-option.png" alt-text="Screenshot that shows the service principal option":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-service-principal-option.png" alt-text="Screenshot that shows the service principal option":::
 
 1. Click on **Test connection**. On a successful connection, click **Continue**
 
 ### Scoping and running the scan
 
 1. You can scope your scan to specific folders and subfolders by choosing the appropriate items in the list.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scope-scan.png" alt-text="Scope your scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scope-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scan-rule-set.png" alt-text="Scan rule set":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-rule-set.png" alt-text="Scan rule set":::
 
 1. If creating a new _scan rule set_, select the **file types** to be included in the scan rule.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-file-types.png" alt-text="Scan rule set file types":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-file-types.png" alt-text="Scan rule set file types":::
 
 1. You can select the **classification rules** to be included in the scan rule
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-classification rules.png" alt-text="Scan rule set classification rules":::
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-select-scan-rule-set.png" alt-text="Scan rule set selection":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-classification rules.png" alt-text="Scan rule set classification rules":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-scan-rule-set.png" alt-text="Scan rule set selection":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scan-trigger.png" alt-text="scan trigger":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-trigger.png" alt-text="scan trigger":::
 
 1. Review your scan and select **Save and run**.
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-review-scan.png" alt-text="review scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-review-scan.png" alt-text="review scan":::
 
 ### Viewing Scan
 
 1. Navigate to the _data source_ in the _Collection_ and click on **View Details** to check the status of the scan
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-view-scan.png" alt-text="view scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-view-scan.png" alt-text="view scan":::
 
 1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scan-details.png" alt-text="view scan details":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-details.png" alt-text="view scan details":::
 
 1. The **Last run status** will be updated to **In progress** and subsequently **Completed** once the entire scan has run successfully 
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scan-in-progress.png" alt-text="view scan in progress":::
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-scan-completed.png" alt-text="view scan completed":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-in-progress.png" alt-text="view scan in progress":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-completed.png" alt-text="view scan completed":::
 
 ### Managing Scan
 
 Scans can be managed or run again on completion
 
 1. Click on the **Scan name** to manage the scan
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-manage-scan.png" alt-text="manage scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-manage-scan.png" alt-text="manage scan":::
 
 2. You can _run the scan_ again, _edit the scan_, _delete the scan_  
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-manage-scan-options.png" alt-text="manage scan options":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-manage-scan-options.png" alt-text="manage scan options":::
 
 3. You can _run an incremental scan_ or a _full scan_ again
-:::image type="content" source="media/register-scan-adls-gen2/register-adlsgen2-full-inc-scan.png" alt-text="full or incremental scan":::
+:::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-full-inc-scan.png" alt-text="full or incremental scan":::
+
+## Next steps
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

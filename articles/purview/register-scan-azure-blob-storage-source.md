@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Connect to Azure Blob storage in Azure Purview
 
-[This article outlines the process to register an Azure Blob Storage account in Azure Purview including instructions to authenticate and interact with the Azure Blob Storage source]
+This article outlines the process to register an Azure Blob Storage account in Azure Purview including instructions to authenticate and interact with the Azure Blob Storage source
 
 ## Supported capabilities
 
@@ -42,10 +42,10 @@ This section will enable you to register the Azure Blob storage account and set 
 
 ### Prerequisites for registration
 
-1. Ensure that the hierarchy, aligning with the organization’s strategy (for example, geographical, business function, source of data, etc.) is created using Collections to define the data sources to be registered and scanned
-2. Ensure permissions are set up at the Collection level in order to manage access control appropriately
-3. Ensure that the Purview Account User has appropriate permissions defined in the root Collection [Catalog Permissions](./catalog-permissions.md#who-should-be-assigned-to-what-role)
-4. [Azure Purview private endpoint](./catalog-private-link.md) is enabled for connectivity to the Azure Purview Studio using a private network
+- Ensure that the hierarchy, aligning with the organization’s strategy (for example, geographical, business function, source of data, etc.) is created using Collections to define the data sources to be registered and scanned
+- Ensure permissions are set up at the Collection level in order to manage access control appropriately
+- Ensure that the Purview Account User has appropriate permissions defined in the root Collection [Catalog Permissions](./catalog-permissions.md#who-should-be-assigned-to-what-role)
+- [Azure Purview private endpoint](./catalog-private-link.md) is enabled for connectivity to the Azure Purview Studio using a private network
 
 ### Steps to register
 
@@ -84,14 +84,14 @@ The following options are supported:
 > [!Note]
 > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
 
-1. **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+- **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
 
-1. **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
+- **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
 
 > [!Note]
 > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
 
-1. **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+- **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 ### Authentication for a scan
 
@@ -99,31 +99,31 @@ The following options are supported:
 
 It is important to give your Purview account the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
+> [!NOTE]
+> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
+
 > [!Note]
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Blob storage account) that you would like to allow the catalog to scan.
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Screenshot that shows the storage account":::
- 
-1. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
+
+2. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+3. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
+
+4. Go into your Azure Blob storage account in [Azure portal](https://portal.azure.com)
+5. Navigate to **Security + networking > Networking**
+
+6. Choose **Selected Networks** under **Allow access from**
+
+7. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-permission.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
 
 > [!Note]
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
-
-> [!NOTE]
-> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
-
-1. Go into your Azure Blob storage account in [Azure portal](https://portal.azure.com)
-1. Navigate to **Security + networking > Networking**
-
-1. Choose **Selected Networks** under **Allow access from**
-
-1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-permission.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
 
 #### Using Account Key for scanning
 
