@@ -38,7 +38,7 @@ Azure Fluid Relay uses [JSON Web Tokens (JWTs)](https://jwt.io/) to encode and v
 
 Though the details of authentication differ between Fluid services, several values must always be present.
 
-- **containerId**  The Fluid service needs the container id to identify which service corresponds to the calling container. *Note*: JWT calls this field documentId, but the Fluid service expects a container id in this field.
+- **containerId**  The Fluid service needs the container ID to identify which service corresponds to the calling container. *Note*: JWT calls this field documentId, but the Fluid service expects a container ID in this field.
 - **tenantId**: The Azure Fluid Relay service uses the tenant ID to retrieve the shared secret that it will use to authenticate your request. 
 - **scopes**: Scopes define the calling container's permissions. The contents of the scopes field is flexible, allowing you to create your own custom permissions.
 
