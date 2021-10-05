@@ -12,6 +12,9 @@ ms.service: azure-fluid
 
 # Version compatibility with Fluid Framework releases
 
+> [!NOTE]
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
 To connect your application to Azure Fluid Relay service,
 you'll use the **@fluidframework/azure-client** library. You'll also use the **fluid-framework** library to use the core
 data structures and provided by the Fluid Framework.
