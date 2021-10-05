@@ -1174,41 +1174,41 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|FailedRuns|Yes|Failed Runs|Count|Total|No Dimensions|pipelineName, activityName|
-|SuccessfulRuns|Yes|Successful Runs|Count|Total|No Dimensions|pipelineName, activityName|
+|FailedRuns|Yes|Failed Runs|Count|Total||pipelineName, activityName|
+|SuccessfulRuns|Yes|Successful Runs|Count|Total||pipelineName, activityName|
 
 
 ## Microsoft.DataFactory/factories
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ActivityCancelledRuns|Yes|Cancelled activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum|No Dimensions|No Dimensions|
-|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average|No Dimensions|IntegrationRuntimeName|
-|MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum|No Dimensions|No Dimensions|
-|MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum|No Dimensions|No Dimensions|
-|PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|PipelineElapsedTimeRuns|Yes|Elapsed Time Pipeline Runs Metrics|Count|Total|No Dimensions|RunId, Name|
-|PipelineFailedRuns|Yes|Failed pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|PipelineSucceededRuns|Yes|Succeeded pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|ResourceCount|Yes|Total entities count|Count|Maximum|No Dimensions|No Dimensions|
-|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|TriggerCancelledRuns|Yes|Cancelled trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
-|TriggerFailedRuns|Yes|Failed trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
-|TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
+|ActivityCancelledRuns|Yes|Cancelled activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum||No Dimensions|
+|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average||IntegrationRuntimeName|
+|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average||IntegrationRuntimeName|
+|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average||IntegrationRuntimeName|
+|MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum||No Dimensions|
+|MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum||No Dimensions|
+|PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total||FailureType, Name|
+|PipelineElapsedTimeRuns|Yes|Elapsed Time Pipeline Runs Metrics|Count|Total||RunId, Name|
+|PipelineFailedRuns|Yes|Failed pipeline runs metrics|Count|Total||FailureType, Name|
+|PipelineSucceededRuns|Yes|Succeeded pipeline runs metrics|Count|Total||FailureType, Name|
+|ResourceCount|Yes|Total entities count|Count|Maximum||No Dimensions|
+|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|TriggerCancelledRuns|Yes|Cancelled trigger runs metrics|Count|Total||Name, FailureType|
+|TriggerFailedRuns|Yes|Failed trigger runs metrics|Count|Total||Name, FailureType|
+|TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total||Name, FailureType|
 
 
 ## Microsoft.DataLakeAnalytics/accounts
