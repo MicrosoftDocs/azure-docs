@@ -21,6 +21,21 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## September 2021
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+  <tr><td><b>Continuous integration and delivery (CI/CD)</b></td><td>Expanded CI/CD capabilities</td><td>You can now create a new Git branch based on any other branch in Azure Data Factory.<br><a href="source-control.md#version-control">Learn more</a></td></tr>
+<tr><td rowspan=3><b>Data Movement</b></td><td>Amazon Relational Database Service (RDS) for Oracle sources</td><td>The Amazon RDS for Oracle sources connector is now available in both Azure Data Factory and Azure Synapse.<br><a href="connector-amazon-rds-for-oracle.md">Learn more</a></td></tr>
+<tr><td>Amazon RDS for SQL Server sources</td><td>The Amazon RDS for SQL Server sources connector is now available in both Azure Data Factory and Azure Synapse.<br><a href="connector-amazon-rds-for-sql-server.md">Learn more</a></td></tr>
+<tr><td>Support parallel copy from Azure Database for PostgreSQL</td><td>The Azure Database for PostgreSQL connector now supports parallel copy operations.<br><a href="connector-azure-database-for-postgresql.md">Learn more</a></td></tr>
+<tr><td rowspan=3><b>Data Flow</b></td><td>Use Azure Data Lake Storage (ADLS) Gen2 to execute pre- and post-processing commands</td><td>Hadoop Distributed File System (HDFS) pre- and post-processing commands can now be executed using ADLS Gen2 sinks in data flows<br><a href="connector-azure-data-lake-storage.md#pre-processing-and-post-processing-commands">Learn more</a></td></tr>
+<tr><td>Edit data flow properties for existing instances of the Azure Integration Runtime (IR)</td><td>The Azure Integration Runtime (IR) has been updated to allow editing of data flow properties for existing IRs. You can now modify data flow compute properties without needing to create a new Azure IR.<br><a href="concepts-integration-runtime.md">Learn more</a></td></tr>
+<tr><td>TTL setting for Azure Synapse to improve pipeline activities execution startup time</td><td>Azure Synapse Analytics has added TTL to the Azure Integration Runtime to enable your data flow pipeline activities to begin execution in seconds, greatly minimizing the runtime of your data flow pipelines.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
+<tr><td><b>Integration Runtime</b></td><td>Azure Data Factory Managed vNet goes GA</td><td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td></tr>
+<tr><td><b>Orchestration</b></td><td>Operationalize and Provide SLA for Data Pipelines</td><td>The new Elapsed Time Pipeline Run metric, combined with Data Factory Alerts, empowers data pipeline developers to better deliver SLAs to their customers, and you tell us how long a pipeline should run, and we will notify you proactively when the pipeline runs longer than expected.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/operationalize-and-provide-sla-for-data-pipelines/ba-p/2767768">Learn more</a></td></tr>
+</table>
+
 ## August 2021
 <br>
 <table>
