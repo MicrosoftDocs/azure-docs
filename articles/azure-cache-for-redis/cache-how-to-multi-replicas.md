@@ -1,8 +1,8 @@
 ---
 title: Add replicas to Azure Cache for Redis
 description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
