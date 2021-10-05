@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/03/2021
+ms.date: 10/05/2021
 ms.author: memildin
 
 ---
@@ -26,23 +26,49 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in October include:
 
-- [Microsoft Threat and Vulnerability Management in Security Center (in preview)](#microsoft-threat-and-vulnerability-management-in-security-center-in-preview)
+- [Microsoft Threat and Vulnerability Management added as vulnerability analysis solution (in preview)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-analysis-solution-in-preview)
+- [Vulnerability analysis tools can now be auto provisioned](#vulnerability-analysis-tools-can-now-be-auto-provisioned)
+- [Software inventory filters added to asset inventory](#software-inventory-filters-added-to-asset-inventory)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 
 
-### Microsoft Threat and Vulnerability Management in Security Center (in preview)
+### Microsoft Threat and Vulnerability Management added as vulnerability analysis solution (in preview)
 
-Azure Security Center is extending the native integration with Microsoft Defender for Endpoint to support Microsoft [Threat and vulnerability management](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt).
+Azure Defender for servers now includes a new vulnerability discovery and management tool for your machines. 
 
-Azure Defender for servers now includes a choice of vulnerability discovery and management tools for your machines. From Security Center's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
+We've extended the native integration with Microsoft Defender for Endpoint, to support [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
 
-The **two** integrated vulnerability assessment solutions are:
+Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context.
 
-- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint
-- The integrated Qualys agent which is deployed by a Security Center recommendation
+Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to deploy the threat and vulnerability management module to [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide) or auto provision this solution as described in [Vulnerability analysis tools can now be auto provisioned](#vulnerability-analysis-tools-can-now-be-auto-provisioned).
 
-Use **Microsoft threat and vulnerability management** to discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context. Learn more in [Use Microsoft Defender for Endpoint's threat and vulnerability management features to discover and investigate weaknesses on your machines](deploy-vulnerability-assessment-tvm.md).
+Learn more in  [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
+### Vulnerability analysis tools can now be auto provisioned
+
+Security Center's auto provisioning page now includes the option to automatically provision a vulnerability analysis solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
+
+Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability analysis solutions:
+
+- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-in-security-center-in-preview))
+- The integrated Qualys agent
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of the threat and vulnerability management module in Azure Security Center.":::
+
+Your chosen solution will be automatically deployed to supported machines.
+
+Learn more in [Configure auto provisioning of threat and vulnerability management](deploy-vulnerability-assessment-tvm.md#configure-auto-provisioning-of-threat-and-vulnerability-management).
+
+
+### Software inventory filters added to asset inventory
+
+The [asset inventory](asset-inventory.md) page now includes a filter to select machines running specific software - and even specify the versions of interest. 
+
+Additionally, you can query the software inventory data in **Azure Resource Graph Explorer**.
+
+For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
 
 ### Changed prefix of some alert types from "ARM_" to "VM_" 
 

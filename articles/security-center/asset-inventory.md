@@ -128,12 +128,12 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
 ## Access a software inventory
 
-If you've enabled the integration with Microsoft Defender for Endpoint and set up Microsoft threat and vulnerability management as your selected vulnerability assessment solution, you'll have access to the software inventory.
+If you've enabled the integration with Microsoft Defender for Endpoint and enabled Azure Defender for servers, you'll have access to the software inventory.
 
 :::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
 
 > [!NOTE]
-> Machines without Microsoft Defender for Endpoint (or without Azure Defender for servers) will show under the **Blank** option.
+> The "Blank" option shows machines without Microsoft Defender for Endpoint (or without Azure Defender for servers).
 
 As well as the filters in the asset inventory page, you can explore the software inventory data from Azure Resource Graph Explorer.
 
