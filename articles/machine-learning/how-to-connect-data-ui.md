@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create datastores and datasets to securely connect to data in storage services in Azure with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey

@@ -6,14 +6,14 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 09/16/2021
+ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Generate SAS tokens for storage containers
 
- In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
+ In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob Storage containers. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
 At a high level, here's how it works: your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If the SAS is deemed invalid, the request is declined with error code 403 (Forbidden).
 
 Azure blob storage offers three types of resources:
@@ -63,7 +63,7 @@ To get started, you'll need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the REST API will use form documents that are located at the root of your container. However, you can use data organized in subfolders if specified in the API call. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> By default, the REST API will use form documents that are located at the root of your container. However, you can use data organized in subfolders if specified in the API call. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
 
 ## Create a SAS with the Azure portal
 
@@ -84,7 +84,7 @@ To get started, you'll need:
 
 1. Define **Permissions** by checking or clearing the appropriate checkbox. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
 
-    :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot (Azure protal): SAS permission fields.":::
+    :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot (Azure portal): SAS permission fields.":::
 
     >[!IMPORTANT]
     >
@@ -106,14 +106,6 @@ To get started, you'll need:
 1. The **Blob SAS token** query string and **Blob SAS URL** will be displayed in the lower area of window. To use the **Blob SAS token**, append it a storage service URI.
 
 1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
-
-1. To use the **Blob SAS URL**, add it to your REST API call as follows:
-
-```json
-{
-    "source":"<BLOB SAS URL>"
-}
-```
 
 ## Create a SAS with Azure Command-Line Interface (CLI)
 
@@ -143,6 +135,20 @@ az storage container generate-sas \
     --auth-mode login \
     --as-user
 ```
+
+## How to use your Blob SAS URL
+
+* To use your Blob SAS URL with the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync), add the SAS URL to the request body:
+
+  ```json
+  {
+      "source":"<BLOB SAS URL>"
+  }
+  ```
+
+* To use your **Blob SAS URL** with the [**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connections Settings** → **Azure blob container** → **SAS URI** field:
+
+  :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="{alt-text}":::
 
 That's it. You've learned how to generate SAS tokens to authorize how clients access your data.
 

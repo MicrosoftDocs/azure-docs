@@ -23,22 +23,3 @@ ms.date: 09/10/2021
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-
-## Configure your subscription
-
-If necessary, follow these steps to configure your subscription to enable Azure Purview to run in your subscription:
-
-   1. In the Azure portal, search for and select **Subscriptions**.
-
-   1. From the list of subscriptions, select the subscription you want to use. Administrative access permission for the subscription is required.
-
-      :::image type="content" source="./media\manage-scans/purview-quickstart-prerequisites/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
-
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search and register all three resource providers:
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub**
-      
-      If they are not registered, register it by selecting **Register**.
-
-      :::image type="content" source="./media\manage-scans/purview-quickstart-prerequisites/register-purview-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::

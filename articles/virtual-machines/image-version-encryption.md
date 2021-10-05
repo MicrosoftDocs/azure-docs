@@ -7,7 +7,6 @@ ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.author: olayemio 
 ms.custom: devx-track-azurepowershell
 ---
 

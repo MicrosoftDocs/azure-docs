@@ -45,7 +45,7 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 
 ## Submit a nomination
 
-Partners who want to participate in the program should identify other partners they want to work with. They should complete the [integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [integrated solutions nomination form](https://go.microsoft.com/fwlink/?linkid=2172593). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
 ## Develop an integrated solution
 

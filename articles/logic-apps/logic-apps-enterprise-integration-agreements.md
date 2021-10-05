@@ -1,6 +1,6 @@
 ---
 title: Define agreements between partners in workflows
-description: Add agreements to your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+description: Add agreements between partners in your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ---
 
-# Add agreements between partners to integration accounts for workflows in Azure Logic Apps
+# Add agreements between partners in integration accounts for workflows in Azure Logic Apps
 
 After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and by providing the following shared benefits:
 
@@ -23,6 +23,8 @@ After you add partners to your integration account, specify how partners exchang
 An agreement requires a *host partner*, which is always your organization, and a *guest partner*, which is the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization. Using this agreement, you specify how to handle inbound and outbound messages from the host partner's perspective.
 
 This article shows how to create and manage an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 

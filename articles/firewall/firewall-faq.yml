@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 09/01/2021
+  ms.date: 09/28/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -174,7 +174,7 @@ sections:
            |TargetURL   |`www.contoso.com:8080`|No|         |
            |TargetURL   |`*.contoso.*`|No|         |
            |TargetFQDN    |`www.contoso.com`|Yes|`www.contoso.com`|
-           |TargetFQDN    |`*.contoso.com`|Yes|`www.contoso.com`<br>`any.contoso.com`|
+           |TargetFQDN    |`*.contoso.com`|Yes|`any.contoso.com`<br><br>Note: If you want to specifically allow `contoso.com`, you must include contoso.com in the rule. Otherwise, the connection will be dropped by default because the request will not match any rule.|
            |TargetFQDN    |`*contoso.com`|Yes|`example.anycontoso.com`<br>`contoso.com`|
            |TargetFQDN    |`www.contoso.*`|No|         |
            |TargetFQDN    |`*.contoso.*`|No|         |
@@ -224,9 +224,9 @@ sections:
           Yes, you can use Azure PowerShell to do it:
           
           ```azurepowershell
-          # Add a Threat Intelligence allow list to an Existing Azure Firewall
+          # Add a Threat Intelligence allowlist to an Existing Azure Firewall
 
-          # Create the allow list with both FQDN and IPAddresses
+          # Create the allowlist with both FQDN and IPAddresses
           $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
           $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
              -FQDN @("fqdn1", "fqdn2", …) -IpAddress @("ip1", "ip2", …)
