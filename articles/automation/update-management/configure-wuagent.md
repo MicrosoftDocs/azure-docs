@@ -17,7 +17,7 @@ Azure Automation Update Management relies on the [Windows Update client](/window
 
 Update Management respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
-For additional recommendations on setting up WSUS in your Azure subscription and securely keep your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus/).
+For other recommendations on setting up WSUS in your Azure subscription and securely keep your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus/).
 
 ## Pre-download updates
 
