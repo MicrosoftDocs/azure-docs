@@ -75,6 +75,8 @@
     href: manage.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Gateway load balancer
+    href: gateway-overview.md
   - name: What's new?
     href: whats-new.md
   - name: Components
