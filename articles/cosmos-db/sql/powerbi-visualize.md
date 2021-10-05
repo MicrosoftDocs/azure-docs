@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/21/2019
+ms.date: 10/4/2021
 ms.author: rosouz
 ---
 

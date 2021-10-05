@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/01/2021
 ---
 
 # Server parameters in Azure Database for PostgreSQL - Flexible Server
@@ -34,6 +34,7 @@ Here is the list of some of the parameters:
 | **shared_buffers**    | The 'shared_buffers' setting changes depending on the selected SKU (SKU determines the memory available). General Purpose servers have 2GB shared_buffers for 2 vCores; Memory Optimized servers have 4GB shared_buffers for 2 vCores. The shared_buffers setting scales linearly (approximately) as vCores increase in a tier. | 
 | **shared_preload_libraries** | This parameter is available for configuration with a predefined set of supported extensions. Note that we always load the `azure` extension (used for maintenance tasks), as well as the `pg_stat_statements` extension (you can use the pg_stat_statements.track parameter to control whether the extension is active). |
 | **connection_throttling** | You can enable or disable temporary connection throttling per IP for too many invalid password login failures. |
+| **require_secure_transport** | If your application does not support SSL connectivity to the server, you can optionally disable secured transport from your client by turning `OFF` this parameter value. |
  
 ## Next steps
 
