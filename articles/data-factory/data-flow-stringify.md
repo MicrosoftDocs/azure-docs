@@ -29,7 +29,7 @@ Similar to derived columns and aggregates, this is where you will either modify 
 
 Use the expression builder to set the source complex field that is to be stringified. This can be as simple as just selecting the source column with the self-contained data that you wish to stringify, or you can create complex expressions to parse.
 
-:::image type="content" source="media/data-flow/stringify-2.png" alt-text="Stringify settings":::
+:::image type="content" source="media/data-flow/stringify-2.png" alt-text="Stringify expressions":::
 
 #### Example expression
 
