@@ -1,6 +1,6 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you will learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
+description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you'll learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
 author: curib
 ms.author: cauribeg
 ms.service: cache
@@ -222,11 +222,11 @@ If your cache is already a VNet injected cache, private endpoints cannot be used
 
 ### What features aren't supported with private endpoints?
 
-Currently, portal console support, and persistence to firewall storage accounts are not supported.
+Currently, portal console support, and persistence to firewall storage accounts aren't supported.
 
 ### How do I verify if my private endpoint is configured correctly?
 
-You can run a command like *nslookup* from within the VNet that is linked to the private endpoint. Use *nslookup* to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DN configuration**. In the Working pane, you see the IP address for the **Network Interface**.
+You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**.
 
 :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="private endpoint dns settings":::
 
@@ -257,7 +257,7 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 
 ### How can I migrate my VNet injected cache to a Private Link cache?
 
-Please refer to our [migration guide](cache-vnet-migration.md) for different approaches on how to migrate your VNet injected caches to Private Link caches.
+Refer to our [migration guide](cache-vnet-migration.md) for different approaches on how to migrate your VNet injected caches to Private Link caches.
 
 ### How can I have multiple endpoints in different virtual networks?
 
