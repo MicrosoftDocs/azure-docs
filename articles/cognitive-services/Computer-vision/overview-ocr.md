@@ -41,13 +41,13 @@ The **Read** call takes images and documents as its input. They have the followi
 * The file size must be less than 50 MB (6 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
 
 ## Supported languages
-The Read API supports 122 languages for print text and 7 languages for handwritten text. 
+The Read API supports 122 languages for print text and 7 languages for handwritten text, including preview languages and features.
 
 OCR for print text includes support for English, French, German, Italian, Portuguese, Spanish, Chinese, Japanese, Korean, and Russian (preview), along with Latin and Cyrillic languages with the latest preview update.
 
-OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese languages.
+OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese language support.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA languages.
+See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA version.
 
 ## Key features
 
