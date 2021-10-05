@@ -190,7 +190,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 ## Modify telemetry
 
 ### Add span attributes
-You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
+You may use `opentelemetry-api` to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
@@ -198,26 +198,24 @@ For more information, see [GitHub Repo](link).
 Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
 
 > [!NOTE]
-> This feature is only in 3.0.2 and later
+> This feature is only in 3.2.0 and later
 
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
 
 ```xml
 <dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-api</artifactId>
+  <version>1.6.0</version>
 </dependency>
 ```
 
 and add custom dimensions in your code:
 
 ```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
+import io.opentelemetry.api.trace.Span;
 
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getProperties().put("mydimension", "myvalue");
+Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
 #### Set user ID or authenticated user ID
