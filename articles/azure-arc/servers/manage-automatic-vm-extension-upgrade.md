@@ -29,9 +29,9 @@ How does the upgrade process work for an Arc-enabled server?
 
 Automatic Extension Upgrade supports the following extensions (and more are added periodically):
 
-- Dependency Agent – [Linux](./extensions/agent-dependency-linux.md) and [Windows](./extensions/agent-dependency-windows.md)
-- [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
-- Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
+- Dependency Agent – [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) and [Windows](../../virtual-machines/extensions/agent-dependency-windows.md)
+- [Guest Configuration Extension](../../virtual-machines/extensions/guest-configuration.md) – Linux and Windows
+- Key Vault – [Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Windows](../../virtual-machines/extensions/key-vault-windows.md)
 
 ## Enabling Automatic Extension Upgrade
 
@@ -39,9 +39,9 @@ To enable Automatic Extension Upgrade for an extension, you must ensure the prop
 
 ### Using the REST API
 
-To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension), use the following:
+To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension), run the following command:
 
-```
+```rest
 PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.HybridCompute/machines/<machineName>/extensions/<extensionName>?api-version=2019-12-01`
 ```
 
@@ -62,12 +62,12 @@ PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/provi
 
 ### Using Azure PowerShell
 
-Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet:
+Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet with the `-MachineName`, `-ExtensionName`, `-Publisher`, `-ExtensionType`, `-EnableAutomaticUpgrade`, and `ResourceGroupName` parameters.
 
-```azurepowershell-interactive
+```azurepowershell
 Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ResourceGroupName "myResourceGroup" `
-    -VMName "myVM" `
+    -MachineName "machineName" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
     -TypeHandlerVersion 9.5 `
@@ -77,13 +77,13 @@ Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.Depen
 
 ### Using the Azure CLI
 
-Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet:
+Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet with the `--extension-name`, `--machine-name`, `-publisher`, `--enable-auto-upgrade`, and `--resource-group` parameters.
 
-```azurecli-interactive
+```azurecli
 az connectedmachine extension set \
     --resource-group myResourceGroup \
-    --vm-name myVM \
-    --name DependencyAgentLinux \
+    --machine-name myVM \
+    --extension-name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
     --version 9.5 \
     --enable-auto-upgrade true
@@ -101,9 +101,9 @@ To disable Automatic Extension Upgrade for an extension, you must ensure the pro
 
 ### Using the REST API
 
-To disable automatic extension upgrade for an extension (in this example the Dependency Agent extension), use the following:
+To disable automatic extension upgrade for an extension (in this example the Dependency Agent extension), run the following command:
 
-```
+```rest
 PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.HybridCompute/machines/<machineName>/extensions/<extensionName>?api-version=2019-12-01`
 ```
 
@@ -124,9 +124,9 @@ PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/provi
 
 ### Using Azure PowerShell
 
-Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet:
+Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet with the `-MachineName`, `-ExtensionName`, `-Publisher`, `-ExtensionType`, `-EnableAutomaticUpgrade`, and `ResourceGroupName` parameters.
 
-```azurepowershell-interactive
+```azurepowershell
 Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
@@ -139,9 +139,9 @@ Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.Depen
 
 ### Using the Azure CLI
 
-Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet:
+Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet with the `--extension-name`, `--machine-name`, `--publisher`, `--enable-auto-upgrade`, and `--resource-group` parameters.
 
-```azurecli-interactive
+```azurecli
 az connectedmachine extension set \
     --resource-group myResourceGroup \
     --vm-name myVM \
