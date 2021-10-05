@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use open-source Python machine learning frameworks to train, deploy, and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
