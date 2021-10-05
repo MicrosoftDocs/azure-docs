@@ -194,5 +194,5 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
 ## Next steps
 - Learn more about [slow query logs](concepts-slow-query-logs.md)
-- Configure [auditing] (tutorial-query-performance-insights.md)
+- Configure [auditing](tutorial-query-performance-insights.md)
 <!-- - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)-->
