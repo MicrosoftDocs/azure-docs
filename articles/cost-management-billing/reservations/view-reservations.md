@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: banders
 ---
 
@@ -25,6 +25,8 @@ By default, the following users can view and manage reservations:
 - Users with elevated access to manage all Azure subscriptions and management groups
 - A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory)
 - A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
+
+Currently, the reservation administrator and reservation reader roles are are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
 
 The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
