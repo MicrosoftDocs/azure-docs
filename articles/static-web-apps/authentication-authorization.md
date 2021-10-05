@@ -103,28 +103,46 @@ As you remove a user, keep in mind the following items:
 1. Worldwide propagation may take a few minutes.
 1. If the user is added back to the app, the [`userId` changes](user-information.md).
 
-# [Roles assignment function (preview)](#tab/function)
+# [Function (preview)](#tab/function)
 
-Instead of using the built-in invitations system, you can use a custom function to programmatically assign roles to users when they log in.
+Instead of using the built-in invitations system, you can use a serverless function to programmatically assign roles to users when they log in.
 
-The role assignment function is an API function in your static web app. It is automatically called each time after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+To assign custom roles in a function, you can define an API function that is automatically called each time after a user successfully authenticates with an identity provider. The function is passed the user's information from the provider. It must return a list of custom roles that are assigned to the user.
 
-Example uses of the role assignment function include:
+Example uses of this function include:
 
 - Query a database to determine which roles a user should be assigned
 - Call the [Microsoft Graph API](../../graph/overview) to determine a user's roles based on their Active Directory group membership
 - Determine a user's roles based on claims returned by the identity provider
 
 > [!NOTE]
-> The role assignment function feature is only available when [custom authentication](authentication-custom.md) is configured.
+> The ability to assign roles via a function is only available when [custom authentication](authentication-custom.md) is configured.
 >
-> When a role assignment function is configured, any roles assigned via the built-in invitations system are ignored.
+> When this feature is enabled, any roles assigned via the built-in invitations system are ignored.
 
-### Create a role assignment function
+### Configure a function for assigning roles
 
-Define a role assignment function by creating an [API function](apis.md) in your static web app. You can use a managed function app or a bring your own function app.
+To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` property is the path to the API function.
 
-Each time a user successfully authenticates with an identity provider, the role assignment function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. This is an example payload from Azure Active Directory:
+```json
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Once configured, the role assignment function can no longer be accessed by external HTTP requests.
+
+### Create a function for assigning roles
+
+After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
+
+Each time a user successfully authenticates with an identity provider, the specified function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. This is an example payload from Azure Active Directory:
 
 ```json
 {
@@ -175,7 +193,7 @@ Each time a user successfully authenticates with an identity provider, the role 
 
 The function can use the user's information to determine which roles to assign to the user. It must return an HTTP 200 response with a JSON body containing a list of custom role names to assign to the user.
 
-To assign the user to the `Reader` and `Contributor` roles, return the following response:
+For example, to assign the user to the `Reader` and `Contributor` roles, return the following response:
 
 ```json
 {
@@ -187,24 +205,6 @@ To assign the user to the `Reader` and `Contributor` roles, return the following
 ```
 
 If you do not want to assign any additional roles to the user, return an empty `roles` array.
-
-### Configure a role assignment function
-
-To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` property is the path to the API function.
-
-```json
-{
-  "auth": {
-    "rolesSource": "/api/GetRoles",
-    "identityProviders": {
-      // ...
-    }
-  }
-}
-```
-
-> [!NOTE]
-> Once configured, the role assignment function can no longer be accessed by external HTTP requests.
 
 To learn more, see [Tutorial: Assign custom roles with a function and Microsoft Graph](assign-roles-microsoft-graph.md).
 
