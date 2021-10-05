@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: What is this?'
+title: 'Tutorial: Enable credits and run Azure Dev/Test Offer training scripts'
 titleSuffix: Azure DevTest Offer
 description: A step-by-step tutorial for enabling credits and running a training script in your Azure Dev/Test Offer subscription.
 ms.topic: tutorial

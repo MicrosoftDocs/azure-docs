@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Azure DevTest Offer?
+    - title: What is Azure Dev/Test offer?
       itemType: overview
       url: ../../machine-learning/overview-what-is-azure-machine-learning.md
     # Card

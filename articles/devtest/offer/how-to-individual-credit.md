@@ -1,5 +1,5 @@
 ---
-title: How to get started with your individual VSS Azure Dev/Test credit subscription.
+title: How to get started with your individual VSS Azure Dev/Test credit subscription
 description: Presents two options for an individual to access an Azure Credit Subscription.
 author: j-martens  
 ms.author: jmartens

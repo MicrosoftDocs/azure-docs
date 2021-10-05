@@ -1,4 +1,4 @@
-- name: Azure DevTest Offer Docs
+- name: Azure Dev/Test Offer Docs
   href: index.yml
 - name: Overview
   items: 
@@ -19,7 +19,7 @@
   items:
 - name: How-to guides
   items:
-  - name: How to get started with your individual Azure DevTest credit
+  - name: How to get started with your individual Azure Dev/Test credit
     href: how-to-individual-credit.md
   - name: Change directory tenants
     href: change-directory-tenants.md
