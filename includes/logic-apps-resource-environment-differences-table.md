@@ -3,7 +3,7 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/25/2021
+ms.date: 10/05/2021
 ---
 
 | Resource type | Benefits | Resource sharing and usage | [Pricing and billing model](../articles/logic-apps/logic-apps-pricing.md) | [Limits management](../articles/logic-apps/logic-apps-limits-and-config.md) |
