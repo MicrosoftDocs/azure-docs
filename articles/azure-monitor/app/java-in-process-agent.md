@@ -40,8 +40,16 @@ The 3.x agent supports Java 8 and above.
 > **If you are upgrading from 3.0.x**
 >
 > The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
-> This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
+> This can affect custom dashboards or alerts if they relied on the previous values.
 > See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
+
+> [!WARNING]
+> **If you are upgrading from 3.1.x**
+>
+> Database dependency names are now more concise, with the full (sanitized) query still present in the `data` field. And HTTP dependency names are now more descriptive.
+> This can affect custom dashboards or alerts if they relied on the previous values.
+> See the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0)
 > for more details.
 
 Download [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.2.0.jar)
