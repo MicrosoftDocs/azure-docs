@@ -43,9 +43,11 @@ Azure Cognitive Service for Language provides the following features:
 
 After you've had a chance to get started with the Language service, try our tutorials that show you how to solve various scenarios.
 
-* Tutorial: Determine user intentions with the Language SDK, C#
-* Tutorial: Extract information in Excel with the Language SDK, C#
-* Tutorial: Add knowledge bases in multiple languages with Language SDK, C# 
+* [Extract key phrases from text stored in Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
+* [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
+* [Use Flask to translate text, analyze sentiment, and synthesize speech](/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language/context/context)
+* [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language/context/context)
+* [Create a FAQ Bot](custom-question-answering/tutorials/bot-service.md)
 
 ## Additional code samples
 
