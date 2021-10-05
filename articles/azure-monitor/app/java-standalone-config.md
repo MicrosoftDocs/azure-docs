@@ -184,6 +184,22 @@ If you want to add custom dimensions to all of your telemetry:
 > Starting from version 3.0.2, if you add a custom dimension named `service.version`, the value will be stored
 > in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
 
+## Inherited attribute (preview)
+
+Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry, and have it inherited by dependency telemetry that follows:
+
+```json
+{
+  "inheritedAttributes": [
+    {
+      "key": "mycustomer",
+      "type": "string"
+    }
+  ]
+}
+```
+
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
