@@ -32,7 +32,7 @@ Gateway load balancer has the following benefits:
 
 ## Technology and components
 
-Gateway load balancer uses the VXLAN protocol and supports a maximum transmission unit of size XXXX bytes.
+Gateway load balancer uses the VXLAN protocol and supports a maximum transmission unit of <!--Insert size here-->
 
 Gateway load balancer consists of the following components:
 
@@ -50,5 +50,5 @@ Gateway load balancer consists of the following components:
 
 ## Next steps
 
-- See [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md) to create a cross-region load balancer.
+- See [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md) to create a gateway load balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
