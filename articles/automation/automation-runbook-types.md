@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/25/2021
+ms.date: 10/05/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -64,8 +64,8 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 * You must be familiar with PowerShell scripting.
 * Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
 * Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
-* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
-* Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and will cause the job to fail.
+* You can include only PowerShell, PowerShell Workflow runbooks, and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
+* Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and might cause the job to fail.
 
 ### Known issues
 
