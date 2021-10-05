@@ -32,8 +32,8 @@ This article contains links to tutorials that show you how to use various Azure 
 | Azure Cognitive Search | [Index and search Azure Data Lake Storage Gen2 documents (preview)](../../search/search-howto-index-azure-data-lake-storage.md) |
 
 > [!NOTE]
-> This table doesn't reflect the complete list of Azure services that support Data Lake Storage Gen2. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+> This table doesn't reflect the complete list of Azure services that support Data Lake Storage Gen2. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). 
 
-## Next steps
+## Next Steps
 
-- Learn how these services can be used together to build workloads that ingest, download, process, and visualize data. See [Using Azure Data Lake Storage Gen2 for big data requirements](data-lake-storage-data-scenarios.md).
+- Learn how these services can be used together to build workloads that ingest, download, process, and visualize data. See [Ingest, process, and analyze](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).

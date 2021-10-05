@@ -41,6 +41,9 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../cdn/cdn-overview.md)|
 |Azure SQL Database|Not yet supported|Not applicable|Not applicable|[What is Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)|
 
+> [!TIP]
+> To see how these services can be used together to build workloads that ingest, download, process, and visualize data. See [Ingest, process, and analyze](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+
 ## See also
 
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
