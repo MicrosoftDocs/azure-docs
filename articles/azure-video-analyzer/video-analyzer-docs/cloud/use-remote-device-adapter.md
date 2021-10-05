@@ -1,14 +1,14 @@
 ---
-title: Connecting camera to cloud using a transparent gateway
-description: This article explains how to connect a camera to Azure Video Analyzer using a transparent gateway. 
+title: Connecting camera to cloud using a remote device adapter
+description: This article explains how to connect a camera to Azure Video Analyzer using a remote device adapter
 ms.topic: reference
 ms.date: 11/01/2021
 
 ---
 
-# Connecting cameras to the cloud using a transparent gateway
+# Connecting cameras to the cloud using a remote device adapter
 Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using cloud pipelines.
-Connecting cameras to the cloud using a transparent gateway allows cameras to connect to Video Analyzer via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service. This approach is useful in the following scenarios:
+Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service. This approach is useful in the following scenarios:
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
@@ -23,7 +23,7 @@ Connecting cameras to the cloud using a transparent gateway allows cameras to co
 
 ## Pre-reading
 [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
-[Connect camera to the cloud](connect-cameras-to-cloud.md#connecting-via-a-transparent gateway)
+[Connect camera to the cloud](connect-cameras-to-cloud.md#connecting-via-a-remote-device-adapter)
 
 ## Prerequisites
 The following are required for this tutorial:
@@ -39,11 +39,8 @@ The following are required for this tutorial:
 * [IoT Edge with Video Analyzer edge module installed and configured manually](../edge/deploy-iot-edge-device.md)
 * [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
   * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
-
-
-
-## Ensure that camera(s) are on the same network as edge device
-<!-- TODO: add instructions for testing using VLC on the edge server-->
+* IP camera(s) with RTSP Stream
+  * Ensure that camera(s) are on the same network as edge device
 
 
 ## Create IoT device for camera via Portal
@@ -63,7 +60,7 @@ To enable the edge module to act as a transparent gateway for video between the 
 * Device ID for the IoT device
 * Primary key for the IoT device
 * Camera's IP address
-* Camera's RTSP port (typically: **554**)  
+* Camera's RTSP port (typically: **554**)
 
 In Azure Portal:
 1. Navigate to the IoT Hub
