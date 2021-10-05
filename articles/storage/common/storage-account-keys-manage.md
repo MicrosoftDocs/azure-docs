@@ -91,17 +91,17 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-To create a key expiration policy from the Azure portal:
+To create a key expiration policy in the Azure portal:
 
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
 2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
-3. Locate the **Set rotation reminder** button in the upper part of the blade and click it.
+3. Select the **Set rotation reminder** link.
 
-4. Check the **Enable key rotation reminders** box and set the desired frequency for the reminder.
+4. In **Set a reminder to rotate access keys**, select the **Enable key rotation reminders** checkbox and set a frequency for the reminder.
 
-5. Click **Save** and exit.
+5. Select **Save**.
 
 :::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Screenshot showing how to create a key expiration policy in the Azure portal":::
 
