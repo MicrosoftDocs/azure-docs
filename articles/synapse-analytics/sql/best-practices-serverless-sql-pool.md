@@ -16,24 +16,25 @@ ms.reviewer: jrasnick
 
 In this article, you'll find a collection of best practices for using serverless SQL pool. Serverless SQL pool is a resource in Azure Synapse Analytics. If you're working with a dedicated SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
 
-Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. All files that the queries target are external to serverless SQL pool. Everything related to reading files from storage might affect query performance.
+Serverless SQL pool allows you to query files in your Azure Storage accounts. It doesn't have local storage or ingestion capabilities. All files that the queries target are external to serverless SQL pool. Everything related to reading files from storage might affect query performance.
 
 Some generic guidelines are:
-- Make sure that your client applications are collocated with serverless SQL pool.
-  - If you're using client applications outside of Azure, make sure that you're using serverless SQL pool in a region that's close to your client computer. Client application examples include Power BI Desktop, SQL Server Management Studio, and Azure Data Studio.
-- Make sure that the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake and Azure Cosmos DB.
+
+- Make sure your client applications are collocated with serverless SQL pool.
+  - If you're using client applications outside Azure, make sure you're using serverless SQL pool in a region that's close to your client computer. Client application examples include Power BI Desktop, SQL Server Management Studio, and Azure Data Studio.
+- Make sure the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake Storage and Azure Cosmos DB.
 - Try to [optimize storage layout](#prepare-files-for-querying) by using partitioning and keeping your files in the range between 100 MB and 10 GB.
-- If you're returning a large number of results, make sure that you're using SQL Server Management Studio or Azure Data Studio and not Synapse Studio. Synapse Studio is a web tool that isn't designed for large result sets.
+- If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
 - If you're filtering results by string column, try to use a `BIN2_UTF8` collation.
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
 
 ## Client applications and network connections
 
-Make sure that your client application is connected to the closest possible Synapse workspace with the optimal connection.
-- Colocate a client application with the Synapse workspace. If you're using applications such as Power BI or Azure Analysis Service, make sure they're in the same region where you placed your Synapse workspace. If needed, create the separate workspaces that are paired with your client applications. Placing a client application and the Synapse workspace in different regions could cause bigger latency and slower streaming of results.
-- If you're reading data from your on-premises application, make sure that the Synapse workspace is in the region that's close to your location.
-- Make sure that you don't have network bandwidth issues while reading a large amount of data.
-- Don't use Synapse Studio to return a large amount of data. Synapse Studio is a web tool that uses the HTTPS protocol to transfer data. Use Azure Data Studio or SQL Server Management Studio to read a large amount of data.
+Make sure your client application is connected to the closest possible Azure Synapse workspace with the optimal connection.
+- Colocate a client application with the Azure Synapse workspace. If you're using applications such as Power BI or Azure Analysis Service, make sure they're in the same region where you placed your Azure Synapse workspace. If needed, create the separate workspaces that are paired with your client applications. Placing a client application and the Azure Synapse workspace in different regions could cause bigger latency and slower streaming of results.
+- If you're reading data from your on-premises application, make sure the Azure Synapse workspace is in the region that's close to your location.
+- Make sure you don't have network bandwidth issues while reading a large amount of data.
+- Don't use Azure Synapse Studio to return a large amount of data. Azure Synapse Studio is a web tool that uses the HTTPS protocol to transfer data. Use Azure Data Studio or SQL Server Management Studio to read a large amount of data.
 
 ## Storage and content layout
 
@@ -41,7 +42,7 @@ Here are best practices for storage and content layout in serverless SQL pool.
 
 ### Colocate your storage and serverless SQL pool
 
-To minimize latency, colocate your Azure storage account or Azure Cosmos DB analytic storage and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
+To minimize latency, colocate your Azure Storage account or Azure Cosmos DB analytic storage and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
 For optimal performance, if you access other storage accounts with serverless SQL pool, make sure they're in the same region. If they aren't in the same region, there will be increased latency for the data's network transfer between the remote region and the endpoint's region.
 
@@ -72,7 +73,7 @@ If possible, you can prepare files for better performance:
 
 ### Colocate your Azure Cosmos DB analytical storage and serverless SQL pool
 
-Make sure that your Azure Cosmos DB analytical storage is placed in the same region as a Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)):
+Make sure your Azure Cosmos DB analytical storage is placed in the same region as an Azure Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)):
 
 ```
 'account=<database account name>;database=<database name>;region=<region name>'
@@ -96,15 +97,18 @@ Here are best practices for using data types in serverless SQL pool.
 
 ### Use appropriate data types
 
-The data types you use in your query affect performance. You can get better performance if you follow these guidelines:
+The data types you use in your query affect performance and concurrency. You can get better performance if you follow these guidelines: 
 
 - Use the smallest data size that can accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of a fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
   - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
-- Use integer-based data types, if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
-- If you're using schema inference, [check inferred data types](#check-inferred-data-types).
+  - Use the **varchar** type with some UTF8 collation if you're reading data from Parquet, Azure Cosmos DB, Delta Lake, or CSV with UTF-8 encoding.
+  - Use the **varchar** type without UTF8 collation if you're reading data from CSV non-Unicode files (for example, ASCII).
+  - Use the **nvarchar** type if you're reading data from a CSV UTF-16 file.
+- Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
+- If you're using schema inference, [check inferred data types](#check-inferred-data-types) and override them explicitly with the smaller types if possible.
 
 ### Check inferred data types
 
@@ -156,7 +160,7 @@ Here are best practices for using queries in serverless SQL pool.
 
 ### Push wildcards to lower levels in the path
 
-You can use wildcards in your path to [query multiple files and folders](query-data-storage.md#query-multiple-files-or-folders). Serverless SQL pool lists files in your storage account, starting from the first * using storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
+You can use wildcards in your path to [query multiple files and folders](query-data-storage.md#query-multiple-files-or-folders). Serverless SQL pool lists files in your storage account, starting from the first asterisk (*) using storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
 
 ### Use filename and filepath functions to target specific partitions
 
