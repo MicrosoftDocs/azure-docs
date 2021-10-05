@@ -24,9 +24,24 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change       | Estimated date for change |
 |----------------------|---------------------------|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | October 2021|
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| October 2021|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | October 2021    |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
+|||
+
+### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
+
+**Estimated date for change:** October 2021
+
+We'll be deprecating the following preview alert:
+
+PREVIEW - Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)
+Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.
+These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.
+Requires an active Microsoft Cloud App Security license.
+
+We've created new alerts that provide this information and add to it. In addition, the newer alert (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Cloud App Security.
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
