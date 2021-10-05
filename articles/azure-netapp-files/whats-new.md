@@ -35,7 +35,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Connectivity over Active/Active VPN gateway setup
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
 
-    This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update]( https://azure.microsoft.com/updates/) as more regions and features become available.  
+    This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update](https://azure.microsoft.com/updates/) as more regions and features become available.  
  
     To learn more, see [Configure network features for an Azure NetApp Files volume](configure-network-features.md).
 
