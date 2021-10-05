@@ -127,7 +127,7 @@ Indirect costs impacting Azure Purview pricing to be considered are:
         - Certain data sources such as SAP require additional memory on the SHIR machine for scanning
 
 
-- [Virtual Machine Sizing](https://docs.microsoft.com/azure/virtual-machines/sizes)
+- [Virtual Machine Sizing](../virtual-machines/sizes.md)
     - Plan virtual machine sizing in order to distribute the scanning workload across VMs to optimize the v-cores utilized while running scans
 
 - [Microsoft 365 license](./create-sensitivity-label.md) 
@@ -135,13 +135,13 @@ Indirect costs impacting Azure Purview pricing to be considered are:
     - MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center.
     - To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 license, which offers the benefit of automatic labeling. For the full list of licenses, see the Sensitivity labels in Azure Purview FAQ. 
 
-- [Azure Alerts](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview)
+- [Azure Alerts](../azure-monitor/alerts/alerts-overview.md)
     - Azure Alerts can notify customers of issues found with infrastructure or applications using the monitoring data in Azure Monitor
     - The additional pricing for Azure Alerts is available [here](https://azure.microsoft.com/pricing/details/monitor/)
 
-- [Cost Management Budgets & Alerts](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
+- [Cost Management Budgets & Alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md)
     - Automatically generated cost alerts are used in Azure to monitor Azure usage and spending based on when Azure resources are consumed
-    - Azure allows you to create and manage Azure budgets. Refer [tutorial](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
+    - Azure allows you to create and manage Azure budgets. Refer [tutorial](../cost-management-billing/costs/tutorial-acm-create-budgets.md)
 
 - Multi-cloud egress charges
     - Consider the egress charges (minimal charges added as a part of the multi-cloud subscription) associated with scanning multi-cloud (for example AWS, Google) data sources running native services excepting the S3 and RDS sources
