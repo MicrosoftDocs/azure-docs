@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
