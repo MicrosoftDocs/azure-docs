@@ -10,7 +10,7 @@ ms.date: 10/18/2020
 
 # Tutorial: Use the Azure portal to use customer-managed keys or BYOK with Media Services
 
-With the 2020-05-01 API, you can use a customer-managed RSA key with an Azure Media Services account that has a system-managed identity.This tutorial covers the steps in the Azure portal.
+With the 2020-05-01 or later version of the API, you can use a customer-managed RSA key with an Azure Media Services account that has a system-managed identity.This tutorial covers the steps in the Azure portal.
 
 The services used are:
 

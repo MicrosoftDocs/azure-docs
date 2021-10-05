@@ -27,7 +27,7 @@ In this article, you'll learn how to train an object detection model to detect s
 
 ## Small object detection
 
-CNN-based models work well for object detection on datasets with large objects, but they do not do well in detecting small objects in high-resolution images. Models can't process such images in original dimensions because of memory and computational constraints. So, images are resized before passing through the model. Images are also down-sampled within CNNs. These factors affect the capability of small object detection with such models.
+Vision models for object detection work well for datasets with relatively large objects, but they don't do well in detecting small objects in high-resolution images. Models can't process such images in original dimensions because of memory and computational constraints. So, images are resized before being passed to the model, which limits their capability to detect smaller objects (relative to the initial image size).
 
 To help with this problem, AutoML for Images exposes the functionality of tiling.
 
