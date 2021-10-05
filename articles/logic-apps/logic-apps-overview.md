@@ -39,7 +39,7 @@ To securely access and run operations in real time on various data sources, you 
 
 * File shares such as FTP and SFTP
 
-To communicate with any service endpoint, run your own code, organize your workflow, or manipulate data, you can use [*built-in*](#built-in-operations) triggers and actions, which run natively within the Azure Logic Apps service. For example, built-in triggers include Request, HTTP, and Recurrence. Built-in actions include Condition, For each, Execute JavaScript code, and operations that call Azure functions, web apps or API apps hosted in Azure, and other Azure Logic Apps workflows.
+To communicate with any service endpoint, run your own code, organize your workflow, or manipulate data, you can use [*built-in*](#built-in-operations) triggers and actions, which run natively within the Azure Logic Apps service. For example, built-in triggers include Request, HTTP, and Recurrence. Built-in actions include Condition, For each, Execute JavaScript code, and operations that call Azure Functions, web apps or API apps hosted in Azure, and other Azure Logic Apps workflows.
 
 For B2B integration scenarios, Azure Logic Apps includes capabilities from [BizTalk Server](/biztalk/core/introducing-biztalk-server). To define business-to-business (B2B) artifacts, you create [*integration account*](#integration-account) where you store these artifacts. After you link this account to your logic app, your workflows can use these B2B artifacts and exchange messages that comply with Electronic Data Interchange (EDI) and Enterprise Application Integration (EAI) standards.
 
