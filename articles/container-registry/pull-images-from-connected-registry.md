@@ -1,6 +1,6 @@
 ---
 title: Pull images from a connected registry
-description: Use Azure Container Registry CLI commands to configure a client token and pull images from a connected registry.
+description: Use Azure Container Registry CLI commands to configure a client token and pull images from a connected registry on an IoT Edge device.
 ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: memladen
@@ -8,9 +8,9 @@ author: toddysm
 ms.custom:
 ---
 
-# Pull images from a connected registry
+# Pull images from a connected registry on IoT Edge device
 
-To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens)  and pass the token credentials to access registry content.
+To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens) and pass the token credentials to access registry content.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
@@ -60,21 +60,21 @@ az acr connected-registry update \
 
 ## Pull an image from the connected registry
 
-From a machine with access to the connected registry instance, use the following example command to sign into the connected registry, using the client token credentials. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+From a machine with access to the IoT Edge device, use the following example command to sign into the connected registry, using the client token credentials. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 > [!CAUTION]
-> If you set up your connected registry as an insecure registry, update your Docker daemon configuration to include the name and port of your connected registry in the insecure registries list. This configuration should only be used for testing purposes. For more information, see [Test an insecure registry](https://docs.docker.com/registry/insecure/).
+> If you set up your connected registry as an insecure registry, update the insecure registries list in the Docker daemon configuration to include the FQDN (or IP address) and port of your connected registry on the IoT Edge device. This configuration should only be used for testing purposes. For more information, see [Test an insecure registry](https://docs.docker.com/registry/insecure/).
 
 ```
 docker login --username myconnectedregistry-client-token \
-  --password <token_password> <IP_address_or_FQDN_of_connected_registry>
+  --password <token_password> <IP_address_or_FQDN_of_connected_registry>:<port>
 ```
 
 For IoT Edge scenarios, be sure to include the port used to reach the connected registry on the device. Example:
 
 ```
 docker login --username myconnectedregistry-client-token \
-  --password xxxxxxxxxxx myedgevm.eastus.cloudapp.azure.com:8000
+  --password xxxxxxxxxxx 192.0.2.13:8000
 ```
 
 Then, use the following command to pull the `hello-world` image:

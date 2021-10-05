@@ -20,11 +20,9 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
   > [!IMPORTANT]
   > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md). 
 
-* Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `read-write` or `read-only` mode can be used in this scenario. In the commands in this article, the connected registry name is stored in the environment variable *CONNECTED_REGISTRY_RW*.
+* Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `ReadWrite` or `ReadOnly` mode can be used in this scenario. In the commands in this article, the connected registry name is stored in the environment variable *CONNECTED_REGISTRY_RW*.
 
-[!INCLUDE [ntainer-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
-
-[!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
+[!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
 
 ## Retrieve connected registry configuration
 
