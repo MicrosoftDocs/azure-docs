@@ -1,20 +1,19 @@
 ---
 title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/05/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ---
 
-
 # How to provision for multitenancy 
 
-This article demonstrates how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This article demonstrates how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies that are defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
-* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
+* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
 * **Multi-tenancy**: Devices used within an IoT solution may need to be assigned to a specific IoT hub or group of IoT hubs. The solution may require all devices for a particular tenant to communicate with a specific group of IoT hubs. In some cases, a tenant may own IoT hubs and require devices to be assigned to their IoT hubs.
 
@@ -29,101 +28,104 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 > * Set up the development environment for the Azure IoT C SDK on both Linux VMs
 > * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-
 ## Prerequisites
 
-- Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
-In this section, you will use the Azure Cloud Shell to create two new regional IoT hubs in the **West US** and **East US** regions for a tenant.
+In this section, you'll create an Azure resource group, and two new regional IoT hub resources for a tenant. One IoT hub will be for the **West US** region and the other is will be for the **East US** regions. 
 
+>[!IMPORTANT]
+>It is recommended that you use the same resource group for all resources created in this article. This will make clean up easier after you are finished.
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
-
-    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This will make clean up easier after you are finished.
+1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az_group_create) command:
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Use the Azure Cloud Shell to create an IoT hub in the **eastus** region with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. The IoT hub will be added to the *contoso-us-resource-group*.
-
-    The following example creates an IoT hub named *contoso-east-hub* in the *eastus* location. You must use your own unique hub name instead of **contoso-east-hub**.
+2. Create an IoT hub in the *eastus* location and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-east-hub --resource-group contoso-us-resource-group --location eastus --sku S1
-    ```
-    
-    This command may take a few minutes to complete.
-
-3. Use the Azure Cloud Shell to create an IoT hub in the **westus** region with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This IoT hub will also be added to the *contoso-us-resource-group*.
-
-    The following example creates an IoT hub named *contoso-west-hub* in the *westus* location. You must use your own unique hub name instead of **contoso-west-hub**.
-
-    ```azurecli-interactive 
-    az iot hub create --name contoso-west-hub --resource-group contoso-us-resource-group --location westus --sku S1
+    az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
 
     This command may take a few minutes to complete.
 
+3. Finally, create an IoT hub in the *westus* location add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
 
+    ```azurecli-interactive 
+    az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus --sku S1
+    ```
+
+    This command may take a few minutes to complete.
 
 ## Create the multitenant enrollment
 
-In this section, you will create a new enrollment group for the tenant devices.  
+In this section, you'll create a new enrollment group for the tenant devices.  
 
 For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
+1. In the Azure portal, select your Device Provisioning Service.
 
-2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page. 
+2. In the **Settings** menu, select **Manage enrollments**.
 
-3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
+3. Select **+ Add enrollment group**.
 
-    **Group name**: Enter **contoso-us-devices**.
+4. On the **Add Enrollment Group** page, enter the following information:
 
-    **Attestation Type**: Select **Symmetric Key**.
+    **Group name**: Enter *contoso-us-devices*.
+
+    **Attestation Type**: Select *Symmetric Key*.
 
     **Auto Generate Keys**: This checkbox should already be checked.
 
-    **Select how you want to assign devices to hubs**: Select **Lowest latency**.
+    **Select how you want to assign devices to hubs**: Select *Lowest latency*.
 
-    ![Add multitenant enrollment group for symmetric key attestation](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
+5. Select **Link a new IoT Hub**
 
+    :::image type="content" source="./media/how-to-provision-multitenant/create-multitenant-enrollment.png" alt-text="Add multitenant enrollment group for symmetric key attestation.":::
 
-4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your regional hubs.
+6. On the **Add link to IoT hub** page, enter the following information:
 
     **Subscription**: If you have multiple subscriptions, choose the subscription where you created the regional IoT hubs.
 
-    **IoT hub**: Select one of the regional hubs you created.
+    **IoT hub**: Select the IoT hub that you created for the *eastus* location.
 
-    **Access Policy**: Choose **iothubowner**.
+    **Access Policy**: Select *iothubowner*.
 
-    ![Link the regional IoT hubs with the provisioning service](./media/how-to-provision-multitenant/link-regional-hubs.png)
+    :::image type="content" source="./media/how-to-provision-multitenant/link-regional-hubs.png" alt-text="Link the regional IoT hubs with the provisioning service.":::
 
+7. Select **Save**.
 
-5. Once both regional IoT hubs have been linked, you must select them for the enrollment group and click **Save** to create the regional IoT hub group for the enrollment.
+8. Repeat Steps 5 through 7 for the second IoT hub that you created for the *westgus* location.
 
-    ![Create the regional hub group for the enrollment](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
+9. Select the two IoT Hubs you created in the **Select the IoT hubs this group c an be assigned to** drop down.
 
+    :::image type="content" source="./media/how-to-provision-multitenant/enrollment-regional-hub-group.png" alt-text="Select the linked IoT hubs.":::
 
-6. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for both simulated devices later.
+10. Select **Save**
 
+11. Select *contoso-us-devices* in the enrollment groups list.
+
+12. Copy the *Primary Key*. This key will be used later to generate unique device keys for both simulated devices.
+
+    :::image type="content" source="./media/how-to-provision-multitenant/copy-primary-key.png" alt-text="Copy the primary key.":::
 
 ## Create regional Linux VMs
 
-In this section, you will create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for tenant devices from both regions.
+In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for tenant devices from both regions.
 
 To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US** and **East US**).
 
-1. In the Azure Cloud Shell, execute the following command to create an **East US** region VM after making the following parameter changes in the command:
+1. In the Azure Cloud Shell, run the following command to create an **East US** region VM after making the following parameter changes in the command:
 
-    **--name**: Enter a unique name for your **East US** regional device VM. 
+    **--name**: Enter a unique name for your **East US** regional device VM.
 
     **--admin-username**: Use your own admin user name.
 
@@ -138,11 +140,12 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --admin-username contosoadmin \
     --admin-password myContosoPassword2018 \
     --authentication-type password
+    --public-ip-sku Standard
     ```
 
     This command will take a few minutes to complete. Once the command has completed, make a note of the **publicIpAddress** value for your East US region VM.
 
-1. In the Azure Cloud Shell, execute the command to create a **West US** region VM after making the following parameter changes in the command:
+2. In the Azure Cloud Shell, execute the command to create a **West US** region VM after making the following parameter changes in the command:
 
     **--name**: Enter a unique name for your **West US** regional device VM. 
 
@@ -159,11 +162,12 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --admin-username contosoadmin \
     --admin-password myContosoPassword2018 \
     --authentication-type password
+    --public-ip-sku Standard
     ```
 
     This command will take a few minutes to complete. Once the command has completed, make a note of the **publicIpAddress** value for your West US region VM.
 
-1. Open two command-line shells. Connect to one of the regional VMs in each shell using SSH. 
+3. Open two command-line shells. Connect to one of the regional VMs in each shell using SSH. 
 
     Pass your admin username, and the public IP address you noted for the VM as parameters to SSH. Enter the admin password when prompted.
 
