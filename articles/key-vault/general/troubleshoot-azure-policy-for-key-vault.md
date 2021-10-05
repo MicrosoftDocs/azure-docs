@@ -11,9 +11,11 @@ ms.topic: how-to
 ---
 # Troubleshooting issues with implementing Azure policy on Key Vault
 
-## Troubleshoot
-
 This article guides you how to troubleshoot general errors that might occur when you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
+
+## About Azure policy for Key Vault
+
+[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they are compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they will be able to see a drill down of which resources and components are compliant and which are not.
 
 ### Logging
 
@@ -75,9 +77,9 @@ The following table lists the field names and descriptions:
 | **ExpressionEvaluationDetails** | Details about what evaluation field, expression value |
 
 
-### Frequently Asked Questions
+### Frequently asked questions
 
-#### 1. Key Vault recovery blocked by Azure policy
+#### Key Vault recovery blocked by Azure policy
 
 One of the reasons could be that your subscription (or management group) has a policy that is blocking the recovery. The fix is to adjust the policy so that it does not apply when a vault is being recovered.
 
@@ -122,19 +124,19 @@ You'll see that it has a clause that causes the policy to only apply when "creat
     }
 ```
 
-#### 2. Latency on Azure policy assignment delete on Key Vault 
+#### Latency on Azure policy assignment delete on Key Vault 
 
 Microsoft.KeyVault.Data: a deleted policy assignment can take up to 24 hours to stop being enforced. 
 
 Mitigation: update the policy assignment's effect to 'Disabled'.
 
 
-#### 3. Secret creation via ARM template missing out policy evaluation
+#### Secret creation via ARM template missing out policy evaluation
 
 Data plane policies that evaluate secret creation would not be applicable on [secrets created via ARM template](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template?tabs=CLI) at the time of secret creation. After 24 hours, when the automated compliance check would occur, and the compliance results can be reviewed.
 
 
-## Next Steps
+## Next steps
 
 * Learn how to [Troubleshoot errors with using Azure Policy](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general)
 * Learn about [Azure Policy known issues](https://github.com/azure/azure-policy#known-issues)
