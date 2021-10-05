@@ -14,7 +14,7 @@ ms.date: 10/05/2021
 Resource metrics are available for every node of a Hyperscale (Citus) server
 group, and in aggregate across the nodes.
 
-## Viewing metrics
+## View metrics
 
 To access metrics for a Hyperscale (Citus) server group, open **Metrics**
 under **Monitoring** in the Azure portal.
@@ -27,7 +27,7 @@ each metric, see [here](concepts-hyperscale-monitoring.md#list-of-metrics).
 
 :::image type="content" source="media/howto-hyperscale-monitoring/dimensions.png" alt-text="Select dimension":::
 
-### Viewing metrics per node
+### View metrics per node
 
 Viewing each node's metrics separately on the same graph is called "splitting."
 To enable it, select **Apply splitting**:

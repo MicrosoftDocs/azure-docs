@@ -35,7 +35,7 @@ By default, the Azure portal aggregates Hyperscale (Citus) metrics across nodes
 in a server group. However, some metrics, such as disk usage percentage, are
 more informative on a per-node basis. To see metrics for nodes displayed
 individually, use Azure Monitor [metric
-splitting](howto-hyperscale-monitoring.md#viewing-metrics-per-node) by server
+splitting](howto-hyperscale-monitoring.md#view-metrics-per-node) by server
 name.
 
 > [!NOTE]
