@@ -1,21 +1,21 @@
 ---
 author: trngo
 description: Learn how to delete individual containers using az-cli
-title: Delete Fluid Containers
+title: Delete Fluid containers
 ms.author: trngo
 ms.date: 09/28/2021
 ms.service: azure-fluid
 ms.topic: reference
 ---
 
-# Delete Fluid Containers in Microsoft Azure Fluid Relay Server
+# Delete Fluid containers in Microsoft Azure Fluid Relay Server
 In this scenario, we will be deleting an existing Fluid container. Once a container is deleted, applications referencing the container will no longer be able to access the container or its data. 
 
-## Requirements to Delete a Fluid Container
+## Requirements to delete a Fluid container
 - To get started, you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). If you already have Azure CLI installed, please ensure your version is 2.0.67 or greater by running `az version`.
 - In order to delete a Fluid container, you must ensure your application and its clients are no longer connected to the container.
 
-## List the Containers within a Fluid Relay Resource
+## List the containers within a Fluid Relay resource
 To see all of the containers belonging to your Fluid Relay resource, you can run the following command:
 ```
 az rest --method get --uri https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.FluidRelay/FluidRelayServers/<frsResourceName>/FluidRelayContainers?api-version=<apiVersion>
@@ -29,7 +29,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/<subscript
 **apiVersion**: API Version of resource provider. Minimum supported version is **2021-08-30-preview**.  
 
 
-## Sample Output
+## Sample output
 The output will contain a list of containers belonging to your Fluid Relay resource and their properties.
 ```json
 {
@@ -50,7 +50,7 @@ The output will contain a list of containers belonging to your Fluid Relay resou
 ```
 
 
-## Delete an Existing Container
+## Delete an existing container
 To delete a container, you need to identify the **containerId** of the container from the output above and run the follow command: 
 ```
 az rest --method delete --uri https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.FluidRelay/FluidRelayServers/<frsResourceName>/FluidRelayContainers/<frsContainerId>?api-version=<api-version>
