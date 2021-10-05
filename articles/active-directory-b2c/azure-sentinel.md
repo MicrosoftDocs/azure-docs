@@ -21,14 +21,14 @@ You can further secure your Azure Active Directory B2C (Azure AD B2C) environmen
 By using Azure Sentinel with Azure AD B2C, you can:
 
 - Detect previously undetected threats and minimize false positives by using Microsoft's analytics and threat intelligence.
-- Investigate threats with artificial intelligence. Hunt for suspicious activities at scale, and tap into years of cybersecurity-related work at Microsoft.
+- Investigate threats with AI. Hunt for suspicious activities at scale, and tap into years of cybersecurity-related work at Microsoft.
 - Respond to incidents rapidly with built-in orchestration and automation of common tasks.
 - Meet security and compliance requirements for your organization.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Transfer the Azure AD B2C logs to a Log Analytics workspace.
+> * Transfer Azure AD B2C logs to a Log Analytics workspace.
 > * Enable Azure Sentinel in a Log Analytics workspace.
 > * Create a sample rule in Azure Sentinel that will trigger an incident.
 > * Configure an automated response.
@@ -65,7 +65,7 @@ After you've configured your Azure AD B2C instance to send logs to Azure Monitor
 
 Now that you've enabled Azure Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
 
-You can create [custom analytics rules](../sentinel/detect-threats-custom.md) to discover threats and anomalous behaviors that are present in your environment. These rules search for specific events or sets of events and alert you when certain event thresholds or conditions are reached. Then they generate incidents for further investigation.
+You can create [custom analytics rules](../sentinel/detect-threats-custom.md) to discover threats and anomalous behaviors in your environment. These rules search for specific events or sets of events and alert you when certain event thresholds or conditions are reached. Then they generate incidents for further investigation.
 
 >[!NOTE]
 >Azure Sentinel provides built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
@@ -115,8 +115,11 @@ In the following example, you receive a notification if someone tries to force a
 9. View the results of your new rule for Azure AD B2C unsuccessful logins. Go to the **Incidents** page, where you can triage, investigate, and remediate the threats. 
 
     An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
+
+    > [!NOTE]
+    > A key feature of Azure Sentinel is [incident investigation](../sentinel/investigate-cases.md).
     
-10. A key feature of Azure Sentinel is [incident investigation](../sentinel/investigate-cases.md). To begin the investigation, select a specific incident. 
+10. To begin an investigation, select a specific incident. 
 
     On the right, you can see detailed information for the incident. This information includes severity, entities involved, the raw events that triggered the incident, and the incident's unique ID.
 
