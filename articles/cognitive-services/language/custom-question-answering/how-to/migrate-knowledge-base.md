@@ -21,7 +21,7 @@ You may want to create a copy of your project for several reasons:
 
 ## Export a project
 
-Exporting a project allows you to migrate or backup all the sources/knowledge bases that are contained within a single project.
+Exporting a project allows you to migrate or back up all the sources/knowledge bases that are contained within a single project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/).
 1. Select the language resource you want to migrate a project from.
@@ -30,20 +30,20 @@ Exporting a project allows you to migrate or backup all the sources/knowledge ba
 
 ## Import a project  
 
-1. Select the language resource which will be the destination for your previously exported project.
+1. Select the language resource, which will be the destination for your previously exported project.
 1. On the **Projects** page, select **Import** and choose the format used when you selected export. Then browse to the local .zip file containing your exported project. Enter a name for your newly imported project and select **Done**.
 
 ## Export question and answers
 
 1. Select the language resource you want to migrate an individual question answer source from.
 1. Select the project that contains the question and answer source you wish to export.
-1. On the **Edit knowledge base** page select the three elipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV. 
+1. On the Edit knowledge base page, select the three ellipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV. 
 
 ## Import question and answers
 
-1. Select the language resource which will be the destination for your previously exported question and answer source.
+1. Select the language resource, which will be the destination for your previously exported question and answer source.
 1. Select the project where you want to import a question and answer source.
-1. On the **Edit knowledge base** page select the three elipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either a Excel or TSV file.
+1. On the Edit knowledge base page, select the three ellipses (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either an Excel or TSV file.
 1. Browse to the local location of the file with the **Choose File** option and select **Done**.
 
 <!-- TODO: Replace Link-->
@@ -52,12 +52,9 @@ Exporting a project allows you to migrate or backup all the sources/knowledge ba
 <!-- TODO: Replace Link-->
 4. **Deploy** the knowledge base and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-   > [!div class="mx-imgBorder"]
-   > ![Migrate knowledge base](../media/migrate-knowledge-base/import-export-kb.png)
-
 ## Chat logs
 
-There is no way to migrate chat logs in conjunction with projects or knowledge bases. If diagnostic logs are enabled chat logs are stored in the associated Azure Monitor resource.
+There is no way to migrate chat logs with projects or knowledge bases. If diagnostic logs are enabled, chat logs are stored in the associated Azure Monitor resource.
 
 ## Next steps
 
