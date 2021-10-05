@@ -13,7 +13,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 Java auto-instrumentation can be enabled without any code changes, and it works in any environment.
 
 > [!NOTE]
-> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to add the [Java 2.x SDK](./java-2x-get-started.md).
+> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to use the `opentelemetry-api`. For versions older than 3.2.0 you'll need the the [Java 2.x SDK](./java-2x-get-started.md).
 
 ## Get started
 
@@ -221,100 +221,85 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 #### Set user ID or authenticated user ID
 Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
 
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
-
 > [!IMPORTANT]
 > Consult applicable privacy laws before setting Authenticated User ID.
 
 > [!NOTE]
-> This feature is only in 3.0.2 and later
+> This feature is only in 3.2.0 and later
 
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
 
 ```xml
 <dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-api</artifactId>
+  <version>1.6.0</version>
 </dependency>
 ```
 
 and set the `user_Id` in your code:
 
 ```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
+import io.opentelemetry.api.trace.Span;
 
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getContext().getUser().setId("myuser");
+Span.current().setAttribute("enduser.id", "myuser");
 ```
 
 #### Set User IP
-Populate the _client_IP_ field in the requests, dependencies, and/or exceptions table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+The _client_IP_ field in the requests, dependencies, and/or exceptions table are auto collected by Java 3.X auto-instrumentation. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
-> [!TIP]
-> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
-
-```java
-Placeholder
-```
 
 ### Override span name
-You may use X to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+You may use `opentelemetry-api` to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 > [!NOTE]
-> This feature is only in 3.0.2 and later
+> This feature is only in 3.2.0 and later
 
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
 
 ```xml
 <dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-api</artifactId>
+  <version>1.6.0</version>
 </dependency>
 ```
 
 and set the name in your code:
 
 ```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
+import io.opentelemetry.api.trace.Span;
 
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.setName("myname");
+Span.current().updateName("myspanname")
 ```
 
 ### Get trace ID or span ID
 
-You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
+You may use `opentelemetry-api` to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
 
 > [!NOTE]
 > If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
 
 > [!NOTE]
-> This feature is only in 3.0.3 and later
+> This feature is only in 3.2.0 and later
 
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+Add `opentelemetry-api-1.6.0.jar` to your applicatio to your application
 
 ```xml
 <dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-api</artifactId>
+  <version>1.6.0</version>
 </dependency>
 ```
 
-and get the request telemetry ID and the operation ID in your code:
+and get the request trace ID and the span ID in your code:
 
 ```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
+import io.opentelemetry.api.trace.Span;
 
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-String requestId = requestTelemetry.getId();
-String operationId = requestTelemetry.getContext().getOperation().getId();
+String traceId = Span.current().getSpanContext().getTraceId();
+String spanId = Span.current().getSpanContext().getSpanId();
 ```
 ## Custom telemetry
 
@@ -326,17 +311,17 @@ and correlates it with auto-collected telemetry.
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, custom requests, dependencies and exceptions can be enabled through `opentelemetry-api` and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
 
-|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
-|---------------------|------------|---------------------|---------|
-| **Custom Events**   |            |                     |  Yes    |
-| **Custom Metrics**  |  Yes       |                     |  Yes    |
-| **Dependencies**    |            |                     |  Yes    |
-| **Exceptions**      |            |  Yes                |  Yes    |
-| **Page Views**      |            |                     |  Yes    |
-| **Requests**        |            |                     |  Yes    |
-| **Traces**          |            |  Yes                |  Yes    |
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
+|---------------------|------------|---------------------|---------|-------------------|
+| **Custom Events**   |            |                     |  Yes    |                   |
+| **Custom Metrics**  |  Yes       |                     |  Yes    |                   |
+| **Dependencies**    |            |                     |  Yes    |  Yes              |
+| **Exceptions**      |            |  Yes                |  Yes    |  Yes              |
+| **Page Views**      |            |                     |  Yes    |                   |
+| **Requests**        |            |                     |  Yes    |  Yes              |
+| **Traces**          |            |  Yes                |  Yes    |                   |
 
 We're not planning to release an SDK with Application Insights 3.x at this time.
 
@@ -446,17 +431,6 @@ try {
     telemetryClient.trackException(e);
 }
 ```
-
-## Enable OTLP Exporter
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
-
-Add the code to xyz.file in your application.
-```Java
-Placeholder
-```
-
-> [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you [open an issue with the OpenTelemetry community](https://github.com/open-telemetry/opentelemetry-java-instrumentation/issues/new/choose) for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
 See [Troubleshooting](java-standalone-troubleshoot.md).
