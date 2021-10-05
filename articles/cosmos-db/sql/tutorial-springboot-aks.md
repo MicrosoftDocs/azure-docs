@@ -25,7 +25,15 @@ In this tutorial, you will set up and build a Spring Boot application to perform
 - [Git](https://www.git-scm.com/downloads).
 - [curl](https://curl.se/download.html) to invoke REST APIs exposed the applications.
 
-## Create a resource group for the Azure resources used in this tutorial
+## Provision Azure services
+
+In this section, you will create Azure services required for this tutorial.
+
+- Azure Cosmos DB
+- Azure Container Registry
+- Azure Kubernetes Service
+
+### Create a resource group for the Azure resources used in this tutorial
 
 1. Sign in to your Azure account using Azure CLI:
 
@@ -45,15 +53,15 @@ In this tutorial, you will set up and build a Spring Boot application to perform
    az group create --name=cosmosdb-springboot-aks-rg --location=eastus
    ```
 
-## Create an Azure Cosmos DB SQL API database account
+### Create an Azure Cosmos DB SQL API database account
 
-Use this command to create an [Azure Cosmos DB SQL API database account](manage-with-cli#create-an-azure-cosmos-db-account) using the Azure CLI.
+Use this command to create an [Azure Cosmos DB SQL API database account](manage-with-cli.md#create-an-azure-cosmos-db-account) using the Azure CLI.
 
 ```azurecli
 az cosmosdb create --name <enter account name> --resource-group <enter resource group name>
 ```
 
-## Create a private Azure Container Registry using the Azure CLI
+### Create a private Azure Container Registry using the Azure CLI
 
 > [!NOTE]
 > Replace `cosmosdbspringbootregistry` with a unique name for your registry.
@@ -63,7 +71,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
     --name cosmosdbspringbootregistry --sku Basic
 ```
 
-## Create an AKS cluster using the Azure CLI
+### Create an AKS cluster using the Azure CLI
 
 1. The following command creates a Kubernetes cluster in the *cosmosdb-springboot-aks-rg* resource group, with *cosmosdb-springboot-aks* as the cluster name, with Azure Container Registry (ACR) `cosmosdbspringbootregistry` attached:
 
@@ -113,10 +121,6 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
 
 > [!NOTE]
 > If you intend to run the application on AKS, skip this section and move to [Push Docker image to Azure Container Registry](#push-docker-image-to-azure-container-registry)
-
-
-
-
 
 1. Before you run the application, update the `application.properties` file with the details of your Azure Cosmos DB account.
 
