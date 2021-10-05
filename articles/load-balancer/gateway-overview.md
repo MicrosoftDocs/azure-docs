@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Gateway load balancer (Preview)
 
-Azure load balancer consists of standard, basic, and gateway SKUs. Gateway load balancer is a SKU catered specifically for high performance and high availability scenarios with Network Virtual Appliances (NVAs). With the capabilities of gateway load balancer, you can easily deploy, scale, and manage NVAs. Chaining a gateway load balancer to your standard load balancer or public IP, only requires one click. In scenarios with NVAs, it's important that flows are "sticky". This "stickiness" ensures the sessions are maintained.
+Azure load balancer consists of standard, basic, and gateway SKUs. Gateway load balancer is a SKU catered specifically for high performance and high availability scenarios with Network Virtual Appliances (NVAs). With the capabilities of gateway load balancer, you can easily deploy, scale, and manage NVAs. Chaining a gateway load balancer to your standard load balancer or public IP, is a simple procedure. In scenarios with NVAs, it's important that flows are "sticky". This "stickiness" ensures the sessions are maintained.
 
 ## Benefits
 
