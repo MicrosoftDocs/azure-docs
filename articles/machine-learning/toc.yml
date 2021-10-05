@@ -732,6 +732,8 @@
       items:
         - name: Overview
           href: reference-yaml-overview.md
+        - name: Core syntax
+          href: reference-yaml-core-syntax.md
         - name: Workspace
           href: reference-yaml-workspace.md
         - name: Environment
