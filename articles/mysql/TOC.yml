@@ -506,7 +506,7 @@
         items:
         - name: GitHub Actions
           href: quickstart-mysql-github-actions.md
-        - name: Azure pipelines
+        - name: Azure Pipelines
           href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Server Management
       items:
