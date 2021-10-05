@@ -160,7 +160,7 @@ Here are best practices for using queries in serverless SQL pool.
 
 ### Push wildcards to lower levels in the path
 
-You can use wildcards in your path to [query multiple files and folders](query-data-storage.md#query-multiple-files-or-folders). Serverless SQL pool lists files in your storage account, starting from the first asterisk (*) using storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
+You can use wildcards in your path to [query multiple files and folders](query-data-storage.md#query-multiple-files-or-folders). Serverless SQL pool lists files in your storage account, starting from the first asterisk (*), by using the storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
 
 ### Use filename and filepath functions to target specific partitions
 
