@@ -3,7 +3,7 @@ title: Quickstart - Manage container registry content with client libraries
 description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client libraries
 author: dlepow
 ms.topic: quickstart
-ms.date: 09/17/2021
+ms.date: 10/05/2021
 ms.author: danlep
 ms.custom:
 zone_pivot_groups: programming-languages-set-ten       
@@ -469,45 +469,112 @@ client = ContainerRegistryClient(account_url, DefaultAzureCredential())
 
 Each sample assumes there is a `CONTAINERREGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-### Delete three oldest tags in a repository asynchronously
+### List tags asynchronously
+
+This sample assumes the registry has a repository `hello-world`.
 
 ```python
 import asyncio
 from dotenv import find_dotenv, load_dotenv
 import os
 
+from azure.containerregistry.aio import ContainerRegistryClient
+from azure.identity.aio import DefaultAzureCredential
 
-class DeleteOperations(object):
+
+class ListTagsAsync(object):
     def __init__(self):
         load_dotenv(find_dotenv())
-        self.account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
 
-    async def delete_old_tags(self):
-        from azure.containerregistry import TagOrder
-        from azure.containerregistry.aio import (
-            ContainerRegistryClient,
-        )
-        from azure.identity.aio import DefaultAzureCredential
-
-        # [START list_repository_names]
+    async def list_tags(self):
+        # Create a new ContainerRegistryClient      
+        audience = "https://management.azure.com"
         account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
         credential = DefaultAzureCredential()
-        client = ContainerRegistryClient(account_url, credential)
+        client = ContainerRegistryClient(account_url, credential, audience=audience)
+
+        manifest = await client.get_manifest_properties("library/hello-world", "latest")
+        print(manifest.repository_name + ": ")
+        for tag in manifest.tags:
+            print(tag + "\n")
+```
+
+### Set artifact properties asynchronously
+
+This sample assumes the registry has a repository `hello-world` with image tagged `v1`.
+
+```python
+import asyncio
+from dotenv import find_dotenv, load_dotenv
+import os
+
+from azure.containerregistry.aio import ContainerRegistryClient
+from azure.identity.aio import DefaultAzureCredential
+
+
+class SetImagePropertiesAsync(object):
+    def __init__(self):
+        load_dotenv(find_dotenv())
+
+    async def set_image_properties(self):
+        # Create a new ContainerRegistryClient
+        account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
+        audience = "https://management.azure.com"
+        credential = DefaultAzureCredential()
+        client = ContainerRegistryClient(account_url, credential, audience=audience)
+
+        # [START update_manifest_properties]
+        # Set permissions on the v1 image's "latest" tag
+        await client.update_manifest_properties(
+            "library/hello-world",
+            "latest",
+            can_write=False,
+            can_delete=False
+        )
+        # [END update_manifest_properties]
+        # After this update, if someone were to push an update to "myacr.azurecr.io\hello-world:v1", it would fail.
+        # It's worth noting that if this image also had another tag, such as "latest", and that tag did not have
+        # permissions set to prevent reads or deletes, the image could still be overwritten. For example,
+        # if someone were to push an update to "myacr.azurecr.io\hello-world:latest"
+        # (which references the same image), it would succeed.
+```
+
+### Delete images asynchronously
+
+```python
+import asyncio
+from dotenv import find_dotenv, load_dotenv
+import os
+
+from azure.containerregistry import ManifestOrder
+from azure.containerregistry.aio import ContainerRegistryClient
+from azure.identity.aio import DefaultAzureCredential
+
+
+class DeleteImagesAsync(object):
+    def __init__(self):
+        load_dotenv(find_dotenv())
+
+    async def delete_images(self):
+        # [START list_repository_names]   
+        audience = "https://management.azure.com"
+        account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
+        credential = DefaultAzureCredential()
+        client = ContainerRegistryClient(account_url, credential, audience=audience)
 
         async with client:
             async for repository in client.list_repository_names():
                 print(repository)
                 # [END list_repository_names]
 
-                # [START list_tag_properties]
-                # Keep the three most recent tags, delete everything else
-                tag_count = 0
-                async for tag in client.list_tag_properties(repository, order_by=TagOrder.LAST_UPDATE_TIME_DESCENDING):
-                    tag_count += 1
-                    if tag_count > 3:
-                        await client.delete_tag(repository, tag.name)
-                # [END list_tag_properties]
-
+                # [START list_manifest_properties]
+                # Keep the three most recent images, delete everything else
+                manifest_count = 0
+                async for manifest in client.list_manifest_properties(repository, order_by=ManifestOrder.LAST_UPDATE_TIME_DESCENDING):
+                    manifest_count += 1
+                    if manifest_count > 3:
+                        await client.delete_manifest(repository, manifest.digest)
+                # [END list_manifest_properties]
 ```
 
 ::: zone-end
