@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 10/05/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell
 ---
@@ -136,7 +136,10 @@ The domain object that represents your storage account must meet the following r
 
 If your domain object doesn't meet those requirements, delete it and create a new domain object that does.
 
-Then, use the following command to configure AES256 support: `Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"`
+Replace `<domain-object-identity>` and `<domain-name>` with your values, then use the following command to configure AES256 support: 
+```powershell
+Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
 
 After you've ran that command, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
