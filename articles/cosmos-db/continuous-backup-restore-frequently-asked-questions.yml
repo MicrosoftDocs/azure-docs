@@ -91,7 +91,7 @@ sections:
           Is continuous backup with point-in-time restore  supported for Azure Synapse Link enabled accounts?
         answer: |
 
-          No. Currently these two features, continuos backup mode and Synapse Link, can't coexist in the same database account.
+          No. Currently these two features, continuous backup mode and Synapse Link, can't coexist in the same database account.
 
       - question: |
           Is periodic backup mode supported for Azure Synapse Link enabled accounts?
