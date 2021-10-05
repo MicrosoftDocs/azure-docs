@@ -1,193 +1,216 @@
 ---
 title: 'Register and scan Azure Data Lake Storage (ADLS) Gen1'
-description: This tutorial describes how to scan data from Azure Data Lake Storage Gen1 into Azure Purview. 
-author: shsandeep123
-ms.author: sandeepshah
+description: This article outlines the process to register an Azure Data Lake Storage Gen1 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen 1 source
+author: athenads
+ms.author: athenadsouza
 ms.service: purview
-ms.subservice: purview-data-map
-ms.topic: how-to
-ms.date: 09/27/2021
-# Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen1 into the catalog.
----
-# Register and scan Azure Data Lake Storage Gen1
+ms.topic: how-to 
+ms.date: 09/05/2021
+ms.custom: template-how-to
 
-This article outlines how to register Azure Data Lake Storage Gen1 as data source in Azure Purview and set up a scan on it.
+---
+# Connect to Azure Data Lake Gen1 in Azure Purview
+
+[This article outlines the process to register an Azure Data Lake Storage Gen1 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen1 source]
 
 > [!Note]
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 ## Supported capabilities
 
-The Azure Data Lake Storage Gen1 data source supports the following functionality:
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Share**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | Yes | N/A |
 
-- **Full and incremental scans** to capture metadata and classification in Azure Data Lake Storage Gen1
-
-- **Lineage** between data assets for ADF copy/dataflow activities
-
-For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
-
-1. First row values are non-empty
-2. First row values are unique
-3. First row values are neither a date and nor a number
 
 ## Prerequisites
 
-- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be an Azure Purview Data Source Admin
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Setting up authentication for a scan
+* An active [Purview resource](create-catalog-portal.md).
 
-The following authentication methods are supported for Azure Data Lake Storage Gen1:
+* You need to be an Azure Purview Data Source Admin
 
-- Managed Identity
-- Service principal
+## Register
 
-### Managed Identity (Recommended)
+This section will enable you to register the ADLS Gen1 data source and set up an appropriate authentication mechanism to ensure successful scanning of the data source
 
-For ease and security, you may want to use Purview MSI to authenticate with your data store.
+### Prerequisites for registration
 
-To set up a scan using the Data Catalog's MSI, you must first give your Purview account the permission to scan the data source. This step must be done *before* you set up your scan or your scan will fail.
+1. Ensure that the hierarchy, aligning with the organization’s strategy (for example, geographical, business function, source of data, etc.) is created using Collections to define the data sources to be registered and scanned
+1. Ensure permissions are set up at the Collection level in order to manage access control appropriately
+1. Ensure that the Purview Account User has appropriate permissions defined in the root Collection [Catalog Permissions](./catalog-permissions.md#who-should-be-assigned-to-what-role)
+1. [Azure Purview private endpoint](./catalog-private-link.md) is enabled for connectivity to the Azure Purview Studio using a private network
 
-#### Adding the Purview MSI to an Azure Data Lake Storage Gen1 account
 
-You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions
-on.
+### Steps to register
+
+It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
+
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and click on your _Purview account_
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
+
+2. **Open Purview Studio** and navigate to the **Data Map --> Sources**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
+
+3. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual sub-collections, as required
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-collection.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
+
+4. Navigate to the appropriate collection under the **Sources** menu and click on the **Register** icon to register a new ADLS Gen1 data source
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-register.png" alt-text="Screenshot that shows the collection used to register the data source":::
+
+5. Select the **Azure Data Lake Storage Gen1** data source and click **Continue**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-select-source.png" alt-text="Screenshot that allows selection of the data source":::
+
+6. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and click on **Apply**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
+
+7. The ADLS Gen1 storage account will be shown under the selected Collection
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-source-hierarchy.png" alt-text="Screenshot that shows the data source mapped to the collection to initiate scanning":::
+
+## Scan
+
+### Prerequisites for scan
+
+In order to have access to scan the data source, an authentication method in the ADLS Gen1 Storage account needs to be configured.
+The following options are supported:
+
+> [!Note]
+> If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+
+1. **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+
+2. **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+
+### Authentication for a scan
+
+#### Using Managed Identity for scanning
+
+It is important to give your Purview account the permission to scan the ADLS Gen1 data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen1 storage account) that you would like to allow the catalog to scan.
+2. Click on **Overview** and then select **Data explorer**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-data-explorer.png" alt-text="Screenshot that shows the storage account":::
 
-2. Select **Overview** and then select **Data explorer**
+3. Click on **Access** in the top navigation
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-storage-access.png" alt-text="Screenshot that shows the Data explorer for the storage account":::
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Choose access control":::
+4. Click on **Select** and Add the _Purview Catalog_ in the **Select user or group** selection.
+5. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add options as shown in the below screenshot. Click on **OK**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
 
-3. Select **Access** on the top navigation
-
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Select Access":::
-
-4. Select **Add**. Add the **Purview Catalog** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add to option as shown in the below screenshot. Select **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="MSI authentication details":::
-   
 > [!Tip]
-> An **access permission entry** is a permission entry on *current* files and folders.
-> A **default permission entry** is a permission entry that will be *inherited* by new files and folders.
-> 
-> To grant permission only to currently existing files, **choose an access permission entry**.
-> 
-> To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
-> 
-> For more information, see the [permissions documentation.](../data-lake-store/data-lake-store-access-control.md#default-permissions-on-new-files-and-folders)
+> An **access permission entry** is a permission entry on _current_ files and folders. A **default permission entry** is a permission entry that will be _inherited_ by new files and folders.
+To grant permission only to currently existing files, **choose an access permission entry**.
+To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
 
-5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+#### Using Service Principal for scanning
 
-6. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
+##### Creating a new service principal
+
+If you need to [Create a new service principal](./create-service-principal-azure.md), it is required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
+
+##### Getting the Service Principal's application ID
+
+1. Copy the **Application (client) ID** present in the **Overview** of the [_Service Principal_](./create-service-principal-azure.md) already created
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sp-appl-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
+
+##### Granting the Service Principal access to your ADLS Gen1 account
+
+It is important to give your service principal the permission to scan the ADLS Gen2 data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!Note]
-> Once you have added the catalog's MSI on the data source, wait up to 15 minutes for the permissions to propagate before setting up a scan.
+> You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
 
-After about 15 minutes, the catalog should have the appropriate permissions to be able to scan the resource(s).
+1. Provide the service principal access to the storage account by opening the storage account and clicking on **Overview** --> **Data Explorer**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-data-explorer.png" alt-text="Screenshot that shows the storage account":::
 
-### Service principal
+2. Click on **Access** in the top navigation
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-storage-access.png" alt-text="Screenshot that shows the Data explorer for the storage account":::
 
-To use a service principal, you must first create one following these steps:
+3. Click on **Select** and Add the _Service Principal_ in the **Select user or group** selection.
+4. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add options. Click on **OK**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sp-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the service principal":::
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+### Creating the scan
 
-2. Select **Azure Active Directory** from the left-hand side menu.
+1. Open your **Purview account** and click on the **Open Purview Studio**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-purview-acct.png" alt-text="Screenshot that shows the Open Purview Studio":::
 
-3. Select **App registrations**.
+2. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-open-purview-studio.png" alt-text="Screenshot that shows the collection hierarchy":::
 
-4. Select **+ New application registration**.
+3. Click on the **New Scan** icon under the **ADLS Gen1 data source** registered earlier
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-new-scan.png" alt-text="Screenshot that shows the data source with the new scan icon":::
 
-5. Enter a name for the **application** (the service principal name).
+#### If using Managed Identity
 
-6. Select **Accounts in this organizational directory only**.
+1. Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan and click on **Test connection**. On a successful connection, click **Continue**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
-7. For **Redirect URI** select **Web** and enter any URL you want; it doesn't have to be real or work.
+#### If using Service Principal
 
-8. Then select **Register**.
+1. Provide a **Name** for the scan, choose the appropriate collection for the scan and click on the **+ New** under **Credential**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sp.png" alt-text="Screenshot that shows the service principal option":::
 
-9. Copy the values from both the display name and the application ID.
+2. Select the appropriate **Key vault connection** and the **Secret name** that was used while creating the _Service Principal_. The **Service Principal ID** is the **Application (client) ID** copied as indicated earlier
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sp-key-vault.png" alt-text="Screenshot that shows the service principal key vault option":::
 
-#### Adding the Purview service principal to an Azure Data Lake Storage Gen1 account
+3. Click on **Test connection**. On a successful connection, click **Continue**
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-sp-test-connection.png" alt-text="Screenshot that shows the test connection for service principal":::
 
-1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen1 storage account) that you would like to allow the catalog to scan.
+### Scoping and running the scan
 
-2. Select **Overview** and then select **Data explorer**
+1. You can scope your scan to specific folders and sub-folders by choosing the appropriate items in the list.
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scope-scan.png" alt-text="Scope your scan":::
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Choose access control":::
+2. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scan-rule-set.png" alt-text="Scan rule set":::
 
-3. Select **Access** on the top navigation
+3. If creating a new _scan rule set_, select the **file types** to be included in the scan rule. 
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-file-types.png" alt-text="Scan rule set file types":::
+   
+4. You can select the **classification rules** to be included in the scan rule
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-classification-rules.png" alt-text="Scan rule set classification rules":::
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Select Access":::
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-select-scan-rule-set.png" alt-text="Scan rule set selection":::
+ 
+5. Choose your scan trigger. You can set up a schedule or run the scan once.
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scan-trigger.png" alt-text="scan trigger":::
+:::image type="content" source="media/register-scan-adls-gen1/register-register-adlsgen1-scan-trigger-selection.png" alt-text="scan trigger selection":::
 
-4. Select **Add**. Add the **Service principal application** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add to option as shown in the below screenshot. Select **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="service principal authentication details":::
+6. Review your scan and select **Save and run**.
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-review-scan.png" alt-text="review scan":::
 
-> [!Tip]
-> An **access permission entry** is a permission entry on *current* files and folders.
-> A **default permission entry** is a permission entry that will be *inherited* by new files and folders.
->
-> To grant permission only to currently existing files, **choose an access permission entry**.
->
-> To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
->
-> For more information, see the [permissions documentation.](../data-lake-store/data-lake-store-access-control.md#default-permissions-on-new-files-and-folders)
+### Viewing Scan
 
-5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Navigate to the _data source_ in the _Collection_ and click on **View Details** to check the status of the scan
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-view-scan.png" alt-text="view scan":::
 
-6. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan.
+1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scan-details.png" alt-text="view scan detail":::
 
-## Register Azure Data Lake Storage Gen1 data source
+1. The **Last run status** will be updated to **In progress** and subsequently **Completed** once the entire scan has run successfully
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scan-in-progress.png" alt-text="view scan in progress":::
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-scan-completed.png" alt-text="view scan completed":::
 
-To register a new ADLS Gen1 account in your data catalog, do the following:
+### Managing Scan
 
-1. Navigate to your Purview Data Catalog.
-2. Select **Data Map** on the left navigation.
-3. Select **Register**
-4. On **Register sources**, select **Azure Data Lake Storage Gen1**. 
-5. Select **Continue**
+Scans can be managed or run again on completion
 
-On the Register sources (Azure Data Lake Storage Gen1) screen, do the following:
+1. Click on the **Scan name** to manage the scan
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-manage-scan.png" alt-text="manage scan":::
 
-1. Enter a **Name** that the data source will be listed with in the Catalog.
-2. Choose your subscription to filter down storage accounts.
-3. Select a storage account.
-4. Select a collection or create a new one (Optional).
-5. Select **Register** to register the data source.
+2. You can _run the scan_ again, _edit the scan_, _delete the scan_  
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-manage-scan-options.png" alt-text="manage scan options":::
 
-:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="register sources options" border="true":::
-
-## Creating and running a scan
-
-To create and run a new scan, do the following:
-
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
-
-1. Select the Azure Data Lake Storage Gen1 source that you registered.
-
-1. Select **New scan**
-
-1. Select the credential to connect to your data source.
-
-   :::image type="content" source="media/register-scan-adls-gen1/set-up-scan-adls-gen1.png" alt-text="Set up scan":::
-
-1. You can scope your scan to specific folders and subfolders by choosing the appropriate items in the list.
-
-   :::image type="content" source="media/register-scan-adls-gen1/gen1-scope-your-scan.png" alt-text="Scope your scan":::
-
-1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
-
-   :::image type="content" source="media/register-scan-adls-gen1/select-scan-rule-set.png" alt-text="Scan rule set":::
-
-1. Choose your scan trigger. You can set up a schedule or run the scan once.
-
-   :::image type="content" source="media/register-scan-adls-gen1/trigger-scan.png" alt-text="trigger":::
-
-1. Review your scan and select **Save and run**.
-
-[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
+3. You can _run an incremental scan_ or a _full scan_ again
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-full-inc-scan.png" alt-text="manage scan full or incremental":::
+:::image type="content" source="media/register-scan-adls-gen1/register-adlsgen1-manage-scan-results.png" alt-text="manage scan results":::
 
 ## Next steps
 
