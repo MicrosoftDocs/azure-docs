@@ -67,11 +67,11 @@ You will require the following files in your repository for running the load tes
 
 1. Authorize the Service Principal to access Azure Load Testing service by assigning the **Load Test Contributor** role. Run the following Az CLI command.
 
-```azurecli
-az role assignment create --assignee "{ObjectID}}" \
---role "Load Test Contributor" \
---subscription "{subscriptionNameOrId}"
-```
+    ```azurecli
+    az role assignment create --assignee "{ObjectID}}" \
+    --role "Load Test Contributor" \
+    --subscription "{subscriptionNameOrId}"
+    ```
 
 1. In your Azure DevOps project, navigate to the Pipelines page. Then choose the action to create a new pipeline.
 
@@ -175,7 +175,7 @@ To add parameters to your load test from pipeline
 
 1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.
 
-`{{get_param(APIKey)}}`
+    `{{get_param(APIKey)}}`
 
 1. Go to the Pipelines page, select the appropriate pipeline, and then select Edit.
 
@@ -202,6 +202,8 @@ To add parameters to your load test from pipeline
 1. Save and run the pipeline.
 
 The Azure Load Testing task, passes the secret from the pipeline to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded.
+
+Take a look at the overview of the Azure Load Testing task in the next section.
 
 ## Azure Load Testing Task
 

@@ -58,22 +58,22 @@ You will require the following files in your repository for running the load tes
 
 1. Create an [Azure Service Principal for RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) by running the below Azure CLI command
 
-```azurecli
-az ad sp create-for-rbac --name "myApp" --role contributor \
-                                 --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                                 --sdk-auth
+    ```azurecli
+    az ad sp create-for-rbac --name "myApp" --role contributor \
+                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                                     --sdk-auth
+            
+            # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
+            # The command should output a JSON object similar to this:
         
-        # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
-        # The command should output a JSON object similar to this:
-    
-      {
-        "clientId": "<GUID>",
-        "clientSecret": "<GUID>",
-        "subscriptionId": "<GUID>",
-        "tenantId": "<GUID>",
-        (...)
-      }
-```
+          {
+            "clientId": "<GUID>",
+            "clientSecret": "<GUID>",
+            "subscriptionId": "<GUID>",
+            "tenantId": "<GUID>",
+            (...)
+          }
+    ```
 
 1. Paste the json response from above Azure CLI to your GitHub Repository > Settings > Secrets > Add a new secret > AZURE_CREDENTIALS.
 
@@ -179,7 +179,7 @@ To add parameters to your load test from the workflow
 
 1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.
 
-`{{get_param(APIKey)}}`
+    `{{get_param(APIKey)}}`
 
 1. Go your GitHub Repository > Settings > Secrets > New repository secret > "mySecret". Add "" as the value and select Add secret.
 
@@ -200,6 +200,8 @@ To add parameters to your load test from the workflow
 1. Save and run the pipeline.
 
 The Azure Load Testing task, passes the secret from the workflow to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded.
+
+Take a look at the overview of the Azure Load Testing action in the next section.
 
 ## Azure Load Testing Action
 
