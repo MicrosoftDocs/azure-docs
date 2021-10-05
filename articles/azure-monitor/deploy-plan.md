@@ -9,11 +9,16 @@ ms.date: 09/28/2021
 ---
 
 # Deploying Azure Monitor - Planning your monitoring strategy and configuration
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor. It defines planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular requirements.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular usiness requirements.
 
-If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). This guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes.
+If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). That guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes. This article will refer to sections of that guide that are relevant to particular planning steps.
 ## Understand Azure Monitor costs
-A core goal of your monitoring strategy will be minimizing costs. Some data collection and features in Azure Monitor have no cost while other have costs based on their particular configuration, amount of data collected, or frequency that they're run. This scenario will identify any recommendations that include a cost, but you should be familiar with Azure Monitor pricing as you design your implementation for cost optimization. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a list of all Azure Monitor costs. 
+A core goal of your monitoring strategy will be minimizing costs. Some data collection and features in Azure Monitor have no cost while other have costs based on their particular configuration, amount of data collected, or frequency that they're run. The articles in this scenario will identify any recommendations that include a cost, but you should be familiar with Azure Monitor pricing as you design your implementation for cost optimization. See the following for details and guidance on Azure Monitor pricing:
+
+- [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
+- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
+- [Manage usage and costs for Application Insights](app/pricing.md)
 
 ## Define strategy
 Before you design and implement any monitoring solution, you should establish a monitoring strategy so that you understand the goals and requirements of your plan. The strategy defines your particular requirements, the configuration that best meets those requirements, and processes to leverage the monitoring environment to maximize your applications' performance and reliability. The configuration options that you choose for Azure Monitor should be consistent with your strategy.
@@ -33,12 +38,12 @@ As you configure your monitoring environment, you need to determine which users 
 Your organization may have SLAs that define your commitments for performance and uptime of your applications. These SLAs may determine how you need to configure time sensitive features of Azure Monitor such as alerts. You will also need to understand [data latency in Azure Monitor](logs/data-ingestion-time.md) since this will affect the responsiveness of monitoring scenarios and your ability to meet SLAs.
 
 ## Identify monitoring services and products
-The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) defines the [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements) you should focus on for your Azure resources. Azure Monitor is designed to address Health and Status monitoring.A complete monitoring solution will typically involve multiple Azure services and potentially other products. 
+Azure Monitor is designed to address Health and Status monitoring. A complete monitoring solution will typically involve multiple Azure services and potentially other products. Other monitoring objectives, which may require additional solutions, are described in the Cloud Monitoring Guide in [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements). 
 
-The following sections describe other services and products that you may use in conjunction with Azure Monitor. This scenario doesn't include guidance on implementing these solutions so you should refer to their documentation.
+The following sections describe other services and products that you may use in conjunction with Azure Monitor. This scenario currently doesn't include guidance on implementing these solutions so you should refer to their documentation.
 
 ### Security monitoring
- Security monitoring in Azure is performed by Azure Security Center and Azure Sentinel. These services each have additional cost, so you should determine their value in your environment before you implement them.
+While the operational data stored in Azure Monitor might be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring in Azure is performed by Azure Security Center and Azure Sentinel.
 
 - [Azure Security Center](../security-center/security-center-introduction.md) collects information about Azure resources and hybrid servers. Although Security Center can collect security events, Security Center focuses on collecting inventory data, assessment scan results, and policy audits to highlight vulnerabilities and recommend corrective actions. Noteworthy features include an interactive network map, just-in-time VM access, adaptive network hardening, and adaptive application controls to block suspicious executables.
 
