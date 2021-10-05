@@ -6684,7 +6684,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
+      "source_path_from_root": "/articles/azure-maps/how-to-request-transit-data.md",
       "redirect_url": "/azure/azure-maps",
       "redirect_document_id": false
     },
