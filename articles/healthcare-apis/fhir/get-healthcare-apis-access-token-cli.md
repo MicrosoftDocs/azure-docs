@@ -58,7 +58,8 @@ curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Invoke-WebRequest -Method GET Headers "Authorization: Bearer $token" -Uri 'https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com/Patient'
+$headers = @{Authorization="Bearer $token"}
+Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com/Patient'
 ```
 
 ---
