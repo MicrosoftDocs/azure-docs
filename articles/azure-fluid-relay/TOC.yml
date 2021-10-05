@@ -32,6 +32,8 @@
       href: how-tos/fluid-json-web-token.md
     - name: 'How to: Use test automation with Azure Fluid Relay'
       href: how-tos/test-automation.md
+    - name: 'How to: Delete a Fluid container'
+      href: how-tos/container-deletion.md
 - name: Reference
   items:
     - name: API documentation
