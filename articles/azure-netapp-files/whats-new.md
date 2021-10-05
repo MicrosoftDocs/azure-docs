@@ -26,15 +26,16 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) (Preview)
 
-    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This has been made possible by innovative hardware and software integration. **Standard** Network Features provide customers with an enhanced Virtual Networking experience through a variety of features for a seamless and consistent experience along with security posture of all their workloads including Azure NetApp Files.
-You are now able to choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
+    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability has been made possible by innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through a variety of features for a seamless and consistent experience along with security posture of all their workloads including Azure NetApp Files.
+    
+    You can now choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
     * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
-    * Enhanced network security with support for [Network Security Groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
-    * Enhanced network control with support for [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) to and from Azure NetApp Files delegated subnets
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) to and from Azure NetApp Files delegated subnets
     * Connectivity over Active/Active VPN gateway setup
-    * [ExpressRoute FastPath](../ expressroute/about-fastpath.md) connectivity to Azure NetApp Files
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
 
-    This public preview is currently available starting with North Central US and will roll out to other regions.  Stay tuned for further information through [Azure Update]( https://azure.microsoft.com/updates/) as more regions and features become available.  
+    This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update]( https://azure.microsoft.com/updates/) as more regions and features become available.  
  
     To learn more, see [Configure network features for an Azure NetApp Files volume](configure-network-features.md).
 
