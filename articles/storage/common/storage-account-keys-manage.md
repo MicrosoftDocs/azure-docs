@@ -101,6 +101,8 @@ To create a key expiration policy from the Azure portal:
 
 5. Click **Save** and exit.
 
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Screenshot showing how to create a key expiration policy in the Azure portal":::
+
 #### [PowerShell](#tab/azure-powershell)
 
 To create a key expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-KeyExpirationPeriodInDay` parameter to the number of days an access key can be active before it should be rotated.
