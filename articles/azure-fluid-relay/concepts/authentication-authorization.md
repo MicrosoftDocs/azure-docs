@@ -2,15 +2,18 @@
 title: Authentication and authorization in your app
 description: Overview of how to use authentication and authorization with an Azure Fluid Relay service. 
 services: azure-fluid
-author: tylerbutler
-ms.author: tylerbu
-ms.date: 09/28/2021
+author: hickeys
+ms.author: hickeys
+ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/auth/
 ---
 
 # Authentication and authorization in your app
+
+> [!NOTE]
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 Security is critical to modern web applications. Fluid Framework, as a part of your web application architecture is an important piece of infrastructure to secure. Fluid Framework is a layered architecture, and auth-related concepts are implemented based on the Fluid service it's connecting to. This means that, although there are common authentication themes across all Fluid services, the details and specifics will differ for each service.
 
@@ -35,7 +38,7 @@ Azure Fluid Relay uses [JSON Web Tokens (JWTs)](https://jwt.io/) to encode and v
 
 Though the details of authentication differ between Fluid services, several values must always be present.
 
-- **containerId**  The Fluid service needs the container id to identify which service corresponds to the calling container. *Note*: JWT calls this field documentId, but the Fluid service expects a container id in this field.
+- **containerId**  The Fluid service needs the container ID to identify which service corresponds to the calling container. *Note*: JWT calls this field documentId, but the Fluid service expects a container ID in this field.
 - **tenantId**: The Azure Fluid Relay service uses the tenant ID to retrieve the shared secret that it will use to authenticate your request. 
 - **scopes**: Scopes define the calling container's permissions. The contents of the scopes field is flexible, allowing you to create your own custom permissions.
 

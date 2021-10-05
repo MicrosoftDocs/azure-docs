@@ -2,9 +2,9 @@
 title: 'How to: Connect to an Azure Fluid Relay service'
 description: How to connect to an Azure Fluid Relay service using the @fluidframework/azure-client library.
 services: azure-fluid
-author: tylerbutler
-ms.author: tylerbu
-ms.date: 09/28/2021
+author: hickeys
+ms.author: hickeys
+ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
@@ -13,7 +13,7 @@ fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
 # How to: Connect to an Azure Fluid Relay service
 
 > [!NOTE]
-> The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. [Azure Fluid Relay](../overview/overview.md) is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
@@ -98,9 +98,7 @@ Your Azure Function will generate the token for the given user that is signed us
 
 ## Managing containers
 
-The `AzureClient` API exposes `createContainer` and `getContainer` functions to create and get containers respectively. Both functions take in a _container schema_ that defines the container data model. For the
-`getContainer` function, there is an additional parameter for the container `id` of the container you wish to
-fetch.
+The `AzureClient` API exposes `createContainer` and `getContainer` functions to create and get containers respectively. Both functions take in a _container schema_ that defines the container data model. For the `getContainer` function, there is an additional parameter for the container `id` of the container you wish to fetch.
 
 In the container creation scenario, you can use the following pattern:
 
@@ -131,12 +129,9 @@ const { container, services } = await azureClient.getContainer(
 );
 ```
 
-For the further information on how to start recording logs being emitted by Fluid, see [Logging and
-telemetry](https://fluidframework.com/docs/testing/telemetry/) .
+For the further information on how to start recording logs being emitted by Fluid, see [Logging and telemetry](https://fluidframework.com/docs/testing/telemetry/) .
 
-The container being fetched back will hold the `initialObjects` as defined in the container schema. See [Data
-modeling](https://fluidframework.com/docs/build/data-modeling/) on fluidframework.com to learn more about how to
-establish the schema and use the `container` object.
+The container being fetched back will hold the `initialObjects` as defined in the container schema. See [Data modeling](https://fluidframework.com/docs/build/data-modeling/) on fluidframework.com to learn more about how to establish the schema and use the `container` object.
 
 ## Getting audience details
 
@@ -213,5 +208,4 @@ Alongside the user ID, name and additional details, `AzureMember` objects also h
 
 These functions and events can be combined to present a real-time view of the users in the current session.
 
-**Congratulations!** You have now successfully connected your Fluid container to the Azure Fluid Relay service and
-fetched back user details for the members in your collaborative session!
+**Congratulations!** You have now successfully connected your Fluid container to the Azure Fluid Relay service and fetched back user details for the members in your collaborative session!
