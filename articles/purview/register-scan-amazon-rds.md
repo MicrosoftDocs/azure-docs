@@ -92,7 +92,7 @@ The following diagram shows the components in both your customer account and Mic
 
 The following procedure describes how to use an AWS CloudFormation template to configure AWS PrivateLink, allowing Purview to connect to your RDS VPC. This procedure is performed in AWS and is intended for an AWS admin.
 
-This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
+This CloudFormation template is available for download from the [Azure GitHub repository](https://github.com/Azure/Azure-Purview-Starter-Kit/tree/main/Amazon/AWS/RDS), and will help you create a target group, load balancer, and endpoint service.
 
 - **If you have multiple RDS servers in the same VPC**, perform this procedure once, [specifying all RDS server IP addresses and ports](#parameters). In this case, the CloudFormation output will include different ports for each RDS server.
 
@@ -107,7 +107,9 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 **To prepare your RDS database with a CloudFormation template**:
 
-1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site.
+1. Download the [CloudFormation .yaml template](https://github.com/Azure/Azure-Purview-Starter-Kit/tree/main/Amazon/AWS/RDS) required for this procedure from the Microsoft Download site.
+
+    For example, go to the [Azure-Purview-Starter-Kit/Amazon/AWS/RDS/](https://github.com/Azure/Azure-Purview-Starter-Kit/tree/main/Amazon/AWS/RDS) folder in GitHub. Right-click the **RDSPrivateLink_CloudFormation.yaml** file, and select **Save link as**. Save the file locally.
 
 1. In the AWS portal, navigate to the **CloudFormation** service. At the top-right of the page, select **Create stack** > **With new resources (standard)**.
 
