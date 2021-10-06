@@ -8,9 +8,10 @@ ms.date: 10/15/2020
 
 # Enable Private Link on a restricted HDInsight cluster (preview)
 
-In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md) where we focused on disabling inbound public connectivity. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
+## Overview
+In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md) where we focused on restricting public connectivity. In the case where you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
 
-Private link can be leveraged in cross VNet scenarios where VNet peering is not available or enabled. For example, if you want to integrate Azure Data Factory with Azure HDInsight, where it is required to have Azure Data Factory connect to HDInsight clusters over private network (i.e., private link) for compliance and security reasons.
+Private Link can be leveraged in cross VNet scenarios where VNet peering is not available or enabled. For example, if you want to integrate Azure Data Factory with Azure HDInsight, where it is required to have Azure Data Factory connect to HDInsight clusters over private network (i.e., private link) for compliance and security reasons.
 
 > [!NOTE] Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
 
@@ -22,7 +23,7 @@ When `privateLink` is set to *enable*, internal [standard load balancers](../loa
 
 Standard load balancers do not automatically provide [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) as basic load balancers do. You must provide your own NAT solution, such as a NAT gateway, or NAT provided by your [firewall](./hdinsight-restrict-outbound-traffic.md), to connect to outbound, public HDInsight dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, cluster creation may fail. A Network Security Group must also be configured on the subnet to enable outbound connectivity.
 
-### 1.	Configure a default NSG on the Subnet
+### 1.	Configure a default Network Security Group (NSG) on the subnet
 
 Create and add a Network Security Group on the subnet where you intend to deploy the HDInsight cluster.
 
@@ -32,13 +33,13 @@ For the successful creation of private link services, you must explicitly [disab
 
 ### 3.	Configure a NAT Gateway on the subnet
 
-You can opt to use NAT gateway if you don’t want to configure Firewall or Network Virtual Appliance (NVAs) for NAT), otherwise skip to the next prerequisite.
+You can opt to use NAT gateway if you don’t want to configure Firewall or Network Virtual Appliance (NVAs) for NAT, otherwise skip to the next prerequisite.
 
 To get started, simply add a NAT gateway (with a new public IP address in your virtual network) to the configured subnet of your virtual network. This gateway is responsible for translating your private internal IP address to public addresses when traffic needs to go outside of your virtual network.
 
 ### 4.	Using Firewall or Network Virtual Appliance (NVAs) for NAT (Optional)
-For a basic setup to get started, begin by adding a new subnet "AzureFirewallSubnet" to your virtual network. Once created, use this subnet to configure a new firewall and add your firewall policies. After your firewall is set up, use this firewall's private IP as the `nextHopIpAddress` for a route in a new route table. Add this route table to the configured subnet of your virtual network.
-For additional details on setting up a firewall, see [Control network traffic in Azure HDInsight](./control-network-traffic.md)
+For a basic setup to get started, begin by adding a new subnet "AzureFirewallSubnet" to your virtual network. Once created, use this subnet to configure a new firewall and add your firewall policies. After your firewall is set up, use this firewall's private IP as the `nextHopIpAddress` in your route table. Add this route table to the configured subnet of your virtual network.
+For additional details on setting up a firewall, see [control network traffic in Azure HDInsight](./control-network-traffic.md)
 
 The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is forced to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 
@@ -46,23 +47,25 @@ The following diagram shows an example of the networking configuration required 
 
 ## Manage private endpoints for Azure HDInsight
 
-You can use [private endpoints](../private-link/private-endpoint-overview) for your Azure HDInsight clusters to allow clients on a virtual network (VNet) to securely access your cluster over a [Private Link](../private-link/private-link-overview). Network traffic between the clients on the VNet and the HDInsight cluster traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview) for your Azure HDInsight clusters to allow clients on a virtual network (VNet) to securely access your cluster over [private link](../private-link/private-link-overview). Network traffic between the clients on the VNet and the HDInsight cluster traverses over Microsoft backbone network, eliminating exposure from the public internet.
 
 :::image type="content" source="media/hdinsight-private-link/private-endpoint-experience.png" alt-text="Diagram of private endpoint management experience":::
 
 There are two connection approval methods that a Private Link service consumer (e.g., Azure Data Factory) can choose from:
-* Automatic: If the service consumer has Azure RBAC permissions on the HDInsight resource the consumer can choose the automatic approval method. In this case, when the request reaches the HDInsight resource, no action is required from the HDInsight resource and the connection is automatically approved.
-* Manual: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. The request needs to be manually approved by HDInsight resource before connections can be established. 
+* **Automatic**: If the service consumer has Azure RBAC permissions on the HDInsight resource the consumer can choose the automatic approval method. In this case, when the request reaches the HDInsight resource, no action is required from the HDInsight resource and the connection is automatically approved.
+* **Manual**: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. The request needs to be manually approved by HDInsight resource before connections can be established. 
 
-To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking (preview) section under Security + Networking. Here you will be able to see all existing connections, connection states, and private endpoint details. You can also approve, reject or remove existing connections. When creating a private connection, you can specify which HDInsight sub-resource (Gateway, Headnode etc.) you want to connect to as well.
-The table below shows the various HDInsight resource actions and the resulting connection states for Private Endpoints. HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
+To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking (preview) section under Security + Networking. Here you will be able to see all existing connections, connection states, and private endpoint details.
+You can also approve, reject or remove existing connections. When creating a private connection, you can specify which HDInsight sub-resource (Gateway, Headnode etc.) you want to connect to as well.
 
-|Service Provider Action   |Service Consumer Private Endpoint State   |Description   |
-|---------|---------|---------|
-|None    |    Pending     |   Connection is created manually and is pending approval by the Private Link resource owner.       |
-|Approve    |  Approved       | Connection was automatically or manually approved and is ready to be used.     |
-|Reject     | Rejected        | Connection was rejected by the private link resource owner.        |
-|Remove    |  Disconnected       | Connection was removed by the private link resource owner; the private endpoint becomes informative and should be deleted for cleanup.        |
+The table below shows the various HDInsight resource actions and the resulting connection states for private endpoints. HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
+
+| Service Provider Action | Service Consumer Private Endpoint State | Description |
+| --------- | --------- | --------- |
+| None | Pending | Connection is created manually and is pending approval by the Private Link resource owner. |
+| Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
+| Reject | Rejected | Connection was rejected by the private link resource owner. |
+| Remove | Disconnected | Connection was removed by the private link resource owner; the private endpoint becomes informative and should be deleted for cleanup. |
 
 ## Configure DNS to connect over private endpoints
 
