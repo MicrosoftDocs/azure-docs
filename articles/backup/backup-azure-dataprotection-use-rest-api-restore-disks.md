@@ -187,7 +187,7 @@ The following request body contains the recovery point ID and the restore target
 
 #### Validate restore requests
 
-Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like Validate for backup API, this is a *POST* operation.
+Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like validate for backup API, this is a *POST* operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-01-01
