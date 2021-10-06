@@ -187,9 +187,9 @@ The following table summarizes the supported models for each computer vision tas
 
 Task | supported model algorithms
 ---|---
-Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `resnet101` <li> `resnet152` <li> `resnest50` <li> `resnest101` <li> `mobilenetv2` <li> `seresnext` <li> `vits16r224` <li>`vitb16r224` <li>`vitl16r224`
-Object detection |<li>`yolov5` <li> `yolov5.3.0s` <li> `yolov5.3.0l` <li> `yolov5.3.0x` <li> `fasterrcnn_resnet50_fpn`<li> `fasterrcnn_resnet101_fpn`<li> `fasterrcnn_resnet152_fpn`<li> `fasterrcnn_resnet34_fpn`<li> `fasterrcnn_resnet18_fpn`<li> `retinanet_resnet50_fpn`
-Instance segmentation |<li> `maskrcnn_resnet50_fpn` <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn` <li> `maskrcnn_resnet34_fpn` <li> `maskrcnn_resnet18_fpn`
+Image classification<br> (multi-class and multi-label)|<li>`resnet18`: ResNet-18 <li>`resnet34`: ResNet-34  <li> `resnet50`: : ResNet-50  <li> `resnet101`: ResNet-101 <li> `resnet152`: ResNet-152  <li> `resnest50`: ResNeSt-50 <li> `resnest101`: ResNeSt-101 <li> `mobilenetv2`: MobileNetV2 <li> `seresnext`: SE-ResNeXt-50 <li> `vits16r224`: ViT-S_16 (small) <li>`vitb16r224`: ViT-B_16 (medium) <li>`vitl16r224`: ViT-L_16 (large)
+Object detection |<li>`yolov5`: YOLOv5m(medium) <li> `yolov5.3.0s`:YOLOv5s(small) <li> `yolov5.3.0l`:YOLOv5l(large) <li> `yolov5.3.0x`:YOLOv5xl(extra large) <li> `fasterrcnn_resnet50_fpn`: Faster RCNN ResNet-50 FPN <li> `fasterrcnn_resnet101_fpn`: Faster RCNN ResNet-101 FPN <li> `fasterrcnn_resnet152_fpn`: Faster RCNN ResNet-152 FPN <li> `fasterrcnn_resnet34_fpn`: Faster RCNN ResNet-34 FPN <li> `fasterrcnn_resnet18_fpn`: Faster RCNN ResNet-18 FPN <li> `retinanet_resnet50_fpn`: RetinaNet ResNet-50 FPN
+Instance segmentation |<li> `maskrcnn_resnet50_fpn`: MaskRCNN ResNet-50 FPN <li> `maskrcnn_resnet101_fpn` : MaskRCNN ResNet-101 FPN <li> `maskrcnn_resnet152_fpn`: MaskRCNN ResNet-152 FPN <li> `maskrcnn_resnet34_fpn`: MaskRCNN ResNet-34 FPN <li> `maskrcnn_resnet18_fpn`: MaskRCNN ResNet-18 FPN
 
 ### Model agnostic hyperparameters
 
@@ -239,7 +239,7 @@ The following table summarizes hyperparmeters for image classification (multi-cl
 The following hyperparameters are for object detection and instance segmentation tasks.
 
 > [!Warning]
-> These parameters are not supported with the `yolo 5` algorithm.
+> These parameters are not supported with the `yolov5` algorithm.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
