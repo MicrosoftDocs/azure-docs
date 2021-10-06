@@ -89,7 +89,8 @@ For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass a
 
 Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
 
-[!NOTE] Refer to [image metrics](#Metrics-for-image-models) section for additional details on metrics for image models like epoch-level metrics.
+> [!NOTE]
+> Refer to [image metrics](#metrics-for-image-models-(preview)) section for additional details on metrics for image models.
 
 ## Confusion matrix
 
@@ -230,35 +231,41 @@ In this example, note that the better model has a predicted vs. true line that i
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
 
-## Metrics for image models
+## Metrics for image models (preview)
 
-Automated ML uses the images from the validation dataset for evaluating the performance of the model. Every prediction from the model is associated with a **score threshold** which indicates the level of confidence with which the prediction was made.  The image classification models are by default evaluated with a score threshold of 0.5 which means only predictions with at least this level of confidence will be considered a positive prediction for the associated class. In general, models when evaluated with a high score threshold produce a higher value for precision but a lower value for recall while on the opposite, models evaluated with low score threshold produce a higher value for recall and a lower value for precision. 
+Automated ML uses the images from the validation dataset for evaluating the performance of the model. The performance of the model is measured at an **epoch-level**. The loss values associated with an epoch are also logged which can help monitor how the training progresses and determine if the model is over-fitting or under-fitting.
 
- Every bounding box prediction from an image object detection model is associated with both score threshold (the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page) and **overlap threshold** called as an IOU threshold which determines how much a predicted bounding box should overlap with the user annotated ground-truth bounding box in-order to be considered a positive prediction. If the overlap measurement defined by **IoU**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) is lesser than the overlap threshold the prediction would not be considered. Automated ML image object detection models are by default evaluated with an IoU threshold of 0.5. The right IoU threshold to be used depends on the application scenario. For example, a people counting application can work with a lower threshold when compared to a digital barricading application where localization accuracy is important.
+
+> [!TIP]
+> Metrics for deep learning models are usually tracked at an epoch-level to understand how the training progresses as usually a large dataset is involved and the entire dataset cannot be passed into the algorithm at once. The data gets divided into batches and processed through the neural network. The metrics are then captured after all the batches pass through the neural network, referred to as an epoch. An epoch elapses when an entire dataset is passed forward and backward through the neural network exactly once.
 
 ### Image classification metrics
 
-The primary metric for evaluation of image classification(binary and multiclass) models is **accuracy** and it is **iou**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) for multi-label classification. The classification metrics for image classification models are same as those defined in the [classification metrics](#Classification-metrics) section. In-addition to the classification metrics, the training and the validation loss values are also logged which can help monitor how the training progresses and if the model over-fits to the training data.
+The primary metric for evaluation of image classification models is **accuracy** (binary and multiclass) and **iou** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) for multi-label classification.
+The classification metrics for image classification models are same as those defined in the [classification metrics](#Classification-metrics) section.
+
+Every prediction from a classification model is associated with a **score threshold** which indicates the level of confidence with which the prediction was made.  The image classification models are by default evaluated with a score threshold of 0.5 which means only predictions with at least this level of confidence will be considered a positive prediction for the associated class. In general, models when evaluated with a high score threshold produce a higher value for precision but a lower value for recall while on the opposite, models evaluated with low score threshold produce a higher value for recall and a lower value for precision. 
 
 #### Epoch-level metrics for image classification
-Unlike the classification metrics for tabular datasets, Automated ML image classification models log all the scalar classification metrics at epoch-level as shown below.
+Unlike the classification metrics for tabular datasets, image classification models log all the scalar classification metrics at epoch-level as shown below.
 
 ![Epoch-level charts for image classification](./media/how-to-understand-automated-ml/image-classification-accuracy.PNG)
 
 #### Summary metrics for image classification
 
-Apart from the scalar metrics that are logged at the epoch level, image classification model also logs summary metrics like [confusion matrix](#Confusion-matrix), [classification charts](#ROC-curve) and classification report for the best model. 
+Apart from the scalar metrics that are logged at the epoch level, image classification model also log summary metrics like [confusion matrix](#Confusion-matrix), [classification charts](#ROC-curve) and classification report for the best model. 
 
 Classification report provides the class-level values for metrics like precision, recall, f1-score, support, auc and average_precision with  various level of averaging - micro, macro and weighted as shown below.
+Please refer to the metrics definition from the [classification metrics](#Classification-metrics) section.
 
 ![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.PNG)
 
 ### Object detection metrics
-The primary metric for evaluation of image object detection models is the **mean_average_precision(mAP)**. Mean_average_precision is the average value of the average precision(AP) across classes. AP is the area under the precision_recall curve. Automated ML object detection models support the computation of mean_average_precision using the below two popular methods.
+The primary metric for evaluation of image object detection models is the **mean average precision(mAP)**. The mAP is the average value of the average precision(AP) across all the classes. Automated ML object detection models support the computation of mean average precision using the below two popular methods.
 
 **Pascal VOC metrics**: 
 
-Pascal voc style is the default way of mean_average_precision  computation in Automated ML object detection models using the the  method below defined in [Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) challenge.
+Pascal voc style is the default way of mAP computation in Automated ML object detection models using the method below defined in [Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) challenge.
 1. Compute a version of the measured precision/recall curve with precision
 monotonically decreasing, by setting the precision for recall r to the maximum precision obtained for any recall r
 ′ ≥ r.
@@ -267,10 +274,13 @@ No approximation is involved since the curve is piecewise constant.
 
 **COCO metrics**: 
 
-[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML also report all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales. The image object detection model evaluation can use coco metrics if the 'validation_metric_type' hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
+[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML logs all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales in the application logs while the UI shows only the mAP. The image object detection model evaluation can use coco metrics if the 'validation_metric_type' hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
+
+Every bounding box prediction from an image object detection model is associated with both score threshold (the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page) and **overlap threshold** called as an IOU threshold which determines how much a predicted bounding box should overlap with the user annotated ground-truth bounding box in-order to be considered a positive prediction. The overlap measurement defined by **IoU**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) is computed by dividing the area of overlap between the ground-truth and predicted bounding boxes by the area of union of the bounding boxes.
+If the  IoU  computed from the prediction is less than the overlap threshold the prediction would not be considered. Automated ML image object detection models are by default evaluated with an IoU threshold of 0.5. The right IoU threshold to be used depends on the application scenario. For example, a people counting application can work with a lower threshold when compared to a digital barricading application where localization accuracy is important.
 
 #### Epoch-level metrics for object detection
-The mean_average_precision(mAP), precision and recall values are logged at epoch-level for image object detection models. The mAP, precision and recall metrics are also logged at a class level as a table metric in the object detection run under the name 'per_label_metrics'.
+The mAP, precision and recall values are logged at epoch-level for image object detection models. The mAP, precision and recall metrics are also logged at a class level as a table metric in the object detection run under the name 'per_label_metrics'.
 
 ![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-od-mAP.PNG)
 
