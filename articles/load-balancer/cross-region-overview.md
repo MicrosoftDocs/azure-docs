@@ -17,9 +17,7 @@ ms.custom: references_regions
 ---
 # Cross-region load balancer (Preview)
 
-Azure Load Balancer distributes inbound traffic that arrives at the load balancer frontend to backend pool instances.
-
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant HA scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -105,7 +103,7 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
 
-A **participating region** is where the Global public IP of the load balancer is available. 
+A **participating region** is where the Global public IP of the load balancer is being advertised.
 
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 
