@@ -163,7 +163,9 @@ from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 ```
 
-<!--TODO - add a section on data augmentations for OD and IC-->
+### Dataset size constraints
+
+AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size will only be limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, to be able to train an useful model, we recommend a minimum of 10-15 samples per label (the more distinct labels are used, the higher this number should be).
 
 ## Compute to run experiment
 
