@@ -93,7 +93,7 @@ Option for selecting the instance subnet is located on the "Networking" blade. B
 Instance move operation can be monitored from the "Overview" blade. By clicking on the notification, additional blade will be opened. This blade contains the information about current step and total steps, as well as the button for canceling the operation.
 
 > [!div class="mx-imgBorder"]
-> ![How to select subnet on SQL Managed Instance networking blade](./media/vnet-subnet-move-instance/monitor-subnet-move-operation.png)
+> ![How to monitor instance move operation](./media/vnet-subnet-move-instance/monitor-subnet-move-operation.png)
 # [PowerShell](#tab/azure-powershell)
 
 In PowerShell instance is moved to another subnet by using [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) command. Following example will prepare destination subnet for instance deployment and move the managed instance.
@@ -138,12 +138,12 @@ Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
 ```powershell-interactive
 ###PART 3 EXTENDED - MOVE INSTANCE AND MONITOR PROGRESS
 # Extend the Set-AzSqlInstance command with -AsJob -Force parameters to be able to monitor the progress or proceed with script execution as moving the instance to another subnet is long running operation 
-# Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
+Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
 -SubnetId "/subscriptions/$currentSubscriptionID/resourceGroups/$sqlMIResourceGroupName/providers/Microsoft.Network/virtualNetworks/$sqlMIResourceVnetName/subnets/$destinationSubnetName" -AsJob -Force
-#$operationProgress = Get-AzSqlInstanceOperation -ManagedInstanceName $sqlMIName -ResourceGroupName $sqlMIResourceGroupName
+$operationProgress = Get-AzSqlInstanceOperation -ManagedInstanceName $sqlMIName -ResourceGroupName $sqlMIResourceGroupName
 #checking the operation step status
-#Write-Host "Checking the ongoing step" -ForegroundColor Yellow
-#$operationProgress.OperationSteps.StepsList
+Write-Host "Checking the ongoing step" -ForegroundColor Yellow
+$operationProgress.OperationSteps.StepsList
 ```
 
 
