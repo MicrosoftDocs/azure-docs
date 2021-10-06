@@ -189,8 +189,8 @@ Microsoft Graph API supports creating and updating a user with extension attribu
 
 Unlike built-in attributes, extension/custom attributes can be removed. The extension attributes' values can also be removed. 
 
-> [Important]!
-Before you remove the extension/custom attribute, for each account in the directory, set the extension attribute value to null.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Extension/custom attribute is queryable using MS Graph API. 
+> [!Important]
+> Before you remove the extension/custom attribute, for each account in the directory, set the extension attribute value to null.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Extension/custom attribute is queryable using MS Graph API. 
 
 ::: zone pivot="b2c-user-flow"
 
