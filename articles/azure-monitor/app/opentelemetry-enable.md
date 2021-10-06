@@ -26,6 +26,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Propagating Operation Name to Dependency Telemetry
+ - Compatibility with Azure Functions
  
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
@@ -43,6 +44,7 @@ Please consider carefully whether this preview is right for you. It enables dist
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Propagating Operation Name to Dependency Telemetry
+ - Compatibility with Azure Functions
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
@@ -62,6 +64,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Propagating Operation Name to Dependency Telemetry
+ - Compatibility with Azure Functions
 
  Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
