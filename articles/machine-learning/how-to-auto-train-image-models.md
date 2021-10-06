@@ -185,11 +185,11 @@ The model algorithm is required and is passed in via `model_name` parameter. You
 
 The following table summarizes the supported models for each computer vision task. 
 
-Task | supported model algorithms
+Task | Supported Model Algorithms<br> ***default model***\* denoted with a \*
 ---|---
-Image classification<br> (multi-class and multi-label)|MobileNet: Light-weighted Models for mobile applications. <li> `mobilenetv2`  <br> ResNet: Residual Networks <li> `resnet50`  <li> `resnet101` <li> `resnet152` <li>`resnet18` <li>`resnet34`  <br> ResNeSt: Split Attention Networks <li> `resnest50` <li> `resnest101` <br> SE-ResNeXt50: Squeeze-and-Excitation Networks <li> `seresnext` <br> ViT: Vision Transformer Networks <li> `vits16r224` (small) <li>`vitb16r224`(medium) <li>`vitl16r224`(large)
-Object detection | YOLOv5: One Stage Object Detection model <li>`yolov5` <br>  Faster RCNN ResNet FPN: Two Stage Object Detection models <li> `fasterrcnn_resnet50_fpn` <li> `fasterrcnn_resnet101_fpn` <li> `fasterrcnn_resnet152_fpn` <li> `fasterrcnn_resnet34_fpn` <li> `fasterrcnn_resnet18_fpn` <br> RetinaNet ResNet FPN: address class imbalance with Focal Loss <li> `retinanet_resnet50_fpn`
-Instance segmentation | MaskRCNN ResNet FPN models <li> `maskrcnn_resnet50_fpn` <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn` <li> `maskrcnn_resnet34_fpn` <li> `maskrcnn_resnet18_fpn`
+Image classification<br> (multi-class and multi-label)|MobileNet: Light-weighted Models for mobile applications. <li> `mobilenetv2`  <br> ResNet: Residual Networks <li>`resnet18` <li>`resnet34` <li> `resnet50`  <li> `resnet101` <li> `resnet152`   <br> ResNeSt: Split Attention Networks <li> `resnest50` <li> `resnest101` <br> SE-ResNeXt50: Squeeze-and-Excitation Networks <li> `seresnext` <br> ViT: Vision Transformer Networks <li> `vits16r224` (small) <li>***`vitb16r224`\****(base) <li>`vitl16r224`(large)
+Object detection | YOLOv5: One Stage Object Detection model <br> (refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes)  <li>***`yolov5`\**** <br>  Faster RCNN ResNet FPN: Two Stage Object Detection models <li> `fasterrcnn_resnet18_fpn` <li> `fasterrcnn_resnet34_fpn` <li> `fasterrcnn_resnet50_fpn` <li> `fasterrcnn_resnet101_fpn` <li> `fasterrcnn_resnet152_fpn` <br> RetinaNet ResNet FPN: address class imbalance with Focal Loss <li> `retinanet_resnet50_fpn`
+Instance segmentation | MaskRCNN ResNet FPN models <li> `maskrcnn_resnet18_fpn` <li> `maskrcnn_resnet34_fpn` <li> ***`maskrcnn_resnet50_fpn`\**** <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn`  
 
 ### Model agnostic hyperparameters
 
