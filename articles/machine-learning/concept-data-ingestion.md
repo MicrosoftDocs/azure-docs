@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn the pros and cons of the available data ingestion options for training your machine learning models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
