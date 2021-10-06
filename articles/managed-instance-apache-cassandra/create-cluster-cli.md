@@ -8,14 +8,9 @@ ms.topic: quickstart
 ms.date: 09/08/2021
 ---
 
-# Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI (Preview)
+# Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart demonstrates how to use the Azure CLI commands to create a cluster with Azure Managed Instance for Apache Cassandra. It also shows to create a datacenter, and scale nodes up or down within the datacenter.
 

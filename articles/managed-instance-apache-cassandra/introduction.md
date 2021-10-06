@@ -9,12 +9,7 @@ ms.date: 03/02/2021
 
 ---
 
-# What is Azure Managed Instance for Apache Cassandra? (Preview)
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# What is Azure Managed Instance for Apache Cassandra?
 
 The Azure Managed Instance for Apache Cassandra service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance. It will have deep integration and data movement capabilities with [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) upon its general release.
 
