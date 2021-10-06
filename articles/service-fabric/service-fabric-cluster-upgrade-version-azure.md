@@ -34,7 +34,7 @@ Once you have fixed the issues that resulted in the rollback, you'll need to ini
 
 ### Resource Manager template
 
-To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-for-supported-cluster-versions).
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#check-for-supported-cluster-versions).
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Screenshot shows a template, which is plaintext indented to reflect structure. The 'clusterCodeVersion' and 'upgradeMode' properties are highlighted.":::
 
