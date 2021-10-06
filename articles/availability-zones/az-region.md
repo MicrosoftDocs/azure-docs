@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # Azure services that support availability zones
 
-Azure [regions and availability zones](availability-zones.md) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
+Azure [regions and availability zones](az-overview.md) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
 
 Availability zones are all about network redundancy. Azure services that support availability zones are designed to provide the right level of resiliency and flexibility along with ultra-low latency. With Azure services that support availability zones, whether you architect your own resiliency or opt for automatic replication and distribution, the benefit is the same. You get superior resiliency across highly available services, no matter the service type. 
 
@@ -35,7 +35,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 \* To learn more about availability zones and available services support in this region, contact your Microsoft sales or customer representative. For information on upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](availability-zones.md).
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
 ## Highly available services
 
@@ -198,7 +198,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Security Center  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Traffic Manager  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 
-For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](availability-zones.md).
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
 ## Pricing for virtual machines in availability zones
 
