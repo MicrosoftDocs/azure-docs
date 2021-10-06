@@ -56,7 +56,7 @@ In Azure Portal:
 1. Select the IoT device, and record the **Primary key**, as it will be needed
 
 ## Enable Video Analyzer edge module to act as transparent gateway
-To enable the edge module to act as a transparent gateway for video between the camera and Video Analyzer, you must create a remote device adapter by invoking the **RemoteDeviceAdapterSet** direct method that requires the following values:  
+To enable the edge module to act as a transparent gateway for video between the camera and Video Analyzer, you must create a remote device adapter for each camera by invoking the **RemoteDeviceAdapterSet** direct method that requires the following values:  
 * Device ID for the IoT device
 * Primary key for the IoT device
 * Camera's IP address
