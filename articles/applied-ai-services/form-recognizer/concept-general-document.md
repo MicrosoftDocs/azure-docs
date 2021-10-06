@@ -43,6 +43,9 @@ The General document preview model combines powerful Optical Character Recogniti
   * data must contain keys and values.
   * keys must appear above or to the left of the values; they can't appear below or to the right.
 
+> [!NOTE]
+> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
 ### Named entity recognition (NER) categories
 
 | Category | Type | Description |

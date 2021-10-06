@@ -50,6 +50,9 @@ With composed models, you can assign multiple custom models to a composed model 
   > * Use forms with different values in each field.
   >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
+> [!NOTE]
+> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
 ## Supported languages and locales
 
  Form Recognizer preview version introduces additional language support for custom models. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.

@@ -65,6 +65,9 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
   * data must contain keys and values.
   * keys must appear above or to the left of the values; they can't appear below or to the right.
 
+> [!NOTE]
+> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
 ## Supported languages and locales
 
  Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.
