@@ -34,7 +34,8 @@ This method allows cameras to connect to Video Analyzer behind a firewall using 
 This method should only be used for supervised proof-of-concept exercises, where it may be permissible to connect a camera directly to the cloud without a firewall and the camera's RTSP server is accessible over the open internet. Another use case is when an Azure VM is used to simulate a camera, as described in this <!--TODO: link to cloud CVR tutorial being written by Mayank -->
 
 
-# Next Steps
+## Next Steps
+
 - Follow [this how-to guide](use-remote-device-adapter.md) to connect cameras via a remote device adapter
 - Follow [this tutorial]() <!--- TODO: link to ACAP tutorial--> to connect an Axis camera
 - Follow [this how-to guide](connect-devices.md) for information on connecting devices from other manufactures
