@@ -8,7 +8,8 @@ ms.date: 09/20/2021
 
 # Restrict Public Connectivity in Azure HDInsight (preview)
 
-In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster using public IP addresses over public network. In this article, you learn about the advanced controls you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to the private network. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md). Private inbound clusters also have support for private link enabled dependency resources that can be configured to use with these clusters.
+In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster over public network. In this article, you learn about the advanced controls you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to the private network. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md). In addition to restricting public connectivity, we also have support for private link enabled dependency resources that can be configured to use with these clusters.
+
 The following diagram shows what a potential HDInsight virtual network architecture could look like when `resourceProviderConnection` is set to *outbound*:
 
 :::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagram of HDInsight architecture using an outbound resource provider connection":::
@@ -17,92 +18,95 @@ The following diagram shows what a potential HDInsight virtual network architect
 
 ## Initialize a Restricted Cluster
 
-By default, the HDInsight RP uses an *inbound* connection to the cluster using public IPs. When the `resourceProviderConnection` network property is set to *outbound* (this is the only configuration you need to change to create a cluster with inbound public connectivity disabled), it reverses the connections to the HDInsight RP so that the connections are always initiated from inside the cluster out to the RP. In this configuration, without an inbound connection, there is no need to configure inbound service tags in the NSG or bypass firewall/network virtual appliance via UDR rules.
-After creating your cluster, you should set up proper DNS resolution by adding DNS records that are needed for configuring access to your private inbound HDInsight cluster. The following canonical name DNS record (CNAME) is created on the Azure-managed Public DNS Zone: `azurehdinsight.net`
+By default, the HDInsight resource provider uses an *inbound* connection to the cluster using public IPs. When the `resourceProviderConnection` network property is set to *outbound*, it reverses the connections to the HDInsight resource provider so that the connections are always initiated from inside the cluster out to the resource provider. In this configuration, without an inbound connection, there is no need to configure inbound service tags in the NSG or bypass firewall/network virtual appliance via UDR rules.
+
+After creating your cluster, you should set up proper DNS resolution by adding DNS records that are needed for configuring access to your restricted HDInsight cluster. The following canonical name DNS record (CNAME) is created on the Azure-managed Public DNS Zone: `azurehdinsight.net`
 
 ```dns
 <clustername>    CNAME    <clustername>-int
 ```
 
-To access the cluster using cluster FQDNs, you can either use the internal load balancer private IPs directly or use your own Private DNS Zone (in which case, the zone name must be `azurehdinsight.net`) to override the cluster endpoints as appropriate for your needs. For example, for you Private DNS Zone, `azurehdinsight.net`. you can add your private IPs as needed:
+To access the cluster using cluster FQDNs, you can either use the internal load balancer private IPs directly or use your own Private DNS Zone (in this case, the zone name must be `azurehdinsight.net`) to override the cluster endpoints as appropriate for your needs. For example, for your Private DNS Zone `azurehdinsight.net`, you can add your private IPs as needed:
 
 ```dns
 <clustername>        A   10.0.0.1
 <clustername-ssh>    A   10.0.0.2
 ```
 
-> [!NOTE] Creating both public and private inbound clusters under a VNet configured with a private DNS zone for `azurehdinsight.net` is discouraged as it may cause unintended DNS resolution behavior/conflict.
+> [!NOTE] Having restricted clusters in the same VNet (with a private DNS zone for `azurehdinsight.net`) as other cluster where public connectivity is enabled is discouraged as it may cause unintended DNS resolution behavior/conflict.
 
-To make setting us DNS easier, we return the FQDNS and corresponding Private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started.
+To make setting us DNS easier, we return the FQDNs and corresponding Private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started.
 
 ```powershell
 <#
     This script is offered as an example to help get started with automation and can be adjusted based on your needs.
-    This script assumes your HDInsight cluster has already been created and the context where this script is run has permissions to read/write resources in the same resource group.
+    This script assumes:
+    - HDInsight cluster has already been created and the context where this script is run has permissions to read/write resources in the same resource group.
+    - Private DNS zone resource exists in the same subscription as the HDInsight cluster.
+We recommend that customers use the latest version of Az.HDInsight module
+
 #>
-$subscriptionId = "<Replace with subscription ID>"
-$resourceGroupName = "<Replace with resource group name>"
+$subscriptionId = "<Replace with subscription for deploying HDInsight clusters, and containing private DNS zone resource>"
+
 $clusterName = "<Replace with cluster name>"
+$clusterResourceGroupName = "<Replace with resource group name>"
 
-Select-AzSubscription -Subscription $subscriptionId
+# For example, azurehdinsight.net for public cloud.
+$dnsZoneName = "<Replace with private DNS zone name>"
+$dnsZoneResourceGroupName = "<Replace with private DNS zone resource group name>"
 
-# 1. Get cluster object
+Connect-AzAccount -SubscriptionId $subscriptionId
 
-$clusterObj = Get-AzHDInsightCluster `
-                -ClusterName $clusterName `
-                -ResourceGroupName $resourceGroupName
+# 1. Get cluster endpoints
+$clusterEndpoints = $(Get-AzHDInsightCluster -ClusterName $clusterName ` -ResourceGroupName $resourceGroupName).ConnectivityEndpoints
 
-# 2. Find private IP of SSH and HTTPS endpoints
+$endpointMapping = @{}
 
-$clusterConnectivityEndpoints = $clusterObj.ConnectivityEndpoints
-
-$httpsEndpointIp = ""
-$sshEndpointIp = ""
-
-foreach($endpoint in $clusterConnectivityEndpoints)
+foreach($endpoint in $clusterEndpoints)
 {
-    if($endpoint.Name -eq "SSH")
+    $label = $endpoint.Location.ToLower().Replace(".$dnsZoneName".ToLower(), "")
+    $ip = $endpoint.PrivateIPAddress
+
+    $endpointMapping.Add($label, $ip)
+}
+
+# 2. Confirm DNS zone exists
+Get-AzPrivateDnsZone -ResourceGroupName $resourceGroupName -Name $dnsZoneName -ErrorAction Stop
+
+# 3. Update DNS entries for the cluster in the private DNS zone
+#    - If the entries already exist, update to the new IP
+#    - If the entries do not exist, create them
+$recordSets = Get-AzPrivateDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroupName -RecordType A
+
+foreach($label in $endpointMapping.Keys)
+{
+    $updateRecord = $null
+    foreach($record in $recordSets)
     {
-        $sshEndpointIp = $endpoint.PrivateIPAddress
+        if($record.Name -eq $label)
+        {
+            $updateRecord = $record
+            break;
+        }
     }
-    elseif($endpoint.Name -eq "HTTPS")
+
+    if($null -ne $updateRecord)
     {
-        $httpsEndpointIp = $endpoint.PrivateIPAddress
+        $updateRecord.Records[0].Ipv4Address = $endpointMapping[$label]
+        Set-AzPrivateDnsRecordSet -RecordSet $updateRecord | Out-Null
+    }
+    else
+    {
+        New-AzPrivateDnsRecordSet `
+            -ResourceGroupName $resourceGroupName `
+            -ZoneName $dnsZoneName `
+            -Name $label `
+            -RecordType A `
+            -Ttl 3600 `
+            -PrivateDnsRecord (New-AzPrivateDnsRecordConfig -Ipv4Address $endpointMapping[$label]) | Out-Null
     }
 }
 
-
-# 3. Create private DNS zone and populate DNS entries
-
-$isolationDns = New-AzPrivateDnsZone `
-                    -ResourceGroupName $resourceGroupName `
-                    -Name "azurehdinsight.net"
-
-
-$httpsPrivateDnsConfig = New-AzPrivateDnsRecordSet `
-                            -ResourceGroupName $resourceGroupName `
-                            -ZoneName $isolationDns.Name `
-                            -Name $clusterName `
-                            -RecordType A `
-                            -Ttl 3600 `
-                            -PrivateDnsRecord (New-AzPrivateDnsRecordConfig -Ipv4Address $httpsEndpointIp)
-
-$sshPrivateDnsConfig = New-AzPrivateDnsRecordSet `
-                        -ResourceGroupName $resourceGroupName `
-                        -ZoneName $isolationDns.Name `
-                        -Name "$clusterName-ssh" `
-                        -RecordType A `
-                        -Ttl 3600 `
-                        -PrivateDnsRecord (New-AzPrivateDnsRecordConfig -Ipv4Address $sshEndpointIp)
-
-
-# 4. Link the private DNS zone with cluster VNET
-
-$isolationDnsVnetLink = New-AzPrivateDnsVirtualNetworkLink `
-                            -ResourceGroupName $resourceGroupName `
-                            -ZoneName $isolationDns.Name `
-                            -Name "$clusterName-vnet-link" `
-                            -VirtualNetworkId $clusterObj.VirtualNetworkId
 ```
 
 ## Adding private link connectivity (Private Endpoints) to cluster dependent resources (optional)
