@@ -252,7 +252,7 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Call NER and PII
+    - name: Call NER
       href: named-entity-recognition/how-to-call.md
   - name: Concepts
     items:
@@ -281,6 +281,10 @@ items:
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language/context/context
       displayName: Data privacy, logging, data retention
+  - name: How-to guides
+    items:
+    - name: Call PII
+      href: personally-identifiable-information/how-to-call.md
   - name: Concepts
     items:
     - name: Recognized entity categories
