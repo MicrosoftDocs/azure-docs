@@ -46420,22 +46420,22 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-receipts.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-prebuilt.md#prebuilt-receipt-model",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-receipt",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-business-cards.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-prebuilt.md#prebuilt-business-card-model",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-business-card",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-identification-cards.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-prebuilt.md#prebuilt-id-document-model",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-id-document",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-prebuilt.md#prebuilt-invoice-model",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-invoice",
       "redirect_document_id": false
     }
   ]
