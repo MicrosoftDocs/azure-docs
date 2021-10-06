@@ -1,33 +1,28 @@
 ---
-title: What is the SQL Server IaaS Agent extension? (Windows) 
-description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Windows Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
+title: SQL Server IaaS Agent extension for Linux
+description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Linux Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
-editor: ''
+author: adbadram
 tags: azure-resource-manager
-ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
 ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 9/01/2021 
-ms.author: mathoma
-ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.date: 10/15/2021 
+ms.author: adbadram
+ms.reviewer: mathoma
 ---
-# Automate management with the SQL Server IaaS Agent extension
+# SQL Server IaaS Agent extension for Linux
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Windows Azure Virtual Machines (VMs) to automate management and administration tasks. 
+The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Linux Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
-This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md),  or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md). 
+This article provides an overview of the extension. See [Register with the extension](sql-agent-extension-register-vm-linx.md) to learn more. 
 
-> [!NOTE]
-> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 
