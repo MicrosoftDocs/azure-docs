@@ -43,7 +43,14 @@ Automated ML supports model training for computer vision tasks like image classi
 ## Select your task type
 Automated ML for images supports the following task types:
 
-ImageTask.IMAGE_CLASSIFICATION
+
+Task type | AutoMLImage config syntax
+---|---
+ image classification | `ImageTask.IMAGE_CLASSIFICATION`
+image multi-labeling | `ImageTask.IMAGE_CLASSIFICATION_MULTILABEL`
+image object detection | `ImageTask.IMAGE_OBJECT_DETECTION`
+image instance segmentation| `ImageTask.IMAGE_INSTANCE_SEGMENTATION`
+
 ImageTask.IMAGE_CLASSIFICATION_MULTILABEL
 ImageTask.IMAGE_OBJECT_DETECTION
 ImageTask.IMAGE_INSTANCE_SEGMENTATION
