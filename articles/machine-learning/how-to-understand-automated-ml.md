@@ -256,7 +256,7 @@ Please refer to the metrics definitions from the [classification metrics](#Class
 
 ![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.PNG)
 
-### Object detection and Instance Segmentation metrics
+### Object detection and Instance segmentation metrics
 
 Every bounding box prediction from an image object detection or instance segmentation  model is associated with a confidence score.
 The boxes with confidence score greater than score threshold are  output as predictions and used in metric calculation, the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page. 
