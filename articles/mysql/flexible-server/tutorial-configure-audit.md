@@ -52,7 +52,7 @@ In this tutorial you will learn how to:
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
     :::image type="content" source="./media/tutorial-configure-audit/save-parameters.png" alt-text="Save":::
 
-**OR**
+
 
 ## Configure auditing  From Azure CLI
  
@@ -90,7 +90,8 @@ Audit logs are integrated with Azure Monitor diagnostic settings to allow you to
     :::image type="content" source="./media/tutorial-configure-audit/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::
 
     >[!Note]
-    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
+    >You should create data sinks (Log Analytics workspace, storage account or event hub) before you configure diagnostic settings. 
+    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account or event hub).It can take up to 10 minutes for the logs to appear.
 
 ## View audit logs using Log Analytics 
 

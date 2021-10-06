@@ -50,7 +50,7 @@ In this tutorial you will learn how to:
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
-**OR**
+
 
 ## Configure slow query logs from Azure CLI
  
@@ -114,7 +114,8 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
     :::image type="content" source="./media/tutorial-query-performance-insights/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::
 
     >[!Note]
-    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account, event hub).It can take up to 10 minutes for the logs to appear.
+    >You should create data sinks (Log Analytics workspace, storage account or event hub) before you configure diagnostic settings. 
+    >You can access the slow query logs in the data sinks you configured (Log Analytics workspace, storage account or event hub).It can take up to 10 minutes for the logs to appear.
  
 ## View query insights using Log Analytics 
 
@@ -138,7 +139,7 @@ Select the **Time range** and **Run** the query. You will see the results of the
 ## View query insights using Workbooks 
 
 1.	On the Azure portal, Navigate to **Monitoring** blade for Azure Database for MySQL – Flexible Server and select **Workbooks**.
-2.	You should be able to able to see the templates. Select **Query Performance insight** 
+2.	You should be able to able to see the templates. Select **Query Performance insights** 
 
     :::image type="content" source="./media/tutorial-query-performance-insights/monitor-workbooks.png" alt-text="Screenshot of workbook template":::
 
@@ -159,7 +160,7 @@ You will be able to see the following Visualization
 > * You can also edit these templates and customize as per your requirement for more details see, [Azure Monitor Workbooks Overview - Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode)
 > * For quick view you can also ping the workbooks or Log Analytics query to your Dashboard. For more details refer, [Create a dashboard in the Azure portal - Azure portal](../../azure-portal/azure-portal-dashboards.md) 
 
-Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count. Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. 
+Two metrics in Query Performance Insights can help you find potential bottlenecks are duration and execution count. Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. 
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency. So execution count can help to find frequently executed ("chatty") queries. These queries are the best candidates for optimization. 
 
 ## Next steps

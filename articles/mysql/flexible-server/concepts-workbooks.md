@@ -17,7 +17,7 @@ In this article, you will learn about the various workbooks template available f
 
 We have three default templates available for Azure Database for MySQL - Flexible Server
  
-- Overview: Gives the Instance Summary and  top-level metrics to help understand the resource utilization on your server. You will be able to see the below details for the Azure Database for MySQL – Flexible Server
+- **Overview:** Gives the Instance Summary and  top-level metrics to help understand the resource utilization on your server. You will be able to see the below details for the Azure Database for MySQL – Flexible Server
 
     * Server Summary 
     * Database Summary
@@ -25,7 +25,7 @@ We have three default templates available for Azure Database for MySQL - Flexibl
     * Performance Metrics 
     * Storage Metrics 
 
-* Auditing: Summary and details of the Auditing events collected for the server. The following views are available with this template for the Azure Database for MySQL – Flexible Server
+* **Auditing:** Summary and details of the Auditing events collected for the server. The following views are available with this template for the Azure Database for MySQL – Flexible Server
 
     * Administrative Actions on the service
     * Audit Summary
@@ -34,7 +34,7 @@ We have three default templates available for Azure Database for MySQL - Flexibl
     * Table Access Summary
     * Errors Identified
 
-* Query Performance Insights: Summary and details of query workload on the instance, long running query, slow query analysis and connection metrics. The following view is available with this template for the Azure Database for MySQL – Flexible Server.
+* **Query Performance Insights:** Summary and details of query workload on the instance, long running query, slow query analysis and connection metrics. The following view is available with this template for the Azure Database for MySQL – Flexible Server.
 
     * Query Load
     * Total Active Connections
