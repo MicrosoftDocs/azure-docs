@@ -268,7 +268,7 @@ The primary metric for the evaluation of image object detection and instance seg
 
 **Pascal VOC metrics**: 
 
-[Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) mAP is the default way of mAP computation in Automated ML object detection/instance segmentation models. Pascal voc style mAP method calculates the area under the precision-recall curve by computing p(rᵢ), which is precision at recall i for all unique recall values whenever the precision drops and with the precision monotonically decreasing. The method also replaces the precision for recall r to the maximum precision obtained for any recall r
+[Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) mAP is the default way of mAP computation for object detection/instance segmentation models. Pascal voc style mAP method calculates the area under the precision-recall curve by computing p(rᵢ), which is precision at recall i for all unique recall values whenever the precision drops and with the precision monotonically decreasing. The method also replaces the precision for recall r to the maximum precision obtained for any recall r
 ′ ≥ r. Pascal VOC mAP metric are by default evaluated with an IoU threshold of 0.5. 
 
 
