@@ -187,9 +187,9 @@ The following table summarizes the supported models for each computer vision tas
 
 Task | supported model algorithms
 ---|---
-Image classification<br> (multi-class and multi-label)|<li>`resnet18`: ResNet-18 <li>`resnet34`: ResNet-34  <li> `resnet50`: : ResNet-50  <li> `resnet101`: ResNet-101 <li> `resnet152`: ResNet-152  <li> `resnest50`: ResNeSt-50 <li> `resnest101`: ResNeSt-101 <li> `mobilenetv2`: MobileNetV2 <li> `seresnext`: SE-ResNeXt-50 <li> `vits16r224`: ViT-S_16 (small) <li>`vitb16r224`: ViT-B_16 (medium) <li>`vitl16r224`: ViT-L_16 (large)
-Object detection |<li>`yolov5`: YOLOv5m(medium) <li> `yolov5.3.0s`:YOLOv5s(small) <li> `yolov5.3.0l`:YOLOv5l(large) <li> `yolov5.3.0x`:YOLOv5xl(extra large) <li> `fasterrcnn_resnet50_fpn`: Faster RCNN ResNet-50 FPN <li> `fasterrcnn_resnet101_fpn`: Faster RCNN ResNet-101 FPN <li> `fasterrcnn_resnet152_fpn`: Faster RCNN ResNet-152 FPN <li> `fasterrcnn_resnet34_fpn`: Faster RCNN ResNet-34 FPN <li> `fasterrcnn_resnet18_fpn`: Faster RCNN ResNet-18 FPN <li> `retinanet_resnet50_fpn`: RetinaNet ResNet-50 FPN
-Instance segmentation |<li> `maskrcnn_resnet50_fpn`: MaskRCNN ResNet-50 FPN <li> `maskrcnn_resnet101_fpn` : MaskRCNN ResNet-101 FPN <li> `maskrcnn_resnet152_fpn`: MaskRCNN ResNet-152 FPN <li> `maskrcnn_resnet34_fpn`: MaskRCNN ResNet-34 FPN <li> `maskrcnn_resnet18_fpn`: MaskRCNN ResNet-18 FPN
+Image classification<br> (multi-class and multi-label)|MobileNet: Light-weighted Models for mobile applications. <li> `mobilenetv2`  <br> ResNet: Residual Networks <li> `resnet50`  <li> `resnet101` <li> `resnet152` <li>`resnet18` <li>`resnet34`  <br> ResNeSt: Split Attention Networks <li> `resnest50` <li> `resnest101` <br> SE-ResNeXt50: Squeeze-and-Excitation Networks <li> `seresnext` <br> ViT: Vision Transformer Networks <li> `vits16r224` (small) <li>`vitb16r224`(medium) <li>`vitl16r224`(large)
+Object detection | YOLOv5: One Stage Object Detection model <li>`yolov5` <br>  Faster RCNN ResNet FPN: Two Stage Object Detection models <li> `fasterrcnn_resnet50_fpn` <li> `fasterrcnn_resnet101_fpn` <li> `fasterrcnn_resnet152_fpn` <li> `fasterrcnn_resnet34_fpn` <li> `fasterrcnn_resnet18_fpn` <br> RetinaNet ResNet FPN: address class imbalance with Focal Loss <li> `retinanet_resnet50_fpn`
+Instance segmentation | MaskRCNN ResNet FPN models <li> `maskrcnn_resnet50_fpn` <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn` <li> `maskrcnn_resnet34_fpn` <li> `maskrcnn_resnet18_fpn`
 
 ### Model agnostic hyperparameters
 
