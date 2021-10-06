@@ -57,10 +57,10 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-3. Finally, create an IoT hub in the *westus* location add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
+3. Finally, create an IoT hub in the *westus2* location add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive 
-    az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus --sku S1
+    az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus2 --sku S1
     ```
 
     This command may take a few minutes to complete.
@@ -121,7 +121,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for tenant devices from both regions.
 
-To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US** and **East US**).
+To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US 2** and **East US**).
 
 1. In the Azure Cloud Shell, run the following command to create an **East US** region VM after making the following parameter changes in the command:
 
@@ -143,11 +143,13 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete. Once the command has completed, make a note of the **publicIpAddress** value for your East US region VM.
+    This command will take a few minutes to complete. 
 
-2. In the Azure Cloud Shell, execute the command to create a **West US** region VM after making the following parameter changes in the command:
+2. Once the command has completed, copy the **publicIpAddress** value for your East US region VM.
 
-    **--name**: Enter a unique name for your **West US** regional device VM. 
+3. In the Azure Cloud Shell, run the command to create a **West US 2** region VM after making the following parameter changes in the command:
+
+    **--name**: Enter a unique name for your **West US 2** regional device VM. 
 
     **--admin-username**: Use your own admin user name.
 
@@ -156,8 +158,8 @@ To make clean-up easier, these VMs will be added to the same resource group that
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceWest \
-    --location westus \
+    --name ContosoSimDeviceWest2 \
+    --location westus2 \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
     --admin-password myContosoPassword2018 \
@@ -165,11 +167,15 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete. Once the command has completed, make a note of the **publicIpAddress** value for your West US region VM.
+    This command will take a few minutes to complete. 
 
-3. Open two command-line shells. Connect to one of the regional VMs in each shell using SSH. 
+4. Once the command has completed, make a note of the **publicIpAddress** value for your West US 2 region VM.
 
-    Pass your admin username, and the public IP address you noted for the VM as parameters to SSH. Enter the admin password when prompted.
+5. Open two command-line shells. 
+
+6. Connect to one of the regional VMs in each shell using SSH.
+
+    Pass your admin username and the public IP address that you copied as parameters to SSH. Enter the admin password when prompted.
 
     ```bash
     ssh contosoadmin@1.2.3.4
