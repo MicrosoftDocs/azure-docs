@@ -88,8 +88,8 @@ The following options are supported:
 
 - **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
 
-> [!Note]
-> If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
+   > [!Note]
+   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
 
 - **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
