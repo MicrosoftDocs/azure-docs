@@ -849,12 +849,31 @@ provider.register();
 
 #### [Python](#tab/python)
 
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+1. Install the [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) package.
 
-Add the code to xyz.file in your application.
+2. Add following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details refer to this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
 
 ```python
-Placeholder
+from opentelemetry import trace 
+
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+
+trace.set_tracer_provider(TracerProvider())
+tracer = trace.get_tracer(__name__) 
+
+exporter = AzureMonitorTraceExporter.from_connection_string(
+    "<Your Connection String>"
+)
+otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
+span_processor = BatchSpanProcessor(otlp_exporter) 
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+with tracer.start_as_current_span("test"):
+    print("Hello world!")
 ```
 
 ---
