@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 08/02/2021
+ms.date: 10/06/2021
 ms.author: alkohli
 ---
 
@@ -20,8 +20,9 @@ For import orders, following table shows the supported storage accounts.
 | General-purpose v2 Premium  |  |Y | | |
 | Azure Premium FileStorage |  |  | Y |  |  
 | Blob storage Standard |Y | | |Both hot and cool are supported. |
+| Azure Data Lake Storage Gen2 (ADLS Gen2) | | | ADLS Gen1 is not supported. <!--Anusha will tell me how to fill out the columns.-->|
 
-\* *- Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
+\* * Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
 
 For export orders, following table shows the supported storage accounts.
 

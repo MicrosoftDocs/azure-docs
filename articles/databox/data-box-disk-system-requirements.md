@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 10/06/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -75,6 +75,7 @@ Here is a list of the supported storage types for the Data Box Disk.
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
+| Azure Data Lake Storage Gen2 (ADLS Gen2)  | ADLS Gen2 is only supported for imports.<br>ADLS Gen1 is not supported. |
 
 > [!IMPORTANT]
 > Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.
