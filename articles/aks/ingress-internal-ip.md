@@ -39,10 +39,10 @@ Use `az acr import` to import these images into your ACR.
 REGISTRY_NAME=<REGISTRY_NAME>
 CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
+CONTROLLER_TAG=v1.0.3
+PATCH_REGISTRY=k8s.gcr.io
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.0
 DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
@@ -90,7 +90,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
+helm install ingress-nginx ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
