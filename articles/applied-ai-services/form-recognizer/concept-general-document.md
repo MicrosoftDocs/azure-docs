@@ -284,6 +284,6 @@ Expect to see key value pairs with a key, but no value. For example if a user ch
 Learn more about the Form Recognizer client library by exploring our API reference documentation.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 
 > [Try general document in the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
