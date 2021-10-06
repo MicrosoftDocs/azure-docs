@@ -216,7 +216,7 @@ Except for the following two images, AKS images aren't required to run as root:
 
 ## I deleted an AKS cluster by mistake. Can I restore or recover it from any backups?
 
-No, we cannot recover or restore a deleted AKS cluster.
+Unfortunately no, we cannot recover or restore a deleted AKS cluster. Please make sure to take regular backups or use Azure Locks to prevent delete operation 
 
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
