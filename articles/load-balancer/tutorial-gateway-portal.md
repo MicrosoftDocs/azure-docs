@@ -17,7 +17,7 @@ Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register preview.
+> * Register preview feature.
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Register preview feature
 
-As part of the public preview of gateway load balancer, the provider must be registered in your Azure subscription. Use the following PowerShell or Azure CLI examples to enable your subscription.
+As part of the public preview, the provider must be registered in your Azure subscription. Use the following PowerShell or Azure CLI examples to enable your subscription.
 
 ### PowerShell
 
