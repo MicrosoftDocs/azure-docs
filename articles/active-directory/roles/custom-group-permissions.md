@@ -30,42 +30,42 @@ Group management permissions can be used in custom role definitions in Azure Act
 
 This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
 
-## How to read the group management permissions
+## How to read group management permissions
 
-To read the permissions, it helps to understand what the subtypes mean. The following table has example permissions for updating group members of different group types.
+There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To read the group management permissions, it helps to understand what the different permission subtypes mean. The following table has example permissions for updating group members of different subtypes.
 
 > [!div class="mx-tableFixed"]
 > | Permission subtype | Permission subtype description | Permission example | Permission description |
 > | --- | --- | --- | --- |
-> | groups | Manage security groups and Microsoft 365 groups with the exclusion of role-assignable groups | microsoft.directory/**groups**/members/update | Update member of Security groups and Microsoft 365 groups with the exclusion of role-assignable groups. |
-> | groups.unified | Manage Microsoft 365 groups with the exclusion of role-assignable groups | microsoft.directory/**groups.unified**/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups. |
-> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type with the exclusion of role-assignable groups | microsoft.directory/**groups.unified.assignedMembership**/members/update | Update members of Microsoft 365 groups of assigned membership type with the exclusion of role-assignable groups. |
-> | groups.security | Manage security groups with the exclusion of role-assignable groups | microsoft.directory/**groups.security**/members/update | Update members property of security groups with the exclusion of role-assignable groups.
-> | groups.security.assignedMembership | Manage security groups of assigned membership type with the exclusion of role-assignable groups | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type with the exclusion of role-assignable groups. |
+> | groups | Manage security groups and Microsoft 365 groups, excluding role-assignable groups | microsoft.directory/**groups**/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | groups.unified | Manage Microsoft 365 groups, excluding role-assignable groups | microsoft.directory/**groups.unified**/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type, excluding role-assignable groups | microsoft.directory/**groups.unified.assignedMembership**/members/update | Update members of Microsoft 365 groups of assigned membership type, excluding role-assignable groups |
+> | groups.security | Manage security groups, excluding role-assignable groups | microsoft.directory/**groups.security**/members/update | Update members of Security groups, excluding role-assignable groups |
+> | groups.security.assignedMembership | Manage security groups of assigned membership type, excluding role-assignable groups | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type, excluding role-assignable groups |
 
-## How to read the group management permissions
+## How to read group management permissions
 
-To read the permissions, it helps to understand what the subtypes mean.
+There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To read the group management permissions, it helps to understand what the different permission subtypes mean.
 
 > [!div class="mx-tableFixed"]
 > | Permission subtype | Permission subtype description |
 > | --- | --- |
-> | groups | Manage security groups and Microsoft 365 groups with the exclusion of role-assignable groups |
-> | groups.unified | Manage Microsoft 365 groups with the exclusion of role-assignable groups |
-> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type with the exclusion of role-assignable groups |
-> | groups.security | Manage security groups with the exclusion of role-assignable groups |
-> | groups.security.assignedMembership | Manage security groups of assigned membership type with the exclusion of role-assignable groups |
+> | groups | Manage security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | groups.unified | Manage Microsoft 365 groups, excluding role-assignable groups |
+> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type, excluding role-assignable groups |
+> | groups.security | Manage security groups, excluding role-assignable groups |
+> | groups.security.assignedMembership | Manage security groups of assigned membership type, excluding role-assignable groups |
 
-The following table has example permissions for updating group members of different group types. 
+The following table has example permissions for updating group members of different subtypes. 
 
 > [!div class="mx-tableFixed"]
 > | Permission example | Permission description |
 > | --- | --- |
-> | microsoft.directory/**groups**/members/update | Update member of Security groups and Microsoft 365 groups with the exclusion of role-assignable groups. |
-> | microsoft.directory/**groups.unified**/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups. |
-> | microsoft.directory/**groups.unified.assignedMembership**/members/update | Update members of Microsoft 365 groups of assigned membership type with the exclusion of role-assignable groups. |
-> | microsoft.directory/**groups.security**/members/update | Update members property of security groups with the exclusion of role-assignable groups.
-> | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type with the exclusion of role-assignable groups. |
+> | microsoft.directory/**groups**/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/**groups.unified**/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/**groups.unified.assignedMembership**/members/update | Update members of Microsoft 365 groups of assigned membership type, excluding role-assignable groups |
+> | microsoft.directory/**groups.security**/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type, excluding role-assignable groups |
 
 ## Read group information
 
@@ -131,7 +131,7 @@ The following permissions are available to update properties and members of grou
 
 ## Update members of different group types
 
-There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. The following permissions are available to update members of different group types.
+The following permissions are available to update members of different group types.
 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
