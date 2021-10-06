@@ -1,16 +1,19 @@
 ---
 title: Configure ISV to Cloud Reseller Private Offers in Microsoft Partner Center
 description: Configure ISV to Cloud Reseller Private Offers in Microsoft Partner Center. 
-author:  Microsoft-KaranRao
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
 ms.date: 10/07/2021
+robots: noindex
 ---
 
 # ISV to Cloud Reseller Private Offers
+
+> [!IMPORTANT]
+> This feature is currently in public preview.
 
 ## Overview
 
@@ -23,6 +26,9 @@ As a CSP partner, you can discover all the margins available to you via Partner 
 :::image type="content" source="media/isv-csp-cloud/isv-private-offer-experience.png" alt-text="Shows the progression of the ISV Private Offer experience.":::
 
 :::image type="content" source="media/isv-csp-cloud/csp-private-offer-experience.png" alt-text="Shows the progression of the CSP Private Offer experience.":::
+
+> [!NOTE]
+> If you only publish your offer to Microsoft AppSource (so it is not available through Azure Marketplace) and opted it in to be sold by partners in the Cloud Solution Provider (CSP) program, there may be a delay with your offer displaying for CSP partners to purchase in their portal. Please contact [support](/azure/marketplace/support) if you believe your offer is not available for your CSP partner to transact.
 
 ## Prerequisites to create a Private Offer for Cloud Resellers
 
