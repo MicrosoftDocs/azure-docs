@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 09/28/2021
 ms.author: baselden
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Plan a Privileged Identity Management deployment
 
-**Privileged Identity Management (PIM)** provides a time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions to important resources. These resources include resources in Azure Active Directory (Azure AD), Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. You can also use PIM with service (SaaS) applications.
+**Privileged Identity Management (PIM)** provides a time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions to important resources. These resources include resources in Azure Active Directory (Azure AD), Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.
 
 PIM enables you to allow a specific set of actions at a particular scope. Key features include:
 

@@ -3,6 +3,8 @@ title: Enable Azure Monitor OpenTelemetry for .NET, JavaScript, and Python appli
 description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
 ms.topic: conceptual
 ms.date: 09/28/2021
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, JavaScript, and Python applications (Preview)

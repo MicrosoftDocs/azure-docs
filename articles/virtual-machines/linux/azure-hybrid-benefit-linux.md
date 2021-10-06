@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machines
-ms.subservice: azure-hybrid-benefit
+ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services

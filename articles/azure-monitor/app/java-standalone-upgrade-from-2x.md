@@ -126,36 +126,6 @@ The telemetry processors perform the following actions (in order):
 }
 ```
 
-## Dependency names
-
-Dependency names in Application Insights Java 3.x have also changed,
-again to generally provide a better aggregated view in the Application Insights Portal U/X.
-
-Again, for some applications, you may still prefer the aggregated view in the U/X
-that was provided by the previous dependency names, in which case you can use similar
-techniques as above to replicate the previous behavior.
-
-## Operation name on dependencies
-
-Previously in the Application Insights Java 2.x SDK,
-the operation name from the request telemetry was also set on the dependency telemetry.
-Application Insights Java 3.x no longer populates operation name on dependency telemetry.
-If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table, e.g.
-
-```
-let start = datetime('...');
-let end = datetime('...');
-dependencies
-| where timestamp between (start .. end)
-| project timestamp, type, name, operation_Id
-| join (requests
-    | where timestamp between (start .. end)
-    | project operation_Name, operation_Id)
-    on $left.operation_Id == $right.operation_Id
-| summarize count() by operation_Name, type, name
-```
-
 ## 2.x SDK logging appenders
 
 Application Insights Java 3.x [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
