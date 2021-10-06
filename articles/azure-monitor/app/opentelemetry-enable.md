@@ -315,6 +315,7 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 ...
 import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/sdk-trace-node";
 import { Resource } from "@opentelemetry/resources";
+import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 
 const config: NodeTracerConfig = {
         resource: new Resource({
@@ -901,7 +902,16 @@ for detailed troubleshooting steps.
 
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+Azure Monitor Exporter use OpenTelemetry API Logger for internal logs, this can be enabled using following code. 
+
+```typescript
+const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+
+const provider = new NodeTracerProvider();
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
+provider.register();
+```
 
 #### [Python](#tab/python)
 
@@ -928,10 +938,6 @@ You could try to specify the source with `-s` option.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
-#### [Node.js](#tab/nodejs)
-
-Placeholder
-
 #### [Python](#tab/python)
 
 Placeholder
@@ -941,10 +947,6 @@ Placeholder
 ### Known issues
 
 #### [.NET](#tab/net)
-
-Placeholder
-
-#### [Node.js](#tab/nodejs)
 
 Placeholder
 
