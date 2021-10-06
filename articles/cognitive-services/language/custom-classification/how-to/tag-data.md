@@ -63,7 +63,7 @@ If you want to save manually, hover over the red indicator and click on **Save n
 
 :::image type="content" source="../media/tag-status.png" alt-text="The tag status" lightbox="../media/tag-status.png":::
 
-If you want to remove a tag in multiple label classification, uncheck the class you want to remove from file.
+If you want to remove a tag, uncheck the button next to the class and tag will be removed.
 
 To delete/rename a class,
   * Select the class you want to edit from the right side menu
