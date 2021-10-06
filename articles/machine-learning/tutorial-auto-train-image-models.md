@@ -134,8 +134,8 @@ For the tuning settings, use random sampling to pick samples from this parameter
 The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
 
 ```python 
-from azureml.train.hyperdrive import GridParameterSampling, RandomParameterSampling, BayesianParameterSampling
-from azureml.train.hyperdrive import BanditPolicy, HyperDriveConfig, PrimaryMetricGoal
+from azureml.train.hyperdrive import RandomParameterSampling
+from azureml.train.hyperdrive import BanditPolicy, HyperDriveConfig
 from azureml.train.hyperdrive import choice, uniform
 
 parameter_space = {
