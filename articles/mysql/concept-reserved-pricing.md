@@ -27,7 +27,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 ## Reservation exchanges and refunds
 
-You can exchange a reservation for another reservation of the same type, you can also exchange a reservation from Azure Database for MySQL - Single Server with Flexible Server. It's also possible to refund a reservation, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+You can exchange a reservation for another reservation of the same type, you can also exchange a reservation from Azure Database for MySQL - Single Server with Flexible Server. It's also possible to refund a reservation, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Reservation discount
 
