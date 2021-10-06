@@ -19,11 +19,11 @@ If you're using a managed identity or service principal as a method of authentic
 There are specific instructions for each source type:
 
 - [Azure multiple sources](register-scan-azure-multiple-sources.md#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group)
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#setting-up-authentication-for-a-scan)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#prerequisites-for-scan)
+- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#prerequisites-for-scan)
 - [Azure Data Explorer](register-scan-azure-data-explorer.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#prerequisites-for-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#prerequisites-for-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
