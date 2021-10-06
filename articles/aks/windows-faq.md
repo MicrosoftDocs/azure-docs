@@ -20,11 +20,11 @@ AKS uses Windows Server 2019 as the host OS version and only supports process is
 
 ## Is Kubernetes different on Windows and Linux?
 
-Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see the [Supported Functionality and Limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document, from the Kubernetes project.
+Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on the upstream support for Windows Server in Kubernetes, see the [Supported functionality and limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document, from the Kubernetes project.
 
-Kubernetes is historically Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS-level apply:
+Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS-level apply:
 
-- **Identity** - Linux identifies a user by an integer user identifier (UID). A user also has an alphanumeric user name for logging on, which Linux translates to the user's UID. Similarly Linux identifies a user group by an integer group identifier (GID) and translates a group name to its corresponding GID.
+- **Identity** - Linux identifies a user by an integer user identifier (UID). A user also has an alphanumeric user name for logging on, which Linux translates to the user's UID. Similarly, Linux identifies a user group by an integer group identifier (GID) and translates a group name to its corresponding GID.
     - Windows Server uses a larger binary security identifier (SID) which is stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
 - **File permissions** - Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID
 - **File paths** - convention on Windows Server is to use \ instead of /.
@@ -36,7 +36,7 @@ Azure Disks and Azure Files are the supported volume types. These are accessed a
 
 ## Can I run Windows only clusters in AKS?
 
-The master nodes (the control plane) in an AKS cluster are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services, which are needed for the cluster to function. It's recommended to run at least two nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+The master nodes (the control plane) in an AKS cluster are hosted by AKS the service. You won't be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services, which are needed for the cluster to function. We recommend that you run at least two nodes in the first node pool to ensure the reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 
 ## How do I patch my Windows nodes?
 
@@ -58,7 +58,7 @@ At this time, [client source IP preservation][client-source-ip] is not supported
 
 ## Can I change the max. # of pods per node?
 
-Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
+Yes. For the implications of making a change and the options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
@@ -81,7 +81,7 @@ Instead, use managed identities, which are essentially wrappers around service p
 
 ## How do I change the administrator password for Windows Server nodes on my cluster?
 
-When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you did not specify administrator credentials, such as when creating a cluster using the Azure Portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` using the Azure CLI, the username defaults to *azureuser* and a randomized password.
+When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials, when you created a cluster using the Azure portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` using the Azure CLI, the username defaults to *azureuser* and a randomized password.
 
 To change the administrator password, use the `az aks update` command:
 
@@ -93,7 +93,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Performing this operation upgrades all Windows Server node pools. Linux node pools are not affected.
+> Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
 > 
 > When changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
@@ -103,7 +103,7 @@ The AKS cluster can have a maximum of 100 node pools. You can have a maximum of 
 
 ## What can I name my Windows node pools?
 
-You have to keep the name to a maximum of 6 (six) characters. This is a current limitation of AKS.
+Keep names to a maximum of 6 (six) characters. This is a current limitation of AKS.
 
 ## Are all features supported with Windows nodes?
 
@@ -111,11 +111,11 @@ Kubenet is currently not supported with Windows nodes.
 
 ## Can I run ingress controllers on Windows nodes?
 
-Yes, an ingress-controller that supports Windows Server containers can run on Windows nodes in AKS.
+Yes, an ingress controller that supports Windows Server containers can run on Windows nodes in AKS.
 
 ## Can my Windows Server containers use gMSA?
 
-Group managed service accounts (gMSA) support is not currently available in AKS.
+Group-managed service account (gMSA) support is currently unavailable in AKS.
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
@@ -170,7 +170,7 @@ If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` wi
 
 ## Can I use the Kubernetes Web Dashboard with Windows containers?
 
-Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to your running Windows container, see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
+Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to a running Windows container, see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
 
 ## How do I change the time zone of a running container?
 
@@ -188,12 +188,14 @@ Set-TimeZone -Id "Russian Standard Time"
 
 To see the current time zone of the running container or an available list of time zones, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
-## Can I maintain session affinity from client connections to pods with Windows Containers?
-While this will be supported in the WS2022 OS version, the current way to achieve session affinity by Client IP is done by limiting your desired pod to run a single instance per node and configuring your Kubernetes service to direct traffic to the pod on the local node. To achieve this, the following configuration can be used:
+## Can I maintain session affinity from client connections to pods with Windows containers?
+
+While maintaining session affinity from client connections to pods with Windows containers will be supported in the WS2022 OS version, the current way to achieve session affinity by client IP is done by limiting your desired pod to run a single instance per node and configuring your Kubernetes service to direct traffic to the pod on the local node. To do this, use the following configuration: 
+
 1. AKS cluster running a minimum version of 1.20.
 1. Constrain your pod to allow only one instance per Windows node. This can be achieved by using anti-affinity in your deployment configuration.
-1. In your Kubernetes service configuration, set "externalTrafficPolicy=Local". This will ensure the Kubernetes service only directs traffic to pods within the local node.
-1. In your Kubernetes service configuration, set "sessionAffinity: ClientIP". This will ensure the Azure Load Balancer gets configured with session affinity.
+1. In your Kubernetes service configuration, set "externalTrafficPolicy=Local". This ensures that the Kubernetes service directs traffic only to pods within the local node.
+1. In your Kubernetes service configuration, set "sessionAffinity: ClientIP". This ensures that the Azure Load Balancer gets configured with session affinity.
 
 ## What if I need a feature that's not supported?
 
@@ -201,7 +203,7 @@ We work hard to bring all the features you need to Windows in AKS, but if you do
 
 ## Next steps
 
-To get started with Windows Server containers in AKS, [create a node pool that runs Windows Server in AKS][windows-node-cli].
+To get started with Windows Server containers in AKS, see [Create a node pool that runs Windows Server in AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [kubernetes]: https://kubernetes.io
