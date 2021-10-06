@@ -165,7 +165,7 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 ### Dataset size constraints
 
-AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size will only be limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, to be able to train an useful model, we recommend a minimum of 10-15 samples per label (the more distinct labels are used, the higher this number should be).
+AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size is only  limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
 ## Compute to run experiment
 
