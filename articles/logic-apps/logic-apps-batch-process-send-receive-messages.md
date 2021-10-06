@@ -156,9 +156,9 @@ Now create one or more batch sender logic apps that send messages to the batch r
       > check that you previously created and deployed your batch receiver to Azure. If you haven't, learn 
       > [how to deploy your batch receiver logic app to Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure).
 
-   1. From the actions list, select this action: **Batch_messages - <*your-logic-app-name*>**
+   1. From the actions list, select this action: **Batch_messages - \<*your-logic-app-name*\>**
 
-      ![Select this action: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Select this action: "Batch_messages - \<your-logic-app\>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 1. Set the batch sender's properties:
 

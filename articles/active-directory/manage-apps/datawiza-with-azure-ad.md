@@ -1,5 +1,6 @@
 ---
-title: Secure hybrid access with Azure AD and Datawiza
+title: Secure hybrid access with Datawiza
+titleSuffix: Azure AD
 description: In this tutorial, learn how to integrate Datawiza with Azure AD for secure hybrid access 
 services: active-directory
 author: gargi-sinha
@@ -28,7 +29,7 @@ To get started, you'll need:
 
 - An Azure subscription. If you don\'t have a subscription, you can get a [trial account](https://azure.microsoft.com/free/).
 
-- An [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md)
 that's linked to your Azure subscription.
 
 - [Docker](https://docs.docker.com/get-docker/) and
@@ -41,7 +42,7 @@ are required to run DAB. Your applications can run on any platform, such as the 
 
 Datawiza integration includes the following components:
 
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 
@@ -127,6 +128,6 @@ header-based application should have SSO enabled with Azure AD. Open a browser a
 
 ## Next steps
 
-- [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
 - [Datawiza documentation](https://docs.datawiza.com)

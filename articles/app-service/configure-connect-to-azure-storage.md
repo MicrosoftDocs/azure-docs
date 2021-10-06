@@ -200,21 +200,36 @@ To validate that the Azure Storage is mounted successfully for the app:
 ## Best practices
 
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
+::: zone pivot="container-windows"
+- The mount directory in the container app should be empty. Any content stored at this path is deleted when the Azure Storage is mounted. If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+::: zone-end
+::: zone pivot="container-linux"
 - The mount directory in the container app should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+
 - Mounting the storage to `/home` is not recommended because it may result in performance bottlenecks for the app. 
+::: zone-end
 - In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+
     1. Regenerate **key2**. 
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
     1. Regenerate **key1**.
+
 - If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios. 
+
 - The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the scalability and performance targets that correspond to the storage type:
+
     - [For Files](../storage/files/storage-files-scale-targets.md) (Windows and Linux containers)
     - [For Blobs](../storage/blobs/scalability-targets.md) (Linux containers only)
+
 - If your app [scales to multiple instances](../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
+
 - It's not recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
+
 - When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to set the following two app settings:
+
     - `WEBSITE_DNS_SERVER` = `168.63.129.16`
     - `WEBSITE_VNET_ROUTE_ALL` = `1`
+
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
 
 ## Next steps

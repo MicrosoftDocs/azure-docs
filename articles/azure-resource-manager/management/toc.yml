@@ -163,8 +163,6 @@
     href: lock-resources.md
   - name: Authenticate across tenants
     href: authenticate-multi-tenant.md
-  - name: View activity logs
-    href: view-activity-logs.md
   - name: Throttling requests
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations

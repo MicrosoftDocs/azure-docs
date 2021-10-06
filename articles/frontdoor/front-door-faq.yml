@@ -10,7 +10,7 @@ metadata:
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
-  ms.date: 06/10/2021
+  ms.date: 09/14/2021
   ms.author: duau
     
 title: Frequently asked questions for Azure Front Door
@@ -135,9 +135,11 @@ sections:
                   </system.webServer>
               </configuration>
               ```
+              
+          - Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
           
-          
-          
+          If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
         answer:  |

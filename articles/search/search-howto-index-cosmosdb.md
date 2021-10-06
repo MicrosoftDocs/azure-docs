@@ -51,7 +51,7 @@ Make sure your Cosmos DB database contains data. The [Import data wizard](search
 
 You can [start the wizard](search-import-data-portal.md) from the command bar in the Azure Cognitive Search service page, or if you're connecting to Cosmos DB SQL API you can click **Add Azure Cognitive Search** in the **Settings** section of your Cosmos DB account's left navigation pane.
 
-   ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 ### Step 3 - Set the data source
 

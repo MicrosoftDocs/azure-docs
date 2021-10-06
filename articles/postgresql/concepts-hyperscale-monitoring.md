@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 10/05/2021
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -35,8 +35,8 @@ By default, the Azure portal aggregates Hyperscale (Citus) metrics across nodes
 in a server group. However, some metrics, such as disk usage percentage, are
 more informative on a per-node basis. To see metrics for nodes displayed
 individually, use Azure Monitor [metric
-splitting](../azure-monitor/essentials/metrics-charts.md#metric-splitting) by
-server name.
+splitting](howto-hyperscale-monitoring.md#view-metrics-per-node) by server
+name.
 
 > [!NOTE]
 >
@@ -65,6 +65,8 @@ multiple nodes can be placed on the same graph.
 
 ## Next steps
 
+- Learn how to [view metrics](howto-hyperscale-monitoring.md) for a
+  Hyperscale (Citus) server group.
 - See [how to set up alerts](howto-hyperscale-alert-on-metric.md) for guidance
   on creating an alert on a metric.
 - Learn how to do [metric
