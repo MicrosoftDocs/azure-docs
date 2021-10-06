@@ -97,7 +97,7 @@ You're now ready to assign an App Service app to this custom domain.
 > [!NOTE]
 > Depending on the subscription type, a sufficient payment history may be required prior to creating an App Service Domain. 
 > 
-> If you have made payments and are still running into this error, you can [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade and provide proof of payments.
+> If you have made payments and are still running into this error, you can contact support and provide proof of payments.
 
 ## Prepare the app
 
