@@ -1,0 +1,143 @@
+### YamlMime:Hub
+
+title: Azure Dev/Test offer documentation
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
+
+metadata:
+  title: Azure Dev/Test offer documentation
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest offer. Tutorials, code examples, API references, and more. 
+ 
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.prod: visual-studio-windows
+  ms.author: jmartens
+  author: j-martens
+  ms.date: 10/06/2021
+  ms.custom: devtestoffer
+  adobe-target: true
+
+# highlightedContent section 
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Dev/Test offer?
+      itemType: overview
+      url: ../../machine-learning/overview-what-is-azure-machine-learning.md
+    # Card
+    - title: Set up resources
+      itemType: get-started
+      url: ../../machine-learning/quickstart-create-resources.md
+    # Card
+    - title: 'Preview: Train models with v2 CLI'
+      itemType: tutorial
+      url: ../../machine-learning/how-to-train-cli.md      
+    # Card
+    - title: Architecture & terms
+      itemType: overview
+      url: ../../machine-learning/concept-azure-machine-learning-architecture.md 
+    # Card
+    - title: 'Day 1: Get started with Python'
+      itemType: get-started
+      url: ../../machine-learning/tutorial-1st-experiment-hello-world.md 
+    # Card
+    - title: "Migrate from ML Studio (classic)"
+      itemType: how-to-guide
+      url: ../../machine-learning/migrate-overview.md      
+
+conceptualContent:
+# Supports up to 3 sections
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Train models
+      links:
+        - url: ../../machine-learning/how-to-train-cli.md
+          itemType: how-to-guide
+          text: Run training code in the cloud (v2 CLI preview)
+        - url: ../../machine-learning/how-to-tune-hyperparameters.md
+          itemType: how-to-guide
+          text: Tune hyperparameters for model training
+        - url: ../../machine-learning/how-to-create-machine-learning-pipelines.md
+          itemType: how-to-guide
+          text: Build pipelines from reuseable components
+        - url: ../../machine-learning/tutorial-first-experiment-automated-ml.md
+          itemType: tutorial
+          text: 'AutoML: Train a classification model'
+
+    # Card
+    - title: Deploy models
+      links:
+        - url: ../../machine-learning/how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: How to deploy a model
+        - url: ../../machine-learning/how-to-deploy-managed-online-endpoints.md
+          itemType: how-to-guide
+          text: Real-time scoring with a managed endpoint (preview)
+        - url: ../../machine-learning/how-to-use-batch-endpoint.md
+          itemType: how-to-guide
+          text: Batch scoring with managed endpoints (preview)
+    # Card
+    - title: Manage the ML lifecycle (MLOps)
+      links:
+        - url: ../../machine-learning/how-to-track-monitor-analyze-runs.md
+          itemType: how-to-guide
+          text: Track, monitor, analyze training runs
+        - url: ../../machine-learning/concept-model-management-and-deployment.md
+          itemType: concept
+          text: Model management, deployment, lineage & monitoring
+        - url: ../../machine-learning/how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
+          text: DevOps for a data ingestion pipeline
+    # Card
+    - title: Security for ML projects
+      links:
+        - url: ../../machine-learning/tutorial-create-secure-workspace.md
+          itemType: tutorial
+          text: Create a secure workspace
+        - url: ../../machine-learning/how-to-access-data.md
+          itemType: how-to-guide
+          text: Connect to data sources 
+        - url: ../../machine-learning/concept-enterprise-security.md
+          itemType: concept
+          text: Enterprise security & governance
+    # Card
+    - title: Reference 
+      links:
+        - url: /python/api/overview/azure/ml/
+          itemType: reference
+          text: Python SDK
+    # Card
+    - title: Resources
+      links:
+        - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          itemType: sample
+          text: Python SDK code examples
+    # Card
+  #  - title: Get started with individual Azure Dev/Test credits
+  #    links:
+  #      - url: how-to-individual-credit.md
+  #        itemType: how-to-guide
+  #        text: Covers two options for an individual to access an Azure Credit subscription
+    # Card
+  #  - title: Change directory tenants
+  #    links: 
+  #    - url: change-directory-tenants.md
+  #      itemType: how-to-guide
+  #      text: A guide to changing directory tenants with your Azure subscriptions
+    # Card
+    - title: Removing credit limits
+      links: 
+      - url: removing-credit-limits.md
+        itemType: how-to-guide
+        text: remove credit limits and change Azure Dev/Test offers. Switch from pay-as-you-go to another offer
+    # Card
+    - title: Add users to your directory
+      links: 
+      - url: add-users-directory.md
+        text: A guide for adding users to Azure credit subscription
+    # Card
+  #  - title: Sign into Azure with GitHub
+  #    links:
+  #    - url: sign-into-azure-with-github.md
+  #      text: Sign into an individual Monthly Azure Credit Subscription using GitHub credentials
