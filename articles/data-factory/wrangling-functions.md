@@ -168,13 +168,13 @@ in
 
 To set the date/time format when using Power Query ADF, please follow these sets to set the format.
 
-![Power Query Pivot Selector](media/wrangling-data-flow/power-query-date-2.png)
+![Power Query Change Type](media/data-flow/power-query-date-2.png)
 
 1. Select the column in the Power Query UI and choose Change Type > Date/Time
 2. You will see a warning message
 3. Open Advanced Editor and change ```TransformColumnTypes``` to ```TransformColumns```. Specify the format and culture based on the input data.
 
-![Power Query Pivot Selector](media/wrangling-data-flow/power-query-date-3.png)
+![Power Query Editor](media/data-flow/power-query-date-3.png)
 
 ```
 #"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
