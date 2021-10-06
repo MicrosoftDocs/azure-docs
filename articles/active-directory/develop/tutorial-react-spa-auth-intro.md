@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Learn about the authorization code flow in a React single-page application "
+title: "Tutorial: Prepare your single-page app (SPA) for auth"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you will learn about the authorization code flow in a React single-page application
 services: active-directory
