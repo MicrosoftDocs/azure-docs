@@ -114,7 +114,7 @@ conceptualContent:
           itemType: sample
           text: Python SDK code examples
 
-instructionalContent: 
+offerContent: 
 # Supports up to 3 sections
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items: 
