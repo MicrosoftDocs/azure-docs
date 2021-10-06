@@ -932,7 +932,7 @@ To run the preceding command, you need only to pass the new Root Collection Admi
 {"objectId": "{guid}"}
 ```
 
-After this JSON has run successfully, all REST APIs return HTTP response "200 OK".
+After a successful run, all REST APIs return HTTP response "200 OK".
 
 > [!NOTE]
 > Users who call this API must have Owner or User Account and Authentication (UAA) permissions on the Azure Purview account to execute a write action on the account.
