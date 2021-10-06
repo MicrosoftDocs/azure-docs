@@ -64,7 +64,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 In order to generate computer vision models, you need to bring in labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
 > [!NOTE]
-> Creation of TabularDatasets is only supported from data in JSONL format for this capability.
+> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this point.
 
 The structure of the tabular dataset depends upon the task at hand. For computer vision task types,  consists of the following fields:
 
