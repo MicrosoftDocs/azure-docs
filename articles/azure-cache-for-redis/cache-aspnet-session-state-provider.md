@@ -123,4 +123,3 @@ For more information about session state and other best practices, see [Web Deve
 ## Next steps
 
 Check out the [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md).
-
