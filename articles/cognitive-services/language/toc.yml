@@ -281,6 +281,10 @@ items:
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language/context/context
       displayName: Data privacy, logging, data retention
+  - name: Concepts
+    items:
+    - name: Recognized entity categories
+      href: personally-identifiable-information/concepts/entity-categories.md 
 - name: Question answering
   items:
   - name: Overview

@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 04/16/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
-### Financial account identification
+## Financial account identification
 
 This entity category includes financial information and official forms of identification.
 
-#### Category: ABA routing number
+## Category: ABA routing number
 
 This category contains the following entity:
 
@@ -43,7 +43,7 @@ This category contains the following entity:
 :::row-end:::
 
 
-#### Category: SWIFT code
+## Category: SWIFT code
 
 This category contains the following entity:
 
@@ -70,7 +70,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-#### Category: Credit card
+## Category: Credit card
 
 This category contains the following entity:
 
@@ -97,7 +97,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-#### Category: International Banking Account Number (IBAN) 
+## Category: International Banking Account Number (IBAN) 
 
 This category contains the following entity:
 
