@@ -20,7 +20,7 @@ sections:
       - question: |
           Is this an implementation of JSON Patch RFC 6902?
         answer: |
-          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are additional features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Move`, `Test`) have not been implemented.
+          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are other features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Move`, `Test`) have not been implemented.
 
       - question: |
           Is partial document update compatible with serverless, provisioned throughput and autoscale modes of billing?
@@ -38,9 +38,9 @@ sections:
           There is a limit of 10 patch operations that can be added in a single patch specification. If you need this number to be increased, please contact the [support team](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
       - question: |
-          Is partial document update supported for system generated properties?
+          Is partial document update supported for system-generated properties?
         answer: |
-          We do not support partial document update for system generated properties like `_id`, `_ts`, `_etag`, `_rid`.
+          We do not support partial document update for system-generated properties like `_id`, `_ts`, `_etag`, `_rid`.
 
       - question: |
           Can Time to Live (TTL) be patched?
@@ -48,7 +48,7 @@ sections:
           Yes, it is possible to patch [Time to Live](time-to-live.md) (`ttl`) property of a document.
 
       - question: |
-          How does multi-region conflict resolution work in case of Arrays?
+          How does multi-region conflict resolution work for Arrays?
         answer: |
           Arrays are treated as an atomic unit. If the same property in an array is concurrently updated in different regions (thereby resulting in a conflict), only one of the changes will persist.
 
