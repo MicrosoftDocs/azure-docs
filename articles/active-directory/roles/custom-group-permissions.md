@@ -30,9 +30,9 @@ Group management permissions can be used in custom role definitions in Azure Act
 
 This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
 
-## How to read group management permissions
+## How to interpret group management permissions
 
-There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To read the group management permissions, it helps to understand what the different permission subtypes mean. The following table has example permissions for updating group members of different subtypes.
+There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To interpret the group management permissions, it helps to understand what the different permission subtypes mean. The following table has example permissions for updating group members of different subtypes.
 
 > [!div class="mx-tableFixed"]
 > | Permission subtype | Permission subtype description | Permission example | Permission description |
@@ -43,9 +43,9 @@ There are different types of groups, for example, security groups, security grou
 > | groups.security | Manage security groups, excluding role-assignable groups | microsoft.directory/**groups.security**/members/update | Update members of Security groups, excluding role-assignable groups |
 > | groups.security.assignedMembership | Manage security groups of assigned membership type, excluding role-assignable groups | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type, excluding role-assignable groups |
 
-## How to read group management permissions
+## How to interpret group management permissions
 
-There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To read the group management permissions, it helps to understand what the different permission subtypes mean.
+There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To interpret the group management permissions, it helps to understand what the different permission subtypes mean.
 
 > [!div class="mx-tableFixed"]
 > | Permission subtype | Permission subtype description |
