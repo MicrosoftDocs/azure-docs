@@ -252,7 +252,9 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## User-assigned managed identity
 
-You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) documentation. In order to use a user-assigned managed identity, you must [create credentials](credentials.md) in your service instance for the UAMI.
+You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer to [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+
+In order to use a user-assigned managed identity, you must first [create credentials](credentials.md) in your service instance for the UAMI.
 
 ## Next steps
 
