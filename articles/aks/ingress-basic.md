@@ -56,10 +56,10 @@ To control image versions, you will want to import them into your own Azure Cont
 REGISTRY_NAME=<REGISTRY_NAME>
 CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
+CONTROLLER_TAG=v1.0.3
+PATCH_REGISTRY=k8s.gcr.io
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.0
 DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
@@ -94,14 +94,14 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
+helm install ingress-nginx ingress-nginx/ingress-nginx \
     --create-namespace --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
-     --set controller.image.digest="" \
+    --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
