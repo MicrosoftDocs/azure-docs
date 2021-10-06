@@ -197,13 +197,13 @@ The following table describes the hyperparameters that are model agnostic.
 
 | Parameter name | Description | Default|
 | -------------- | ------------- | ------- |
-| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All (not yolov5): 15 <br>yolov5: 30 |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label (not vit): 78 <br> vits16r224: 128 <br>vitb16r224: 48 <br>vitl16r224:10<br><br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. |Multi-class/multi-label (not vit): 78 <br>vits16r224: 128 <br>vitb16r224: 48 <br>vitl16r224:10 <br><br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16<br><br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.  |
+| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  15 <br> (except *yolov5-variants*: 30 |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except *yolov5-variants*: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except *yolov5-variants*: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
 | `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
 | `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
 | `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
-| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>Multi-label: 0.035 <br>Object detection (not yolov5): 0.05 <br> Instance segmentation: 0.05  <br>yolov5: 0.01  |
+| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>(except *vit-variants*: <br> `vits16r224`: 0.0125<br>`vitb16r224`: 0.0125<br>`vitl16r224`: 0.001) <br><br> Multi-label: 0.035 <br>(except *vit-variants*:`vits16r224`: 0.025<br>`vitb16r224`: 0.025 <br>`vitl16r224`: 0.002) <br><br> Object detection: 0.005 <br>(except *yolov5-variants*: 0.01) <br><br> Instance segmentation: 0.05  |
 | `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | `warmup_cosine` |
 | `step_lr_gamma` | Value of gamma when learning rate scheduler is `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
 | `step_lr_step_size` | Value of step size when learning rate scheduler is `step`.<br> Must be a positive integer. | 5 |
@@ -216,7 +216,7 @@ The following table describes the hyperparameters that are model agnostic.
 |`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
 |`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
 |`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
-| `grad_clip_type` | Gradient clipping technique. <br> Must be either `value`, `norm`. | Non-vit models: 'value'<br> vit models: 'norm' |
+| `grad_clip_type` | Gradient clipping technique. <br> Must be either `value`, `norm`. |  'value'<br>(except *vit-variants*: 'norm') |
 | `grad_accumulation_step` | Gradient accumulation step that accumulates the gradients of the configured steps before updating them. <br> Must be a positive integer. | 1 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
 |`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
