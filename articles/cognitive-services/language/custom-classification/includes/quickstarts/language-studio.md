@@ -14,7 +14,7 @@ ms.author: aahi
 
 [!INCLUDE [create a new resource from the Azure portal](../../includes/resource-creation-azure-portal.md)]
 
-You can also [use an existing Language resource](../../how-to/use-azure-resources.md#optional-using-a-preexisting-azure-resource) to get started with custom features.
+You can also [use an existing Language resource](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource) to get started with custom features.
 
 ## Upload sample data to blob container
 
