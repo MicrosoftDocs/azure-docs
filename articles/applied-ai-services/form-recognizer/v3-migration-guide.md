@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 09/30/2021
 ms.author: vikurpad
+recommendations: false
 ---
 
 # Form Recognizer v3.0 migration | Preview
@@ -183,9 +184,10 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
   "expirationDateTime": "2021-08-02T03:56:11Z"
 }
 ```
+
 ## Changes to List models
 
-List models has been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations]().
+List models has been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
 Sample list models request
 ```json
@@ -216,14 +218,10 @@ Sample response
 }
 ```
 
-
-
 ## Next steps
 
 In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API when using any of the preview features.
 
-> [!div class="nextstepaction"]
->
-* [Review the new REST API]()
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](quickstarts/client-library.md)

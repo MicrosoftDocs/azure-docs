@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer general document model
+title: Form Recognizer general document model | Preview
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt general document model
+description: Concepts encompassing data extraction and analysis using prebuilt general document preview model
 author: vkurpad
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,276 +13,67 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer general document model
+# Form Recognizer general document model | Preview
 
-General document is a new capability in Form Recognizer that uses a pre-trained model to extract key value pairs and entities from documents. If you are looking for general key value pairs in documents, you no longer need to train a custom model. Analyze the document with general document to extract most key value pairs.
+The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0)) API, see our [migration guide](v3-migration-guide.md).
 
-Benefits of general document
-1. No need to train a custom model to extract key value pairs
-2. Single API to extract key value pairs and entities
-3. Pre-trained model that will be periodically trained on new data to improve coverage and accuracy
-4. Supports most common form types 
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
 
-## Using general document
+* The general document is a pre-trained model and can be directly invoked via the REST API. 
 
-General document is only released in the v3.0(preview) API. For more information on using the v3.0(preview) API, see [the migration guide](v3-migration-guide.md).
+* The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
 
-General document is a pre-trained model and can be directly invoked via the REST API. 
-
-### General document model data extraction
+## General document model data extraction
 
 | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
 | --- | :---: |:---:| :---: | :---: |:---: |
 |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
 
+## Input requirements
 
+* For best results, provide one clear photo or high-quality scan per document.
+* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* The file size must be less than 50 MB.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* The total size of the training data is 500 pages or less.
+* If your PDFs are password-locked, you must remove the lock before submission.
+* For unsupervised learning (without labeled data):
+  * data must contain keys and values.
+  * keys must appear above or to the left of the values; they can't appear below or to the right.
 
-```json
-POST https://{host}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview
-body = { 
-    "urlSource": "{documentURL}"
-    }
-```
-The response contains a `Operation-Location` header with the value of endpoint to query for the results.
+### Named entity recognition (NER) categories
 
-Sample Get analyze results (value of `Operation-Location`) 
-
-```json
-https://{host}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{request_id}?api-version=2021-09-30-preview
-
-```
-Sample response 
-
-```json
-{
-    "status": "succeeded",
-    "createdDateTime": "2021-09-28T16:52:51Z",
-    "lastUpdatedDateTime": "2021-09-28T16:53:08Z",
-    "analyzeResult": {
-        "apiVersion": "2021-09-30-preview",
-        "modelId": "prebuilt-document",
-        "stringIndexType": "textElements",
-        "content": "content extracted",
-        "pages": [
-            {
-                "pageNumber": 1,
-                "angle": 0,
-                "width": 8.4722,
-                "height": 11,
-                "unit": "inch",
-                "words": [
-                    {
-                        "content": "Case",
-                        "boundingBox": [
-                            1.3578,
-                            0.2244,
-                            1.7328,
-                            0.2244,
-                            1.7328,
-                            0.3502,
-                            1.3578,
-                            0.3502
-                        ],
-                        "confidence": 1,
-                        "span": {
-                            "offset": 0,
-                            "length": 4
-                        }
-                    }
-
-                ],
-                "lines": [
-                    {
-                        "content": "Case",
-                        "boundingBox": [
-                            1.3578,
-                            0.2244,
-                            3.2879,
-                            0.2244,
-                            3.2879,
-                            0.3502,
-                            1.3578,
-                            0.3502
-                        ],
-                        "spans": [
-                            {
-                                "offset": 0,
-                                "length": 22
-                            }
-                        ]
-                    }
-                ]
-            }
-           
-        ],
-        "tables": [
-            {
-                "rowCount": 8,
-                "columnCount": 3,
-                "cells": [
-                    {
-                        "kind": "columnHeader",
-                        "rowIndex": 0,
-                        "columnIndex": 0,
-                        "rowSpan": 1,
-                        "columnSpan": 1,
-                        "content": "Applicant's Name:",
-                        "boundingRegions": [
-                            {
-                                "pageNumber": 1,
-                                "boundingBox": [
-                                    1.9198,
-                                    4.277,
-                                    3.3621,
-                                    4.2715,
-                                    3.3621,
-                                    4.5034,
-                                    1.9198,
-                                    4.5089
-                                ]
-                            }
-                        ],
-                        "spans": [
-                            {
-                                "offset": 578,
-                                "length": 17
-                            }
-                        ]
-                    }
-                ],
-                "spans": [
-                    {
-                        "offset": 578,
-                        "length": 300
-                    },
-                    {
-                        "offset": 1358,
-                        "length": 10
-                    }
-                ]
-            }
-        ],
-        "keyValuePairs": [
-            {
-                "key": {
-                    "content": "Case",
-                    "boundingRegions": [
-                        {
-                            "pageNumber": 1,
-                            "boundingBox": [
-                                1.3578,
-                                0.2244,
-                                1.7328,
-                                0.2244,
-                                1.7328,
-                                0.3502,
-                                1.3578,
-                                0.3502
-                            ]
-                        }
-                    ],
-                    "spans": [
-                        {
-                            "offset": 0,
-                            "length": 4
-                        }
-                    ]
-                },
-                "value": {
-                    "content": "A Case",
-                    "boundingRegions": [
-                        {
-                            "pageNumber": 1,
-                            "boundingBox": [
-                                1.8026,
-                                0.2276,
-                                3.2879,
-                                0.2276,
-                                3.2879,
-                                0.3502,
-                                1.8026,
-                                0.3502
-                            ]
-                        }
-                    ],
-                    "spans": [
-                        {
-                            "offset": 5,
-                            "length": 17
-                        }
-                    ]
-                },
-                "confidence": 0.867
-            }
-        ],
-        "entities": [
-            {
-                "category": "Person",
-                "content": "Jim Smith",
-                "boundingRegions": [
-                    {
-                        "pageNumber": 1,
-                        "boundingBox": [
-                            3.4672,
-                            4.3255,
-                            5.7118,
-                            4.3255,
-                            5.7118,
-                            4.4783,
-                            3.4672,
-                            4.4783
-                        ]
-                    }
-                ],
-                "confidence": 0.93,
-                "spans": [
-                    {
-                        "offset": 596,
-                        "length": 21
-                    }
-                ]
-            }
-        ],
-        "styles": [
-            {
-                "isHandwritten": true,
-                "confidence": 0.95,
-                "spans": [
-                    {
-                        "offset": 565,
-                        "length": 12
-                    },
-                    {
-                        "offset": 3493,
-                        "length": 1
-                    }
-                ]
-            }
-        ]
-    }
-}
-
-```
-
-## Scenarios
-
-General document is ideal for when specific, common key value pairs need to be extracted from a document. For example, you need to extract the customer ID from all orders to determine how to route the order.
-
-Knowledge mining is another scenario where general document can help infer context from a large corpus of documents by extracting key value pairs. Validating the values with extracted entities and associated types could further improve the experience.
+| Category | Type | Description |
+|-----------|-------|--------------------|
+| Person | string | A person's partial or full name. |
+|PersonType | string | A person's job type or role.  |
+| Location | string | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| Organization | string | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
+| Event | string | Historical, social, and naturally occurring events. |
+| Product | string |Physical objects of various categories. |
+| Skill | string | A capability, skill, or expertise. |
+| Address | string | Full mailing addresses. |
+| Phone number | string| Phone numbers. | 
+Email | string | Email address. |
+| URL | string| Website URLs and links|
+| IPAddress | string| Network IP addresses. |
+| DateTime | string| Dates and times of day. |
+| Quantity | string | Numerical measurements and units. |
 
 ## Considerations
 
-Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted on the entire contents of the documents and not just the extracted values.
+* Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted on the entire contents of the documents and not just the extracted values.
 
-Keys are spans of text extracted from the document, for semi structured documents, keys may need to be mapped to an existing dictionary of keys.
+* Keys are spans of text extracted from the document, for semi structured documents, keys may need to be mapped to an existing dictionary of keys.
 
-Expect to see key value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
+* Expect to see key value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 
 ## Next steps
 
-Learn more about the Form Recognizer client library by exploring our API reference documentation.
+* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
-> [!div class="nextstepaction"]
-> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
-> [Try general document in the Form Recognizer Studio]()
+* Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.

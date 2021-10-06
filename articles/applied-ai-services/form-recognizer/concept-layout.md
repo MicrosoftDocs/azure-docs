@@ -9,9 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
+recommendations: false
 ---
 
 # Form Recognizer layout model
+
+## Overview
 
 Azure Form Recognizer's Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
@@ -27,7 +30,7 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 
 ## Try it: Sample labeling tool
 
-You can see how invoice data is extracted by trying our Sample Labeling tool. You'll need the following:
+You can see how layout data is extracted by trying our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -62,7 +65,9 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
   * data must contain keys and values.
   * keys must appear above or to the left of the values; they can't appear below or to the right.
 
+## Supported languages and locales
 
+ Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.
 
 ## Features
 
@@ -102,12 +107,24 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 :::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="Layout selected pages output":::
 
+## Form Recognizer preview v3.0
+
+ The Form Recognizer preview introduces several new features and capabilities.
+
+* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+
+* Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.
+
 ## Next steps
 
-* Try your own layout extraction using the [Form Recognizer Sample UI tool](https://aka.ms/fott-2.1-ga)
-* Complete a [Form Recognizer quickstart](quickstarts/client-library.md#analyze-layout) to get started extracting layouts in the development language of your choice.
+* Complete a Form Recognizer quickstart:
 
-## See also
+  > [!div class="nextstepaction"]
+  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
 
-* [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+* Explore our REST API:
+
+    > [!div class="nextstepaction"]
+    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)

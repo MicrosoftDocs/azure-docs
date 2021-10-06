@@ -1,7 +1,23 @@
-> [!IMPORTANT]
->
-> * This quickstart SDK targets REST API version **v3.0**.
->
+---
+title: "Quickstart: Form Recognizer Python SDK v3.0 | Preview"
+titleSuffix: Azure Applied AI Services
+description: Form and document processing, data extraction, and analysis using Form Recognizer Python client library SDKs v3.0 (preview)
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: quickstart
+ms.date: 09/14/2021
+ms.author: lajanuar
+recommendations: false
+---
+
+# Quickstart: Form Recognizer Python client library SDKs v3.0 | Preview
+
+Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) cloud service that lets you build automated data processing software using machine learning technology. You can use Form Recognizer via the REST API or an SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+
+>[!NOTE]
+> Form Recognizer v3.0 is currently in public preview. some features may not be supported or have limited capabilities. 
 
 [Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -87,6 +103,8 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 ## Analyze a document with a Form Recognizer model
 
 ### General document
+
+#### General document model
 
 > [!div class="checklist"]
 >
@@ -189,6 +207,8 @@ def analyze_document():
 ```
 
 ### Layout
+
+#### Layout model
 
 > [!div class="checklist"]
 >
@@ -293,6 +313,8 @@ def analyze_layout():
 ```
 
 ### Prebuilt invoice
+
+#### Prebuilt invoice model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
 

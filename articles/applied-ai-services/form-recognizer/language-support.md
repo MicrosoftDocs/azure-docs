@@ -20,7 +20,7 @@ ms.author: lajanuar
 
 ## Layout and custom model
 
-See [How to specify the API version]() to use the preview languages. The preview model includes any enhancements to the currently GA languages.
+The preview model includes any enhancements to the currently GA languages.
 
 ### Handwritten text
 

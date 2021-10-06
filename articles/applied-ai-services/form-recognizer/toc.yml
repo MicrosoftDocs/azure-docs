@@ -26,8 +26,10 @@ items:
          href: quickstarts/try-v3-form-recognizer-studio.md
        - name: "Get started: REST API (preview)"
          href: quickstarts/try-v3-rest-api.md
-       - name: "Get started: client library SDKs (preview)"
-         href: quickstarts/try-v3-client-libraries-sdk.md
+       - name: "Get started: C# SDK (preview)"
+         href: quickstarts/try-v3-csharp-sdk.md
+       - name:  "Get started: Python SDK (preview)" 
+         href: quickstarts/try-v3-python-sdk.md
 - name: Samples
   items:
   - name: "C#/.NET"

@@ -1566,7 +1566,7 @@ You'll receive a `204` success response, indicating that your model is marked fo
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API to train models and analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API to analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
