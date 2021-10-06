@@ -58,7 +58,7 @@ For the **Send Email (V2)** action, customize how you wish to format the email, 
 
 :::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action with the email customizations referring to the properties of the Body JSON schema.":::
 
-Save the workflow. Make a note of your HTTP Post request URL for your success email workflow then:
+Save the workflow. Make a note of the Workflow URL for your new workflow then:
 
 :::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview blade with the Workflow URL highlighted.":::
 
