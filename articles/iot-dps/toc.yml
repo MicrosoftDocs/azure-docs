@@ -96,6 +96,8 @@
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
+    - name: Managing public network access
+      href: iot-dps-public-network-access.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
