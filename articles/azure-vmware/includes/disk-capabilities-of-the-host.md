@@ -3,8 +3,8 @@ title: Disk capabilities of the hosts
 description: Hosts used to build or scale clusters come from an isolated pool of hosts.
 ms.topic: include
 ms.date: 04/23/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 
