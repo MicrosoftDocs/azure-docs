@@ -8,6 +8,8 @@ ms.date: 09/29/2021
 
 # Secure WebHook delivery with Azure AD Application in Azure Event Grid
 
+This script provides the configuration to deliver events to HTTPS endpoints protected by Azure AD Application using Azure Event Grid.
+
 ## Sample script - stable
 
 ```azurepowershell
