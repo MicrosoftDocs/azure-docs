@@ -89,6 +89,8 @@
     href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
+  - name: Connect cameras to cloud
+    href: connect-cameras-to-cloud.md
   - name: Scenarios 
     items:
     - name: Analyze live videos
