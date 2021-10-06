@@ -730,6 +730,8 @@
       href: howto-hyperscale-restart.md
     - name: Monitor
       items:
+      - name: View metrics
+        href: howto-hyperscale-monitoring.md
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
         dispalyName: alerts on hyperscale

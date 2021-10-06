@@ -56,7 +56,7 @@ All users in your tenant must register for multi-factor authentication (MFA) in 
 
 Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication.
 
-After registration with Azure AD Multi-Factor Authentication is finished, the following nine Azure AD administrator roles will be required to do extra authentication every time they sign in:
+After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
 - Global administrator
 - Application administrator
