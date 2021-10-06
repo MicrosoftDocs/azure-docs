@@ -101,9 +101,9 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Can't create request with Microsoft Account
 
-If you have a Microsoft Account (MSA), you can't create Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
+If you have a Microsoft Account (MSA), you can't create an Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
 
-To create to Azure support ticket, an *organizational account* must have the EA administrator role.
+To create an Azure support ticket, an *organizational account* must have the EA administrator role.
 
 If you have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
 
