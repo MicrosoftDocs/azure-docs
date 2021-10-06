@@ -17,6 +17,8 @@ ms.collection:
 
 # Scenario - Using Azure Active Directory to secure access to SAP platforms and applications
 
+This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
+
 ## Terminology used in this guide
 
 | Abbreviation                                                                                                          | Description                                                                                                                                                                                                   |
@@ -30,8 +32,6 @@ ms.collection:
 | [Fiori](https://www.sap.com/products/fiori/develop.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
 
 ## Overview
-
-This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
 
 There are many services and components in the SAP and Microsoft technology stack that play a role in user authentication and authorization scenarios. The main services are listed in the diagram below.
 
