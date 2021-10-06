@@ -46,7 +46,7 @@ DELETE `https://{{hostname}}/Patient?identifier=1032704&_count=100`
 Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using Patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three types of ways to Patch resources in FHIR: JSON Patch, XML Patch, and FHIR Path Patch. The FHIR service support JSON Patch and Conditional JSON Patch (which allows you to Patch a resource based on a search criteria instead of an ID). To walk through some examples of using JSON Patch, refer to the sample [REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatchRequests.http).
 
 > [!NOTE]
-> When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [http verb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
+> When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [HTTPVerb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
 
 ### Testing Patch
 
