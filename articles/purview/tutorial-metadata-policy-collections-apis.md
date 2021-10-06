@@ -12,7 +12,7 @@ ms.date: 09/24/2021
 
 # Tutorial: Use REST APIs to manage role-based access control on Azure Purview collections 
 
-In August 2021, access control in Azure Purview moved from Azure Identity & Access Management (IAM) (control plane) to [Azure Purview collections](how-to-create-and-manage-collections.md) (data plane). This change gives enterprise data curators and admins more precise, granular access control on their data sources scanned by Azure Purview. The change also enables organizations to audit right access and right use of their data.
+In August 2021, access control in Azure Purview moved from Azure Identity & Access Management (IAM) (control plane) to [Azure Purview collections](how-to-create-and-manage-collections.md) (data plane). This change gives enterprise data curators and administrators more precise, granular access control on their data sources scanned by Azure Purview. The change also enables organizations to audit right access and right use of their data.
 
 This tutorial guides you through step-by-step usage of the [Azure Purview Metadata Policy APIs](/rest/api/purview/metadatapolicydataplane/Metadata-Policy.yml) to help you add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure portal or Azure Purview Studio to achieve the same granular role-based access control.
 
@@ -49,9 +49,9 @@ The following table gives an overview of the Azure Purview collections APIs. For
 
 - For all Azure Purview APIs that require {collectionName}, you will need to use *"name"* (and not *"friendlyName"*). Replace {collectionName} with the actual six-character alphanumeric collection name string. 
    > [!NOTE]
-   > This name is different from the friendly display name you supplied when you created the collection. If you don't have {collectionName} handy, use the [List collections API](/rest/api/purview/accountdataplane/collections/list-collections) to select the six-character collection name from the JSON output.
+   > This name is different from the friendly display name you supplied when you created the collection. If you don't have {collectionName} handy, use the [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) to select the six-character collection name from the JSON output.
 
-- Here is an example JSON file: 
+Here is an example JSON file: 
 
 ```json
 {
@@ -89,7 +89,7 @@ Here are some of the important identifiers in the JSON output that's received fr
 
 ## Add or remove users from a collection or role
 
-Use Azure Purview REST APIs to add or remove a user, group, or service principal from a collection or role. Detailed API usage is provided along with sample JSON outputs. We highly recommend that you follow the instructions in the next sections sequentially for best understanding of Azure Purview Metadata Policy APIs.
+Use Azure Purview REST APIs to add or remove a user, group, or service principal from a collection or role. Detailed API usage is provided along with sample JSON outputs. We highly recommend that you follow the instructions in the next sections sequentially for best understanding of the Azure Purview metadata policy APIs.
 
 ## Get all metadata roles
 
@@ -106,7 +106,7 @@ The default metadata roles are listed in the following table:
 | Role ID | Permissions | Role description | 
 | :- | :- | :- | 
 | purviewmetadatarole\_builtin\_data-source-administrator| Microsoft.Purview/accounts/scan/read Microsoft.Purview/accounts/scan/write Microsoft.Purview/accounts/collection/read| Grants access to others to read, write collection, register data sources, and trigger scans.| 
-| purviewmetadatarole\_builtin\_collection-administrator| Microsoft.Purview/accounts/collection/read Microsoft.Purview/accounts/collection/write| Admin level full access to the entire collection, including add or remove users and service principal names (SPNs) from the collection, management rights, and grant or revoke access. In some cases, the Collection Administrator might be different from the creator of the collection.| 
+| purviewmetadatarole\_builtin\_collection-administrator| Microsoft.Purview/accounts/collection/read Microsoft.Purview/accounts/collection/write| Administrator-level full access to the entire collection, including add or remove users and service principal names (SPNs) from the collection, management rights, and grant or revoke access. In some cases, the Collection Administrator might be different from the creator of the collection.| 
 | purviewmetadatarole\_builtin\_purview-reader| Microsoft.Purview/accounts/data/read Microsoft.Purview/accounts/collection/read| Grants only read access to data handling and all metadata, including classifications, sensitivity labels, insights, and read assets in a collection, except scan bindings.| 
 | purviewmetadatarole\_builtin\_data-curator| Microsoft.Purview/accounts/data/read Microsoft.Purview/accounts/data/write Microsoft.Purview/accounts/collection/read| Grants full access to data handling and all metadata, including classifications, sensitivity labels, insights, and read assets in a collection, except scan bindings.| 
 | purviewmetadatarole\_builtin\_data-share-contributor| Microsoft.Purview/accounts/share/read Microsoft.Purview/accounts/share/write| Grants access to data shares as a contributor. | 
@@ -235,7 +235,7 @@ The default metadata roles are listed in the following table:
 ```ruby
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
 ```
-Lists all available metadata policies across the entire collections hierarchy, from the root collection at the top to all its child policies, in tree format. Each child collection encapsulates each of its next level children.
+The preceding command lists all available metadata policies across the entire collections hierarchy in tree format, from the root collection at the top to all its child policies. Each child collection contains each of its next level children.
 
 Example:
 
@@ -817,19 +817,19 @@ GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPo
 ```
 
 
-## Update policy: Add/remove user/group from collection
+## Update the collection policy
 
 ```ruby
 PUT https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
 
-In this section, you update the policy JSON that you obtained in the preceding step and push it to the Azure Purview service by using a PUT REST method.
+In this section, you update the policy JSON that you obtained in the preceding step by adding or removing a user, group, or service principal from the collection. You then push it to the Azure Purview service by using a PUT REST method.
 
-Whether you're adding or removing *User/Group/SP(ServicePrincipal)*, you'll follow the same API process.
+Whether you're adding or removing a user, group, or service principal, you'll follow the same API process.
 
-1. Supply the User/Group/ServicePrincipal Object IDs {guid} in the "attributeValueIncludedIn" array of the JSON.
+1. Supply the user, group, or service principal object ID {guid} in the "attributeValueIncludedIn" array of the JSON.
 
-1. Search the JSON output of the Get-Policy-by-ID API for the "attributeValueIncludedIn" array in the previous step, and either add or remove the User/Group/ServicePrincipal Object ID in the array. If you're unsure about how to fetch the user or group object ID, see [Get-AzureADUser](/powershell/module/azuread/get-azureaduser).
+1. Search the JSON output of the Get-Policy-by-ID API for the "attributeValueIncludedIn" array in the previous step, and either add or remove the user, group, or service principal object ID in the array. If you're unsure about how to fetch the user, group, or service principal object ID, see [Get-AzureADUser](/powershell/module/azuread/get-azureaduser).
 
 1. There are multiple sections in the JSON mapping for each of the four roles. For the Collection Administrator permissions role, use the section bearing the ID called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
 
@@ -921,7 +921,7 @@ Whether you're adding or removing *User/Group/SP(ServicePrincipal)*, you'll foll
 }
 ```
 ## Add the Root Collection Administrator role
-By default, the user who created the Azure Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the Root Collection Administrator by using the API. For instance, it's possible that the current Root Collection Administrator no longer exists in the organization. In these cases, the Azure portal might be inaccessible to anyone in the organization. For this reason, using the API to assign a new Root Collection Administrator and manage collection permissions becomes the only way to regain access to the Azure Purview account.
+By default, the user who created the Azure Purview account is the Root Collection Administrator (that is, the administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the Root Collection Administrator by using the API. For instance, it's possible that the current Root Collection Administrator no longer exists in the organization. In such a case, the Azure portal might be inaccessible to anyone in the organization. For this reason, using the API to assign a new Root Collection Administrator and manage collection permissions becomes the only way to regain access to the Azure Purview account.
 
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
@@ -932,16 +932,18 @@ To run the preceding command, you need only to pass the new Root Collection Admi
 {"objectId": "{guid}"}
 ```
 
-After this JSON has run successfully, all REST APIs return HTTP Response 200 OK.
+After this JSON has run successfully, all REST APIs return HTTP response "200 OK".
 
 > [!NOTE]
 > Users who call this API must have Owner or User Account and Authentication (UAA) permissions on the Azure Purview account to execute a write action on the account.
 
+## Additional resources
+
+To get started quickly with Azure Purview APIs, [download a zip-file archive](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) of all Azure Purview REST API specs. You can use these API templates to understand and build out your own code, script, automation, [AutoRest](https://github.com/Azure/autorest), or Postman Collection of Azure Purview APIs.
+
+You may choose to execute Azure Purview REST APIs by using the [PowerShell utility](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. With this utility, you can execute all the same commands, but from Windows PowerShell.
+
 ## Next steps
-
-To get started quickly with Azure Purview APIs, [download a zip-file archive](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) of all the Azure Purview REST API specs. You can use these API templates to understand and build out your own code, script, automation, [AutoRest](https://github.com/Azure/autorest), or Postman Collection of Azure Purview APIs.
-
-You may choose to execute Azure Purview REST APIs by using this [PowerShell utility](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. With it, you can execute all the same commands, but from Windows PowerShell.
 
 > [!div class="nextstepaction"] 
 > [Purview-API-PowerShell](https://aka.ms/purview-api-ps) 
