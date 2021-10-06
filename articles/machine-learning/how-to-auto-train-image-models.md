@@ -43,17 +43,21 @@ Automated ML supports model training for computer vision tasks like image classi
 ## Select your task type
 Automated ML for images supports the following task types:
 
-* image classification
-* image multi-labeling
-* image object detection
-* image instance segmentation
+
+Task type | AutoMLImage config syntax
+---|---
+ image classification | `ImageTask.IMAGE_CLASSIFICATION`
+image classification multi-label | `ImageTask.IMAGE_CLASSIFICATION_MULTILABEL`
+image object detection | `ImageTask.IMAGE_OBJECT_DETECTION`
+image instance segmentation| `ImageTask.IMAGE_INSTANCE_SEGMENTATION`
 
 This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. 
 For example:
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
-automl_image_config = AutoMLImageConfig(task='image-object-detection')
+from azureml.automl.core.shared.constants import ImageTask
+automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 ```
 
 ## Training and validation data
@@ -61,7 +65,7 @@ automl_image_config = AutoMLImageConfig(task='image-object-detection')
 In order to generate computer vision models, you need to bring in labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
 > [!NOTE]
-> Creation of TabularDatasets is only supported from data in JSONL format for this capability.
+> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this point.
 
 The structure of the tabular dataset depends upon the task at hand. For computer vision task types,  consists of the following fields:
 
@@ -273,8 +277,9 @@ If you wish to use the default hyperparameter values for a given algorithm (say 
 ```python
 from azureml.train.automl import AutoMLImageConfig
 from azureml.train.hyperdrive import GridParameterSampling, choice
+from azureml.automl.core.shared.constants import ImageTask
 
-automl_image_config_yolov5 = AutoMLImageConfig(task='image-object-detection',
+automl_image_config_yolov5 = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION,
                                                compute_target=compute_target,
                                                training_data=training_dataset,
                                                validation_data=validation_dataset,
@@ -285,16 +290,18 @@ Once you've built a baseline model, you might want to optimize model performance
 
 ### Primary metric
 
-You can specify the metric to be used for model optimization and hyperparameter tuning with the optional `primary_metric` parameter. Default values depend on the task type.
+This is an optional parameter to specify the metric to be used for model optimization and hyperparameter tuning. Default values depend on the task type.
 
-* `accuracy` for image-classification
-* `iou` for image-multi-labeling
-* `mean_average_precision` for image-object-detection
-* `mean_average_precision` for image-instance-segmentation
+* `accuracy` for IMAGE_CLASSIFICATION
+* `iou` for IMAGE_CLASSIFICATION_MULTILABEL
+* `mean_average_precision` for IMAGE_OBJECT_DETECTION
+* `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
 
+Using other primary metric values is curently not supported.    
+    
 ### Experiment budget
 
-You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is six days.
+You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days).
 
 <!---
 ### Early stopping
@@ -321,7 +328,7 @@ You can define the model algorithms and hyperparameters to sweep in the paramete
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `hyperparameter_sampling` parameter:
 
 * [Random sampling](how-to-tune-hyperparameters.md#random-sampling)
-* [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) (not supported for conditional spaces)
+* [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
 * [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) (not supported for conditional spaces)
 
 ### Early termination policies
