@@ -127,6 +127,30 @@ Content coming
 
 ### Credentials/certificates
 
+If your device utilizes a certificate from a PKI (Public Key Infrastructure) your application will need to be able to update those certificates (both for the device and any trusted certificates used for verifying servers) periodically. The more frequent the update, the more secure your application will be.
+
+**Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. This would require the ability to generate X.509 certificate requests on the device.
+
+**Azure RTOS**: Azure RTOS TLS provides basic X.509 certificate support. CRLs and policy parsing are supported but require manual management in your application without a supporting SDK.
+
+**Application**: Utilize CRLs or OCSP to validate that certificates have not been revoked by your PKI. Make sure to enforce X.509 policies, including validity periods and expiration dates, as required by your PKI.
+
+**7 Properties**: Password-less Authentication, Hardware-based Root of Trust, Renewable Security
+
+**SMM Practices**: Establishing and Maintaining Identities, Access Control
+
+0 – No certificate 
+
+1 – Use of certificate without protection (e.g.  private keys stored in normal program memory) 
+
+2 – Use of certificates with protection (e.g.  private keys stored in protected memory) 
+
+3 – Use of hardware-based certificates (e.g.  private keys generated in on-device HSM hardware) 
+
+4 – A system to update hardware-based certificates on a regular basis to reduce the threat of compromised private keys 
+
+ 
+
 Content coming
 
 ### Attestation
@@ -317,13 +341,13 @@ Using hardware-based X.509 certificates with TLS mutual authentication and a PKI
 
 ### Use strongest cryptographic options/cyphersuites for TLS
 
-Use the strongest cryptography and ciphersuites available for TLS. Having the ability to update TLS and cryptography is also important as, over time, certain ciphersuites and TLS versions may become compromised or discontinued.
+Use the strongest cryptography and cipher suites available for TLS. Having the ability to update TLS and cryptography is also important as, over time, certain cipher suites and TLS versions may become compromised or discontinued.
 
 **Hardware**: If cryptographic acceleration is available, use it.
 
 **Azure RTOS**:  Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the Azure RTOS cryptography library is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
 
-**Application**: Applications using TLS should choose ciphersuites that utilize hardware-based cryptography (when available) and the strongest keys available.
+**Application**: Applications using TLS should choose cipher suites that utilize hardware-based cryptography (when available) and the strongest keys available.
 
 **Properties**: Hardware Based Root of Trust, Defense in Depth
 
@@ -468,3 +492,77 @@ Connected IoT devices may not have the necessary resources to implement all secu
 **7 Properties**: Defense in Depth, Failure Reporting
 
 **SMM Practices**: The Implementation of Data Protection Controls, Security Model and Policy for Data
+
+## Azure RTOS IoT Application Security Checklist
+
+The previous sections detailed specific design considerations with descriptions of the necessary hardware, operating system, and application requirements to help mitigate security threats. This section provides a basic checklist of security-related issues to consider when designing and implementing IoT applications with Azure RTOS. This shortlist of measures is meant as a complement to, not a replacement for, the more detailed discussion in previous sections. Ultimately, a comprehensive analysis of the physical and cyber security threats posed by the environment your device will be deployed into coupled with careful consideration and rigorous implementation of the measures needed to mitigate those threats must be done to provide the highest possible level of security for your device.
+
+### Security DOs
+
+- DO ALWAYS use a hardware source of entropy (CRNG, TRNG based in hardware). Azure RTOS uses a macro (`NX_RAND`) that allows you to define your random function.
+
+- DO Always supply a Real-Time Clock for calendar date/time to check certificate expiration.
+
+- DO utilize CRL (Certificate Revocation Lists) to validate certificate status. With Azure RTOS TLS, a CRL is retrieved by the application and passed via a callback to the TLS implementation – consult the TLS User Guide for more information.
+
+- DO utilize the X.509 “Key Usage” extension when possible to check for certificate acceptable uses. In Azure RTOS this requires the use of a callback to access the X.509 extension information.
+
+- DO use X.509 policies in your certificates that are consistent with the services to which your device will connect (e.g. ExtendedKeyUsage).
+
+- DO use approved cipher suites in the Azure RTOS Crypto library
+
+  - Supplied examples provide the required cipher suites to be compatible with TLS RFCs, but stronger cipher suites may be more suitable.  Be aware that cipher suites include multiple ciphers for different TLS operations, so choose carefully: for example, using ECDHE may be preferable to RSA for key exchange, but the benefits can be lost if the cipher suite also uses RC4 for application data. Make sure every cipher in a cipher suite meets your security needs.
+
+  - Remove cipher suites that are not needed. Doing so saves space and provides extra protection against attack.
+
+  - Use hardware drivers when applicable. Azure RTOS provides hardware cryptography drivers for select platforms. Consult the NetX Crypto documentation for more information.
+
+- DO favor ephemeral public-key algorithms (like ECDHE) over static algorithms (like classic RSA) when possible as these provide forward secrecy. Note that TLS 1.3 ONLY supports ephemeral cipher modes so moving to TLS 1.3 (when possible) will satisfy this goal.
+
+- DO utilize memory checking functionality provided by your tools (for example, compiler and 3rd-party memory checking tools) and libraries (for example, Azure RTOS ThreadX stack checking).
+
+- DO scrutinize all input data for length/buffer overflow conditions. Any data coming from outside a functional block (the device, thread, and even each function/method) should be considered suspect and checked thoroughly with application logic. Some of the easiest vulnerabilities to exploit come from unchecked input data causing buffer overflows.
+
+- DO make sure code builds cleanly. All warnings and errors should be accounted for and scrutinized for vulnerabilities.
+
+- DO utilize static code analysis tools to determine if there are any errors in logic or pointer arithmetic – all errors can be potential vulnerabilities.
+
+- DO research fuzz testing (or “fuzzing”) for your application. Fuzzing is a security-focused process where message parsing for incoming data is subjected to large quantities of random or semi-random data to observe the behavior when invalid data is processed. It is based on techniques used by hackers to discover buffer overflow and other errors that may be used in an exploit to attack a system.
+
+- DO perform code walk-through audits to look for confusing logic and other errors. If you can’t understand a piece of code, it’s possible that code contains vulnerabilities.
+
+- DO use an MPU/MMU (when available and overhead is acceptable) to prevent code from executing from RAM and to prevent threads from accessing memory outside their own memory space. Azure RTOS ThreadX Modules can be used to isolate application threads from each other to prevent access across memory boundaries.
+
+- DO use watchdogs to prevent run-away code and to make attacks more difficult by limiting the window during which an attack can be executed.
+
+- DO consider Safety and Security certified code. Using certified code and certifying your own applications will subject your application to higher scrutiny and increase the likelihood of discovering vulnerabilities before the application is deployed. Note that certification itself may not be required, but following the rigorous testing and review processes required for certification can provide enormous benefit.
+
+### Security DON'Ts
+
+- DO NOT use the standard C-library `rand()` function as it does not provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
+
+- DO NOT hard-code private keys or credentials (certificates, passwords, usernames, etc.) in your application. Private keys should be updated regularly (the actual schedule depends on several factors) to provide a higher level of security. In addition, hard-coded values may be readable in memory or even in transit over a network if the firmware image is not encrypted. The actual mechanism for updating keys and certificates will depend heavily on your application and the PKI being used.
+
+- DO NOT use self-signed device certificates and instead use a proper PKI for device identification. (Some exceptions may apply, but generally this is a rule for most organizations and systems.)
+
+- DO NOT use any TLS extensions that are not needed. Azure RTOS TLS disables many features by default so only enable features you need.
+
+- DO NOT utilize “Security by obscurity”. It is NOT SECURE. The industry is littered with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords may prevent some intruders but it will not stop a dedicated attacker. Obscured code provides a false sense of security.
+
+- DO NOT leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn’t need a feature, disable it. Don’t fall into the trap of leaving a TCP port open “just in case”. The more functionality that is enabled, the higher the risk that an exploit will go undetected and the interaction between different features can introduce new vulnerabilities.
+
+- DO NOT leave debugging enabled in production code. If an attacker can simply plug in a JTAG debugger and dump the contents of RAM on your device, there is very little that can be done to secure your application. Leaving a debugging port open is the equivalent of leaving your front door open with a your valuables lying in plain sight. Don’t do it.
+
+- DO NOT allow buffer overflow in your application. Many remote attacks start with a buffer overflow that is used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code – double check any input that comes from or is derived from sources outside the device (network stack, display/GUI interface, external interrupts, etc.) and handle the error gracefully. Utilize compiler, linker, and runtime system tools to detect and mitigate overflow problems.
+
+- DO NOT put network packets on local thread stacks where an overflow can affect return addresses, leading to Return-Oriented Programming vulnerabilities.
+
+- DO NOT put buffers in program stacks – allocate them statically whenever possible.
+
+- DO NOT use dynamic memory and heap operations when possible. Heap overflows can be problematic since the layout of dynamically allocated memory for example, from functions like `malloc()`, is difficult to predict. Static buffers can be more easily managed and protected.
+
+- DO NOT embed function pointers in data packets were overflow can overwrite function pointers.
+
+- DO NOT try to implement your own cryptography. Accepted cryptographic routines like ECC and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It is highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
+
+- DO NOT implement roll-your-own cryptography schemes. Simply using AES does not mean your application is secure. Protocols like TLS utilize various methods to mitigate various issues such as known plaintext attacks (using known unencrypted data to derive information about encrypted data), padding oracles (using modified cryptographic padding to gain access to secret data), or predictable secrets which can be used to break encryption. Whenever possible, try to use accepted security protocols like TLS when securing your application.
