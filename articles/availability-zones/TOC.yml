@@ -10,8 +10,12 @@
     href: az-overview.md
   - name: Availability Zones Documentation
     items:
+    - name: Azure Services
+      href: region-types-service-categories-azure.md
     - name: Azure Services that support Availability Zones
       href: az-region.md
+    - name: Terminology
+      href: glossary.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
