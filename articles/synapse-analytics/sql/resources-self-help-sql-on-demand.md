@@ -546,7 +546,7 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 
 If this query fails, the caller does not have permission to read the underlying storage files. 
 
-Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+The easiest way is to grant yourself `Storage Blob Data Contributor` role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
@@ -564,33 +564,15 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference).
+**Status**: Resolved
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
-
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+**Release**: October 2021
 
 ### Cannot parse field 'type' in JSON object
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). 
+**Status**: Resolved
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
-
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+**Release**: October 2021
 
 ### Cannot find value of partitioning column in file 
 
@@ -618,19 +600,9 @@ First, make sure that your Delta Lake data set is not corrupted.
 - Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
-Some common errors and workarounds:
+**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
-- `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
-
-**Workaround:** Try to use WITH schema that will exclude unsupported types.
-
-- `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
-
-**Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
-
-**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
-
-In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
+If the data set is valid, and the workarounds cannot help, report a support ticket and provide an additional info  to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
