@@ -24,6 +24,9 @@ The connection process can take around 20 minutes to complete.
 
 ::: zone pivot="two-node"
 
+This tutorial describes how to configure network for your two-node Azure Stack Edge Pro GPU device by using the local web UI.
+
+The procedure can take around 45 minutes to complete.
 
 ::: zone-end
 
@@ -44,6 +47,8 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 * You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
 
+::: zone pivot="two-node"
+
 ## Get started
 
 1. Go to the **Get started** page.
@@ -54,6 +59,10 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 1. In the local UI for the second device, go to the **Get started** page.
 1. In the **Prepare a node** tile, select **Start**.
+
+::: zone-end
+
+::: zone pivot="single-node"
 
 ## Configure network
 
@@ -102,10 +111,11 @@ Follow these steps to configure the network for your device.
 
     After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
 
+::: zone-end
 
 ::: zone pivot="two-node"
 
-### Configure network on first node
+## Configure network on first node
 
 To configure the network for a 2-node device, follow these steps on the 1st node of the device:
 
@@ -121,7 +131,7 @@ To configure the network for a 2-node device, follow these steps on the 1st node
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology with a device reset. Select **Yes** to confirm the network setting. The network setting takes a few minutes to apply and you see a notification when the network settings are successfully applied.
 1. Once the network settings are applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch is created at Port 2 and another virtual switch is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed NICs are then connected via switches.
 
-### Configure network on second node
+## Configure network on second node
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
 1. Make sure that the 2nd node is cabled as per the topology you selected for the 1st node. In the **Network** page, choose and **Apply** the same topology that you selected for the 1st node.
