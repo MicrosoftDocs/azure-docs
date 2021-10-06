@@ -91,11 +91,11 @@
       - name: 1 - Prepare your React SPA
         href: tutorial-react-spa-auth-intro.md
       - name: 2 - Prepare Azure AD for your app
-        href: tutorial-react-spa-create-project.md
+        href: tutorial-react-spa-register-project.md
       - name: 3 - Sign in user
         href: tutorial-react-spa-sign-in-users.md
       - name: 4 - Get user data from a web API
-        href: tutorial-react-spa-get-user-profile.md
+        href: tutorial-react-spa-get-user-data.md
       - name: 5 - Sign out user
         href: tutorial-react-spa-sign-out-users.md
   - name: Web app
