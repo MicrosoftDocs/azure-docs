@@ -33,21 +33,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Free trial updates
 
-Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
+Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
 
 Now, in addition during the trial period:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Microsoft Sentinel and Log Analytics. 
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics. 
 
-    Any data consumed beyond 10 GB/day will be billed per [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-- **For existing Log Analytics workspaces**, Microsoft Sentinel is free of charge, and only Log Analytics charges apply.
+- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply.
 
-For more information, see the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Microsoft Sentinel](azure-sentinel-billing.md).
+For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
 ### Content hub and 55+ new solutions
 
-Microsoft Sentinel now provides a content hub for built-in, on-demand solutions to your Microsoft Sentinel workspace.
+Azure Sentinel now provides a content hub for built-in, on-demand solutions to your Azure Sentinel workspace.
 
 On the **Solutions** page, find the solution you want by filtering for provider, support options, content included, and categories.
 
@@ -126,29 +126,29 @@ For more information, see [Discover and deploy Azure Sentinel solutions](sentine
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
-Now, any threat intelligence data that you bring in to Microsoft Sentinel via data connectors and logic app playbooks, or create in Microsoft Sentinel, is now enriched with Geolocation and WHoIs information.
+Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is now enriched with Geolocation and WHoIs information.
 
 For example: 
 TBD SCREENSHOT
 
 For more information, see:
 
-- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
+- [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 - [Enrich entities with geolocation data via API](geolocation-data-api.md)
 
-### Use notebooks with Azure Synapse Analytics in Microsoft Sentinel
+### Use notebooks with Azure Synapse in Azure Sentinel
 
-Microsoft Sentinel now supports integrating notebooks with Azure Synapse Analytics, allowing you to:
+Azure Sentinel nowpports integrating notebooks with Azure Synapse for advanced data science scearios. Using the Azure Synapse functionality now built-in to notebooks, you can run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
 
-- Integrate data, from both within and outside Azure Sentinel, to address disconnect and disparity across data sources
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
 
-- Ingest, transform, model, analyze, and distribute unstructured and semi-structured data at scale and speed, via the batch job features provided by a Synapse compute
+To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as the following notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
 
-To support this broader functionality, we've expanded the **Notebooks** area in Microsoft Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+The Notebooks area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
 
-For more information, see [Integrate notebooks with Azure Synapse Analytics](notebooks.md#integrate-notebooks-with-azure-synapse-analytics).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
 ## September 2021
 
