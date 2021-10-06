@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/06/2021
 ---
 
-# How to rebuild an index in Azure Cognitive Search
+# Rebuild an index in Azure Cognitive Search
 
 This article explains how to rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 
