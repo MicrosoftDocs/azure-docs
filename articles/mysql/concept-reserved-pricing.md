@@ -75,7 +75,7 @@ View and manage reservation access
 Split or merge reservations
 Change the scope of reservations
 
-For more information, see [APIs for Azure reservation automation](https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-apis).
+For more information, see [APIs for Azure reservation automation](../cost-management-billing/reservations/reservation-apis.md).
 
 ## vCore size flexibility
 
@@ -83,11 +83,11 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## How to view reserved instance purchase details
 
-You can view your reserved instance purchase details via the [Reservations menu on the left side of the Azure portal](https://aka.ms/reservations). For more information, see [How a reservation discount is applied to Azure Database for MySQL](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges-mysql).
+You can view your reserved instance purchase details via the [Reservations menu on the left side of the Azure portal](https://aka.ms/reservations). For more information, see [How a reservation discount is applied to Azure Database for MySQL](../cost-management-billing/reservations/understand-reservation-charges-mysql.md).
 
 ## Reserved instance expiration
 
-You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Instances for Azure Database for MySQL](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges-mysql).
+You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Instances for Azure Database for MySQL](../cost-management-billing/reservations/understand-reservation-charges-mysql.md).
 
 ## Need help ? Contact us
 
