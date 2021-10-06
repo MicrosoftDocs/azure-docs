@@ -26,6 +26,7 @@ Benefits of general document
 ## Key value pairs
 
 Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form this could be the label and the value the user entered for that field or in a ustructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats and structures.
+
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
 
 ## Entities
