@@ -66,7 +66,7 @@ Define access policies to use the user-assigned managed identity with your key v
    
    If you're using the permission model **Azure role-based access control**: Add a role assignment for the user-assigned managed identity to the Azure key vault for the role **Key Vault Secrets User**.
 
-As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service, so you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
+As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.  With the use of service endpoints and enabling the trusted services option for key vault's firewall, you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
 
 When you're using a restricted key vault, use the following steps to configure Application Gateway to use firewalls and virtual networks: 
 

@@ -1,6 +1,6 @@
 ---
-title: Set up a capacity pool for Azure NetApp Files | Microsoft Docs
-description: Describes how to set up a capacity pool so that you can create volumes within it.  
+title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
+description: Describes how to create a capacity pool so that you can create volumes within it.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,9 +16,9 @@ ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
 ---
-# Set up a capacity pool
+# Create a capacity pool for Azure NetApp Files
 
-Setting up a capacity pool enables you to create volumes within it.  
+Creating a capacity pool enables you to create volumes within it.  
 
 ## Before you begin 
 

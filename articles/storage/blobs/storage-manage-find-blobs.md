@@ -256,7 +256,7 @@ Callers using an [Azure AD identity](../common/authorize-data-access.md) may be 
 | [Get Blob Tags](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. The [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) is only granted permissions for the `Get Blob Tags` operation.
+Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. 
 
 ### SAS permissions
 
