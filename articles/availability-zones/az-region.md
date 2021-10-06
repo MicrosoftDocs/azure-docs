@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/05/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -44,10 +44,10 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
-| Brazil South       | France Central       | South Africa North* | Australia East |
+| Brazil South       | France Central       | South Africa North  | Australia East |
 | Canada Central     | Germany West Central |                     | Central India* |
 | Central US         | North Europe         |                     | Japan East     |
-| East US            | Norway East          |                     | Korea Central |
+| East US            | Norway East          |                     | Korea Central  |
 | East US 2          | UK South             |                     | Southeast Asia |
 | South Central US   | West Europe          |                     |                |
 | US Gov Virginia    | Sweden*              |                     |                |

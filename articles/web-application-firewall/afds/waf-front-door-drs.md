@@ -57,6 +57,9 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 
+> [!NOTE]
+> Body inspection is only available on DRS 2.0
+
 ### DRS 2.0
 
 DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
