@@ -28,22 +28,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-## November 2021
-
-### Use notebooks with Azure Synapse Analytics in Azure Sentinel
-
-Azure Sentinel now supports integrating notebooks with Azure Synapse Analytics, allowing you to:
-
-- Integrate data, from both within and outside Azure Sentinel, to address disconnect and disparity across data sources
-
-- Ingest, transform, model, analyze, and distribute unstructured and semi-structured data at scale and speed, via the batch job features provided by a Synapse compute
-
-> [!TIP]
-> To support this broader functionality, we've expanded the **Notebooks** area in Azure Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
->
-
-For more information, see [Integrate notebooks with Azure Synapse Analytics](notebooks.md#integrate-notebooks-with-azure-synapse-analytics).
-
 ## September 2021
 
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
