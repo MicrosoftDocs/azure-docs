@@ -1,5 +1,5 @@
 ---
-title: Assign and list roles with administrative unit scope - Azure Active Directory | Microsoft Docs
+title: Assign or list Azure AD roles with administrative unit scope - Azure Active Directory | Microsoft Docs
 description: Use administrative units to restrict the scope of role assignments in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/14/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Assign scoped roles to an administrative unit
+# Assign Azure AD roles with administrative unit scope
 
-In Azure Active Directory (Azure AD), for more granular administrative control, you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
+In Azure Active Directory (Azure AD), for more granular administrative control, you can assign an Azure AD role with a scope that's limited to one or more administrative units.
 
 ## Prerequisites
 
@@ -30,29 +30,35 @@ In Azure Active Directory (Azure AD), for more granular administrative control, 
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
+## Roles that can be assigned with administrative unit scope
 
-## Available roles
+The following Azure AD roles that can be assigned with administrative unit scope:
 
-Role  |  Description
------ |  -----------
-Authentication Administrator  |  Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only.
-Groups Administrator  |  Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only.
-Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only.
-License Administrator  |  Can assign, remove, and update license assignments within the administrative unit only.
-Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
-User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
+| Role | Description |
+| -----| ----------- |
+| Authentication Administrator | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
+| Groups Administrator | Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only. |
+| Helpdesk Administrator | Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only. |
+| License Administrator | Can assign, remove, and update license assignments within the administrative unit only. |
+| Password Administrator | Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only. |
+| SharePoint Administrator * | Can manage all aspects of the SharePoint service. |
+| Teams Administrator * | Can manage the Microsoft Teams service. |
+| Teams Devices Administrator | Can perform management related tasks on Teams certified devices. |
+| User Administrator | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
 
-## Security principals that can be assigned to a scoped role
+(*) The SharePoint Administrator and Teams Administrator roles can only be used for managing properties in the Microsoft 365 admin center. Teams admin center and SharePoint admin center currently do not support administrative unit-scoped administration.
+
+## Security principals that can be assigned with administrative unit scope
 
 The following security principals can be assigned to a role with an administrative unit scope:
 
 * Users
-* Role-assignable Azure AD groups
-* Service Principal Name (SPN)
+* Azure AD role-assignable groups
+* Service principals
 
-## Assign a scoped role
+## Assign a role with an administrative unit scope
 
-You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft Graph.
+You can assign an Azure AD role with an administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
 
 ### Azure portal
 
@@ -105,9 +111,9 @@ Body
 }
 ```
 
-## View a list of the scoped admins in an administrative unit
+## List role assignments with administrative unit scope
 
-You can view a list of scoped admins by using the Azure portal, PowerShell, or Microsoft Graph.
+You can view a list of Azure AD role assignments with administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
 
 ### Azure portal
 
