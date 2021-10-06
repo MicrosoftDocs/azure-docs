@@ -348,8 +348,7 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 While sampling is supported in OpenTelemetry, it is not supported in Azure Monitor OpenTelemetry Exporter at this time.
 
 > [!WARNING]
-> Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
-
+> Enabling sampling in OpenTelemetry will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences. Additionally, enabling sampling alongside the existing Application Insights SDKs will result in broken traces.
 
 ## Instrumentation libraries
 <!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->
