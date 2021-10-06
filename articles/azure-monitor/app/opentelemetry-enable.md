@@ -937,6 +937,9 @@ You could try to specify the source with `-s` option.
 # Install the latest package with NuGet package source specified
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
+#### [Node.js](#tab/nodejs)
+
+Placeholder
 
 #### [Python](#tab/python)
 
@@ -947,6 +950,10 @@ Placeholder
 ### Known issues
 
 #### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
 
 Placeholder
 
