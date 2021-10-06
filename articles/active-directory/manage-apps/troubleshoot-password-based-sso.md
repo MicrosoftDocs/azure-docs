@@ -1,6 +1,7 @@
 ---
-title: Troubleshoot password-based single sign-on in Azure Active Directory
+title: Troubleshoot password-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -12,7 +13,7 @@ ms.author: davidmu
 ms.reviewer: ergreenl
 ---
 
-# Troubleshoot password-based single sign-on in Azure AD
+# Troubleshoot password-based single sign-on in Azure Active Directory
 
 To use password-based single sign-on (SSO) in My Apps, the browser extension must be installed. The extension downloads automatically when you select an app that's configured for password-based SSO. To learn about using My Apps from an end-user perspective, see [My Apps portal help](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

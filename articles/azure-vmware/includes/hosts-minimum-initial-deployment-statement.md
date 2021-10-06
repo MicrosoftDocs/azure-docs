@@ -3,8 +3,8 @@ title: Minimum initial host deployment
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
 ms.date: 09/29/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 
