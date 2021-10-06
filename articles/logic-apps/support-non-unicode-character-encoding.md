@@ -28,8 +28,6 @@ The following list shows some of the connectors where you can disable automatica
 * [Google Drive](/connectors/googledrive/)
 * [SFTP - SSH](/connectors/sftpwithssh/)
  
-The option **Infer Content Type** is usually under the advanced options in the action's parameters. If your trigger doesn't have this option, the content type is set by the incoming message. 
-
 If you're using the Request trigger for `text/plain` content, you must set the `charset` parameter that is in the call's `Content-Type` header. Otherwise, characters might become corrupted, or the parameter doesn't match the payload's encoding format. For more information, review [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
 
 For example, the HTTP trigger converts the incoming content to UTF-8 when the `Content-Type` header is set with the correct `charset` parameter:
