@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 09/30/2021
+ms.date: 10/05/2021
 ms.author: jasteppe
 ---
 
@@ -70,7 +70,7 @@ Here is the list of parameters to use with the command to add a message route:
 |RouteName|route-name|A name you want to assign to message route being created.|
 |Source|source-type|Type of data to send to the endpoint. Use literal value of "DeviceMessages" for PowerShell and "devicemessages" for CLI.|
 
-## Send device message to IoT Hub
+## Send device message to Azure IoT Hub
 
 Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. This message will get routed to IoT connector, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
 
@@ -96,7 +96,6 @@ You can view the FHIR Observation resource(s) created by the IoT connector on th
 
 > [!TIP]
 > Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../azure-api-for-fhir/configure-azure-rbac.md) to assign required data plane roles.
-
 
 ## Next steps
 

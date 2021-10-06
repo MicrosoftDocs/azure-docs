@@ -1033,6 +1033,9 @@
     - name: Microsoft Customer Agreement
       tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+    - name: Scope-level Azure Hybrid Benefit
+      tocHref: /azure/cost-management-billing/scope-level
+      topicHref: /azure/cost-management-billing/scope-level
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
