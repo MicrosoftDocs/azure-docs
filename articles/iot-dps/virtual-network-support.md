@@ -38,7 +38,6 @@ Devices that operate in on-premises networks can use [Virtual Private Network (V
 
 A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you will be able to allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint.
 
-
 ## Prerequisites
 
 Before proceeding ensure that the following prerequisites are met:
@@ -60,6 +59,9 @@ Note the following current limitations for DPS when using private endpoints:
 * Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub is not currently available.
 
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
+
+>[!NOTE]
+>DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data may be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, you can instead use private endpoints.
 
 ## Set up a private endpoint
 
@@ -100,13 +102,12 @@ To set up a private endpoint, follow these steps:
     Click **Next : Configuration** to configure the VNET for the private endpoint.
 
 4. On the _Create a private endpoint Configuration_ page, choose your virtual network and subnet to create the private endpoint in.
- 
+
     Click **Next : Tags**, and optionally provide any tags for your resource.
 
     ![Configure private endpoint](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
-6. Click **Review + create** and then **Create** to create your private endpoint resource.
-
+5. Click **Review + create** and then **Create** to create your private endpoint resource.
 
 ## Use private endpoints with devices
 

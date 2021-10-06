@@ -29,6 +29,9 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 >[!NOTE]
 >DPS uses the same [device provisioning endpoint](https://docs.microsoft.com/azure/iot-dps/concepts-service#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
+>
+>To ensure that your data doesn't leave the region that your DPS instance was created in, use a Private Endpoint.  To learn how to set up private links, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support#private-endpoint-limitations.md).
+
 
 ## Behind the scenes
 All the scenarios listed in the previous section can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following section describes what goes on behind the scenes to get a device provisioned. The first step is manual, all of the following steps are automated.
