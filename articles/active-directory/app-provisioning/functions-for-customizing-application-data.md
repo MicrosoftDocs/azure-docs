@@ -824,7 +824,7 @@ The Redact function securely removes the attribute value from the provisioning l
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **attribute** |Required |Specify the attribute or constant / string to redact from the logs.|
+| **attribute/value** |Required ||Specify the attribute or constant / string to redact from the logs.|
 
 **Example 1:** Redact an attribute:
 `Redact([userPrincipalName])`
