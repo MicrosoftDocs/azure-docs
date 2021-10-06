@@ -86,7 +86,8 @@ Option for selecting the instance subnet is located on the "Networking" blade. B
 
 > [!div class="mx-imgBorder"]
 > ![How to select subnet on SQL Managed Instance networking blade](./media/vnet-subnet-move-instance/how-to-select-subnet.png)
-> Important
+
+> [!Important]
 > First part of the instance move operations is preparing destination subnet for deployment. This part will take couple of minutes to complete. After that part is completed, instance managamenet operation will start and become visible in Azure portal.
 Instance move operation can be monitored from the "Overview" blade. By clicking on the notification, additional blade will be opened. This blade contains the information about current step and total steps, as well as the button for canceling the operation.
 
