@@ -26,3 +26,4 @@ The following patterns are considered valid use cases for AppId Uri (Identifier 
   
 A verified customer domain is one that is owned by the tenant creating the application. In case a verified domain is not available, a tenant could use its the initial domain as a verified domain. For example, if you own the Contoso tenant, you could use `https://contoso.onmicrosoft.com` as the verified domain in your appId Uri.
 
+For more information on custom domain, refer to [add custom domain](../articles/active-directory/fundamentals/add-custom-domain.md) documentation.
