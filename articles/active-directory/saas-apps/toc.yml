@@ -2529,6 +2529,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Klaxoon SAML
+        href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
       - name: LimbleCMMS
