@@ -949,19 +949,11 @@ Placeholder
 
 ### Known issues
 
-#### [.NET](#tab/net)
+Known issues for the Azure Monitor OpenTelemetry Exporter include: 
 
-Placeholder
-
-#### [Node.js](#tab/nodejs)
-
-Placeholder
-
-#### [Python](#tab/python)
-
-Placeholder
-
----
+- Database server name might not appear in the dependency name.
+    - Also if there are tables that share the same name in a database, then they might incorrectly aggregate.
+- Device model property is missing. This can impact usage analytics and filtering by device model.
 
 ## Support
 
