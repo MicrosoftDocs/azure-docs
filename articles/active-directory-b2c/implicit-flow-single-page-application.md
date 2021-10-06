@@ -218,7 +218,7 @@ error=user_authentication_required
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token.
 
 ## Refresh tokens
-ID tokens and access tokens both expire after a short period of time. Your app must be prepared to refresh these tokens periodically.  To refresh either type of token, perform the same hidden iframe request we used in an earlier example, by using the `prompt=none` parameter to control Azure AD steps.  To receive a new `id_token` value, be sure to use `response_type=id_token` and `scope=openid`, and a `nonce` parameter.
+ID tokens and access tokens both expire after a short period of time. Your app must be prepared to refresh these tokens periodically. Implicit flows do not allow you to obtain a refresh token due to security reasons. To refresh either type of token, use the implicit flow in a hidden HTML iframe element. In the authorization request include the  `prompt=none` parameter. To receive a new id_token value, be sure to use `response_type=id_token` and `scope=openid`, and a `nonce` parameter.
 
 ## Send a sign-out request
 When you want to sign the user out of the app, redirect the user to Azure AD to sign out. If you don't redirect the user, they might be able to reauthenticate to your app without entering their credentials again because they have a valid single sign-on session with Azure AD.
