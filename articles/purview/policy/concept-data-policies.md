@@ -16,9 +16,9 @@ ms.date: 09/28/2021
 > [!NOTE]
 > This article helps you understand Azure Purview Data Policies.
 
-Purview data policy capabilities enable the user to create a data use
-policy from Purview Studio and enforce it across multiple data systems
-registered with Purview.
+Azure Purview Data Policies enables creation of data use
+policies in Purview Studio, which are then enforced across multiple data systems
+that are registered with Azure Purview.
 
 ## Azure Purview policy concepts
 
@@ -33,14 +33,14 @@ description, and a list of one or more policy statements.
 
 A policy statement is a human readable instruction that dictates how the
 data source should handle a specific data operation. The policy
-statement comprises of **Effect**, **Action, Data Resource** and
+statement comprises **Effect**, **Action, Data Resource** and
 **Subject**.
 
 #### Action
 
 It is the operation being permitted or denied as part of this policy,
-for example Read or Write. This high level logical actions map to one of
-more data actions in each data sources where these actions are enforced.
+for example Read or Write. These high-level logical actions map to one (or
+more) data actions in the data system where they are enforced.
 
 #### Effect
 
@@ -64,26 +64,26 @@ Azure SQLDB data-asset-path format:
 
 #### Subject
 
-The end user identity from Azure Active Directory (AAD) for whom this
-policy statement is applicable. This can be a service principal, an
+The end-user identity from Azure Active Directory (AAD) for whom this
+policy statement is applicable. This identity can be a service principal, an
 individual user, a group, or a managed service identity (MSI).
 
 ### Example
 
 Deny Read on Data Asset:
-*/subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/Findata to group Finance-analyst*
+*/subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
 In the above policy statement, the effect is *Deny*, the action is
-*Read*, the data resource is Azure storage container *Findata*, and the
+*Read*, the data resource is Azure Storage container *FinData*, and the
 subject is AAD group *Finance-analyst*. If any user that belongs to this
-group attempts to read data from the storage container *Findata*, the
+group attempts to read data from the storage container *FinData*, the
 request will be denied.
 
 ### Hierarchical enforcement of policies
 
 The data resource specified in a policy statement is hierarchical by
 default. This means that the policy statement applies to the data object
-itself as well as **all** the child objects contained by the data object.
+itself and to **all** the child objects contained by the data object.
 For example, a policy statement on Azure storage container applies to
 all the blobs contained within it.
 
@@ -93,19 +93,19 @@ Azure Purview can have different policy statements that refer to the
 same data asset. When evaluating a decision for data access, Azure
 Purview combines all the applicable policies and provides a consolidated
 decision. The combining strategy is to pick the most restrictive policy.
-For example, let’s assume two different policies on an Azure storage
-container *Findata* as follows,
+For example, let’s assume two different policies on an Azure Storage
+container *FinData* as follows,
 
-Policy 1 - *Allow read on Data asset /subscription/…./containers/Findata
+Policy 1 - *Allow read on Data asset /subscription/…./containers/FinData
 To group Finance-analyst*
 
-Policy 2 - *Deny read on Data asset /subscription/…./containers/Findata
+Policy 2 - *Deny read on Data asset /subscription/…./containers/FinData
 To group Finance-contractors*
 
 Then let’s assume that user ‘Bob’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read
 API. In this case, both the policies will be applicable. Azure Purview
-will choose the most restrictive policy which is deny of read. Thus, the
+will choose the most restrictive policy, which is *Deny* of *Read*. Thus, the
 access request will be denied.
 
 ## Policy publishing
@@ -115,7 +115,7 @@ Azure Purview. The act of publishing initiates enforcement of a policy
 in the specified data systems. It is an asynchronous action that can
 take up to 2 minutes to be effective on the underlying data sources.
 
-Note that a policy published to a data source could contain references
+A policy published to a data source could contain references
 to an asset belonging to a different data source. Such references will
 not be applicable since the asset in question does not exist in the data
 source where the policy is applied.
@@ -123,7 +123,7 @@ source where the policy is applied.
 ## Azure Purview to data source action mapping
 
 The following table illustrates the mapping of actions in Azure Purview
-Data Policies to data source specific actions.
+Data Policies to data source-specific actions.
 
 | **Purview policy action** | **Data source specific actions**                                                                |
 |---------------------------|-------------------------------------------------------------------------------------------------|
