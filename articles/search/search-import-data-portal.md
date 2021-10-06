@@ -12,19 +12,19 @@ ms.date: 10/06/2021
 ---
 # Import data wizard in Azure Cognitive Search
 
-The **Import data** wizard in the Azure portal creates multiple objects and supports multiple workflows on a search service. If you are new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing and enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
+The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you are new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
 
-If you are using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can work with it more effectively. 
+If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
-This article is not a step by step. For instructions on using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a skillset](cognitive-search-quickstart-blob.md).
+This article is not a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a skillset](cognitive-search-quickstart-blob.md).
 
 ## Starting the wizard
 
-In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
-
-In the service overview page at the top, click **Import data**.
+In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list. In the service Overview page at the top, click **Import data**.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
+
+The wizard opens fully expanded in the browser window so that you have more room to work. Several pages are quite dense.
 
 You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
@@ -37,7 +37,7 @@ The wizard will output the objects in the following table. After the objects are
 | [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
 | [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | 
 | [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
-| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. Optionally, it might also contain a knowledge store definition.  | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. | 
 | [Knowledge store](knowledge-store-concept-intro.md) | Optional. Stores output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in tables and blobs in Azure Storage for independent analysis or downstream processing. |
 
 ## Benefits and limitations
@@ -137,7 +137,7 @@ Internally, the wizard also sets up the following, which is not visible in the i
 
 ## Next steps
 
-The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart guides you through each step.
+The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart will guide you through each step.
 
 > [!div class="nextstepaction"]
-> [Create an Azure Cognitive Search index using the Azure portal](search-get-started-portal.md)
+> [Quickstart: Create a search index using the Azure portal](search-get-started-portal.md)
