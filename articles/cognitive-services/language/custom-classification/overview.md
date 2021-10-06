@@ -14,19 +14,21 @@ ms.author: aahi
 
 # What is custom text classification?
 
-Custom text classification is one of the features offered by [Azure Cognitive Service for language](../overview.md). Custom text classification simplifies many of the details required for building a custom model, and lets you focus on building a model around your data. 
+Custom text classification is a cloud-based API service that applies machine-learning intelligence on top of [Microsoft Turing](https://msturing.org/about) technologies to enable user to build custom models for text classification tasks. 
 
+Custom text classification is offered as part of the custom features within Azure Cognitive Language Services. This feature enables its users to build custom AI models to classify text into custom categories pre-defined by the user. By creating a Custom classification project, developers can iteratively tag data, train, evaluate and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://language.azure.com). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
-Your data can be previously annotated documents, or ones that you upload and tag within the [Language Studio](https://language.azure.com). By building a custom classification model, you can predict the class or classes that your data belongs to. Custom text classification supports two types of projects:
+Custom text classification supports two types of projects: **Single label classification**: where you can only assign one class for each file of your dataset. For example, if a file is a movie script, it could only classified as "Action", "Thriller" or "Romance". **Multiple label classification**:  where you can assign multiple classes for each file of your dataset. For example, if a file is a movie script, it could be classified as "Action" or "Action" and "Thriller". 
 
+## Usage scenarios
 
-* **Single label classification**: You can only assign one class for each file of your dataset. For example, if a file is a movie script, it could only classified as "*Action*", "*Thriller*" or "*Romance*".
+### Automatic emails/ticket triaging
 
-* **Multiple label classification**: You can assign *multiple* classes for each file of your dataset. For example, if a file is a movie script, it could be classified as  "*Action*" or "*Action*" and "*Thriller*".
+Support centers of all types receive thousands to hundreds of thousands of emails/tickets containing unstructured, free-form text, and attachments. Timely review, acknowledgment, and routing to subject matter experts within internal teams is critical. However, email triage at this scale involving people to review and route to the right departments takes time and precious resources. Enterprises are looking for to build automated system to optimize this process to save time, effort, and money. Custom classification can be used to analyze incoming text triage and categorize the content to be automatically routed to the relevant department to take necessary actions.
 
-## Example: Use custom text classification to triage support tickets
+### Knowledge mining to enhance/enrich semantic search
 
-Creating automation to triage support tickets can be a time consuming and difficult task. With custom text classification models, you can save both time and effort by automatically classifying support tickets to be routed to relevant departments.
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content which includes both structured and unstructured documents. As a part of their pipeline, developers can use Custom classification to categorize their text into classes that are relevant to their industry. The predicted classes could be used to enrich the indexing of the file for a more customized search experience. 
 
 ## Application development lifecycle
 
@@ -52,4 +54,4 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests using Language Studio.  
+Use the [quickstart article](quickstart.md) to start sending requests using Language Studio.  
