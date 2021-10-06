@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: shortpatti 
-  ms.author: v-patsho 
-  ms.date: 09/13/2021 
+  author: suzizuber
+  ms.author: v-szuber 
+  ms.date: 10/06/2021 
 
 
 # card 1
