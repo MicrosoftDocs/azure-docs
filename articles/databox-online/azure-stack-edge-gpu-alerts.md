@@ -18,7 +18,7 @@ This article describes alerts that occur on an Azure Stack Edge Pro GPU device a
 > You can also monitor activity logs for virtual machines in the Azure portal. For more information, see [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
 
 
-## Alerts quick reference
+## Alerts overview
 
 The following tables list some of the Microsoft Azure Stack Edge alerts that you might encounter, as well as additional information and recommendations where available. Azure Stack Edge device alerts fall into one of the following categories:
 
@@ -36,7 +36,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 
 
-### Cloud connectivity alerts
+## Cloud connectivity alerts
 
 | Alert text                       | Severity | Description / Recommended action |
 |----------------------------------|----------|----------------------------------|
@@ -44,17 +44,17 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | Lost heartbeat from your device. | Critical | If your device is offline, then the device is not able to communicate with the Azure service. This could be due to one of the following reasons:<ul><li>The Internet connectivity is broken.<br>Check your internet connection. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**. Run the diagnostic tests. Resolve the reported issues.</li><li>The device is turned off or paused on the hypervisor. Turn on your device! For more information, go to [Manage power](..\databox-gateway\data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).</li><li>Your device could have rebooted due to an update. Wait a few minutes and try to reconnect.</li></ul>|
 
 
-### Edge compute alerts
+## Edge compute alerts
 
 *Resolve multiples before porting in table.*
 
 
-### FPGA Edge compute alerts
+## FPGA Edge compute alerts
 
 *Resolve multiple before porting in table.*
 
 
-### Local Azure Resource Manager alerts
+## Local Azure Resource Manager alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -69,7 +69,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |VM service is not running on the device. |Critical |If you see this alert, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-### Minimum configuration alerts
+## Minimum configuration alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -79,7 +79,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |The virtual device doesn't meet the minimum configuration requirements. The minimum network interface requirement is {0}, but the device has only {1}. |Critical |Increase the number of network interfaces on the virtual device to meet the minimum requirement. |
 
 
-### Performance alerts
+## Performance alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -100,14 +100,14 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | The virtual hard disk {0} is nearing its capacity. |Warning | Delete some data to free capacity.  |
 
 
-### Disaster recovery alerts
+## Disaster recovery alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |The service has failed over to a secondary data center due to an unexpected failure. |Warning  |Wait for the failover to complete. After the failover is complete, this alert is cleared. |
 
 
-### Volume alerts
+## Volume alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -118,7 +118,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Some data on this volume {0} is not fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
 
 
-### Tiering alerts
+## Tiering alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -129,7 +129,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-### Security alerts
+## Security alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -143,7 +143,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |A support session has started. |Informational |This is an information alert to ensure that administrators can ensure that the support session is legitimate. No action is needed. |
 
 
-### Key Vault alerts
+## Key Vault alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
