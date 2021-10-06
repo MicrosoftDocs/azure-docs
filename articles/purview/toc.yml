@@ -10,13 +10,13 @@ items:
   items:
   - name: Create an Azure Purview account
     items:
-    - name: Create an Azure Purview account - Azure portal
+    - name: Create an account - Azure portal
       href: create-catalog-portal.md
-    - name: Create an Azure Purview account - PowerShell
+    - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
-    - name: Create an Azure Purview account - .NET SDK
+    - name: Create an account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create an Azure Purview account - Python
+    - name: Create an account - Python
       href: create-purview-python.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
@@ -30,9 +30,9 @@ items:
       href: tutorial-msi-configuration.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Use REST APIs for Azure Purview data planes
+  - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
-  - name: Use REST APIs for collection management
+  - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
@@ -44,7 +44,7 @@ items:
         href: deployment-best-practices.md
       - name: Collections architecture
         href: concept-best-practices-collections.md
-      - name: Azure Purview pricing guidelines 
+      - name: Pricing guidelines 
         href: concept-guidelines-pricing.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
@@ -89,9 +89,9 @@ items:
       href: register-scan-azure-multiple-sources.md
     - name: Azure Synapse Analytics workspaces
       href: register-scan-synapse-workspace.md
-    - name: Azure Blob storage
+    - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan Azure Blob storage
+      displayName: Register and scan Azure Blob Storage
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
       displayName: Register and scan Azure Files
