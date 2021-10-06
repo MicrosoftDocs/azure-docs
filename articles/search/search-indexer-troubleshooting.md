@@ -196,6 +196,35 @@ api-key: [admin key]
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
+## Documents processed multiple times
+
+Due to the variability in consistency levels guaranteed by data sources, Azure Cognitive Search adopts a conservative strategy in enumerating changes to ensure no documents are dropped, where a buffer time period is assumed to be volatile and the same query may return different results with no additional writes to the data source. As a consequence, data writes within the buffer time period may be processed multiple times (even if the indexer has a [reprocessing cache](search-howto-incremental-index.md)). The look back buffer period may be up to 1 minute depending on data source type, so to avoid reprocessing a document multiple times, make sure the indexer starts running when the buffer period contains no data source writes.
+
+### Example of duplicate document processing with 30 second buffer
+
+| Timeline (hh:mm:ss) | Event | Indexer High Water Mark | Comment |
+|---------------------|-------|-------------------------|---------|
+| 00:01:00 | Write `doc1` to data source with eventual consistency | `null` | Document timestamp is 00:01:00. |
+| 00:01:05 | Write `doc2` to data source with eventual consistency | `null` | Document timestamp is 00:01:05. |
+| 00:01:10 | Indexer starts | `null` | |
+| 00:01:11 | Indexer queries for all changes before 00:01:10; the replica that the indexer queries happens to be only aware of `doc2`; only `doc2` is retrieved | `null` | Indexer requests all changes before starting timestamp but actually receives a subset. This behavior necessitates the look back buffer period. |
+| 00:01:12 | Indexer processes `doc2` for the first time | `null` | |
+| 00:01:13 | Indexer ends | 00:01:10 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:20 | Indexer starts | 00:01:10 | |
+| 00:01:21 | Indexer queries for all changes between 00:00:40 and 00:01:20; the replica that the indexer queries happens to be aware of both `doc1` and `doc2`; retrieves `doc1` and `doc2` | 00:01:10 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:22 | Indexer processes `doc1` for the first time | 00:01:10 | |
+| 00:01:23 | Indexer processes `doc2` for the second time | 00:01:10 | |
+| 00:01:24 | Indexer ends | 00:01:20 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:32 | Indexer starts | 00:01:20 | |
+| 00:01:33 | Indexer queries for all changes between 00:00:50 and 00:01:32; retrieves `doc1` and `doc2` | 00:01:20 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:34 | Indexer processes `doc1` for the second time | 00:01:20 | |
+| 00:01:35 | Indexer processes `doc2` for the third time | 00:01:20 | |
+| 00:01:36 | Indexer ends | 00:01:32 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:40 | Indexer starts | 00:01:32 | |
+| 00:01:41 | Indexer queries for all changes between 00:01:02 and 00:01:40; retrieves `doc2` | 00:01:32 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:42 | Indexer processes `doc2` for the fourth time | 00:01:32 | |
+| 00:01:43 | Indexer ends | 00:01:40 | Notice this indexer execution started more than 30 seconds after the last write to the data source and also processed `doc2`. This is the expected behavior because if all indexer executions before 00:01:35 are eliminated, this will become the first and only execution to process `doc1` and `doc2`. |
+
 ## See also
 
 * [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md)
