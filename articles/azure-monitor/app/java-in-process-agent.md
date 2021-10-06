@@ -34,14 +34,17 @@ Review the following configuration points before you download the jar file.
 > [!WARNING]
 > 
 > - **If you're upgrading from 3.0 Preview**
+>
 >    Please review all the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 > 
 > - **If you're upgrading from 3.0.x**
+> 
 >    The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
 >    This can affect custom dashboards or alerts if they relied on the previous values.
 >    See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0) for more details.
 >
 > - **If you're upgrading from 3.1.x**
+> 
 >    Database dependency names are now more concise, with the full (sanitized) query still present in the `data` field. And HTTP dependency names are now more descriptive.
 >    This can affect custom dashboards or alerts if they relied on the previous values.
 >    See the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) for more details.
