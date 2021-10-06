@@ -37,11 +37,11 @@ To start a support request from anywhere in the Azure portal:
 
 1. Select the question mark symbol in the global header, then select **Help + support**.
 
-   :::image type="content" source="media/how-to-create-azure-support-request-ea/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
+   :::image type="content" source="media/how-to-create-azure-support-request-ea/help-support-new-lower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
 
 1. Select **Create a support request**. Follow the prompts to provide information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
 
-   :::image type="content" source="media/how-to-create-azure-support-request-ea/newsupportrequest2lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
+   :::image type="content" source="media/how-to-create-azure-support-request-ea/new-support-request-2-lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
 
 ### Go to Help + support from a resource menu
 
@@ -49,7 +49,7 @@ To start a support request:
 
 1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
-   :::image type="content" source="media/how-to-create-azure-support-request-ea/incontext2lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
+   :::image type="content" source="media/how-to-create-azure-support-request-ea/in-context-2-lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
 1. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from a resource, some options are pre-selected for you.
 
