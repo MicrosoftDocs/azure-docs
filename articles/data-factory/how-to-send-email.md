@@ -50,17 +50,17 @@ For the HTTP request trigger, provide this JSON for the `Request Body JSON Schem
 }
 ```
 
-The HTTP Request in the Logic App Designer should look like the following:
+The HTTP Request in the Logic App Designer should look like this:
 
 :::image type="content" source="media/how-to-send-email/logic-app-http-request-trigger.png" alt-text="Shows the Logic App workflow designer for the HTTP Request trigger with the Request Body JSON Schema field populated.":::
 
-For the **Send Email (V2)** action, customize how you wish to format the email, utilizing the properties from the request Body JSON schema. Here is an example:
+For the **Send Email (V2)** action, customize how you wish to format the email, using the properties from the request Body JSON schema:
 
-:::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action with the email customizations referring to the properties of the Body JSON schema.":::
+:::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action.":::
 
 Save the workflow. Make a note of the Workflow URL for your new workflow then:
 
-:::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview blade with the Workflow URL highlighted.":::
+:::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview tab with the Workflow URL highlighted.":::
 
 ## Create a pipeline to trigger your Logic App email workflow
 
@@ -82,13 +82,13 @@ Once you create the Logic App workflow to send email, you can trigger it from a 
        }
     ```
     
-    You can use any combination of dynamic expressions to generate useful messages for any events that occur during the execution of your pipelines.  Note that the JSON format here matches the JSON format you defined in the Logic App, and you can also customize this as required.
+    Use dynamic expressions to generate useful messages for events in your pipelines.  Notice that the JSON format here matches the JSON format you defined in the Logic App, and you can also customize these as required.
     
     :::image type="content" source="media/how-to-send-email/pipeline-with-web-activity-calling-logic-app.png" alt-text="Shows a pipeline with a Web activity configured with the Logic App workflow URL and JSON message body.":::
 
-1. Click on the background area of the pipeline designer to select the pipeline properties page and add a new parameter called receiver, providing an email address as its Default value.
+1. Select the background area of the pipeline designer to select the pipeline properties page and add a new parameter called receiver, providing an email address as its Default value.
    
-   In this example we provide the receiver email from a pipeline parameter we define arbitrarily, but this could just as easily come from any linked data source too, so you can customize as required.
+   In this example, we provide the receiver email from a pipeline parameter we define arbitrarily.  The receiver value could be taken from any expression, or even linked data sources.
 
    :::image type="content" source="media/how-to-send-email/pipeline-receiver-email-parameter.png" alt-text="Shows the configuration of the receiver parameter in the pipeline designer.":::
 
