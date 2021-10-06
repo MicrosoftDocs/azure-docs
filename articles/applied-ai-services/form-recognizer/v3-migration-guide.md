@@ -41,7 +41,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?
 ### GET request
 
 ```http
-https://{endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2021-07-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2021-07-30-preview
 ```
 
 ### Analyze operation
@@ -122,7 +122,7 @@ The ```build``` operation is invoked to train a model. The request payload and c
 Sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
-POST https://{host}/formrecognizer/documentModels:build?api-version=2021-09-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2021-09-30-preview
 
 {
   "modelId": {modelId},
@@ -138,7 +138,7 @@ POST https://{host}/formrecognizer/documentModels:build?api-version=2021-09-30-p
 Model compose is now limited to single level of nesting. Composed models are now consistent with custom models with the addition of ```modelId``` and ```description``` properties.
 
 ```json
-POST https://{host}/formrecognizer/documentModels:compose?api-version=2021-09-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2021-09-30-preview
 {
   "modelId": "{composedModelId}",
   "description": "{composedModelDescription}",
@@ -189,7 +189,7 @@ List models has been extended to now return prebuilt and custom models. All preb
 
 Sample list models request
 ```json
-GET https://{host}/formrecognizer/documentModels?api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
 ```
 
 ## Change to get model
@@ -197,14 +197,14 @@ GET https://{host}/formrecognizer/documentModels?api-version=2021-09-30-preview
 As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type is described by its name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
 
 ```json
-GET https://{host}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview
 ```
 
 ## New get info operation
 The ```info``` operation on the service returns the custom model count and custom model limit.
 
 ```json
-GET https://{host}/formrecognizer/info? api-version=2021-09-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2021-09-30-preview
 ```
 Sample response
 ```json
@@ -224,6 +224,6 @@ In this migration guide, you've learned how to upgrade your existing Form Recogn
 
 > [!div class="nextstepaction"]
 >
-* [Review the new REST API]()
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](quickstarts/client-library.md)
