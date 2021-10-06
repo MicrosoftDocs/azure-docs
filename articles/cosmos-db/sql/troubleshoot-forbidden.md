@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix forbidden exceptions.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 02/05/2021
+ms.date: 10/06/2021
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
