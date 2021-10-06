@@ -3,21 +3,21 @@ title: Integrate Azure NetApp Files with Azure Kubernetes Service | Microsoft Do
 description: Learn how to provision Azure NetApp Files with Azure Kubernetes Service.
 services: container-service
 ms.topic: article
-ms.date: 10/04/2021
+ms.date: 10/05/2021
 
 #Customer intent: As a cluster operator or developer, I want to learn how to use Azure NetApp Files to provision volumes for Kubernetes environments.
 ---
 
 # Integrate Azure NetApp Files with Azure Kubernetes Service
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods in an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to create [Azure NetApp Files][anf] volumes to be used by pods in an Azure Kubernetes Service (AKS) cluster.
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have two options when it comes to using Azure NetApp Files volumes for Kubernetes workloads:
 
-* Create Azure NetApp Files volumes **statically**: In this scenario, the creation of volumes is achieved external to AKS; volumes are created using `az`/Azure UI and are then exposed to Kubernetes by the creation of a `PersistentVolume`.
-* Create Azure NetApp Files volumes **on-demand**, orchestrating through Kubernetes: This method is the **preferred** mode of operation for creating multiple volumes directly through Kubernetes, and is achieved using [Astra Trident](https://netapp-trident.readthedocs.io/).
+* Create Azure NetApp Files volumes **statically**: In this scenario, the creation of volumes is achieved external to AKS; volumes are created using `az`/Azure UI and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created ANF volumes have lots of limitations (for example, inability to be expanded, over-provisioning, and so on) and are not recommended for most use cases.
+* Create Azure NetApp Files volumes **on-demand**, orchestrating through Kubernetes: This method is the **preferred** mode of operation for creating multiple volumes directly through Kubernetes and is achieved using [Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
-A production-ready CSI driver for Kubernetes users to directly consume Azure NetApp Files volumes through AKS is **highly recommended**. This requirement is fulfilled using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. It is an enterprise-grade storage orchestrator purpose-built for Kubernetes, fully supported by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. Consumers can take advantage of Astra Trident's CSI driver for Azure NetApp Files to abstract underlying details and create/expand/snapshot volumes on-demand.
+Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is **highly recommended** for most use cases. This requirement is fulfilled using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, fully supported by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. Consumers can take advantage of Astra Trident's CSI driver for Azure NetApp Files to abstract underlying details and create/expand/snapshot volumes on-demand.
 
 ## Before you begin
 
