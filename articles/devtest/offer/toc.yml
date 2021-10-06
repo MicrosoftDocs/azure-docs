@@ -9,17 +9,17 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python get started (Day 1)"
+    - name: "Python get started (day 1)"
       expanded: true
       items:
-        - name: 3. Use your own data
+        - name: Use your own data
           href: tutorial-experiment-bring-data.md
 - name: Samples
 - name: Concepts
   items:
 - name: How-to guides
   items:
-  - name: How to get started with your individual Azure Dev/Test credit
+  - name: Get started with an individual Azure Dev/Test credit
     href: how-to-individual-credit.md
   - name: Change directory tenants
     href: change-directory-tenants.md

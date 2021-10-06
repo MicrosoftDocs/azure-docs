@@ -107,10 +107,42 @@ conceptualContent:
         - url: /python/api/overview/azure/ml/
           itemType: reference
           text: Python SDK
-
     # Card
     - title: Resources
       links:
         - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
           itemType: sample
           text: Python SDK code examples
+
+Content:
+# Supports up to 3 sections
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Get started with individual Azure Dev/Test credits
+      links:
+        - url: how-to-individual-credit.md
+          itemType: how-to-guide
+          text: Covers two options for an individual to access an Azure Credit subscription
+    # Card
+    - title: Change directory tenants
+      links: 
+      - url: change-directory-tenants.md
+        itemType: how-to-guide
+        text: A guide to changing directory tenants with your Azure subscriptions
+    # Card
+    - title: Removing credit limits
+      links: 
+      - url: removing-credit-limits.md
+        itemType: how-to-guide
+        text: remove credit limits and change Azure Dev/Test offers. Switch from pay-as-you-go to another offer
+    # Card
+    - title: Add users to your directory
+      links: 
+      - url: add-users-directory.md
+        text: A guide for adding users to Azure credit subscription
+    # Card
+    - title: Sign into Azure with GitHub
+      links:
+      - url: sign-into-azure-with-github.md
+        text: Sign into an individual Monthly Azure Credit Subscription using GitHub credentials
