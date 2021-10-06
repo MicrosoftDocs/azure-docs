@@ -259,12 +259,12 @@ Please refer to the metrics definitions from the [classification metrics](#Class
 ### Object detection and Instance segmentation metrics
 
 Every bounding box prediction from an image object detection or instance segmentation  model is associated with a confidence score.
-The boxes with confidence score greater than score threshold are  output as predictions and used in metric calculation, the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page. 
+The boxes with confidence score greater than score threshold are  output as predictions and used in the metric calculation, the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page. 
 
 The metric computation for image object detection and instance segmentation models use an **overlap threshold** called as an IOU threshold which determines how much a predicted bounding box should overlap with the user annotated ground-truth bounding box in-order to be considered a positive prediction. The overlap measurement defined by **IoU**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) is computed by dividing the area of overlap between the ground-truth and predicted bounding boxes by the area of union of the bounding boxes.
 If the  IoU  computed from the prediction is less than the overlap threshold the prediction would not be considered as a positive prediction for the associated class.
 
-The primary metric for evaluation of image object detection and instance segmentation models is the **mean average precision(mAP)**. The mAP is the average value of the average precision(AP) across all the classes. Automated ML object detection models support the computation of mAP using the below two popular methods.
+The primary metric for the evaluation of image object detection and instance segmentation models is the **mean average precision(mAP)**. The mAP is the average value of the average precision(AP) across all the classes. Automated ML object detection models support the computation of mAP using the below two popular methods.
 
 **Pascal VOC metrics**: 
 
