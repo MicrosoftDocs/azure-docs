@@ -74,7 +74,6 @@ Field| Description
 `image_details`|Image metadata information consists of height, width, and format. This field is optional and hence may or may not exist.
 `label`| A json representation of the image label, based on the task type.
 
-For details on how to prepare datasets for use with AutoML for Images see [Preparing Datasets for AutoML for Images](how-to-prepare-datasets-for-automl-images.md)
 
 #### JSONL sample schema for each task type
 
