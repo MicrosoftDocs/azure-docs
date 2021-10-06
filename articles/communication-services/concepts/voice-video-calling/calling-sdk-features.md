@@ -33,51 +33,52 @@ Key features of the Calling SDK:
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
 
-> [!NOTE]
-> First symbol represents availability of capability for Bring Your Own Identity (BYOI). Second symbol represents availability for Microsoft 365 Teams identities. Example: Value ✔️❌ represents support of capability in the programming language only for BYOI principle.  
-
 | Group of features | Capability                                                                                                          | JS    | Windows | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ----- | ------- | -------------- | ----------------- |
-| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Join a group call after it has started                                                                              | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| Mid call control  | Turn your video on/off                                                                                              | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Mute/Unmute mic                                                                                                     | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Switch between cameras                                                                                              | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Local hold/un-hold                                                                                                  | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Active speaker                                                                                                      | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Choose speaker for calls                                                                                            | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Choose microphone for calls                                                                                         | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Show if a participant is muted                                                                                      | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Show the reason why a participant left a call                                                                       | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️✔️ | ❌❌   |     ❌❌      |        ❌❌      |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️✔️ | ❌❌   |     ❌❌      |        ❌❌      |
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️✔️ | ❌❌   |     ❌❌      |        ❌❌      |
-|                   | Participant can view remote screen share                                                                            | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| Roster            | List participants                                                                                                   | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Remove a participant                                                                                                | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Place a group call with PSTN participants                                                                           | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-| Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Get camera list                                                                                                     | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Set camera                                                                                                          | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Get selected camera                                                                                                 | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Get microphone list                                                                                                 | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-|                   | Set microphone                                                                                                      | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-|                   | Get selected microphone                                                                                             | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-|                   | Get speakers list                                                                                                   | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-|                   | Set speaker                                                                                                         | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-|                   | Get selected speaker                                                                                                | ✔️✔️ | ✔️❌   |     ❌❌      |        ❌❌      |
-| Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Set / update scaling mode                                                                                           | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
-|                   | Render remote video stream                                                                                          | ✔️✔️ | ✔️❌   |     ✔️❌      |        ✔️❌      |
+| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Join a group call after it has started                                                                              | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Switch between cameras                                                                                              | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Active speaker                                                                                                      | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌*      |     ❌*         |        ❌*      |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌*      |     ❌*         |        ❌*      |
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌*      |     ❌*         |        ❌*      |
+|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| Roster            | List participants                                                                                                   | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Remove a participant                                                                                                | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+| Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Get camera list                                                                                                     | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Set camera                                                                                                          | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Get selected camera                                                                                                 | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+|                   | Set microphone                                                                                                      | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+|                   | Set speaker                                                                                                         | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️*      |     ❌*         |        ❌*      |
+| Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+|                   | Render remote video stream                                                                                          | ✔️   | ✔️*      |     ✔️*         |        ✔️*      |
+
+> [!NOTE]
+> (*) Calling SDKs are supporting only Bring Your Own Identity principle (ACS identity) and does not support Microsoft 365 Teams identities.
+
 # Calling SDK streaming support
 The Communication Services Calling SDK supports the following streaming configurations:
 
@@ -151,6 +152,36 @@ For example, this iframe allows both camera and microphone access:
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## Supported Teams capabilities
+
+Communication Services calling SDKs are not supporting all capabilities available in Teams client. The following table demonstrates capabilities supported with Azure Communication Services calling SDKs.
+
+|Group of features | Teams capability                                |Supported  |Note     |
+|------------------|-------------------------------------------------|-----------|---------|
+|Call forwarding   |Receive forwarded call                           |   ❔      |                                            |
+|                  |Set call forwarding                              |   ❌     | Can be configured in Teams client          |
+|Simultaneous ring |Receive Simultaneous ring                        |   ❔      |                                            |
+|                  |Cancel simultaneous ring if call picked up       |   ❔      |                                            |
+|                  |Set simultaneous ring                            |   ❌     | Can be configured in Teams client          |
+|Music on hold     |Hear music while being on hold                   |   ❌     | In development                             |
+|                  |Set music to be played while on hold             |   ❌     | In development                             |
+|Call parking      |Park ongoing call                                |   ❌     | In development                             |
+|                  |Pick up parked call                              |   ❌     | In development                             |
+|Transfer call     |Blind transfer                                   |   ✔️      |                                            |
+|                  |Safe transfer                                    |   ✔️      |                                            |
+|                  |Consultative transfer                            |   ✔️      |                                            |
+|Merge calls       |Merge ongoing calls int one                      |   ❌      | In development                            |
+|Voicemail         |Configure voicemail                              |   ❌      | Can be configured in Teams client         |
+|                  |Transfer call directly to voicemail              |   ❔      |                                           |
+|                  |Listen to voicemails                             |   ❌      | Can be listened in Teams client           |
+|Call delegation   |Configure call delegation                        |   ❌      | Can be configured in Teams client         |
+|                  |Delegate receives call                           |   ❔      |                                           |
+|                  |User doesn't receive call when delegation enabled|   ❔      |                                           |
+|Recording         |Start, pause, resume or stop call recording      |   ❌      | In development                            |
+|Transcription     |Start, pause, resume or stop call transcription  |   ❌      | In development                            |
+|Live captions     |Start, pause, resume or stop live captions       |   ❌      | In development                            |
+
 
 ## Next steps
 
