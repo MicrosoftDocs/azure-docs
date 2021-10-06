@@ -48,6 +48,7 @@ We recommend that you use the latest version of Az.HDInsight module
 
 #>
 $subscriptionId = "<Replace with subscription for deploying HDInsight clusters, and containing private DNS zone resource>"
+
 $clusterName = "<Replace with cluster name>"
 $clusterResourceGroupName = "<Replace with resource group name>"
 
@@ -58,7 +59,7 @@ $dnsZoneResourceGroupName = "<Replace with private DNS zone resource group name>
 Connect-AzAccount -SubscriptionId $subscriptionId
 
 # 1. Get cluster endpoints
-$clusterEndpoints = $(Get-AzHDInsightCluster -ClusterName $clusterName ` -ResourceGroupName $resourceGroupName).ConnectivityEndpoints
+$clusterEndpoints = $(Get-AzHDInsightCluster -ClusterName $clusterName ` -ResourceGroupName $clusterResourceGroupName).ConnectivityEndpoints
 
 $endpointMapping = @{}
 
@@ -71,16 +72,17 @@ foreach($endpoint in $clusterEndpoints)
 }
 
 # 2. Confirm DNS zone exists
-Get-AzPrivateDnsZone -ResourceGroupName $resourceGroupName -Name $dnsZoneName -ErrorAction Stop
+Get-AzPrivateDnsZone -ResourceGroupName $dnsZoneResourceGroupName -Name $dnsZoneName -ErrorAction Stop
 
 # 3. Update DNS entries for the cluster in the private DNS zone
 #    - If the entries already exist, update to the new IP
 #    - If the entries do not exist, create them
-$recordSets = Get-AzPrivateDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroupName -RecordType A
+$recordSets = Get-AzPrivateDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $dnsZoneResourceGroupName -RecordType A
 
 foreach($label in $endpointMapping.Keys)
 {
     $updateRecord = $null
+
     foreach($record in $recordSets)
     {
         if($record.Name -eq $label)
@@ -88,6 +90,7 @@ foreach($label in $endpointMapping.Keys)
             $updateRecord = $record
             break;
         }
+        
     }
 
     if($null -ne $updateRecord)
@@ -98,7 +101,7 @@ foreach($label in $endpointMapping.Keys)
     else
     {
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName `
+            -ResourceGroupName $dnsZoneResourceGroupName `
             -ZoneName $dnsZoneName `
             -Name $label `
             -RecordType A `
