@@ -162,8 +162,7 @@ sections:
       - question: |
          Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
         answer: |
-              If Azure Ad pre-authentication is configured and the application URL and contains a “#” character when you try to access the application for the first time,  you get redirected to Azure AD (login.microsoftonline.com) for the authentication and then once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL  is https://www.contoso.com/#/home/index.html, once the Azure AD authentication is done the user will be redirected to https://www.contoso.com/ .
-
+              If Azure AD pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Azure AD (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is https://www.contoso.com/#/home/index.html, once the Azure AD authentication is done the user will be redirected to https://www.contoso.com/ .
               This behaviour is by design due to how the “#” character is handled by the browser.
               
               Possible solutions/  alternatives:
