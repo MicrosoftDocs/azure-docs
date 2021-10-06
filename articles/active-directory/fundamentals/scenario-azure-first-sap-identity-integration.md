@@ -35,7 +35,7 @@ This document provides advice on the technical design and configuration of SAP p
 
 There are many services and components in the SAP and Microsoft technology stack that play a role in user authentication and authorization scenarios. The main services are listed in the diagram below.
 
-![SAP landscape overview](./media/scenario-aad-first-sap-integration/sap-landscape-overview.png)
+![SAP landscape overview](./media/scenario-azure-first-sap-identity-integration/sap-landscape-overview.png)
 
 Since there are many permutations of possible scenarios to be configured, we focus on one scenario that is in-line with an Azure AD identity first strategy. We'll make the following assumptions:
 
@@ -46,7 +46,7 @@ Since there are many permutations of possible scenarios to be configured, we foc
 
 Based on these assumptions, we focus mostly on the products and services presented in the diagram below. These are the various components that are most relevant to authentication and authorization in a cloud-based environment.
 
-![SAP services in scope](./media/scenario-aad-first-sap-integration/sap-services-in-scope.png)
+![SAP services in scope](./media/scenario-azure-first-sap-identity-integration/sap-services-in-scope.png)
 
 ## Recommendations
 
@@ -71,7 +71,7 @@ For SAP SaaS applications IAS is provisioned and pre-configured for easy onboard
 
 When your authoritative user directory is Azure AD, we recommend setting up a trust configuration in BTP towards IAS.  IAS in turn is set up to federate with Azure AD as a Corporate Identity Provider.
 
-![SAP trust configuration](./media/scenario-aad-first-sap-integration/sap-trust-configuration.png)
+![SAP trust configuration](./media/scenario-azure-first-sap-identity-integration/sap-trust-configuration.png)
 
 On the trust configuration in BTP, we recommend that "Create Shadow Users During Logon" is enabled.  This way, users who haven't yet been created in BTP, automatically get an account when they sign in through IAS/Azure AD for the first time. If this setting would be disabled, only pre-provisioned users would be allowed to sign in.
 
@@ -138,7 +138,7 @@ If you want to use Azure AD as the authoritative source for fine-grained authori
 
 With this configuration, we recommend using the Azure AD group's Group ID (Object ID) as the unique identifier of the group, not the display name ("sAMAccountName"). This means you must use the Group ID as the "Groups" assertion in the SAML token issued by Azure AD.  In addition the Group ID is used for the assignment to the Role Collection in BTP.
 
-![Using Role Collections in SAP](./media/scenario-aad-first-sap-integration/sap-use-role-collections.png)
+![Using Role Collections in SAP](./media/scenario-azure-first-sap-identity-integration/sap-use-role-collections.png)
 
 #### Why this recommendation?
 
@@ -158,7 +158,7 @@ In Azure AD:
     - Further, in order to keep claims payloads small and to avoid running into the limitation whereby Azure AD will limit the number of group claims to 150 in SAML assertions, we highly recommend limiting the groups returned in the claims to only those groups that explicitly were assigned:  
         - Under "Which groups associated with the user should be returned in the claim?" answer with "Groups assigned to the application".  Then for the groups you want to include as claims, assign them to the Enterprise Application using the "Users and Groups" section and selecting "Add user/group".
 
-        ![Azure AD Group Claim configuration](./media/scenario-aad-first-sap-integration/sap-aad-group-claim-configuration.png)
+        ![Azure AD Group Claim configuration](./media/scenario-azure-first-sap-identity-integration/sap-aad-group-claim-configuration.png)
 
 In IAS:
 
@@ -226,7 +226,7 @@ As discussed before, we recommend setting up a trust configuration in BTP toward
 - The tenant certificate in IAS: when this changes, both the Enterprise Application's SAML 2.0 Configuration in Azure AD and the Trust Configuration in BTP must be updated.
 - The Enterprise Application certificate in Azure AD: when this changes, the Corporate Identity Provider's SAML 2.0 Configuration in IAS must be updated.
 
-![Rolling over SAML Signing Certs](./media/scenario-aad-first-sap-integration/sap-rollover-saml-signing-certs.png)
+![Rolling over SAML Signing Certs](./media/scenario-azure-first-sap-identity-integration/sap-rollover-saml-signing-certs.png)
 
 SAP has example implementations for client certificate notifications with SAP Cloud Platform Integration [here](https://blogs.sap.com/2017/12/06/sap-cloud-platform-integration-automated-notification-of-keystore-entries-reaching-expiry/) and [here](https://blogs.sap.com/2019/03/01/sap-cloud-platform-integration-automated-notification-for-client-certificates-reaching-expiry/). This could be adapted with Azure Integration Services or PowerAutomate. However, they would need to be adapted to work with server certificates. Such approach requires a custom implementation.
 
