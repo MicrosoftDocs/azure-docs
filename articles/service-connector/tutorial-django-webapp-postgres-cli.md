@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy a Python Django app with Postgres'
-description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
+title: 'Tutorial: Deploy a Python Django app with Postgres with Service Connector'
+description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
 author: shizn
 ms.author: xshi
@@ -301,7 +301,7 @@ This command performs the following actions, which may take a few minutes:
 
 Upon successful deployment, the command generates JSON output like the following example:
 
-![Example az webapp up command output](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
+![Example az webapp up command output](..app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -555,11 +555,11 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 In the [Azure portal](https://portal.azure.com), search for the app name and select the app in the results.
 
-![Navigate to your Python Django app in the Azure portal](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
+![Navigate to your Python Django app in the Azure portal](../app-service/media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 By default, the portal shows your app's **Overview** page, which provides a general performance view. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
+![Manage your Python Django app in the Overview page in the Azure portal](../app-service/media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
