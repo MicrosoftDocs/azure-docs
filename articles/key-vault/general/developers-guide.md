@@ -11,13 +11,17 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
 
-Azure Key Vault enables you to securely access sensitive information from within your applications. You can manage credentials like passwords, [access keys](../keys/about-keys.md), and SAS tokens by storing them in Key Vault as [secrets](../secrets/about-secrets.md). 
+Azure Key Vault allows you to securely access sensitive information from within your applications:
 
-You allow customers to own and manage their own keys, [certificates](../certificates/about-certificates.md), and secrets so you can concentrate on providing the core software features. In this way, your applications won't own the responsibility or potential liability for those keys, certificates, and secrets. Your application can use keys for signing and encryption yet keep the key management external from your application.
+- Keys, secrets, and certificates are protected without your having to write the code yourself, and you can easily use them from your applications.
+- You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications won't own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
+- Your application can use keys for signing and encryption yet keep the key management external from your application. For more information, see [About keys](../keys/about-keys.md).
+- You can manage credentials like passwords, access keys, and SAS tokens by storing them in Key Vault as secrets. For more information, see [About secrets](../secrets/about-secrets.md).
+- Manage certificates. For more information, see [About certificates](../certificates/about-certificates.md).
 
-This article describes how you can use keys, certificates, and secrets from your applications and help ensure that they're protected without writing the code yourself. For general information on Azure Key Vault, see [About Azure Key Vault](overview.md).
+For general information on Azure Key Vault, see [About Azure Key Vault](overview.md).
 
-## Give feedback on preview features
+## Public previews
 
 Periodically, we release a public preview of a new Key Vault feature. Try out public preview features and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
@@ -25,7 +29,7 @@ Periodically, we release a public preview of a new Key Vault feature. Try out pu
 
 As with other Azure services, Key Vault is managed through [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure Resource Manager is the deployment and management service for Azure. You can use it to create, update, and delete resources in your Azure account. 
 
-[Azure role-based access control (RBAC)](../../role-based-access-control/overview.md) controls access to the management layer, also known as the [management plane](security-features.md). You use the management plane in Key Vault to create and manage key vaults and their attributes, including access policies. You use the *data plane* to manage keys, certificates, and secrets. 
+[Azure role-based access control (RBAC)](../../role-based-access-control/overview.md) controls access to the management layer, also known as the [management plane](security-features.md#managing-administrative-access-to-key-vault). You use the management plane in Key Vault to create and manage key vaults and their attributes, including access policies. You use the *data plane* to manage keys, certificates, and secrets. 
 
 You can use the predefined Key Vault Contributor role to grant management access to Key Vault.     
 
@@ -43,7 +47,9 @@ Key Vault uses Azure Active Directory (Azure AD) authentication, which requires 
 
 ### Authentication best practices
 
-We recommend that you use a managed identity for applications deployed to Azure. If you use Azure services that don't support managed identities or if applications are deployed on-premises, a [service principal with a certificate](../../active-directory/develop/howto-create-service-principal-portal.md) is a possible alternative. In that scenario, the certificate should be stored in Key Vault and frequently rotated. A service principal with a secret can be used for development and testing environments, either locally or in Azure Cloud Shell.
+We recommend that you use a managed identity for applications deployed to Azure. If you use Azure services that don't support managed identities or if applications are deployed on-premises, a [service principal with a certificate](../../active-directory/develop/howto-create-service-principal-portal.md) is a possible alternative. In that scenario, the certificate should be stored in Key Vault and frequently rotated.
+
+Use a service principal with a secret for development and testing environments. Use a user principal for local development and Azure Cloud Shell.
 
 We recommend these security principals in each environment:
 - **Production environment**: Managed identity or service principal with a certificate.
