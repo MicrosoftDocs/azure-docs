@@ -54,60 +54,45 @@ Select a query and click **Run** to load it in the query editor and return resul
 ## Create alert rule
 Once you verify your query, you can create the alert rule.
 
-Select **New alert rule** to create a new alert rule based on the current log query. The **Scope** will already be set to the current virtual machine. You don't need to change this value.
-
+Select **New alert rule** to create a new alert rule based on the current log query. The **Scope** will already be set to the current resource. You don't need to change this value.
 
 ## Configure condition
 
 On the **Condition** tab, the **Log query** will already be filled in.
 
 
-The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. 
+The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated. 
 
 
-
-If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. 
-
-
-## Configure dimensions
+### Configure dimensions
 **Split by dimensions** allows you to create separate alerts for different resources. This setting is useful when you're creating an alert rule that applies to multiple resources. With the scope set to a single resource, this setting typically isn't used.
 
 
 ## Configure alert logic
+Configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true.
 
+For example, if the measurement is **Table rows**, the alert logic may be **Great than 0** indicating that at least one record was returned. If the measurement is a columns value,then the logic may need to be greater than or less than a particular threshold value. In the example below, the log query is looking for anonymous requests to a storage account. If an anonymous request has been made, then we should trigger an alert. In this case, a single row returned would trigger the alert, so the alert logic should be **Greater than 0**.
 
-1. Configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true.
-
-For example, if the measurement is **Table rows**, the alert logic may be **Great than 0** indicating that at least one record was returned. If the measurement is a columns value,then the logic may need to be greater than or less than a particular threshold value.
-
-
-
-2. Select a value for **Frequency of evaluation** which defines how often the log query is run and evaluated. The cost for the alert rule increases with a lower frequency. When you select a frequency, the estimated monthly cost is displayed.
+Select a value for **Frequency of evaluation** which defines how often the log query is run and evaluated. The cost for the alert rule increases with a lower frequency. When you select a frequency, the estimated monthly cost is displayed.
 
 
 
 ## Configure actions
 [!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
 
-## Configure alert rule details
+## Configure details
+[!INCLUDE [Alert details](../../../includes/azure-monitor-tutorial-alert-details.md)]
 
-Provide an **Alert rule name**. This should be descriptive since it will be displayed when the alert is fired. Optionally provide a description that's included in the details of the alert.
-
-
-
-Specify a subscription and resource group for the alert rule. This doesn't need to be in the same resource group as the resource that you're monitoring. 
-
- Specify a **Severity** for the alert. The severity allows you to group alerts with a similar relative importance.
-
-Keep the box checked to **Enable alert upon creation** and to **Automatically resolve alerts**. This will automatically resolve the alert when the metric value drops below the threshold. For example, you may create an alert when the CPU of a virtual machine exceeds 80%. If the alert fires, then next time the CPU drops below 80%, the alert will be automatically resolved.
-
+Keep the box checked to **Enable alert upon creation**. Uncheck the box to **Automatically resolve alerts**. This will automatically resolve the alert when alerting condition is not met. This may be valuable if your measurement is using a numeric column from the query. When that column drops below a particular value, then you may be confident that the detected issue has been corrected. If your measurement is using table rows though, then the issue may still exist, but the rows were created outside of the time window of the alert rule.
 
 Click **Create alert rule** to create the alert rule.
 
+## View the alert
+[!INCLUDE [View alert](../../../includes/azure-monitor-tutorial-view-alert.md)]
 
 
 ## Next steps
-Now that you've learned how to collect resource logs into a Log Analytics workspace, complete a tutorial on writing log queries to analyze this data.
+Now that you've learned how to create a log query alert for an Azure resource, have a look at workbooks for creating interactive visualizations of monitoring data.
 
 > [!div class="nextstepaction"]
-> [Get started with log queries in Azure Monitor](../logs/get-started-queries.md)
+> [Azure Monitor Workbooks](../visualize/workbooks-overview.md)

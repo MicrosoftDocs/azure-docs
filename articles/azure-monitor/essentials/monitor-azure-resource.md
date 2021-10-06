@@ -11,15 +11,16 @@ ms.date: 09/15/2021
 # Tutorial: Monitor Azure resources with Azure Monitor
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. This monitoring is provided by Azure Monitor, which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-> [!NOTE]
-> This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
-
 In this tutorial, you learn:
 
 > [!div class="checklist"]
 > * What Azure Monitor is and how it's integrated into the portal for other Azure services
 > * The types of data collected by Azure Monitor for Azure resources
 > * Azure Monitor tools used to used to collect and analyze data
+
+> [!NOTE]
+> This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
+
 
 ## Monitoring data
 

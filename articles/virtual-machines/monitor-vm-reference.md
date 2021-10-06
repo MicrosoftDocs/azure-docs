@@ -35,8 +35,6 @@ AKS has the following dimensions associated with its metrics.
 | ------------------- | ----------------- |
 | LUN | Logical Unit Number |
 | VMName | Used by metrics such as *Statuses for various node conditions*, *Number of pods in Ready state* to split by condition type. |
-
-
 | status | Used by metrics such as *Statuses for various node conditions* to split by status of the condition. |
 | status2 | Used by metrics such as *Statuses for various node conditions* to split by status of the condition.  |
 | node | Used by metrics such as *CPU Usage Millicores* to split by the name of the node. |
@@ -102,5 +100,5 @@ resource log schemas
 
 ## See Also
 
-- See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
+- See [Monitoring Azure AKS](../aks/monitor-aks.md) for a description of monitoring Azure AKS.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

@@ -14,7 +14,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Open metrics explorer for an Azure resource
-> * Select a metric for which you want to plot a chart
+> * Select a metric to plot on a chart
 > * Perform different aggregations of metric values
 > * Modify the time range and granularity for the chart
 

@@ -47,42 +47,20 @@ You can accept the default time granularity or modify it to your requirements. *
 
 Click **Done** when you're done configuring the signal logic.
 
-## Add action group
+## Configure actions
 [!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
 
-## Configure alert rule details
-
-Provide an **Alert rule name**. This should be descriptive since it will be displayed when the alert is fired. Optionally provide a description that's included in the details of the alert.
-
+## Configure details
+[!INCLUDE [Alert details](../../../includes/azure-monitor-tutorial-alert-details.md)]
 
 
-Specify a subscription and resource group for the alert rule. This doesn't need to be in the same resource group as the resource that you're monitoring. 
-
-Specify a **Severity** for the alert. The severity allows you to group alerts with a similar relative importance.
-
-Keep the box checked to **Enable alert upon creation**.
-
-Keep the box checked to **Automatically resolve alerts**. This will automatically resolve the alert when the metric value drops below the threshold. For example, you may create an alert when the CPU of a virtual machine exceeds 80%. If the alert fires, then next time the CPU drops below 80%, the alert will be automatically resolved.
+Keep the box checked to **Enable alert upon creation** and the box to **Automatically resolve alerts**. This will automatically resolve the alert when the metric value drops below the threshold. For example, you may create an alert when the CPU of a virtual machine exceeds 80%. If the alert fires, then next time the CPU drops below 80%, the alert will be automatically resolved.
 
 Click **Create alert rule** to create the alert rule.
 
 
 ## View the alert
-When an alert fires, it will send any notifications in its action groups. You can also view the alert in the Azure portal.
-
-Select **Alerts** from the resource's menu.
-
-If there are any open alerts for the resources, they will be included in the view.
-
-:::image type="content" source="./media/tutorial-metric-alert/alerts-view.png" lightbox="./media/tutorial-metric-alert/alerts-view.png" alt-text="Alerts view":::
-
-Click on a severity to show the alerts with that severity. Select the **Alert state** and unselect **Closed** to view only open alerts.
-
-:::image type="content" source="./media/tutorial-metric-alert/alert-state.png" lightbox="./media/tutorial-metric-alert/alert-state.png" alt-text="Alert state filter":::
-
-Click on the name of an alert to view its detail.
-
-:::image type="content" source="./media/tutorial-metric-alert/alert-detail.png" lightbox="./media/tutorial-metric-alert/alert-detail.png" alt-text="Alert detail":::
+[!INCLUDE [View alert](../../../includes/azure-monitor-tutorial-view-alert.md)]
 
 
 ## Next steps
