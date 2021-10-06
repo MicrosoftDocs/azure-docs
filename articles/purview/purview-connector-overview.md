@@ -40,7 +40,7 @@ details.
 ||[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
-|Multi-cloud|[Amazon RDS](register-scan-amazon-rds.md) (Public preview) |Yes| Yes| Yes| Yes| Yes| Yes|
+|Multi-cloud|[Amazon RDS](register-scan-amazon-rds.md) (Public preview) |Yes| Yes| Yes| Yes| Yes| No|
 ||[Amazon S3](register-scan-amazon-s3.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 
 ## Scan regions
