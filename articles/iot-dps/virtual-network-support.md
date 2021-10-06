@@ -61,7 +61,9 @@ Note the following current limitations for DPS when using private endpoints:
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
 
 >[!NOTE]
->DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data may be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, you can instead use private endpoints.
+>**Data residency consideration:**
+>
+>DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data may be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, use private endpoints.
 
 ## Set up a private endpoint
 
@@ -123,7 +125,7 @@ For example, the provisioning device client sample ([pro_dev_client_sample](http
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-To use the sample with a private link, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
+To use the sample with a private endpoint, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";

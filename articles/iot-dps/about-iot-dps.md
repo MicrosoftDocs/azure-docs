@@ -28,9 +28,11 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
 >[!NOTE]
->DPS uses the same [device provisioning endpoint](https://docs.microsoft.com/azure/iot-dps/concepts-service#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
+>**Data residency consideration:**
 >
->To ensure that your data doesn't leave the region that your DPS instance was created in, use a Private Endpoint.  To learn how to set up private links, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support#private-endpoint-limitations.md).
+>DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
+>
+>To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support#private-endpoint-limitations.md).
 
 
 ## Behind the scenes
