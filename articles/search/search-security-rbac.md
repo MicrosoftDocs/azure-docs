@@ -8,32 +8,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use roles in the following ways:
 
-+ Use the generally available roles for service administration, such as adding capacity, monitoring health, or rotating keys. Generally available roles include Owner, Contributor, Reader, and Search Service Contributor.
++ Use generally available roles for service administration.
 
-  Search Service Contributor includes a subset of actions that target content (for example, creating and loading indexes). To enable this subset of actions on Search Service Contributor, follow the steps for preview sign-up.
++ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available by request**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-+ Use the new preview roles for content tasks. Preview roles include Search Index Data Contributor and Search Index Data Reader. This capability is currently in public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After enrollment, follow the instructions in this article to use preview roles.
+> [!NOTe]
+> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-+ Allow outbound indexer connections [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
+A few RBAC scenarios are **not** supported, or not covered in this article:
 
-This article focuses on the first two bullets: generally available and preview roles. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
++ Outbound indexer connections are documented in ["Set up an indexer connection to a data source using a managed identity"](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
 
-A few RBAC scenarios are **not** directly supported:
++ [Custom roles](../role-based-access-control/custom-roles.md) are not supported.
 
-+ [Custom roles](../role-based-access-control/custom-roles.md)
-
-+ User identity access over search results (sometimes referred to as row-level security or document-level security)
-
-  > [!Tip]
-  > For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
-  >
++ User identity access over search results (sometimes referred to as row-level security or document-level security) is not supported. For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
 
 ## Built-in roles used in Search
 
@@ -50,7 +45,7 @@ There are no regional, tier, or pricing restrictions for using RBAC on Azure Cog
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | Service ops (generally available) | Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Service ops (generally available) | Same level of access as Owner, minus the ability to assign roles or change authorization options. |
 | [Reader](../role-based-access-control/built-in-roles.md#reader) | Service ops (generally available) | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects and content (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations.md#microsoftsearch) at the content level. This role is for search service administrators who need to fully manage the service and its content. For content management, you must sign up for the preview. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
 | [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Documents collection (preview) | Provides full access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Documents collection (preview) | Provides read-only access to search indexes on the search service. This role is for apps and users who run queries. |
 
@@ -105,9 +100,9 @@ Use the Management REST API version 2021-04-01-Preview, [Create or Update Servic
 
 If you are using Postman or another web testing tool, see the Tip below for help on setting up the request.
 
-1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. 
+1. Set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
 
-   Optionally, set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of `disableLocalAuth` is false so you don't need to set it, but it's listed below to emphasize that it must be false whenever authOptions are set.
+   Optionally, set ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's listed below to emphasize that it must be false whenever authOptions are set.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -240,6 +235,8 @@ var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadS
 SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
 ```
 
+Additional details on using [AAD authentication with the Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) are available in the SDK's GitHub repo.
+
 > [!NOTE]
 > If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
 
@@ -249,13 +246,11 @@ SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCred
 
 API keys cannot be deleted, but they can be disabled on your service. If you are using Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header for content-related requests.
 
-Use the Management REST API version 2021-04-01-Preview and send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to disable key authentication.
+To disable [key-based authentication](search-security-api-keys.md), use the Management REST API version 2021-04-01-Preview and send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-Owner or Contributor permissions are required to disable features
+Owner or Contributor permissions are required to disable features. Use Postman or another web testing tool to complete the following steps (see Tip below):
 
-Use Postman or another web testing tool to complete the following steps (see Tip below):
-
-1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. There are two options for data plane authentication. The `aadOrApiKey` is the one that specifies Azure Active Directory.
+1. On the first request, set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Notice that the option indicates availability of either approach: Azure AD or the native API keys.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -274,7 +269,7 @@ Use Postman or another web testing tool to complete the following steps (see Tip
    }
     ```
 
-1. Update the search service a second time. In the second pass, set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true. On the first request, `disableLocalAuth` must be false. On the second request, you can set it to true, which disables the API key portion of the `aadOrApiKy` option.
+1. On the second request, set ["disableLocalAuth"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true. This step turns off the API key portion of the "aadOrApiKey" option, leaving you with just Azure AD authentication.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -288,6 +283,8 @@ Use Postman or another web testing tool to complete the following steps (see Tip
       }
     }
     ```
+
+You cannot combine steps one and two. In step one, "disableLocalAuth" must be false to meet the requirements for setting "AuthOptions", whereas step two changes that value to true.
 
 To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they are specified).
 

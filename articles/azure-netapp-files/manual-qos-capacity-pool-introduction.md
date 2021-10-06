@@ -43,7 +43,7 @@ Setting the capacity type to manual QoS is a permanent change. You cannot conver
 ## Next steps
 
 * [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)

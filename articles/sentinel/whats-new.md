@@ -161,7 +161,7 @@ For more information, see:
 - [Data collection best practices](best-practices-data.md)
 
 > [!TIP]
-> You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Additional best practice references](best-practices.md#additional-best-practice-references).
+> You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Best practice references](best-practices.md#best-practice-references).
 >
 
 ## July 2021

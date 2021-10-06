@@ -50,7 +50,7 @@ flavor = "ONNX10"
 export = trainer.export_iteration(project_id, iteration_id, platform, flavor, raw=False)
 ```
 
-For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
 
 ## Download the exported model
 
@@ -69,7 +69,7 @@ while (export.status == "Exporting"):
     print("Export status is: ", export.status)
 ```
 
-For more information, see the **[get_exports](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[get_exports](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
 
 Then, you can programmatically download the exported model to a location on your device.
 
