@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
 ---
-# Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
+# Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service with Service Connector
 
 ::: zone pivot="postgres-single-server"
 
@@ -144,7 +144,7 @@ The sample is also modified to run in a production environment like App Service:
 - Production settings are in the *azuresite/production.py* file. Development settings are in *azuresite/settings.py*.
 - The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
 
-The production settings are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
+The production settings are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](../app-service/configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -301,7 +301,7 @@ This command performs the following actions, which may take a few minutes:
 
 Upon successful deployment, the command generates JSON output like the following example:
 
-![Example az webapp up command output](..app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png)
+![Example az webapp up command output](../app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 

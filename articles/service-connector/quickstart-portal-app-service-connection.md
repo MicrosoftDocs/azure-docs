@@ -31,7 +31,7 @@ You will use Service Connector to create a new service connection in App Service
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Subscription** | One of your subscriptions | The subscription where your target service (the service you want to connect to) is. The default value is the subscription that this App Service is in. |
-    | **Service Type** | SQL Database | Target service type. If you don't have a SQL Database, you can [create one](azure-sql/database/single-database-create-quickstart.md) or use an other service type. |
+    | **Service Type** | SQL Database | Target service type. If you don't have a SQL Database, you can [create one](../azure-sql/database/single-database-create-quickstart.md) or use an other service type. |
     | **Name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
     | **SQL Database server** | Your database server | The target database service you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client Type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
