@@ -919,8 +919,8 @@ For example, the following claims transformation checks if the value of **ageGro
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Output claims:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode**: true
+    - **isMinor**: B2C_V1_90001
 
 
 ## StringContains
