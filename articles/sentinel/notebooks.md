@@ -241,6 +241,39 @@ Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to 
     !cd azure-sentinel-nb && git pull
     ```
 
+<<<<<<< HEAD
+=======
+## Integrate notebooks with Azure Synapse Analytics
+
+Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables you to use built-in functionality to run parallel data processing using a big data analytics platform.
+
+1. In the Azure Sentinel **Notebooks** page, select **Configure Azure Synapse** to create a new Synapse workspace.
+
+1. In the search box, enter **Synapse** to locate the notebooks that work with Synapse. For example, use the **Guided Hunting - Advanced Analytics with AM + Synapse** workbook to WHAT? TBD.
+
+1. At the bottom-right, select **Clone notebook**. In the **Clone notebook pane** that appears, enter a meaningful name for your notebook and select your AML and Synapse workspaces.
+
+1. After your notebook is deployed, select **Launch Notebook** to open it.
+
+For example, the **Guided Hunting - Advanced Analytics with AM + Synapse** includes the following code, which uses PySpark in a Synapse session:
+
+```python
+from pyspark.swl import SparkSession
+
+spark = SparkSession \
+    .builder \
+    .appName("Spark_Data_Analysis") \
+    .config("spark.sql.caseSensitive", "True") \
+    .getOrCreate()
+```
+
+**To manage or select your Synapse workspace**
+
+To manage or select a different Synapse workspace than the one you're currently signed in to, select **Configure Azure Synapse > Manage Synapse workspace**.
+
+Then in the **Select workspace** page, make sure your Azure Active Directory and Subscription values are correct, and select your Synapse workspace from the **Workspace name** dropdown.
+
+>>>>>>> 7508da20ccce2fe6d35c637aba1bf3aa60962d2e
 ## Troubleshooting
 
 Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
