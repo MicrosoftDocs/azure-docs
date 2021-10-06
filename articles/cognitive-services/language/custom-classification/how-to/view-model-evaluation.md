@@ -8,22 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
 # View the model evaluation
 
+Reviewing model evaluation is an important step in developing a custom classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
 
-Reviewing model evaluation is an important step in the Custom classification model’s development life cycle. It helps developers to learn how well their model is performing and gives them an idea about the expected performance when the model is used in production. 
-
-Model evaluation process is triggered after training is completed successfully. The evaluation process takes place by using the trained model to predict user defined classes for files in the test set and compare them with the provided data tags (ground truth). The test set consists of data that was not introduced to the model during the training process. 
-
-## Prerequisites
-
-* Successfully created a [Custom text classification project](../quickstart.md)
-
-* Completed [model training](train-model.md) successfully.
+Model evaluation comes after you've [created a text classification project](../quickstart.md), and finished [training your model](train-model.md) successfully. The evaluation process uses the trained model to predict user-defined classes for files in the test set, and compares them with the provided data tags. The test set consists of data that was not introduced to the model during the training process. 
 
 ## View the model details using Language Studio
 

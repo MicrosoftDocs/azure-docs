@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
@@ -24,9 +24,9 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * All files should be available at the root of your container.
 
-* Maximum allowed length for your file sis 17,500 characters which is approcimatley 3,800 words or 8 pages.
+* The maximum allowed length for your files is 17,500 characters, which is approximately 3,800 words or 8 pages.
 
-* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and not more than 1,000,000 files.
+* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and no more than 1,000,000 files.
 
 ## API limits
 
@@ -43,7 +43,7 @@ Use this article to learn about the data and rate limits when using custom entit
 > [!NOTE]
 > If you need to send larger files than the limit allows, you can break the text into smaller chunks of text before sending them to the API. You use can the [chunk command from CLUtils](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand) for this process.
 
-## Language resource limits
+## Azure resource limits
 
 * You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource you can't disconnect it later.
 
@@ -71,15 +71,15 @@ Use this article to learn about the data and rate limits when using custom entit
 
 ## Classes
 
-* You should have at least 2 classes in your project and the maximum is 200 classes.
+* You should have at least 2 classes in your project. The maximum is 200 classes.
 
-* It is recomended to have around 200 tagged instances per class and you must have a minium of 10 of tagged instances per class.
+* It is recommended to have around 200 tagged instances per class, and you must have a minium of 10 of tagged instances per class.
 
 ## Naming limits
 
 | Attribute | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Model name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
 | entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| File names | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
+| File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |

@@ -8,41 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
 
 # Frequently asked questions
 
-### What are the best practices when building custom classification model?
+## What are the best practices when building a custom classification model?
 
-Get started with this [quickstart](quickstart/using-language-studio.md) and follow the [recommended practices](concepts/recommended-practices.md)
+Get started with this [quickstart](quickstart/using-language-studio.md) and follow the [recommended practices](concepts/recommended-practices.md).
 
-### How many tagged files are needed?
+## How many tagged files are needed?
 
-Generally, more tagged data leads to better results given tagging is done precisely, consistently and completely. while there is no magical number of tagged entities that would make your model perform well. This is highly dependent on your schema and entities ambiguity; ambiguous entity types need more tags. This also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
+Generally, more [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged entities that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your entities. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
 
-### Service limits
+## What are the service limits?
 
-You can find more details about about service limite [here](concepts/data-limits.md)
+See the [service limits article](concepts/data-limits.md) for more information.
 
-### What to do if I get low scores?
+## What to do if my model scores poorly?
 
-Model evaluation may not always be comprehensive, especially if a specific entity is missing or under-represented in your test set. Consider adding more tagged data to your model to both improve perfomrance and have a more representative test set.
+Model evaluation may not always be comprehensive, especially if a specific entity is missing or under-represented in your test set. Consider adding more tagged data to your model to both improve performance, and have a more representative test set.
 
-### Improve model performance
+## How do I improve model performance?
 
-View the your [confusion matrix](how-to/view-model-evaluation.md) to identify schema ambiguity. Then [review your test set](how-to/improve-model.md#review-validation-set) to see predicted and tagged classes side by side so you can get a better idea of your model performance and decide if any changes in the schema or the tags are necessary.  
+View the your [confusion matrix](how-to/view-model-evaluation.md) to identify schema ambiguity. Then [review your test set](how-to/improve-model.md#review-validation-set) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.  
 
-### Model trained but cannot test
+## I trained my model, but I can't test it
 
 You need to [deploy your model](quickstart/using-language-studio.md#deploy-your-model) before you can test it. 
 
-### How to use analyze API
+## How do I use the analyze API?
 
-After deploying your model, [submit text classification tasks](how-to/run-inference.md). You can learn more about using the Analyze API [here](https://aka.ms/ct-runtime-swagger)
+After deploying your model, you [submit text classification tasks](how-to/run-inference.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
 ## Data privacy and security
 
 Your data is only stored in your Azure storage account, Custom classification only has access to read from it during training and evaluation. 
+
+## Next steps
+
+[Recommended practices](concepts/recommended-practices.md)

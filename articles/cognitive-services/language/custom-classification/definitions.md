@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
@@ -41,8 +41,8 @@ Custom text classification supports two types of projects
 
 ## Model
 
-A model is an object that is trained to do a certain task, in our case custom text classification. Models are trained by providing tagged data to learn from so they can later be used for classifying text. After developers are content with model performance, they can be deployed; deploying a model is making it available for consumption via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+A model is an object that is trained to do a certain task, in our case custom text classification. Models are trained by providing tagged data to learn from so they can later be used for classifying text. After you're satisfied with the model's performance, it can be deployed, which makes it [available for consumption](https://aka.ms/ct-runtime-swagger).
 
 ## Class
 
-A class is a user defined category that is used to indicate the overall classification of the text. Developers tag their data with their assigned classes before passing it to the model for training. |
+A class is a user defined category that is used to indicate the overall classification of the text. You will tag your data with your assigned classes before passing it to the model for training. 

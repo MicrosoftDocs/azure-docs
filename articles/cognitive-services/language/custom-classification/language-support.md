@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
 # Language support
 
-Custom text classification gives you the option to leverage data from multiple languages. You can have multiple files in your dataset of different languages. Also, you can train your model in one language and use it to query text in other languages. If you want to use the multilingual option, you have to enable this during [project creation](quickstart.md). If you notice low scores in a certain language consider adding more data in this language to your training set.
+Custom text classification lets you have multiple files in your dataset of different languages. You can also train your model in one language and use it to query text in other languages. If you want to use this multilingual option, you have to enable it during [project creation](quickstart.md). If you notice your model performing poorly and scoring low in certain languages during the evaluation process,, consider adding more data in this language to your training set.
 
 ## Languages supported by custom text classification
 

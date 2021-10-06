@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/23/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
@@ -34,7 +34,7 @@ After you have created an Azure storage account and linked it to your Language S
 
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource you cannot disconnect it later.
 
     :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
 
@@ -63,10 +63,10 @@ To start training your model:
 
     :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../../media/train-model.png":::
 
-3. Click on the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up will appear to confirm overwriting the last model state.
+3. Click on the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up will appear to confirm you want to overwrite the last model state.
 
     > [!NOTE]
-    > * While training, your data will be spilt into 2 sets; 80% for training and 20% for testing.
+    > * While training, your data will be spilt into 2 sets: 80% for training and 20% for testing.
     > * Training can take up to a few hours.
 
 ## Deploy your model
