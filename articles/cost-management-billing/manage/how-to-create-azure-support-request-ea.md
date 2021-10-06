@@ -99,7 +99,7 @@ Before you create your request, review all of the details that you'll send to su
 
 A support engineer will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
-## Unable to create a support request with a Microsoft Account
+## Can't create request with Microsoft Account
 
 If you have a Microsoft Account (MSA), you can't create Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
 
