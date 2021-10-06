@@ -19,6 +19,9 @@ description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters 
 - `Docker`, `Moby`, and CRI compatible container runtimes such `CRI-O` and `containerd`.
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
+>[!NOTE]
+> Azure Monitor Container Insights currently does not support Kubernetes v1.22 or greater
+
 ## Prerequisites
 
 - You've met the pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
