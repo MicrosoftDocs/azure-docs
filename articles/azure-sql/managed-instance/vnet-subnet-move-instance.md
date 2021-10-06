@@ -25,7 +25,7 @@ Similar like scaling vCores or changing the instance service tier, you can move 
 Before moving the instance to another subnet, best practice is to go over the key concepts:
 - Check how to [determine required subnet size and range for Azure SQL Managed Instance](vnet-subnet-determine-size.md).
 - Choose between moving the instance to a [new subnet](virtual-network-subnet-create-arm-template.md) or [using the existing one](vnet-existing-add-subnet.md).
-- Azure SQL Managed Instance provides [management operations](management-operations-overview.md). You can use this operations to deploy automatically new managed instances, update instance properties, and delete instances when no longer needed.
+- Azure SQL Managed Instance provides [management operations](management-operations-overview.md). You can use these operations to deploy automatically new managed instances, update instance properties, and delete instances when no longer needed.
 - Managed instance management operations are long running as SQL Managed Instance relies on [virtual clusters](connectivity-architecture-overview.md). These operations consist of multiple [steps that can be monitored using any tool](management-operations-monitor.md).
 
 ## Destination subnet requirements and limitations
@@ -51,7 +51,7 @@ Depending on the configuration of the subnet and resources deployed inside it, s
 There are several limitations that apply to the destination subnet when existing instance is moved:
 - Only subnets within the same virtual network are allowed as a destination.
 - It is not possible to change the DNS zone of SQL Managed Instance. If destination subnet is not empty, instances located inside that subnet must have the same DNS zone as instances in the source subnet.
-- Instances running on deprecated Gen4 hardware will have to upgrade to the newer hardware generation in order to move to another subnet.
+- Instances running on deprecated Gen4 hardware will have to upgrade to the newer hardware generation to be moved to another subnet.
 
 ### Changes in subnet configuration during instance move operation
 
@@ -76,7 +76,7 @@ Detailed explanation of the operation steps can be found in the [overview of Azu
 
 ## Move the instance to another subnet
 
-Cross-subnet instance move is part of the instance update operation where. Existing API, PowerShell, and Azure CLI commands for instance update are enhanced with the property for subnet ID. By specifying different subnet ID in the update command, instance will be moved from existing to the new subnet. In Azure portal networking blade is enhanced with the field for changing the subnet.
+Cross-subnet instance move is part of the instance update operation. Existing API, PowerShell, and Azure CLI commands for instance update are enhanced with the property for subnet ID. By specifying different subnet ID in the update command, instance will be moved from existing to the new subnet. In Azure portal networking blade is enhanced with the field for changing the subnet.
 
 For the full reference of instance management commands, visit [Management API reference for Azure SQL Managed Instance](api-references-create-manage-instance.md)
 
