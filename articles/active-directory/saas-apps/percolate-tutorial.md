@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Select **Save**.
 
-### Create a Percolate test user
+### Create Percolate test user
 
 To enable Azure AD users to sign in to Percolate, you need to add them to Percolate. You need to add them manually.
 
