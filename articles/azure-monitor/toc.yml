@@ -785,8 +785,8 @@
         href: app/opentelemetry-overview.md 
       - name: .NET
         href: app/opentelemetry-enable.md?tabs=net
-      - name: JavaScript
-        href: app/opentelemetry-enable.md?tabs=javascript
+      - name: Node.js
+        href: app/opentelemetry-enable.md?tabs=nodejs
       - name: Java
         items:
         - name: Overview

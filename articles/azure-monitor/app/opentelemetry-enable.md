@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor OpenTelemetry for .NET, JavaScript, and Python applications
+title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
 description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
 ms.topic: conceptual
 ms.date: 09/28/2021
@@ -7,7 +7,7 @@ author: mattmccleary
 ms.author: mmcc
 ---
 
-# Enable Azure Monitor OpenTelemetry Exporter for .NET, JavaScript, and Python applications (Preview)
+# Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (Preview)
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights.
 
@@ -33,14 +33,13 @@ Please consider carefully whether this preview is right for you. It **enables di
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
-### [JavaScript](#tab/javascript)
+### [Node.js](#tab/nodejs)
 
 Please consider carefully whether this preview is right for you. It enables distributed tracing only and _excludes_ the following:
  - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
  - Logging API (console logs, logging libraries, etc.)
  - Auto-capture of unhandled exceptions
- - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -51,7 +50,7 @@ Please consider carefully whether this preview is right for you. It enables dist
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
 > [!WARNING] 
-> At present, this exporter only works for Node.js serverside environments. Use the [Application Insights JavaScript SDK](javascript.md) for web/browser scenarios.
+> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web/browser scenarios.
 
 ### [Python](#tab/python)
 
@@ -86,9 +85,11 @@ Follow the five steps in this section and you will be able to instrument OpenTel
 - Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
 
 
-### [JavaScript](#tab/javascript)
+### [Node.js](#tab/nodejs)
 
-- JavaScript application using Node.js version X.X+
+- Application using officially supported version of Node.js environment. 
+    - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
+    - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 - [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
 - [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
 
@@ -129,14 +130,13 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
 > [!NOTE]
 > If you're not able to install the library, please go to [Troubleshooting](#specifying-nuget-source).
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
-Add code to xyz.file in your application
+##### Install npm package
 
-```javascript
-Placeholder
+```sh
+    npm install @azure/monitor-opentelemetry-exporter`
 ```
-
 
 #### [Python](#tab/python)
 
@@ -196,9 +196,31 @@ public class Program
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. And that you create ActivitySource directly using its constructor, instead of using TracerProvider (Each [ActivitySource](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) must be explicitly connected to TracerProvider using `AddSource()`). This is because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
-##### [JavaScript](#tab/javascript)
+##### [Node.js](#tab/nodejs)
 
-placeholder
+The following code demonstrates enabling OpenTelemetry in a simple Node.js application.
+
+```typescript
+const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
+const { NodeTracerProvider } = require("@opentelemetry/node");
+const { BatchSpanProcessor } = require("@opentelemetry/tracing");
+
+const provider = new NodeTracerProvider();
+provider.register();
+
+// Create an exporter instance
+const exporter = new AzureMonitorTraceExporter({
+  instrumentationKey: os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+});
+
+// Add the exporter to the provider
+provider.addSpanProcessor(
+  new BatchSpanProcessor(exporter, {
+    bufferTimeout: 15000,
+    bufferSize: 1000
+  })
+);
+```
 
 ##### [Python](#tab/python)
 
@@ -276,13 +298,25 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 <!-- For more information, see [GitHub Repo](link). -->
 
 
-### [JavaScript](#tab/javascript)
+### [Node.js](#tab/nodejs)
 
-```javascript
-Placeholder
+```typescript
+...
+import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/node";
+import { Resource } from "@opentelemetry/resources";
+
+const config: NodeTracerConfig = {
+        resource: new Resource({
+            [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
+            [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
+            [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
+        }),
+    };
+const provider = new NodeTracerProvider(config);
+...
 ```
 
-For more information, see [GitHub Repo](link).
+Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
 
 ### [Python](#tab/python)
 
@@ -337,9 +371,11 @@ The following libraries are validated to work with the Preview Release:
   clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md) Version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc7)
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
-- XYZ (version X.X)
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) Version:
+  [0.26.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.26.0)
+
 
 #### [Python](#tab/python)
 
@@ -360,9 +396,10 @@ The following libraries are validated to work with the Preview Release:
   client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) Version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
-- XYZ (version X.X)
+- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) Version:
+  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
 
 #### [Python](#tab/python)
 
@@ -423,12 +460,34 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 ```
 
 
-##### [JavaScript](#tab/javascript)
+##### [Node.js](#tab/nodejs)
 
 If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
 
-```javascript
-Placeholder
+```typescript
+import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+import { NodeTracerProvider } from "@opentelemetry/node";
+import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/tracing";
+
+class SpanEnrichingProcessor implements SpanProcessor{
+    forceFlush(): Promise<void>{
+        return Promise.resolve();
+    }
+    shutdown(): Promise<void>{
+        return Promise.resolve();
+    }
+    onStart(_span: Span): void{}
+    onEnd(span: ReadableSpan){
+        span.attributes["CustomDimension1"] = "value1";
+        span.attributes["CustomDimension2"] = "value2";
+    }
+}
+
+const provider = new NodeTracerProvider();
+const azureExporter = new AzureMonitorTraceExporter();
+provider.addSpanProcessor(new SpanEnrichingProcessor());
+provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
+
 ```
 
 ##### [Python](#tab/python)
@@ -478,12 +537,21 @@ activity.SetTag("http.client_ip", "<IP Address>");
 > [!TIP]
 > The .NET exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
-##### [JavaScript](#tab/javascript)
+##### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
-```javascript
-Placeholder
+```typescript
+...
+import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+
+class SpanEnrichingProcessor implements SpanProcessor{
+    ...
+
+    onEnd(span: ReadableSpan){
+        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+    }
+}
 ```
 
 > [!TIP]
@@ -518,18 +586,27 @@ Placeholder
 ```
 
 > [!TIP]
-> The .NET exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+> The .NET exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
-##### [JavaScript](#tab/javascript)
+##### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
-```javascript
-Placeholder
+```typescript
+...
+import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+
+class SpanEnrichingProcessor implements SpanProcessor{
+    ...
+
+    onEnd(span: ReadableSpan){
+        span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
+    }
+}
 ```
 
 > [!TIP]
-> The JavaScript exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+> The JavaScript exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
 ##### [Python](#tab/python)
 
@@ -540,7 +617,7 @@ span._attributes["enduser.id"] = "<User ID>"
 ```
 
 > [!TIP]
-> The Python exporter will automtically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
+> The Python exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
 ---
 
@@ -603,28 +680,46 @@ You may use following ways to filter out telemetry before leaving your applicati
     For more information, see [GitHub Repo](link).
     --->
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
-You may use a Span Processor to filter out telemetry before leaving your application. Span Processors may be used to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
+1. Exclude url option provided by many http instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 
-```javascript
-Placeholder
+Below is an example of how to exclude a certain url from being tracked using the [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) instrumentation.
+
+```typescript
+...
+import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
+
+...
+const httpInstrumentationConfig: HttpInstrumentationConfig = {
+    ignoreIncomingPaths: [new RegExp(/dc.services.visualstudio.com/i)]
+};
+const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+provider.register();
+registerInstrumentations({
+    instrumentations: [
+        httpInstrumentation,
+    ]
+});
 ```
 
-For more information, see [GitHub Repo](link).
-<!---
-### Get Trace ID or Span ID
-You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
+2. Using custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set their `TraceFlag` to `DEFAULT`.
+Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
-> [!NOTE]
-> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
+```typescript
+...
+import { SpanKind, TraceFlags } from "@opentelemetry/api";
 
-```javascript
-Placeholder
+class SpanEnrichingProcessor implements SpanProcessor{
+    ...
+
+    onEnd(span: ReadableSpan) {
+        if(span.kind == SpanKind.INTERNAL){
+            span.spanContext().traceFlags = TraceFlags.SAMPLED;
+        }
+    }
+}
 ```
-
-For more information, see [GitHub Repo](link).
---->
 
 #### [Python](#tab/python)
 
@@ -726,15 +821,31 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
 ```
 
 
-#### [JavaScript](#tab/javascript)
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+#### [Node.js](#tab/nodejs)
 
-Add the code to xyz.file in your application.
+1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
 
-```javascript
-Placeholder
+
+```sh
+    npm install @opentelemetry/exporter-otlp-http
+    npm install @azure/monitor-opentelemetry-exporter
 ```
 
+2. Add following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details refer to example [here](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
+
+```typescript
+const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
+
+const provider = new BasicTracerProvider();
+const azureMonitorExporter = new AzureMonitorTraceExporter({
+  instrumentationKey: os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+});
+const otlpExporter = new OTLPTraceExporter();
+provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
+provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
+provider.register();
+```
 
 #### [Python](#tab/python)
 
@@ -760,7 +871,7 @@ exporter logs are available to any EventListener by opting into the source named
 [ OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
 for detailed troubleshooting steps.
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
 Placeholder
 
@@ -789,7 +900,7 @@ You could try to specify the source with `-s` option.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
 Placeholder
 
@@ -805,7 +916,7 @@ Placeholder
 
 Placeholder
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/nodejs)
 
 Placeholder
 
@@ -838,13 +949,13 @@ Placeholder
 - [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
 
 
-### [JavaScript](#tab/javascript)
+### [Node.js](#tab/nodejs)
 
 - Review the source code at the  [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter).
 - To install the NPM package, check for updates, or view release notes, visit the [Azure Monitor Exporter NPM Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
-- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples/v1/javascript).
+- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples).
 - To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry JavaScript GitHub Repository](https://github.com/open-telemetry/opentelemetry-js).
-- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
+- [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
 
 ### [Python](#tab/python)
 
@@ -852,4 +963,4 @@ Placeholder
 - To install the PyPI package, check for updates, or view release notes, visit the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
 -  Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python).
-- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
+- [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
