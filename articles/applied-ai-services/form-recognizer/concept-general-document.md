@@ -19,6 +19,27 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
 
+## General document features
+
+* There is no need to train a custom model to extract key-value pairs.
+
+* A single API is used to extract key value pairs, entities, text, tables and structure from documents.
+
+* It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
+
+* The general document model supports structured, semi-structured and unstructured data.
+
+## Key-value pairs
+
+Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form this could be the label and the value the user entered for that field or in a ustructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats and structures.
+
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
+
+## Entities
+
+Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types for example an individual or an organization.
+The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key value pairs. This ensures that complex structures where a key cannot be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+
 * The general document is a pre-trained model and can be directly invoked via the REST API. 
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
@@ -80,3 +101,8 @@ Email | string | Email address. |
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 * Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.
+
+> [!div class="nextstepaction"]
+> [Try general document in the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+
