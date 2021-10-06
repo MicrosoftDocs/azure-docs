@@ -237,13 +237,13 @@ Automated ML uses the images from the validation dataset for evaluating the perf
 
 ### Image classification metrics
 
-The primary metric for evaluation of image classification models is **accuracy** for binary and multi-class classification and **iou** ([Intersection over Union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score))) for multi-label classification.
-The classification metrics for image classification models are same as those defined in the [classification metrics](#Classification-metrics) section.
+The primary metric for evaluation is **accuracy** for binary and multi-class classification models and **iou** ([Intersection over Union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score)) for ultilabel classification models.
+The classification metrics for image classification models are same as those defined in the [classification metrics](#classification-metrics) section.
 
-Every prediction from a classification model is associated with a confidence score, which indicates the level of confidence with which the prediction was made. The multi-label image classification models are by default evaluated with a score threshold of 0.5 which means only predictions with at least this level of confidence will be considered a positive prediction for the associated class. Multi-class classification does not use the score threshold but instead, the class with the maximum confidence score is considered as the prediction. 
+Every prediction from a classification model is associated with a confidence score, which indicates the level of confidence with which the prediction was made. Multilabel image classification models are by default evaluated with a score threshold of 0.5 which means only predictions with at least this level of confidence will be considered as a positive prediction for the associated class. Multiclass classification does not use a score threshold but instead, the class with the maximum confidence score is considered as the prediction. 
 
 #### Epoch-level metrics for image classification
-Unlike the classification metrics for tabular datasets, image classification models log all the classification metrics at epoch-level as shown below.
+Unlike the classification metrics for tabular datasets, image classification models log all the classification metrics at an epoch-level as shown below.
 
 ![Epoch-level charts for image classification](./media/how-to-understand-automated-ml/image-classification-accuracy.PNG)
 
