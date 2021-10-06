@@ -394,6 +394,8 @@
       href: manage/ea-portal-troubleshoot.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Create EA support request
+      href: ../manage/how-to-create-azure-support-request-ea.md
 - name: Reference
   items:
   - name: Azure CLI

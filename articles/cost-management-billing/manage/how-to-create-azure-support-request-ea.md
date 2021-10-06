@@ -1,7 +1,7 @@
 ---
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 10/06/2021
 ms.author: banders
 author: bandersmsft
@@ -21,7 +21,7 @@ Azure enables you to create and manage support requests, also known as support t
 >- Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
-Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
+Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. You need a support plan for technical support. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
 ## Getting started
 
@@ -35,7 +35,7 @@ To create a support request for an Enterprise Agreement, you must be an Enterpri
 
 To start a support request from anywhere in the Azure portal:
 
-1. Select the **?** in the global header, then select **Help + support**.
+1. Select the question mark symbol in the global header, then select **Help + support**.
 
    :::image type="content" source="media/how-to-create-azure-support-request-ea/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
 
@@ -45,7 +45,7 @@ To start a support request from anywhere in the Azure portal:
 
 ### Go to Help + support from a resource menu
 
-To start a support request in the context of the resource you're currently working with:
+To start a support request:
 
 1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
@@ -72,24 +72,24 @@ After you've provided all of these details, select **Next: Solutions**.
 
 ### Recommended solution
 
-Based on the information you provided, we'll show you recommended solutions you can use to try and resolve the problem. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
+Based on the information you provided, we'll show you recommended solutions you can use to try to resolve the problem. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
 If you're still unable to resolve the issue, continue creating your support request by selecting **Next: Details**.
 
 ### Additional details
 
-Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
+Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
 1. On the Details tab, complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](../../azure-portal/supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be additional options to choose from.
+1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be more options to choose from.
 
-1. In the **Support method** section, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
+1. In the **Support method** section, select the severity of the issue. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 
 1. Provide your preferred contact method, your availability, and your preferred support language.
 
 1. Next, complete the **Contact info** section so we know how to contact you.  
-    :::image type="content" source="./media/how-to-create-azure-support-request-ea/details-tab.png" alt-text="Screenshot showing Select Enrollment administration." lightbox="./media/how-to-create-azure-support-request-ea/details-tab.png" :::
+    :::image type="content" source="./media/how-to-create-azure-support-request-ea/details-tab.png" alt-text="Screenshot showing the Details tab." lightbox="./media/how-to-create-azure-support-request-ea/details-tab.png" :::
 
 Select **Next: Review + create** when you've completed all of the necessary information.
 
@@ -101,14 +101,14 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Unable to create a support request with a Microsoft Account
 
-If have a Microsoft Account (MSA), you can't create Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
+If you have a Microsoft Account (MSA), you can't create Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
 
 To create to Azure support ticket, an *organizational account* must have the EA administrator role.
 
-If have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
+If you have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
 
 - To add an Enterprise Administrator, see [Create another enterprise administrator](ea-portal-administration.md#create-another-enterprise-administrator).
-- To add a Partner Administrator, see [Manage partner administrators](ea-partner-portal-administration.dm#manage-partner-administrators).
+- To add a Partner Administrator, see [Manage partner administrators](ea-partner-portal-administration.md#manage-partner-administrators).
 
 ## Next steps
 
