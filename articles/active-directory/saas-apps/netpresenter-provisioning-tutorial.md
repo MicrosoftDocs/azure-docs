@@ -44,16 +44,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Netpresenter to support provisioning with Azure AD
 
-This section guides you through the steps to obtain the Tenant URL and Secret Token from Netpresenter.
-1. Sign in to the Netpresenter CMS with an administrator account.
-2. Go to the settings page.
-3. In the settings, click on **System** to open the sub-menu and then click on **Azure AD**.
-4. On the right side, click on the **Generate Token** button and save the token.
-5. Save the **SCIM Endpoint URL**, you will need it in the **Step 5**.
+1. Sign in to the Netpresenter with an administrator account.
+2. Click on cogwheel icon to go to settings page.
+3. In the settings page, click on **System** to open the sub-menu and click on **Azure AD**.
+4. Click on the **Generate Token** button.
+5. Save the **SCIM Endpoint URL** and **Token** at a secure place, you will need it in the **Step 5**.
 
    ![Token and url](media/netpresenter/get-token-and-url.png)
 
-1. **Optional:** On the same page under **Sign in options**, 'Force sign in with Microsoft' can be enabled or disabled. By enabling it, users with an Azure AD account will lose the ability to sign in with their local Next account.
+1. **Optional:** Under **Sign in options**, 'Force sign in with Microsoft' can be enabled or disabled. By enabling it, users with an Azure AD account will lose the ability to sign in with their local account.
 
 ## Step 3. Add Netpresenter from the Azure AD application gallery
 
