@@ -132,10 +132,21 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
 
 #### [Node.js](#tab/nodejs)
 
-##### Install npm package
+##### Install npm packages
 
 ```sh
-    npm install @azure/monitor-opentelemetry-exporter`
+npm install @azure/monitor-opentelemetry-exporter
+npm install @opentelemetry/sdk-trace-base
+npm install @opentelemetry/sdk-trace-node
+```
+
+Following packages are also used for some specific scenarios described later in this article.
+
+```sh
+npm install @opentelemetry/api
+npm install @opentelemetry/resources
+npm install @opentelemetry/semantic-conventions
+npm install @opentelemetry/instrumentation-http
 ```
 
 #### [Python](#tab/python)
@@ -202,8 +213,8 @@ The following code demonstrates enabling OpenTelemetry in a simple Node.js appli
 
 ```typescript
 const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-const { NodeTracerProvider } = require("@opentelemetry/node");
-const { BatchSpanProcessor } = require("@opentelemetry/tracing");
+const { BatchSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
 
 const provider = new NodeTracerProvider();
 provider.register();
@@ -302,7 +313,7 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 
 ```typescript
 ...
-import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/node";
+import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/sdk-trace-node";
 import { Resource } from "@opentelemetry/resources";
 
 const config: NodeTracerConfig = {
@@ -465,8 +476,8 @@ If using custom processor, make sure to add the processor before the Azure monit
 
 ```typescript
 import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
-import { NodeTracerProvider } from "@opentelemetry/node";
-import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/tracing";
+import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/sdk-trace-base";
 
 class SpanEnrichingProcessor implements SpanProcessor{
     forceFlush(): Promise<void>{
@@ -664,7 +675,6 @@ You may use following ways to filter out telemetry before leaving your applicati
 
 3. If a particular source is not explicitly added using `AddSource("ActivitySourceName")`, then none of the activities created using that source will be exported.
     
-    For more information, see [GitHub Repo](link).
     <!---
     ### Get Trace ID or Span ID
     You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
@@ -714,7 +724,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
     onEnd(span: ReadableSpan) {
         if(span.kind == SpanKind.INTERNAL){
-            span.spanContext().traceFlags = TraceFlags.SAMPLED;
+            span.spanContext().traceFlags = TraceFlags.NONE;
         }
     }
 }
