@@ -49,7 +49,7 @@ Security Center's auto provisioning page now includes the option to automaticall
 
 Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability assessment solutions:
 
-- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-analysis-solution-in-preview))
+- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
 - The integrated Qualys agent
 
 :::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
