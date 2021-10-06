@@ -18,17 +18,27 @@ ms.custom: references_regions
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
-Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the queryLanguage parameter, but is otherwise an independent feature. There is no sign-up, no additional charges, and no tier restrictions. Speller is available in all regions.
+Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the queryLanguage parameter, but is otherwise an independent feature with it's own prerequisites. There is no sign-up or additional charges for using this feature.
 
 ## Prerequisites
 
 To use spell check, you will need the following:
 
++ A search service at Basic tier or above, in any region.
+
 + An existing search index with content in a [supported language](#supported-languages).
 
-+ A search client that supports preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that has "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that invokes spell correction must have "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
+Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
+
+| Client library | Versions |
+|----------|----------|
+| REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
+| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
+| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
+| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
+| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## Spell correction with simple search
 
@@ -98,7 +108,7 @@ Valid values for queryLanguage can be found in the following table, copied from 
 
 ### queryLanguage considerations
 
-As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just spell check, the list of supported languages in the above table is the complete list. 
+As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just using spell check, the list of supported languages in the above table is the complete list. 
 
 ### Language analyzer considerations
 
@@ -108,7 +118,7 @@ If you are now adding spell check to content that also undergoes language analys
 
 To recap how language libraries are used in Cognitive Search:
 
-+ Language analyzers can be invoked during indexing and query execution, and can be either full Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
++ Language analyzers can be invoked during indexing and query execution, and are either Apache Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
 
 + Language lexicons invoked during spell check are specified using one of the language codes in the table above.
 
