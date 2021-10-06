@@ -286,4 +286,4 @@ Learn more about the Form Recognizer client library by exploring our API referen
 > [!div class="nextstepaction"]
 > [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 
-> [Try general document in the Form Recognizer Studio]()
+> [Try general document in the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
