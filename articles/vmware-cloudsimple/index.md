@@ -2,7 +2,7 @@
 title: Azure VMware Solution by CloudSimple 
 description: Learn about Azure VMware Solutions by CloudSimple, including an overview, quickstarts, concepts, tutorials, and how-to guides.
 author: suzizuber
-ms.author: v-hborys
+ms.author: v-szuber
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
