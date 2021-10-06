@@ -80,7 +80,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | **EventOriginalType**   | Optional    | String  |  The original event type or ID, if provided by the source.<br><br>Example: `DNS Assign Failed` |
 | <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `DHCP Server` |
 | **EventProductVersion** | Optional | String | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `12.1` |
-| <a name="eventvendor">**EventVendor** | Mandatory | String | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser.<br><br>Example: `Microsoft`|
+| <a name="eventvendor"></a>**EventVendor** | Mandatory | String | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser.<br><br>Example: `Microsoft`|
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.0**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
 | **EventReportUrl** | Optional | String | A URL provided in the event for a resource that provides more information about the event. |
@@ -93,7 +93,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name="dvcid"></a>**DvcId** | Optional | String | The ID of the DHCP server as reported in the record.<br><br>Example:  `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others using the field names  **DvcAzureResourceId** and **DvcMDEid** respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
 | **EventSeverity** | Optional | Enumerated | Set to `Low` if the DHCP server quarantined the client, and to `Medium` if the server blocked the client. Otherwise set to `Informational`. <br><br>Example: `Informational`|
-| <a name="dvcaction">DvcAction | Optional | Enumerated | The action taken by the DHCP server. Possible values are `Allow`, `Deny`, and `Quarantine`.<br><br>Example: `Deny` |
+| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken by the DHCP server. Possible values are `Allow`, `Deny`, and `Quarantine`.<br><br>Example: `Deny` |
 | <a name="additionalfields"></a>**AdditionalFields** | Optional | Dynamic | If your source provides other information worth preserving, either keep it with the original field names or create the **AdditionalFields** dynamic field, and add to the extra information as key/value pairs. |
 | | | | |
 
