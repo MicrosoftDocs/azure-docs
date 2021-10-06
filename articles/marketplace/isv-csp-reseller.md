@@ -21,7 +21,7 @@ Private offers let Independent Software Vendors (ISVs) and Cloud Resellers (CSP 
 
 As an ISV, you can specify the margin and duration to create a wholesale price for your CSP partner. When your partner makes a sale to a customer, Microsoft will make its payments to you off the wholesale price.
 
-As a CSP partner, you can discover all the margins available to you via Partner Center UI or API. For any sale you make, you receive your bill from Microsoft at the wholesale price. You continue to set your customer price and invoice your customer outside of the marketplace. [Learn more about the CSP partner experience for private offers]
+As a CSP partner, you can discover all the margins available to you via Partner Center UI or API. For any sale you make, you receive your bill from Microsoft at the wholesale price. You continue to set your customer price and invoice your customer outside of the marketplace. Learn more about the CSP partner experience for private offers at [Discover margins configured by ISVs](/partner-center/csp-commercial-marketplace-margins).
 
 :::image type="content" source="media/isv-csp-cloud/isv-private-offer-experience.png" alt-text="Shows the progression of the ISV private offer experience.":::
 
