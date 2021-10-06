@@ -16,9 +16,7 @@ ms.date: 09/28/2021
 > [!NOTE]
 > This article helps you understand Azure Purview Data Policies.
 
-Azure Purview Data Policies enables creation of data use
-policies in Purview Studio, which are then enforced across multiple data systems
-that are registered with Azure Purview.
+Data use policies can be created through the Policy Management area in Purview Studio. These policies are then enforced across data systems that are registered with Azure Purview Data Policies.
 
 ## Azure Purview policy concepts
 
@@ -49,7 +47,7 @@ values are **Allow**, **Deny.**
 
 #### Data Resource
 
-It is the fully qualified data asset path to which a policy statement is
+This is the fully qualified data asset path to which a policy statement is
 applicable. It conforms to the following format:
 
 */subscription/\<subscription-id>/resourcegroups/\<resource-group-name>/providers/\<provider-name>/\<data-asset-path>*
