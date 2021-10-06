@@ -105,7 +105,9 @@ Follow these steps to configure the network for your device.
 
 ::: zone pivot="two-node"
 
-To configure the network for a 2-node device, follow these steps:
+### Configure network on first node
+
+To configure the network for a 2-node device, follow these steps on the 1st node of the device:
 
 1. In the local UI of the 1st node, go to the **Network** page. Choose the topology for cluster and the storage traffic between nodes from the following options: 
 
@@ -119,16 +121,30 @@ To configure the network for a 2-node device, follow these steps:
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology with a device reset. Select **Yes** to confirm the network setting. The network setting takes a few minutes to apply and you see a notification when the network settings are successfully applied.
 1. Once the network settings are applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch is created at Port 2 and another virtual switch is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed NICs are then connected via switches.
 
+### Configure network on second node
 
+1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
+1. Make sure that the 2nd node is cabled as per the topology you selected for the 1st node. In the **Network** page, choose and **Apply** the same topology that you selected for the 1st node.
+1. Select **Back to get started**.
 
-## Configure cluster witness
+## Get authentication token for second node
+
+1. On the **Prepare a node for clustering** page, in the **Get authentication token** tile, select **Prepare node**.
+1. Select **Get token**.
+1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
+
+## Configure cluster witness on first node
 
 Create a cluster witness. A cluster witness helps establish quorum if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
 
 A cluster witness can be: 
 
-- **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file which is then used as an arbitration point in case of split-brain resolution. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](windows-server/failover-clustering/deploy-cloud-witness).
-- **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. For more information on file share witness, see [Deploy a file share witness for Failover cluster](/windows-server/failover-clustering/file-share-witness).
+- **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in case of split-brain resolution. 
+
+    Use cloud witness when you have internet access. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](windows-server/failover-clustering/deploy-cloud-witness).
+- **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. 
+
+    Use file share witness if you're in an IT environment with other machines and file shares. For more information on file share witness, see [Deploy a file share witness for Failover cluster](/windows-server/failover-clustering/file-share-witness).
 
 Before you create a cluster witness, make sure that you've reviewed the cluster witness requirements.
 
@@ -142,16 +158,64 @@ Follow these steps to configure the cluster witness.
     1. Enter the **Azure Storage account name**.
     1. Specify Storage account authentication from Access key or SAS token.
     1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
+    1. Select **Apply**.
 
 ### Configure local witness
+
 1. In the local UI of the 1st node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Local.**
-    1. Enter the **Azure Storage account name**.
-    1. Specify Storage account authentication from Access key or SAS token.
-    1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
+    1. Enter the file share path as //server/fileshare format.
+    1. Select **Apply**. 
+
+## Add second node to create cluster
+
+You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
+
+1. In the local UI of the first node, go to the **Cluster** page. Under **Existing nodes**, select **Add node**.
+1. In the **Add node** blade, input the following information for the incoming node: 
+
+    1. Provide the serial number for the incoming node.
+    1. Enter the authentication token for the incoming node.
+
+1. Select **Validate & add**. This step takes a few minutes. You see a notification when the node is successfully added to the cluster.
+
+## Configure virtual IPs
+
+For Azure consistent services and NFS, you'll also need to define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP.
+
+
+### For Azure Consistent Services
+
+For Azure Consistent Services, follow these steps to configure virtual IP.
+
+1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Azure Consistent Services**. 
+1. In the **Virtual IP settings** blade, input the following.
+
+    1. From the dropdown list, select the **Azure Consistent Services network**. 
+    1. Choose IP settings from **DHCP** or **static**.
+    1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the Azure Consistent Services network that you specified. If you selected DHCP, a virtual IP is automatically picked from the Azure Consistent Services network that you selected.
+1. Select **Apply**.
+
+### For Network File System
+
+For clients connecting via NFS protocol to the two-node device, follow these steps to configure virtual IP.
+
+1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Network File System**.
+1. In the **Virtual IP settings** blade, input the following.
+
+    1. From the dropdown list, select the **NFS network**.
+    1. Choose IP settings from **DHCP** or **Static**.
+    1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the NFS network that you specified. If you selected DHCP, a virtual IP is automatically picked from the NFS network that you selected.
+1. Select **Apply**.
+
+> [!NOTE]
+> Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the Device settings in the next step.
 
 ::: zone-end
+
+::: zone pivot="single-node"
+
 ## Enable compute network
 
 Follow these steps to enable compute and configure compute network. 
@@ -189,6 +253,16 @@ Follow these steps to enable compute and configure compute network.
 
     Select **Next: Web proxy** to configure web proxy.  
 
+::: zone-end
+
+::: zone pivot="two-node"
+
+## Configure advanced networking
+
+1. In the  local UI, go to **Advanced networking** page. 
+1. In the Virtual switch section, 
+
+::: zone-end
   
 ## Configure web proxy
 
