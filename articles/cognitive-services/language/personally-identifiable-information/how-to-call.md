@@ -19,7 +19,7 @@ The PII feature can evaluate unstructured text, extract extract sensitive inform
 
 ## Determine how to process the data (optional)
 
-### Specify the NER model
+### Specify the PII detection model
 
 By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER and PII operations.
 

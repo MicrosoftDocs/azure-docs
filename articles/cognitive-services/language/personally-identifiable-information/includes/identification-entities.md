@@ -124,7 +124,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Government and country/region-specific identification
+## Government and country/region-specific identification
 
 > [!NOTE]
 > The following financial and country-specific entities are not returned with the `domain=phi` parameter:
@@ -133,7 +133,7 @@ This category contains the following entity:
 
 The following entities are grouped and listed by country:
 
-#### Argentina
+### Argentina
 
 :::row:::
     :::column span="":::
@@ -158,7 +158,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Austria
+### Austria
 
 :::row:::
     :::column span="":::
@@ -217,7 +217,7 @@ The following entities are grouped and listed by country:
 
 
 
-#### Australia
+### Australia
 
 :::row:::
     :::column span="":::
@@ -346,7 +346,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Belgium
+### Belgium
 
 :::row:::
     :::column span="":::
@@ -388,7 +388,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Brazil 
+### Brazil 
 
 :::row:::
     :::column span="":::
@@ -450,7 +450,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Canada
+### Canada
 
 :::row:::
     :::column span="":::
@@ -569,7 +569,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Chile 
+### Chile 
 
 :::row:::
     :::column span="":::
@@ -593,7 +593,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### China
+### China
 
 :::row:::
     :::column span="":::
@@ -618,7 +618,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### European Union (EU)
+### European Union (EU)
 
 :::row:::
     :::column span="":::
@@ -747,7 +747,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### France
+### France
 
 :::row:::
     :::column span="":::
@@ -875,7 +875,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Germany
+### Germany
 
 :::row:::
     :::column span="":::
@@ -969,7 +969,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Hong Kong
+### Hong Kong
 
 :::row:::
     :::column span="":::
@@ -993,7 +993,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Hungary
+### Hungary
 
 :::row:::
     :::column span="":::
@@ -1050,7 +1050,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### India
+### India
 
 :::row:::
     :::column span="":::
@@ -1094,7 +1094,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Indonesia
+### Indonesia
 
 :::row:::
     :::column span="":::
@@ -1119,7 +1119,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Ireland
+### Ireland
 
 :::row:::
     :::column span="":::
@@ -1161,7 +1161,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Israel
+### Israel
 
 :::row:::
     :::column span="":::
@@ -1202,7 +1202,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Italy
+### Italy
 
 :::row:::
     :::column span="":::
@@ -1261,7 +1261,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Japan
+### Japan
 
 :::row:::
     :::column span="":::
@@ -1408,7 +1408,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Luxembourg
+### Luxembourg
 
 :::row:::
     :::column span="":::
@@ -1448,7 +1448,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Malta
+### Malta
 
 :::row:::
     :::column span="":::
@@ -1489,7 +1489,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### New Zealand
+### New Zealand
 
 :::row:::
     :::column span="":::
@@ -1582,7 +1582,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Philippines
+### Philippines
 
 :::row:::
     :::column span="":::
@@ -1606,7 +1606,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Portugal 
+### Portugal 
 
 :::row:::
     :::column span="":::
@@ -1648,7 +1648,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Singapore
+### Singapore
 
 :::row:::
     :::column span="":::
@@ -1672,7 +1672,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### South Africa
+### South Africa
 
 :::row:::
     :::column span="":::
@@ -1697,7 +1697,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### South Korea
+### South Korea
 
 :::row:::
     :::column span="":::
@@ -1721,7 +1721,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### Spain
+### Spain
 
 :::row:::
     :::column span="":::
@@ -1779,7 +1779,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
  
-#### Switzerland
+### Switzerland
 
 :::row:::
     :::column span="":::
@@ -1803,7 +1803,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### Taiwan 
+### Taiwan 
 
 :::row:::
     :::column span="":::
@@ -1862,7 +1862,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-#### United Kingdom
+### United Kingdom
 
 :::row:::
     :::column span="":::
@@ -1976,7 +1976,7 @@ The following entities are grouped and listed by country:
 :::row-end:::
 
 
-#### United States
+### United States
 
 :::row:::
     :::column span="":::
