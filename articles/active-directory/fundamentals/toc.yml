@@ -271,7 +271,7 @@
   - name: Scenarios
     items:
     - name: Using Azure Active Directory to secure access to SAP platforms and applications
-      href: scenario-aad-first-sap-integration.md
+      href: scenario-azure-first-sap-identity-integration.md
 - name: Troubleshooting
   expanded: true
   items:
