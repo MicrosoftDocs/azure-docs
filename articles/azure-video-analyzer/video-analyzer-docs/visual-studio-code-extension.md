@@ -77,4 +77,4 @@ When creating a series of live pipelines, there are likely cases where you want 
 
 When you create a topology, you will need to connect the various modules together.  This is done with connections.  From the circle on the edge of a module, drag to the circle on the next module you want data to flow to.  This will produce a connection.
 
-By default, connections send all data from one module to another.  If you only want to send certain types of data, you can left click on the connection and edit the output types that are sent.  Selectable types of data include video, audio, and application.
+By default, connections send video data from one module to another. If you want to send only audio data or application data, you can left click on the connection and edit the output types. Selectable types of data include video, audio, and application. To send all three types of data, uncheck all three boxes.
