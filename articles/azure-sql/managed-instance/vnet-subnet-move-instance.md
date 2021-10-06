@@ -30,7 +30,7 @@ Before deploying SQL Managed Instance it is recommended to go over the key conce
 
 ## Destination subnet requirements and limitations
 
-In order for managed instance to be deployed, the subnet must have certain characteristics represented through [network requirements](connectivity-architecture-overview#service-aided-subnet-configuration). These characteristics are the same no matter if subnet will be used for new instance deployment or used as a destination for moving the existing instance.
+In order for managed instance to be deployed, the subnet must have certain characteristics represented through [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). These characteristics are the same no matter if subnet will be used for new instance deployment or used as a destination for moving the existing instance.
 
 ### Limitations for choosing destination subnet
 
@@ -60,7 +60,7 @@ In order to prevent failed requests, experience for selecting the subnet in Azur
 Depending on the subnet state and group mentioned above that subnet belongs to, different adjustments of destination subnet are made:
 - Ready for Managed Instance with SQL Managed instance inside - nothing is done. These subnets already have managed instances inside and making any change on the subnet configuration could break the experience of the existing instances.
 - Ready for managed instance but empty - instance move flow will check if all required rules are present in the network security group and route table. If required rules are not present they will be added. Depending on the instance configuration (public endpoint, connection type for private endpoint), additional rules will be deployed.
-- Other - subnet will be prepared and all relevant rules will be created according to [network requirements](connectivity-architecture-overview#service-aided-subnet-configuration).
+- Other - subnet will be prepared and all relevant rules will be created according to [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration).
 
 ## Operation steps
 
@@ -72,9 +72,9 @@ Depending on the subnet state and group mentioned above that subnet belongs to, 
 |Seeding database files / attaching database files |Depending on the service tier, either database seeding or attaching database files is performed. |
 |Preparing failover and failover |After data has been seeded or database files reattached, system is being prepared for the failover. When everything is set, failover is performed **with a short downtime**. |
 |Old SQL instance cleanup |Removing old SQL process from the source virtual cluster |
-|Virtual cluster deletion |Depending if the instance being deleted is last in the subnet, virtual cluster is synchronously deleted as last step. |
+|Virtual cluster deletion |Depending if the instance being moved is last in the subnet, virtual cluster is synchronously deleted as last step. |
 
-Detailed explanation of the operation steps can be found in the [overview of Azure SQL Managed Instance management operations](management-operations-overview#management-operations-steps)
+Detailed explanation of the operation steps can be found in the [overview of Azure SQL Managed Instance management operations](management-operations-overview.md#management-operations-steps)
 
 ## Move the instance to another subnet
 
