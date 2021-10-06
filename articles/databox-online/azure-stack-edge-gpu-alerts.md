@@ -30,7 +30,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Performance alerts](#performance-alerts)
 * [Disaster recovery alerts](#disaster-recovery-alerts)
 * [Volume alerts](#volume-alerts)
-* [Tiering alerts](#tieriing-alerts)
+* [Tiering alerts](#tiering-alerts)
 * [Security alerts](#security-alerts)
 * [Key vault alerts](#key-vault-alerts)
 
@@ -91,7 +91,6 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Your device is almost out of storage space. If a disk fails, then you may not be able to restore data on this device. |Critical |Delete data to free up capacity on your device. |
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The node {0} on your device is using more memory than expected. |Warning |If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |Reduce workloads or modules running on your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The CPUs reserved for the virtual machines on node {0} of your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce CPU reservation for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The memory used by the virtual machines on your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce memory allocated for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
@@ -150,8 +149,8 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Key Vault is not configured |Critical/Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>If secrets are soft deleted, follow the steps [here](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 |Key Vault is not configured |Warning |Configure the Key Vault for your Azure Stack Edge resource. For detailed steps, see [Create a key vault](../key-vault/general/quick-create-portal.md). |
 |Key Vault is deleted |Critical |If the key vault is deleted and the purge protection duration of 90 days hasn't elapsed, follow the steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-a-soft-deleted-key-vault).<!--Verify link target.-->|
-|Couldn’t retrieve secret(s) from the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. The required permissions are are present [here](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
-|Couldn’t access the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, click [here](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
+|Couldn’t retrieve secret(s) from the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. The required permissions are are present [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
+|Couldn’t access the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, click [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 
 
 ## Next steps
