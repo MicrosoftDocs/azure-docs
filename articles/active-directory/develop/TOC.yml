@@ -86,17 +86,17 @@
       href: tutorial-v2-javascript-auth-code.md
     - name: React
       href: tutorial-v2-react.md
-    - name: 1-React
+    - name: React
       items: 
-      - name: Intro to the authorization code flow
+      - name: 1 - Prepare your React SPA
         href: tutorial-react-spa-auth-intro.md
-      - name: Create and register your project
+      - name: 2 - Prepare Azure AD for your app
         href: tutorial-react-spa-create-project.md
-      - name: Sign in users
+      - name: 3 - Sign in user
         href: tutorial-react-spa-sign-in-users.md
-      - name: Get user profile from a web API
+      - name: 4 - Get user data from a web API
         href: tutorial-react-spa-get-user-profile.md
-      - name: Sign out users
+      - name: 5 - Sign out user
         href: tutorial-react-spa-sign-out-users.md
   - name: Web app
     items:
