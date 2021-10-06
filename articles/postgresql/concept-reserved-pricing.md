@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ---
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](applies-to-postgres-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
 
 # Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
 
