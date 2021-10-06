@@ -94,7 +94,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name="dvcid"></a>**DvcId** | Optional | String | The ID of the DHCP server as reported in the record.<br><br>Example:  `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others using the field names  **DvcAzureResourceId** and **DvcMDEid** respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
 | **EventSeverity** | Optional | Enumerated | Set to `Low` if the DHCP server quarantined the client, and to `Medium` if the server blocked the client. Otherwise set to `Informational`. <br><br>Example: `Informational`|
-| DvcAction | Optional | Enumerated | The action taken by the DHCP server. Possible values are `Allow`, `Deny`, and `Quarantine`.<br><br>Example: `Deny` |
+| <a name="dvcaction">DvcAction | Optional | Enumerated | The action taken by the DHCP server. Possible values are `Allow`, `Deny`, and `Quarantine`.<br><br>Example: `Deny` |
 | <a name=additionalfields></a>**AdditionalFields** | Optional | Dynamic | If your source provides other information worth preserving, either keep it with the original field names or create the **AdditionalFields** dynamic field, and add to the extra information as key/value pairs. |
 | | | | |
 
