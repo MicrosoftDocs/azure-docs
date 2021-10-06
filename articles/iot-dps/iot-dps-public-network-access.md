@@ -1,8 +1,8 @@
 ---
 title: Manage public network access for Azure IoT Device Provisioning Service (DPS)
 description: Documentation on how to disable and enable public network access for Azure IoT Device Provisioning Service (DPS)
-author: v-stharr
-ms.author: anastasia-ms
+ms.author: v-stharr
+author: anastasia-ms
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
@@ -43,7 +43,7 @@ Disabling public network access is enforced on a specific DPS resource, ensuring
 
 ### IP Filter
 
-If public network access is disabled, all [IP Filter](iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
+If public network access is disabled, all [IP Filter](../iot-hub/iot-hub-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
 ### Turn on all network ranges
 
