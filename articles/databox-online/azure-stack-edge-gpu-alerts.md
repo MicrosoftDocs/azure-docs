@@ -22,17 +22,17 @@ This article describes alerts that occur on an Azure Stack Edge Pro GPU device a
 
 The following tables list some of the Microsoft Azure Stack Edge alerts that you might encounter, as well as additional information and recommendations where available. Azure Stack Edge device alerts fall into one of the following categories:
 
-* Cloud connectivity alerts
-* Edge compute alerts - *Resolve multiples.*
-* FPGA Edge compute alerts - *Resolve multiples.*
-* Local Azure Resource Manager alerts
-* Minimum configuration alerts
-* Performance alerts
-* Service health alerts
-* Volume alerts
-* Tiering alerts
-* Security alerts
-* Key vault alerts
+* [Cloud connectivity alerts](#cloud-connectivity-alerts)
+* [Edge compute alerts](#edge-compute-alerts) - *Resolve multiples before porting.*
+* [FPGA Edge compute alerts](#fpga-edge-compute-alerts) - *Resolve multiples before porting.*
+* [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
+* [Minimum configuration alerts](#minimum-configuration-alerts)
+* [Performance alerts](#performance-alerts)
+* [Disaster recovery alerts](#disaster-recovery-alerts)
+* [Volume alerts](#volume-alerts)
+* [Tiering alerts](#tieriing-alerts)
+* [Security alerts](#security-alerts)
+* [Key vault alerts](#key-vault-alerts)
 
 
 
@@ -87,18 +87,20 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |The CPUs reserved for the virtual machines on your device exceeds the configured threshold. |Critical |Take one of the following steps:<ol><li>Reduce CPU reservation for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The memory used by the virtual machines on your device exceeds the configured threshold. |Critical |Take one of the following steps:<ol><li>Reduce memory allocated for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The data volume on the device is {0}% full. Writes into the device are being throttled. |Critical                    |<ol><li>Distribute your data ingestion to target off-peak hours.</li><li>This may be due to a slow network. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.</li></ol>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|The memory used by the virtual machines on node {0} of your device exceeds the configured threshold. |Critical |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Your device is almost out of storage space. If a disk fails, then you may not be able to restore data on this device. |Critical |Delete data to free up capacity on your device. |
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The node {0} on your device is using more memory than expected. |Warning |If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|The memory used by the virtual machines on node {0} of your device exceeds the configured threshold. |Critical |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |Reduce workloads or modules running on your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The CPUs reserved for the virtual machines on node {0} of your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce CPU reservation for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The memory used by the virtual machines on your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce memory allocated for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |Too many virtual machines are active on node {0} of your device. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Your device is almost out of storage space. If a disk fails, then you may not be able to restore data on this device. |Critical |Delete data to free up capacity on your device. |
+
 | The virtual hard disk {0} is nearing its capacity. |Warning | Delete some data to free capacity.  |
 
 
-### Service health alerts
+### Disaster recovery alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -110,10 +112,10 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Could not access volume {0}. |Critical |This could happen when the volume is offline, or too many drives or servers have failed or are disconnected. Take the following steps:<ol><li>Reconnect missing drives and bring up servers that are down.</li><li>Allow the sync to complete.</li><li>Replace any failed drives and restore lost data from backup.</li></ol> |
-|Some data on this volume {0} is not fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
-|Could not find volume {0}. |Critical  space. |Warning |Expand the volume or migrate workloads to other volumes. |
 |Could not find volume {0}. |Critical |If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 | Could not access volume {0}. |Critical |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**, and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not find volume {0}. |Critical/Warning |Expand the volume or migrate workloads to other volumes. |
+|Some data on this volume {0} is not fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
 
 
 ### Tiering alerts
@@ -123,8 +125,8 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Could not upload {0} files(s) from share {1}. |Critical |This could be due to one of the following reasons:<ol><li>Due to violations of Azure Storage naming and sizing conventions. For more information, go to [Naming conventions](../azure-resource-manager/management/resource-name-rules.md).</li><li>Because the uploaded files were modified in the cloud by other applications outside of the device.<ul><li>{2} inside the {1} share, or</li><li>{3} inside the {4} account.</li></ol></ul> |
 |Could not connect to the storage account '{0}'. |Critical |This may be because the storage account access keys have been regenerated. If the keys have been regenerated, you will need to synchronize the new keys.<br>To fix the issue, in the Azure portal go to **Shares**, select the share, and refresh the storage keys. |
 |Could not connect to the storage account '{0}'. <!--Multiple. Combine with previous entry?-->|Critical |This may be due to Internet connectivity issues. The device is not able to communicate with the storage account service. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. |
-|Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The device has {0} files. A maximum of {1} files are supported. |Critical |Consider deleting some files from the device. |
+|Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
 ### Security alerts
@@ -135,8 +137,8 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |{0} of type {1} is not valid. |Critical |Check your certificate. If the certificate is not valid, upload a new certificate. |
 |Internal certificate rotation failure |Critical |Couldn't rotate the internal certificates. If services are impaired, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not login '{0}'. Number of failed attempts : '{1}'. |Critical/Informational/Warning |Make sure that you have entered the correct password.<br>An authorized user may be attempting to connect to your device with an incorrect password. Verify that these attempts were from a legitimate source.<br>If you continue to see failed login attempts, contact your network administrator. |
-|Device password has changed |Informational |The device administrator password has changed. This is a required action as part of the first-time device setup or regular password reset. No further action is required. |
 |Rotate SED key protector on node {0}, did not complete in time. |Warning |The attempt to rotate SED key protector to the new default has not completed in time. Please check if node and physical disks are in healthy state. System will retry again. |
+|Device password has changed |Informational |The device administrator password has changed. This is a required action as part of the first-time device setup or regular password reset. No further action is required. |
 |A support session is enabled. |Informational |This is an information alert to ensure that administrators can ensure that the enabling the support session is legitimate. No action is needed. |
 |A support session has started. |Informational |This is an information alert to ensure that administrators can ensure that the support session is legitimate. No action is needed. |
 
