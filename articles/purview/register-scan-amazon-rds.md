@@ -136,7 +136,7 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 1. On the **Review** page, check to make sure that the values you selected are correct for your environment. Make any changes needed, and then select **Create stack** when you're done.
 
-1. Watch for the resources to be created. When complete, following relevant data for this procedure is shown on the following tabs:
+1. Watch for the resources to be created. When complete, relevant data for this procedure is shown on the following tabs:
 
     - **Events**: Shows the events / activities performed by the CloudFormation template
     - **Resources**: Shows the newly created target group, load balancer, and endpoint service
