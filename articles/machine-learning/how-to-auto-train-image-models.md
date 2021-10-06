@@ -217,7 +217,7 @@ The following table describes the hyperparameters that are model agnostic.
 |`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
 |`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
 | `grad_clip_type` | Gradient clipping technique. <br> Must be either `value`, `norm`. |  'value'<br>(except *vit-variants*: 'norm') |
-| `grad_accumulation_step` | Gradient accumulation step that accumulates the gradients of the configured steps before updating them. <br> Must be a positive integer. | 1 |
+| `grad_accumulation_step` | Gradient accumulation means running a configured number of grad_accumulation_step without updating the model weights while accumulating the gradients of those steps,and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
 |`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
@@ -249,9 +249,9 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to split the image into, if tiling is enabled. <br>*Note: will need to pass tile_grid_size to enable tiling logic!*<br> String of '[int, int]', for example, [2,3] | No Default |
-| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1] | 0.25 |
-| `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation. <br> Must be float in the range of [0, 1] | 0.25 |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-to-train-small-od-model.md) logic!*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
+| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
+| `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 ### Model-specific hyperparameters
 
