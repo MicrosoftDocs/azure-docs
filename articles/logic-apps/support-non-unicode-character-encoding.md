@@ -18,7 +18,15 @@ This solution works with both *multi-tenant* and *single-tenant* workflows. You 
 
 First, check that your trigger can correctly identify the content type. This step ensures that Logic Apps no longer assumes the text is UTF-8. 
 
-For triggers and actions with the setting **Infer Content Type**, choose **No**. Some of the connectors which support disabling infering the content type include [OneDrive](/connectors/onedrive/), [Azure Blob Storage](/connectors/azureblob/), [Azure File Storage](/connectors/azurefile/), [File System](/connectors/filesystem/), [Google Drive](/connectors/googledrive/) and [SFTP - SSH](/connectors/sftpwithssh/). This option is usually under the advanced options in the action's parameters. If your trigger doesn't have this option, the content type is set by the incoming message. 
+For triggers and actions with the setting **Infer Content Type**, choose **No**. Some of the connectors that support disabling inferring the content type include:
+* [OneDrive](/connectors/onedrive/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Azure File Storage](/connectors/azurefile/)
+* [File System](/connectors/filesystem/)
+* [Google Drive](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+The option **Infer Content Type** is usually under the advanced options in the action's parameters. If your trigger doesn't have this option, the content type is set by the incoming message. 
 
 If you're using the HTTP request trigger for `text/plain` content, you must set the `charset` parameter in the `Content-Type` header of the call. Characters might become corrupted if you don't set the `charset` parameter, or the parameter doesn't match the payload's encoding format. For more information, see [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
 
