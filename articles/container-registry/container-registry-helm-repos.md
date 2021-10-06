@@ -2,7 +2,7 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 10/05/2021
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -10,6 +10,9 @@ ms.date: 07/19/2021
 To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, application packages are defined as [charts](https://helm.sh/docs/topics/charts/), which are collected and stored in a [Helm chart repository](https://helm.sh/docs/topics/chart_repository/).
 
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
+
+> [!IMPORTANT]
+> This article has been updated with Helm 3 commands as of version 3.7.0. Helm 3.7.0 includes changes to OCI support that are not backwards-compatible. Helm 3.7.0 cannot pull OCI charts that were packaged in a previous version of Helm. 
 
 ## Helm 3 or Helm 2?
 
@@ -20,7 +23,7 @@ Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm
 * Can store and manage Helm charts in repositories in an Azure container registry
 * Store Helm charts in your registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for OCI artifacts, including Helm charts.
 * Authenticate with your registry using the `helm registry login` or `az acr login` command.
-* Use `helm chart` commands to push, pull, and manage Helm charts in a registry
+* Use `helm` commands to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 
 ### Feature support
@@ -58,7 +61,7 @@ If you've previously stored and deployed charts using Helm 2 and Azure Container
 The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client version 3.1.0 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
+- **Helm client version 3.7.0 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
 - **A Kubernetes cluster** where you will install a Helm chart. If needed, create an [Azure Kubernetes Service cluster][aks-quickstart]. 
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -109,24 +112,21 @@ EOF
 
 For more about creating and running this example, see [Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/) in the Helm Docs.
 
-## Save chart to local registry cache
+## Save chart to local archive
 
-Change directory to the `hello-world` subdirectory. Then, run `helm chart save` to save a copy of the chart locally and also create an alias with the fully qualified name of the registry (all lowercase) and the target repository and tag. 
+Change directory to the `hello-world` subdirectory. Then, run `helm package` to save the chart to a local archive. 
 
-In the following example, the registry name is *mycontainerregistry*, the target repo is *helm/hello-world*, and the target chart tag is *0.1.0*. To successfully pull dependencies, the target chart image name and tag must match the name and version in `Chart.yaml`.
+In the following example, the chart is saved with the name and version in `Chart.yaml`.
 
 ```console
 cd ..
-helm chart save . hello-world:0.1.0
-helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+helm package .
 ```
 
-Run `helm chart list` to confirm you saved the charts in the local registry cache. Output is similar to:
+Output is similar to:
 
-```console
-REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
-hello-world:0.1.0                                        hello-world      0.1.0   5899db0 3.2 KiB        2 minutes 
-mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world      0.1.0   5899db0 3.2 KiB        2 minutes
+```output
+Successfully packaged chart and saved it to: /Users/microsoft/acr/hello-world/hello-world-0.1.0.tgz
 ```
 
 ## Authenticate with the registry
@@ -146,21 +146,17 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
 
 ## Push chart to registry
 
-Run the `helm chart push` command in the Helm 3 CLI to push the chart to the fully qualified target repository:
+Run the `helm chart push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. In this example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
 
 ```console
-helm chart push mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+helm push hello-world-0.1.0.tgz oci://mycontainerregistry.azurecr.io/helm
 ```
 
 After a successful push, output is similar to:
 
 ```output
-The push refers to repository [mycontainerregistry.azurecr.io/helm/hello-world]
-ref:     mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
-size:    3.2 KiB
-name:    hello-world
-version: 0.1.0
+Pushed: mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+digest: sha256:5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 ```
 
 ## List charts in the repository
@@ -185,9 +181,9 @@ Output is similar to:
     "readEnabled": true,
     "writeEnabled": true
   },
-  "createdTime": "2020-03-20T18:11:37.6701689Z",
+  "createdTime": "2021-10-05T12:11:37.6701689Z",
   "imageName": "helm/hello-world",
-  "lastUpdateTime": "2020-03-20T18:11:37.7637082Z",
+  "lastUpdateTime": "2021-10-05T12:11:37.7637082Z",
   "manifestCount": 1,
   "registry": "mycontainerregistry.azurecr.io",
   "tagCount": 1
@@ -209,17 +205,17 @@ Output, abbreviated in this example, shows a `configMediaType` of `application/v
   {
     [...]
     "configMediaType": "application/vnd.cncf.helm.config.v1+json",
-    "createdTime": "2020-03-20T18:11:37.7167893Z",
+    "createdTime": "2021-10-05T12:11:37.7167893Z",
     "digest": "sha256:0c03b71c225c3ddff53660258ea16ca7412b53b1f6811bf769d8c85a1f0663ee",
     "imageSize": 3301,
-    "lastUpdateTime": "2020-03-20T18:11:37.7167893Z",
+    "lastUpdateTime": "2021-10-05T12:11:37.7167893Z",
     "mediaType": "application/vnd.oci.image.manifest.v1+json",
     "tags": [
       "0.1.0"
     ]
 ```
 
-## Pull chart to local cache
+## Pull chart to local archive
 
 To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing local chart named `mycontainerregistry.azurecr.io/helm/hello-world:0.1.0`:
 
@@ -227,52 +223,25 @@ To install a Helm chart to Kubernetes, the chart must be in the local cache. In 
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
-Run `helm chart pull` to download the chart from the Azure container registry to your local cache:
+Run `helm pull` to download the chart from the Azure container registry to your local archive:
 
 ```console
-helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-```
-
-## Export Helm chart
-
-To work further with the chart, export it to a local directory using `helm chart export`. For example, export the chart you pulled to the `install` directory:
-
-```console
-helm chart export mycontainerregistry.azurecr.io/helm/hello-world:0.1.0 \
-  --destination ./install
-```
-
-To view information for the exported chart in the repo, run the `helm show chart` command in the directory where you exported the chart.
-
-```console
-cd install
-helm show chart hello-world
-```
-
-Helm returns detailed information about the latest version of your chart, as shown in the following sample output:
-
-```output
-apiVersion: v2
-appVersion: 1.16.0
-description: A Helm chart for Kubernetes
-name: hello-world
-type: application
-version: 0.1.0    
+helm pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 ## Install Helm chart
 
-Run `helm install` to install the Helm chart you pulled to the local cache and exported. Specify a release name such as *myhelmtest*, or pass the `--generate-name` parameter. For example:
+Run `helm install` to install the Helm chart you pushed to the registry. The chart tag is passed using the `--version` parameter. Specify a release name such as *myhelmtest*, or pass the `--generate-name` parameter. For example:
 
 ```console
-helm install myhelmtest ./hello-world
+helm install myhelmtest oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 Output after successful chart installation is similar to:
 
 ```console
 NAME: myhelmtest
-LAST DEPLOYED: Fri Mar 20 14:14:42 2020
+LAST DEPLOYED: Tue Oct  4 16:59:51 2021
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
