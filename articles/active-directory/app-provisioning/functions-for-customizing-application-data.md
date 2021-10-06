@@ -799,7 +799,7 @@ The RandomString function generates a random string based on the conditions spec
 | **MinimumNumbers** |Required |Number |Minimum numbers in the random string.|
 | **MinimumSpecialCharacters** |Required |Number |Minimum number of special characters.|
 | **MinimumCapital** |Required |Number |Minimum number of capital letters in the random string.|
-| **CharactersToAvoid** |Optional |Number |Characters to be excluded when generating the random string.|
+| **CharactersToAvoid** |Optional |String |Characters to be excluded when generating the random string.|
 
 
 **Example 1 - Generate a random string without special character restrictions:**
@@ -815,7 +815,7 @@ Generates a random string with 10 characters (2 numbers, 2 special characters, a
 
 ### Redact
 **Function:** 
-Redact(attribute)
+Redact()
 
 **Description:** 
 The Redact function securely removes the attribute value from the provisioning logs. 
@@ -824,7 +824,7 @@ The Redact function securely removes the attribute value from the provisioning l
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **attribute** |Required |Multi-valued Attribute |Multi-valued attribute that will have duplicates removed|
+| **attribute** |Required |Specify the attribute or constant / string to redact from the logs.|
 
 **Example 1 - Redact an attribute:**
 `Redact([userPrincipalName])`
@@ -832,6 +832,10 @@ Removes the userPrincipalName from the provisioning logs.
 
 **Example 2 - Redact a string:**
 `Redact("StringToBeRedacted")`
+Removes the userPrincipalName from the provisioning logs.
+
+**Example 3 - Redact a random string:**
+`Redact("RandomString(10,2,2,2)")`
 Removes the userPrincipalName from the provisioning logs.
 
 ---
