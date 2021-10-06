@@ -16,7 +16,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Display call transcription state on the client
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 When using call transcription you may want to let your users know that a call is being transcribe. Here's how.
 
