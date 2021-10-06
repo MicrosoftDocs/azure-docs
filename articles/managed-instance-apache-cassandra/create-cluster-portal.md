@@ -9,14 +9,9 @@ ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
 
 ---
-# Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal (Preview)
+# Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters, accelerating hybrid scenarios and reducing ongoing maintenance.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Managed Instance for Apache Cassandra cluster.
 
@@ -48,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Confirm Cassandra admin password** - Reenter your password.
 
    > [!NOTE]
-   > During the public preview, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, and Australia East* regions.
+   > Currently, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, and Australia East* regions.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
