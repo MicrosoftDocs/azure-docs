@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 10/05/2021
 ---
 
 # Use Bicep modules
@@ -134,7 +134,7 @@ param namePrefix string
 param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
-resource myResourceGroup 'Microsoft.Resources/resourceGroups@2020-01-01' = {
+resource myResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
   location: location
   scope: subscription()
@@ -184,7 +184,7 @@ module storage2 'storageAccount.bicep' = {
 }
 ```
 
-The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. Or, you can use the scope functions to get a valid scope. 
+The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. Or, you can use the scope functions to get a valid scope.
 
 Those functions are:
 
