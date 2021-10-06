@@ -32,7 +32,7 @@ Use the following pattern as you configure your account to use Blob storage feat
 
 As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term *blob* instead of *file*. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, this can cause confusion if you're use to the term *file*. You'll also see the term *container* used to refer to a *file system*. Consider these terms as synonymous.
 
-## Consider premium performance
+## Consider premium
 
 If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using the premium performance tier for your storage account. The premium performance tier makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
