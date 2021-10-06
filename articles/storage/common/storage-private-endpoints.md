@@ -1,5 +1,5 @@
 ---
-title: Use private endpoints 
+title: Use private endpoints
 titleSuffix: Azure Storage
 description: Overview of private endpoints for secure access to storage accounts from virtual networks.
 services: storage
@@ -15,7 +15,7 @@ ms.subservice: common
 
 # Use private endpoints for Azure Storage
 
-You can use [private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address from the VNet address space for each storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your storage account enables you to:
 
@@ -90,22 +90,22 @@ For the illustrated example above, the DNS resource records for the storage acco
 
 | Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| `StorageAccountA.blob.core.windows.net`             | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | CNAME | \<storage service public endpoint\>                   |
 | \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the storage firewall.
 
 The DNS resource records for StorageAccountA, when resolved by a client in the VNet hosting the private endpoint, will be:
 
-| Name                                                  | Type  | Value                                                 |
-| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| Name  | Type | Value |
+| :--- | :---: | :--- |
+| `StorageAccountA.blob.core.windows.net` | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | A | `10.1.1.5` |
 
 This approach enables access to the storage account **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for '*StorageAccountA.privatelink.blob.core.windows.net*' with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `StorageAccountA.privatelink.blob.core.windows.net` with the private endpoint IP address.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.

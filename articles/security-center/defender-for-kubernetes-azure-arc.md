@@ -44,6 +44,7 @@ This diagram shows the interaction between Azure Defender for Kubernetes and the
 Before deploying the extension, ensure you:
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
+- Have [Helm 3](https://helm.sh/docs/intro/install) version 3.7.0 or newer
 - Configure **port 443** on the following endpoints for outbound access:
     - For clusters on Azure Government cloud:
         - *.ods.opinsights.azure.us
@@ -154,7 +155,7 @@ To use the REST API to deploy the Azure Defender extension, you'll need a Log An
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
-    ```az account get-access-token --subscription <your-subscription-id>```
+    `az account get-access-token --subscription <your-subscription-id>`
     Use the following structure for the body of your message:
     ```json
     { 

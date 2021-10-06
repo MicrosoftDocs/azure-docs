@@ -1,10 +1,11 @@
 ---
-title: Change feed in Azure Blob Storage | Microsoft Docs
+title: Change feed in Blob Storage
+titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: tamram
 
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -51,7 +52,7 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
-- Only general-purpose v2 and Blob storage accounts can enable the change feed. Premium block blob accounts and hierarchical namespace enabled accounts are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
+- Only standard general-purpose v2, premium block blob, and Blob storage accounts can enable the change feed. Accounts with a hierarchical namespace enabled are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 ### [Portal](#tab/azure-portal)
 
@@ -150,7 +151,7 @@ The change feed is a log of changes that are organized into **hourly** *segments
 
 An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are of interest to you.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
@@ -298,12 +299,12 @@ This section describes known issues and conditions in the current release of the
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## FAQ
 

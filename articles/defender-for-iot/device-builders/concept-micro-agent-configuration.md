@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ms.topic: conceptual
 ---
 
@@ -14,7 +14,7 @@ The micro agent's behavior is configured by a set of module twin properties. You
 After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and all the collectors will restart.
 
 > [!Note]
-> Aggregation mode, Cache size, and Frequency settings are supported but are not configurable.
+> Settings for Aggregation mode is supported but it is not configurable.
 
 ## Event-based collectors configurations
 

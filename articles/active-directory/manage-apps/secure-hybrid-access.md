@@ -1,6 +1,7 @@
 ---
-title: Azure AD secure hybrid access | Microsoft Docs
+title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
+titleSuffix: Azure AD
 services: active-directory
 author: gargi-sinha
 manager: martinco
