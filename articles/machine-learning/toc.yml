@@ -523,8 +523,8 @@
             displayName: SDK, automl, image
             href: how-to-auto-train-image-models.md
           - name: Auto-train a small object detection model
-            displayName: computer vision
-            href: how-to-use-automl-to-train-small-od-model.md
+            displayName: computer vision, image
+            href: how-to-use-automl-train-small-object-detect.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
             href: how-to-configure-cross-validation-data-splits.md
