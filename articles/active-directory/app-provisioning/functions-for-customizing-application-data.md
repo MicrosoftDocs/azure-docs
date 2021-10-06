@@ -808,7 +808,7 @@ Generates a random string with 10 characters (2 numbers, 2 special characters, a
 
 **Example 2:** - Genareate a random string with special character restrictions:
 `RandomString(10,2,2,2,"?,")`
-Generates a random string with 10 characters (2 numbers, 2 special characters, and 2 capital letters). Excludes "?" from the random string generated. 
+Generates a random string with 10 characters (2 numbers, 2 special characters, and 2 capital letters). Excludes "?" and "," from the random string generated. 
 
 ---
 
@@ -818,7 +818,7 @@ Generates a random string with 10 characters (2 numbers, 2 special characters, a
 Redact()
 
 **Description:** 
-The Redact function securely removes the attribute value from the provisioning logs. 
+The Redact function replaces the attribute value with the string literal "[Redact]" in the provisioning logs. 
 
 **Parameters:** 
 
@@ -835,7 +835,7 @@ Removes the userPrincipalName from the provisioning logs.
 Removes a constant string from the provisioning logs.
 
 **Example 3:** Redact a random string:
-`Redact("RandomString(10,2,2,2)")`
+`Redact(RandomString(10,2,2,2))`
 Removes the random string from the provisioning logs.
 
 ---
