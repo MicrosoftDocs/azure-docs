@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/05/2021
+ms.date: 10/06/2021
 ms.author: memildin
 
 ---
@@ -26,39 +26,37 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in October include:
 
-- [Microsoft Threat and Vulnerability Management added as vulnerability analysis solution (in preview)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-analysis-solution-in-preview)
-- [Vulnerability analysis solutions can now be auto provisioned](#vulnerability-analysis-solutions-can-now-be-auto-provisioned)
-- [Software inventory filters added to asset inventory](#software-inventory-filters-added-to-asset-inventory)
+- [Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
+- [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
+- [Software inventory filters added to asset inventory (in preview)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 
 
-### Microsoft Threat and Vulnerability Management added as vulnerability analysis solution (in preview)
+### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
 
-We've extended the integration between [Azure Defender for servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to add a new vulnerability discovery and management solution for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+We've extended the integration between [Azure Defender for servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provide for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
 
-Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context.
+Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in near real time with the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) enabled, and without the need of additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape and detections in your organization.
 
-Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to deploy the threat and vulnerability management module to [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide) or auto provision this solution as described in [Vulnerability analysis solutions can now be auto provisioned](#vulnerability-analysis-solutions-can-now-be-auto-provisioned).
+Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to surface the vulnerabilities detected by threat and vulnerability management for your [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide). 
 
-Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+To automatically surface the vulnerabilities, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
-### Vulnerability analysis solutions can now be auto provisioned
 
-Security Center's auto provisioning page now includes the option to automatically provision a vulnerability analysis solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
+### Vulnerability assessment solutions can now be auto enabled (in preview)
 
-Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability analysis solutions:
+Security Center's auto provisioning page now includes the option to automatically enabled a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
+
+Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability assessment solutions:
 
 - (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-analysis-solution-in-preview))
 - The integrated Qualys agent
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of the threat and vulnerability management module in Azure Security Center.":::
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
 
-Your chosen solution will be automatically deployed to supported machines.
+Your chosen solution will be automatically enabled on supported machines.
 
-Learn more in [Configure auto provisioning of threat and vulnerability management](deploy-vulnerability-assessment-tvm.md#configure-auto-provisioning-of-threat-and-vulnerability-management).
-
-
-### Software inventory filters added to asset inventory
+### Software inventory filters added to asset inventory (in preview)
 
 The [asset inventory](asset-inventory.md) page now includes a filter to select machines running specific software - and even specify the versions of interest. 
 
