@@ -132,7 +132,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Container Registry](../container-registry/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Event Grid](../event-grid/overview.md)  | ![An icon that signifies this service is zone-redundant](media/icon-zone-redundant.svg)  |
-| [Azure HD Insight](../hdinsight/hdinsight-use-availability-zones.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure HDInsight](../hdinsight/hdinsight-use-availability-zones.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
