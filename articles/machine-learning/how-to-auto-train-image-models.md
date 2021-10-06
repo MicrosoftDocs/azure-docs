@@ -187,9 +187,9 @@ The following table summarizes the supported models for each computer vision tas
 
 Task | supported model algorithms
 ---|---
-Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `mobilenetv2`<li> `seresnext` <li> `vits16r224` <li>`vitb16r224` <li>`vitl16r224`
-Object detection | <li>`yolov5` <li> `fasterrcnn_resnet50_fpn`<li> `fasterrcnn_resnet34_fpn`<li> `fasterrcnn_resnet18_fpn`<li> `retinanet_resnet50_fpn`
-Instance segmentation | `maskrcnn_resnet50_fpn`
+Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `resnet101` <li> `resnet152` <li> `resnest50` <li> `resnest101` <li> `mobilenetv2` <li> `seresnext` <li> `vits16r224` <li>`vitb16r224` <li>`vitl16r224`
+Object detection |<li>`yolov5` <li> `yolov5.3.0s` <li> `yolov5.3.0l` <li> `yolov5.3.0x` <li> `fasterrcnn_resnet50_fpn`<li> `fasterrcnn_resnet101_fpn`<li> `fasterrcnn_resnet152_fpn`<li> `fasterrcnn_resnet34_fpn`<li> `fasterrcnn_resnet18_fpn`<li> `retinanet_resnet50_fpn`
+Instance segmentation |<li> `maskrcnn_resnet50_fpn` <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn` <li> `maskrcnn_resnet34_fpn` <li> `maskrcnn_resnet18_fpn`
 
 ### Model agnostic hyperparameters
 
@@ -444,4 +444,5 @@ For a detailed code example, see the [object detection notebook](https://github.
 
 
 ## Next steps
+    
 [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
