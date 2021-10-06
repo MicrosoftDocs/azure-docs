@@ -28,6 +28,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## October 2021
+
+- [DHCP normalization schema (Public preview)](#dhcp-event-normalization-schema-public-preview)
+
+### DHCP normalization schema (Public preview)
+
+The Azure Sentinel Information Model (ASIM) now supports a DHCP normalization schema, which is used to describe events reported by a DHCP server and is used by Azure Sentinel to enable source-agnostic analytics. 
+
+Events described in the DHCP normalization schema include serving requests for DHCP IP address leased from client systems and updating a DNS server with the leases granted.
+
+For more information, see:
+
+- [Azure Sentinel DHCP normalization schema reference (Public preview)](dhcp-normalization-schema.md)
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
+
 ## September 2021
 
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
