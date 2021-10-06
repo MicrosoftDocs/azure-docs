@@ -200,7 +200,7 @@ Example:
 | :--- | :--- |
 | identifierUris | String Array |
 
-User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant.
+User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain.
 When an application is used as a resource app, the identifierUri value is used to uniquely identify and access the resource.
 
 [!INCLUDE [active-directory-identifierUri(../../../includes/active-directory-identifier-uri-patterns.md)]
