@@ -19,7 +19,7 @@ If you currently have a subscription with pay-as-you-go rates, you can switch yo
 - You have a critical project to run and need more time. You may remove limits if you need a little more than the $150 or $50 limit.  
 - Your current offer has expired.  
 
-Changing your subscription offer is easy for certain offer types. You can follow [our Switching Azure Offers documentation](../../cost-management-billing/manage/switch-azure-offer.md), or contact support for more assistance.  
+Changing your subscription offer is easy for certain offer types. You can follow [our Switching Azure offers documentation](../../cost-management-billing/manage/switch-azure-offer.md), or contact support for more assistance.  
 
 ## Understand spending limits and cost management
 

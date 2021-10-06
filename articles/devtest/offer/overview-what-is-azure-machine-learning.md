@@ -1,7 +1,7 @@
 ---
 title: What is this offer?
 titleSuffix: Azure Dev/Test offer
-description: An introduction to Azure Dev/Test Offer. Defines and describes the cloud service Azure Dev/Test Offer for accelerating and managing machine learning project life cycles.
+description: An introduction to Azure Dev/Test offer. Defines and describes the cloud service Azure Dev/Test Offer for accelerating and managing machine learning project life cycles.
 ms.topic: overview
 ms.prod: visual-studio-windows
 ms.author: jmartens
@@ -11,18 +11,18 @@ ms.custom: devtestoffer
 adobe-target: true
 ---
 
-# What is Azure Dev/Test Offer?
+# What is Azure Dev/Test offer?
 
-Azure Dev/Test Offer is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
+Azure Dev/Test offer is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
 
-You can create a model in Azure Dev/Test Offer or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models.  
+You can create a model in Azure Dev/Test offer or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models.  
 
 > [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Dev/Test Offer](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Dev/Test offer](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
-## Who is Azure Dev/Test Offer for?
+## Who is Azure Dev/Test offer for?
 
-Azure Dev/Test Offer is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
+Azure Dev/Test offer is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
 
 Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
 
@@ -38,7 +38,7 @@ Machine learning projects often require a team with varied skillsets to build an
 
 ### Tools for developers
 
-Developers find familiar interfaces in Azure Dev/Test Offer, such as:
+Developers find familiar interfaces in Azure Dev/Test offer, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
 - [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
@@ -46,7 +46,7 @@ Developers find familiar interfaces in Azure Dev/Test Offer, such as:
 
 ### Studio UI  
 
-The [Azure Dev/Test Offer studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
+The [Azure Dev/Test offer studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
 
 - View runs, metrics, logs, outputs, and so on
 - Author and edit notebooks and files
@@ -60,11 +60,11 @@ The [Azure Dev/Test Offer studio](https://ml.azure.com) is a graphical user inte
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models.  
 
-If you're an ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Dev/Test Offer studio](../../machine-learning/overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+If you're an ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Dev/Test offer studio](../../machine-learning/overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
 
 ## Enterprise-readiness and security
 
-Azure Dev/Test Offer integrates with the Azure cloud platform to add security to ML projects. 
+Azure Dev/Test offer integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -95,7 +95,7 @@ While the project lifecycle can vary by project, it will often look like this:
 
 A workspace organizes a project and allows for collaboration. Many users work toward a common goal. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
-For more information, see [Manage Azure Dev/Test Offer workspaces](../../machine-learning/how-to-manage-workspace.md?tabs=python).
+For more information, see [Manage Azure Dev/Test offer workspaces](../../machine-learning/how-to-manage-workspace.md?tabs=python).
 
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
@@ -103,7 +103,7 @@ Models can be deployed to the managed inferencing solution, for both real-time a
 
 ## Train models
 
-In Azure Dev/Test Offer, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
+In Azure Dev/Test offer, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
 
 ### Open and interoperable
 
@@ -133,7 +133,7 @@ See [How to tune hyperparameters](../../machine-learning/how-to-tune-hyperparame
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Dev/Test Offer compute clusters offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Dev/Test offer compute clusters offer the latest GPU options.
 
 Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
 
@@ -143,7 +143,7 @@ Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clust
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
 
-See [Distributed training with Azure Dev/Test Offer](../../machine-learning/concept-distributed-training.md).
+See [Distributed training with Azure Dev/Test offer](../../machine-learning/concept-distributed-training.md).
 
 ### Embarrassingly parallel training
 
@@ -151,7 +151,7 @@ Scaling a machine learning project may require scaling embarrassingly parallel m
 
 ## Deploy models
 
-To bring a model into production, it is deployed. Azure Dev/Test Offer's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
+To bring a model into production, it is deployed. Azure Dev/Test offer's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
 
 ### Real-time and batch scoring (inferencing)
 
@@ -171,7 +171,7 @@ DevOps for machine learning models, often called MLOps, is a process for develop
 
 ## Next steps
 
-Start using Azure Dev/Test Offer:
-- [Set up an Azure Dev/Test Offer workspace](../../machine-learning/quickstart-create-resources.md)
+Start using Azure Dev/Test offer:
+- [Set up an Azure Dev/Test offer workspace](../../machine-learning/quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](../../machine-learning/tutorial-1st-experiment-hello-world.md)
 - [Preview: Run model training jobs with the v2 CLI](../../machine-learning/how-to-train-cli.md)
