@@ -82,13 +82,13 @@ Install tools:
 - [kubectl](https://kubernetes.io/docs/home/)
 - [Azure Data Studio - Insider build](https://github.com/microsoft/azuredatastudio)
 
-Create a Kubernetes config file configured to access the target Kubernetes cluster and set as the current context. How this is generated and brought local to your computer is different from platform to platform. See [Kubernetes.io](https://kubernetes.io/docs/home/)
+Create a Kubernetes config file configured to access the target Kubernetes cluster and set as the current context. How this file is generated and brought local to your computer is different from platform to platform. See [Kubernetes.io](https://kubernetes.io/docs/home/).
 
 ### Process
 
 The conformance tests run as part of the Azure Arc-enabled Data services validation. A pre-requisite to running these tests is to pass on the Azure Arc-enabled Kubernetes tests for the Kubernetes distribution in use.
 
-These tests verify that the product is compliant with the requirements of running and operating data services. This will help assess if the product is Enterprise ready for deployments.
+These tests verify that the product is compliant with the requirements of running and operating data services. This process helps assess if the product is enterprise ready for deployments.
 
 The tests for data services cover the following in indirectly connected mode
 
