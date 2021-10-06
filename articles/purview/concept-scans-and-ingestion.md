@@ -4,7 +4,7 @@ description: This article explains scans and ingestion in Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ---
@@ -19,6 +19,16 @@ After data sources are [registered](manage-data-sources.md) in your Purview acco
 
 For each scan there are customizations you can apply so that you're only scanning your sources for the information you need.
 
+### Choose an authentication method for your scans
+
+Purview is secure by default. No passwords or secrets are stored directly in Purview, so you’ll need to choose an authentication method for your sources. There are four possible ways to authenticate your Purview account, but not all methods are supported for each data source.
+ - Managed Identity
+ - Service Principal
+ - SQL Authentication
+ - Account Key or Basic Authentication
+
+Whenever possible, a Managed Identity is the preferred authentication method because it eliminates the need for storing and managing credentials for individual data sources. This can greatly reduce the time you and your team spend setting up and troubleshooting authentication for scans. When you enable a managed identity for your Purview account, an identity is created in Azure Active Directory and is tied to the lifecycle of your account. 
+
 ### Scope your scan
 
 When scanning a source, you have a choice to scan the entire data source or choose only specific entities (folders/tables) to scan. Available options depend on the source you're scanning, and can be defined for both one-time and scheduled scans.
@@ -30,6 +40,10 @@ For example, when [creating and running a scan for an Azure SQL Database](regist
 A scan rule set determines the kinds of information a scan will look for when it's running against one of your sources. Available rules depend on the kind of source you're scanning, but include things like the [file types](sources-and-scans.md#file-types-supported-for-scanning) you should scan, and the kinds of [classifications](supported-classifications.md) you need.
 
 There are [system scan rule sets](create-a-scan-rule-set.md#system-scan-rule-sets) already available for many data source types, but you can also [create your own scan rule sets](create-a-scan-rule-set.md) to tailor your scans to your organization.
+
+### Schedule your scan
+
+Purview gives you a choice of scanning weekly or monthly at a specific time you choose. Weekly scans may be appropriate for data sources with structures that are actively under development or frequently change. Monthly scanning is more appropriate for data sources that change infrequently. A good best practice is to work with the administrator of the source you want to scan to identify a time when compute demands on the source are low.
 
 ### How scans detect deleted assets
 

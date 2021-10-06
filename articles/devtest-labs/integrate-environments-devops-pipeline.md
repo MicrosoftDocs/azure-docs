@@ -1,7 +1,7 @@
 ---
-title: Integrate environments into Azure Pipelines in Azure DevTest Labs
+title: Integrate environments into Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs environments into your Azure DevOps continuous integration (CI) and continuous delivery (CD) pipelines. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -67,4 +67,3 @@ See the following articles:
 - [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 - Quickstart Resource Manager templates for DevTest Labs automation from the [DevTest Labs GitHub repository](https://github.com/Azure/azure-quickstart-templates).
 - [VSTS Troubleshooting page](/azure/devops/pipelines/troubleshooting)
-

@@ -280,7 +280,7 @@ FTP and local Git can deploy to an Azure web app by using a deployment user. Onc
 
 To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) command in Azure Cloud Shell. Replace _&lt;username>_ and _&lt;password>_ with your deployment user username and password.
 
-The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
+The username must be unique within Azure, and for local Git pushes, must not contain the '@' symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
 
 ```bash
@@ -325,10 +325,10 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 }
 ```
 
-You’ve created an empty new web app, with git deployment enabled.
+You've created an empty new web app, with git deployment enabled.
 
 > [!NOTE]
-> The URL of the Git remote is shown in the deploymentLocalGitUrl property, with the format https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git. Save this URL as you need it later.
+> The URL of the Git remote is shown in the deploymentLocalGitUrl property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
 
 ### Configure database settings
 

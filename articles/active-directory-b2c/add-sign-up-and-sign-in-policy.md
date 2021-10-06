@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/24/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -30,6 +30,10 @@ Sign-up and sign-in policy lets users:
 * Password reset
 
 ![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+
+Watch this video to learn how the user sign-up and sign-in policy works. 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
 
 ## Prerequisites
 

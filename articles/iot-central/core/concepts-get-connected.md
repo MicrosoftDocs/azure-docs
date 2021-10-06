@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -184,6 +184,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device status values
 

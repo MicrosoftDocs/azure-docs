@@ -44,8 +44,8 @@ Organizations must also meet the following software requirements.
 - You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
-    - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - For [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - For [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### Supported scenarios
 
@@ -200,7 +200,8 @@ If clean installing a hybrid Azure AD joined machine, after the domain join and 
 
 Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, review the output of `nltest /dsgetdc:contoso /keylist /kdc`.
 
-Note: This /Keylist switch in nltest command can be found from client windows 10 v2004 and above
+> [!NOTE]
+> The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and above.
 
 ## Next steps
 

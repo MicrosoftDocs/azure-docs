@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: Blackmist
-ms.author: nigup
-author: nishankgu
+ms.author: johwu
+author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
@@ -52,21 +52,6 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST API](../role-based-access-control/role-assignments-rest.md)
 - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
-
-If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can use CLI commands to assign roles to users:
-
-```azurecli-interactive 
-az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
-```
-
-The `user` field is the email address of an existing user in the instance of Azure Active Directory where the workspace parent subscription lives. Here is an example of how to use this command:
-
-```azurecli-interactive 
-az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
-```
-
-> [!NOTE]
-> "az ml workspace share" command does not work for federated account by Azure Active Directory B2B. Please use Azure UI portal instead of command.
 
 ## Create custom role
 
@@ -114,11 +99,7 @@ To deploy this custom role, use the following Azure CLI command:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
-
-```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
-```
+After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal.
 
 For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
 

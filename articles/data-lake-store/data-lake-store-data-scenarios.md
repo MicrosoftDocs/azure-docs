@@ -1,16 +1,12 @@
 ---
 title: Data scenarios involving Data Lake Storage Gen1 | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Using Azure Data Lake Storage Gen1 for big data requirements

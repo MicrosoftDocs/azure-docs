@@ -23,7 +23,7 @@ For more information about this terminology, see [Key concepts](#key-concepts).
 [Source code][code] |
 [Package][package] |
 [API reference documentation][api] |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ## Get started

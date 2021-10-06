@@ -48,7 +48,7 @@ The network normalization schema can represent any IP network session, but is sp
 The following sections provide guidance on normalizing and using the schema for the different source types. Each source type may:
 - Support additional fields from the auxiliary field lists: [Intermediary device fields](#Intermediary), [HTTP Session fields](#http-session-fields), and [Inspection fields](#inspection-fields). Some fields might be mandatory only in the context of the specific source type.
 - Allow source type specific values to common event fields such as `EventType` and and `EventResult`.
-- Support, in addition to the `imNetworkSession` parser, also either the `imWebSession` or `imNotable` parser, or both.
+- Support, in addition to the `imNetworkSession` parser, also either the `imWebSession` or `inNetworkNotable` parser, or both.
 
 ### Netflow log sources
 
@@ -62,16 +62,16 @@ The following sections provide guidance on normalizing and using the schema for 
 
 | Task | Description |
 | --- | --- |
-| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [event](#event-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [imNotables](#use-parsers) source-agnostic parser. |
-| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [imNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [event](#event-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
+| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [inNetworkNotables](#use-parsers) source-agnostic parsers. |
 | | |
 
 ### Intrusion Prevention Systems (IPS) log sources
 
 | Task | Description |
 | --- | --- |
-| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [event fields](#event-fields), [network session fields](#network-session-fields), and [session inspection fields](#inspection-fields). Make sure to include your source-specific parser in both both the [imNetworkSession](#use-parsers) and [imNotables](#use-parsers) source-agnostic parsers. |
-| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#use-parsers) and [imNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [event fields](#event-fields), [network session fields](#network-session-fields), and [session inspection fields](#inspection-fields). Make sure to include your source-specific parser in both both the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
+| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
 | | |
 
 ### Web servers
@@ -86,8 +86,8 @@ The following sections provide guidance on normalizing and using the schema for 
 
 | Task | Description |
 | --- | --- |
-| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [event fields](#event-fields), [network session fields](#network-session-fields), [HTTP session fields](#http-session-fields), [session inspection fields](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [imNotables](#use-parsers) source-agnostic parser. |
-| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser.<br>- To analyze detected sessions, use the [imNotables](#use-parsers) source-agnostic parser. |
+| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [event fields](#event-fields), [network session fields](#network-session-fields), [HTTP session fields](#http-session-fields), [session inspection fields](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
+| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser.<br>- To analyze detected sessions, use the [inNetworkNotables](#use-parsers) source-agnostic parser. |
 | | |
 
 
@@ -98,11 +98,23 @@ To use a source-agnostic parser that unifies all built-in parsers, and ensure th
 
 - **imNetworkSession**, for all network sessions
 - **imWebSession**, for HTTP sessions, typically reported by web servers, web proxies, and web security gateways
-- **imNotables**, for sessions detected by a detection engine, usually as suspicious. Notable events are typically reported by intrusion prevention systems, firewalls, and web security gateways.
+- **inNetworkNotables**, for sessions detected by a detection engine, usually as suspicious. Notable events are typically reported by intrusion prevention systems, firewalls, and web security gateways.
 
 Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
 
-## Add your own normalized parsers
+### Built-in source-specific parsers
+
+Azure Sentinel provides the following built-in, product-specific Network Session parsers:
+
+- Source specific parsers:
+  - **Microsoft 365 Defender for Endpoints** - vimNetworkSessionMicrosoft365Defender
+  - **Microsoft Defender for IoT - Endpoint (MD4IoT)** - vimNetworkSessionMD4IoT
+  - **Microsoft Sysmon for Linux** - vimNetworkSessionSysmonLinux
+  - **Windows Events Firewall** - Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table, vimNetworkSessionMicrosoftWindowsEventFirewall 
+
+The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
+
+### Add your own normalized parsers
 
 When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax: `imNetworkSession<vendor><Product>`. This function should map all fields relevant for the source.
 
@@ -227,7 +239,6 @@ The following fields are common to all network session activity logging:
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId and UserAwsId, respectively.For more information, see The User entity.<br><br>Example: S-1-12 |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
-| **User** | Alias | | Alias to [SrcUsername](#srcusername) |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
 | **SrcOriginalUserType** | | | The original source user type, if provided by the source. |

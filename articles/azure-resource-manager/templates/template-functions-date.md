@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ---
 
 # Date functions for ARM templates
@@ -34,7 +34,7 @@ The datetime value that results from adding the duration value to the base value
 
 The following example template shows different ways of adding time values.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/dateTimeAdd.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd.json":::
 
 When the preceding template is deployed with a base time of `2020-04-07 14:53:14Z`, the output is:
 
@@ -46,7 +46,7 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 
 The next example template shows how to set the start time for an Automation schedule.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/dateTimeAddAutomation.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
 ## utcNow
 
@@ -76,7 +76,7 @@ The current UTC datetime value.
 
 The following example template shows different formats for the datetime value.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcNow.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow.json":::
 
 The output from the preceding example varies for each deployment but will be similar to:
 
@@ -88,7 +88,7 @@ The output from the preceding example varies for each deployment but will be sim
 
 The next example shows how to use a value from the function when setting a tag value.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcNowTag.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow-tag.json":::
 
 ## Next steps
 

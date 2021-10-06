@@ -171,7 +171,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/form-recognizer/index.yml
+      url: ./applied-ai-services/form-recognizer/index.yml
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -277,9 +277,9 @@ productDirectory:
       summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
-        - ai-machine-learning      
+        - ai-machine-learning
         - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md      
+      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
@@ -398,13 +398,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
-    # Card
-    - title: Azure Blockchain Service (Preview)
-      summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
     # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
@@ -972,13 +965,6 @@ productDirectory:
         - iot
       url: iot-hub/index.yml
     # Card
-    - title: Azure IoT solution accelerators
-      summary: Create fully customizable solutions with templates for common IoT scenarios
-      imageSrc: ./media/index/iot-solution-accelerators.svg
-      azureCategories:
-        - iot
-      url: iot-accelerators/index.yml
-    # Card
     - title: Azure Maps
       summary: Simple and secure location APIs provide geospatial context to data
       imageSrc: https://static.docs.com/ui/media/product/azure/maps.svg
@@ -1083,7 +1069,7 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Mover 
+    - title: Azure Resource Mover
       summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
@@ -1382,7 +1368,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
       azureCategories:
         - storage
-      url: storage/blobs/storage-blob-storage-tiers.md
+      url: storage/blobs/access-tiers-overview.md
     # Card
     - title: Avere vFXT for Azure
       summary: Run high-performance, file-based workloads in the cloud

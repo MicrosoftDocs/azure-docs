@@ -103,7 +103,7 @@ Functions can be disabled in the same way when running locally. To disable a fun
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
-    "AzureWebJobs.HttpExample.Disabled": "true"
+    "AzureWebJobs.HttpExample.Disabled": true
   }
 }
 ``` 
