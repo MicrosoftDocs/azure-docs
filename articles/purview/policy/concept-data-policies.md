@@ -4,7 +4,7 @@ description: Understand Azure Purview Data Policies
 author: vlrodrig
 ms.author: vlrodrig
 ms.service: purview
-ms.subservice:
+ms.subservice: purview-data-policies
 ms.topic: conceptual
 ms.date: 09/28/2021
 ---
