@@ -10,13 +10,11 @@ ms.date: 09/28/2021
 ---
 
 # Concept guide: Azure Purview Data Policies
-
+This article helps you understand Azure Purview Data Policies.
 
 ## Overview
-> [!NOTE]
-> This article helps you understand Azure Purview Data Policies.
 
-Data use policies can be created through the Policy Management area in Purview Studio. These policies are then enforced across data systems that are registered with Azure Purview Data Policies.
+Data use policies can be created through the **Policy management** app in Purview Studio. These policies are then enforced across data systems that are registered with Azure Purview Data Policies.
 
 ## Azure Purview policy concepts
 
@@ -27,7 +25,7 @@ published to one or more data systems under Purview’s governance, it is
 then enforced by them. A policy definition includes a policy name,
 description, and a list of one or more policy statements.
 
-### Policy Statement
+### Policy statement
 
 A policy statement is a human readable instruction that dictates how the
 data source should handle a specific data operation. The policy
@@ -45,7 +43,7 @@ more) data actions in the data system where they are enforced.
 Indicates what should be resultant effect of this policy. Supported
 values are **Allow**, **Deny.**
 
-#### Data Resource
+#### Data resource
 
 This is the fully qualified data asset path to which a policy statement is
 applicable. It conforms to the following format:
@@ -115,13 +113,13 @@ take up to 2 minutes to be effective on the underlying data sources.
 
 A policy published to a data source could contain references
 to an asset belonging to a different data source. Such references will
-not be applicable since the asset in question does not exist in the data
+be ignored since the asset in question does not exist in the data
 source where the policy is applied.
 
 ## Azure Purview to data source action mapping
 
-The following table illustrates the mapping of actions in Azure Purview
-Data Policies to data source-specific actions.
+The following table illustrates how actions in Azure Purview
+Data Policies map to specific actions in data systems.
 
 | **Purview policy action** | **Data source specific actions**                                                                |
 |---------------------------|-------------------------------------------------------------------------------------------------|
@@ -150,3 +148,6 @@ Data Policies to data source-specific actions.
 |                           |<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select    |
 |                           |<sub>Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select             |
 |                           |<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+
+## Next steps
+Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB.
