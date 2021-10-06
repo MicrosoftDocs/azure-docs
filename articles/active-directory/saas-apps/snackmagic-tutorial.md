@@ -73,18 +73,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+	a. In the **Relay State** text box, type the URL:
+   `https://www.snackmagic.com/`
+
+	b. In the **Logout Url** text box, type the URL:
+	`https://sso.snackmagic.com/slo/callback`
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	a. In the **Sign-on URL** text box, type the URL:
     `https://www.snackmagic.com/?modal=login`
-
-	b. In the **Relay State** text box, type the URL:
-   `https://www.snackmagic.com/`
-
-    c. In the **Logout Url** text box, type the URL:
-	`https://sso.snackmagic.com/slo/callback`
 
 1. Click **Save**.
 
