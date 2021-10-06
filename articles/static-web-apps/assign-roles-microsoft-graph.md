@@ -1,28 +1,28 @@
 ---
 title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph"
-description: Learn to use a serverless function to assign custom roles based on Active Directory group membership.
+description: Learn to use a serverless function to assign custom user roles based on Active Directory group membership.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 10/05/2021
 ms.author: cshoe
-
+keywords: "static web apps authorization, assign user roles, custom roles"
 ---
 
 # Tutorial: Assign custom roles with a function and Microsoft Graph
 
-This article demonstrates how to use a function to query Microsoft Graph and assign custom Static Web Apps roles to a user based on their Active Directory group membership.
+This article demonstrates how to use a function to query Microsoft Graph and assign custom roles to a user based on their Active Directory group membership.
 
 In this tutorial, you learn to:
 
-- Deploy a static web app
-- Create an Azure Active Directory app registration
-- Set up custom authentication with Azure Active Directory
-- Configure an [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles
+- Deploy a static web app.
+- Create an Azure Active Directory app registration.
+- Set up custom authentication with Azure Active Directory.
+- Configure an [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles.
 
 > [!NOTE]
-> This tutorial requires the [ability to assign roles with a function](authentication-authorization.md?tabs=function#role-management) that is currently in preview.
+> This tutorial requires you to [use a function to assign roles](authentication-authorization.md?tabs=function#role-management). Function-based role management is currently in preview.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ In this tutorial, you learn to:
 
 1. Select **Create**.
 
-1. Select your _Azure subscription_.
+1. Select your Azure subscription.
 
 1. Next to _Resource Group_, select the **Create new** link.
 
@@ -57,7 +57,9 @@ In this tutorial, you learn to:
 
 1. Under _Static Web App details_, enter **my-custom-roles-app** in the _Name_ textbox.
 
-1. Under _Hosting plan_, select **Standard** as the _Plan type_. Customizing authentication and assigning roles using a function require the Stadard plan.
+1. Under _Hosting plan_, select **Standard** as the _Plan type_. 
+
+    Customizing authentication and assigning roles using a function require the Standard plan.
 
 1. Under _Azure Functions and staging details_, select a region closest to you.
 
@@ -65,7 +67,7 @@ In this tutorial, you learn to:
 
 1. Select the **Sign-in with GitHub** button and authenticate with GitHub.
 
-1. Select your the name of the _Organization_ where you created the repository.
+1. Select the name of the _Organization_ where you created the repository.
 
 1. Select **my-custom-roles-app** from the _Repository_ drop-down.
 
@@ -81,7 +83,7 @@ In this tutorial, you learn to:
 
 1. Select **Go to resource** to open your new static web app.
 
-1. In the overview section, locate and note your application's **URL**. You'll need this URL to set up Active Directory authentication and test the app.
+1. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need this URL to set up Active Directory authentication and test the app.
 
 ## Create an Azure Active Directory application
 
@@ -106,7 +108,7 @@ In this tutorial, you learn to:
 
 1. Select **Register**.
 
-1. After the app registration is created, note the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section. You'll need these values to configure Active Directory authentication in your static web app.
+1. After the app registration is created, copy the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section to a text editor. You'll need these values to configure Active Directory authentication in your static web app.
 
 ### Enable ID tokens
 
@@ -168,7 +170,7 @@ In this tutorial, you learn to:
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run will be triggered to update the static web app.
+1. A GitHub Actions run is triggered to update the static web app.
 
 1. Navigate to your static web app resource in the Azure portal.
 
@@ -183,15 +185,17 @@ In this tutorial, you learn to:
 
 1. Select **Save**.
 
-## Test the custom roles
+## Verify custom roles
 
-The sample application that you deployed contains a serverless function (*api/GetRoles/index.js*) that queries Microsoft Graph using the logged in user's access token to determine if they are in pre-defined groups. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
+The sample application contains a serverless function (*api/GetRoles/index.js*) that queries Microsoft Graph to determine if a user is in a pre-defined group. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
 
-1. In your GitHub repository, navigate to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps static web app custom role names to Azure Active Directory groups.
+1. In your GitHub repository, navigate to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps custom user roles to Azure Active Directory groups.
 
-1. Click the *Edit* button.
+1. Click the **Edit** button.
 
-1. Update the object with group IDs from your Azure Active Directory. For instance, if you have groups with IDs `6b0b2fff-53e9-4cff-914f-dd97a13bfbd6` and `b6059db5-9cef-4b27-9434-bb793aa31805`, you would update the object to:
+1. Update the object with group IDs from your Azure Active Directory.
+
+    For instance, if you have groups with IDs `6b0b2fff-53e9-4cff-914f-dd97a13bfbd6` and `b6059db5-9cef-4b27-9434-bb793aa31805`, you would update the object to:
 
     ```js
     const roleGroupMappings = {
@@ -200,17 +204,17 @@ The sample application that you deployed contains a serverless function (*api/Ge
     };
     ```
 
-    The *GetRoles* function will be called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object , they will be granted the corresponding custom role.
+    The *GetRoles* function is called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object , they are granted the corresponding custom role.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run will be triggered to update the static web app.
+1. A GitHub Actions run is triggered to update the static web app.
 
-1. When the deployment is complete, you can test the app by navigating to the app's URL.
+1. When the deployment is complete, you can verify your changes by navigating to the app's URL.
 
 1. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, you should see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object. Depending on the custom roles that you are assigned, you are permitted or prohibited to access some of the routes in the static web app.
+1. When you are logged in, you'll see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object. Depending on the custom roles that you are assigned, you are permitted or prohibited to access some of the routes in the static web app.
 
 ## Clean up resources
 
