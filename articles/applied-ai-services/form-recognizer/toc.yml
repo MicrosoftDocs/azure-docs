@@ -90,18 +90,26 @@ items:
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
   items:
-  - name: Form Recognizer v2.1
-    items:
-     - name: Layout API
-       href: concept-layout.md
-     - name: Prebuilt models
-       href: concept-prebuilt.md
-     - name: Custom models
-       href: concept-custom.md
-  - name: "Form Recognizer v3.0 | Preview"
-    items:
-      - name: Prebuilt models (preview)
-        href: concept-v3-prebuilt.md
+   - name: Form Recognizer models
+     items:
+      - name: Overview
+        href: concept-model-overview.md
+      - name: General document model | preview
+        href: concept-general-document.md
+      - name: Layout model
+        href: concept-layout.md
+      - name: Receipt model
+        href: concept-receipts.md
+      - name: Business card model
+        href: concept-business-cards.md
+      - name: Invoice model
+        href: concept-invoices.md
+      - name: Identity document model
+        href: concept-identification-cards.md
+      - name: Custom model
+        href: concept-custom.md
+   - name:  Form Recognizer Studio
+     href: concept-studio.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"

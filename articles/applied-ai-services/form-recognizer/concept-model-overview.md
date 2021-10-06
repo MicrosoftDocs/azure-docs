@@ -1,13 +1,13 @@
 ---
-title: Prebuilt models - Form Recognizer
+title: Form Recognizer models
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction using prebuilt models
+description: Concepts encompassing data extraction and analysis using prebuilt models
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/05/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -15,75 +15,106 @@ recommendations: false
 
 # Form Recognizer prebuilt models
 
- Azure Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer then  returns the extracted data in an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+ Azure Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
 ## Model overview
 
 | **Model**   | **Description**   |
 | --- | --- |
-| Invoice  | Extracts key information from English-text invoices.  |
-| Receipt  | Extracts key information from printed and handwritten English-text receipts.  |
-| ID document  | Extracts key information from US driver licenses and international passports.  |
-|Business cards  | Extracts key information from English-text business cards.  |
+| [Layout](#layout)  | Extracts text and layout information from documents.  |
+| [Invoice](#invoice)  | Extract key information from English invoices.  |
+| [Receipt](#receipt)  | Extract key information from English receipts.  |
+| [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
+| [Business card](business-card)  | Extract key information from English business cards.  |
+| 🆕[General document (preview)](#general-document) | Extract text, tables, structure, key-value pairs and named entities.  |
 
-### Input requirements
+### Layout
 
-* For best results, provide one clear photo or scan per document.
-* Supported file formats: JPEG, PNG, PDF, BMP, and TIFF.
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB.
-* For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
-* PDF dimensions can't exceed 17 x 17 inches (Legal or A3 paper sizes).
-* For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
+The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents and returns a structured JSON data representation.
 
-## Invoice
+##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
+
+:::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
+
+### Invoice
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
-
-The Invoice API also powers the [AI Builder invoice processing prebuilt model](/ai-builder/flow-invoice-processing).
 
 ##### Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
-## Receipt
+> [!div class="nextstepaction"]
+> [Learn more: invoice model](concept-invoice.md)
+
+### Receipt
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts; extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total; and returns a structured JSON data representation.
-
-The Receipt API also powers the [AI Builder receipt processing prebuilt model](/ai-builder/flow-receipt-processing).
 
 ##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-## ID document
+> [!div class="nextstepaction"]
+> [Learn more: receipt model](concept-receipt.md)
+
+### ID document
 
 The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents; extracts key information such as first name, last name, address, and date of birth; and returns a structured JSON data representation.
-
-The ID Document API also powers the [AI Builder ID reader prebuilt model](/ai-builder/id-reader).
 
 ##### Sample U.S. Driver's License processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
-## Business card
+> [!div class="nextstepaction"]
+> [Learn more: identity document model](concept-identity-document.md)
+
+### Business card
 
 The business card model analyzes and extracts key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
-
-The Business Card API also powers the [AI Builder Business reader prebuilt model](/ai-builder/prebuilt-business-card).
 
 ##### Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
-### Data extraction
+> [!div class="nextstepaction"]
+> [Learn more: business card model](concept-business-card.md)
 
-| **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |
-| --- | :---: |:---:| :---: | :---: |
-| Invoice  | ✓ | ✓  | ✓  | ✓  |
-| Receipt  | ✓  |   ✓ |   |  |
-| ID document  | ✓  |   ✓  |   |   |
-| Business Card  | ✓  |   ✓ |   |   |
+## Data extraction
+
+| **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   | **Entitites**|
+| --- | :---: |:---:| :---: | :---: | :---: |
+| Invoice  | ✓ | ✓  | ✓  | ✓  | |
+| Receipt  | ✓  |   ✓ |   |  | |
+| ID document  | ✓  |   ✓  |   |   | |
+| Business Card  | ✓  |   ✓ |   |   | |
+|🆕General document (preview)  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+
+## Form Recognizer preview v3.0
+
+ The Form Recognizer preview introduces several new features and capabilities:
+
+* [**General document (preview)**](#general-document) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Receipt (preview)**](#receipt) model supports single-page hotel receipt processing.
+* [**ID document (preview)**](#id-document) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Custom model API (preview)**](#custom-model) supports signature detection for custom forms.
+
+### General document model data extraction
+
+| **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+| --- | :---: |:---:| :---: | :---: |:---: |
+|General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+
+### Version migration
+
+Learn how to use Form Recognizer v3.0 in your applications by following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md)
+
+## Next steps
+
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/)
+
+* Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a form processing app in the development language of your choice.
+
 
 ## Key-value pair extraction
 
@@ -173,19 +204,3 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx | 
 | OtherPhones     | array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
 
-## Supported languages and locales v2.1
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
-|Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
- |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
-
-## Next steps
-
-* [**Try processing your own forms and documents**](quickstarts/try-sample-label-tool.md) with our [**Form Recognizer sample tool**](https://fott-2-1.azurewebsites.net/)
-
-* Complete a [**Form Recognizer quickstart**](quickstarts/try-sdk-rest-api.md) to get started creating a form processing app with Form Recognizer in the development language of your choice.

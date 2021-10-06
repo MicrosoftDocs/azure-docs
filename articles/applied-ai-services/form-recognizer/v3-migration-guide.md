@@ -20,9 +20,9 @@ ms.author: vikurpad
 Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
 * [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
-* [**General document (v3.0)**](concept-v3-prebuilt.md#general-document) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (v3.0)**](concept-v3-prebuilt.md#receipt) model supports single-page hotel receipt processing.
-* [**ID document (v3.0)**](concept-v3-prebuilt.md#id-document) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
+* [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](concept-v3-prebuilt.md#custom-model) supports signature detection for custom forms.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
@@ -54,7 +54,7 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{result
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
 | **Request URL prefix**| **https:<span></span>//{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https:<span></span>//{your-form-recognizer-endpoint}/formrecognizer** |
-|🆕 **Document**||/documentModels/prebuit-document:analyze |
+|🆕 **General document**|N/A|/documentModels/prebuit-document:analyze |
 | **Layout**| /layout/analyze |/documentModels/prebuilt-layout:analyze|
 |**Custom**| /custom/{modelId}/analyze    |/documentModels/{modelId}:analyze |
 | **Invoice** | /prebuilt/invoice/analyze    | /documentModels/prebuilt-invoice:analyze |
