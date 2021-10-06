@@ -232,8 +232,9 @@ The following table summarizes hyperparmeters for image classification (multi-cl
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `weighted_loss` | 0 for no weighted loss.<br>1 for weighted loss with sqrt.(class_weights) <br> 2 for weighted loss with class_weights. <br> Must be 0 or 1 or 2. | 0 |
-|`resize_size` | Image size to which to resize before cropping for validation dataset. <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
-| `crop_size` | Image crop size that's input to your neural network.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
+| `valid_resize_size` | Image size to which to resize before cropping for validation dataset. <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
+| `valid_crop_size` | Image crop size that's input to your neural network for validation dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
+| `train_crop_size` | Image crop size that's input to your neural network for train dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
 
 
 The following hyperparameters are for object detection and instance segmentation tasks.
