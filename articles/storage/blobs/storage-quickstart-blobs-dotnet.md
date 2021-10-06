@@ -4,7 +4,7 @@ description: In this quickstart, you will learn how to use the Azure Blob Storag
 author: normesta
 
 ms.author: normesta
-ms.date: 03/03/2021
+ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -17,11 +17,11 @@ Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob 
 
 Use the Azure Blob Storage client library v12 for .NET to:
 
-- Create a container
-- Upload a blob to Azure Storage
-- List all of the blobs in a container
-- Download the blob to your local computer
-- Delete a container
+- [Create a container](#create-a-container)
+- [Upload a blob to a container](#upload-a-blob-to-a-container)
+- [List blobs in a container](#list-blobs-in-a-container)
+- [Download a blob](#download-a-blob)
+- [Delete a container](#delete-a-container)
 
 Additional resources:
 
@@ -135,7 +135,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
 
-### Upload blobs to a container
+### Upload a blob to a container
 
 The following code snippet:
 
@@ -147,7 +147,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
 
-### List the blobs in a container
+### List blobs in a container
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
@@ -155,7 +155,7 @@ Add this code to the end of the `Main` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
 
-### Download blobs
+### Download a blob
 
 Download the previously created blob by calling the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
 
