@@ -68,12 +68,12 @@ The following table describes required fields.
 
 Use Azure APIs to programmatically get information for your organization about Azure service or software reservations. For example, use the APIs to:
 
-Find reservations to buy
-Buy a reservation
-View purchased reservations
-View and manage reservation access
-Split or merge reservations
-Change the scope of reservations
+- Find reservations to buy
+- Buy a reservation
+- View purchased reservations
+- View and manage reservation access
+- Split or merge reservations
+- Change the scope of reservations
 
 For more information, see [APIs for Azure reservation automation](../cost-management-billing/reservations/reservation-apis.md).
 
