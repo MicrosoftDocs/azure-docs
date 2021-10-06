@@ -70,7 +70,7 @@ $assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackage
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
-## Directly assign a user in your directory
+## Directly assign a user 
 
 In some cases, you might want to directly assign specific users to an access package so that users don't have to go through the process of requesting the access package. To directly assign users, the access package must have a policy that allows administrator direct assignments.
 
