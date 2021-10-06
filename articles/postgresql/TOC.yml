@@ -25,6 +25,8 @@
         displayName: dms, data migration service
       - name: Migrate from Oracle
         href: howto-migrate-from-oracle.md
+      - name: Prepay for reserved capacity
+        href: concept-reserved-pricing.md
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
@@ -133,8 +135,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
     - name: Security
       items:
       - name: Security overview
