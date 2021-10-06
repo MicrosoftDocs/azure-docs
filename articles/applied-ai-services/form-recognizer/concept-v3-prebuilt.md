@@ -51,7 +51,7 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 * The file size must be less than 50 MB.
 * For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 * PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
-* For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
+* For more guidance,
 
 ## General document
 

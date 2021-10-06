@@ -86,7 +86,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ## Analyze a document with a Form Recognizer model
 
-### [General document](#tab/general-document)
+### General document
 
 #### General document model
 
@@ -190,7 +190,7 @@ def analyze_document():
     analyze_document()
 ```
 
-### [Layout](#tab/layout)
+### Layout
 
 #### Layout model
 
@@ -296,11 +296,11 @@ def analyze_layout():
 
 ```
 
-### [Prebuilt invoice](prebuilt-invoice)
+### Prebuilt invoice
 
 #### Prebuilt invoice model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-prebuilt.md?tabs=invoice#key-value-pair-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
 
 > [!div class="checklist"]
 >

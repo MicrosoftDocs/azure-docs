@@ -25,7 +25,7 @@ recommendations: false
 | [Invoice](#invoice)  | Extract key information from English invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
-| [Business card](business-card)  | Extract key information from English business cards.  |
+| [Business card](#business-card)  | Extract key information from English business cards.  |
 | 🆕[General document (preview)](#general-document) | Extract text, tables, structure, key-value pairs and named entities.  |
 
 ### Layout
@@ -67,7 +67,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
 > [!div class="nextstepaction"]
-> [Learn more: identity document model](concept-identity-document.md)
+> [Learn more: identity document model](concept-id-document.md)
 
 ### Business card
 
@@ -80,6 +80,17 @@ The business card model analyzes and extracts key information from business card
 > [!div class="nextstepaction"]
 > [Learn more: business card model](concept-business-card.md)
 
+### General document
+
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
+
+* The general document is a pre-trained model and can be directly invoked via the REST API.
+
+* The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
+
+> [!div class="nextstepaction"]
+> [Learn more: business card model](concept-general-document.md)
+
 ## Data extraction
 
 | **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   | **Entitites**|
@@ -88,22 +99,40 @@ The business card model analyzes and extracts key information from business card
 | Receipt  | ✓  |   ✓ |   |  | |
 | ID document  | ✓  |   ✓  |   |   | |
 | Business Card  | ✓  |   ✓ |   |   | |
-|🆕General document (preview)  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+
+## Input requirements
+
+* For best results, provide one clear photo or high-quality scan per document.
+* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* The file size must be less than 50 MB.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* The total size of the training data is 500 pages or less.
+* If your PDFs are password-locked, you must remove the lock before submission.
+* For unsupervised learning (without labeled data):
+  * data must contain keys and values.
+  * keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Form Recognizer preview v3.0
 
- The Form Recognizer preview introduces several new features and capabilities:
+  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* [**General document (preview)**](#general-document) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (preview)**](#receipt) model supports single-page hotel receipt processing.
-* [**ID document (preview)**](#id-document) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (preview)**](#custom-model) supports signature detection for custom forms.
+* [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
+* [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
-### General document model data extraction
+  #### Prebuilt model data extraction
 
-| **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-| --- | :---: |:---:| :---: | :---: |:---: |
-|General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
 
 ### Version migration
 
@@ -201,6 +230,6 @@ Learn how to use Form Recognizer v3.0 in your applications by following our [**F
 | Addresses | array of strings | Address(es) extracted from business card | |
 | MobilePhones | array of phone numbers | Mobile phone number(s) from business card |+1 xxx xxx xxxx |
 | Faxes | array of phone numbers | Fax phone number(s) from business card | +1 xxx xxx xxxx |
-| WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx | 
+| WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx |
 | OtherPhones     | array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
 
