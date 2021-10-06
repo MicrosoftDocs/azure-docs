@@ -14,7 +14,7 @@ summary: This article covers questions about configuring ISV to Cloud Reseller P
 
 
 sections:
-  - name: FAQs
+  - name: General
     questions:
       - question: For what offer types can ISVs extend a private offer?
         answer: |
@@ -122,6 +122,8 @@ sections:
         answer: |
           Yes. There is a limit of 400 CSP tenants per offer.
 
+  - name: Other
+    questions:
       - question: If an ISV chooses to add a margin at the offer level, does it include all plans underneath the offer?
         answer: |
           Yes, all existing and future plans under the offer selected will be included.
