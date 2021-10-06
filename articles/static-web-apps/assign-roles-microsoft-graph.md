@@ -41,29 +41,24 @@ In this tutorial, you learn to:
 
 1. In a new browser window, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-1. Click **Create** in the top right corner.
+1. Select **Create a resource** in the top left corner.
 
-1. Search for **Static Web Apps**.
+1. Type **static web apps** in the search box.
 
-1. Select **Static Web Apps**.
+1. Select **Static Web App**.
 
 1. Select **Create**.
 
-1. Select your Azure subscription.
+1. Configure your Azure Static Web App with the following information:
 
-1. Next to _Resource Group_, select the **Create new** link.
-
-1. Enter **my-custom-roles-app-group** in the textbox.
-
-1. Under _Static Web App details_, enter **my-custom-roles-app** in the _Name_ textbox.
-
-1. Under _Hosting plan_, select **Standard** as the _Plan type_. 
-
-    Customizing authentication and assigning roles using a function require the Standard plan.
-
-1. Under _Azure Functions and staging details_, select a region closest to you.
-
-1. Under _Deployment details_, select **GitHub**.
+    | **Input** | **Value** | **Notes** |
+    | ---------- | ---------- | ---------- |
+    | _Subscription_ | Select your Azure subscription | |
+    | _Resource group_ | Create a new one named **my-custom-roles-app-group** | |
+    | _Name_ | **my-custom-roles-app**  | |
+    | _Hosting plan_ | **Standard** | Customizing authentication and assigning roles using a function require the Standard plan |
+    | _Region_ | Select a region closest to you | |
+    | _Deployment details_ | Select **GitHub** as the source | |
 
 1. Select the **Sign-in with GitHub** button and authenticate with GitHub.
 
@@ -74,10 +69,13 @@ In this tutorial, you learn to:
 1. Select **main** from the _Branch_ drop-down.
 
 1. In the _Build Details_ section, add configuration details for this app.
-    1. Select **Custom** from the _Build Presets_ dropdown.
-    1. Type **frontend** in the _App location_ box.
-    1. Type **api** in the _API location_ box.
-    1. Ensure the _Output location_ box is empty.
+
+    | **Input** | **Value** | **Notes** |
+    | ---------- | ---------- | ---------- |
+    | _Build presets_ | **Custom** | |
+    | _App location_ | **frontend** | Folder in the repository containing the app |
+    | _API location_ | **api** | Folder in the repository containing the API |
+    | _Output location_ | | This app has no build output |
 
 1. Select **Review + create**. Then select **Create** to create the static web app and initiate the first deployment.
 

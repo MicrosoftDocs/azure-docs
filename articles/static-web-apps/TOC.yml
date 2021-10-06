@@ -108,7 +108,7 @@
       href: publish-azure-resource-manager.md
     - name: Add Azure Front Door
       href: front-door-manual.md
-    - name: Assign custom roles with Microsoft Graph
+    - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
 - name: Reference
   items:
