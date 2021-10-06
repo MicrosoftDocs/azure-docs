@@ -34,24 +34,24 @@ After you have created an Azure storage account and linked it to your Language S
 
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource you cannot disconnect it later.
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource, you cannot disconnect it later.
 
     :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
 
-5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
+5. Select your project type. For this quickstart, we will create a multi label classification project. Then click **Next**.
 
-6. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later.
+6. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
 
     >[!NOTE]
     > If your datset contains files of different languages or if you expect different languages during runtime, enable the muti-lingual option.
 
-7. Select the container where you have uploaded your data. For this quickstart we will use the existing tags file available in the container. Then click **Next**.
+7. Select the container where you have uploaded your data. For this quickstart, we will use the existing tags file available in the container. Then click **Next**.
  
 8. Review the data you entered and select **Create Project**.
 
 ## Tagging your data
 
-Typically, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart you will use the existing tags file available in your container.
+Typically, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the existing tags file available in your container.
 
 ## Train your model
 

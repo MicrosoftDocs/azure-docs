@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Language support
 
-Custom text classification lets you have multiple files in your dataset of different languages. You can also train your model in one language and use it to query text in other languages. If you want to use this multilingual option, you have to enable it during [project creation](quickstart.md). If you notice your model performing poorly and scoring low in certain languages during the evaluation process,, consider adding more data in this language to your training set.
+Custom text classification lets you have multiple files in your dataset of different languages. You can also train your model in one language and use it to query text in other languages. If you want to use this multilingual option, you have to enable it during [project creation](quickstart.md). If you notice your model performing poorly and scoring low in certain languages during the evaluation process, consider adding more data in this language to your training set.
 
 ## Languages supported by custom text classification
 

@@ -42,9 +42,9 @@ Using Language Studio, you can review how your model performs vs how you expecte
 
 ## Examine data distribution from Language studio
 
-By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and this introduces a risk to model performance. For example, if `class 1` has 50 tagged files while `class 2` has 10 tagged files only, this is a data imbalance where `class 1` is over represented and `class 2` is underrepresented. 
+By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and introduces a risk to model performance. For example, if *class 1* has 50 tagged files while *class 2* has 10 tagged files only, this is a data imbalance where *class 1* is over represented and *class 2* is underrepresented. 
 
-In this case, the model is biased towards classifying your file as `class 1` and might overlook `class 2`. A more complex issue may arise from data imbalance if the schema is ambiguous. If the two classes don't have clear distinction between them and `class 2` is underrepresented the model most likely will classify the text as `class 1`.
+In this case, the model is biased towards classifying your file as *class 1* and might overlook *class 2*. A more complex issue may arise from data imbalance if the schema is ambiguous. If the two classes don't have clear distinction between them and *class 2* is underrepresented the model most likely will classify the text as *class 1*.
 
 In the [evaluation metrics](../concepts/evaluation.md), when a class is over represented it tends to have a higher recall than other classes while under represented classes have lower recall.
 

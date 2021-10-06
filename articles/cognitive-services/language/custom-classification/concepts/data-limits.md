@@ -26,7 +26,7 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * The maximum allowed length for your files is 17,500 characters, which is approximately 3,800 words or 8 pages.
 
-* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and no more than 1,000,000 files.
+* Your [training dataset](../how-to/train-model.md#data-splits) should include at least 10 files and no more than 1,000,000 files.
 
 ## API limits
 
@@ -73,7 +73,7 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * You should have at least 2 classes in your project. The maximum is 200 classes.
 
-* It is recommended to have around 200 tagged instances per class, and you must have a minium of 10 of tagged instances per class.
+* It is recommended to have around 200 tagged instances per class, and you must have a minimum of 10 of tagged instances per class.
 
 ## Naming limits
 

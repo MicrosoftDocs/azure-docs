@@ -72,13 +72,13 @@ For example, the model may have a hard time extracting *address* if it was not b
 > [!IMPORTANT]
 > The precision, consistency and completeness of your tagged data are key factors to determining model performance.
 
-* [View the model evaluation details](../how-to/view-evaluation.md): After model training, model evaluation is done against the test set, which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
+* [View the model evaluation details](../how-to/view-model-evaluation.md): After model training, model evaluation is done against the test set, which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
 
-* [Examine data distribution](../how-to/improve-model.md#Examine-data-distribution): Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged significantly less frequent than the others, this means this class is under-represented and most probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
+* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution): Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged significantly less frequently than the others, this means this class is under-represented and most probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
 
-* Perform error analysis: You can view the incorrect predictions your model made against the test set and revise your tagged data accordingly. Please note that as revisions are made to the labeled training set based on the observations made on the test set, the test set may become less effective in indicating the model’s accuracy in real-life scenarios.
+* Perform error analysis: You can view the incorrect predictions your model made against the test set and revise your tagged data accordingly. As revisions are made to the labeled training set based on the observations made on the test set, the test set may become less effective in indicating the model’s accuracy in real-life scenarios.
 
-* [Improve performance](../how-to/improve-model.md): Other than revising tagged data based on error analysis, you may want to increase the number of tags for the underperforming entity types or improve the diversity of your tagged data to ensure the model can learn to give correct predictions over the linguistic phenomena where it failed to.
+* [Improve performance](../how-to/improve-model.md): Other than revising tagged data based on error analysis, you may want to increase the number of tags for the under-performing entity types or improve the diversity of your tagged data to ensure the model can learn to give correct predictions over the linguistic phenomena where it failed to.
 <!-- 
 * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged entities. -->
 

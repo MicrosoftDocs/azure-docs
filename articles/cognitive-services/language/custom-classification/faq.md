@@ -17,7 +17,7 @@ ms.author: aahi
 
 ## What are the best practices when building a custom classification model?
 
-Get started with this [quickstart](quickstart/using-language-studio.md) and follow the [recommended practices](concepts/recommended-practices.md).
+Get started with this [quickstart](quickstart.md) and follow the [recommended practices](concepts/recommended-practices.md).
 
 ## How many tagged files are needed?
 
@@ -33,11 +33,11 @@ Model evaluation may not always be comprehensive, especially if a specific entit
 
 ## How do I improve model performance?
 
-View the your [confusion matrix](how-to/view-model-evaluation.md) to identify schema ambiguity. Then [review your test set](how-to/improve-model.md#review-validation-set) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.  
+View the [confusion matrix](how-to/view-model-evaluation.md) to identify schema ambiguity. Then [review your test set](how-to/improve-model.md) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.  
 
 ## I trained my model, but I can't test it
 
-You need to [deploy your model](quickstart/using-language-studio.md#deploy-your-model) before you can test it. 
+You need to [deploy your model](quickstart.md#deploy-your-model) before you can test it. 
 
 ## How do I use the analyze API?
 
