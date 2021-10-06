@@ -1375,9 +1375,9 @@
       - name: SQL IaaS agent extension 
         href: virtual-machines/linux/sql-server-iaas-extension-linux.md
     - name: How-to guides
-      items: virtual-machines/linux/sql-agent-extension-register-vm-linux.md
+      items: 
       - name: Register with SQL IaaS extension 
-        href: 
+        href: virtual-machines/linux/sql-agent-extension-register-vm-linux.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH
