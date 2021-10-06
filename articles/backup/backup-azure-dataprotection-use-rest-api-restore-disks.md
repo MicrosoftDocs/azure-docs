@@ -2,7 +2,7 @@
 title: Restore Azure Disks using Azure Data Protection REST API
 description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/06/2021
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ---
 
@@ -187,7 +187,7 @@ The following request body contains the recovery point ID and the restore target
 
 #### Validate restore requests
 
-Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Such as validate for backup API - this is a *POST* operation.
+Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like Validate for backup API, this is a *POST* operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-01-01
@@ -449,7 +449,7 @@ The job status above indicates that the restore job is completed and the disks h
 
 ## Next steps
 
-[Overview of Azure Disk backup](disk-backup-overview.md).
+[Overview of Azure Disk backup](disk-backup-overview.md)
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
