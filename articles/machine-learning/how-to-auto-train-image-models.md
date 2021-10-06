@@ -264,6 +264,17 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
+### Data Augmentation 
+
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. 
+We apply different data augmentation techniques with random probability for input images for each task (classification, object detection and instance segmentation) before feeding them to the model. 
+- Image (multi-class and multi-label) classification: we apply random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue) and normalization using channel-wise ImageNet’s mean and standard deviation for a training dataset while we do resize, center crop and normalization for validation and test datasets.
+- Object detection and instance segmentation: we apply random crop around bounding boxes, expand, horizontal flip, normalization and resize for a training dataset while we do normalization and resize for validation and test datasets.
+- Object detection using yolov5: we apply mosaic, random affine (rotation, translation, scale, shear) and horizontal flip for a training dataset, while we apply letterbox resizing for validation and test dataset. 
+
+At the moment, we don't expose any hyperparameter to control data augmentations techniques.
+
+
 ## Configure your experiment settings
 
 Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This way, you can employ a more iterative approach, because with multiple models and multiple hyperparameters for each, the search space grows exponentially and you need more iterations to find optimal configurations.
@@ -435,15 +446,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-## Data Augmentation 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. 
-We apply different data augmentation techniques with random probability for input images for each task (classification, object detection and instance segmentation) before feeding them to the model. 
-- Image (multi-class and multi-label) classification: we apply random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue) and normalization using channel-wise ImageNet’s mean and standard deviation for a training dataset while we do resize, center crop and normalization for validation and test datasets.
-- Object detection and instance segmentation: we apply random crop around bounding boxes, expand, horizontal flip, normalization and resize for a training dataset while we do normalization and resize for validation and test datasets.
-- Object detection using yolov5: we apply mosaic, random affine (rotation, translation, scale, shear) and horizontal flip for a training dataset, while we apply letterbox resizing for validation and test dataset. 
-
-At the moment, we don't expose any hyperparameter to control data augmentations techniques.
 
 
 ## Example notebooks
