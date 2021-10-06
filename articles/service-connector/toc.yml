@@ -24,7 +24,7 @@ items:
   expanded: true
   items:
   - name: Python (Django) app with PostgreSQL
-    href: overview.md
+    href: tutorial-django-webapp-postgres-cli.md
   - name: ASP.NET app with SQL Database
     href: overview.md
   - name: PLACEHOLDER

@@ -31,7 +31,7 @@ ms.date: 10/29/2021
 
 ## Default environment variable names or application properties
 
-### .Net (ADO.NET) 
+### .NET (ADO.NET) 
 
 **Secret/ConnectionString**
 
@@ -114,7 +114,4 @@ ms.date: 10/29/2021
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_POSTGRESQL_CONNECTIONSTRING | Ruby pg connection string | `host={your-postgres-server-name}.postgres.database.azure.com port=5432 dbname={database-name} sslmode=require user={username}@{servername} password=****` |
-
-
-## Limitations and known issues
 
