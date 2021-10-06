@@ -150,4 +150,6 @@ Data Policies map to specific actions in data systems.
 |                           |<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 
 ## Next steps
-Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB.
+Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB:
+
+[How-to guide for Purview Data Policies with Azure Storage](how-to-storage-access-policies.md)

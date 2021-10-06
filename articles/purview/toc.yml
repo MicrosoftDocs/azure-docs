@@ -68,6 +68,8 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
+  - name: Data Policies
+    href: policy/concept-data-policies.md
   - name: Upgraded Purview accounts
     href: concept-account-upgrade.md
 - name: How-to guides
@@ -255,7 +257,13 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
-- name: Reference
+  - name: Data Policies
+    items:
+    - name: Data owner scenario
+      items:
+      - name: How-to guide for Azure Storage
+        href: policy/how-to-storage-access-policies.md
+name: Reference
   items:
     - name: Azure Purview product glossary
       href: reference-purview-glossary.md
