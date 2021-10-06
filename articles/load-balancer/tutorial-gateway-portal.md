@@ -31,6 +31,43 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## Register preview feature
+
+As part of the public preview, the provider must be registered in your Azure subscription. Use the following PowerShell or Azure CLI examples to enable your subscription.
+
+### PowerShell
+
+Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
+
+```
+
+Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) to register the **Microsoft.Network** resource provider:
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+
+```
+
+### Azure CLI
+
+Use [az feature register](/cli/azure/feature#az_feature_register) to register the **AllowGatewayLoadBalancer** provider feature:
+
+```azurecli-interactive
+  az feature register \
+    --name AllowGatewayLoadBalancer \
+    --namespace Microsoft.Network
+```
+
+Use [az provider register](/cli/azure/provider#az_provider_register) to register the **Microsoft.Network** resource provider:
+
+```azurecli-interactive
+  az provider register \
+    --namespace Microsoft.Network
+```
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://preview.portal.azure.com](https://preview.portal.azure.com).
