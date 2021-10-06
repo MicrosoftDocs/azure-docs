@@ -1,22 +1,21 @@
 ---
-title: "Quickstart: Use the NER client library"
+title: "Quickstart: Detect Personally Identifying Information (PII) in text"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to start using the Named Entity Recognition (NER) API.
+description: Use this quickstart to start using the PII detection API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 10/05/2021
 ms.author: aahi
-keywords: text mining, key phrase, text analytics
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 
-# Quickstart: Detecting named entities (NER)
+# Quickstart: Detect Personally Identifiable Information (PII) 
 
-Use this article to get started detecting entities in text, using the NER client library and REST API. Follow these steps to try out examples code for mining text:
+Use this article to get started detecting and redacting sensitive information in text, using the NER and PII client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 

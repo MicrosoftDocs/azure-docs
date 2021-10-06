@@ -1,15 +1,25 @@
 ---
-title: Named entities for Personal information 
+title: Entity categories recognized by Personally Identifiable Information (detection) in Azure Cognitive Service for Language
 titleSuffix: Azure Cognitive Services
+description: Learn about the entities the PII feature can recognize from unstructured text.
 services: cognitive-services
 author: aahill
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: include 
-ms.date: 04/14/2021
+ms.topic: article
+ms.date: 10/06/2021
 ms.author: aahi
 ---
+
+# Supported Personally Identifiable Information (PII) entity categories
+
+Use this article to find the entity categories that can be returned by the [PII detection feature](../how-to-call.md). This feature runs a predictive model to identify, categorize, and redact sensitive information from an input document.
+
+The PII feature includes the ability to detect personal (`PII`) and health (`PHI`) information.
+
+## Entity categories
 
 > [!NOTE]
 > To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
@@ -18,23 +28,7 @@ ms.author: aahi
  
 The following entity categories are returned when you're sending requests to the `/v3.1/entities/recognition/pii` endpoint.
 
-
-| Category   |  Description                          |
-|------------|-------------|
-| [Person](#category-person)      |  Names of people.  |
-| [PersonType](#category-persontype) | Job types or roles held by a person. |
-| [Phone number](#category-phonenumber) |Phone numbers (US and EU phone numbers only). |
-| [Organization](#category-organization) |  Companies, groups, government bodies, and other organizations.  |
-| [Address](#category-address) | Full mailing addresses.  |
-| [Email](#category-email) | Email addresses.   |
-| [URL](#category-url) | URLs to websites.  |
-| [IP](#category-ip) | Network IP addresses.  |
-| [DateTime](#category-datetime) | Dates and times of day. | 
-| [Quantity](#category-quantity) | Numbers and numeric quantities.  |
-| [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
-| [Identification](#identification) | Financial and country specific identification.  |
-
-### Category: Person
+## Category: Person
 
 This category contains the following entity:
 
@@ -62,7 +56,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Category: PersonType
+## Category: PersonType
 
 This category contains the following entity:
 
@@ -91,7 +85,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Category: PhoneNumber
+## Category: PhoneNumber
 
 This category contains the following entity:
 
@@ -121,7 +115,7 @@ This category contains the following entity:
 :::row-end:::
 
 
-### Category: Organization
+## Category: Organization
 
 This category contains the following entity:
 
@@ -222,7 +216,7 @@ The entity in this category can have the following subcategories.
 :::row-end:::
 
 
-### Category: Address
+## Category: Address
 
 This category contains the following entity:
 
@@ -251,7 +245,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-### Category: Email
+## Category: Email
 
 This category contains the following entity:
 
@@ -279,7 +273,7 @@ This category contains the following entity:
 :::row-end:::
 
 
-### Category: URL
+## Category: URL
 
 This category contains the following entity:
 
@@ -308,7 +302,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-### Category: IP
+## Category: IP
 
 This category contains the following entity:
 
@@ -336,7 +330,7 @@ This category contains the following entity:
     :::column-end:::
 :::row-end:::
 
-### Category: DateTime
+## Category: DateTime
 
 This category contains the following entities:
 
@@ -390,7 +384,7 @@ The entity in this category can have the following subcategories.
     :::column-end:::
 :::row-end:::
 
-### Category: Quantity
+## Category: Quantity
 
 This category contains the following entities:
 
@@ -645,4 +639,9 @@ These entity categories includes identifiable Azure information, including authe
 
 ### Identification
 
-[!INCLUDE [supported identification entities](./identification-entities.md)]
+[!INCLUDE [supported identification entities](../includes/identification-entities.md)]
+
+
+## Next steps
+
+* [NER overview](../overview.md)
