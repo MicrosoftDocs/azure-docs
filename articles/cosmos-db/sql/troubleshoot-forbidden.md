@@ -42,7 +42,7 @@ Partition key reached maximum size of {...} GB
 ```
 
 ### Solution
-This error means that your current [partitioning design](../partitioning-overview.md#logical-partitions) and workload is trying to store more than the allowed amount of data for a given partition key value. There is no limit to the number of logical partitions in your container but there is a limit to the size of data each logical partition can store.
+This error means that your current [partitioning design](../partitioning-overview.md#logical-partitions) and workload is trying to store more than the allowed amount of data for a given partition key value. There is no limit to the number of logical partitions in your container but the size of data each logical partition can store is limited.
 
 ## Non-data operations are not allowed
 This scenario happens when non-data [operations are disallowed in the account](../how-to-restrict-user-data.md#disallow-the-execution-of-non-data-operations). On this scenario, it's common to see errors like the ones below:
