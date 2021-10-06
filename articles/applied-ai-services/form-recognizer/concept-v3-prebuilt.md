@@ -153,6 +153,19 @@ To try signature detection:
 
 1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
 
+****## Supported languages and locales v2.1
+
+
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+|Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
+ |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
+
 ## Supported languages and locales v3.0
 
 >[!NOTE]
@@ -164,18 +177,7 @@ To try signature detection:
 |Receipt (sales)</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Auto-detected |
  |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
-## Supported languages and locales v2.1
 
-| Model | 
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
-|Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
- |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
 
 ## Next steps
