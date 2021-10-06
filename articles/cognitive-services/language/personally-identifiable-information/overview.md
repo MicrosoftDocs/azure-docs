@@ -18,7 +18,7 @@ PII detection is one of the features offered by [Azure Cognitive Service for Lan
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
-* The [**conceptual articles**](concepts/named-entity-categories.md) provide in-depth explanations of the service's functionality and features.
+* The [**conceptual articles**](concepts/entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]

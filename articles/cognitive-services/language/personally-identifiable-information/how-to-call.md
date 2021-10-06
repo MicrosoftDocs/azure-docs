@@ -39,7 +39,7 @@ Using the PII detection feature synchronously is stateless. No data is stored in
 
 When using these features asynchronously, the API results are available for 48 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-The API will attempt to detect the [defined entity categories](concepts/pii-entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
+The API will attempt to detect the [defined entity categories](concepts/entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
 
 > [!TIP]
 > If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
@@ -48,7 +48,7 @@ The API will attempt to detect the [defined entity categories](concepts/pii-enti
 
 ## Getting PII results
 
-When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/pii-entity-categories.md), including their categories and sub-categories, and confidence scores. The text string with the PII entities redacted will also be returned.
+When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/entity-categories.md), including their categories and sub-categories, and confidence scores. The text string with the PII entities redacted will also be returned.
 
 ## Data limits
 
