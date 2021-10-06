@@ -15,7 +15,7 @@ ms.date: 10/13/2021
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
 
-In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with automated ML in Azure Machine Learning.
+In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
 
 Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under perform when tasked to detect small objects in high-resolution images. Because high resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
@@ -44,13 +44,11 @@ Small object detection using tiling is currently supported for the following mod
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the width and 2 is the height. When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles as shown in the above image. Each tile has an overlap of 25% with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the width and 2 is the height. When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles. Each tile has an overlap of 25% with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles.
 
-When tiling is enabled, the generated tiles and the entire image corresponding to each image are passed through the model. The computation time increases proportionally because of processing this extra data. 
+When tiling is enabled, the entire image and the tiles generated from it are passed through the model. The computation time increases proportionally because of processing this extra data. 
 
-During training, the generated tiles and the entire image are passed through the model, along with the corresponding ground truth bounding boxes.
-
-For example, when the tile_grid_size parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
+During training, the generated tiles and the entire image are passed through the model. For example, when the tile_grid_size parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
 
 You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
 
@@ -88,11 +86,11 @@ The following are the parameters you can use to control the tiling feature.
 
 ## Tiling during inference
 
-When a model trained with tiling is deployed, tiling occurs during inference as well. It uses the `tile_grid_size` value from training to generate the tiles during inference. The tiles and entire image are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
+When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
 
 ![Object proposals merge](./media/how-to-use-automl-train-small-object-detect/tiles-merge.jpg)
 
-You also have the option to enable tiling only during inference without enabling it in training. To do so, set the tile_grid_size parameter only during inference, not for training. 
+You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training. 
 
 Doing so, may improve performance times for some datasets, and won't incur the extra cost that comes with tiling at training time. 
 
