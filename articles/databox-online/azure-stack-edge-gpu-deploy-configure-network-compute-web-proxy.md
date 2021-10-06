@@ -30,6 +30,8 @@ The procedure can take around 45 minutes to complete.
 
 ::: zone-end
 
+::: zone pivot="single-node"
+
 In this tutorial, you learn about:
 
 > [!div class="checklist"]
@@ -39,6 +41,18 @@ In this tutorial, you learn about:
 > * Enable compute network
 > * Configure web proxy
 
+::: zone-end
+
+::: zone pivot="two-node"
+
+> [!div class="checklist"]
+> * Prerequisites
+> * Configure network
+> * Configure cluster
+> * Configure advanced networking
+> * Configure web proxy
+
+::: zone-end
 
 ## Prerequisites
 
@@ -49,7 +63,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 ::: zone pivot="two-node"
 
-## Get started
+## Configure setup type
 
 1. Go to the **Get started** page.
 1. In the **Set up a single node device** tile, select **Start**.
@@ -115,6 +129,10 @@ Follow these steps to configure the network for your device.
 
 ::: zone pivot="two-node"
 
+## Configure network
+
+You'll configure network on both nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
+
 ## Configure network on first node
 
 To configure the network for a 2-node device, follow these steps on the 1st node of the device:
@@ -131,7 +149,9 @@ To configure the network for a 2-node device, follow these steps on the 1st node
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology with a device reset. Select **Yes** to confirm the network setting. The network setting takes a few minutes to apply and you see a notification when the network settings are successfully applied.
 1. Once the network settings are applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch is created at Port 2 and another virtual switch is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed NICs are then connected via switches.
 
-## Configure network on second node
+### Configure network on second node
+
+You'll now prepare the second node for clustering. You'll first need to configure the network. Follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
 1. Make sure that the 2nd node is cabled as per the topology you selected for the 1st node. In the **Network** page, choose and **Apply** the same topology that you selected for the 1st node.
@@ -139,13 +159,15 @@ To configure the network for a 2-node device, follow these steps on the 1st node
 
 ## Get authentication token for second node
 
+You'll now get the authentication token that will be needed when adding this node to form a cluster. Follow these steps in the local UI of the second node:
+
 1. On the **Prepare a node for clustering** page, in the **Get authentication token** tile, select **Prepare node**.
 1. Select **Get token**.
 1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
 
 ## Configure cluster witness on first node
 
-Create a cluster witness. A cluster witness helps establish quorum if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
+You'll now create a cluster witness. A cluster witness helps establish quorum for a two-node device if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
 
 A cluster witness can be: 
 
@@ -162,7 +184,7 @@ Follow these steps to configure the cluster witness.
 
 ### Configure cloud witness
 
-1. In the local UI of the 1st node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Cloud.**
     1. Enter the **Azure Storage account name**.
@@ -172,10 +194,10 @@ Follow these steps to configure the cluster witness.
 
 ### Configure local witness
 
-1. In the local UI of the 1st node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Local.**
-    1. Enter the file share path as //server/fileshare format.
+    1. Enter the file share path as *//server/fileshare* format.
     1. Select **Apply**. 
 
 ## Add second node to create cluster
@@ -270,7 +292,7 @@ Follow these steps to enable compute and configure compute network.
 ## Configure advanced networking
 
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the Virtual switch section, 
+1. In the **Virtual switch** section, 
 
 ::: zone-end
   
@@ -302,14 +324,28 @@ This is an optional configuration.
 
 In this tutorial, you learned about:
 
+::: zone pivot="two-node"
+
 > [!div class="checklist"]
 > * Prerequisites
 > * Configure network
 > * Enable compute network
 > * Configure web proxy
 
+::: zone-end
 
-To learn how to set up your Azure Stack Edge Pro device, see:
+::: zone pivot="two-node"
+
+> [!div class="checklist"]
+> * Prerequisites
+> * Configure network
+> * Configure cluster
+> * Configure advanced networking
+> * Configure web proxy
+
+::: zone-end
+
+To learn how to set up your Azure Stack Edge Pro GPU device, see:
 
 > [!div class="nextstepaction"]
 > [Configure device settings](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
