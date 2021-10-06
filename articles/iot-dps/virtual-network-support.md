@@ -1,12 +1,13 @@
 ---
  title: Azure IoT Device Provisioning Service (DPS) support for virtual networks
  description: How to use virtual networks connectivity pattern with Azure IoT Device Provisioning Service (DPS)
- services: iot-hub
- author: wesmc7777
+ services: iot-dps
+ author: anastasia-ms
  ms.service: iot-dps
+ manager: lizross
  ms.topic: conceptual
- ms.date: 06/30/2020
- ms.author: wesmc
+ ms.date: 10/06/2021
+ ms.author: v-stharr
 ---
 
 # Azure IoT Hub Device Provisioning Service (DPS) support for virtual networks
@@ -14,8 +15,6 @@
 This article introduces the virtual network (VNET) connectivity pattern for IoT devices provisioning with IoT hubs using DPS. This pattern provides private connectivity between the devices, DPS, and the IoT hub inside a customer-owned Azure VNET. 
 
 In most scenarios where DPS is configured with a VNET, your IoT Hub will also be configured in the same VNET. For more specific information on VNET support and configuration for IoT Hubs, see, [IoT Hub virtual network support](../iot-hub/virtual-network-support.md).
-
-
 
 ## Introduction
 
@@ -117,7 +116,7 @@ To use private endpoints with device provisioning code, your provisioning code m
 
 `<Your DPS Tenant Name>.azure-devices-provisioning.net`
 
-Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private links to provision your devices.
+Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private endpoints to provision your devices.
 
 For example, the provisioning device client sample ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) is designed to use the **Global device endpoint** as the global provisioning URI (`global_prov_uri`) in [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
 
