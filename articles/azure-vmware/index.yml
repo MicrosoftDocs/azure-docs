@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: shortpatti 
-  ms.author: v-patsho 
-  ms.date: 09/13/2021 
+  author: suzizuber
+  ms.author: v-szuber 
+  ms.date: 10/06/2021 
 
 
 # card 1
@@ -205,6 +205,8 @@ landingContent:
             url: /cli/azure/vmware
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
+          - text: Resource Manager template
+            url: /azure/templates/microsoft.avs/privateclouds
           - text: Terraform Azure provider
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
       - linkListType: video

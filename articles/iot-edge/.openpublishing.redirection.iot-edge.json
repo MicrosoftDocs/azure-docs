@@ -184,6 +184,11 @@
             "source_path_from_root": "/articles/iot-edge/tutorial-deploy-machine-learning.md",
             "redirect_url": "/azure/iot-edge/tutorial-machine-learning-edge-01-intro",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-auto-provision-symmetric-keys.md",
+            "redirect_url": "/azure/iot-edge/how-to-provision-devices-at-scale-linux-symmetric",
+            "redirect_document_id": false
         }
     ]
 }

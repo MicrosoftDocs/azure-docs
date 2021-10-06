@@ -143,19 +143,19 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
 ### Nested behavior differences between stateful and stateless workflows
 
-You can [make a workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Standard)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+You can [make a workflow callable](logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Standard)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
 Here are the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
 
 * Asynchronous polling pattern
 
-  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
+  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](logic-apps-limits-and-config.md).
 
 * Synchronous pattern ("fire and forget")
 
   The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
 
-  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
@@ -179,7 +179,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 * Create logic apps and their workflows from [400+ managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, and MQ.
+  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, MQ, DB2, and IBM Host File.
 
     > [!NOTE]
     > For the built-in SQL Server version, only the **Execute Query** action can directly connect to Azure 
@@ -202,10 +202,10 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
     > folder using the respective **Maps** and **Schemas** folders. You can then use these artifacts across multiple workflows 
     > within the *same logic app resource*.
 
-  * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
+  * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
-    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
@@ -234,7 +234,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 For the **Logic App (Standard)** resource, these capabilities have changed, or they are currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: Built-in triggers and actions run natively in the single-tenant Azure Logic Apps runtime, while managed connectors are hosted and run in Azure. Some built-in triggers are unavailable, such as Sliding Window and Batch. To start a stateful or stateless workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab.
+* **Triggers and actions**: Built-in triggers and actions run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. Some built-in triggers and actions are unavailable, such as Sliding Window, Batch, Azure App Services, and Azure API Management. To start a stateful or stateless workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab.
 
   For *stateful* workflows, [managed connector triggers and actions](../connectors/managed.md) appear under the **Azure** tab, except for the unavailable operations listed below. For *stateless* workflows, the **Azure** tab doesn't appear when you want to select a trigger. You can select only [managed connector *actions*, not triggers](../connectors/managed.md). Although you can enable Azure-hosted managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
@@ -263,7 +263,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
-    * Some [built-in triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the Flat File actions, AS2 (V2) actions, and RosettaNet actions.
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
@@ -281,7 +281,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
-* **Deployment targets**: You can't deploy the **Logic App (Standard)** resource type to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
+* **Deployment targets**: You can't deploy the **Logic App (Standard)** resource type to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
 
 * **Azure API Management**: You currently can't import the **Logic App (Standard)** resource type into Azure API Management. However, you can import the **Logic App (Consumption)** resource type.
 

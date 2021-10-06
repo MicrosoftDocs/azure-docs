@@ -99,6 +99,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altoura
+        href: altoura-tutorial.md  
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Managed Grafana
@@ -487,6 +489,8 @@
         href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
         href: contractsafe-saml2-sso-tutorial.md
+      - name: ContractS CLM
+        href: holmes-tutorial.md  
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Contrast Security
@@ -537,6 +541,8 @@
         href: cylanceprotect-tutorial.md
     - name: D - E
       items:
+      - name: Dagster Cloud
+        href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
       - name: DataCamp
@@ -890,12 +896,12 @@
         href: hightail-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
+      - name: Hiretual-SSO
+        href: hiretual-tutorial.md  
       - name: HireVue
         href: hirevue-tutorial.md
       - name: Hive
         href: hive-tutorial.md
-      - name: Holmes
-        href: holmes-tutorial.md
       - name: Honestly
         href: honestly-tutorial.md
       - name: Hootsuite
@@ -1166,6 +1172,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: LawVu
+        href: lawvu-tutorial.md  
       - name: LCVista
         href: lcvista-tutorial.md
       - name: Leadfamly
@@ -1616,6 +1624,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: Qualaroo
+        href: qualaroo-tutorial.md  
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -1686,6 +1696,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md  
       - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
@@ -1934,6 +1946,8 @@
         href: ssogen-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md  
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -2355,6 +2369,8 @@
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: AWS Single Sign-On
         href: aws-single-sign-on-provisioning-tutorial.md
+      - name: BenQ IAM
+        href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
         href: bentley-automatic-user-provisioning-tutorial.md  
       - name: BitaBIZ
@@ -2513,6 +2529,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Klaxoon SAML
+        href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
       - name: LimbleCMMS

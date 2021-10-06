@@ -104,8 +104,10 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
-        - name: Azure AD-only Authentication
+        - name: Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication.md
+        - name: Azure Policy for Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-policy.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -199,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Enforce Azure AD-only authentication using Azure Policy
+          href: database/authentication-azure-ad-only-authentication-policy-how-to.md
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK

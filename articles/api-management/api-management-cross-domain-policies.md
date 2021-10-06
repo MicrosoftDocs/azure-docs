@@ -32,7 +32,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 ```xml
 <cross-domain>
     <!-Policy configuration is in the Adobe cross-domain policy file format,
-        see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->
+        see https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf-->
 </cross-domain>
 ```
 
@@ -48,7 +48,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|cross-domain|Root element. Child elements must conform to the [Adobe cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
+|cross-domain|Root element. Child elements must conform to the [Adobe cross-domain policy file specification](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf).|Yes|
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
