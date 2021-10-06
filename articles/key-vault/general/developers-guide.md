@@ -134,8 +134,8 @@ For complete examples of using Key Vault with applications, see [Azure Key Vault
 
 The following articles and scenarios provide task-specific guidance for working with Azure Key Vault:
 
-- To access a key vault, your client application needs to be able to access multiple endpoints for various functionalities. See [Accessing Key Vault behind firewall](access-behind-firewall.md). 
-- A cloud application running in an Azure VM needs a certificate. How do you get this certificate into this VM today? See [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) or [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md).
+- To access a key vault, your client application needs to be able to access multiple endpoints for various functionalities. See [Accessing Key Vault behind a firewall](access-behind-firewall.md). 
+- A cloud application running in an Azure VM needs a certificate. How do you get this certificate into this VM? See [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) or [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md).
 - To assign an access policy by using the Azure CLI, PowerShell, or the Azure portal, see [Assign a Key Vault access policy](assign-access-policy.md). 
 - For guidance on the use and lifecycle of a key vault and various key vault objects with soft-delete enabled, see [Azure Key Vault recovery management with soft delete and purge protection](./key-vault-recovery.md).
 - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in a key vault and reference the value in other Resource Manager templates. See [Use Azure Key Vault to pass secure parameter values during deployment](../../azure-resource-manager/templates/key-vault-parameter.md).
