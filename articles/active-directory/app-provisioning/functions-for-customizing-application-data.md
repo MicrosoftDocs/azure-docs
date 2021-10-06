@@ -789,13 +789,13 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, CharactersToAvoid)
 
 **Description:** 
-The RandomString function generates a random string based on the conditions specified.
+The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 **Parameters:** 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **Length** |Required |Number |Total length of the random string. This should be greater than or equal to the sum of MinimumNumbers, MinimumSpecialCharacters, and MinimumCapital.|
+| **Length** |Required |Number |Total length of the random string. This should be greater than or equal to the sum of MinimumNumbers, MinimumSpecialCharacters, and MinimumCapital. 256 characters max.|
 | **MinimumNumbers** |Required |Number |Minimum numbers in the random string.|
 | **MinimumSpecialCharacters** |Required |Number |Minimum number of special characters.|
 | **MinimumCapital** |Required |Number |Minimum number of capital letters in the random string.|
