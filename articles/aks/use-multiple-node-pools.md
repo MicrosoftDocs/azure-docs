@@ -32,7 +32,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * All node pools must reside in the same virtual network.
 * When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
-* Resizing the VMSS nodes after creation is unsupported.
+* Resizing the backned VMSS nodes is unsupported in AKS . Please double check and select the optimal size whiile creating the cluster itself .
 
 
 ## Create an AKS cluster
