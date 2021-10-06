@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/08/2021
+ms.date: 07/23/2021
 ---
 
 # Asset normalization
