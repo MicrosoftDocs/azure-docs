@@ -10,7 +10,7 @@ ms.date: 10/06/2021
 
 # Prepay for Azure Database for MySQL compute resources with reserved instances
 
-[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database for MySQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved instances, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
@@ -27,7 +27,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 ## Reservation exchanges and refunds
 
-You can exchange a reservation for another reservation of the same type. It's also possible to refund a reservation, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+You can exchange a reservation for another reservation of the same type. It's also possible to refund a reservation, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## Reservation discount
 
