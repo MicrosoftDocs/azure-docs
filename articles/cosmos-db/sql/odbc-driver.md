@@ -10,7 +10,8 @@ ms.author: sngun
 
 ---
 
-# Connect to Azure Cosmos DB using Analytics, BI, and Data Integration tools with the ODBC driver
+# Connect to Azure Cosmos DB from BI and Data Integration tools with the ODBC driver
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using solutions such as SQL Server Integration Services, Alteryx, QlikSense , Tableau, and other analytics, BI, and data integration tools so that you can analyze, move, transform, and create visualizations of your Azure Cosmos DB data.
