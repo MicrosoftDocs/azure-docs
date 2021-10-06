@@ -1,18 +1,18 @@
 ---
 title: Import data into a search index using Azure portal
 titleSuffix: Azure Cognitive Search
-description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, SQL Managed Instance and SQL Server on Azure VMs.
+description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
 
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/06/2021
 ---
 # Import data wizard for Azure Cognitive Search
 
-The Azure portal provides an **Import data** wizard on the Azure Cognitive Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Cognitive Search index using the Azure portal](search-get-started-portal.md) quickstart.
+The **Import data** wizard in the Azure portal creates multiple objects and supports multiple workflows. If you are new to Azure Cognitive Search, this is one of the most powerful features at your disposal. With minimal effort, you can create an indexing and enrichment pipeline that exercises most of the functionality of Azure Cognitive Search. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Quickstart: Create a search index using the Azure portal](search-get-started-portal.md).
 
 Operations that this wizard performs include:
 
@@ -24,7 +24,7 @@ Operations that this wizard performs include:
 
 4 - Run the wizard to create objects, import data, set a schedule and other configuration options.
 
-The wizard outputs a number of objects that are saved to your search service, which you can access programatically or in other tools.
+The wizard outputs a number of objects that are saved to your search service, which you can access programmatically or in other tools like [Search Explorer](search-explorer.md).
 
 ## Advantages and limitations
 
@@ -42,7 +42,7 @@ Known limitations are summarized as follows:
 
 + Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
 
-+ AI enrichment, as exposed in the portal, is limited to a few built-in skills. 
++ AI enrichment, as exposed in the portal, is limited to a subset of built-in skills. 
 
 + A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections. If you want to save enriched documents created by the wizard, the blob container and tables come with default names and structure.
 
