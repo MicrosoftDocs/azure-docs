@@ -9,7 +9,7 @@
   items: 
   - name: Import data to Blob storage 
     href: storage-import-export-data-to-blobs.md
-  - name: Import data to Azure files
+  - name: Import data to Azure Files
     href: storage-import-export-data-to-files.md
   - name: Export data from Blob storage
     href: storage-import-export-data-from-blobs.md
@@ -30,7 +30,7 @@
     items:
     - name: View job, drive status
       href: storage-import-export-view-drive-status.md
-    - name: Review job status
+    - name: Review copy logs
       href: storage-import-export-tool-reviewing-job-status-v1.md
   - name: Troubleshoot
     items:

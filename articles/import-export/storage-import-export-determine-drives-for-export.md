@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -14,7 +14,7 @@ ms.subservice: common
 
 This article describes how to determine how many physical drives to provide for your Azure Import/Export export order. You'll use the Azure Import/Export tool. The article explains how to install and use the tool.
 
-The Azure Import/Export Tool lists all blobs to be exported, and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.
+The Azure Import/Export version 1 tool lists all blobs to be exported, and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.
 
 You can use 2.5" SSDs, 2.5" HDDs, or 3.5" HDDs with your export order. For more information, see [Supported disks](storage-import-export-requirements.md#supported-disks).
 
@@ -27,13 +27,15 @@ You can use 2.5" SSDs, 2.5" HDDs, or 3.5" HDDs with your export order. For more 
 
 To find out how many physical disks you need for your export order, do these steps:
 
-1. [Download the WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system.
-2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-3. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+1. Download the current release of the Azure Import/Export version 1 tool (WAImportExportV1.zip), for blobs, on the Windows system.
+  1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
+  1. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+
+2. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
    `cd C:\WaImportExportV1`
 
-4. To check the number of disks required for the selected blobs, run the following command:
+3. To check the number of disks required for the selected blobs, run the following command:
 
    `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
@@ -47,7 +49,7 @@ To find out how many physical disks you need for your export order, do these ste
 
     See an [Example of the PreviewExport command](#example-of-previewexport-command).
 
-5. Check that you can read/write to the drives that will be shipped for the export job.
+4. Check that you can read/write to the drives that will be shipped for the export job.
 
 ## Example of PreviewExport command
 
