@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot problems signing in to an application from Azure AD My Apps
+title: Troubleshoot problems signing in to an application from My Apps portal
+titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: davidmu1
@@ -14,7 +15,7 @@ ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
 
-# Troubleshoot problems signing in to an application from Azure AD My Apps
+# Troubleshoot application sign-in in Azure Active Directory
 
 My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

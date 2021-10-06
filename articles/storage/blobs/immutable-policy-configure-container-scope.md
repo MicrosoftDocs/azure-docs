@@ -56,8 +56,8 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 To configure a time-based retention policy on a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) command, providing the retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 10
@@ -117,14 +117,14 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy extend \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 21 \
@@ -172,16 +172,16 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 To lock a policy with Azure CLI, first call the [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_show) command to retrieve the policy's ETag. Next, call the [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_lock) command and pass in the ETag value to lock the policy. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy lock /
-    --resource-group <resource-group> /
-    --account-name <storage-account> /
-    --container-name <container> /
+az storage container immutability-policy lock \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
     --if-match $etag
 ```
 
@@ -231,20 +231,20 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
 To configure a legal hold on a container with PowerShell, call the [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_set) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-az storage container legal-hold set /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold set \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 
 To clear a legal hold, call the [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_clear) command:
 
 ```azurecli
-az storage container legal-hold clear /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold clear \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 

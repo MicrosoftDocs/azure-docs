@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online using Azure Data Studio"
 titleSuffix: Azure Database Migration Service(DMS)
-description: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with Data Migration Service
+description: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with Azure Database Migration Service
 services: dms
 author: mokabiru
 ms.author: mokabiru
@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 10/05/2021
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS (preview)
@@ -38,7 +38,9 @@ In this tutorial, you learn how to:
 This article describes an online database migration from SQL Server to Azure SQL Managed Instance. For an offline database migration, see [Migrate SQL Server to a SQL Managed Instance offline using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-offline-ads.md).
 
 ## Prerequisites
+
 To complete this tutorial, you need to:
+
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 * [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
@@ -80,7 +82,6 @@ To complete this tutorial, you need to:
 
 1. Open Azure Data Studio and select the server icon to connect to your on-premises SQL Server (or SQL Server on Azure Virtual Machine).
 1. On the server connection, right-click and select **Manage**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/manage-sql-server.png" alt-text="Manage SQL Server":::
 1. On the server's home page, Select **Azure SQL Migration** extension.
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
@@ -89,26 +90,21 @@ To complete this tutorial, you need to:
 ## Run database assessment and select target
 
 1. Select the database(s) to run assessment and select **Next**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. Select Azure SQL Managed Instance as the target.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**. If any issues are displayed in the assessment results, they need to be remediated before proceeding with the next steps.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/assessment-issues-details.png" alt-text="Database assessment details":::
 1. Specify your **target Azure SQL Managed Instance** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/specify-target-sql-managed-instance.png" alt-text="Specify target Azure SQL Managed Instance":::
 
 ## Configure migration settings
 
 1. Select **Online migration** as the migration mode.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/migration-mode-online.png" alt-text="migration mode online":::
     > [!NOTE]
     > In the online migration mode, the source SQL Server database is available for read and write activity while database backups are continuously restored on target Azure SQL Managed Instance. Application downtime is limited to duration for the cutover at the end of migration.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
 1. After selecting the backup location, provide details of your source SQL Server and source backup location.
-
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/configure-backup-location-details.png" alt-text="Configure backup location":::
 
     |Field    |Description  |
     |---------|-------------|
@@ -129,13 +125,10 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
 1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/configure-dms.png" alt-text="Configure DMS":::
 1. To reuse an existing DMS, select it from the dropdown list and the status of the self-hosted integration runtime will be displayed at the bottom of the page.
 1. To create a new DMS, select **Create new**. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/create-dms-complete.png" alt-text="Setup Integration Runtime":::
 1. After successful creation of DMS, you'll be provided with details to set up **integration runtime**.
 1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to source SQL Server and the location containing the source backup.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/register-integration-runtime.png" alt-text="Register Integration Runtime":::
 1. After the installation is complete, the **Microsoft Integration Runtime Configuration Manager** will automatically launch to begin the registration process.
 1. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager indicating that you can continue to **Register**.
 1. After successfully completing the registration of self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
@@ -167,14 +160,12 @@ To complete this tutorial, you need to:
 
 The final step of the tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
 
-:::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/online-to-mi-complete-cutover-confirmation.png" alt-text="cutover online mi":::
-
 To complete the cutover,
+
 1. Stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance.
 2. take any tail log backups for the source database in the backup location specified
 3. ensure all database backups have the status *Restored* in the monitoring details page
 4. select *Complete cutover* in the monitoring details page
-
 
 During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
 

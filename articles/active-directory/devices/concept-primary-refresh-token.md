@@ -63,9 +63,12 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 > [!NOTE]
 > 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
 
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are issued
+
 ## What is the lifetime of a PRT?
 
-Once issued, a PRT is valid for 90 days and is continuously renewed as long as the user actively uses the device.  
+Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
 
 ## How is a PRT used?
 
@@ -87,6 +90,9 @@ In an ADFS environment, direct line of sight to the domain controller isn't requ
 /adfs/services/trust/13/usernamemixed endpoints enabled on proxy by using WS-Trust protocol.
 
 Windows transport endpoints are required for password authentication only when a password is changed, not for PRT renewal.
+
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are renewed.
 
 ### Key considerations
 
