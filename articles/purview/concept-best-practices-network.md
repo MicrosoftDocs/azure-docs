@@ -14,7 +14,7 @@ ms.date: 09/29/2021
 Azure Purview is a Platform as a Service data governance solution. 
 
 Azure Purview accounts have public endpoints that are accessible through the internet to connect to Purview. However, all endpoints are secured using AAD logins and RBAC with fine grained access control.
-You can also create private endpoints for your Azure Purview account, which assigns a private IP address from your virtual network in Azure to the Purview account or its managed resources, to secures all traffic among your virtual network and the Purview account account over a private link for access to purview account over the API or Purview Studio or for ingestion purposes. 
+For an added layer of security, you can also create private endpoints for your Azure Purview account, which assigns a private IP address from your virtual network in Azure to the Purview account and its managed resources. This will restrict all traffic between your virtual network and the Purview account to a private link in cases where users are interacting with the APIs, Purview Studio, or for scanning and ingestion. 
 Currently, Azure Purview firewall provides access control for the public endpoint of your purview account. You can use the firewall to allow all or to block all access through the public endpoint when using private endpoints. 
 
 Based on your network and security requirements, you can set up and maintain Azure Purview accounts to access Purview underling services or ingestion, based on any of the following network options: 
