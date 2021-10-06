@@ -799,16 +799,17 @@ The RandomString function generates a random string based on the conditions spec
 | **MinimumNumbers** |Required |Number |Minimum numbers in the random string.|
 | **MinimumSpecialCharacters** |Required |Number |Minimum number of special characters.|
 | **MinimumCapital** |Required |Number |Minimum number of capital letters in the random string.|
+| **MinimumLowerCase** |Required |Number |Minimum number of lower case letters in the random string.|
 | **CharactersToAvoid** |Optional |String |Characters to be excluded when generating the random string.|
 
 
 **Example 1:** - Generate a random string without special character restrictions:
-`RandomString(10,2,2,2)`
-Generates a random string with 10 characters (2 numbers, 2 special characters, and 2 capital letters).
+`RandomString(6,3,0,0,3)`
+Generates a random string with 10 characters (3 numbers and 3 lower case characters).
 
 **Example 2:** - Genareate a random string with special character restrictions:
-`RandomString(10,2,2,2,"?,")`
-Generates a random string with 10 characters (2 numbers, 2 special characters, and 2 capital letters). Excludes "?" and "," from the random string generated. 
+`RandomString(10,2,2,2,1,"?,")`
+Generates a random string with 10 characters (2 numbers, 2 special characters, 2 capital letters, 1 lower case letter). Excludes "?" and "," from the random string generated. 
 
 ---
 
