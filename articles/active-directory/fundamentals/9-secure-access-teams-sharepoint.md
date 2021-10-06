@@ -76,6 +76,11 @@ There are three choices under collaboration restrictions. Your business requirem
 
 > [!NOTE]
 > External identities collaboration settings in Azure Active Directory control the effective permissions. You can increase restrictions in Teams, but not decrease them from what is set in Azure AD.
+> 
+> [!NOTE]
+> Inviting a Guest that is using a Microsoft Account such as an “@outlook.com” email that has multiple aliases may prevent the user from joining. For more information, see [Issues with MSA accounts with multiple aliases](https://docs.microsoft.com/microsoft-accounts/multiple-aliases).
+
+
 
 * **External Access settings**. By default, Teams allows external access, which means that organization can communicate with all external domains. If you want to restrict or allow specific domains just for Teams, you can do so here.
 
