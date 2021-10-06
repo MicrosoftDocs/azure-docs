@@ -98,5 +98,4 @@ Once you create the Logic App workflow to send email, you can trigger it from a 
 
 ## Next Steps
 
-- [How to send Teams notifications from a pipeline.](how-to-send-notifications-to-teams.md)
-- 
+[How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)
