@@ -29,7 +29,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
  - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
  
-     Azure Database for MySQL - Flexible Server is now integrated with Azure Monitor Workbooks. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.With this integration, the server has link to workbooks and few sample templates, which help to monitor the service at scale.These templates can be edited, customized to customer requirements and pinned to dashboard to create a focused and organized view of Azure resources.[Query Performance Insights](./tutorial-query-performance-insights.md) , [Auditing](./tutorial-configure-audit.md) and Instance Overview templates are currently available.[Learn More](./concepts-workbooks.md) 
+     Azure Database for MySQL - Flexible Server is now integrated with Azure Monitor Workbooks. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.With this integration, the server has link to workbooks and few sample templates, which help to monitor the service at scale.These templates can be edited, customized to customer requirements and pinned to dashboard to create a focused and organized view of Azure resources.[Query Performance Insights](./tutorial-query-performance-insights.md) , [Auditing](./tutorial-configure-audit.md) and Instance Overview templates are currently available.[Learn More](./concepts-workbooks.md)
+
+- **Prepay for Azure Database for MySQL compute resources with reserved instances**
+     Azure Database for MySQL - Flexible Server now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved instances, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. [Learn More](https://docs.microsoft.com/azure/mysql/concept-reserved-pricing).
 
 ## September 2021
 
