@@ -438,13 +438,12 @@ print(aks_service.state)
 
 ## Data Augmentation 
 In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. 
-We apply different data augmentation techniques with random probability for input images for each task (classification, object detection and instance segmentation) before feeding them to each model. 
+We apply different data augmentation techniques with random probability for input images for each task (classification, object detection and instance segmentation) before feeding them to the model. 
 - Image (multi-class and multi-label) classification: we apply random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue) and normalization using channel-wise ImageNet’s mean and standard deviation for a training dataset while we do resize, center crop and normalization for validation and test datasets.
 - Object detection and instance segmentation: we apply random crop around bounding boxes, expand, horizontal flip, normalization and resize for a training dataset while we do normalization and resize for validation and test datasets.
 - Object detection using yolov5: we apply mosaic, random affine (rotation, translation, scale, shear) and horizontal flip for a training dataset, while we apply letterbox resizing for validation and test dataset. 
 
-Unfortunately, we don’t allow users to control over data augmentation techniques at the moment. 
-
+At the moment, we don't expose any hyperparameter to control data augmentations techniques.
 
 
 ## Example notebooks
