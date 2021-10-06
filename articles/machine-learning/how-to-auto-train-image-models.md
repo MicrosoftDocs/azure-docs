@@ -442,6 +442,7 @@ We apply different data augmentation techniques with random probability for inpu
 - Image (multi-class and multi-label) classification: we apply random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue) and normalization using channel-wise ImageNet’s mean and standard deviation for a training dataset while we do resize, center crop and normalization for validation and test datasets.
 - Object detection and instance segmentation: we apply random crop around bounding boxes, expand, horizontal flip, normalization and resize for a training dataset while we do normalization and resize for validation and test datasets.
 - Object detection using yolov5: we apply mosaic, random affine (rotation, translation, scale, shear) and horizontal flip for a training dataset, while we apply letterbox resizing for validation and test dataset. 
+
 Unfortunately, we don’t allow users to control over data augmentation techniques at the moment. 
 
 
