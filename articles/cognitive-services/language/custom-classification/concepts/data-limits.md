@@ -22,6 +22,12 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * All files uploaded in your container must contain data, no empty files are allowed for training.
 
+* All files should be available at the root of your container.
+
+* Maximum allowed length for your file sis 17,500 characters which is approcimatley 3,800 words or 8 pages.
+
+* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and not more than 1,000,000 files.
+
 ## API limits
 
 **Authoring API**
@@ -37,13 +43,13 @@ Use this article to learn about the data and rate limits when using custom entit
 > [!NOTE]
 > If you need to send larger files than the limit allows, you can break the text into smaller chunks of text before sending them to the API. You use can the [chunk command from CLUtils](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand) for this process.
 
-## Text analytics resource limits
+## Language resource limits
 
 * You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource you can't disconnect it later.
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource, across both the custom Named Entity Recognition (NER) and custom classification features.
+* Project names have to be unique within the same resource, across both the custom Named Entity Recognition (NER) and custom text classification features.
 
 ## Project limits
 
@@ -53,7 +59,7 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * You can't rename your project after creation.
 
-* You must have minimum of 10 files in your project for the [evaluation process](../how-to/view-model-evaluation.md) to be successful.
+* You must have minimum of 10 files in your project and a maximum of 1,000,000 files.
 
 * You can have up to 10 trained models per project.
 
@@ -63,7 +69,11 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * You can only train one model at a time per project.
 
-* You can have only 1 deployed model per project.
+## Classes
+
+* You should have at least 2 classes in your project and the maximum is 200 classes.
+
+* It is recomended to have around 200 tagged instances per class and you must have a minium of 10 of tagged instances per class.
 
 ## Naming limits
 

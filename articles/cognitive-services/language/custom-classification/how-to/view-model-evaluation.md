@@ -14,7 +14,10 @@ ms.author: aahi
 
 # View the model evaluation
 
-After model training is completed, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-splits). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
+
+Reviewing model evaluation is an important step in the Custom classification model’s development life cycle. It helps developers to learn how well their model is performing and gives them an idea about the expected performance when the model is used in production. 
+
+Model evaluation process is triggered after training is completed successfully. The evaluation process takes place by using the trained model to predict user defined classes for files in the test set and compare them with the provided data tags (ground truth). The test set consists of data that was not introduced to the model during the training process. 
 
 ## Prerequisites
 

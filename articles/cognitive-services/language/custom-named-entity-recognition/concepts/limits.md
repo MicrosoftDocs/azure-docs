@@ -22,6 +22,13 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * All files uploaded in your container must contain data. Empty files are not allowed for training.
 
+* All files should be available at the root of your container.
+
+* Maximum allowed length for your file sis 128,00 characters which is approcimatley 28,000 words or 56 pages.
+
+* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and not more than 100,000 files.
+
+
 ## APIs limits
 
 * When using the Authoring API, there is a maximum of 10 POST requests and 100 GET requests per minute.
@@ -59,9 +66,13 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can only train one model at a time per project.
 
-* You can have only 1 deployed model per project.
+## Entity
 
-* Your tagged entity length cannot exceed 128 tokens.
+* Your tagged entity is recomended to be 10 words but the maximum allowed is 100 characters.
+
+* You should have at least 1 entity in your project and the maximum is 200 entities.
+
+* It is recomended to have around 200 tagged instances per entity and you must have a minium of 10 of tagged instances per entity.
 
 ## Naming limits
 
