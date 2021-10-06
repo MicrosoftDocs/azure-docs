@@ -50,7 +50,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| PMK v5.3.0 <br/><br/> Additional storage network driver: Calico v3.18.1 | 1.20.5 |v1.0.0_2021-07-30| 15.0.4138||
+| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 |v1.0.0_2021-07-30| 15.0.4138||
 
 ### PureStorage
 
