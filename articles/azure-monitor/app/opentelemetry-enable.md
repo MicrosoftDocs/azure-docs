@@ -261,7 +261,7 @@ var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttr
 
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
-        .AddSource("Azure.Monitor.Exporter.Test")
+        .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
             o.ConnectionString = "<Your Connection String>";
@@ -831,7 +831,7 @@ Placeholder
 
 - Review the source code at the [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
 - To install the NuGet package, check for updates, or view release notes, visit the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) page.
-- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application]().
+- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Tracing.Customization).
 - To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
 
