@@ -32,29 +32,16 @@ This article lists the permissions you can use in your custom roles for differen
 
 ## How to interpret group management permissions
 
-There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To interpret the group management permissions, it helps to understand what the different permission subtypes mean. The following table has example permissions for updating group members of different subtypes.
-
-> [!div class="mx-tableFixed"]
-> | Permission subtype | Permission subtype description | Permission example | Permission description |
-> | --- | --- | --- | --- |
-> | groups | Manage security groups and Microsoft 365 groups, excluding role-assignable groups | microsoft.directory/**groups**/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | groups.unified | Manage Microsoft 365 groups, excluding role-assignable groups | microsoft.directory/**groups.unified**/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
-> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type, excluding role-assignable groups | microsoft.directory/**groups.unified.assignedMembership**/members/update | Update members of Microsoft 365 groups of assigned membership type, excluding role-assignable groups |
-> | groups.security | Manage security groups, excluding role-assignable groups | microsoft.directory/**groups.security**/members/update | Update members of Security groups, excluding role-assignable groups |
-> | groups.security.assignedMembership | Manage security groups of assigned membership type, excluding role-assignable groups | microsoft.directory/**groups.security.assignedMembership**/members/update | Update members of Security groups of assigned membership type, excluding role-assignable groups |
-
-## How to interpret group management permissions
-
-There are different types of groups, for example, security groups, security groups with an assigned membership type, Microsoft 365 groups, Microsoft 365 groups with an assigned membership type. To interpret the group management permissions, it helps to understand what the different permission subtypes mean.
+To interpret the group management permissions, it helps to understand what the different permission subtypes mean.
 
 > [!div class="mx-tableFixed"]
 > | Permission subtype | Permission subtype description |
 > | --- | --- |
 > | groups | Manage security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | groups.unified | Manage Microsoft 365 groups, excluding role-assignable groups |
-> | groups.unified.assignedMembership | Manage Microsoft 365 groups of assigned membership type, excluding role-assignable groups |
-> | groups.security | Manage security groups, excluding role-assignable groups |
-> | groups.security.assignedMembership | Manage security groups of assigned membership type, excluding role-assignable groups |
+> | groups.unified | Manage Microsoft 365 groups of both dynamic and assigned membership type, excluding role-assignable groups |
+> | groups.unified.assignedMembership | Manage Microsoft 365 groups of only assigned membership type, excluding role-assignable groups |
+> | groups.security | Manage security groups of both dynamic and assigned membership type, excluding role-assignable groups |
+> | groups.security.assignedMembership | Manage security groups of only assigned membership type, excluding role-assignable groups |
 
 The following table has example permissions for updating group members of different subtypes. 
 
