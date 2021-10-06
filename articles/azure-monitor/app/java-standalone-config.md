@@ -361,9 +361,6 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
       "quartz": {
         "enabled": true
       },
-      "rabbitmq": {
-        "enabled": true
-      },
       "springIntegration": {
         "enabled": true
       }
