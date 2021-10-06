@@ -810,7 +810,15 @@ items:
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Using the Azure Data Factory Studio UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
@@ -983,9 +991,11 @@ items:
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
       items:
-      - name: Data flows overview
+      - name: Data flow troubleshooting overview
         href: data-flow-troubleshoot-guide.md
         displayName: timeout
+      - name: Data flow errors and messages
+        href: data-flow-troubleshoot-errors.md
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
     - name: Continuous Integration and Deployment 
