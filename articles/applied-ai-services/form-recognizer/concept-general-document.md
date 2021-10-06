@@ -18,10 +18,11 @@ recommendations: false
 General document is a new capability in Form Recognizer that uses a pre-trained model to extract key value pairs and entities from documents. If you are looking for general key value pairs in documents, you no longer need to train a custom model. Analyze the document with general document to extract most key value pairs.
 
 Benefits of general document
-1. No need to train a custom model to extract key value pairs
-2. Single API to extract key value pairs and entities
-3. Pre-trained model that will be periodically trained on new data to improve coverage and accuracy
-4. Supports most common form types 
+1.	No need to train a custom model to extract key value pairs
+2.	Single API to extract key value pairs, entities, text, tables and structure from documents
+3.	Pre-trained model that will be periodically trained on new data to improve coverage and accuracy
+4.	Supports structured, semi-structured and unstructured documents
+
 
 ## Using general document
 
