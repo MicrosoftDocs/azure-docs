@@ -231,7 +231,7 @@ items:
     items:
     - name: Integrate Power BI 
       href: key-phrase-extraction/tutorials/integrate-power-bi.md
-- name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
+- name: Named Entity Recognition (NER)
   items:
   - name: Overview
     href: named-entity-recognition/overview.md
