@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Snackmagic application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre-populated but you can review them as per your requirements.
+1. In addition to above, Snackmagic application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements.
 	
 	| Name | Source Attribute|
 	| --------| --------- |
@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| phone | user.telephonenumber |
 	| email | user.userprincipalname |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -144,15 +144,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Select **Enable SSO** checkbox.
 
-	1. In the **Service Provider Issuer/Identifier** textbox, paste the **Identifier URL** value which you have copied from the Azure portal.
+	1. In the **Service Provider Issuer/Identifier** textbox, paste the **Identifier URL** value, which you have copied from the Azure portal.
 
-	1. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+	1. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
 	1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
 
 	1. Select **Enable SLO** checkbox.
 
-	1. In the **Identity Provider Single Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+	1. In the **Identity Provider Single Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
 	1. Click **SUBMIT**.
 
@@ -174,7 +174,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Snackmagic for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Snackmagic tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snackmagic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Snackmagic tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snackmagic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
