@@ -34,11 +34,11 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)
+* [**General document**](#general-document)
 
-* [**Layout**](#layout-model)
+* [**Layout**](#layout)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#prebuilt-invoice)
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Analyze a document with a Form Recognizer model
 
@@ -414,7 +414,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 ### Improve results
 
-[!INCLUDE [improve results](../../includes/improve-results-unlabeled.md)]
+[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
 
 ## Manage custom models
 

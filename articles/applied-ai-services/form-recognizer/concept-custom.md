@@ -1,7 +1,7 @@
 ---
-title: Custom and composed models - Form Recognizer
+title: Form Recognizer Custom and composed models 
 titleSuffix: Azure Applied AI Services
-description: Learn how to create, use, and manage Form Recognizer custom and composed models- usage and limits.
+description: Learn how to create, use, and manage Form Recognizer custom and composed models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -66,8 +66,6 @@ With composed models, you can assign multiple custom models to a composed model 
 * Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
-
-* Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.
 
 ### Try signature detection
 

@@ -24,7 +24,7 @@ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (v3.0)**](concept-v3-prebuilt.md#custom-model) supports signature detection for custom forms.
+* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom forms.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
 
@@ -222,11 +222,6 @@ Sample response
 
 In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API when using any of the preview features.
 
-<<<<<<< HEAD
-=======
-> [!div class="nextstepaction"]
->
->>>>>>> 5d4d568a8f3b5d8ae3e6fd3150b8240a77cacfaf
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](quickstarts/client-library.md)

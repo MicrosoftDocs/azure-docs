@@ -37,11 +37,11 @@ The Python SDK supports the following models and capabilities:
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)
+* [**General document**](#general-documentl)
 
-* [**Layout**](#layout-model)
+* [**Layout**](#layout)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#prebuilt-invoice)
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -316,7 +316,7 @@ def analyze_layout():
 
 #### Prebuilt invoice model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../concept-invoice.md#key-value-pair-extraction)
 
 > [!div class="checklist"]
 >

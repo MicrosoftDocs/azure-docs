@@ -107,8 +107,6 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
-* Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.
-
 ## Next steps
 
 * Complete a Form Recognizer quickstart:

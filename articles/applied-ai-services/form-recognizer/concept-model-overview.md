@@ -82,7 +82,7 @@ The business card model analyzes and extracts key information from business card
 
 ### General document
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](chow-to-use-custom-composed-models.md#train-without-labels).
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 

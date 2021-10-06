@@ -17,7 +17,7 @@ recommendations: false
 
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0)) API, see our [migration guide](v3-migration-guide.md).
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](how-to-use-custom-composed-models.md#train-without-labels).
 
 ## General document features
 
@@ -100,9 +100,5 @@ Email | string | Email address. |
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
-* Try a [**Form Recognizer (preview) quickstart**](quickstarts/try-v3-client-libraries-sdk.md) and get started creating a form processing app in the development language of your choice.
-
 > [!div class="nextstepaction"]
-> [Try general document in the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
-
-
+> [Try the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
