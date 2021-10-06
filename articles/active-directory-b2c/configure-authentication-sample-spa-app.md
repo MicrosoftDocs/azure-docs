@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -79,8 +79,8 @@ In this step, you create the SPA and the web API application registrations, and 
 To create the SPA registration, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application (for example, *MyApp*).
@@ -294,7 +294,7 @@ You're now ready to test the single-page application's scoped access to the API.
 
     ![Screenshot of the SPA sample app displayed in the browser window.](./media/configure-authentication-sample-spa-app/sample-app-sign-in.png)
 
-1. Sign in by using the email address and password you used in the [previous tutorial](tutorial-single-page-app.md). After you've logged in successfully, you should see the "User \<your username> logged in" message.
+1. Complete the sign-up or sign-in process. After you've logged in successfully, you should see the "User \<your username> logged in" message.
 1. Select the **Call API** button. The SPA sends the access token in a request to the protected web API, which returns the display name of the logged-in user:
 
     ![Screenshot of the SPA in a browser window, showing the username JSON result that's returned by the API.](./media/configure-authentication-sample-spa-app/sample-app-result.png)

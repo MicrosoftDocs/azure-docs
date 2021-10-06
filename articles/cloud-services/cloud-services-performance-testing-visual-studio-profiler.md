@@ -11,8 +11,7 @@ ms.custom:
 ---
 # Testing the Performance of a Cloud Service (classic) Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Azure, you can have Visual Studio collect profiling

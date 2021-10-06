@@ -1,8 +1,8 @@
 ---
 title: Getting started with the Azure Maps Power BI visual | Microsoft Azure Maps
 description: In this article, you will learn how to use the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,7 +13,7 @@ ms.custom:
 
 # Getting started with the Azure Maps Power BI visual
 
-<Token>**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
+**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
 
 This article shows how to use the Microsoft Azure Maps visual for Power BI.
 

@@ -92,7 +92,7 @@ You can choose the **time range** from among several preset options (such as *la
 
 The following types of items are included in the timeline:
 
-- Alerts - any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./tutorial-detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
+- Alerts - any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
 
 - Bookmarks - any bookmarks that include the specific entity shown on the page.
 
@@ -161,7 +161,7 @@ Azure Sentinel provides out-of-the-box a set of hunting queries, exploration que
 For more information, see:
 
 - [Hunt for threats with Azure Sentinel](hunting.md)
-- [Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 
 As legacy defense tools become obsolete, organizations may have such a vast and porous digital estate that it becomes unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. Relying heavily on reactive efforts, such as analytics and rules, enable bad actors to learn how to evade those efforts. This is where UEBA comes to play, by providing risk scoring methodologies and algorithms to figure out what is really happening.
 

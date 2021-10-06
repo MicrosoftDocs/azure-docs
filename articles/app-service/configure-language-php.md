@@ -116,11 +116,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Commit all your changes and deploy your code using Git, or Zip deploy [with build automation enabled](deploy-zip.md#enable-build-automation). Composer should now be running as part of deployment automation.
+Commit all your changes and deploy your code using Git, or Zip deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). Composer should now be running as part of deployment automation.
 
 ## Run Grunt/Bower/Gulp
 
-If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation). 
+If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). 
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -203,7 +203,7 @@ fi
 
 ## Customize build automation
 
-If you deploy your app using Git, or using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `php composer.phar install`.

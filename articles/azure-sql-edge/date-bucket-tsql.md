@@ -32,7 +32,7 @@ DATE_BUCKET (datePart, number, date, origin)
 The part of *date* that is used with the ‘number’ parameter. Ex. Year, month, minute, second etc.
 
 > [!NOTE]
-> `DATE_BUCKET` does not accept user-defined variable equivalents for the *datepPart* arguments.
+> `DATE_BUCKET` does not accept user-defined variable equivalents for the *datePart* arguments.
 
 |*datePart*|Abbreviations|
 |---|---|
@@ -56,8 +56,8 @@ An expression that can resolve to one of the following values:
 
 + **date**
 + **datetime**
-+ **datetimeoffset**
 + **datetime2**
++ **datetimeoffset**
 + **smalldatetime**
 + **time**
 
@@ -69,8 +69,8 @@ An optional expression that can resolve to one of the following values:
 
 + **date**
 + **datetime**
-+ **datetimeoffset**
 + **datetime2**
++ **datetimeoffset**
 + **smalldatetime**
 + **time**
 

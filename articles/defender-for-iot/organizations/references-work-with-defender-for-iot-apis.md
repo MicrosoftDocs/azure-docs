@@ -2120,97 +2120,51 @@ Note that /api/v2/ is needed for the following information:
 
 ```rest
 [
-
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Traffic Detected on sensor Interface",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 0,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808245000,
-        
         "sensorId": 1,
-        
         "message": "The sensor resumed detecting network traffic on ens224.",
-        
         "destinationDevice": 0,
-        
         "id": 1,
-        
         "severity": "Warning"
-    
     },
-    
     {
-    
         "engine": "Anomaly",
-        
         "handled": false,
-        
         "title": "Address Scan Detected",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 4,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808260000,
-        
         "sensorId": 1,
-        
         "message": "Address scan detected.\nScanning address: 10.10.10.22\nScanned subnet: 10.11.0.0/16\nScanned addresses: 10.11.1.1, 10.11.20.1, 10.11.20.10, 10.11.20.100, 10.11.20.2, 10.11.20.3, 10.11.20.4, 10.11.20.5, 10.11.20.6, 10.11.20.7...\nIt is recommended to notify the security officer of the incident.",
-        
         "destinationDevice": 0,
-        
         "id": 2,
-        
         "severity": "Critical"
-    
     },
-    
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Suspicion of Unresponsive MODBUS Device",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 194,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808285000,
-        
         "sensorId": 1,
-        
         "message": "Outstation device 10.13.10.1 (Protocol Address 53) seems to be unresponsive to MODBUS requests.",
-        
         "destinationDevice": 0,
-        
         "id": 3,
-        
         "severity": "Minor"
-    
     }
-  
 ]
 ```
 
@@ -2362,11 +2316,8 @@ The APIs that you define here appear in the on-premises management console's **A
 - **400 (Bad Request)**: Appears in the following cases:
 
    - The **ttl** parameter is not numeric or not positive.
-
    - The **subnets** parameter was defined using a wrong format.
-
    - The **ticketId** parameter is missing.
-
    - The **engine** parameter does not match the existing security engines.
 
 - **404 (Not Found)**: One of the sensors doesn't exist.
@@ -2397,9 +2348,7 @@ This method is useful when you want to set a longer duration than the currently 
 - **400 (Bad Request)**: Appears in the following cases:
 
    - The **ttl** parameter is not numeric or not positive.
-
    - The **ticketId** parameter is missing.
-
    - The **ttl** parameter is missing.
 
 - **404 (Not Found)**: The ticket ID is not linked to an open maintenance window.

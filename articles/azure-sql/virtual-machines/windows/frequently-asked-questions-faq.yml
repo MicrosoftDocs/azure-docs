@@ -13,7 +13,7 @@ metadata:
   ms.topic: troubleshooting
   ms.tgt_pltfrm: vm-windows-sql-server
   ms.workload: iaas-sql-server
-  ms.date: 08/05/2019
+  ms.date: 9/01/2021
   ms.author: mathoma
     
 title: Frequently asked questions for SQL Server on Azure VMs
@@ -114,7 +114,7 @@ sections:
       - question: |
           Will switching licensing models require any downtime for SQL Server?
         answer: |
-             No. [Changing the licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL IaaS Agent extension, the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
+             No. [Changing the licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM.  
              
       - question: |
           Is it possible to switch licensing models on a SQL Server VM deployed using classic model?
@@ -272,11 +272,11 @@ sections:
       - question: |
           What is the default management mode when registering with the SQL IaaS Agent extension?
         answer: |
-             The default management mode when you register with the SQL IaaS Agent extension is *lightweight*. If the SQL Server management property isn't set when you register with the extension, the mode will be set as lightweight, and your SQL Server service will not restart. It is recommended to register with the SQL IaaS Agent extension in lightweight mode first, and then upgrade to full during a maintenance window. Likewise, the default management is also lightweight when using the [automatic registration feature](sql-agent-extension-automatic-registration-all-vms.md).
+             The default management mode when you register with the SQL IaaS Agent extension is *lightweight*. If the SQL Server management property isn't set when you register with the extension, the mode will be set as lightweight.  The default management mode when using the [automatic registration feature](sql-agent-extension-automatic-registration-all-vms.md) is also lightweight mode. 
           
       - question: |
           What are the prerequisites to register with the SQL IaaS Agent extension?
-        answer:    There are no prerequisites to registering with the SQL IaaS Agent extension other than having SQL Server installed on the VM. Note that if the SQL IaaS agent extension is installed in full mode the SQL Server service will restart, so doing so during a maintenance window is recommended.
+        answer:    There are no prerequisites to registering with the SQL IaaS Agent extension other than having SQL Server installed on the VM. 
 
       - question: |
           Will registering with the SQL IaaS Agent extension install an agent on my VM?
@@ -288,7 +288,7 @@ sections:
           
       - question: |
           Will registering with the SQL IaaS Agent extension restart SQL Server on my VM?
-        answer:    It depends on the mode specified during registration. If lightweight or NoAgent mode is specified, then the SQL Server service will not restart. However, specifying the management mode as full will cause the SQL Server service to restart. The automatic registration feature registers your SQL Server VMs in lightweight mode, unless the Windows Server version is 2008, in which case the SQL Server VM will be registered in NoAgent mode. 
+        answer:    Starting in September 2021, restarting the SQL Server service is no longer required when registering with the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) in [full management mode](sql-agent-extension-manually-register-single-vm.md).  
 
       - question: |
           What is the difference between lightweight and NoAgent management modes when registering with the SQL IaaS Agent extension? 
@@ -311,7 +311,7 @@ sections:
 
       - question: |
           Can I upgrade the SQL Server IaaS extension from lightweight mode to full mode?
-        answer:    Yes. Upgrading the manageability mode from lightweight to full is supported via Azure PowerShell or the Azure portal. This will trigger a restart of the SQL Server service.
+        answer:    Yes. Upgrading the manageability mode from lightweight to full is supported via Azure PowerShell or the Azure portal. 
 
       - question: |
           Can I downgrade the SQL Server IaaS extension from full mode to NoAgent or lightweight management mode?

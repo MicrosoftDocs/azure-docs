@@ -31,13 +31,16 @@ To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP dat
 
 After the SAP data connector is deployed, deploy the  SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-In this tutorial, you learn:
+In this article, you learn:
 
 > [!div class="checklist"]
 > * How to prepare your SAP system for the SAP data connector deployment
 > * How to use a Docker container and an Azure VM to deploy the SAP data connector
 > * How to deploy the SAP solution security content in Azure Sentinel
 
+> [!NOTE]
+> Extra steps are required to deploy your SAP data connector over a secure SNC connection. For more information, see [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md).
+>
 ## Prerequisites
 
 In order to deploy the Azure Sentinel SAP data connector and security content as described in this tutorial, you must have the following prerequisites:
@@ -79,7 +82,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     |- 700 to 702<br>- 710 to 711, 730, 731, and 740<br>- 750 to 752     | 2502336: CD (Change Document): RSSCD100 - read only from archive, not from database        |
     |     |         |
 
-    Later versions do not require the additional notes. For more information, see the [SAP support Launchpad site](https://support.sap.com/en/index.html), logging in with a SAP user account.
+    Later versions do not require the extra notes. For more information, see the [SAP support Launchpad site](https://support.sap.com/en/index.html), logging in with an SAP user account.
 
 1. Download and install one of the following SAP change requests from the Azure Sentinel GitHub repository, at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR:
 
@@ -129,7 +132,7 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 1. Use the following command as an example, inserting the values for your resource group and VM name:
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. On your new VM, install:
@@ -164,26 +167,29 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
       --resource-group $kvgp
     ```
 
-1. Assign an access policy, including GET, LIST, and SET permissions to the VM's managed identity.
+1. Assign an access policy, including GET, LIST, and SET permissions to the VM's managed identity, using one of the following methods:
 
-    In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
+    - **Via the Azure portal**:
 
-    For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
+        In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
-1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
+        For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
 
-    ```azurecli
-    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-    ```
+    - **Via the Azure CLI**:
 
-    Your principal ID is displayed for you to use in the following step.
+        1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 
-1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from the previous step.
+            ```azurecli
+            VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
+            ```
 
-    ```azurecli
-    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
-    ```
+            Your principal ID is displayed for you to use in the following step.
 
+        1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from  the previous step.
+
+            ```azurecli
+            az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
+            ```
 ## Deploy your SAP data connector
 
 The Azure Sentinel SAP data connector deployment script installs [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector), storing credentials in your [dedicated key vault](#create-key-vault-for-your-sap-credentials).
@@ -255,7 +261,7 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
     To display the newly deployed content, go to:
 
-    - **Threat Management** > **Workbooks**, to find the [SAP - System Applications and Products - Preview](sap-solution-security-content.md#sap---system-applications-and-products-workbook) workbook.
+    - **Threat Management** > **Workbooks** > **My workbooks**, to find the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks).
     - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
 1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution.
@@ -283,19 +289,22 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
-1. Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. Run:
+Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Run:
 
-1. Run the following command on your SAP data connector machine:
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
+The SAP data connector Docker container on your machine is updated. 
 
-The SAP data connector Docker container on your machine is updated.
+Make sure to check for any other updates available:
+
+- Relevant SAP change requests, in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
+- Azure Sentinel SAP security content, in the **Azure Sentinel Continuous Threat Monitoring for SAP** solution
+- Relevant watchlists, in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)
+
 
 ## Collect SAP HANA audit logs
 
@@ -333,7 +342,8 @@ If you have SAP HANA database audit logs configured with Syslog, you'll need als
 
 Learn more about the Azure Sentinel SAP solutions:
 
-- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)

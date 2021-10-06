@@ -7,8 +7,9 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # List of Session Border Controllers certified for Azure Communication Services direct routing
 This document contains a list of Session Border Controllers certified for Azure Communication Services direct routing. It also includes known limitations.
@@ -33,8 +34,11 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
-|AudioCodes|Mediant SBC|7.40A
-|Metaswitch|Perimeta SBC|4.9|
+|[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant SBC|7.40A
+|[Metaswitch](https://manuals.metaswitch.com/Perimeta/V4.9/AzureCommunicationServicesIntegrationGuide/Source/notices.html)|Perimeta SBC|4.9|
+|[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8.4|
+|Ribbon Communications|[SBC SWe / SBC 5400 / SBC 7000](https://support.sonus.net/display/ALLDOC/Ribbon+Configurations+with+Azure+Communication+Services+Direct+Routing)|9.02|
+||SBC SWe Lite / SBC 1000 / SBC 2000|9.0
 
 Note the certification granted to a major version. That means that firmware with any number in the SBC firmware following the major version is supported.
 
@@ -43,7 +47,7 @@ Note the certification granted to a major version. That means that firmware with
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./sip-interface-infrastructure.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
 - [Pricing](../pricing.md)
 

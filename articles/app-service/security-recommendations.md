@@ -5,7 +5,7 @@ author: msmbaldwin
 manager: barbkess
 
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -53,7 +53,7 @@ This article contains security recommendations for Azure App Service. Implementi
 
 | Recommendation | Comments |
 |-|-|
-|Use Azure Security Center standard tier | [Azure Security Center](../security-center/defender-for-app-service-introduction.md) is natively integrated with Azure App Service. It can run assessments and provide security recommendations. |
+|Use Azure Security Center's Azure Defender for App Service | [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md) is natively integrated with Azure App Service. Security Center assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in [these recommendations]()../security-center/recommendations-reference.md#appservices-recommendations) to harden your App Service resources. Azure Defender also provides threat protection and can detect a multitude of threats covering almost the complete list of MITRE ATT&CK tactics from pre-attack to command and control. For a full list of the Azure App Service alerts, see [Azure Defender for App Service alerts](../security-center/alerts-reference.md#alerts-azureappserv).|
 
 ## Next steps
 

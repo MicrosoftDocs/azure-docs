@@ -12,6 +12,8 @@ ms.author: risverma
 
 # B-series burstable virtual machine sizes
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The B-series VMs can be deployed on a variety of hardware types and processors, so competitive bandwidth allocation is provided. B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the virtual machine. The B-series provides you with the ability to purchase a VM size with baseline performance that can build up credits when it is using less than its baseline. When the VM has accumulated credits, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
 The B-series comes in the following VM sizes:
@@ -46,6 +48,7 @@ The B-series comes in the following VM sizes:
 <sup>1</sup> B-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 <sup>2</sup> B1ls is supported only on Linux
+
 
 ## Workload example
 

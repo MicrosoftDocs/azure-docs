@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/16/2021
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search

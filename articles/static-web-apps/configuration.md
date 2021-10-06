@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
 ---
 
@@ -29,7 +29,7 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 
 ## File location
 
-The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -54,22 +54,22 @@ The default file for static content is the _index.html_ file.
 
 Each rule is composed of a route pattern, along with one or more of the optional rule properties. Route rules are defined in the `routes` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
-| Rule property                       | Required | Default value                        | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------- | -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `route`                             | Yes      | n/a                                  | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin_ path.</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rewrite`                           | No       | n/a                                  | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location.<li>Values must be relative to the root of the app</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `redirect`                          | No       | n/a                                  | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).</ul>                                                                                                                                                                                                              |
-| `allowedRoles`                      | No       | anonymous                            | Defines a list of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
-| `headers`<a id="route-headers"></a> | No       | n/a                                  | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers override [`globalHeaders`](#global-headers) when the route-specific header is the same as the global header is in the response.<li>To remove a header, set the value to an empty string.</ul>                                                                                                                                                                                                                                                                                          |
-| `statusCode`                        | No       | `200`, `301`, or `302` for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `methods`                           | No       | All methods                          | List of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Rule property | Required | Default value | Comment |
+|--|--|--|--|
+| `route` | Yes | n/a | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin_ path.</ul></ul> |
+| `rewrite` | No | n/a | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location.<li>Values must be relative to the root of the app</ul> |
+| `redirect` | No | n/a | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).</ul> |
+| `allowedRoles` | No | anonymous | Defines a list of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers override [`globalHeaders`](#global-headers) when the route-specific header is the same as the global header is in the response.<li>To remove a header, set the value to an empty string.</ul> |
+| `statusCode` | No | `200`, `301`, or `302` for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
+| `methods` | No | All methods | List of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`. |
 
 Each property has a specific purpose in the request/response pipeline.
 
-| Purpose                                        | Properties                                                                                   |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Match routes                                   | `route`, `methods`                                                                           |
-| Authorize after a route is matched             | `allowedRoles`                                                                               |
+| Purpose | Properties |
+|--|--|
+| Match routes | `route`, `methods` |
+| Authorize after a route is matched | `allowedRoles` |
 | Process after a rule is matched and authorized | `rewrite` (modifies request) <br><br>`redirect`, `headers`, `statusCode` (modifies response) |
 
 ## Securing routes with roles
@@ -182,15 +182,15 @@ The example file structure below, the following outcomes are possible with this 
 └── index.html
 ```
 
-| Requests to...                                         | returns...                                                                                                    | with the status... |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
-| _/about/_                                              | The _/index.html_ file                                                                                        | `200`              |
-| _/images/logo.png_                                     | The image file                                                                                                | `200`              |
-| _/images/icon.svg_                                     | The _/index.html_ file - since the _svg_ file extension is not listed in the `/images/*.{png,jpg,gif}` filter | `200`              |
-| _/images/unknown.png_                                  | File not found error                                                                                          | `404`              |
-| _/css/unknown.css_                                     | File not found error                                                                                          | `404`              |
-| _/css/global.css_                                      | The stylesheet file                                                                                           | `200`              |
-| Any other file outside the _/images_ or _/css_ folders | The _/index.html_ file                                                                                        | `200`              |
+| Requests to... | returns... | with the status... |
+|--|--|--|
+| _/about/_ | The _/index.html_ file | `200` |
+| _/images/logo.png_ | The image file | `200` |
+| _/images/icon.svg_ | The _/index.html_ file - since the _svg_ file extension is not listed in the `/images/*.{png,jpg,gif}` filter | `200` |
+| _/images/unknown.png_ | File not found error | `404` |
+| _/css/unknown.css_ | File not found error | `404` |
+| _/css/global.css_ | The stylesheet file | `200` |
+| Any other file outside the _/images_ or _/css_ folders | The _/index.html_ file | `200` |
 
 > [!IMPORTANT]
 > If you are migrating from the deprecated [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) file, do not include the legacy fallback route (`"route": "/*"`) in the [routing rules](#routes).
@@ -215,12 +215,12 @@ The `responseOverrides` section provides an opportunity to define a custom respo
 
 The following HTTP codes are available to override:
 
-| Status Code                                                   | Meaning      | Possible cause                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request  | Invalid invitation link                                                                                                                                                                                                                                                                            |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | Request to restricted pages while unauthenticated                                                                                                                                                                                                                                                  |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden    | <ul><li>User is logged in but doesn't have the roles required to view the page.<li>User is logged in but the runtime cannot get the user details from their identity claims.<li>There are too many users logged in to the site with custom roles, therefore the runtime can't login the user.</ul> |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found    | File not found                                                                                                                                                                                                                                                                                     |
+| Status Code | Meaning | Possible cause |
+|--|--|--|
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request | Invalid invitation link |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | Request to restricted pages while unauthenticated |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden | <ul><li>User is logged in but doesn't have the roles required to view the page.<li>User is logged in but the runtime cannot get the user details from their identity claims.<li>There are too many users logged in to the site with custom roles, therefore the runtime can't login the user.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | File not found |
 
 The following example configuration demonstrates how to override an error code.
 
@@ -228,20 +228,17 @@ The following example configuration demonstrates how to override an error code.
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }
@@ -269,6 +266,62 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 ```
 
 When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
+
+In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
+
+```json
+"networking": {
+  "allowedIpRanges": ["AzureFrontDoor.Backend"]
+}
+```
+
+## Authentication
+
+* [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
+* [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
+
+## Forwarding gateway
+
+The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
+
+> [!NOTE]
+> Forwarding gateway configuration is only available in the Azure Static Web Apps Standard plan.
+
+### Allowed Forwarded Hosts
+  
+The `allowedForwardedHosts` list specifies which hostnames to accept in the [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) header. If a matching domain is in the list, Static Web Apps uses the `X-Forwarded-Host` value when constructing redirect URLs, such as after a successful login.
+
+For Static Web Apps to function correctly behind a forwarding gateway, the request from the gateway must include the correct hostname in the `X-Forwarded-Host` header and the same hostname must be listed in `allowedForwardedHosts`.
+
+```json
+"forwardingGateway": {
+  "allowedForwardedHosts": [
+    "example.org",
+    "www.example.org",
+    "staging.example.org"
+  ]
+}
+```
+
+If the `X-Forwarded-Host` header doesn't match a value in the list, the requests still succeed, but the header isn't used in the response.
+
+### Required headers
+
+Required headers are HTTP headers that must be sent with each request to your site. One use of required headers is to deny access to a site unless all of the required headers are present in each request.
+
+For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md) that limits access to your site from a specific Azure Front Door instance. See the [Configure Azure Front Door tutorial](front-door-manual.md) for full details.
+
+```json
+"forwardingGateway": {
+  "requiredHeaders": {
+    "X-Azure-FDID" : "692a448c-2b5d-4e4d-9fcc-2bc4a6e2335f"
+  }
+}
+```
+
+- Key/value pairs can be any set of arbitrary strings
+- Keys are case insensitive
+- Values are case sensitive
 
 ## Example configuration file
 
@@ -359,21 +412,21 @@ When one or more IP address blocks are specified, requests originating from IP a
 
 Based on the above configuration, review the following scenarios.
 
-| Requests to...                                                    | results in...                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _/profile_                                                        | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_.                                                                                                                                                                                                                                                                                                                              |
-| _/admin/_                                                         | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_.                                                                                                                                                                                                          |
-| _/logo.png_                                                       | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds).                                                                                                                                                                                                                                                                                                                                   |
-| _/api/admin_                                                      | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
-| _/customers/contoso_                                              | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_.                                                                                                                            |
-| _/login_                                                          | Unauthenticated users are challenged to authenticate with GitHub.                                                                                                                                                                                                                                                                                                                                                                             |
-| _/.auth/login/twitter_                                            | As authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code.                                                                                                                                                                                                                                                                                     |
-| _/logout_                                                         | Users are logged out of any authentication provider.                                                                                                                                                                                                                                                                                                                                                                                          |
-| _/calendar/2021/01_                                               | The browser is served the _/calendar.html_ file.                                                                                                                                                                                                                                                                                                                                                                                              |
-| _/specials_                                                       | The browser is permanently redirected to _/deals_.                                                                                                                                                                                                                                                                                                                                                                                            |
-| _/data.json_                                                      | The file served with the `text/json` MIME type.                                                                                                                                                                                                                                                                                                                                                                                               |
-| _/about_, or any folder that matches client side routing patterns | The _/index.html_ file is served with a `200` status code.                                                                                                                                                                                                                                                                                                                                                                                    |
-| An non-existent file in the _/images/_ folder                     | A `404` error.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Requests to... | results in... |
+|--|--|
+| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
+| _/admin/_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds). |
+| _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
+| _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code. |
+| _/logout_ | Users are logged out of any authentication provider. |
+| _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
+| _/specials_ | The browser is permanently redirected to _/deals_. |
+| _/data.json_ | The file served with the `text/json` MIME type. |
+| _/about_, or any folder that matches client side routing patterns | The _/index.html_ file is served with a `200` status code. |
+| An non-existent file in the _/images/_ folder | A `404` error. |
 
 <sup>1</sup> You can provide a custom error page by using a [response override rule](#response-overrides).
 

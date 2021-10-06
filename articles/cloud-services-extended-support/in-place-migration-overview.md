@@ -58,7 +58,7 @@ A new Cloud Service (extended support) can be deployed directly in Azure Resourc
 The platform supported migration provides following key benefits:
 
 - Enables seamless platform orchestrated migration with no downtime for most scenarios. Learn more about [supported scenarios](in-place-migration-technical-details.md).  
-- Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works]in-place-migration-overview.md#migration-steps).
+- Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works](in-place-migration-overview.md#migration-steps).
 - Provides the ability to test migrated deployments after successful preparation. Commit and finalize the migration while abort rolls back the migration.
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
@@ -122,7 +122,6 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	Dynamic Public IP addresses
 - 	DNS Name 
 - 	Network Traffic Rules
-- 	Hypernet virtual network
 
 ## Supported configurations / migration scenarios
 These are top scenarios involving combinations of resources, features, and Cloud Services. This list is not exhaustive.

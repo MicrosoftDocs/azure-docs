@@ -35,6 +35,8 @@ To manage individual devices, an operator can use device views to set device and
 
 To manage devices in bulk, an operator can create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
+If your IoT Central application uses *organizations*, an administrator controls which devices in the application you have access to.
+
 ## Troubleshoot and remediate issues
 
 The operator is responsible for the health of the application and its devices. The [troubleshooting guide](troubleshoot-connection.md) helps operators diagnose and remediate common issues. An operator can use the **Devices** page to block devices that appear to be malfunctioning until the problem is resolved.

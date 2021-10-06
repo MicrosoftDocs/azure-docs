@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/10/2021
+ms.date: 08/04/2021
 ms.author: aersoy
 ---
 
@@ -14,11 +14,13 @@ ms.author: aersoy
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Change Feed provides logs of all the changes that occur in the DICOM Service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM Service and acts upon the creates and deletes in the service.
+The Change Feed provides logs of all the changes that occur in the DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM service and acts upon the creates and deletes in the service.
 
 Client applications can read these logs at any time, either in streaming, or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
 You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the Change Feed, in parallel, and at their own pace.
+
+Make sure to specify the version as part of the URL when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
 ## API Design
 
