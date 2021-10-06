@@ -21,8 +21,7 @@ summary: |
 sections:
   - name: Licensing and setup
     questions:
-      - question: |
-          #### What are the licensing requirements to use sensitivity labels on files and database columns in Azure Purview? 
+      - question: What are the licensing requirements to use sensitivity labels on files and database columns in Azure Purview? 
         answer: |
           To use sensitivity labels in Azure Purview, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account.  
 
