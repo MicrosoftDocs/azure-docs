@@ -2,7 +2,7 @@
 title: What is Azure Synapse Analytics Data Explorer (Preview)
 description: This article provides an introduction to Data Explorer in Azure Synapse Analytics and the different scenarios in which you can use it.
 ms.topic: overview
-ms.date: 08/19/2021
+ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja

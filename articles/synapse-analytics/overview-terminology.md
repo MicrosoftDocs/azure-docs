@@ -6,7 +6,7 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 08/08/2021
+ms.date: 11/02/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
 ---
