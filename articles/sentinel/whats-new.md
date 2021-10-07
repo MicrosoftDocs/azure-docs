@@ -30,7 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2021
 
-- [DHCP normalization schema (Public preview)](#dhcp-event-normalization-schema-public-preview)
+- [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
 
 ### DHCP normalization schema (Public preview)
 
