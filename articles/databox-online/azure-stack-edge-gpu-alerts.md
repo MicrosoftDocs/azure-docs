@@ -24,7 +24,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
-* [FPGA Edge compute alerts](#fpga-edge-compute-alerts) - *Resolve multiples before porting.*
+* [FPGA only - Edge compute alerts](#fpga-only-edge-compute-alerts)
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
 * [Minimum configuration alerts](#minimum-configuration-alerts)
 * [Performance alerts](#performance-alerts)
@@ -34,8 +34,6 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Storage alerts](#storage-alerts)
 * [Security alerts](#security-alerts)
 * [Key vault alerts](#key-vault-alerts)
-
-
 
 ## Cloud connectivity alerts
 
@@ -73,9 +71,18 @@ If the issue persists, do the following:<ol><li>In the local web UI, go to **Tro
 |Your Edge compute module(s) may be using a local mount point {15} that is different than the local mountpoint used by a share. |Warning |Ensure that the local mountpoint {15} used is the one that is mapped to the share.<ul><li>In the Azure portal, go to **Shares** in your Data Box Edge resource.</li><li>Select a share to view the local mount point for Edge compute module.</li><li>Ensure that this path is used in the module and deploy the module again.</li></ol>Restart the device. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the alert persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support).md). |
 
 
-## FPGA Edge compute alerts
+## FPGA only - Edge compute alerts
 
-*Resolve multiple before porting in table.*
+|Alert text |Severity |Description / Recommended action |
+|---------------------|---------------------------------|
+|FPGA on your device is unhealthy. |Critical |This may be due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA driver software is not running. | Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA configuration has an issue. |Critical |We've detected an unsupported FPGA card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA configuration has an issue. |This may be due to one of the following reasons:<ol><li>Image on the FPGA is not valid.</li><li>FPGA card isn't seated properly.</li><li>Underlying issues with the FPGA driver.</li></ol>To resolve the issue, redeploy the Azure IoT Edge module. Once the issue is resolved, the alert goes away.<br>If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA configuration has an issue. |Critical |As your Azure IoT Machine Learning module starts up, you may see this transient issue. Wait a few minutes to see if the issue resolves.<br>If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA configuration has an issue. |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|FPGA card temperature is rising. |Warning |This might be because the FPGA card has a high usage. Consider stopping or reducing the workload on the Azure IoT Machine Learning module.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Shutting down the FPGA card as the card temperature has exceeded the operating limit! |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 
 
 ## Local Azure Resource Manager alerts
