@@ -62,58 +62,43 @@ The following table lists Azure services and the data they collect into Azure Mo
 
 | Service | Resourse Provider Namespace | Has Metrics | Has Logs | Insight
 |---------|-----------------------------|-------------|----------|-----------|
- | Azure Active Directory Domain Services | Microsoft.AAD/DomainServices | No | **Yes** | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml)   | 
- | Azure Active Directory | Microsoft.Aadiam/azureADMetrics | **Yes** | No | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml)   | 
+ | Application Gateway | Microsoft.Network/applicationGateways | **Yes** | **Yes** | [Application Gateway](/azure/application-gateway/) | 
+ | Azure Active Directory | Microsoft.Aadiam/azureADMetrics | **Yes** | No | [Azure Active Directory Domain Services](/azure/active-directory-domain-services/)   | 
+ | Azure Active Directory Domain Services | Microsoft.AAD/DomainServices | No | **Yes** | [Azure Active Directory Domain Services](/azure/active-directory-domain-services/)   | 
  | Azure Analysis Services | Microsoft.AnalysisServices/servers | **Yes** | **Yes** | [Azure Analysis Services](/azure/analysis-services/)   | 
- | Azure API Management | Microsoft.ApiManagement/service | **Yes** | **Yes** | [API Management](../../api-management/index.yml)   | 
- | Azure AppConfig | Microsoft.AppConfiguration/configurationStores | **Yes** | **Yes** | [Azure App Configuration](../../azure-app-configuration/index.yml)   | 
- | Azure Spring Cloud | Microsoft.AppPlatform/Spring | **Yes** | **Yes** | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md)   | 
- | Azure Attestation Service | Microsoft.Attestation/attestationProviders | No | **Yes** | [Azure Attestation overview](https://docs.microsoft.com/azure/attestation/overview) | 
- | Azure Automation | Microsoft.Automation/automationAccounts | **Yes** | **Yes** | [Automation](../../automation/index.yml)   | 
- | Azure VMware Solution | Microsoft.AVS/privateClouds | **Yes** | **Yes** | [Azure VMware Solution](../../azure-vmware/index.yml)   | 
- | Azure Batch | Microsoft.Batch/batchAccounts | **Yes** | **Yes** | [Batch](../../batch/index.yml)   | 
- | Azure Batch | Microsoft.BatchAI/workspaces | No | No | [Batch](../../batch/index.yml)   | 
- | Microsoft Bing | Microsoft.Bing/accounts | **Yes** | No | [Bing Search API documentation - Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/) | 
+ | Azure API for Fast Healthcare Interoperability Resources (FHIR) | Microsoft.HealthcareApis/services | **Yes** | **Yes** | [Azure API for FHIR](/azure/healthcare-apis/) | 
+ | Azure API for Fast Healthcare Interoperability Resources (FHIR) | Microsoft.HealthcareApis/workspaces/iotconnectors | **Yes** | No | [Azure API for FHIR](/azure/healthcare-apis/) | 
+ | Azure API Management | Microsoft.ApiManagement/service | **Yes** | **Yes** | [API Management](/azure/api-management/)   | 
+ | Azure App Service & Functions | Microsoft.Web/connections | **Yes** | No | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/hostingEnvironments | **Yes** | **Yes** | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/hostingEnvironments/multiRolePools | **Yes** | No | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/hostingEnvironments/workerPools | **Yes** | No | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/serverFarms | **Yes** | No | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/sites | **Yes** | **Yes** | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/sites/slots | **Yes** | **Yes** | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure App Service & Functions | Microsoft.Web/staticSites | **Yes** | No | [App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | 
+ | Azure AppConfig | Microsoft.AppConfiguration/configurationStores | **Yes** | **Yes** | [Azure App Configuration](/azure/azure-app-configuration/)   | 
+ | Azure Attestation Service | Microsoft.Attestation/attestationProviders | No | **Yes** | [Azure Attestation overview](/azure/attestation/overview) | 
+ | Azure Automation | Microsoft.Automation/automationAccounts | **Yes** | **Yes** | [Automation](/azure/automation/)   | 
+ | Azure Bastion | Microsoft.Network/bastionHosts | **Yes** | **Yes** | [Azure Bastion](/azure/bastion/) | 
+ | Azure Batch | Microsoft.Batch/batchAccounts | **Yes** | **Yes** | [Batch](/azure/batch/)   | 
+ | Azure Batch | Microsoft.BatchAI/workspaces | No | No | [Batch](/azure/batch/)   | 
  | Azure Blockchain Service | Microsoft.Blockchain/blockchainMembers | **Yes** | **Yes** | [Azure Blockchain Service](/azure/blockchain/workbench/)   | 
  | Azure Blockchain Service | Microsoft.Blockchain/cordaMembers | No | **Yes** | [Azure Blockchain Service](/azure/blockchain/workbench/)   | 
  | Azure Bot Service | Microsoft.BotService/botServices | **Yes** | **Yes** | [Azure Bot Service](/azure/bot-service/)   | 
- | Redis Cache | Microsoft.Cache/Redis | **Yes** | **Yes** | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | 
- | Redis Cache | Microsoft.Cache/redisEnterprise | **Yes** | No | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | 
- | Content Delivery Network | Microsoft.Cdn/CdnWebApplicationFirewallPolicies | **Yes** | **Yes** | [Content Delivery Network](../../cdn/index.yml)   | 
- | Content Delivery Network | Microsoft.Cdn/profiles | **Yes** | **Yes** | [Content Delivery Network](../../cdn/index.yml)   | 
- | Content Delivery Network | Microsoft.Cdn/profiles/endpoints | No | **Yes** | [Content Delivery Network](../../cdn/index.yml)   | 
- | Virtual Machines - Classic | Microsoft.ClassicCompute/domainNames/slots/roles | **Yes** | No | Classic deployment model virtual machine   | 
- | Virtual Machines - Classic | Microsoft.ClassicCompute/virtualMachines | **Yes** | No | Classic deployment model virtual machine   | 
- | Virtual Network (Classic) | Microsoft.ClassicNetwork/networkSecurityGroups | No | **Yes** | Classic deployment model virtual network | 
- | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts | **Yes** | No | Classic deployment model storage   | 
- | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/blobServices | **Yes** | No | Classic deployment model storage   | 
- | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/fileServices | **Yes** | No | Classic deployment model storage   | 
- | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/queueServices | **Yes** | No | Classic deployment model storage   | 
- | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/tableServices | **Yes** | No | Classic deployment model storage   | 
- | Microsoft Cloud Test Platform | Microsoft.Cloudtest/hostedpools | **Yes** | No |  | 
- | Microsoft Cloud Test Platform | Microsoft.Cloudtest/pools | **Yes** | No |  | 
- | Cray ClusterStor in Azure | Microsoft.ClusterStor/nodes | **Yes** | No | Cray on Azure | 
- | Cognitive Services | Microsoft.CognitiveServices/accounts | **Yes** | **Yes** | [Cognitive Services](/azure/cognitive-services/)   | 
+ | Azure Cache for Redis | Microsoft.Cache/Redis | **Yes** | **Yes** | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | 
+ | Azure Cache for Redis | Microsoft.Cache/redisEnterprise | **Yes** | No | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | 
+ | Azure Cognitive Services | Microsoft.CognitiveServices/accounts | **Yes** | **Yes** | [Cognitive Services](/azure/cognitive-services/)   | 
  | Azure Communication Services | Microsoft.Communication/CommunicationServices | **Yes** | **Yes** | [Azure Communication Services](/azure/communication-services/) | 
- | Virtual Machines | Microsoft.Compute/cloudServices | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Virtual Machines | Microsoft.Compute/cloudServices/roles | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Virtual Machines | Microsoft.Compute/disks | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Virtual Machines | Microsoft.Compute/virtualMachines | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Virtual Machine Scale Sets | Microsoft.Compute/virtualMachineScaleSets | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Virtual Machine Scale Sets | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
- | Microsoft Connected Vehicle Platform | Microsoft.ConnectedVehicle/platformAccounts | **Yes** | **Yes** | Connected vehicle program | 
  | Azure Container Instances | Microsoft.ContainerInstance/containerGroups | **Yes** | No | [Container Instances](/azure/container-instances/)   | 
  | Azure Container Registry | Microsoft.ContainerRegistry/registries | **Yes** | **Yes** | [Container Registry](/azure/container-registry/)   | 
- | Azure Kubernetes Service (AKS) | Microsoft.ContainerService/managedClusters | **Yes** | **Yes** | [Azure Kubernetes Service (AKS)](/azure/aks/)   | 
+ | Azure Content Delivery Network | Microsoft.Cdn/CdnWebApplicationFirewallPolicies | **Yes** | **Yes** | [Content Delivery Network](/azure/cdn/)   | 
+ | Azure Content Delivery Network | Microsoft.Cdn/profiles | **Yes** | **Yes** | [Content Delivery Network](/azure/cdn/)   | 
+ | Azure Content Delivery Network | Microsoft.Cdn/profiles/endpoints | No | **Yes** | [Content Delivery Network](/azure/cdn/)   | 
+ | Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | **Yes** | **Yes** | [Azure Cosmos DB](/azure/cosmos-db/)   | 
  | Azure Custom Providers | Microsoft.CustomProviders/resourceProviders | **Yes** | **Yes** | [Azure Custom Providers](../custom-providers/overview.md)   | 
- | Microsoft Dynamics 365 Customer Insights | Microsoft.D365CustomerInsights/instances | No | **Yes** | Dynamics 365 | 
- | Azure Stack Edge | Microsoft.DataBoxEdge/DataBoxEdgeDevices | **Yes** | No | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md)   | 
- | Azure Databricks | Microsoft.Databricks/workspaces | No | **Yes** | [Azure Databricks](/azure/azure-databricks/)   | 
- | Project CI | Microsoft.DataCollaboration/workspaces | **Yes** | **Yes** | Project CI | 
- | Data Factory | Microsoft.DataFactory/dataFactories | **Yes** | No | [Data Factory](/azure/data-factory/)   | 
- | Data Factory | Microsoft.DataFactory/factories | **Yes** | **Yes** | [Data Factory](/azure/data-factory/)   | 
- | Data Lake Analytics | Microsoft.DataLakeAnalytics/accounts | **Yes** | **Yes** | [Data Lake Analytics](/azure/data-lake-analytics/)   | 
- | Azure Data Lake Storage Gen2 | Microsoft.DataLakeStore/accounts | **Yes** | **Yes** | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)   | 
+ | Azure Data Explorer | Microsoft.Kusto/clusters | **Yes** | **Yes** | [Azure Data Explorer](/azure/data-explorer/)   | 
+ | Azure Data Lake Storage Gen2 | Microsoft.DataLakeStore/accounts | **Yes** | **Yes** | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction.md)   | 
  | Azure Data Share | Microsoft.DataShare/accounts | **Yes** | **Yes** | [Azure Data Share](/azure/data-share/)   | 
  | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | **Yes** | **Yes** | [Azure Database for MariaDB](/azure/mariadb/)   | 
  | Azure Database for MySQL | Microsoft.DBforMySQL/flexibleServers | **Yes** | **Yes** | [Azure Database for MySQL](/azure/mysql/)   | 
@@ -122,115 +107,130 @@ The following table lists Azure services and the data they collect into Azure Mo
  | Azure Database for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | **Yes** | **Yes** | [Azure Database for PostgreSQL](/azure/postgresql/)   | 
  | Azure Database for PostgreSQL | Microsoft.DBforPostgreSQL/servers | **Yes** | **Yes** | [Azure Database for PostgreSQL](/azure/postgresql/)   | 
  | Azure Database for PostgreSQL | Microsoft.DBforPostgreSQL/serversv2 | **Yes** | **Yes** | [Azure Database for PostgreSQL](/azure/postgresql/)   | 
- | Windows Virtual Desktop | Microsoft.DesktopVirtualization/applicationgroups | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
- | Windows Virtual Desktop | Microsoft.DesktopVirtualization/hostpools | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
- | Windows Virtual Desktop | Microsoft.DesktopVirtualization/workspaces | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
- | IoT Hub | Microsoft.Devices/ElasticPools | **Yes** | No | [Azure IoT Hub](/azure/iot-hub/)<br />[Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | 
- | IoT Hub | Microsoft.Devices/ElasticPools/IotHubTenants | **Yes** | **Yes** | [Azure IoT Hub](/azure/iot-hub/)<br />[Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | 
- | IoT Hub | Microsoft.Devices/IotHubs | **Yes** | **Yes** | [Azure IoT Hub](/azure/iot-hub/)<br />[Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | 
- | IoT Hub | Microsoft.Devices/ProvisioningServices | **Yes** | **Yes** | [Azure IoT Hub](/azure/iot-hub/)<br />[Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | 
- | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | **Yes** | **Yes** | [Azure Digital Twins](../../digital-twins/about-digital-twins.md)   | 
- | Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | **Yes** | **Yes** | [Azure Cosmos DB](../../cosmos-db/index.yml)   | 
- | Event Grid | Microsoft.EventGrid/domains | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/eventSubscriptions | **Yes** | No | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/extensionTopics | **Yes** | No | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/partnerNamespaces | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/partnerTopics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/systemTopics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
- | Event Grid | Microsoft.EventGrid/topics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
- | Event Hubs | Microsoft.EventHub/clusters | **Yes** | No | [Event Hubs](../../event-hubs/index.yml)   | 
- | Event Hubs | Microsoft.EventHub/namespaces | **Yes** | **Yes** | [Event Hubs](../../event-hubs/index.yml)   | 
- | Microsoft Experimentation Platform | microsoft.experimentation/experimentWorkspaces | **Yes** | **Yes** | [Microsoft Experimentation Platform](https://www.microsoft.com/research/group/experimentation-platform-exp/) | 
- | HDInsight | Microsoft.HDInsight/clusters | **Yes** | No | [HDInsight](../../hdinsight/index.yml)   | 
- | API for Fast Healthcare Interoperability Resources (FHIR) | Microsoft.HealthcareApis/services | **Yes** | **Yes** | [Azure API for FHIR][/azure/healthcare-apis/] | 
- | API for Fast Healthcare Interoperability Resources (FHIR) | Microsoft.HealthcareApis/workspaces/iotconnectors | **Yes** | No | [Azure API for FHIR][/azure/healthcare-apis/] | 
- | StorSimple | microsoft.hybridnetwork/networkfunctions | **Yes** | No | [StorSimple](/azure/storsimple/)   | 
- | StorSimple | microsoft.hybridnetwork/virtualnetworkfunctions | **Yes** | No | [StorSimple](/azure/storsimple/)   | 
- | Azure Monitor Autoscale | microsoft.insights/autoscalesettings | **Yes** | **Yes** | [Azure Monitor](../../azure-monitor/index.yml)   | 
- | Azure Monitor Application Insights | microsoft.insights/components | **Yes** | **Yes** | [Azure Monitor](../../azure-monitor/index.yml)   | 
- | Azure IoT Central | Microsoft.IoTCentral/IoTApps | **Yes** | No | [Azure IoT Central](/azure/iot-central/)   | 
- | Azure Key Vault | Microsoft.KeyVault/managedHSMs | **Yes** | **Yes** | [Key Vault](../../key-vault/index.yml)   | 
- | Azure Key Vault | Microsoft.KeyVault/vaults | **Yes** | **Yes** | [Key Vault](../../key-vault/index.yml)   | 
- | Azure Kubernetes Service (AKS) | Microsoft.Kubernetes/connectedClusters | **Yes** | No | [Azure Kubernetes Service (AKS)](/azure/aks/)   | 
- | Azure Data Explorer | Microsoft.Kusto/clusters | **Yes** | **Yes** | [Azure Data Explorer](/azure/data-explorer/)   | 
- | Azure Logic Apps | Microsoft.Logic/integrationAccounts | No | **Yes** | [Logic Apps](../../logic-apps/index.yml)   | 
- | Azure Logic Apps | Microsoft.Logic/integrationServiceEnvironments | **Yes** | No | [Logic Apps](../../logic-apps/index.yml)   | 
- | Azure Logic Apps | Microsoft.Logic/workflows | **Yes** | **Yes** | [Logic Apps](../../logic-apps/index.yml)   | 
- | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | **Yes** | **Yes** | [Azure Machine Learning](../../machine-learning/index.yml)   | 
- | Azure Maps | Microsoft.Maps/accounts | **Yes** | No | [Azure Maps](../../azure-maps/index.yml)   | 
- | Media Services | Microsoft.Media/mediaservices | **Yes** | **Yes** | [Media Services](../../media-services/index.yml)   | 
- | Media Services | Microsoft.Media/mediaservices/liveEvents | **Yes** | No | [Media Services](../../media-services/index.yml)   | 
- | Media Services | Microsoft.Media/mediaservices/streamingEndpoints | **Yes** | No | [Media Services](../../media-services/index.yml)   | 
- | Media Services | Microsoft.Media/videoAnalyzers | **Yes** | **Yes** | [Media Services](../../media-services/index.yml)   | 
- | Azure Spatial Anchors | Microsoft.MixedReality/remoteRenderingAccounts | **Yes** | No | [Azure Spatial Anchors](/azure/spatial-anchors/)   | 
- | Azure Spatial Anchors | Microsoft.MixedReality/spatialAnchorsAccounts | **Yes** | No | [Azure Spatial Anchors](/azure/spatial-anchors/)   | 
- | Azure NetApp Files | Microsoft.NetApp/netAppAccounts/capacityPools | **Yes** | No | [Azure NetApp Files](../../azure-netapp-files/index.yml)   | 
- | Azure NetApp Files | Microsoft.NetApp/netAppAccounts/capacityPools/volumes | **Yes** | No | [Azure NetApp Files](../../azure-netapp-files/index.yml)   | 
- | Application Gateway | Microsoft.Network/applicationGateways | **Yes** | **Yes** | [Application Gateway](/azure/application-gateway/) | 
- | Azure Firewall | Microsoft.Network/azureFirewalls | **Yes** | **Yes** | [Azure Firewall](/azure/firewall/) | 
- | Azure Bastion | Microsoft.Network/bastionHosts | **Yes** | **Yes** | [Azure Bastion](/azure/bastion/) | 
- | VPN Gateway | Microsoft.Network/connections | **Yes** | No | [VPN Gateway](/azure/vpn-gateway/) | 
+ | Azure Databricks | Microsoft.Databricks/workspaces | No | **Yes** | [Azure Databricks](/azure/azure-databricks/)   | 
+ | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | **Yes** | **Yes** | [Azure Digital Twins](/azure/digital-twins/about-digital-twins.md)   | 
  | Azure DNS | Microsoft.Network/dnszones | **Yes** | No | [Azure DNS](/azure/dns/) | 
- | ExpressRoute | Microsoft.Network/expressRouteCircuits | **Yes** | **Yes** | [Azure ExpressRoute](azure/expressroute/index.yml) | 
- | ExpressRoute | Microsoft.Network/expressRouteGateways | **Yes** | No | [Azure ExpressRoute](azure/expressroute/index.yml) | 
- | ExpressRoute | Microsoft.Network/expressRoutePorts | **Yes** | No | [Azure ExpressRoute](azure/expressroute/index.yml) | 
- | Azure Front Door | Microsoft.Network/frontdoors | **Yes** | **Yes** | [Azure Frontdoor](/azure/frontdoor/) | 
- | Azure Load Balancer | Microsoft.Network/loadBalancers | **Yes** | **Yes** | Azure Load Balancer | 
- | Azure Software Load Balancer | Microsoft.Network/natGateways | **Yes** | No | Azure Software Load Balancer | 
- | Azure Virtual Network | Microsoft.Network/networkInterfaces | **Yes** | No | Azure Virtual Network | 
- | Azure Virtual Network | Microsoft.Network/networkSecurityGroups | No | **Yes** | Azure Virtual Network | 
- | Azure Network Watcher | Microsoft.Network/networkWatchers/connectionMonitors | **Yes** | No | Azure Network Watcher | 
- | Azure Virtual WAN | Microsoft.Network/p2sVpnGateways | **Yes** | **Yes** | Azure Virtual WAN | 
  | Azure DNS Private Zones | Microsoft.Network/privateDnsZones | **Yes** | No | Azure DNS Private Zones | 
+ | Azure Event Grid | Microsoft.EventGrid/domains | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/eventSubscriptions | **Yes** | No | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/extensionTopics | **Yes** | No | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/partnerNamespaces | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/partnerTopics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/systemTopics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Grid | Microsoft.EventGrid/topics | **Yes** | **Yes** | [Event Grid](/azure/event-grid/)   | 
+ | Azure Event Hubs | Microsoft.EventHub/clusters | **Yes** | No | [Event Hubs](/azure/event-hubs/)   | 
+ | Azure Event Hubs | Microsoft.EventHub/namespaces | **Yes** | **Yes** | [Event Hubs](/azure/event-hubs/)   | 
+ | Azure ExpressRoute | Microsoft.Network/expressRouteCircuits | **Yes** | **Yes** | [Azure ExpressRoute](azure/expressroute/) | 
+ | Azure ExpressRoute | Microsoft.Network/expressRouteGateways | **Yes** | No | [Azure ExpressRoute](azure/expressroute/) | 
+ | Azure ExpressRoute | Microsoft.Network/expressRoutePorts | **Yes** | No | [Azure ExpressRoute](azure/expressroute/) | 
+ | Azure Firewall | Microsoft.Network/azureFirewalls | **Yes** | **Yes** | [Azure Firewall](/azure/firewall/) | 
+ | Azure Front Door | Microsoft.Network/frontdoors | **Yes** | **Yes** | [Azure Frontdoor](/azure/frontdoor/) | 
+ | Azure HDInsight | Microsoft.HDInsight/clusters | **Yes** | No | [HDInsight](/azure/hdinsight/)   | 
+ | Azure HPC Cache | Microsoft.StorageCache/caches | **Yes** | No | [Azure HPC Cache](/azure/hpc-cache/) | 
+ | Azure IoT Central | Microsoft.IoTCentral/IoTApps | **Yes** | No | [Azure IoT Central](/azure/iot-central/)   | 
+ | Azure IoT Hub | Microsoft.Devices/ElasticPools | **Yes** | No | [Azure IoT Hub](/azure/iot-hub/) | 
+ | Azure IoT Hub | Microsoft.Devices/ElasticPools/IotHubTenants | **Yes** | **Yes** | [Azure IoT Hub](/azure/iot-hub/) | 
+ | Azure IoT Hub | Microsoft.Devices/IotHubs | **Yes** | **Yes** | [Azure IoT Hub](/azure/iot-hub/) | 
+ | Azure IoT Hub | Microsoft.Devices/ProvisioningServices | **Yes** | **Yes** | [Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | 
+ | Azure Key Vault | Microsoft.KeyVault/managedHSMs | **Yes** | **Yes** | [Key Vault](/azure/key-vault/)   | 
+ | Azure Key Vault | Microsoft.KeyVault/vaults | **Yes** | **Yes** | [Key Vault](/azure/key-vault/)   | 
+ | Azure Kubernetes Service (AKS) | Microsoft.ContainerService/managedClusters | **Yes** | **Yes** | [Azure Kubernetes Service (AKS)](/azure/aks/)   | 
+ | Azure Kubernetes Service (AKS) | Microsoft.Kubernetes/connectedClusters | **Yes** | No | [Azure Kubernetes Service (AKS)](/azure/aks/)   | 
+ | Azure Load Balancer | Microsoft.Network/loadBalancers | **Yes** | **Yes** | Azure Load Balancer | 
+ | Azure Logic Apps | Microsoft.Logic/integrationAccounts | No | **Yes** | [Logic Apps](/azure/logic-apps/)   | 
+ | Azure Logic Apps | Microsoft.Logic/integrationServiceEnvironments | **Yes** | No | [Logic Apps](/azure/logic-apps/)   | 
+ | Azure Logic Apps | Microsoft.Logic/workflows | **Yes** | **Yes** | [Logic Apps](/azure/logic-apps/)   | 
+ | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | **Yes** | **Yes** | [Azure Machine Learning](/azure/machine-learning/)   | 
+ | Azure Maps | Microsoft.Maps/accounts | **Yes** | No | [Azure Maps](/azure/azure-maps/)   | 
+ | Azure Media Services | Microsoft.Media/mediaservices | **Yes** | **Yes** | [Media Services](/azure/media-services/)   | 
+ | Azure Media Services | Microsoft.Media/mediaservices/liveEvents | **Yes** | No | [Media Services](/azure/media-services/)   | 
+ | Azure Media Services | Microsoft.Media/mediaservices/streamingEndpoints | **Yes** | No | [Media Services](/azure/media-services/)   | 
+ | Azure Media Services | Microsoft.Media/videoAnalyzers | **Yes** | **Yes** | [Media Services](/azure/media-services/)   | 
+ | Azure Monitor Application Insights | microsoft.insights/components | **Yes** | **Yes** | [Azure Monitor](/azure/azure-monitor/)   | 
+ | Azure Monitor Autoscale | microsoft.insights/autoscalesettings | **Yes** | **Yes** | [Azure Monitor](/azure/azure-monitor/)   | 
+ | Azure Monitor Log Analytics | Microsoft.OperationalInsights/workspaces | **Yes** | **Yes** | [Azure Monitor](/azure/azure-monitor/)   | 
+ | Azure NetApp Files | Microsoft.NetApp/netAppAccounts/capacityPools | **Yes** | No | [Azure NetApp Files](/azure/azure-netapp-files/)   | 
+ | Azure NetApp Files | Microsoft.NetApp/netAppAccounts/capacityPools/volumes | **Yes** | No | [Azure NetApp Files](/azure/azure-netapp-files/)   | 
+ | Azure Network Watcher | Microsoft.Network/networkWatchers/connectionMonitors | **Yes** | No | Azure Network Watcher | 
+ | Azure Peering Service | Microsoft.Peering/peerings | **Yes** | No | Microsoft Azure Peering Service | 
+ | Azure Peering Service | Microsoft.Peering/peeringServices | **Yes** | No | Microsoft Azure Peering Service | 
  | Azure Private Link | Microsoft.Network/privateEndpoints | **Yes** | No | Azure Private Link | 
  | Azure Private Link | Microsoft.Network/privateLinkServices | **Yes** | No | Azure Private Link | 
- | Azure Virtual Network | Microsoft.Network/publicIPAddresses | **Yes** | **Yes** | Azure Virtual Network | 
- | Azure Traffic Manager | Microsoft.Network/trafficmanagerprofiles | **Yes** | **Yes** | Azure Traffic Manager | 
- | Azure Virtual WAN | Microsoft.Network/virtualHubs | **Yes** | No | Azure Virtual WAN | 
- | Azure Virtual Network Gateway | Microsoft.Network/virtualNetworkGateways | **Yes** | **Yes** | Azure Virtual Network Gateway | 
- | Azure Virtual Network | Microsoft.Network/virtualNetworks | **Yes** | **Yes** | Azure Virtual Network | 
- | Azure Virtual Routers | Microsoft.Network/virtualRouters | **Yes** | No | Azure Virtual Routers | 
- | Azure Virtual WAN (This is a VWAN setting for VPN gateways) | Microsoft.Network/vpnGateways | **Yes** | **Yes** | Azure VPN Gateway - Virtual WAN | 
- | Notification Hubs | Microsoft.NotificationHubs/namespaces/notificationHubs | **Yes** | No | [Notification Hubs](../../notification-hubs/index.yml)   | 
- | Azure Monitor Log Analytics | Microsoft.OperationalInsights/workspaces | **Yes** | **Yes** | [Azure Monitor](../../azure-monitor/index.yml)   | 
- | Microsoft Azure Peering Service | Microsoft.Peering/peerings | **Yes** | No | Microsoft Azure Peering Service | 
- | Microsoft Azure Peering Service | Microsoft.Peering/peeringServices | **Yes** | No | Microsoft Azure Peering Service | 
- | Power BI | Microsoft.PowerBI/tenants | No | **Yes** | [Power BI](/power-bi/power-bi-overview)   | 
- | Power BI | Microsoft.PowerBI/tenants/workspaces | No | **Yes** | [Power BI](/power-bi/power-bi-overview)   | 
- | Power BI Embedded | Microsoft.PowerBIDedicated/capacities | **Yes** | **Yes** | [Power BI Embedded](/azure/power-bi-embedded/)   | 
  | Azure Purview | Microsoft.Purview/accounts | **Yes** | **Yes** | [Azure Purview](/azure/purview/) | 
- | Azure Site Recovery | Microsoft.RecoveryServices/vaults | **Yes** | **Yes** | [Azure Site Recovery](../../site-recovery/index.yml)   | 
- | Azure Relay | Microsoft.Relay/namespaces | **Yes** | **Yes** | [Azure Relay](../../service-bus-relay/relay-what-is-it.md)   | 
- | Azure Resource Manager | Microsoft.Resources/subscriptions | **Yes** | No | [Azure Resource Manager](../index.yml)   | 
- | Azure Search | Microsoft.Search/searchServices | **Yes** | **Yes** | [Azure Cognitive Search](../../search/index.yml)   | 
+ | Azure Relay | Microsoft.Relay/namespaces | **Yes** | **Yes** | [Azure Relay](/azure/service-bus-relay/relay-what-is-it.md)   | 
+ | Azure Resource Manager | Microsoft.Resources/subscriptions | **Yes** | No | [Azure Resource Manager](../)   | 
+ | Azure Search | Microsoft.Search/searchServices | **Yes** | **Yes** | [Azure Cognitive Search](/azure/search/)   | 
  | Azure Service Bus | Microsoft.ServiceBus/namespaces | **Yes** | **Yes** | [Service Bus](/azure/service-bus/)   | 
- | Azure SignalR Service | Microsoft.SignalRService/SignalR | **Yes** | **Yes** | [Azure SignalR Service](/azure/azure-signalr/index.yml)   | 
- | Azure SignalR Service | Microsoft.SignalRService/WebPubSub | **Yes** | **Yes** | [Azure SignalR Service](/azure/azure-signalr/index.yml)   | 
- | Azure SQL Managed Instance | Microsoft.Sql/managedInstances | **Yes** | **Yes** | [Azure SQL Managed Instance](/azure/azure-sql/database/monitoring-tuning-index) | 
+ | Azure SignalR Service | Microsoft.SignalRService/SignalR | **Yes** | **Yes** | [Azure SignalR Service](/azure/azure-signalr/)   | 
+ | Azure SignalR Service | Microsoft.SignalRService/WebPubSub | **Yes** | **Yes** | [Azure SignalR Service](/azure/azure-signalr/)   | 
+ | Azure Site Recovery | Microsoft.RecoveryServices/vaults | **Yes** | **Yes** | [Azure Site Recovery](/azure/site-recovery/)   | 
+ | Azure Software Load Balancer | Microsoft.Network/natGateways | **Yes** | No | Azure Software Load Balancer | 
+ | Azure Spatial Anchors | Microsoft.MixedReality/remoteRenderingAccounts | **Yes** | No | [Azure Spatial Anchors](/azure/spatial-anchors/)   | 
+ | Azure Spatial Anchors | Microsoft.MixedReality/spatialAnchorsAccounts | **Yes** | No | [Azure Spatial Anchors](/azure/spatial-anchors/)   | 
+ | Azure Spring Cloud | Microsoft.AppPlatform/Spring | **Yes** | **Yes** | [Azure Spring Cloud](/azure/spring-cloud/spring-cloud-overview.md)   | 
  | Azure SQL Database | Microsoft.Sql/servers/databases | **Yes** | No | [Azure SQL Database](/azure/azure-sql/database/) | 
  | Azure SQL Database | Microsoft.Sql/servers/elasticpools | **Yes** | No | [Azure SQL Database](/azure/azure-sql/database/) | 
- | Azure Storage | Microsoft.Storage/storageAccounts | **Yes** | No | [Storage](../../storage/index.yml)   | 
+ | Azure SQL Managed Instance | Microsoft.Sql/managedInstances | **Yes** | **Yes** | [Azure SQL Managed Instance](/azure/azure-sql/database/monitoring-tuning-index) | 
+ | Azure Stack Edge | Microsoft.DataBoxEdge/DataBoxEdgeDevices | **Yes** | No | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview.md)   | 
+ | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts | **Yes** | No | [Azure Storage (Classic)](/azure/storage/) | 
+ | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/blobServices | **Yes** | No | [Azure Storage Blobs (Classic)](/azure/storage/blobs/) | 
+ | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/fileServices | **Yes** | No | Azure Storage Files (Classic)(/azure/storage/files/) | 
+ | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/queueServices | **Yes** | No | Azure Storage Queues (Classic)(/azure/storage/queue/) | 
+ | Azure Storage (Classic) | Microsoft.ClassicStorage/storageAccounts/tableServices | **Yes** | No | Azure Storage Tables (Classic)(/azure/storage/tables/) | 
+ | Azure Storage | Microsoft.Storage/storageAccounts | **Yes** | No | [Storage](/azure/storage/)   | 
+ | Azure Storage | Microsoft.StorageSync/storageSyncServices | **Yes** | No | [Storage](/azure/storage/)   | 
  | Azure Storage Blobs | Microsoft.Storage/storageAccounts/blobServices | **Yes** | **Yes** | [Azure Storage Blobs](/azure/storage/blobs/) | 
  | Azure Storage Files | Microsoft.Storage/storageAccounts/fileServices | **Yes** | **Yes** | [Azure Storage Files](/azure/storage/files/) | 
  | Azure Storage Queue Services | Microsoft.Storage/storageAccounts/queueServices | **Yes** | **Yes** | [Azure Storage Queue Services](/azure/storage/queues/)   | 
  | Azure Storage tables | Microsoft.Storage/storageAccounts/tableServices | **Yes** | **Yes** | [Azure Table Services](/azure/storage/tables/)   | 
- | Azure HPC Cache | Microsoft.StorageCache/caches | **Yes** | No | [Azure HPC Cache](/azure/hpc-cache/) | 
- | Azure Storage | Microsoft.StorageSync/storageSyncServices | **Yes** | No | [Storage](../../storage/index.yml)   | 
- | Stream Analytics | Microsoft.StreamAnalytics/streamingjobs | **Yes** | **Yes** | [Azure Stream Analytics](../../stream-analytics/index.yml)   | 
+ | Azure Stream Analytics | Microsoft.StreamAnalytics/streamingjobs | **Yes** | **Yes** | [Azure Stream Analytics](/azure/stream-analytics/)   | 
  | Azure Synapse Analytics | Microsoft.Synapse/workspaces | **Yes** | **Yes** | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | 
  | Azure Synapse Analytics | Microsoft.Synapse/workspaces/bigDataPools | **Yes** | **Yes** | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | 
  | Azure Synapse Analytics | Microsoft.Synapse/workspaces/sqlPools | **Yes** | **Yes** | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | 
- | Azure Time Series Insights | Microsoft.TimeSeriesInsights/environments | **Yes** | **Yes** | [Azure Time Series Insights](../../time-series-insights/index.yml)   | 
- | Azure Time Series Insights | Microsoft.TimeSeriesInsights/environments/eventsources | **Yes** | **Yes** | [Azure Time Series Insights](../../time-series-insights/index.yml)   | 
- | Azure VMware Solution by CloudSimple | Microsoft.VMwareCloudSimple/virtualMachines | **Yes** | No | [Azure VMware Solution](../../azure-vmware/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/connections | **Yes** | No | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/hostingEnvironments | **Yes** | **Yes** | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/hostingEnvironments/multiRolePools | **Yes** | No | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/hostingEnvironments/workerPools | **Yes** | No | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/serverFarms | **Yes** | No | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/sites | **Yes** | **Yes** | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/sites/slots | **Yes** | **Yes** | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
- | Azure App Service & Functions | Microsoft.Web/staticSites | **Yes** | No | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml)   | 
+ | Azure Time Series Insights | Microsoft.TimeSeriesInsights/environments | **Yes** | **Yes** | [Azure Time Series Insights](/azure/time-series-insights/)   | 
+ | Azure Time Series Insights | Microsoft.TimeSeriesInsights/environments/eventsources | **Yes** | **Yes** | [Azure Time Series Insights](/azure/time-series-insights/)   | 
+ | Azure Traffic Manager | Microsoft.Network/trafficmanagerprofiles | **Yes** | **Yes** | Azure Traffic Manager | 
+ | Azure Virtual Machine Scale Sets | Microsoft.Compute/virtualMachineScaleSets | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Machine Scale Sets | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Machines - Classic | Microsoft.ClassicCompute/domainNames/slots/roles | **Yes** | No | [Virtual Machines - Classic](/azure/virtual-machines/) | 
+ | Azure Virtual Machines - Classic | Microsoft.ClassicCompute/virtualMachines | **Yes** | No | [Virtual Machines - Classic](/azure/virtual-machines/) | 
+ | Azure Virtual Machines | Microsoft.Compute/cloudServices | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Machines | Microsoft.Compute/cloudServices/roles | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Machines | Microsoft.Compute/disks | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Machines | Microsoft.Compute/virtualMachines | **Yes** | No | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | 
+ | Azure Virtual Network (Classic) | Microsoft.ClassicNetwork/networkSecurityGroups | No | **Yes** | [Virtual Network (Classic)](/azure/virtual-network/network-security-groups-overview) | 
+ | Azure Virtual Network | Microsoft.Network/networkInterfaces | **Yes** | No | Azure Virtual Network | 
+ | Azure Virtual Network | Microsoft.Network/networkSecurityGroups | No | **Yes** | Azure Virtual Network | 
+ | Azure Virtual Network | Microsoft.Network/publicIPAddresses | **Yes** | **Yes** | Azure Virtual Network | 
+ | Azure Virtual Network | Microsoft.Network/virtualNetworks | **Yes** | **Yes** | Azure Virtual Network | 
+ | Azure Virtual Network Gateway | Microsoft.Network/virtualNetworkGateways | **Yes** | **Yes** | Azure Virtual Network Gateway | 
+ | Azure Virtual Routers | Microsoft.Network/virtualRouters | **Yes** | No | Azure Virtual Routers | 
+ | Azure Virtual WAN (This is a VWAN setting for VPN gateways) | Microsoft.Network/vpnGateways | **Yes** | **Yes** | Azure VPN Gateway - Virtual WAN | 
+ | Azure Virtual WAN | Microsoft.Network/p2sVpnGateways | **Yes** | **Yes** | Azure Virtual WAN | 
+ | Azure Virtual WAN | Microsoft.Network/virtualHubs | **Yes** | No | Azure Virtual WAN | 
+ | Azure VMware Solution | Microsoft.AVS/privateClouds | **Yes** | **Yes** | [Azure VMware Solution](/azure/azure-vmware/)   | 
+ | Azure VMware Solution by CloudSimple | Microsoft.VMwareCloudSimple/virtualMachines | **Yes** | No | [Azure VMware Solution](/azure/azure-vmware/)   | 
+ | Azure VPN Gateway | Microsoft.Network/connections | **Yes** | No | [VPN Gateway](/azure/vpn-gateway/) | 
+ | Cray ClusterStor in Azure | Microsoft.ClusterStor/nodes | **Yes** | No | Cray on Azure | 
+ | Data Factory | Microsoft.DataFactory/dataFactories | **Yes** | No | [Data Factory](/azure/data-factory/)   | 
+ | Data Factory | Microsoft.DataFactory/factories | **Yes** | **Yes** | [Data Factory](/azure/data-factory/)   | 
+ | Data Lake Analytics | Microsoft.DataLakeAnalytics/accounts | **Yes** | **Yes** | [Data Lake Analytics](/azure/data-lake-analytics/)   | 
+ | Microsoft Bing | Microsoft.Bing/accounts | **Yes** | No | [Bing Search API documentation - Azure Cognitive Services/azure/cognitive-services/bing-web-search/) | 
+ | Microsoft Cloud Test Platform | Microsoft.Cloudtest/hostedpools | **Yes** | No | Cloud Test | 
+ | Microsoft Cloud Test Platform | Microsoft.Cloudtest/pools | **Yes** | No | Cloud Test | 
+ | Microsoft Connected Vehicle Platform | Microsoft.ConnectedVehicle/platformAccounts | **Yes** | **Yes** | Connected vehicle program | 
+ | Microsoft Dynamics 365 Customer Insights | Microsoft.D365CustomerInsights/instances | No | **Yes** | Dynamics 365 | 
+ | Microsoft Experimentation Platform | microsoft.experimentation/experimentWorkspaces | **Yes** | **Yes** | [Microsoft Experimentation Platform](https://www.microsoft.com/research/group/experimentation-platform-exp/) | 
+ | Notification Hubs | Microsoft.NotificationHubs/namespaces/notificationHubs | **Yes** | No | [Notification Hubs](/azure/notification-hubs/)   | 
+ | Power BI | Microsoft.PowerBI/tenants | No | **Yes** | [Power BI](/power-bi/power-bi-overview)   | 
+ | Power BI | Microsoft.PowerBI/tenants/workspaces | No | **Yes** | [Power BI](/power-bi/power-bi-overview)   | 
+ | Power BI Embedded | Microsoft.PowerBIDedicated/capacities | **Yes** | **Yes** | [Power BI Embedded](/azure/power-bi-embedded/)   | 
+ | Project CI | Microsoft.DataCollaboration/workspaces | **Yes** | **Yes** | Project CI | 
+ | StorSimple | microsoft.hybridnetwork/networkfunctions | **Yes** | No | [StorSimple](/azure/storsimple/)   | 
+ | StorSimple | microsoft.hybridnetwork/virtualnetworkfunctions | **Yes** | No | [StorSimple](/azure/storsimple/)   | 
+ | Windows Virtual Desktop | Microsoft.DesktopVirtualization/applicationgroups | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
+ | Windows Virtual Desktop | Microsoft.DesktopVirtualization/hostpools | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
+ | Windows Virtual Desktop | Microsoft.DesktopVirtualization/workspaces | No | **Yes** | [Windows Virtual Desktop](/azure/virtual-desktop/)   | 
 
 
 ## Virtual machine agents
