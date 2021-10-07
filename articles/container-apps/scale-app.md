@@ -1,6 +1,6 @@
 ---
-title: Set scaling rules in Azure Container Apps
-description: Learn how to scale applications up and down with Azure Container Apps.
+title: Scaling in Azure Container Apps
+description: Learn how applications scale in and out in Azure Container Apps.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -11,88 +11,193 @@ ms.author: cshoe
 
 # Set scaling rules in Azure Container Apps
 
-Autoscaling and scaling are the same thing
+Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas.
 
-Azure Container Apps manages horizontal scaling for you. (what does horizontal scaling mean -> add more instances)
+Scaling rules are defined in `resources.properties.template.scale` section of the [configuration](overview.md). There are two scale properties that apply to all rules in your container app.
 
-Support a large number of scale triggers
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | ? |
+| `maxReplicas` | Maximum number of replicas running for your container app. | ? | ? | 25|
 
-## HTTP autoscale
+- Individual scale rules are defined in the `rules` array.
+- If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
+- Replicas not processing, but that remain in memory are billed in the "idle charge" category.
+- Changes to scaling rules are a [revision-scope](overview.md) change.
 
-http for web APIs
-set a default number of concurrent requests: default 50
-scale instances when a single replica goes over 50 requests
+> [!IMPORTANT]
+> Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
 
-min replicas: 0 (default)
-max replicas: 25 max (check for default value)
-concurrentNumberRequest: 50 (no max value, min 1) 
-    target, not a guarantee
-        try to scale to this number
-        if set to 1 there is guarantee of thread safety
+## Scale triggers
 
-to avoid coldstart have more than 0 replicas
-    billed more for replicas
-    charged as "idle charge" -> memory consumption
+Container Apps supports a large number of scale triggers. For more information about supported scale triggers, see [KEDA Scalers](https://keda.sh/docs/scalers/).
 
-some apps, may need to go to 100
-    keep scaling until as replicas are needed
+The KEDA documentation shows code examples in YAML, while the Container Apps ARM template is in JSON. As you transform examples from KEDA for your needs, make sure to switch property names from [kebab] (https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing.
 
-can scale to zero
+## HTTP
 
-### Example
+With an HTTP scaling rule, you have control over the threshold that determines when to scale out.
 
-## Event-driven autoscale
-
-events: for queues, Kafka messages
-
-properties
-    min
-    max
-    additional fields depending on event source
-        in the KEDA docs https://keda.sh/docs/2.4/scalers/
-
-need to know both your app and its consumption capabilities & message bus technology
-    send to KEDA docs for schemas
-schema in container apps is json, not yaml
-keda uses dashes, and CA camel cases property names
-
-custom configuration section uses KEDA schema
-
-can scale to zero
-    not billed when not used
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| Once the number of requests exceeds this value, then more replicas are added, up to the `maxReplicas` amount. | 50 | 1 | n/a |
 
 ### Example
 
-Azure Storage Queue
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": 0,
+          "maxReplicas": 5, 
+          "rules": [{
+            "type": "http",
+            "concurrentRequests": 100
+          }]
+        }
+      }
+    }
+  }
+}
+```
 
-this is just an example, many scalers available
+In this example, the container app scales out up to five replicas and can scale down to zero instances. The scaling threshold is set to 100 concurrent requests per second.
 
-## CPU/memory autoscale
+## Event-driven
 
-physical resources for background processing (CPU usage, etc.)
+Container Apps can scale based of a wide variety of event types. Any event supported by [KEDA](https://keda.sh/docs/scalers/), is supported in Container Apps.
 
-does not allow you to scale to zero
-    if scaled to 0, it would no longer exists
-
-https://keda.sh/docs/2.4/scalers/cpu/
-https://keda.sh/docs/2.4/scalers/memory/
+Each event type features different properties in the `metadata` section of the KEDA definition. Use these properties to define a scale rule in Container Apps.
 
 ### Example
 
+The following example shows how to create a scale rule based on an [Azure Queue Storage](https://keda.sh/docs/scalers/azure-storage-queue/).
 
-## Go wrong
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": 1,
+          "maxReplicas": 50, 
+          "rules": [
+          {
+            "name": "queueScalingRule",
+            "azureQueue": {
+                "queueName": "myqueue",
+                "queueLength": 20,
+                "auth": [
+                    {
+                        "secretRef": "queueconnection",
+                        "triggerParameter": "connection"
+                    }
+                ]
+            }
+          }]
+        },
+      }
+    }
+  }
+}
+```
 
-scaler definition wrong
-    look at logs to see what happened
+In this example, the container app scales according to the following behavior:
 
-connection to event source
-    forget to update connection string
-    change connectivity to storage account and you can't reach it
-        changes outside the system
+- At a minimum, a single replica remains in memory.
+- Code in the container app is run as new messages arrive in the queue.
+- As the messages count in the queue exceeds 20, new replicas are provided.
+- The connection string to the queue is provided as a parameter to the configuration file and referenced via the `secretref` property.
 
-query that targets scaling issues
+## CPU
+
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA CPU scaler](https://keda.sh/docs/scalers/cpu/).
+
+### Example
+
+The following example shows how to create a CPU scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": [
+        {
+          "name": "cpuScalingRule",
+          "custom": {
+            "type": "cpu",
+            "metadata": {
+              "type": "Utilization",
+              "value": 50
+            }
+          }
+        }]
+      }
+    }
+  }
+}
+```
+
+In this example, the container app scales when CPU utilization exceeds 50%.
+
+## Memory
+
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
+
+### Example
+
+The following example shows how to create a memory scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": [
+        {
+          "name": "memoryScalingRule",
+          "custom": {
+            "type": "memory",
+            "metadata": {
+              "type": "Utilization",
+              "value": 50
+            }
+          }
+        }]
+      }
+    }
+  }
+}
+```
+
+In this example, the container app scales when memory utilization exceeds 50%.
+
+## Considerations
+
+- Vertical scaling is not supported.
+- Replica quantities are a target amount, not a guarantee.
+  - Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started](get-started.md)
+> [Secure your container app](secure-app.md)
