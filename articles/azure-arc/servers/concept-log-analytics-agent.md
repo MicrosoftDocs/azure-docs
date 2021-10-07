@@ -21,9 +21,30 @@ This article reviews deployment methods available through Azure Arc-enabled serv
 
 ## Installation options
 
-The Log Analytics agent is available as an Azure VM extension and can be installed in the following ways:
+The Log Analytics agent is available as an Azure VM extension. You can use different methods to install the VM extension using one method or a combination. This section describes each one for you to consider.
 
-* Directly from Arc-enabled servers from the portal, using PowerShell, the Azure CLI, or with an Azure Resource Manager template.
-* Using Azure Policy by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition or the **Enable Azure Monitor for VMs** policy initiative.
+### Using Arc-enabled servers
 
-The difference between the policy definition and the policy initiative is the **Configure Log Analytics extension on Azure Arc enabled <OS type> servers** policy only installs the Log Analytics VM extension and configures the agent to report to a specified Log Analytics workspace. If you are interested in VM insights to monitor the operating system performance, running processes and dependencies on other resources, then you should apply the policy initiative **Enable Azure Monitor for VMs**. It installs and configures the Log Analytics VM extension and the Dependency agent VM extension, which are both required.
+This method supports managing the installation, management, and removal of VM extensions from the Azure portal, using PowerShell, the Azure CLI, or with an Azure Resource Manager template.
+
+#### Advantages
+
+* Can be useful for testing purposes.
+* Useful if you have a small number of machines to manage.
+
+#### Disadvantages
+
+* Limited automation when using an Azure Resource Manager template, otherwise it is time consuming.
+* Can only focus on a single Arc-enabled server, and not multiple instances.
+
+### Using Azure Policy
+
+Using Azure Policy by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition or the **Enable Azure Monitor for VMs** policy initiative.
+
+#### Advantages
+
+* If the Azure Arc-enabled servers Connected Machine agent is removed, this method reinstalls it.
+
+#### Disadvantages
+
+* The **Configure Log Analytics extension on Azure Arc enabled <Operating system type> servers** policy only installs the Log Analytics VM extension and configures the agent to report to a specified Log Analytics workspace. If you are interested in VM insights to monitor the operating system performance, running processes and dependencies on other resources, then you should apply the policy initiative **Enable Azure Monitor for VMs**. It installs and configures the Log Analytics VM extension and the Dependency agent VM extension, which requires both agents.
