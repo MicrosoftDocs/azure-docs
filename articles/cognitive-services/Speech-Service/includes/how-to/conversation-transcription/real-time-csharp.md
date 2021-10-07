@@ -105,9 +105,9 @@ This sample code does the following:
 * Creates an `AudioConfig` from the sample `.wav` file to transcribe.
 * Creates a `Conversation` using `CreateConversationAsync()`.
 * Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
-* Enables `DifferentiateGuestSpeakers` feature to show the different speakers.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
+* If you want to differentiate speakers but no voice samples input, please enables `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 > [!NOTE]
 > `AudioStreamReader` is a helper class you can get on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
@@ -135,10 +135,7 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
-    // This will enable "differentiate speakers" feature. You could comment it if you want to disable the feature.
-    config.SetProperty("DifferentiateGuestSpeakers", "true");
-
-    // en-us by default. This code specifies Chinese.
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     // config.SpeechRecognitionLanguage = "zh-cn";
     var stopRecognition = new TaskCompletionSource<int>();
 

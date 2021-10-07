@@ -72,6 +72,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
+* If you want to differentiate speakers but no voice samples input, please enables `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -95,9 +96,7 @@ This sample code does the following:
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
     speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
-    // This will enable "differentiate speakers" feature. You could comment it if you want to disable the feature.
-    speechTranslationConfig.setProperty("DifferentiateGuestSpeakers", "true");
-
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

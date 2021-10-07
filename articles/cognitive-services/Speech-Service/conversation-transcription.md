@@ -50,10 +50,16 @@ This is a high-level overview of how Conversation Transcription works.
 ## Expected inputs
 
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](./speech-devices-sdk-microphone.md). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
-- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
+- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]
-> User voice samples are optional. Without voice input but have `DifferentiateGuestSpeakers` enabled, the transcription will still show different speakers, but shown as "Speaker1", "Speaker2", etc. instead of recognizing as pre-enrolled specific speaker names. For more information about setting `DifferentiateGuestSpeakers`, please refer to sample codes in [Real-Time Conversation Transcription Quickstart](.\includes\how-to\conversation-transcription\real-time-csharp.md).
+> User voice samples are required for speaker identification. Speakers who do not have voice samples will be recognized as "Unidentified". Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see example below). The transcription output will then show speakers as "Guest_0", "Guest_1", etc. instead of recognizing as pre-enrolled specific speaker names.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
+> ```javascript
+> speechTranslationConfig.setProperty("DifferentiateGuestSpeakers", "true");
+> ```
 
 
 ## Real-time vs. asynchronous
