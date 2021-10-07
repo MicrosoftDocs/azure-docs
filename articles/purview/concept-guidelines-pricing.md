@@ -67,6 +67,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and hence the data map scales down
 
+Refer [Elastic data map](./concept-elastic-data-map.md) for further details.
 
 #### Automated scanning & classification
 
