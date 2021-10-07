@@ -10,9 +10,11 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
 ---
-# Quickstart: Translate text and recognize entities in Azure portal
+# Quickstart: Translate text and recognize entities using the Import data wizard
 
-Learn how AI enrichment in Azure Cognitive Search adds language detection, text translation, and entity recognition to create searchable content in a search index. In this quickstart, you'll run the **Import data** wizard to analyze French and Spanish descriptions of several national museums located in Spain. Output is a searchable index containing translated text and entities, queryable in the portal using ([Search explorer](search-explorer.md)). 
+Learn how AI enrichment in Azure Cognitive Search adds language detection, text translation, and entity recognition to create searchable content in a search index. 
+
+In this quickstart, you'll run the **Import data** wizard to analyze French and Spanish descriptions of several national museums located in Spain. Output is a searchable index containing translated text and entities, queryable in the portal using [Search explorer](search-explorer.md). 
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
@@ -24,9 +26,9 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ An Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
++ Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
   + Choose the same subscription if you want the wizard to find your storage account and set up the connection.
 
@@ -51,7 +53,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 You should have 10 files containing French and Spanish descriptions of national museums located in Spain.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/museums-container.png" alt-text="Screenshot of the Import data command" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/museums-container.png" alt-text="List of docx files in a blob container" border="true":::
 
 You are now ready to move on the Import data wizard.
 
@@ -69,17 +71,15 @@ You are now ready to move on the Import data wizard.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/connect-to-spanish-museums.png" alt-text="Azure blob configuration" border="true":::
 
-    Continue to the next page.
-
 ### Step 2 - Add cognitive skills
 
 Next, configure AI enrichment to invoke language detection, text translation, and entity recognition. 
 
-1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 10 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 10 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach Cognitive Services attach base service" border="true":::
 
-1. Expand **Add enrichments** and make five selections:
+1. In the same page, expand **Add enrichments** and make five selections:
 
    Choose entity recognition (people, organizations, locations)
 
@@ -88,8 +88,6 @@ Next, configure AI enrichment to invoke language detection, text translation, an
    :::image type="content" source="media/cognitive-search-quickstart-blob/select-entity-lang-enrichments.png" alt-text="Attach Cognitive Services select services for skillset" border="true":::
 
    In blobs, the "Content" field contains the content of the file. In the sample data, the content is multiple paragraphs about a given museum, in either French or Spanish. The "Granularity" is the field itself. Some skills work better on smaller chunks of text, but for the skills in this quickstart, field granularity is sufficient.
-
-   Continue to the next page.
 
 ### Step 3 - Configure the index
 
@@ -108,8 +106,6 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
   :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-lang-entities.png" alt-text="Index fields" border="true":::
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
-  
-Continue to the next page.
 
 ### Step 4 - Configure the indexer
 
@@ -137,9 +133,9 @@ After an index is created, you can run queries to return results. In the portal,
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. In Query string, enter a search string to query the index, such as `search="picasso museum"&$select=people,organizations,locations,language,translated_text&$count=true&$filter=language eq 'fr'`.
+1. In Query string, enter a search string to query the index, such as `search="picasso museum" &$select=people,organizations,locations,language,translated_text &$count=true &$filter=language eq 'fr'`, and then select **Search**.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-spanish-museums.png" alt-text="Indexer status" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-spanish-museums.png" alt-text="Query string in search explorer" border="true":::
 
 Results are returned as JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. Some tips for searching in this tool include the following techniques:
 
