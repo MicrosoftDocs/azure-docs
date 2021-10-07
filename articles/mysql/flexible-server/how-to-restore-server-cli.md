@@ -61,10 +61,10 @@ az mysql flexible-server restore --restore-time
 Restore a server from this ```2021-03-03T13:10:00Z``` backup snapshot.
 
 ```azurecli
-az mysql server restore \
+az mysql flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-03-03T13:10:00Z" \
+--restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
 Time taken to restore will depend on the size of the data stored in the server.
