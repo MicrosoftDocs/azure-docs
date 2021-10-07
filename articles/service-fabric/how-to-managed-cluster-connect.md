@@ -1,0 +1,76 @@
+---
+title: Connect to a Service Fabric managed cluster
+description: Learn how to connect to a Service Fabric managed cluster
+ms.topic: how-to
+ms.date: 10/7/2021
+---
+# Connect to a Service Fabric managed cluster
+
+Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
+
+## Azure Portal
+
+Navigate to your managed cluster resource by
+
+ 1) Going to https://portal.azure.com/
+
+ 2) Navigate to your cluster resource by...
+
+ 3) In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
+
+## Service Fabric Explorer
+
+[Service Fabric Explorer](https://github.com/Microsoft/service-fabric-explorer) (SFX) is an application for inspecting and managing application and cluster health of a Microsoft Azure Service Fabric cluster. 
+
+To navigate to SFX for your managed cluster
+ 
+ 1) Going to https://portal.azure.com/
+ 
+ 2) Navigate to your cluster resource by...
+
+ 3) Locate the `SF Explorer` located in the upper right, example: https://mycluster.region.cloudapp.azure.com:19080/Explorer
+
+## PowerShell
+
+There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
+
+* Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
+
+* Install [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (or later).
+
+### Using the Service Fabric PowerShell Module
+To use this module you'll need the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource.
+
+The following command can be used to query your cluster resource for the cluster certificate thumbprint.
+
+```powershell
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprints
+```
+
+With the cluster certificate thumbprint, you're ready to connect to your cluster.
+
+```powershell
+$connectionEndpoint = "mysfcluster.eastus2.cloudapp.azure.com:19000"
+Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveIntervalInSec 10 `
+      -X509Credential `
+      -ServerCertThumbprint $serverThumbprint  `
+      -FindType FindByThumbprint `
+      -FindValue $clientThumbprint `
+      -StoreLocation CurrentUser `
+      -StoreName My
+
+```
+
+### Using the Azure Service Fabric PowerShell Module
+
+Azure Service Fabric Module enables you to do operations like creating a managed cluster, scaling a node type, and viewing managed cluster resource information. The specific operations supported for managed clusters are named `AzServiceFabricManagedCluster*` that you can reference on the [Az.ServiceFabric PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/az.servicefabric/?view=azps-6.4.0#service-fabric) documentation.
+
+The following example uses one of the operations to view a managed clusters information.
+
+```powershell
+example showing cluster information query and response
+```
+
+
+
+
