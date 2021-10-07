@@ -8,7 +8,7 @@ ms.date: 10/2/2021
 
 # Create a Video Analyzer account
 
-To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader] role for the storage account. This article describes the steps for creating a new Video Analyzer account.
+To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account, IoT Hub and two [user-assigned managed identities][docs-uami]. The managed identity for the storage account will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader] role. The managed identity for the IoT Hub will need Contributor role. This article describes the steps for creating a new Video Analyzer account.
 
  You can use either the Azure portal or an [Azure Resource Manager (ARM) template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
 
