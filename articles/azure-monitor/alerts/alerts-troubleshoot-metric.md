@@ -135,7 +135,7 @@ To avoid having the deployment fail when trying to validate the custom metric’
     }
 ```
 > [!NOTE] 
-> Using the *skipMetricValidation* parameter is also required when defining an alert rule on an existing custom metric that hasn't been emitted in more than three days.
+> Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
