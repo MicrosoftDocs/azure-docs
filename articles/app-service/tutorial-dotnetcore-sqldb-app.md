@@ -4,7 +4,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 10/06/2021
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -13,13 +13,13 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Windows.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create an ASP.NET Core app and connect it to SQL Database. When you're done, you'll have a .NET MVC app running in App Service on Windows.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create an ASP.NET Core app and connect it to a SQL Database. When you're done, you'll have an ASP.NET Core MVC app running in App Service on Linux.
 
 ::: zone-end
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect a .NET Core app to SQL Database
+> * Connect an ASP.NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
@@ -42,13 +42,13 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 - <a href="https://git-scm.com/" target="_blank">Install Git</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## Create local .NET Core app
+## Create local ASP.NET Core app
 
-In this step, you set up the local .NET Core project.
+In this step, you set up the local ASP.NET Core project.
 
 ### Clone the sample application
 
@@ -86,7 +86,7 @@ In this step, you set up the local .NET Core project.
 
     ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-1. To stop .NET Core at any time, press `Ctrl+C` in the terminal.
+1. To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
 
 ## Create production SQL Database
 
@@ -165,7 +165,7 @@ az sql db show-connection-string --client ado.net --server <server-name> --name 
 
 In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.
 
-This is the connection string for your .NET Core app. Copy it for use later.
+This is the connection string for your ASP.NET Core app. Copy it for use later.
 
 ### Configure app to connect to production database
 
@@ -196,7 +196,7 @@ From the repository root, run the following commands. Replace *\<connection-stri
 ```
 # Delete old migrations
 rm -r Migrations
-# Recreate migrations
+# Recreate migrations with UseSqlServer (see previous snippet)
 dotnet ef migrations add InitialCreate
 
 # Set connection string to production database
@@ -232,7 +232,7 @@ You're now ready to deploy your code.
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to App Service.
+In this step, you deploy your SQL Database-connected ASP.NET Core application to App Service.
 
 ### Configure local git deployment
 
@@ -357,7 +357,7 @@ To see how the connection string is referenced in your code, see [Configure app 
 
     ![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Congratulations!** You're running a data-driven .NET Core app in App Service.
+**Congratulations!** You're running a data-driven ASP.NET Core app in App Service.
 
 ## Update locally and redeploy
 
@@ -464,12 +464,12 @@ All your existing to-do items are still displayed. When you republish your ASP.N
 
 While the ASP.NET Core app runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
 
-The sample project already follows the guidance at [ASP.NET Core Logging in Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) with two configuration changes:
+The sample project already follows the guidance for the [Azure App Service logging provider](/dotnet/core/extensions/logging-providers#azure-app-service) with two configuration changes:
 
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
-1. To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
+1. To set the ASP.NET Core [log level](/dotnet/core/extensions/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
 
     ```azurecli-interactive
     az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -488,21 +488,7 @@ The sample project already follows the guidance at [ASP.NET Core Logging in Azur
 
 1. To stop log streaming at any time, type `Ctrl`+`C`.
 
-For more information on customizing the ASP.NET Core logs, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
-
-## Manage your Azure app
-
-1. To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
-
-    ![Select App Services in Azure portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
-
-1. On the **App Services** page, select the name of your Azure app.
-
-    ![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
-
-    By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
-
-    ![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+For more information on customizing the ASP.NET Core logs, see [Logging in .NET](/dotnet/core/extensions/logging).
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -513,7 +499,7 @@ What you learned:
 
 > [!div class="checklist"]
 > * Create a SQL Database in Azure
-> * Connect a .NET Core app to SQL Database
+> * Connect a ASP.NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
