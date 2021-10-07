@@ -249,7 +249,7 @@ Unlike the classification metrics for tabular datasets, image classification mod
 
 #### Summary metrics for image classification
 
-Apart from the scalar metrics that are logged at the epoch level, image classification model also log summary metrics like [confusion matrix](#Confusion-matrix), [classification charts](#ROC-curve) and classification report for the model from the best epoch. 
+Apart from the scalar metrics that are logged at the epoch level, image classification model also log summary metrics like [confusion matrix](#confusion-matrix), [classification charts](#roc-curve) and classification report for the model from the best epoch. 
 
 Classification report provides the class-level values for metrics like precision, recall, f1-score, support, auc and average_precision with  various level of averaging - micro, macro and weighted as shown below.
 Please refer to the metrics definitions from the [classification metrics](#Classification-metrics) section.
