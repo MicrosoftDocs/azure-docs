@@ -39,7 +39,7 @@ Use filters to narrow your search. For example, if a user signed in to Teams, us
 
 ## Continuous access evaluation workbooks
 
-The continuous access evaluation insights workbook allows administrators to view and monitor CAE usage insights for their tenants. The first table displays authentication attempts with IP mismatches. The second table displays the support status of CAE across various applications. This workbook can be found as template under the Conditional Access category. 
+The continuous access evaluation insights workbook allows administrators to view and monitor CAE usage insights for their tenants. The table displays authentication attempts with IP mismatches. This workbook can be found as template under the Conditional Access category. 
 
 ### Accessing the CAE workbook template
 
@@ -51,7 +51,7 @@ Log Analytics integration must be completed before workbooks are displayed. For 
 
 [ ![Find the CAE insights workbook in the gallery to continue monitoring](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png#lightbox)
 
-The **Continuous access evaluation insights** workbook contains two tables:
+The **Continuous access evaluation insights** workbook contains the following table:
 
 ### Potential IP address mismatch between Azure AD and resource provider  
 

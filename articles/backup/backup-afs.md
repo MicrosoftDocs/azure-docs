@@ -55,6 +55,9 @@ The following steps explain how you can configure backup for multiple file share
 1. From the list of discovered storage accounts, select an account, and select **OK**.
 
    ![Select from the discovered storage accounts](./media/backup-afs/select-discovered-storage-account.png)
+   
+   >[!NOTE]
+   > If a storage account is present in a different region than the vault, it won't be present in the list of discovered storage accounts.
 
 1. The next step is to select the file shares you want to back up. Select the **Add** button in the **FileShares to Backup** section.
 
@@ -95,8 +98,6 @@ The following steps explain how you can configure backup for multiple file share
 
 After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
->[!NOTE]
->Azure Backup now supports policies with daily/weekly/monthly/yearly retention for Azure file share backup.
 
 ## Configure backup from the file share pane
 
