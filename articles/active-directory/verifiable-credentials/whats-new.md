@@ -12,7 +12,7 @@ ms.author: barclayn
 
 ---
 
-# What's new for Azure Active Directory Verifiable Credentials
+# What's new for Azure Active Directory Verifiable Credentials (preview)
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
