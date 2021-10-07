@@ -19,6 +19,13 @@ Statsbeat data is stored in a Microsoft data store.  It doesn't impact customers
 
 Statsbeat collects essential and non-essential metrics.
 
+## Supported languages
+
+| C#              | Java            | JavaScript        | Node.js         | Python          |
+|-----------------|-----------------|-------------------|-----------------|-----------------|
+| Not supported   | Supported       | Not supported     | Supported       | Supported       |
+
+
 ### Essential Statsbeat
 
 #### Network Statsbeat
@@ -71,10 +78,10 @@ You can also disable this feature by setting the environment variable `APPLICATI
 
 #### [Node](#tab/node)
 
-It's not supported yet.
+It's not implemented yet.
 
 #### [Python](#tab/python)
 
-It's not supported yet.
+It's not implemented yet.
 
 ---
