@@ -260,7 +260,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     ```
     ![Screenshot that shows a console window displaying the status after starting pacemaker.](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
     
-    If the pacemaker service fails, see the section [Scenario 5: Pacemaker service fails](#pacemaker-service-fails) later in this article.
+    If the pacemaker service fails, see the section [Scenario 5: Pacemaker service fails](#scenario-5-pacemaker-service-fails) later in this article.
 
 ## Join the node to the cluster
 
@@ -270,7 +270,7 @@ Run the following command on *node2* to let that node join the cluster.
 ha-cluster-join
 ```
 
-If you receive an error during joining of the cluster, see the section [Scenario 6: Node2 unable to join the cluster](#node2-unable-to-join-the-cluster) later in this article.
+If you receive an error during joining of the cluster, see the section [Scenario 6: Node2 can't join the cluster](#scenario-6-node2-can't-join-the-cluster) later in this article.
 
 ## Validate the cluster
 
@@ -607,7 +607,7 @@ You can find more information on SUSE HA setup in the following articles:
 - [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 1: Basics](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/) (SAP blog)
 - [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 2: Failure of Both Nodes](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/) (SAP blog)
 
-Learn how to do an file-level backup and restore for an operating system:
+Learn how to do a file-level backup and restore for an operating system:
 
 > [!div class="nextstepaction"]
 > [OS backup and restore](large-instance-os-backup.md)
