@@ -26,7 +26,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |----------------------|---------------------------|
 | [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | October 2021|
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| October 2021|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | October 2021    |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | October 2021|
+|              |November 2021|
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
 |||
 
@@ -70,6 +71,94 @@ When the recommendations are released to general availability, they will replace
 Learn more:
 - [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
+
+### Multiple changes to identity recommendations
+
+**Estimated date for change:** November 2021
+
+Security Center includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
+
+- **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
+
+- **Account exemption capability** - Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
+
+    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
+
+    > [!TIP]
+    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
+
+    |Recommendation| Assessment key|
+    |-|-|
+    |[External accounts with **owner** permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/20606e75-05c4-48c0-9d97-add6daa2109a)<br>[Related policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff8456c1c-aa66-4dfb-861a-25d127b775c9)|20606e75-05c4-48c0-9d97-add6daa2109a|
+    |[External accounts with **read** permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)<br />[Related policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f76cf89-fbf2-47fd-a3f4-b891fa780b60)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |[External accounts with **write** permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0354476c-a12a-4fcc-a79d-f0ab7ffffdbb)<br />[Related policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5c607a2e-c700-4744-8254-d77e7c9eb5e4))|0354476c-a12a-4fcc-a79d-f0ab7ffffdbb|
+    |MFA should be enabled on accounts with **owner** permissions on your subscription||
+    |MFA should be enabled on accounts with **write** permissions on your subscription||
+    |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |(050ac097-3dda-4d24-ab6d-82568e7a50cf)|
+    |Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions| (1ff0b4c9-ed56-4de6-be9c-d7ab39645926)|
+    |||
+ 
+- **Recommendations rename** - From this update, we're renaming two recommendations. The assessment keys remain the same. 
+
+    - **Current recommendation:**
+
+        |Property  |Value  |
+        |---------|---------|
+        |**Current**||
+        |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        |
+        |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |
+        |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|
+        |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |
+        |Name     | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
+        |Description     |User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).      |
+        |Related policy     | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
+
+        |||
+
+    - **After the change:**
+
+        |Property  |Value  |
+        |---------|---------|
+        |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        |
+        |||
+
+
+ 
+
+Assessment key: 00c6d40b-e990-6acf-d4f3-471e747a27c4
+
+ 
+
+ 
+
+Current
+
+New
+
+Name
+
+Deprecated accounts should be removed from your subscription
+
+Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions
+
+Description
+
+User accounts that have been blocked from signing in, should be removed from your subscriptions.
+
+These accounts can be targets for attackers looking to find ways to access your data without being noticed.
+
+User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
+
+Learn more about securing the ‘identity perimeter’ in Azure Identity Management and access control security best practices.
+
+Related policy
+
+Deprecated accounts should be removed from your subscription
+
+Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions
+
+ 
+
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases
 
