@@ -94,7 +94,7 @@ In a high-security enterprise environment, you may be able to use an existing wi
 
 To export a profile for the Wi-Fi interface on your computer, do these steps:
 
-1. Make sure the computer you'll use to export the wireless profile can connect to the Wi-Fi network the device will use.
+1. Make sure the computer you'll use to export the wireless profile can connect to the Wi-Fi network that your device will use.
 
 1. To see the wireless profiles on your computer, on the **Start** menu, open **Command prompt** (cmd.exe), and enter this command:
 
