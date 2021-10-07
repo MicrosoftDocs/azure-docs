@@ -216,5 +216,5 @@ For more information on AutoML and Azure ML pipelines, see [use automated ML in 
 [!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## Security
-Version updates for supported environments are released every two weeks to address vulnerabilties no older than 30 days. 
+Version updates for supported environments are released every two weeks to address vulnerabilities no older than 30 days. 
 
