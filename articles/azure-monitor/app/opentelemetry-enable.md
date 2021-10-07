@@ -807,10 +807,10 @@ For more information, see [GitHub Repo](link).
 
 ## Enable OTLP Exporter
 
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+You may want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
 > [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you [open an issue with the OpenTelemetry community](https://github.com/open-telemetry/opentelemetry-dotnet/issues/new/choose) for OpenTelemetry issues outside the Azure Support Boundary.
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector) for OpenTelemetry issues outside the Azure Support Boundary.
 
 #### [.NET](#tab/net)
 
@@ -958,7 +958,7 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 ## Support
 
 - Review troubleshooting steps in this article.
-- For Azure support issues, file an Azure SDK GitHub issue or open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
+- For Azure support issues, open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 
 ## OpenTelemetry feedback
