@@ -32,16 +32,16 @@ Only specific built-in and managed connector operations that support Azure AD Op
 
 | Operation type | Supported operations |
 |----------------|----------------------|
-| Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p><p> **Note**: While HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- SQL Server <br>- Azure Blob Storage |
+| Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p><p> **Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
+| Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- Azure Blob Storage <br>- SQL Server |
 |||
 
 ### [Standard](#tab/standard)
 
 | Operation type | Supported operations |
 |----------------|----------------------|
-| Built-in | - HTTP <br>- HTTP + Webhook <p><p> **Note**: While HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- SQL Server <br>- Azure Blob Storage |
+| Built-in | - HTTP <br>- HTTP + Webhook <p><p> **Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
+| Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- Azure Blob Storage <br>- SQL Server |
 |||
 
 ---
@@ -395,7 +395,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure functions](logic-apps-azure-functions.md#enable-authentication-for-functions).
+> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, review [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -413,9 +413,13 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * **Built-in operations that support managed identity authentication**
 
-     1. Add the **Authentication** property if the property doesn't already appear.
+     1. From the **Add new parameter** list, add the **Authentication** property if the property doesn't already appear.
 
-     1. Under **Authentication Type**, select **Managed Identity**.
+        ![Screenshot showing example built-in action with "Add new parameter" list open and "Authentication" selected in Consumption.](./media/create-managed-service-identity/built-in-authentication-consumption.png)
+
+     1. From the **Authentication type** list, select **Managed identity**.
+
+        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Consumption.](./media/create-managed-service-identity/built-in-managed-identity-consumption.png)
 
      For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity-consumption).
 
@@ -423,29 +427,71 @@ These steps show how to use the managed identity with a trigger or action throug
 
      1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
 
-        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
+        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected in Consumption.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
      1. On the next page, for **Connection name**, provide a name to use for the connection.
 
      1. For the authentication type, choose one of the following options based on your managed connector:
 
-        * **Single-authentication**: These connectors support only one authentication type. By default, the **Managed identity** property automatically shows the currently enabled managed identity, for example:
+        * **Single-authentication**: These connectors support only one authentication type. From the **Managed identity** list, select the currently enabled managed identity, if not already selected, and then select **Create**, for example:
 
-          ![Screenshot showing the connection name page and single managed identity selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
+          ![Screenshot showing the connection name page and single managed identity selected in Consumption.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
-        * **Multi-authentication**: These connectors support more than one authentication type. For the **Authentication Type** property, select **Logic Apps Managed Identity** > **Create**, for example:
+        * **Multi-authentication**: These connectors support more than one authentication type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
 
-          ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected.](./media/create-managed-service-identity/multi-system-identity-consumption.png)
+          ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected in Consumption.](./media/create-managed-service-identity/multi-system-identity-consumption.png)
 
-        For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity-consumption).
+        For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+   > [!NOTE]
+   > Not all triggers and actions support letting you add an authentication type. For more information, review 
+   > [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+1. On the trigger or action that you added, follow these steps:
+
+   * **Built-in operations that support managed identity authentication**
+
+     1. From the **Add new parameter** list, add the **Authentication** property if the property doesn't already appear.
+
+        ![Screenshot showing example built-in action with "Add new parameter" list open and "Authentication" selected - Standard.](./media/create-managed-service-identity/built-in-authentication-standard.png)
+
+     1. From the **Authentication type** list, select **Managed identity**.
+
+        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Standard.](./media/create-managed-service-identity/built-in-managed-identity-standard.png)
+
+     For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
+
+   * **Managed connector operations that support managed identity authentication** (preview)
+
+     1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
+
+        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected in Standard.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
+
+     1. On the next page, for **Connection name**, provide a name to use for the connection.
+
+     1. For the authentication type, choose one of the following options based on your managed connector:
+
+        * **Single-authentication**: These connectors support only one authentication type. From the **Managed identity** list, select the currently enabled managed identity, if not already selected, and then select **Create**, for example:
+
+          ![Screenshot showing the connection name page and single managed identity selected in Standard.](./media/create-managed-service-identity/single-system-identity-standard.png)
+
+        * **Multi-authentication**: These connectors support more than one authentication type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+
+          ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected in Standard.](./media/create-managed-service-identity/multi-system-identity-standard.png)
+
+        For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
 ---
 
 <a name="authenticate-built-in-managed-identity-consumption"></a>
 
-### Example: Authenticate built-in trigger or action with a managed identity
+## Example: Authenticate built-in trigger or action with a managed identity
 
 The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
 
@@ -526,7 +572,7 @@ Here is the example HTTP action that shows all these property values:
 
 <a name="authenticate-managed-connector-managed-identity-consumption"></a>
 
-### Example: Authenticate managed connector trigger or action with a managed identity
+## Example: Authenticate managed connector trigger or action with a managed identity
 
 The Azure Resource Manager action, **Read a resource**, can use the managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
 
@@ -538,7 +584,7 @@ The Azure Resource Manager action, **Read a resource**, can use the managed iden
 
 1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity, which is **System-assigned managed identity** in this example, and select **Create**. If you enabled a user-assigned managed identity, select that identity instead.
 
-   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
    If the managed identity isn't enabled, the following error appears when you try to create the connection:
 
@@ -556,7 +602,7 @@ The Azure Resource Manager action, **Read a resource**, can use the managed iden
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
 
-### Logic app resource definition and connections that use a managed identity (Consumption)
+## Logic app resource definition and connections that use a managed identity (Consumption)
 
 A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
 
