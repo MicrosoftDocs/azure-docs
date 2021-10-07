@@ -23,14 +23,15 @@ This article describes alerts that occur on an Azure Stack Edge Pro GPU device a
 The following tables list some of the Microsoft Azure Stack Edge alerts that you might encounter, as well as additional information and recommendations where available. Azure Stack Edge device alerts fall into one of the following categories:
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
-* [Edge compute alerts](#edge-compute-alerts) - *Resolve multiples before porting.*
+* [Edge compute alerts](#edge-compute-alerts)
 * [FPGA Edge compute alerts](#fpga-edge-compute-alerts) - *Resolve multiples before porting.*
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
 * [Minimum configuration alerts](#minimum-configuration-alerts)
 * [Performance alerts](#performance-alerts)
-* [Disaster recovery alerts](#disaster-recovery-alerts)
+<!--* [Disaster recovery alerts](#disaster-recovery-alerts)
 * [Volume alerts](#volume-alerts)
-* [Tiering alerts](#tiering-alerts)
+* [Tiering alerts](#tiering-alerts)-->
+* [Storage alerts](#storage-alerts)
 * [Security alerts](#security-alerts)
 * [Key vault alerts](#key-vault-alerts)
 
@@ -46,7 +47,30 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 ## Edge compute alerts
 
-*Resolve multiples before porting in table.*
+|Alert text |Severity |Description / Recommended action |
+|---------------------|---------------------------------|
+|Edge compute is unhealthy. |Critical | Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**.<br>If the problem persists, contact Microsoft Support. |
+|Edge compute ran into an issue with name resolution. |Critical |Ensure that your DNS server {15} is online and reachable. If the problem persists, contact your network administrator. |
+|Compute acceleration card configuration has an issue.<!--2 identical alerts--> |Critical |We've detected an unsupported compute acceleration card configuration.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>Create a [Support request]( http://aka.ms/getazuresupport).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card configuration has an issue. |Critical |We've detected an unsupported compute acceleration card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+| Compute acceleration card configuration has an issue.<!--3 identical alerts-->|Critical |This may be due to one of the following reasons:<ol><li>If the card is an FPGA, the image is not valid.</li><li>Compute acceleration card isn't seated properly.</li><li>Underlying issues with the compute acceleration driver.</li></ol>To resolve the issue, redeploy the Azure IoT Edge module. Once the issue is resolved, the alert goes away.<br>
+If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card configuration has an issue. |Critical |We've detected an unsupported compute acceleration card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card configuration has an issue. |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>Create a [Support request]( http://aka.ms/getazuresupport).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card configuration has an issue. |Critical |We've detected an unsupported compute acceleration card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+| Compute acceleration card configuration has an issue. |Critical |As your Azure IoT Machine Learning module starts up, you may see this transient issue. Wait a few minutes to see if the issue resolves.<br>If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card driver software is not running. |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card on your device is unhealthy. |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Shutting down the compute acceleration card as the card temperature has exceeded the operating limit! |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card performance is degraded. |Warning |This might be because the compute acceleration card has a high usage. Consider stopping or reducing the workload on the Azure IoT Machine Learning module.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card temperature is rising. |Warning |This might be because the compute acceleration card has a high usage. Consider stopping or reducing the workload on the Azure IoT Machine Learning module.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Edge compute couldn’t access data on share {16}. |Warning |Verify that you can access share {16}. If you can access the share, it indicates an issue with Edge compute. <br> To resolve the issue, restart your device. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Edge compute couldn’t access data on share {16}. This may be because the share doesn’t exist anymore. |Warning |If the share does not {16} exist, restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|IoT Edge agent is not running. |Warning |Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support).md). |
+|IoT Edge service is not running. |Warning |Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support).md). |
+|Storage used by Edge compute is getting full. | Warning | [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support) for next steps. |
+|Your Edge compute module {20} is disconnected from IoT Edge |Warning |Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support).md). |
+|Your Edge compute module(s) may be using a local mount point {15} that is different than the local mountpoint used by a share. |Warning |Ensure that the local mountpoint {15} used is the one that is mapped to the share.<ul><li>In the Azure portal, go to **Shares** in your Data Box Edge resource.</li><li>Select a share to view the local mount point for Edge compute module.</li><li>Ensure that this path is used in the module and deploy the module again.</li></ol>Restart the device. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the alert persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support).md). |
 
 
 ## FPGA Edge compute alerts
@@ -99,14 +123,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | The virtual hard disk {0} is nearing its capacity. |Warning | Delete some data to free capacity.  |
 
 
-## Disaster recovery alerts
-
-|Alert text |Severity |Description / Recommended action |
-|-----------|---------|---------------------------------|
-|The service has failed over to a secondary data center due to an unexpected failure. |Warning  |Wait for the failover to complete. After the failover is complete, this alert is cleared. |
-
-
-## Volume alerts
+## Storage alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -115,15 +132,9 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | Could not access volume {0}. |Critical |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**, and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not find volume {0}. |Critical/Warning |Expand the volume or migrate workloads to other volumes. |
 |Some data on this volume {0} is not fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
-
-
-## Tiering alerts
-
-|Alert text |Severity |Description / Recommended action |
-|-----------|---------|---------------------------------|
 |Could not upload {0} files(s) from share {1}. |Critical |This could be due to one of the following reasons:<ol><li>Due to violations of Azure Storage naming and sizing conventions. For more information, go to [Naming conventions](../azure-resource-manager/management/resource-name-rules.md).</li><li>Because the uploaded files were modified in the cloud by other applications outside of the device.<ul><li>{2} inside the {1} share, or</li><li>{3} inside the {4} account.</li></ol></ul> |
 |Could not connect to the storage account '{0}'. |Critical |This may be because the storage account access keys have been regenerated. If the keys have been regenerated, you will need to synchronize the new keys.<br>To fix the issue, in the Azure portal go to **Shares**, select the share, and refresh the storage keys. |
-|Could not connect to the storage account '{0}'. <!--Multiple. Combine with previous entry?-->|Critical |This may be due to Internet connectivity issues. The device is not able to communicate with the storage account service. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. |
+|Could not connect to the storage account '{0}'. |Critical |This may be due to Internet connectivity issues. The device is not able to communicate with the storage account service. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. |
 |The device has {0} files. A maximum of {1} files are supported. |Critical |Consider deleting some files from the device. |
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
