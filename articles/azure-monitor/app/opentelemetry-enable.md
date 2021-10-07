@@ -949,11 +949,11 @@ Placeholder
 
 ### Known issues
 
-Known issues for the Azure Monitor OpenTelemetry Exporter include: 
+Known issues for the Azure Monitor OpenTelemetry Exporters include: 
 
-- Database server name might not appear in the dependency name.
-    - Also if there are tables that share the same name in a database, then they might incorrectly aggregate.
-- Device model property is missing. This can impact usage analytics and filtering by device model.
+- Operation name is missing on dependency telemetry, which adversely impacts failures and performance blade experience.
+- Device model is missing on request and dependency telemetry, which adversely impacts device cohort analysis.
+- Database server name is left out of dependency name, which will incorrectly aggregate tables with the same name on different servers.
 
 ## Support
 
