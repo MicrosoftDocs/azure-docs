@@ -13,6 +13,8 @@
     href: flexible-server/whats-new.md
   - name: Try Flexible Server for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -31,8 +33,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
   - name: Quickstarts
     expanded: true
     items:
@@ -439,8 +439,7 @@
       - name: Create databases and users
         href: howto-create-users.md
         displayName: users
-      - name: Monitor Server
-        href: flexible-server/how-to-alert-on-metric.md
+ 
   - name: Concepts
     items:
     - name: Server Management
@@ -472,14 +471,16 @@
         href: flexible-server/concepts-business-continuity.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Monitoring & Logs
+    - name: Monitoring 
       items:
       - name: Monitoring overview
         href: flexible-server/concepts-monitoring.md
       - name: Slow query Logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
-        href: flexible-server/concepts-audit-logs.md    
+        href: flexible-server/concepts-audit-logs.md 
+      - name: Workbooks
+        href: flexible-server/concepts-workbooks.md 
     - name: Replication
       items:
       - name: Data-in replication
@@ -505,7 +506,7 @@
         items:
         - name: GitHub Actions
           href: quickstart-mysql-github-actions.md
-        - name: Azure pipelines
+        - name: Azure Pipelines
           href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Server Management
       items:
@@ -553,20 +554,14 @@
           href: flexible-server/how-to-configure-high-availability.md
         - name: Azure CLI
           href: flexible-server/how-to-configure-high-availability-cli.md
-    - name: Monitoring & Logs
+    - name: Monitoring
       items:
-      - name: Configure slow query logs 
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-slow-query-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-slow-query-log-cli.md
-      - name: Configure Audit logs
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-audit-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-audit-log-cli.md
+      - name: Query performance insights
+        href: flexible-server/tutorial-query-performance-insights.md
+      - name: Auditing
+        href: flexible-server/tutorial-configure-audit.md
+      - name: Alerts
+        href: flexible-server/how-to-alert-on-metric.md  
     - name: Replication
       items:
       - name: Configure data-in replication

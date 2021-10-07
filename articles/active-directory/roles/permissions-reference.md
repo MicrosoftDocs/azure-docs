@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 09/29/2021
+ms.date: 10/07/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -248,7 +248,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 > | --- | --- |
 > | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
 > | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
-> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information for users |
 > | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
@@ -984,7 +984,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/applications/allProperties/read | Read all properties (including privileged properties) on all types of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
-> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information for users |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policies |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
 > | microsoft.directory/cloudAppSecurity/allProperties/read | Read all properties for Cloud app security |
