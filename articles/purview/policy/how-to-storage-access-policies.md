@@ -45,7 +45,7 @@ Purview and Azure Storage accounts.
 Provision a new Purview account and Storage account in the isolated subscription. The new functionality will be enabled in these new
 accounts. To create a new Purview account, refer to the quick-start guide [Quickstart: Create an Azure Purview account in the
 Azure
-portal.](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
+portal.](../create-catalog-portal.md)
 
 #### Create Azure Storage account
 
