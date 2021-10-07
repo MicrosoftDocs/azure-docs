@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Chaos Studio?
-    href: chaos-studio-overviews.md 
+    href: chaos-studio-overview.md 
   - name: What is chaos engineering?
     href: chaos-studio-chaos-engineering-overview.md
 - name: Quickstarts

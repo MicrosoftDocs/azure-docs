@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Chaos Studio?
-            url: chaos-studio-overviews.md
+            url: chaos-studio-overview.md
           - text: What is chaos engineering?
             url: chaos-studio-chaos-engineering-overview.md
       - linkListType: video
