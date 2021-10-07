@@ -193,6 +193,60 @@ sections:
           >[!NOTE]
           >The policy changes will affect only the recovery points created as part of the scheduled backup. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking the backup.
 
+      - question: |
+          What does the  duration attribute in Azure Files backup policy signify?
+        answer: |
+          The **duration** attribute helps to determine the timestamp for last backup of the day. 
+
+          For example, if the **start time** is “x am” and **duration** is “y hours”, the backups will be scheduled between “x am” and based on the **schedule** attribute (x am + y hours) defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there are frequent update operations on file share contents; therefore, taking multiple snapshots will safeguard data from any accidental changes.
+
+      - question: |
+          How are the backups scheduled based on the attributes - start time, schedule, and duration?
+        answer: |
+          For example, you created a policy with the following configuration:
+
+          - **Start time**: 9 AM
+          - **Schedule**: Every 6 hours
+          - **Duration**: 12 hours
+
+          Based on these values, the backup window is calculated as 9 am – 9 am + 12 hours, that is, 9 am – 9 pm. Therefore, all backups will be scheduled within this window.
+
+          The first backup of the day is triggered at the start time mentioned in the policy, that is, 9 am, and the schedule determines the time difference between consecutive backups, that is, 6 hours. With this calculation, your backup schedule would be: 9 am, 1 pm (9 am + 6 hours), 5 pm (1 pm + 6 hours), and 9 pm (5 pm + 6 hours).
+
+          Since, the end time of backup window that we calculated was 9 PM, no backup would be triggered after this time.
+
+      - question: |
+          Why am I getting the error “The selected configuration will trigger only 1 backup per day” ?
+        answer: |
+          This error would occur if you specified a schedule that is greater than the duration. For example, you've configured **start time** as 9 am, **schedule** as 6 hours, and **duration** as 4 hours. In this case, the only time when backup job can trigger is 9 am, since the next backup time of 3 PM (9am + 6 hours) is outside the backup window: 9 am – 1 pm ( 9 am + 4 hours). 
+
+          To fix this, we recommend you adjust your schedule or duration, or select **Daily** frequency rather than **Hourly**.
+
+      - question: |
+          Why am I getting the error “The selected configuration extends backup window to next day”?
+        answer: |
+          This error occurs if the backup window's **start time** and **end time**, determined based on the backup schedule and duration configuration, falls on two different days.
+
+          For example, you configured a policy with the following parameters:
+
+          - **Schedule**: Every 4 hours.
+          - **Start time**: 12 pm
+          - **Duration**: 15 hours
+
+          Based on this configuration, the backup window will be: 12 pm – 3 am (12 pm +15 hours). Since, the start and end time are falling on two different days, we recommend you adjust the start time or duration to ensure they are on the same day.
+
+      - question: |
+          What’s the impact on the existing recovery points when I switch from “Daily” to “Hourly” frequency?
+        answer: |
+          When you switch from “Daily” to “Hourly” frequency, the behavior is as follows:
+
+          - **Retention**: If you're adding weekly/monthly/yearly retention as part of modifying the policy, all the future recovery points created as part of the scheduled backup will be tagged according to the new policy. All the existing recovery points will still be considered as daily recovery points; so, they won’t be tagged as weekly/monthly/yearly.
+
+          - **Snapshots and recovery points cleanup**:
+            - If daily retention is extended, the expiration date of the existing daily recovery points is updated according to the daily retention value configured in the new policy.
+            - If daily retention is reduced, the existing daily recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy and then deleted.
+          Let’s assume, you change the start time to 6 AM in the above configuration. Now, the backup window will be 6 am – 9 pm (6 am + 15 hours). This is a supported configuration.
+
 additionalContent: |
 
   ## Next steps
