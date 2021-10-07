@@ -2,13 +2,17 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.date: 09/27/2020
+ms.date: 10/07/2021
 
 ---
 
 # Improve the reliability of your application by using Azure Advisor
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations from Advisor on the **Reliability** tab of the Advisor dashboard.
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab of the Advisor [dashboard](https://aka.ms/azureadvisordashboard).
+
+## Use Managed Disks to improve data reliability
+
+Virtual machines in an Availability Set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Migrate to Azure Managed Disks to ensure that the disks of different VMs in the Availability Set are sufficiently isolated to avoid a single point of failure.
 
 ## Check the version of your Check Point network virtual appliance image
 
@@ -111,12 +115,6 @@ The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is upd
 
 ## Do not override hostname to ensure website integrity
 Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
-
-## How to access high availability recommendations in Advisor
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
-
-2.	On the Advisor dashboard, select the **High Availability** tab.
 
 ## Next steps
 
