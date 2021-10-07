@@ -139,7 +139,7 @@ Steps to create a new policy in Purview
 2.  Navigate to **Policy management** app using the left side panel.
 
 3.  Select the **New Policy** button in the policy page.
-    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-1.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
+    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-1.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview when it wants to create policies.":::
 
 4.  The new policy page will appear. Enter the policy **Name** and
     **Description**.
@@ -177,7 +177,7 @@ Steps to create a new policy in Purview are as follows.
 1.  Log in to Purview portal.
 
 2.  Navigate to Purview policy app using the left side panel.
-    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
+    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview when it wants to update a policy.":::
 
 3.  The Policy portal will present the list of existing policies in Purview. Select the policy that needs to be updated.
 
@@ -194,14 +194,10 @@ The steps to publish a policy are as follows
 1.  Log in to Purview portal.
 
 2.  Navigate to the Purview Policy app using the left side panel.
+    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview when it wants to publish a policy.":::
 
-    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
-
-3.  The Policy portal will present the list of existing policies in Purview. Locate the policy that needs to be published. Select the
-    **Publish** button on the right top corner of the page.
+3.  The Policy portal will present the list of existing policies in Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
     :::image type="content" source="./media/how-to-storage-access-policies/publish-policy-storage.png" alt-text="Image shows how a Data Owner can publish a policy.":::
 
-4.  A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be
-    published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for
-    the changes to be reflected in the data source.
+4.  A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for the changes to be reflected in the data source.
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
