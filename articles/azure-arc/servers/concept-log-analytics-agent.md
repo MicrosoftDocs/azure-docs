@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Deploy the Log Analytics agent on Azure Arc-enabled servers
 
-Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers supports the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
+Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers supports the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs. The Log Analytics agent is available as an Azure VM extension.
 
 The Log Analytics agent is required if you want to:
 
@@ -21,7 +21,7 @@ This article reviews deployment methods available through Azure Arc-enabled serv
 
 ## Installation options
 
-The Log Analytics agent is available as an Azure VM extension. You can use different methods to install the VM extension using one method or a combination. This section describes each one for you to consider.
+You can use different methods to install the VM extension using one method or a combination. This section describes each one for you to consider.
 
 ### Using Arc-enabled servers
 
@@ -51,3 +51,5 @@ You can use Azure Policy to maintain configuration compliance by using either th
 #### Disadvantages
 
 * The **Configure Log Analytics extension on Azure Arc enabled** *operating system* **servers** policy only installs the Log Analytics VM extension and configures the agent to report to a specified Log Analytics workspace. If you are interested in VM insights to monitor the operating system performance, running processes and dependencies on other resources, then you should apply the policy initiative **Enable Azure Monitor for VMs**. It installs and configures the Log Analytics VM extension and the Dependency agent VM extension, which requires both agents.
+
+## Next steps
