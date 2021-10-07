@@ -196,9 +196,9 @@ View the backups that are retained for a specific database with an LTR policy, a
 Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_show) command to view the LTR policy for a single database within an instance.
 
 ```azurecli
-az sql midb ltr-policy show /
-    --resource-group mygroup /
-    --managed-instance myinstance /
+az sql midb ltr-policy show \
+    --resource-group mygroup \
+    --managed-instance myinstance \
     --name mymanageddb
 ```
 
@@ -207,9 +207,9 @@ az sql midb ltr-policy show /
 Use the [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_list) command to view the LTR backups within an instance.
 
 ```azurecli
-az sql midb ltr-backup list /
-    --resource-group mygroup /
-    --location eastus2 /
+az sql midb ltr-backup list \
+    --resource-group mygroup \
+    --location eastus2 \
     --managed-instance myinstance
 ```
 
@@ -218,10 +218,10 @@ az sql midb ltr-backup list /
 Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_delete) command to remove an LTR backup.
 
 ```azurecli
-az sql midb ltr-backup delete /
-    --location eastus2 /
-    --managed-instance myinstance /
-    --database mymanageddb /
+az sql midb ltr-backup delete \
+    --location eastus2 \
+    --managed-instance myinstance \
+    --database mymanageddb \
     --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000"
 ```
 
@@ -236,21 +236,21 @@ Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_m
 
    ```azurecli
     get_backup_id=$(az sql midb ltr-backup show
-       --location eastus2 /
-       --server myserver /
-       --managed-instance myinstance /
-       --database mydb /
-       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" /
+       --location eastus2 \
+       --managed-instance myinstance \
+       --database mydb \
+       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" \
+       --query 'id' \
        --output tsv)
    ```
 2. Restore your database from an LTR backup
 
     ```azurecli
-    az sql midb ltr-backup restore /
-        --dest-database targetmidb /
-        --dest-mi myinstance /
-        --dest-resource-group mygroup /
-        --backup-id get_backup_id
+    az sql midb ltr-backup restore \
+        --dest-database targetmidb \
+        --dest-mi myinstance \
+        --dest-resource-group mygroup \
+        --backup-id $get_backup_id
     ```
 
 > [!IMPORTANT]

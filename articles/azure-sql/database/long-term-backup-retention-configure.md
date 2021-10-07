@@ -93,22 +93,22 @@ You can configure SQL Database to [retain automated backups](long-term-retention
 Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
 
 ```azurecli
-az sql db ltr-policy set /
-   --resource-group mygroup /
-   --server myserver /
-   --name mydb /
+az sql db ltr-policy set \
+   --resource-group mygroup \
+   --server myserver \
+   --name mydb \
    --weekly-retention "P12W"
 ```
 
 This example sets a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
 
 ```azurecli
-az sql db ltr-policy set /
-   --resource-group mygroup /
-   --server myserver /
-   --name mydb /
-   --weekly-retention "P12W" /
-   --yearly-retention "P5Y" /
+az sql db ltr-policy set \
+   --resource-group mygroup \
+   --server myserver \
+   --name mydb \
+   --weekly-retention "P12W" \
+   --yearly-retention "P5Y" \
    --week-of-year 16
 ```
 
@@ -175,21 +175,21 @@ View the backups that are retained for a specific database with an LTR policy, a
 Run the [az sql db ltr-policy show](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_show) command to view the LTR policy for a single database on your server.
 
 ```azurecli
-az sql db ltr-policy show /
-    --resource-group mygroup /
-    --server myserver /
+az sql db ltr-policy show \
+    --resource-group mygroup \
+    --server myserver \
     --name mydb
 ```
 
 ### View LTR backups
 
-Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) command to list the LTR backups for a database. 
+Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) command to list the LTR backups for a database. You can use this command to find the `name` parameter for use in other commands.
 
 ```azurecli
-az sql db ltr-backup list /
-   --location eastus2 /
-   --server myserver /
-   --database mydb /
+az sql db ltr-backup list \
+   --location eastus2 \
+   --server myserver \
+   --database mydb \
 ```
 
 ### Delete LTR backups
@@ -197,10 +197,10 @@ az sql db ltr-backup list /
 Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_delete) command to remove an LTR backup.
 
 ```azurecli
-az sql db ltr-backup delete /
-   --location eastus2 /
-   --server myserver /
-   --database mydb /
+az sql db ltr-backup delete \
+   --location eastus2 \
+   --server myserver \
+   --database mydb \
    --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000"
 ```
 
@@ -215,21 +215,22 @@ Run the [az sql db ltr-backup restore](/cli/azure/sql/db/ltr-backup#az_sql_db_lt
 
    ```azurecli
    get_backup_id=$(az sql db ltr-backup show 
-       --location eastus2 /
-       --server myserver /
-       --database mydb
-       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" /
+       --location eastus2 \
+       --server myserver \
+       --database mydb \
+       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" \
+       --query 'id' \
        --output tsv)
    ```
 
 2. Restore your database from the LTR backup.
 
     ```azurecli
-    az sql db ltr-backup restore /
-       --dest-database targetdb /
-       --dest-server myserver /
-       --dest-resource-group mygroup /
-       --backup-id get_backup_id
+    az sql db ltr-backup restore \
+       --dest-database targetdb \
+       --dest-server myserver \
+       --dest-resource-group mygroup \
+       --backup-id $get_backup_id
     ```
 
 > [!IMPORTANT]
