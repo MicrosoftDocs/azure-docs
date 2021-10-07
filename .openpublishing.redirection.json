@@ -28129,9 +28129,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blobs/storage-blob-storage-tiers.md",
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/access-tiers-overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
