@@ -31,7 +31,7 @@ There are 2 solutions to this problem:
   - Use recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
 
 
-## User cancelled the operation
+## User canceled the operation
 Azure AD B2C service can also return an error to your application when a user cancels an operation. The following are examples of scenarios where a user performs a cancel operation: 
 -  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
 - A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
