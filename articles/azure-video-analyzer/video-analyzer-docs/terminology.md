@@ -36,11 +36,11 @@ In the context of a VMS for security cameras, video exporting refers to the proc
 
 ## Video
 
-Videos are resources in your Video Analyzer account that enable VMS capabilities such as recording, playback, streaming, and exporting.
+Videos are resources in your Video Analyzer account that enable VMS capabilities such as recording, playback, streaming, and exporting. Videos can be recorded from RTSP cameras or can be created by exporting portions of an existing recorded video. Recorded videos can be streamed and viewed using the Video Analyzer player widget or other compatible players. Exported videos can be downloaded as MP4 files.
 
-When you create an Video Analyzer account, you have to associate an Azure storage account with it. When you use Video Analyzer for video recording, you can choose to persist the data to either disk or cloud storage. In the latter case data is stored as blobs in a container in the storage account. All content associated with such video resources are stored as blobs in the corresponding containers, while Video Analyzer holds the metadata (such as a name, description, creation time).
+When using Video Analyzer for recording from an RTSP camera, you should associate that video resource to that camera. You can continuously record video from that camera to that video resource, or you can record sporadically based on events - Video Analyzer supports appending data to an existing video resource. However, this requires that the properties of the RTSP camera (its resolution, frame rate, etc.) remain unchanged. If you have a need to change the camera settings, then you should switch to recording to a new video resource.
 
-You can use Video Analyzer to create video resources and add data to existing videos. This enables the scenarios of continuous and event-based video recording and playback (with video capture on the edge device, recording to Video Analyzer, and playback via Video Analyzer streaming capabilities).
+When you create an Video Analyzer account, you have to associate an Azure storage account with it. Both recorded and exported videos stored as blobs in a container in the storage account. All content associated with such video resources are stored as blobs in the corresponding containers, while Video Analyzer holds the metadata (such as a name, description, creation time).
 
 ## gRPC
 
