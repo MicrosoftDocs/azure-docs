@@ -139,7 +139,6 @@ Steps to create a new policy in Purview
 2.  Navigate to **Policy management** app using the left side panel.
 
 3.  Select the **New Policy** button in the policy page.
-
     :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-1.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
 
 4.  The new policy page will appear. Enter the policy **Name** and
@@ -147,7 +146,6 @@ Steps to create a new policy in Purview
 
 5.  To add policy statements to the new policy, select the **New policy
     statement** button. This will bring up the policy statement builder.
-
     :::image type="content" source="./media/how-to-storage-access-policies/create-new-policy-storage.png" alt-text="Image shows how a Data Owner can create a new policy statement.":::
 
 6.  Select the **Action** button and choose Read or Modify from the drop-down list.
@@ -158,18 +156,15 @@ Steps to create a new policy in Purview
 
 9.  In the **Assets** box, enter the **Data Source Type** and select the
     **Name** of a previously registered data source.
-
-<img src="media/image3.png" style="width:5.93913in;height:2.59329in" alt="Image shows how a Data Owner can select a Data Resource when editing a policy statement" />
+    :::image type="content" source="./media/how-to-storage-access-policies/select-data-source-type-storage.png" alt-text="Image shows how a Data Owner can select a Data Resource when editing a policy statement.":::
 
 10. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will
     take you back to the policy editor.
-
-<img src="media/image4.png" style="width:2.8087in;height:2.4881in" alt="Image shows how a Data Owner can select the asset when creating or editing a policy statement" />
+    :::image type="content" source="./media/how-to-storage-access-policies/select-asset-storage.png" alt-text="Image shows how a Data Owner can select the asset when creating or editing a policy statement.":::
 
 11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will
     take you back to the policy editor
-
-<img src="media/image5.png" style="width:4.08955in;height:1.58208in" alt="Image shows how a Data Owner can select the subject when creating or editing a policy statement" />
+    :::image type="content" source="./media/how-to-storage-access-policies/select-subject.png" alt-text="Image shows how a Data Owner can select the subject when creating or editing a policy statement.":::
 
 12. Repeat the steps #5 to #11 to enter any additional policy statements.
 
@@ -182,15 +177,14 @@ Steps to create a new policy in Purview are as follows.
 1.  Log in to Purview portal.
 
 2.  Navigate to Purview policy app using the left side panel.
-
-> <img src="media/image1.png" style="width:1.67708in;height:3.13056in" alt="Image shows how a Data Owner can access the Policy functionality in Azure Purview" />
+    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
 
 3.  The Policy portal will present the list of existing policies in Purview. Select the policy that needs to be updated.
 
 4.  The policy details page will appear, including Edit and Delete options. Select the **Edit** button which brings up the policy
     statement builder for the statements in this policy. Now, any parts of the statements in this policy can be updated. To delete the
     policy, use the **Delete** button.
-    <img src="media/image6.png" style="width:5.97391in;height:2.77187in" alt="Image shows how a Data Owner can edit or delete a policy statement" />
+    :::image type="content" source="./media/how-to-storage-access-policies/edit-policy-storage.png" alt-text="Image shows how a Data Owner can edit or delete a policy statement.":::
 
 ## Policy publishing
 
@@ -201,15 +195,13 @@ The steps to publish a policy are as follows
 
 2.  Navigate to the Purview Policy app using the left side panel.
 
-> <img src="media/image1.png" style="width:1.67708in;height:3.13056in" alt="Image shows how a Data Owner can access the Policy functionality in Azure Purview" />
+    :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-2.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview.":::
 
 3.  The Policy portal will present the list of existing policies in Purview. Locate the policy that needs to be published. Select the
     **Publish** button on the right top corner of the page.
-
-<img src="media/image7.png" style="width:5.77391in;height:1.93944in" alt="Image shows how a Data Owner can publish a policy" />
+    :::image type="content" source="./media/how-to-storage-access-policies/publish-policy-storage.png" alt-text="Image shows how a Data Owner can publish a policy.":::
 
 4.  A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be
     published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for
     the changes to be reflected in the data source.
-
-<img src="media/image8.png" style="width:3.30435in;height:3.7844in" alt="Image shows how a Data Owner can select the data source where the policy will be published" />
+    :::image type="content" source="./media/how-to-storage-access-policies/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
