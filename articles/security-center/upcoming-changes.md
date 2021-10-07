@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/06/2021
 ms.author: memildin
 
 ---
@@ -41,7 +41,7 @@ We'll be deprecating the following preview alert:
 |**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Cloud App Security license.|
 |||
 
-We've created new alerts that provide this information and add to it. In addition, the newer alert (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Cloud App Security.
+We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Cloud App Security.
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
