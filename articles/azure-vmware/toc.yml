@@ -140,7 +140,7 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware ecosystem
+  - name: Partner solution ecosystem
     items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
