@@ -31,7 +31,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 
    *Sample operational event*
       
-     ```json
+```json
         {
             "time": "2021-10-06T21:19:36.0988630Z",
             "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
@@ -51,7 +51,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
                         }
                           }
         }
-     ```
+```
 
 * **Diagnostics:** Events that help to diagnose problems and/or performance.
 
@@ -69,9 +69,9 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 |RtspPlaybackSessionEstablished|	Information| RTSP Playback session is establised|	
 |RtspPlaybackSessionClosed|	Information|	RTSP Playback session is closed|
 
-    *Sample diagnostic event*
+*Sample diagnostic event*
   
-    ```json
+```json
     {
     "time": "2021-10-06T21:19:34.1290000Z",
     "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
@@ -89,7 +89,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
                   }
     }
 
-    ```
+```
 
 ## Events monitoring
 
