@@ -81,7 +81,7 @@ While it's convenient to use password secrets as a credential, we strongly recom
 Certain applications can expose resources (via WebAPI) and as such need to define an AppId URI that uniquely identifies the resource in a tenant. We recommend using either of the following URI schemes: api or https, and set the AppId URI in the following formats to avoid URI collisions in your organization.
 The AppId URI acts as the prefix for the scopes referenced in the API's code, and it must use a verified customer owned domain. For multi-tenant applications the value must also be globally unique.
 
-[!INCLUDE [active-directory-identifierUri(../../../includes/active-directory-identifier-uri-patterns.md)]
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ![application id uri](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
