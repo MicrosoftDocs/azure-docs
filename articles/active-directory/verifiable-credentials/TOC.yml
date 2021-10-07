@@ -52,12 +52,12 @@
 - name: Reference
   expanded: true
   items:
+  - name: What's new
+    href: whats-new.md
   - name: Issuance API specification
     href: issuance-request.md
   - name: Presentation API specification
     href: presentation-request.md
-  - name: What's new
-    href: whats-new.md
 - name: Resources
   expanded: true
   items:
