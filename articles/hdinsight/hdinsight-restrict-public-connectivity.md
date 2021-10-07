@@ -15,7 +15,8 @@ The following diagram shows what a potential HDInsight virtual network architect
 
 :::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagram of HDInsight architecture using an outbound resource provider connection":::
 
-> [!NOTE] Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
+> [!NOTE]
+> Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
 
 ## Initialize a Restricted Cluster
 
@@ -34,7 +35,8 @@ To access the cluster using cluster FQDNs, you can either use the internal load 
 <clustername-ssh>    A   10.0.0.2
 ```
 
-> [!NOTE] Having restricted clusters in the same VNet (with a private DNS zone for `azurehdinsight.net`) as other clusters where public connectivity is enabled is discouraged as it may cause unintended DNS resolution behavior/conflict.
+> [!NOTE]
+> Having restricted clusters in the same VNet (with a private DNS zone for `azurehdinsight.net`) as other clusters where public connectivity is enabled is discouraged as it may cause unintended DNS resolution behavior/conflict.
 
 To make your DNS setup easier, we return the FQDNs and corresponding private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started.
 
@@ -127,8 +129,7 @@ The following JSON code snippet includes the two network properties you need to 
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound",
-    "privateLink": "Enabled" | "Disabled"
+    "resourceProviderConnection": "Inbound" | "Outbound"
 }
 ```
 
