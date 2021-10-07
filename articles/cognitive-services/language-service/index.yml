@@ -27,10 +27,10 @@ highlightedContent:
       url: whats-new.md
     - title: Get started with Language Studio
       itemType: get-started
-      url: concepts/language-studio.md
+      url: language-studio.md
     - title: Responsible use of AI
       itemType: concept
-      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
 
 conceptualContent:
   items:

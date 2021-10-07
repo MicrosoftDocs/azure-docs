@@ -13,7 +13,7 @@
   - name: Custom question answering (preview)
     href: custom-question-answering.md
   - name: Migrate to custom question answering
-    href: ../language/custom-question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
+    href: ../language-service/custom-question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
@@ -125,15 +125,15 @@
   - name: Customize your FAQ bot
     items:
     - name: Create guided conversations with multi-turn prompts
-      href: ../language/custom-question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/custom-question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add multiple domains to bot
-      href: ../language/custom-question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/custom-question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Enhance knowledge bases with active learning
-      href: ../language/custom-question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/custom-question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
-      href: ../language/custom-question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/custom-question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add knowledge bases in multiple languages
-      href: ../language/custom-question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/custom-question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Reference
   items:
   - name: REST API
