@@ -77,10 +77,6 @@ This list covers errors that your end users might encounter when they try to acc
 | A server with the specified host name could not be found. | Your user may get this error when trying to access the app you published if the application's custom domain is not configured correctly. Make sure you've uploaded a certificate for the domain and configured the DNS record correctly by following the steps in [Working with custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md) |
 |Forbidden: This corporate app can't be accessed OR The user could not be authorized. Make sure the user is defined in your on-premises AD and that the user has access to the app in your on-premises AD. | This could be a problem with access to authorization information, see [Some applications and APIs require access to authorization information on account objects]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). In a nutshell, add the app proxy connector machine account to the "Windows Authorization Access Group" builtin domain group to resolve. |
 
-## My error wasn't listed here
-
-If you encounter an error or problem with Azure AD Application Proxy that isn't listed in this troubleshooting guide, we'd like to hear about it. Send an email to our [feedback team](mailto:aadapfeedback@microsoft.com) with the details of the error you encountered.
-
 ## See also
 * [Enable Application Proxy for Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
