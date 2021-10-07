@@ -6,9 +6,9 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
 ms.date: 05/01/2020
-author: jocaplan
-ms.author: jocaplan 
-ms.reviewer: jrasnick, wiassaf
+author: ma77b
+ms.author: maburd
+ms.reviewer: wiassaf
 ---
 
 # Azure Synapse Analytics shared metadata
