@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/074/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
