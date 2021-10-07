@@ -12,20 +12,20 @@ ms.date: 06/18/2021
 ms.author: aahi
 ---
 
-# How to use the health feature
+# How to use Text Analytics for health
 
 > [!IMPORTANT] 
 > The Health API is a capability provided “AS IS” and “WITH ALL FAULTS.” The Health API is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Health API. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
 
-The health feature can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
+Text Analytics for health can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
 * The web-based API and client libraries (asynchronous)
 * A [Docker container](use-containers.md) (synchronous)
 
 ## Features
 
-The Health feature performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
+Text Analytics for health performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
 See the [entity categories](../concepts/health-entity-categories.md) returned by the Health API for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 > [!TIP]
@@ -33,15 +33,15 @@ See the [entity categories](../concepts/health-entity-categories.md) returned by
 
 ## Determine how to process the data (optional)
 
-By default, the health feature will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform operations provided by the health feature.
+By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform operations provided by the Text Analytics for health.
 
 | Supported Versions | latest version |
 |--|--|
 | `2021-05-15` | `2021-05-15`   |
 
-### Health feature container
+### Text Analytics for health container
 
-The [health feature container](use-containers.md) uses separate model versioning than the REST API and client libraries. Only one model version is available per container image.
+The [Text Analytics for health container](use-containers.md) uses separate model versioning than the REST API and client libraries. Only one model version is available per container image.
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
@@ -55,7 +55,7 @@ The [health feature container](use-containers.md) uses separate model versioning
 
 ### Input languages
 
-Currently the health feature only [supports](../language-support.md) the English language. 
+Currently the Text Analytics for health only [supports](../language-support.md) the English language. 
 
 ## Submitting data
 
@@ -71,9 +71,9 @@ If you send a request using the REST API or client library, the results will be 
 
 ## Getting results from the feature
 
-Depending on your API request, and the data you submit to the Health feature, you will get:
+Depending on your API request, and the data you submit to the Text Analytics for health, you will get:
 
-[!INCLUDE [health features](../includes/features.md)]
+[!INCLUDE [Text Analytics for health features](../includes/features.md)]
 
 
 When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
@@ -103,5 +103,5 @@ Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguag
 
 ## See also
 
-* [Health API overview](../overview.md)
-* [health entity categories](../concepts/health-entity-categories.md)
+* [Text Analytics for health overview](../overview.md)
+* [Text Analytics for health entity categories](../concepts/health-entity-categories.md)
