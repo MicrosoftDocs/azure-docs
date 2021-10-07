@@ -20,7 +20,7 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 
 ##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
-:::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
+:::image type="content" source="media/layout-demo.gif" alt-text="{alt-text}":::
 
 **Data extraction features**
 
