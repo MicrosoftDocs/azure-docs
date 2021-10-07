@@ -200,6 +200,6 @@ To improve your production environment performance and better user experience, i
 
 ## Next steps
 
-- Learn how to [troubleshoot Azure AD B2C custom policies](troubleshoot-custom-policies.md)
+- Learn how to [troubleshoot Azure AD B2C custom policies](troubleshoot.md)
 
 ::: zone-end

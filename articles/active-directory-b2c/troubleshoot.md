@@ -410,7 +410,7 @@ The cause for this error is similar to the one for the claim error. Check the pr
 
 ### User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant...
 
-You login with an account from a tenant that is different than the policy you try to upload. For example, you sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
+You login with an account from a tenant that is different than the policy you try to upload. For example, your sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
 
 ```xml
 <TrustFrameworkPolicy ...
