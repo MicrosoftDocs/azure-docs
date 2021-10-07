@@ -573,7 +573,6 @@
           href: how-to-deploy-azure-container-instance.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
-          href: how-to-deploy-functions.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
       - name: Prebuilt Docker images
