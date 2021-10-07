@@ -23,7 +23,7 @@ Key features of Azure page blobs are its REST interface, the durability of the u
 
 ## Restrictions
 
-Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
+Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 
 ## Sample use cases
 
