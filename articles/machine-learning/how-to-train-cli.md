@@ -378,11 +378,11 @@ And run it:
 
 The CIFAR-10 example above translates well to a pipeline job. We will split the previous job into three jobs for orchestration in a pipeline:
 
-- `get-data` to run a Bash script to download and extract `cifar-10-batches-py`
-- `train-model` to take the data and train a model with distributed PyTorch
-- `eval-model` to take the data and the trained model and evaluate accuracy
+- "get-data" to run a Bash script to download and extract `cifar-10-batches-py`
+- "train-model" to take the data and train a model with distributed PyTorch
+- "eval-model" to take the data and the trained model and evaluate accuracy
 
-Both `train-model` and `eval-model` will have a dependency on the `get-data` job's output. Additionally, `eval-model` will have a dependency on the `train-model` job's output. Thus the three jobs will run sequentially.
+Both "train-model" and "eval-model" will have a dependency on the "get-data" job's output. Additionally, "eval-model" will have a dependency on the "train-model" job's output. Thus the three jobs will run sequentially.
 
 We can write these three jobs as a pipeline job:
 
