@@ -46,6 +46,8 @@ items:
         href: concept-best-practices-collections.md
       - name: Pricing guidelines 
         href: concept-guidelines-pricing.md
+      - name: Network architecture
+        href: concept-best-practices-network.md       
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map

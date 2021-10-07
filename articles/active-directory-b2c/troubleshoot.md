@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot custom policies in Azure Active Directory B2C
+title: Troubleshoot custom policies and user flows in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -8,12 +8,39 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/25/2021
+ms.date: 10/08/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
-# Troubleshoot Azure AD B2C custom policies
+# Troubleshoot Azure AD B2C custom policies and user flows
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Your application needs to handle certain errors coming from Azure B2C service. This article highlights some of the common errors and how to handle them.
+
+::: zone pivot="b2c-user-flow"
+
+## Password reset error
+
+This error occurs when the [self-service password reset experience](add-password-reset-policy.md#self-service-password-reset-recommended) isn't enabled in a user flow. Thus, selecting the **Forgot your password?** link doesn't trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application.
+
+There are 2 solutions to this problem:  
+  - Respond back with a new authentication request using Azure AD B2C password reset user flow.
+  - Use recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
+
+
+## User canceled the operation
+Azure AD B2C service can also return an error to your application when a user cancels an operation. The following are examples of scenarios where a user performs a cancel operation: 
+-  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
+- A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
+
+To handle this error, fetch the **error description** for the user and respond back with a new authentication request with the same user flow. 
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 If you use Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md), you might experience challenges with policy language XML format or runtime issues. This article describes some tools and tips that can help you discover and resolve issues. 
 
@@ -383,7 +410,7 @@ The cause for this error is similar to the one for the claim error. Check the pr
 
 ### User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant...
 
-You login with an account from a tenant that is different than the policy you try to upload. For example, you sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
+You login with an account from a tenant that is different than the policy you try to upload. For example, your sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
 
 ```xml
 <TrustFrameworkPolicy ...
@@ -461,6 +488,9 @@ You try to upload a policy to your tenant, but a policy with same name is alread
 To fix this type of error, when you upload the policy, select the **Overwrite the custom policy if it already exists** checkbox.
 
 ![Screenshot that demonstrates how to overwrite the custom policy if it already exists.](./media/troubleshoot-custom-policies/overwrite-custom-policy-if-exists.png)
+
+::: zone-end
+
 
 
 ## Next steps
