@@ -46,8 +46,7 @@ You can use Azure Policy to maintain configuration compliance by using either th
 
 * If the Azure Arc-enabled servers Connected Machine agent is removed, this method reinstalls it.
 * Identifies and installs the VM extension when a new Azure Arc-enabled server is registered with Azure.
-* Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to three additional workspaces (multihoming is limited to only supporting a total of four workspacee).
-*  
+* Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to three other workspaces (multihoming is limited by supporting a total of four workspaces).
 
 #### Disadvantages
 
