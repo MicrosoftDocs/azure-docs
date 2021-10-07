@@ -4,7 +4,7 @@ description: The supply chain traceability graph solution implemented by Infosys
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 author: manishmsfte
 ms.author: mansha
 ---
@@ -13,7 +13,7 @@ ms.author: mansha
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This article provides an overview of traceability graph solutions implemented by Infosys. These solutions leverage Azure Cosmos DB Gremlin API and other Azure capabilities to provide global supply chain track and trace capability for finished goods.
+This article provides an overview of [traceability graph solutions implemented by Infosys](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview). These solutions leverage Azure Cosmos DB Gremlin API and other Azure capabilities to provide global supply chain track and trace capability for finished goods.
 
 After reading this article, you will learn:
 
@@ -95,5 +95,6 @@ Infosys and Microsoft together offer:
 
 ## Next steps
 
+* [Infosys traceability graph solution](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview)
 * To visualize graph data, see the [Gremlin API visualization solutions](graph-visualization-partners.md).
 * To model your graph data, see the [Gremlin APU modeling solutions](graph-modeling-tools.md).
