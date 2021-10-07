@@ -120,4 +120,4 @@ The following table illustrates how actions in Azure Purview Data Policies map t
 ## Next steps
 Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB:
 
-[How to integrate Azure Storage into Azure Purview Data Policies](how-to-storage-access-policies.md)
+[How to create data access policies for Azure Storage](how-to-storage-access-policies.md)
