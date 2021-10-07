@@ -18,7 +18,7 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-## Device Templates
+## Device templates
 
 Any device that's connected to and managed by an IoT Central application is associated with a device template in the application. The device model in the template acts as a contract between the IoT Central application and the devices connected to it. The device template also includes information about how IoT Central displays information about the device in the web UI. For example, a device template can include definitions of dashboards to show device telemetry or to send commands to a device.
 
@@ -30,6 +30,8 @@ The device model section of a device template specifies the capabilities of a de
 * Commands, such as reboot, that IoT Central will send to your device.
 
 The capabilities in a device model are grouped into interfaces. Interfaces enable you to share groups of related capabilities across templates. For example, the common Device Information interface defines device properties such as the manufacturer, model, and software version.
+
+Device templates includes _cloud properties_ which specifies any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. It also includes _customizations_, they can override some of the definitions in the device model. Customizations are useful if you want to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. However, you cannot add _views_ from the API, it can be added only through the UI.
 
 ## Device templates REST API
 
@@ -50,15 +52,25 @@ PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-
 ```
 
 >[!NOTE]
->You can get the deviceTemplateId from the IoT Central Application, by hovering the mouse over a device.
+>Device template IDs follow the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) naming convention, for example: `dtmi:contoso:mythermostattemplate;1`
 
 The sample request body looks like the following example:
 
 ```json
 {
     "displayName": "Thermostat",
+
+    "@id": "dtmi:contoso:mythermostattemplate;1",
+    "@type": [
+        "ModelDefinition",
+        "DeviceModel"
+    ],
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
+    ],
     "capabilityModel": {
-        "@id": "dtmi:com:example:Thermostat;1",
+        "@id": "dtmi:contoso:Thermostat;1",
         "@type": "Interface",
         "contents": [
             {
@@ -82,7 +94,11 @@ The sample request body looks like the following example:
                 "name": "targetTemperature",
                 "schema": "double",
                 "unit": "degreeCelsius",
-                "writable": true
+                "writable": true,
+                "decimalPlaces": 1,
+                "displayUnit": "C",
+                "maxValue": 80,
+                "minValue": 50
             },
             {
                 "@type": [
@@ -144,29 +160,19 @@ The sample request body looks like the following example:
                 }
             },
             {
-                "@id": "dtmi:solutionModel:modelDefinition:spzeut3n:tnbu0j9fft:CustomName;1",
                 "@type": [
                     "Property",
                     "Cloud",
                     "StringValue"
                 ],
-                "displayName": "CustomName",
-                "name": "CustomName",
+                "displayName": "Customer Name",
+                "name": "CustomerName",
                 "schema": "string"
             }
         ],
         "description": "Reports current temperature and provides desired temperature control.",
         "displayName": "Thermostat"
-    },
-    "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39ub",
-    "@type": [
-        "ModelDefinition",
-        "DeviceModel"
-    ],
-    "@context": [
-        "dtmi:iotcentral:context;2",
-        "dtmi:dtdl:context;2"
-    ]
+    }
 }
 ```
 
@@ -189,23 +195,12 @@ The response to this request looks like the following example:
 
 ```json
 {
-    "etag": "\"~NnH4yct5wiKsdsEwCdnGbFA5HO5XN/CU/w6cMsAI64c=\"",
+    "etag": "\"~F27cqSo0ON3bfOzwgZxAl89/JVvM80+dds6y8+mZh5M=\"",
     "displayName": "Thermostat",
     "capabilityModel": {
-        "@id": "dtmi:com:example:Thermostat;1",
+        "@id": "dtmi:contoso:Thermostat;1",
         "@type": "Interface",
         "contents": [
-            {
-                "@id": "dtmi:solutionModel:modelDefinition:spzeut3n:tnbu0j9fft:CustomName;1",
-                "@type": [
-                    "Property",
-                    "Cloud",
-                    "StringValue"
-                ],
-                "displayName": "CustomName",
-                "name": "CustomName",
-                "schema": "string"
-            },
             {
                 "@type": [
                     "Telemetry",
@@ -220,14 +215,19 @@ The response to this request looks like the following example:
             {
                 "@type": [
                     "Property",
-                    "Temperature"
+                    "Temperature",
+                    "NumberValue"
                 ],
                 "description": "Allows to remotely specify the desired target temperature.",
                 "displayName": "Target Temperature",
                 "name": "targetTemperature",
                 "schema": "double",
                 "unit": "degreeCelsius",
-                "writable": true
+                "writable": true,
+                "decimalPlaces": 1,
+                "displayUnit": "C",
+                "maxValue": 80,
+                "minValue": 50
             },
             {
                 "@type": [
@@ -287,6 +287,16 @@ The response to this request looks like the following example:
                         ]
                     }
                 }
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "StringValue"
+                ],
+                "displayName": "Customer Name",
+                "name": "CustomerName",
+                "schema": "string"
             }
         ],
         "description": "Reports current temperature and provides desired temperature control.",
@@ -317,10 +327,10 @@ The response to this request looks like the following example:
 
 ```json
 {
-    "etag": "\"~NnH4yct5wiKsdsEwCdnGbFA5HO5XN/CU/w6cMsAI64c=\"",
+    "etag": "\"~F27cqSo0ON3bfOzwgZxAl89/JVvM80+dds6y8+mZh5M=\"",
     "displayName": "Thermostat",
     "capabilityModel": {
-        "@id": "dtmi:com:example:Thermostat;1",
+        "@id": "dtmi:contoso:Thermostat;1",
         "@type": "Interface",
         "contents": [
             {
@@ -337,14 +347,19 @@ The response to this request looks like the following example:
             {
                 "@type": [
                     "Property",
-                    "Temperature"
+                    "Temperature",
+                    "NumberValue"
                 ],
                 "description": "Allows to remotely specify the desired target temperature.",
                 "displayName": "Target Temperature",
                 "name": "targetTemperature",
                 "schema": "double",
                 "unit": "degreeCelsius",
-                "writable": true
+                "writable": true,
+                "decimalPlaces": 1,
+                "displayUnit": "C",
+                "maxValue": 80,
+                "minValue": 50
             },
             {
                 "@type": [
@@ -406,14 +421,13 @@ The response to this request looks like the following example:
                 }
             },
             {
-                "@id": "dtmi:solutionModel:modelDefinition:spzeut3n:tnbu0j9fft:CustomName;1",
                 "@type": [
                     "Property",
                     "Cloud",
                     "StringValue"
                 ],
-                "displayName": "CustomName",
-                "name": "CustomName",
+                "displayName": "Customer Name",
+                "name": "CustomerName",
                 "schema": "string"
             }
         ],
@@ -444,178 +458,244 @@ The response to this request looks like the following example:
 
 ```json
 {
-  "value": [
-    {
-      "@id": "dtmi:contoso:testDeviceTemplate;1",
-      "@type": [
-        "ModelDefinition",
-        "DeviceModel",
-        "EdgeModel"
-      ],
-      "displayName": "Test Definition",
-      "etag": "\"~jbzfGhYctc9wtzNZXVmVua5JjTHO/FfjMUJvk9hqkRY=\"",
-      "capabilityModel": {
-        "@id": "dtmi:contoso:testCapabilityModel;1",
-        "@type": "Interface",
-        "displayName": "Test Capability Model",
-        "extends": [
-          {
-            "@id": "dtmi:contoso:testInterface;1",
-            "@type": "Interface",
-            "displayName": "Test Interface",
-            "contents": [
-              {
-                "@type": "Telemetry",
-                "displayName": "Test Telemetry",
-                "name": "testTelemetry",
-                "schema": "double"
-              },
-              {
-                "@type": [
-                  "Telemetry",
-                  "Event",
-                  "EventValue"
-                ],
-                "displayName": "Test Event",
-                "name": "testEvent",
-                "schema": "integer",
-                "severity": "warning"
-              },
-              {
-                "@type": [
-                  "Property",
-                  "Initialized"
-                ],
-                "displayName": "Test Property",
-                "name": "testProperty",
-                "schema": "string",
-                "writable": true,
-                "initialValue": "initialValue1"
-              },
-              {
-                "@type": "Property",
-                "displayName": "Test Read-Only Property",
-                "name": "testReadOnly",
-                "schema": "string"
-              },
-              {
-                "@type": "Property",
-                "displayName": "Test Complex Property",
-                "name": "testComplex",
-                "schema": {
-                  "@id": "dtmi:contoso:testComplex;1",
-                  "@type": "Object",
-                  "displayName": "Object",
-                  "fields": [
-                    {
-                      "displayName": "First",
-                      "name": "first",
-                      "schema": "string"
-                    },
-                    {
-                      "displayName": "Second",
-                      "name": "second",
-                      "schema": "string"
-                    }
-                  ]
-                },
-                "writable": true
-              },
-              {
-                "@type": "Command",
-                "commandType": "synchronous",
-                "displayName": "Test Command",
-                "name": "testCommand",
-                "request": {
-                  "displayName": "Test Request",
-                  "name": "testRequest",
-                  "schema": "double"
-                },
-                "response": {
-                  "displayName": "Test Response",
-                  "name": "testResponse",
-                  "schema": "geopoint"
-                }
-              },
-              {
-                "@type": "Property",
-                "displayName": "Test Enum",
-                "name": "testEnum",
-                "schema": {
-                  "@id": "dtmi:contoso:testEnum;1",
-                  "@type": "Enum",
-                  "displayName": "Enum",
-                  "enumValues": [
-                    {
-                      "displayName": "First",
-                      "enumValue": 1,
-                      "name": "first"
-                    },
-                    {
-                      "displayName": "Second",
-                      "enumValue": 2,
-                      "name": "second"
-                    }
-                  ],
-                  "valueSchema": "integer"
-                },
-                "writable": true
-              }
-            ]
-          }
-        ],
-        "contents": [
-          {
-            "@type": [
-              "Relationship",
-              "EdgeModule"
-            ],
-            "displayName": "Test Module",
-            "maxMultiplicity": 1,
-            "name": "testModule",
-            "target": [
-              {
-                "@id": "dtmi:contoso:testModuleCapabilityModel;1",
+    "value": [
+        {
+            "etag": "\"~F27cqSo0ON3bfOzwgZxAl89/JVvM80+dds6y8+mZh5M=\"",
+            "displayName": "Thermostat",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat;1",
                 "@type": "Interface",
-                "displayName": "Test Module Capability Model",
-                "extends": [
-                  {
-                    "@id": "dtmi:contoso:testModuleInterface;1",
-                    "@type": "Interface",
-                    "contents": [
-                      {
-                        "@type": "Telemetry",
-                        "displayName": "Test Module Telemetry",
-                        "name": "testModuleTelemetry",
-                        "schema": "double"
-                      },
-                      {
-                        "@type": "Property",
-                        "displayName": "Test Module Property",
-                        "name": "testModuleProperty",
-                        "schema": "string",
-                        "writable": true
-                      }
-                    ],
-                    "displayName": "Test Module Interface"
-                  }
-                ]
-              }
-            ]
-          },
-          {
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature",
+                            "NumberValue"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u6",
             "@type": [
-              "Property",
-              "Cloud"
+                "ModelDefinition",
+                "DeviceModel"
             ],
-            "displayName": "Test Cloud Property",
-            "name": "testCloudProperty",
-            "schema": "dateTime"
-          }
-        ]
-      }
-    }
-  ]
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        },
+        {
+            "etag": "\"~XS5GovPNzJqFIwkkV/vyWW5U/6if2NwC/NqUlDxExAY=\"",
+            "displayName": "Thermostat2",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat2;1",
+                "@type": "Interface",
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature",
+                            "NumberValue"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u67",
+            "@type": [
+                "ModelDefinition",
+                "DeviceModel"
+            ],
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        }
+    ]
 }
 ```
 
@@ -625,351 +705,271 @@ The response to this request looks like the following example:
 PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
 ```
 
-The sample request body looks like the following example:
+>[!NOTE] 
+>`{deviceTemplateId}` should be the same as the `@id` in the payload.
+
+The sample request body looks like the following example which adds a new cloud property:
 
 ```json
 {
-  "@type": [
-    "ModelDefinition",
-    "DeviceModel",
-    "EdgeModel"
-  ],
-  "displayName": "Test Definition",
-  "capabilityModel": {
-    "@id": "dtmi:contoso:testCapabilityModel;1",
-    "@type": "Interface",
-    "displayName": "Test Capability Model",
-    "extends": [
-      {
-        "@id": "dtmi:contoso:testInterface;1",
-        "@type": "Interface",
-        "displayName": "Test Interface",
-        "contents": [
-          {
-            "@type": "Telemetry",
-            "displayName": "Test Telemetry",
-            "name": "testTelemetry",
-            "schema": "double"
-          },
-          {
-            "@type": [
-              "Telemetry",
-              "Event",
-              "EventValue"
-            ],
-            "displayName": "Test Event",
-            "name": "testEvent",
-            "schema": "integer",
-            "severity": "warning"
-          },
-          {
-            "@type": [
-              "Property",
-              "Initialized"
-            ],
-            "displayName": "Test Property",
-            "name": "testProperty",
-            "schema": "string",
-            "writable": true,
-            "initialValue": "initialValue1"
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Read-Only Property",
-            "name": "testReadOnly",
-            "schema": "string"
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Complex Property",
-            "name": "testComplex",
-            "schema": {
-              "@id": "dtmi:contoso:testComplex;1",
-              "@type": "Object",
-              "displayName": "Object",
-              "fields": [
-                {
-                  "displayName": "First",
-                  "name": "first",
-                  "schema": "string"
-                },
-                {
-                  "displayName": "Second",
-                  "name": "second",
-                  "schema": "string"
-                }
-              ]
-            },
-            "writable": true
-          },
-          {
-            "@type": "Command",
-            "commandType": "synchronous",
-            "displayName": "Test Command",
-            "name": "testCommand",
-            "request": {
-              "displayName": "Test Request",
-              "name": "testRequest",
-              "schema": "double"
-            },
-            "response": {
-              "displayName": "Test Response",
-              "name": "testResponse",
-              "schema": "geopoint"
-            }
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Enum",
-            "name": "testEnum",
-            "schema": {
-              "@id": "dtmi:contoso:testEnum;1",
-              "@type": "Enum",
-              "displayName": "Enum",
-              "enumValues": [
-                {
-                  "displayName": "First",
-                  "enumValue": 1,
-                  "name": "first"
-                },
-                {
-                  "displayName": "Second",
-                  "enumValue": 2,
-                  "name": "second"
-                }
-              ],
-              "valueSchema": "integer"
-            },
-            "writable": true
-          }
-        ]
-      }
+    "displayName": "Thermostat",
+
+    "@id": "dtmi:contoso:mythermostattemplate",
+    "@type": [
+        "ModelDefinition",
+        "DeviceModel"
     ],
-    "contents": [
-      {
-        "@type": [
-          "Relationship",
-          "EdgeModule"
-        ],
-        "displayName": "Test Module",
-        "maxMultiplicity": 1,
-        "name": "testModule",
-        "target": [
-          {
-            "@id": "dtmi:contoso:testModuleCapabilityModel;1",
-            "@type": "Interface",
-            "displayName": "Test Module Capability Model",
-            "extends": [
-              {
-                "@id": "dtmi:contoso:testModuleInterface;1",
-                "@type": "Interface",
-                "contents": [
-                  {
-                    "@type": "Telemetry",
-                    "displayName": "Test Module Telemetry",
-                    "name": "testModuleTelemetry",
-                    "schema": "double"
-                  },
-                  {
-                    "@type": "Property",
-                    "displayName": "Test Module Property",
-                    "name": "testModuleProperty",
-                    "schema": "string",
-                    "writable": true
-                  }
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
+    ],
+    "capabilityModel": {
+        "@id": "dtmi:contoso:Thermostat;1",
+        "@type": "Interface",
+        "contents": [
+            {
+                "@type": [
+                    "Telemetry",
+                    "Temperature"
                 ],
-                "displayName": "Test Module Interface"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "@type": [
-          "Property",
-          "CloudProperty"
+                "description": "Temperature in degrees Celsius.",
+                "displayName": "Temperature",
+                "name": "temperature",
+                "schema": "double",
+                "unit": "degreeCelsius"
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Temperature"
+                ],
+                "description": "Allows to remotely specify the desired target temperature.",
+                "displayName": "Target Temperature",
+                "name": "targetTemperature",
+                "schema": "double",
+                "unit": "degreeCelsius",
+                "writable": true,
+                "decimalPlaces": 1,
+                "displayUnit": "C",
+                "maxValue": 80.0,
+                "minValue": 50.0
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Temperature"
+                ],
+                "description": "Returns the max temperature since last device reboot.",
+                "displayName": "Max temperature since last reboot.",
+                "name": "maxTempSinceLastReboot",
+                "schema": "double",
+                "unit": "degreeCelsius"
+            },
+            {
+                "@type": "Command",
+                "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                "displayName": "Get report",
+                "name": "getMaxMinReport",
+                "request": {
+                    "@type": "CommandPayload",
+                    "description": "Period to return the max-min report.",
+                    "displayName": "Since",
+                    "name": "since",
+                    "schema": "dateTime"
+                },
+                "response": {
+                    "@type": "CommandPayload",
+                    "displayName": "Temperature Report",
+                    "name": "tempReport",
+                    "schema": {
+                        "@type": "Object",
+                        "fields": [
+                            {
+                                "displayName": "Max temperature",
+                                "name": "maxTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Min temperature",
+                                "name": "minTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Average Temperature",
+                                "name": "avgTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Start Time",
+                                "name": "startTime",
+                                "schema": "dateTime"
+                            },
+                            {
+                                "displayName": "End Time",
+                                "name": "endTime",
+                                "schema": "dateTime"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "StringValue"
+                ],
+                "displayName": "Customer Name",
+                "name": "CustomerName",
+                "schema": "string"
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "StringValue"
+                ],
+                "displayName": "Last Maintenance Date",
+                "name": "LastMaintenanceDate",
+                "schema": "dateTime"
+            }
         ],
-        "displayName": "Test Cloud Property",
-        "name": "testCloudProperty",
-        "schema": "dateTime"
-      }
-    ]
-  }
+        "description": "Reports current temperature and provides desired temperature control.",
+        "displayName": "Thermostat"
+    }
 }
+
 ```
 
 The response to this request looks like the following example:
 
 ```json
 {
-  "@id": "dtmi:contoso:testDeviceTemplate;1",
-  "@type": [
-    "ModelDefinition",
-    "DeviceModel",
-    "EdgeModel"
-  ],
-  "displayName": "Test Definition",
-  "etag": "\"~jbzfGhYctc9wtzNZXVmVua5JjTHO/FfjMUJvk9hqkRY=\"",
-  "capabilityModel": {
-    "@id": "dtmi:contoso:testCapabilityModel;1",
-    "@type": "Interface",
-    "displayName": "Test Capability Model",
-    "extends": [
-      {
-        "@id": "dtmi:contoso:testInterface;1",
+    "etag": "\"~6Ku691rHAgw/yw8u+ygZJGAKjSN4P4q/KxCU2xskrmk=\"",
+    "displayName": "Thermostat",
+    "capabilityModel": {
+        "@id": "dtmi:contoso:Thermostat;1",
         "@type": "Interface",
-        "displayName": "Test Interface",
         "contents": [
-          {
-            "@type": "Telemetry",
-            "displayName": "Test Telemetry",
-            "name": "testTelemetry",
-            "schema": "double"
-          },
-          {
-            "@type": [
-              "Telemetry",
-              "Event",
-              "EventValue"
-            ],
-            "displayName": "Test Event",
-            "name": "testEvent",
-            "schema": "integer",
-            "severity": "warning"
-          },
-          {
-            "@type": [
-              "Property",
-              "Initialized"
-            ],
-            "displayName": "Test Property",
-            "name": "testProperty",
-            "schema": "string",
-            "writable": true,
-            "initialValue": "initialValue1"
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Read-Only Property",
-            "name": "testReadOnly",
-            "schema": "string"
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Complex Property",
-            "name": "testComplex",
-            "schema": {
-              "@id": "dtmi:contoso:testComplex;1",
-              "@type": "Object",
-              "displayName": "Object",
-              "fields": [
-                {
-                  "displayName": "First",
-                  "name": "first",
-                  "schema": "string"
-                },
-                {
-                  "displayName": "Second",
-                  "name": "second",
-                  "schema": "string"
-                }
-              ]
-            },
-            "writable": true
-          },
-          {
-            "@type": "Command",
-            "commandType": "synchronous",
-            "displayName": "Test Command",
-            "name": "testCommand",
-            "request": {
-              "displayName": "Test Request",
-              "name": "testRequest",
-              "schema": "double"
-            },
-            "response": {
-              "displayName": "Test Response",
-              "name": "testResponse",
-              "schema": "geopoint"
-            }
-          },
-          {
-            "@type": "Property",
-            "displayName": "Test Enum",
-            "name": "testEnum",
-            "schema": {
-              "@id": "dtmi:contoso:testEnum;1",
-              "@type": "Enum",
-              "displayName": "Enum",
-              "enumValues": [
-                {
-                  "displayName": "First",
-                  "enumValue": 1,
-                  "name": "first"
-                },
-                {
-                  "displayName": "Second",
-                  "enumValue": 2,
-                  "name": "second"
-                }
-              ],
-              "valueSchema": "integer"
-            },
-            "writable": true
-          }
-        ]
-      }
-    ],
-    "contents": [
-      {
-        "@type": [
-          "Relationship",
-          "EdgeModule"
-        ],
-        "displayName": "Test Module",
-        "maxMultiplicity": 1,
-        "name": "testModule",
-        "target": [
-          {
-            "@id": "dtmi:contoso:testModuleCapabilityModel;1",
-            "@type": "Interface",
-            "displayName": "Test Module Capability Model",
-            "extends": [
-              {
-                "@id": "dtmi:contoso:testModuleInterface;1",
-                "@type": "Interface",
-                "contents": [
-                  {
-                    "@type": "Telemetry",
-                    "displayName": "Test Module Telemetry",
-                    "name": "testModuleTelemetry",
-                    "schema": "double"
-                  },
-                  {
-                    "@type": "Property",
-                    "displayName": "Test Module Property",
-                    "name": "testModuleProperty",
-                    "schema": "string",
-                    "writable": true
-                  }
+            {
+                "@type": [
+                    "Telemetry",
+                    "Temperature"
                 ],
-                "displayName": "Test Module Interface"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "@type": [
-          "Property",
-          "Cloud"
+                "description": "Temperature in degrees Celsius.",
+                "displayName": "Temperature",
+                "name": "temperature",
+                "schema": "double",
+                "unit": "degreeCelsius"
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Temperature"
+                ],
+                "description": "Allows to remotely specify the desired target temperature.",
+                "displayName": "Target Temperature",
+                "name": "targetTemperature",
+                "schema": "double",
+                "unit": "degreeCelsius",
+                "writable": true,
+                "decimalPlaces": 1,
+                "displayUnit": "C",
+                "maxValue": 80,
+                "minValue": 50
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Temperature"
+                ],
+                "description": "Returns the max temperature since last device reboot.",
+                "displayName": "Max temperature since last reboot.",
+                "name": "maxTempSinceLastReboot",
+                "schema": "double",
+                "unit": "degreeCelsius"
+            },
+            {
+                "@type": "Command",
+                "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                "displayName": "Get report",
+                "name": "getMaxMinReport",
+                "request": {
+                    "@type": "CommandPayload",
+                    "description": "Period to return the max-min report.",
+                    "displayName": "Since",
+                    "name": "since",
+                    "schema": "dateTime"
+                },
+                "response": {
+                    "@type": "CommandPayload",
+                    "displayName": "Temperature Report",
+                    "name": "tempReport",
+                    "schema": {
+                        "@type": "Object",
+                        "fields": [
+                            {
+                                "displayName": "Max temperature",
+                                "name": "maxTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Min temperature",
+                                "name": "minTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Average Temperature",
+                                "name": "avgTemp",
+                                "schema": "double"
+                            },
+                            {
+                                "displayName": "Start Time",
+                                "name": "startTime",
+                                "schema": "dateTime"
+                            },
+                            {
+                                "displayName": "End Time",
+                                "name": "endTime",
+                                "schema": "dateTime"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "StringValue"
+                ],
+                "displayName": "Customer Name",
+                "name": "CustomerName",
+                "schema": "string"
+            },
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "DateTimeValue"
+                ],
+                "displayName": "Last Maintenance Date",
+                "name": "LastMaintenanceDate",
+                "schema": "dateTime"
+            }
         ],
-        "displayName": "Test Cloud Property",
-        "name": "testCloudProperty",
-        "schema": "dateTime"
-      }
+        "description": "Reports current temperature and provides desired temperature control.",
+        "displayName": "Thermostat"
+    },
+    "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u6",
+    "@type": [
+        "ModelDefinition",
+        "DeviceModel"
+    ],
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
     ]
-  }
 }
 ```
 
@@ -989,4 +989,4 @@ DELETE https://appsubdomain.azureiotcentral.com/api/deviceTemplates/dtmi:contoso
 
 ## Next steps
 
-Now that you've learned how to add device templates with the REST API, a suggested next step is to [How to use the IoT Central REST API to control devices](howto-control-devices-with-rest-api.md).
+Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
