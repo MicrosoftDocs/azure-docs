@@ -664,6 +664,8 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+    - name: Stringify
+      href: data-flow-stringify.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
     - name: Union
@@ -810,7 +812,15 @@ items:
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Using the Azure Data Factory Studio UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
