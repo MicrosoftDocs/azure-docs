@@ -238,7 +238,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|DisableColors|false| Supresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
 |isEnabled|false|Enables or disables console logging.| 
 
 ## cosmosDb
