@@ -510,6 +510,28 @@ Sample output for `SpatialAnalysisPersonZoneCrossingOperation` :
 | `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
+### Tracker Node Parameter Settings
+
+You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
+```json
+{
+"enable_speed": true,
+}
+
+```
+| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable_speed`                     | bool    | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to True. It is highly recommended that we enable both speed and orientation to have the best estimated values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+### Detector Node Parameter Settings
+
+You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
+```json
+{
+"enable_orientation": true,
+}
+
+```
+| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable_speed`                     | bool    | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to True. It is highly recommended that we enable both speed and orientation to have the best estimated values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 ### More operations:
 There are additional operations that the `spatialAnalysis` module offers:
 
