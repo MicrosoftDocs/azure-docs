@@ -53,7 +53,7 @@ This is a high-level overview of how Conversation Transcription works.
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]
-> User voice samples are optional. Without this input, the transcription will show different speakers, but shown as "Speaker1", "Speaker2", etc. instead of recognizing as pre-enrolled specific speaker names.
+> User voice samples are optional. Without voice input but have `DifferentiateGuestSpeakers` enabled, the transcription will still show different speakers, but shown as "Speaker1", "Speaker2", etc. instead of recognizing as pre-enrolled specific speaker names. For more information about setting `DifferentiateGuestSpeakers`, please refer to sample codes in [Real-Time Conversation Transcription Quickstart](.\includes\how-to\conversation-transcription\real-time-csharp.md).
 
 
 ## Real-time vs. asynchronous

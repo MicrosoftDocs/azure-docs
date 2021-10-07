@@ -105,6 +105,7 @@ This sample code does the following:
 * Creates an `AudioConfig` from the sample `.wav` file to transcribe.
 * Creates a `Conversation` using `CreateConversationAsync()`.
 * Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
+* Enables `DifferentiateGuestSpeakers` feature to show the different speakers.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
 
@@ -133,7 +134,12 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
-    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
+
+    // This will enable "differentiate speakers" feature. You could comment it if you want to disable the feature.
+    config.SetProperty("DifferentiateGuestSpeakers", "true");
+
+    // en-us by default. This code specifies Chinese.
+    // config.SpeechRecognitionLanguage = "zh-cn";
     var stopRecognition = new TaskCompletionSource<int>();
 
     using (var audioInput = AudioConfig.FromWavFileInput(filepath))

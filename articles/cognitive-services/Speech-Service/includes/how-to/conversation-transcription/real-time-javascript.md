@@ -93,6 +93,11 @@ This sample code does the following:
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // This will enable "differentiate speakers" feature. You could comment it if you want to disable the feature.
+    speechTranslationConfig.setProperty("DifferentiateGuestSpeakers", "true");
+
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber
