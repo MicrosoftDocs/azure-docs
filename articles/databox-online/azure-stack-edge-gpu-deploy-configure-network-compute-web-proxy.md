@@ -298,8 +298,32 @@ Follow these steps to enable compute and configure compute network.
 
 ## Configure advanced networking
 
+You'll now configure the intent of the virtual switches that are created based on the network topology that you created.
+
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, 
+1. In the **Virtual switch** section, select a virtual switch. In the Network settings blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use CRTL + Click to select more than one intents for your virtual switch. 
+1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
+
+    For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided.
+
+    > [!IMPORTANT]
+    > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
+
+
+1. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
+    
+    > [!IMPORTANT]
+    > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
+    
+1. Select **Apply**.
+
+    ![Compute page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
+
+1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified port is enabled for compute. 
+ 
+    ![Compute page in local UI 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
+
+    Select **Next: Web proxy** to configure web proxy.  
 
 ::: zone-end
   
