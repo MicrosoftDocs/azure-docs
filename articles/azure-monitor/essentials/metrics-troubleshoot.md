@@ -81,7 +81,7 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest  (classic)** metrics that are collected by the [monitoring agent](../agents/agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md).
 
-By default, Guest (classic) metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest OS metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
+By default, Guest (classic) metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
 
 ![metric image](./media/metrics-troubleshoot/vmMetrics.png)
 
