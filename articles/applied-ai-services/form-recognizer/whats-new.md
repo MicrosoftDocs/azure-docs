@@ -24,22 +24,9 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
 * [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
-* [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
-
-
-  #### Prebuilt model data extraction
-
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+* [**Single-page hotel receipt (preview)**](concept-receipt.md) model added to prebuilt receipt processing.
+* [**Expanded fields for ID document (preview)**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Signature field (preview)**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
 
 * Support for 122 languages (print) and 7 languages (handwritten)
 
@@ -50,6 +37,20 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * Tables and text extraction enhancements
 
     * Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
+
+* [Python](quickstarts/try-v3-python-sdk.md) and [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
+
+ #### Form Recognizer model data extraction
+
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
 
 ## September 2021
 
