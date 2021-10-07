@@ -29,7 +29,7 @@ Custom question answering uses Azure diagnostic logging to store the telemetry d
 // All QnA Traffic
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
+| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
 | extend answer_ = tostring(parse_json(properties_s).answer)
 | extend question_ = tostring(parse_json(properties_s).question)
 | extend score_ = tostring(parse_json(properties_s).score)
@@ -45,7 +45,7 @@ let startDate = todatetime('2019-01-01');
 let endDate = todatetime('2020-12-31');
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
+| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
 | where TimeGenerated <= endDate and TimeGenerated >=startDate
 | extend kbId_ = tostring(parse_json(properties_s).kbId)
 | extend userId_ = tostring(parse_json(properties_s).userId)
@@ -80,7 +80,7 @@ AzureDiagnostics
 // All unanswered questions
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
+| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
 | extend answer_ = tostring(parse_json(properties_s).answer)
 | extend question_ = tostring(parse_json(properties_s).question)
 | extend score_ = tostring(parse_json(properties_s).score)
@@ -88,8 +88,6 @@ AzureDiagnostics
 | where score_ == 0
 | project question_, answer_, score_, kbId_
 ```
-
----
 
 ## Next steps
 
