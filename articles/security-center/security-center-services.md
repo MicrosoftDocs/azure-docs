@@ -86,7 +86,10 @@ For information about when recommendations are generated for each of these prote
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
 | Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
 | Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
-| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes       
+|
+| Microsoft Defender for Endpoint for Linux                 | Linux (preview)                                        | Via extension                | No  
+|
 | McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
 | Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
