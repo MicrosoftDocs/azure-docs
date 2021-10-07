@@ -19,7 +19,37 @@ When developing client applications, be sure to consider the relevant best pract
 
 Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
-In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size).
+<!-- In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size). -->
+
+<!-- ## Large request or response size -->
+
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
+
+In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
+
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
+
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
+
+Resolutions for large response sizes are varied but include:
+
+1. Optimize your application for a large number of small values, rather than a few large values.
+    - The preferred solution is to break up your data into related smaller values.
+    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
+1. Increase the size of your VM to get higher bandwidth capabilities
+    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+1. Increase the number of connection objects your application uses.
+    - Use a round-robin approach to make requests over different connection objects.
+
+
 
 ## Key distribution
 
