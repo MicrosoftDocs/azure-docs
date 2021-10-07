@@ -159,7 +159,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
         
     1. The expected value is the number of nodes deployed (in this case, 2). Select **Next**.  
 
-        ![Screenshot that shows Cluster Security with an Enable Security Auth checkbox.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)     
+     
         
     1. Add node names, and then select **Add suggested files**.
 
