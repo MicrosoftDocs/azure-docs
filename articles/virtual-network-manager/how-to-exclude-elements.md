@@ -106,7 +106,7 @@ The advanced editor can be used to select virtual network during the creation of
     }
     ```
 
-    The `"allOf" parameter contains both the conditional statements that are separated by the **AND** logical operator.
+    The `"allOf"` parameter contains both the conditional statements that are separated by the **AND** logical operator.
 
 1. To add another conditional statement for a *Name* field *not containing* **WestUS**, enter the following into the advanced editor:
 
@@ -162,7 +162,7 @@ This example uses the **OR** logical operator to separate two conditional statem
     }
     ```
 
-The `"anyOf" parameter contains both the conditional statements that are separated by the **OR** logical operator.
+The `"anyOf"` parameter contains both the conditional statements that are separated by the **OR** logical operator.
 
 ### Example 2: AND and OR operator at the same time
 
@@ -195,7 +195,7 @@ The `"anyOf" parameter contains both the conditional statements that are separat
 }
 ```
 
-Both "allOf" and "anyOf" is used in the code. Since the **AND** operator is last in the list, it is on the outer part of the code containing the two conditional statements with the **OR** operator.
+Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is last in the list, it is on the outer part of the code containing the two conditional statements with the **OR** operator.
 
 ## Next steps
 
