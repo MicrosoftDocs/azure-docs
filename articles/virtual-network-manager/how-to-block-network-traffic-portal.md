@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to block network traffic with Azure Virtual Network Manager (Preview) - Azure portal
 
-This article shows you how to create security rules to block inbound network traffic to RDP port 3389 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
+This article shows you how to create a security admin rule to block inbound network traffic for RDP port 3389 you can add to a rule collection. For more information, see [Security admin rules](concept-security-admins.md).
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -20,7 +20,7 @@ This article shows you how to create security rules to block inbound network tra
 
 ## Prerequisites
 
-Before you start configuring security rules, confirm the following:
+Before you start configuring security rules, confirm that you've done the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
@@ -33,7 +33,7 @@ Before you start configuring security rules, confirm the following:
 
 1. Select **SecurityAdmin** from the drop-down menu.
 
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/security-admin-drop-down.png" alt-text="Screenshot of add a configuration drop down.":::
+    :::image type="content" source="./media/how-to-block-network-traffic-portal/security-admin-drop-down.png" alt-text="Screenshot of add a configuration drop-down.":::
 
 1. Enter a *Name* to identify this security configuration.
 
@@ -55,7 +55,7 @@ Before you start configuring security rules, confirm the following:
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/add-rule-button.png" alt-text="Screenshot of add a rule button.":::
 
-1. Enter or select the following information, then select **Add** to add the rule to to rule collection.:
+1. Enter or select the following information, then select **Add** to add the rule to the rule collection.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/add-rule.png" alt-text="Screenshot of add a rule page.":::
 
@@ -70,11 +70,11 @@ Before you start configuring security rules, confirm the following:
     | Source type | Select the source type of either **IP address** or **Service tags**. |
     | Source IP addresses | This field will appear when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
     | Source service tag | This field will appear when you select the source type of *Service tag*. Select service tag(s) for services you want to specify as the source. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
-    | Source port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port enter *. Leave blank for this example.|
+    | Source port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Leave blank for this example.|
     | Destination type | Select the destination type of either **IP address** or **Service tags**. |
     | Destination IP addresses | This field will appear when you select the destination type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. |
-    | Destination service tag | This field will appear when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destionation. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
-    | Destination port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port enter *. Enter **3389** for this example. |
+    | Destination service tag | This field will appear when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
+    | Destination port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Enter **3389** for this example. |
 
 1. Repeat steps 1-3 again if you want to add more rule to the rule collection.
 
@@ -88,7 +88,7 @@ Before you start configuring security rules, confirm the following:
 
 ## Deploy the security admin configuration
 
-If this is new security admin configuration make sure to deploy this configuration to apply to virtual networks in the network group.
+If you just created a new security admin configuration, make sure to deploy this configuration to apply to virtual networks in the network group.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
@@ -105,11 +105,11 @@ If this is new security admin configuration make sure to deploy this configurati
 ## Update existing security admin configuration
 
 * If the security admin configuration you're updating is applied to a network group containing static members, you'll need to deploy the configuration again to take effect.
-* Security admin configuration are automatically applied to dynamic members in a network group.
+* Security admin configurations are automatically applied to dynamic members in a network group.
 
 ## Verify security admin rules
 
-Go to the **Networking** settings for a virtual machine in the one of the virtual networks you applied the security admin rules to. If you don't have one, deploy a test virtual machine into one of the virtual networks. You'll now see a new section below the network security group rules regarding security rules applied by Network Manager.
+Go to the **Networking** settings for a virtual machine in the one of the virtual networks you applied the security admin rules to. If you don't have one, deploy a test virtual machine into one of the virtual networks. You'll now see a new section below the network security group rules about security rules applied by Network Manager.
 
 :::image type="content" source="./media/how-to-block-network-traffic-portal/vm-security-rules.png" alt-text="Screenshot of security admin rules under virtual machine network settings." lightbox="./media/how-to-block-network-traffic-portal/vm-security-rules-expanded.png":::
 
