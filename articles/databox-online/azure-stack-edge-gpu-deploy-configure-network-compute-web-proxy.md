@@ -35,7 +35,6 @@ In this tutorial, you learn about:
 ::: zone pivot="single-node"
 
 > [!div class="checklist"]
->
 > * Prerequisites
 > * Configure network
 > * Enable compute network
@@ -47,9 +46,11 @@ In this tutorial, you learn about:
 
 > [!div class="checklist"]
 > * Prerequisites
+> * Select device setup type
 > * Configure network
 > * Get authentication token
 > * Configure cluster
+> * Configure virtual IP
 > * Configure advanced networking
 > * Configure web proxy
 
@@ -81,7 +82,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 ## Configure network
 
-Your **Get started** page displays the various settings that are required to configure and register the physical device with the Azure Stack Edge service. 
+Your **Get started** page displays the various settings that are required to configure and activate the physical device with the Azure Stack Edge service. 
 
 Follow these steps to configure the network for your device.
 
@@ -369,9 +370,11 @@ In this tutorial, you learned about:
 
 > [!div class="checklist"]
 > * Prerequisites
+> * Select device setup type
 > * Configure network
 > * Get authentication token
 > * Configure cluster
+> * Configure virtual IP
 > * Configure advanced networking
 > * Configure web proxy
 
