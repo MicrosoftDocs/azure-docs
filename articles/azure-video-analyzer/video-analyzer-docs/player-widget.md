@@ -242,6 +242,18 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. From the video list, select a video name, and enter it into the **Video name** field.
 1. Select **Play video**.
 
+### Live Video Playback
+
+If your livePipeline is in an `activated` state and the video is being recorded, then the player automatically loads the **LIVE** view. This video playback is near real-time and will have a short latency of about 2 seconds.
+
+In the **LIVE** view, you will:
+1. See the video playback in near real-time.
+1. Not see the timeline.
+1. Clicking on the **Box** icon will display the bounding boxes, if they exist.
+
+> [!Tip]
+> To switch to the view where you can view all the previously recorded clips, click on the **LIVE** button.
+ 
 ### Capture Lines and Zones
 
 1. Navigate to the **Zone Drawer** player
