@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 08/24/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ---
 
@@ -101,16 +101,14 @@ The data collected for each event is:
 
 | Parameter | Description|
 |--|--|
-| **Device Vendor** | The name of the vendor of the device. |
-| **Device Model** | The model number of the device. |
-| **OS distribution** | The distribution of the operating system. For example, `Linux`. |
-| **OS version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
-| **OS platform** | The OS of the device. |
-| **OS architecture** | The architecture of the OS. For example, `x86_64`. |
+| **hardware_vendor** | The name of the vendor of the device. |
+| **hardware_model** | The model number of the device. |
+| **os_dist** | The distribution of the operating system. For example, `Linux`. |
+| **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
+| **os_platform** | The OS of the device. |
+| **os_arch** | The architecture of the OS. For example, `x86_64`. |
 | **IP address** | The IP address of the device. |
 | **MAC address** | The MAC address of the device. |
-| **First seen** | The date and time the device was first seen. In format `MM/DD/YYYY HH:MM:SS AM/PM`. |
-| **Last seen** | The date and time the device was last seen. Presented in format `MM/DD/YYYY HH:MM:SS AM/PM`. |
 
 ## Baseline (trigger based)
 
