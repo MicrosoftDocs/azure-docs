@@ -24,7 +24,7 @@ To complete the steps in this article, you need to:
     The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in this topic. <!--[container create options][#containercreateoptions]-->
   
 > [!NOTE]
-> If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module, you can skip to the section for [Use direct method calls][#use-direct-method-calls]. Otherwise, follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
+> If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module, you can skip to the section for [Use direct method calls](#use-direct-method-calls). Otherwise, follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
 
 ## Check the Video Analyzer edge modules version
 
@@ -84,20 +84,20 @@ Lists all the discoverable ONVIF devices on the same network as the Video Analyz
 
 1. In the method name enter:
 
-    ```
-    onvifDeviceDiscover
-    ```
+  ```
+  onvifDeviceDiscover
+  ```
 1. In the payload enter:
 
-    ```JSON
-    {
-        "@apiVersion":"1.1",
-        "discoveryDuration":"PT10S"
-    }
-    ```
+  ```JSON
+  {
+      "@apiVersion":"1.1",
+      "discoveryDuration":"PT10S"
+  }
+  ```
     
-    > [!NOTE]
-    > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value.
+  > [!NOTE]
+  > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value.
 
   Within a few seconds you see the following `result`:
 
@@ -137,19 +137,19 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 1. In the method name enter:
 
-    ```
-    onvifDeviceGet
-    ```
+  ```
+  onvifDeviceGet
+  ```
 1. In the payload enter:
 
-    ```JSON
-    { 
-        "@apiVersion": "1.1",  
-        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
-        "username": "{USER_NAME}", 
-        "password": "{PASSWORD}" 
-    } 
-    ```
+  ```JSON
+  { 
+      "@apiVersion": "1.1",  
+      "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
+      "username": "{USER_NAME}", 
+      "password": "{PASSWORD}" 
+  } 
+  ```
 
   In the above payload:
 
@@ -259,7 +259,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
     Adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 - The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 - Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF-compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
-- Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast.  This also requires that port 3702 is available. 
+- Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast. This also requires that port 3702 is available. 
 
 ## Next steps
 
