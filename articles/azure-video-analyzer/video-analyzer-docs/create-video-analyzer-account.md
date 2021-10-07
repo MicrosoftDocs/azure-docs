@@ -3,7 +3,7 @@ title: Create an Azure Video Analyzer account
 description: This topic explains how to create an account for Azure Video Analyzer. 
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/2/2021
 ---
 
 # Create a Video Analyzer account
@@ -33,9 +33,15 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     |**Video Analyzer account name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
     |**Location**|Select the geographic region that will be used to store the video and metadata records for your Video Analyzer account. Only the available Video Analyzer regions appear in the drop-down list box. |
     |**Storage account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/>|
-    |**User identity**|Select a user-assigned managed identity that the new Video Analyzer account will use to access the storage account. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the roles of [Storage Blob Data Contributor][docs-storage-access] and [Reader][docs-role-reader] for the storage account.
+    |**Managed identity**|Select a user-assigned managed identity that the new Video Analyzer account will use to access the storage account. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the roles of [Storage Blob Data Contributor][docs-storage-access] and [Reader][docs-role-reader] for the storage account.
+
+>[!IMPORTANT]
+    >In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
 
 1. Click **Review + create** at the bottom of the form.
+1. Click **Go to resource** 
+1. Under settings click on **IoT Hub** then click on **Attach**.
+1. In the fly-out blade select the subscription for the IoT Hub, select the IoT Hub name and select the user assigned managed identity to use for the IoT Hub connection.  Click **Attach**.
 
 ## [Template](#tab/template/)
 
@@ -215,6 +221,15 @@ The following resources are defined in the template:
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-cli.md).
+
+### Post deployment steps
+
+>[!IMPORTANT]
+    >In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
+
+1. In the Azure portal navigate to the Video Analyzer account.
+1. Under settings click on **IoT Hub** then click on **Attach**.
+1. In the fly-out blade select the subscription for the IoT Hub, select the IoT Hub name and select the user assigned managed identity to use for the IoT Hub connection.  Click **Attach**.
 
 ### Review deployed resources
 
