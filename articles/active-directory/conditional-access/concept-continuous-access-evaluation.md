@@ -152,6 +152,10 @@ Organizations have options when it comes to enabling CAE.
 1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
 1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
 
+### Strict enforcement 
+
+Strict enforcement is a feature that allows for enhanced security based on two factors: IP address variation and client capability. This can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities). 
+
 ## Limitations
 
 ### Group membership and Policy update effective time
