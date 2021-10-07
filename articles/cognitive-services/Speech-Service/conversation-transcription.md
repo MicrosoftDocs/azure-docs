@@ -53,12 +53,9 @@ This is a high-level overview of how Conversation Transcription works.
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]
-> User voice samples are required for speaker identification. Speakers who do not have voice samples will be recognized as "Unidentified". Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see example below). The transcription output will then show speakers as "Guest_0", "Guest_1", etc. instead of recognizing as pre-enrolled specific speaker names.
+> User voice samples for voice signatures are required for speaker identification. Speakers who do not have voice samples will be recognized as "Unidentified". Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see example below). The transcription output will then show speakers as "Guest_0", "Guest_1", etc. instead of recognizing as pre-enrolled specific speaker names.
 > ```csharp
 > config.SetProperty("DifferentiateGuestSpeakers", "true");
-> ```
-> ```javascript
-> speechTranslationConfig.setProperty("DifferentiateGuestSpeakers", "true");
 > ```
 
 
