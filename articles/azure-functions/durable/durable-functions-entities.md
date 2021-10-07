@@ -290,8 +290,19 @@ module.exports = async function (context) {
 
 # [Python](#tab/python)
 
-> [!NOTE]
-> Python does not currently support reading entity states from a client. Use an orchestrator's `callEntity` instead.
+```python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    entity_state_result = await client.read_entity_state(entityId)
+    entity_state = "No state found"
+    if entity_state_result.entity_exists:
+      entity_state = str(entity_state_result.entity_state)
+    return func.HttpResponse(entity_state)
+```
 
 ---
 

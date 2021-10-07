@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 09/09/2021
 ms.author: cephalin
 ---
 
@@ -39,7 +39,7 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Settings that end with the suffix _EXTENSION_VERSION
 
 > [!NOTE]
-> To make these settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped and are not affected by this override app setting.
-
+> To make aforementioned settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped and are not affected by this override app setting.
+>
 > Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
 >

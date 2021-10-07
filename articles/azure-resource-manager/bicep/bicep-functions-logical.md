@@ -4,12 +4,12 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 09/30/2021
 ---
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. 
+Bicep provides the `bool` function for converting values to a boolean.
 
 Most of the logical functions in Azure Resource Manager templates are replaced with [logical operators](./operators-logical.md) in Bicep.
 
@@ -18,6 +18,8 @@ Most of the logical functions in Azure Resource Manager templates are replaced w
 `bool(arg1)`
 
 Converts the parameter to a boolean.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -31,7 +33,7 @@ A boolean of the converted value.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
+The following example shows how to use bool with a string or integer.
 
 ```bicep
 output trueString bool = bool('true')
@@ -51,5 +53,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For most logical operations, see [Bicep logical operators](./operators-logical.md).
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* For other actions involving logical values, see [logical operators](./operators-logical.md).

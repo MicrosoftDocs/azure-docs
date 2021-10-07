@@ -1,5 +1,5 @@
 ---
-title: Comparing custom images and formulas in DevTest Labs | Microsoft Docs
+title: Comparing custom images and formulas
 description: Learn about the differences between custom images and formulas as VM bases so you can decide which one best suits your environment.
 ms.topic: conceptual
 ms.date: 08/26/2021

@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 06/11/2021
+ms.date: 09/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
 ---
@@ -45,13 +45,13 @@ The following table compares how services access different parts of an Azure Mac
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
-|**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  | 
+|**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  | 
 
 * **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
-* **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault, and Azure Container Services.
+* **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault. For Azure Container Services, use a private endpoint.
     * **Service endpoints** provide the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. Service endpoints use public IP addresses.
     * **Private endpoints** are network interfaces that securely connect you to a service powered by Azure Private Link. Private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
-* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters securely with private IP addresses. 
+* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters securely with public IP addresses. 
 * **Inferencing compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
@@ -69,12 +69,12 @@ Use the following steps to secure your workspace and associated resources. These
 
 1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
-    
+
     | Service | Endpoint information | Allow trusted information |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Azure Storage Account__ | [Service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
-    | __Azure Container Registry__ | [Service endpoint](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
 
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -93,7 +93,7 @@ In this section, you learn how to secure the training environment in Azure Machi
 
 To secure the training environment, use the following steps:
 
-1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-instance) to run the training job.
+1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
 1. [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
 ![Architecture diagram showing how to secure managed compute clusters and instances](./media/how-to-network-security-overview/secure-training-environment.png)
@@ -163,7 +163,7 @@ To enable full studio functionality, see [Use Azure Machine Learning studio in a
 
 ### Limitations
 
-[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
+[ML-assisted data labeling](how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
 
 > [!TIP]
 > As long as it is not the default storage account, the account used by data labeling can be secured behind the virtual network. 

@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -14,10 +14,7 @@ ms.subservice: disks
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 
 
-Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article:
-
-- For Linux: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
-- For Windows: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article: [Customer-managed keys](disk-encryption.md#customer-managed-keys)
 
 ## Restrictions
 

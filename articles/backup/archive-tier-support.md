@@ -2,13 +2,13 @@
 title: Archive Tier support
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Archive Tier support
 
-Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
+Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
 
@@ -71,7 +71,7 @@ Supported clients:
 
     - For SQL Server in Azure virtual machines:
 
-        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+        `$bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
 1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 124 days to last 95 days, use the following command:
 
@@ -83,6 +83,16 @@ Supported clients:
     >[!NOTE]
     >To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
+
+### Check the archivable status of all the recovery points
+
+You can now check the archivable status of all the recovery points of a backup item using the following cmdlet:
+
+```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
+
+$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
+```
 
 ### Check archivable recovery points
 
@@ -144,7 +154,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 For recovery points in archive, Azure Backup provides an integrated restore methodology.
 
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
+The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
 
 >[!NOTE]
 >
@@ -166,6 +176,17 @@ To view the move and restore jobs, use the following PowerShell cmdlet:
 ```azurepowershell
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
+
+### Move recovery points to archive tier at scale
+
+You can now use sample scripts to perform at scale operations. [Learn more](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) about how to run the sample scripts. You can download the scripts from [here](https://github.com/hiaga/Az.RecoveryServices).
+
+You can perform the following operations using the sample scripts provided by Azure Backup:
+
+- Move all eligible recovery points for a particular database/all databases for a SQL server in Azure VM to the archive tier.
+- Move all recommended recovery points for a particular Azure Virtual Machine to the archive tier.
+ 
+You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
 ## Use the portal
 
@@ -206,8 +227,8 @@ Stop protection and delete data deletes all the recovery points. For recovery po
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure VM | East US, South Central US, North Central US, West Europe, UK South | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, Central US, East US 2, West US, West US 2, West Central US |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South | None |
+| SQL Server in Azure VM | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South. | None |
 
 ## Error codes and troubleshooting steps
 

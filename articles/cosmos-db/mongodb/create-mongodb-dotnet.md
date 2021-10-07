@@ -203,7 +203,7 @@ If you prefer the CLI, run the following command in a command window to start th
 dotnet run
 ```
 
-After the application is running, navigate to [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html) to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+After the application is running, navigate to `https://localhost:5001/swagger/index.html` to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
 
 Select the API you would like to test and select "Try it out".
 

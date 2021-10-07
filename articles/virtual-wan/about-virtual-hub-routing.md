@@ -108,7 +108,7 @@ Consider the following when configuring Virtual WAN routing:
 * All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
 * Branch-to-branch via Azure Firewall is currently not supported.
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
-* A single next hop IP can be configured per VNet connection.
+* You may specify multiple next hop IP addresses on a single Virtual Network connection. However, Virtual Network Connection does not support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE Virtual Network 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 * All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route does not propagate across hubs.
 ## Next steps
 

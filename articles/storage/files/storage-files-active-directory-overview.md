@@ -114,7 +114,7 @@ For Azure AD DS authentication, you should enable Azure AD Domain Services and d
 
 The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-prem AD DS authentication to Azure file shares. There are two major differences:
 
-- First, you don’t need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
+- First, you don't need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
 
 - Second, all users that exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
 

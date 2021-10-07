@@ -23,6 +23,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). | 
 | Outbound | 443 | ContainerRegistry.region | Access docker images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
+| Outbound | 443 | Keyvault.region | Access the key vault for the Azure Batch service. Only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled. |
 
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:
@@ -47,6 +48,6 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 
 When using Azure Kubernetes Service (AKS) with Azure Machine Learning, allow the following traffic to the AKS VNet:
 
-* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) article.
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../articles/aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
-* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](/azure/machine-learning/how-to-deploy-azure-kubernetes-service#connectivity) article.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md#connectivity) article.

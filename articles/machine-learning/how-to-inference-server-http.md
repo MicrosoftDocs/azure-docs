@@ -13,7 +13,7 @@ ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
 ---
 
-# Azure Machine Learning inference HTTP server (Preview)
+# Azure Machine Learning inference HTTP server (preview)
 
 The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 

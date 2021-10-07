@@ -52,8 +52,11 @@ If your application demand increases, the load on the VM instances in your scale
     | *Cool down (minutes)*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 
     The following examples show a rule created in the Azure portal that matches these settings:
-
+    
     ![Create an autoscale rule to increase the number of VM instances](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
+
+    > [!NOTE]
+    > Tasks running inside the instance will abruptly stop and the instance will scale down once it completes the cooling period.
 
 6. To create the rule, select **Add**
 

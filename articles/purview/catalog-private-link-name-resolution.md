@@ -6,11 +6,14 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Configure and verify DNS Name Resolution for Azure Purview private endpoints
+
+> [!IMPORTANT]
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 ## Conceptual overview
 Accurate name resolution is a critical requirement when setting up private endpoints for your Azure Purview accounts. 
@@ -27,82 +30,141 @@ The following example shows Azure Purview DNS name resolution from inside the vi
 
 ## Deployment options 
 
-Use any of the following options to sent up internal name resolution when using private endpoints for your Azure Purview account:
+Use any of the following options to set up internal name resolution when using private endpoints for your Azure Purview account:
 
--  [Deploy new Azure Private DNS Zones](#option-1---deploy-new-azure-private-dns-zones) in your Azure environment part of private endpoint deployment. (Default option)
+- [Deploy new Azure Private DNS Zones](#option-1---deploy-new-azure-private-dns-zones) in your Azure environment part of private endpoint deployment. (Default option)
 - [Use existing Azure Private DNS Zones](#option-2---use-existing-azure-private-dns-zones). Use this option if you using a private endpoint in a hub-and-spoke model from a different subscription or even within the same subscription. 
 - [Use your own DNS Servers](#option-3---use-your-own-dns-servers) if you do not use DNS forwarders and instead you manage A records directly in your on-premises DNS servers.
 
 ## Option 1 - Deploy new Azure Private DNS Zones  
 
+### Deploy new Azure Private DNS Zones
 To enable internal name resolution, you can deploy the required Azure DNS Zones inside your Azure subscription where Azure Purview account is deployed. 
 
-When you create portal and account private endpoints, the DNS CNAME resource records for Azure Purview is automatically updated to an alias in a subdomain with the prefix `privatelink`. 
-By default, we also create a [private DNS zone](../dns/private-dns-overview.md) that corresponds to the `privatelink` subdomain for Azure Purview as privatelink.purview.azure.com including DNS A resource records for the private endpoints. 
-If you enable ingestion private endpoints, additional DNS zones are required for managed resources. 
+   :::image type="content" source="media/catalog-private-link/purview-pe-dns-zones.png" alt-text="Screenshot that shows DNS Zones.":::
+
+When you create ingestion, portal and account private endpoints, the DNS CNAME resource records for Azure Purview is automatically updated to an alias in few subdomains with the prefix `privatelink`:
+
+- By default, during the deployment of _account_ private endpoint for your Purview account, we also create a [private DNS zone](../dns/private-dns-overview.md) that corresponds to the `privatelink` subdomain for Azure Purview as `privatelink.purview.azure.com` including DNS A resource records for the private endpoints.
+
+- During the deployment of _portal_ private endpoint for your Purview account, we also create a new private DNS zone that corresponds to the `privatelink` subdomain for Azure Purview as `privatelink.purviewstudio.azure.com` including DNS A resource records for _Web_.
+
+- If you enable ingestion private endpoints, additional DNS zones are required for managed resources. 
 
 The following table shows an example of Azure Private DNS zones and DNS A Records that are deployed as part of configuration of private endpoint for an Azure Purview account if you enable _Private DNS integration_ during the deployment: 
 
 Private endpoint  |Private endpoint associated to  |DNS Zone (new)  |A Record (example) |
 |---------|---------|---------|---------|
-|Account     |Azure Purview         |`privatelink.purview.azure.com`         |PurviewA         |
-|Portal     |Azure Purview account          |`privatelink.purview.azure.com`        |Web         |
+|Account     |Azure Purview         |`privatelink.purview.azure.com`         |Contoso-Purview         |
+|Portal     |Azure Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
 |Ingestion     |Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
 |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
 
+### Validate virtual network links on Azure Private DNS Zones
+
+Once the private endpoint deployment is completed, make sure there is a [Virtual network link](../dns/private-dns-virtual-network-links.md) on all corresponding Azure Private DNS zones to Azure virtual network where private endpoint was deployed.
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-link.png" alt-text="Screenshot that shows virtual network links on DNS Zone.":::
+
+For more information, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+### Verify internal name resolution
+
 When you resolve the Azure Purview endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of Azure Purview. When resolved from the virtual network hosting the private endpoint, the Azure Purview endpoint URL resolves to the private endpoint's IP address.
 
-As an example, if an Azure Purview account name is 'PurviewA', when it is resolved from outside the virtual network that hosts the private endpoint, it will be:
+As an example, if an Azure Purview account name is 'Contoso-Purview', when it is resolved from outside the virtual network that hosts the private endpoint, it will be:
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
-| `PurviewA.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
+| `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
 | \<Purview public endpoint\> | A | \<Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Purview Studio public endpoint\> |
 
-The DNS resource records for PurviewA, when resolved in the virtual network hosting the private endpoint, will be:
+The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
-| `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
-| `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
+| `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
+| `Contoso-Purview.privatelink.purview.azure.com` | A | \<Purview account private endpoint IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview portal private endpoint IP address\> |
 
 ## Option 2 - Use existing Azure Private DNS Zones
-During the deployment of Azure purview private endpoints, you can choose _Private DNS integration_ using existing Azure Private DNS Zones. This is common case for organizations where private endpoint is used for other services in Azure. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
 
-This also applies if your organization uses a central or hub subscription for all Azure Private DNS Zones.
+### Use existing Azure Private DNS Zones
+
+During the deployment of Azure purview private endpoints, you can choose _Private DNS integration_ using existing Azure Private DNS zones. This is common case for organizations where private endpoint is used for other services in Azure. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
+
+This scenario also applies if your organization uses a central or hub subscription for all Azure Private DNS Zones.
 
 The following list shows the required Azure DNS zones and A records for Purview private endpoints:
 
 > [!NOTE]
-> Update all names with `PurviewA`,`scaneastusabcd1234` and `atlas-12345678-1234-1234-abcd-123456789abc` with corresponding Azure resources name in your environment. For example, instead of `scaneastusabcd1234` use the name of your Azure Purview managed storage account.
+> Update all names with `Contoso-Purview`,`scaneastusabcd1234` and `atlas-12345678-1234-1234-abcd-123456789abc` with corresponding Azure resources name in your environment. For example, instead of `scaneastusabcd1234` use the name of your Azure Purview managed storage account.
 
 Private endpoint  |Private endpoint associated to  |DNS Zone (existing)  |A Record (example) |
 |---------|---------|---------|---------|
-|Account     |Azure Purview         |`privatelink.purview.azure.com`         |PurviewA         |
-|Portal     |Azure Purview account          |`privatelink.purview.azure.com`        |Web         |
+|Account     |Azure Purview         |`privatelink.purview.azure.com`         |Contoso-Purview         |
+|Portal     |Azure Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
 |Ingestion     |Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
 |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
 
-For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
-
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-diagram.png" alt-text="Diagram that shows Azure Purview name resolution"lightbox="media/catalog-private-link/purview-name-resolution-diagram.png":::
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Azure Purview endpoint to the private endpoint IP address. Configure your DNS server to delegate your Private Link subdomain to the private DNS zone for the virtual network. Or, configure the A records for `PurviewA.privatelink.purview.azure.com` with the private endpoint IP address.
-Once the private endpoint deployment is completed, make sure there is a [Virtual network link](../dns/private-dns-virtual-network-links.md) for name resolution on the corresponding Azure Private DNS zone to Azure virtual network where private endpoint was deployed. 
+For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+### Verify virtual network links on Azure Private DNS Zones
+
+Once the private endpoint deployment is completed, make sure there is a [Virtual network link](../dns/private-dns-virtual-network-links.md) on all corresponding Azure Private DNS zones to Azure virtual network where private endpoint was deployed.
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-link.png" alt-text="Screenshot that shows virtual network links on DNS Zone.":::
 
 For more information, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+### Configure DNS Forwarders if custom DNS is used
+
+Additionally it is required to validate your DNS configurations on Azure virtual network where self-hosted integration runtime VM or management PC is located. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-custom-dns.png" alt-text="Diagram that shows Azure virtual network custom DNS":::
+
+- If it is configured to _Default_, no further action is required in this step.
+
+-  If custom DNS server is used, you should add corresponding DNS forwarders inside your DNS servers for the following zones:
+  
+   -  Purview.azure.com
+   -  Blob.core.windows.net
+   -  Queue.core.windows.net
+   -  Servicebus.windows.net
+
+### Verify internal name resolution
+
+When you resolve the Azure Purview endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of Azure Purview. When resolved from the virtual network hosting the private endpoint, the Azure Purview endpoint URL resolves to the private endpoint's IP address.
+
+As an example, if an Azure Purview account name is 'Contoso-Purview', when it is resolved from outside the virtual network that hosts the private endpoint, it will be:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
+| `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| \<Purview public endpoint\> | A | \<Purview public IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview Studio public endpoint\> |
+
+The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
+| `Contoso-Purview.privatelink.purview.azure.com` | A | \<Purview account private endpoint IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview portal private endpoint IP address\> |
 
 ## Option 3 - Use your own DNS Servers
 
 If you do not use DNS forwarders and instead you manage A records directly in your on-premises DNS servers to resolve the endpoints through their private IP addresses, you might need to create the following A records in your DNS servers.
 
 > [!NOTE]
-> Update all names with `PurviewA`,`scaneastusabcd1234` and `atlas-12345678-1234-1234-abcd-123456789abc` with corresponding Azure resources name in your environment. For example, instead of `scaneastusabcd1234` use the name of your Azure Purview managed storage account.
+> Update all names with `Contoso-Purview`,`scaneastusabcd1234` and `atlas-12345678-1234-1234-abcd-123456789abc` with corresponding Azure resources name in your environment. For example, instead of `scaneastusabcd1234` use the name of your Azure Purview managed storage account.
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
@@ -110,22 +172,23 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `scaneastusabcd1234.blob.core.windows.net` | A | \<blob-ingestion private endpoint IP address of Azure Purview> |
 | `scaneastusabcd1234.queue.core.windows.net` | A | \<queue-ingestion private endpoint IP address of Azure Purview> |
 | `atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net`| A | \<namespace-ingestion private endpoint IP address of Azure Purview> |
-| `PurviewA.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
-| `PurviewA.scan.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
-| `PurviewA.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `Contoso-Purview.scan.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `Contoso-Purview.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `Contoso-Purview.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+
 
 ## Verify and DNS test name resolution and connectivity 
 
@@ -133,8 +196,8 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 
    |Private endpoint  |Private endpoint associated to  |DNS Zone  |A Record )(example) |
    |---------|---------|---------|---------|
-   |Account     |Azure Purview         |`privatelink.purview.azure.com`         |PurviewA         |
-   |Portal     |Azure Purview account          |`privatelink.purview.azure.com`        |Web         |
+   |Account     |Azure Purview         |`privatelink.purview.azure.com`         |Contoso-Purview         |
+   |Portal     |Azure Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
    |Ingestion     |Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
    |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
    |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
@@ -144,18 +207,18 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 3. From your management PC and self-hosted integration runtime VM, test name resolution and network connectivity to your Azure Purview account using tools such as Nslookup.exe and PowerShell
 
 To test name resolution you need to resolve the following FQDNs through their private IP addresses:
-(Instead of PurviewA, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
+(Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
 
-- `PurviewA.purview.azure.com`
+- `Contoso-Purview.purview.azure.com`
 - `web.purview.azure.com`
 - `scaneastusabcd1234.blob.core.windows.net`
 - `scaneastusabcd1234.queue.core.windows.net`
 - `atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net`
 
 To test network connectivity, from self-hosted integration runtime VM you can launch PowerShell console and test connectivity using `Test-NetConnection`. 
-You must resolve each endpoint by their private endpoint and obtain TcpTestSucceeded as True. (Instead of PurviewA, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
+You must resolve each endpoint by their private endpoint and obtain TcpTestSucceeded as True. (Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
 
-- `Test-NetConnection -ComputerName PurviewA.purview.azure.com -port 443`
+- `Test-NetConnection -ComputerName Contoso-Purview.purview.azure.com -port 443`
 - `Test-NetConnection -ComputerName web.purview.azure.com -port 443`
 - `Test-NetConnection -ComputerName scaneastusabcd1234.blob.core.windows.net -port 443`
 - `Test-NetConnection -ComputerName scaneastusabcd1234.queue.core.windows.net -port 443`

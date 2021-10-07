@@ -79,6 +79,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+        - name: Manage with Azure CLI
+          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -87,6 +89,8 @@
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
+    - name: Log Analytics clusters
+      href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
     - name: SQL insights
@@ -233,10 +237,10 @@
         items:
         - name: Azure portal
           href: logs/quick-create-workspace.md 
-        - name: Azure CLI
-          href: logs/quick-create-workspace-cli.md
         - name: PowerShell
           href: logs/powershell-workspace-configuration.md
+        - name: Resource Manager template
+          href: logs/resource-manager-workspace.md
       - name: Design a workspace deployment
         href: logs/design-logs-deployment.md
       - name: Monitor a workspace
@@ -320,8 +324,6 @@
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-      - name: Send to Power BI
-        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -741,8 +743,17 @@
       - name: Azure VM and virtual machine scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
-        displayname: App Service, web app, PaaS, Azure web app
-        href: app/azure-web-apps.md
+        items: 
+        - name: Overview
+          href: app/azure-web-apps.md
+        - name: ASP.NET Core
+          href: app/azure-web-apps-net-core.md
+        - name: ASP.NET 
+          href: app/azure-web-apps-net.md
+        - name: Java 
+          href: app/azure-web-apps-java.md
+        - name: Node.js 
+          href: app/azure-web-apps-nodejs.md
       - name: Azure Cloud Services
         displayname: cloud, cloud services, PaaS
         href: app/cloudservices.md
@@ -1010,10 +1021,6 @@
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export to Stream Analytics
-        href: app/export-stream-analytics.md
-      - name: Export to SQL using Stream Analytics
-        href: app/code-sample-export-sql-stream-analytics.md
       - name: Export data model
         href: app/export-data-model.md
     - name: Visual Studio
@@ -1338,7 +1345,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: visualize/powerbi.md
+        href: logs/log-powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards
