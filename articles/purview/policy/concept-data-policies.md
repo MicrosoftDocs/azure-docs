@@ -1,5 +1,5 @@
 ---
-title: Azure Purview Data Policy Concepts
+title: Azure Purview Data Policies Concepts
 description: Understand Azure Purview Data Policies
 author: vlrodrig
 ms.author: vlrodrig
@@ -120,4 +120,4 @@ The following table illustrates how actions in Azure Purview Data Policies map t
 ## Next steps
 Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB:
 
-[How-to guide for Purview Data Policies with Azure Storage](how-to-storage-access-policies.md)
+[How to integrate Azure Storage into Azure Purview Data Policies](how-to-storage-access-policies.md)

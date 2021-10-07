@@ -259,10 +259,8 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Data Policies
     items:
-    - name: Data owner scenario
-      items:
-      - name: How-to guide for Azure Storage
-        href: policy/how-to-storage-access-policies.md
+    - name: How to create data access policies for Azure Storage
+      href: policy/how-to-storage-access-policies.md
 name: Reference
   items:
     - name: Azure Purview product glossary
