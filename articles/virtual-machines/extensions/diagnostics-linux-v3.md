@@ -57,7 +57,7 @@ A distribution that lists only major versions, like Debian 7, is also supported 
 
 Supported distributions and versions:
 
-- Ubuntu 18.04, 16.04, 14.04
+- Ubuntu 20.04, 18.04, 16.04, 14.04
 - CentOS 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
