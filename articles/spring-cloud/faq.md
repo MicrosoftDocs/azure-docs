@@ -30,6 +30,12 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 * Azure Spring Cloud provides complete TLS/SSL and certificate management.
 * Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
+### How does Azure Spring Cloud host my applications?
+
+Each service instance in Azure Spring Cloud is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Cloud is fully managing the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, etc.
+
+Azure Spring Cloud intelligently schedule your applications on the underlying Kubernetes worker nodes. To provide high availbility, applications with 2 or more instances are distrbuted on different nodes.
+
 ### In which regions is Azure Spring Cloud available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
