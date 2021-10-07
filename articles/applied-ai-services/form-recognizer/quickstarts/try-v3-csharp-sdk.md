@@ -272,7 +272,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## **Try it**:  Layout model
+## **Try it**: Layout model
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 

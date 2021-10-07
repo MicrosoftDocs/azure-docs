@@ -313,7 +313,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 ```
 
-## **Try it**:  Layout model
+## **Try it**: Layout model
 
 > [!div class="checklist"]
 >

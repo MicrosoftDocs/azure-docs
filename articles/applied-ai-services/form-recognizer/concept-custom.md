@@ -63,16 +63,6 @@ In the Form Recognizer UI:
 
     :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project.":::
 
-## Create your models
-
-The steps for building, training, and using custom and composed models are as follows:
-
-* [**Assemble your training dataset**](#assemble-your-training-dataset)
-* [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
-* [**Train your custom model**](#train-your-custom-model)
-* [**Compose custom models**](#create-a-composed-model)
-* [**Analyze documents**](#analyze-documents-with-your-custom-or-composed-model)
-* [**Manage your custom models**](#manage-your-custom-models)
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.

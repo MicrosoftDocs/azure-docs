@@ -202,7 +202,7 @@ def analyze_document():
     analyze_document()
 ```
 
-## **Try it**:  Layout model
+## **Try it**: Layout model
 
 > [!div class="checklist"]
 >
