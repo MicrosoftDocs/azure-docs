@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse database templates
 description: Learn about database templates and what is a lake database.
-author: prlangad; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
+author: prlangad
+ms.author: prlangad
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 11/02/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.

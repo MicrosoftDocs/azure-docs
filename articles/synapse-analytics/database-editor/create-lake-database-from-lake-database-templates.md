@@ -1,11 +1,11 @@
 ---
 title: #Required; page title is displayed in search results. Include the brand.
 description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+author: prlangad
+ms.author: prlangad
+ms.service: synapse-analytics
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,7 +27,7 @@ Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task th
 user will complete.
 -->
 
-# Create a lake database from industry data model
+# Create a lake database from database templates
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
@@ -54,13 +54,13 @@ Required. A how-to article explains how to do a task. The bulk of each H2 should
 a procedure.
 -->
 
-## Create lake database from industry data model
+## Create lake database from database template
 <!-- Introduction paragraph -->
 1. From your Azure Synapse Analytics workspace **Home** hub, select **Knowledge center** and then **Browse gallery**. You will land on the **Lake database templates** tab.
 2. **Lake database templates** category lists standardized database templates available for specific industry.
 3. You can also visit the **Lake database templates** tab from **Data** hub, **+** Add new resource, **Browse gallery** menu.
 4. Select the industry you're interested in (for example, **Retail**) and select **Continue** to navigate to the exploration of the data model.
-5. You will see the canvas and the table selector. The canvas has various tools to help you navigate the entity-relationship diagram.
+5. You will land in the canvas where preview of data model with sample tables available to start with. The canvas has various tools to help you navigate the entity-relationship diagram.
     - **Zoom to fit** to fit all tables on the canvas in the viewing area
     - **Increase zoom** to zoom in to the canvas
     - **Decrease zoom** to zoom out of the canvas
@@ -76,7 +76,7 @@ a procedure.
     - The Relationships tab lists the incoming and outgoing relationships of the table with other tables on the canvas.
     
 7. To quickly add tables that are related to the table on canvas, select the ellipses to the right of the table name and then select **Add related tables**. All tables with existing relationships are added to the canvas.
-8. Once the canvas has all the tables that meet your database schema requirements, select **Create database** to proceed with creation of lake database. The new database will show up in the database editor to customize it per your business needs. You can begin to customize tables, columns, and relationships inherited from the industry data model. You can also add custom tables, columns, relationships as desired in the database.
+8. Once the canvas has all the tables that meet your database schema requirements, select **Create database** to proceed with creation of lake database. The new database will show up in the database editor to customize it per your business needs. You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as desired in the database.
 
 ## Customize storage settings for a lake database
 1. In Synapse database editor, properties pane, you can provide the name of the database.
