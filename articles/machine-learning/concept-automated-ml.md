@@ -124,7 +124,7 @@ See examples of regression and automated machine learning for predictions in the
 ### Computer vision (preview)
 
 > [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Automated ML for images (preview) adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
 With this capability you can: 
