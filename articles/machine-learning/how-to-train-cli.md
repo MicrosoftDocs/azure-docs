@@ -94,7 +94,7 @@ Then use `$run_id` in subsequent commands like `update`, `show`, or `stream`:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_show":::
 
-## Organizing with display name, description, and tags
+## Organize jobs
 
 To organize jobs, you can set a display name, description, and tags. Descriptions support markdown syntax in the studio. These properties are mutable after a job is created. A full example:
 
@@ -188,7 +188,7 @@ You can use `--set` to override inputs:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_input_set":::
 
-Literal inputs to jobs can easily be [converted to search space inputs](#search-space-inputs) for hyperparameter sweeps on model training.
+Literal inputs to jobs can be [converted to search space inputs](#search-space-inputs) for hyperparameter sweeps on model training.
 
 ### Search space inputs
 
@@ -203,7 +203,7 @@ We can demonstrate the concept with a simple Python script which takes in argume
 
 And create a corresponding sweep job:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
 
 And run it:
 
@@ -213,7 +213,7 @@ And run it:
 
 The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once it is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
 
-We can easily modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
+We can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
 
