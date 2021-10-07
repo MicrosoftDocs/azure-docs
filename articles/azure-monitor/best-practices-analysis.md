@@ -1,19 +1,19 @@
 ---
-title: Deploy Azure Monitor - Analysis and visualizations
+title: Azure Monitor best practices - analysis and visualizations
 description: Guidance and recommendations for customizing visualizations beyond standard analysis features in Azure Monitor.
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/28/2021
 
 ---
 
-# Deploying Azure Monitor - Analyze and visualize data
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes builtin features for analyzing collected data and for creating custom visualizations to meet the requirements of different users in the organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. Depending on the tool that you use, you might also have the option to share visualizations with other users inside and outside your organization.
+# Azure Monitor best practices - Analyze and visualize data
+This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes builtin features in Azure Monitor for analyzing collected data and options for creating custom visualizations to meet the requirements of different users in your organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns.
 
 
 ## Builtin analysis features
-The following sections describe Azure Monitor features that provide analysis of collected data without configuration.
+The following sections describe Azure Monitor features that provide analysis of collected data without any configuration.
 ### Overview page
 Most Azure services will have an **Overview** page in the Azure portal that includes a **Monitor** section with charts showing recent charts for critical metrics. This is intended for owners of individual services to quickly assess the performance of the resource. Since this page is based on platform metrics that are collected automatically, there's no configuration required for this feature.
 
@@ -22,7 +22,7 @@ Metrics explorer allows users to interactively work with metric data and create 
 
 
 ## Log Analytics
-Log Analytics allows users to create log queries to interactively work with log data and create log query alerts. There is some training required for users to become familiar with the query language, although they can use prebuilt queries provided by Microsoft. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. This allows users who are familiar with the query language to make queries available to others in the organization.
+Log Analytics allows users to create log queries to interactively work with log data and create log query alerts. There is some training required for users to become familiar with the query language, although they can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. This allows users who are familiar with the query language to build queries for others in the organization.
 
 
 ## Workbooks
@@ -96,4 +96,4 @@ You can then build your own custom websites and applications using metric and lo
 
 
 ## Next steps
-- [Define alerts and automated actions from Azure Monitor data](deploy-alerts.md)
+- [Define alerts and automated actions from Azure Monitor data](best-practices-alerts.md)

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor - Configure data collection
+title: Azure Monitor best practices - Configure data collection
 description: Guidance and recommendations for configuring data collection in Azure Monitor.
 ms.topic: conceptual
 author: bwren
@@ -8,7 +8,7 @@ ms.date: 09/28/2021
 
 ---
 
-# Deploying Azure Monitor - Configure data collection
+# Azure Monitor best practices - Configure data collection
 This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes recommended steps to configure data collection required to enable Azure Monitor features for your Azure and hybrid applications and resources.
 
 
@@ -26,7 +26,7 @@ See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-wor
 ## Collect data from Azure resources
 Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
 
-[ ![Deploy Azure resource monitoring](media/deploy-data-collection/deploy-azure-resources.png)](media/deploy-data-collection/deploy-azure-resources.png#lightbox)
+[ ![Deploy Azure resource monitoring](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
 
 ### Collect tenant and subscription logs
 While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which is the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.
@@ -124,4 +124,4 @@ See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for d
 
 ## Next steps
 
-- With data collection configured for all of your Azure resources, see [Alerts and automated actions](deploy-alerts.md) to configure responses to take to issues identified in your monitoring data.
+- With data collection configured for all of your Azure resources, see [Alerts and automated actions](best-practices-alerts.md) to configure responses to take to issues identified in your monitoring data.

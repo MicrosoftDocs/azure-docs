@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor - Planning
+title: Azure Monitor best practices - Planning
 description: Guidance and recommendations for planning and design before deploying Azure Monitor.
 ms.topic: conceptual
 author: bwren
@@ -8,7 +8,7 @@ ms.date: 09/28/2021
 
 ---
 
-# Deploying Azure Monitor - Planning your monitoring strategy and configuration
+# Azure Monitor best practices - Planning your monitoring strategy and configuration
 This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular usiness requirements.
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). That guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes. This article will refer to sections of that guide that are relevant to particular planning steps.
@@ -61,4 +61,4 @@ You may have an existing investment in System Center Operations Manager for moni
 
 ## Next steps
 
-- See [Configure data collection](deploy-data-collection.md) for steps and recommendations to configure data collection in Azure Monitor.
+- See [Configure data collection](best-practices-data-collection.md) for steps and recommendations to configure data collection in Azure Monitor.

@@ -164,18 +164,18 @@
   items:
   - name: Scenarios
     items:
-    - name: Deploying Azure Monitor
+    - name: Azure Monitor best practices
       items:
       - name: Overview
-        href: deploy.md
+        href: best-practices.md
       - name: Planning
-        href: deploy-plan.md
+        href: best-practices-plan.md
       - name: Configure data collection
-        href: deploy-data-collection.md
+        href: best-practices-data-collection.md
       - name: Alerts and automated actions
-        href: deploy-alerts.md
+        href: best-practices-alerts.md
       - name: Analysis and visualizations
-        href: visualizations.md
+        href: best-practices-analysis.md
     - name: Monitor virtual machines
       items:
       - name: Overview
