@@ -85,7 +85,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Validate the compatibility
 
-It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn’t supported.
+It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn't supported.
 
 The MTA supports migrations from third-party enterprise application servers, such as Oracle WebLogic Server, to JBoss EAP and upgrades to the latest release of JBoss EAP.
 
@@ -106,8 +106,6 @@ The following table describes the most common supported migration paths.
 | Java application | - | - | &#x2714; | &#x2714; | - | - | - |
 
 <sup>1</sup> Although MTA does not currently provide rules for this migration path, Red Hat Consulting can assist with migration from any source platform to JBoss EAP 7.
-
-:::image type="content" source="./media/jboss-cli-image.png" alt-text="Image shows the output in the CLI window.":::
 
 You can also check on the [system requirements](https://access.redhat.com/documentation/en/migration_toolkit_for_applications/5.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#system_requirements_getting-started-guide) for the MTA.
 
@@ -157,7 +155,7 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the Java Database Connectivity (JDBC) driver JAR file?
 
-For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3html/configuration_guide/datasource_management) in the JBoss EAP documentation.
+For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
@@ -246,7 +244,7 @@ You can expose the application using the following methods which is suitable for
 After you've reached the migration goals you defined in the pre-migration step, perform some end-to-end acceptance testing to verify that everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following:
 
 * Using Azure Storage to serve static content mounted to the VMs. For more information, visit [Attach or detach a data disk to a VM](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)
-* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started).
 * Consider using [Application Gateway](../../../application-gateway/index.yml).
 * Enhance your network topology with advanced load balancing services. For more information, visit [Using load-balancing services in Azure](../../../traffic-manager/traffic-manager-load-balancing-azure.md).
 * Leverage Azure Managed Identities to managed secrets and assign Role Based Access Control (RBAC) to Azure resources. For more information, visit [What are managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md)?

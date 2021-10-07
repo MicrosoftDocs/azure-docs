@@ -96,13 +96,14 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
-| [The default Azure Virtual Desktop program icon with no status applied.](/media/icon-default.png) | The default icon appearance with no status applied. |
-| [The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](/media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
-| [The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](/media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
+| ![The default Azure Virtual Desktop program icon with no status applied.](./media/icon-default.png) | The default icon appearance with no status applied. |
+| ![The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](./media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
+| ![The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](./media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
-## Send feedback during public preview
+## Support during public preview
+Microsoft Support is not handling issues for multimedia redirection during public preview.
 
 If you run into any issues, you can tell us in the feedback hub on both the client and VM host.
 

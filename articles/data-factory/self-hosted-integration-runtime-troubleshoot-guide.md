@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: lle
 ---
 
@@ -27,11 +27,11 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
     # [Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
     
     # [Azure Synapse](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
     
     ---
     
@@ -43,7 +43,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
  
    The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
 
-    ![Screenshot of the "Share the self-hosted integration runtime (IR) logs with Microsoft" window.](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the &quot;Share the self-hosted integration runtime (IR) logs with Microsoft&quot; window.":::
 
 1. Select which logs you want to send. 
     * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
@@ -51,7 +51,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
 1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
 
-    ![Screenshot of the displayed report ID in the upload progress window for the IR logs.](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the IR logs.":::
 
 > [!NOTE]
 > Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online. 
@@ -81,7 +81,7 @@ When you try to increase the concurrent jobs limit from UI, the process hangs in
 
 Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in *Updating* status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
-![Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in "Updating" status.](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in &quot;Updating&quot; status.":::
 
 #### Cause
 
@@ -114,7 +114,7 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
        
        b. In File Explorer, on the left pane, search for the certificate that you want to check, right-click it, and then select **All tasks** > **Export**.
     
-        ![Screenshot of the "All Tasks" > "Export" control for a certificate on the "Manage computer certificates" pane.](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="Screenshot of the &quot;All Tasks&quot; > &quot;Export&quot; control for a certificate on the &quot;Manage computer certificates&quot; pane.":::
 
     2. Copy the exported certificate to the client machine. 
     3. On the client side, in a Command Prompt window, run the following command. Be sure to replace *\<certificate path>* and *\<output txt file path>* with the actual paths.
@@ -132,17 +132,17 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
 
         For example: 
 
-        ![Screenshot of an error summary at the end of the TXT file.](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png" alt-text="Screenshot of an error summary at the end of the TXT file.":::
 
         If you don't see an error at the end of the log file, as shown in the following screenshot, you can consider that the certificate chain has been built successfully on the client machine.
         
-        ![Screenshot of a log file showing no errors.](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png" alt-text="Screenshot of a log file showing no errors.":::      
 
 - If an AIA (Authority Information Access), CDP (CRL Distribution Point), or OCSP (Online Certificate Status Protocol) file name extension is configured in the certificate file, you can check it in a more intuitive way:
  
     1. Get this information by checking the certificate details, as shown in the following screenshot:
     
-        ![Screenshot of certificate details.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png" alt-text="Screenshot of certificate details.":::
     
     1. Run the following command. Be sure to replace *\<certificate path>* with the actual path of the certificate.
     
@@ -154,7 +154,7 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
         
     1. To verify certificates with AIA, CDP, and OCSP file name extensions, select **Retrieve**.
 
-        ![Screenshot of the URL Retrieval Tool and the Retrieve button.](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png" alt-text="Screenshot of the URL Retrieval Tool and the Retrieve button.":::
  
         You've built the certificate chain successfully if the certificate status from AIA is *Verified* and the certificate status from CDP or OCSP is *Verified*.
 
@@ -176,7 +176,7 @@ Here is a more specific error message:
 
 In Process Monitor, you can view the following result:
 
-[![Screenshot of the Paths list in Process Monitor.](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png" alt-text="Screenshot of the Paths list in Process Monitor.":::
 
 > [!TIP] 
 > In Process Monitor, you can set filters as shown in following screenshot.
@@ -187,7 +187,7 @@ In Process Monitor, you can view the following result:
 
 <br>
 
-![Screenshot of the "Process Monitor Filter" page, listing the filters for the DLL.](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png" alt-text="Screenshot of the &quot;Process Monitor Filter&quot; page, listing the filters for the DLL.":::
 
 #### Resolution
 
@@ -214,7 +214,7 @@ The self-hosted integration runtime suddenly goes offline without an Authenticat
 
 "Authentication Key is not assigned yet"
 
-![Screenshot of the integration runtime event pane showing that the Authentication Key is not yet assigned.](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png" alt-text="Screenshot of the integration runtime event pane showing that the Authentication Key is not yet assigned.":::
 
 #### Cause
 
@@ -225,7 +225,7 @@ The self-hosted integration runtime suddenly goes offline without an Authenticat
 
 If neither of the preceding causes applies, you can go to the *%programdata%\Microsoft\Data Transfer\DataManagementGateway* folder to see whether the *Configurations* file has been deleted. If it was deleted, follow the instructions in the Netwrix article [Detect who deleted a file from your Windows file servers](https://www.netwrix.com/how_to_detect_who_deleted_file.html).
 
-![Screenshot of the event log details pane for checking the Configurations file.](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png" alt-text="Screenshot of the event log details pane for checking the Configurations file.":::
 
 
 ### Can't use self-hosted IR to bridge two on-premises datastores
@@ -280,7 +280,7 @@ The only way to avoid this issue is to make sure that the two nodes are in crede
 
    "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail."
 
-    ![Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a "private key missing" error message.](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a &quot;private key missing&quot; error message.":::
 
 #### Cause
 
@@ -365,7 +365,7 @@ After you change the service account on the service pane, you might find that th
 
 "The Integration Runtime (Self-hosted) node has encountered an error during registration. Cannot connect to the Integration Runtime (Self-hosted) Host Service."
 
-![Screenshot of the Integration Runtime Configuration Manager window, showing an IR registration error.](media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png" alt-text="Screenshot of the Integration Runtime Configuration Manager window, showing an IR registration error.":::
 
 #### Cause
 
@@ -375,19 +375,19 @@ Many resources are granted only to the service account. When you change the serv
 
 Go to the integration runtime event log to check the error.
 
-![Screenshot of the IR event log, showing that a runtime error has occurred.](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png" alt-text="Screenshot of the IR event log, showing that a runtime error has occurred.":::
 
 * If the error in the event log is "UnauthorizedAccessException," do the following:
 
     1. Check the *DIAHostService* logon service account in the Windows service panel.
 
-        ![Screenshot of the Logon service account properties pane.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the Logon service account properties pane.":::
 
     1. Check to see whether the logon service account has read/write permissions for the *%programdata%\Microsoft\DataTransfer\DataManagementGateway* folder.
 
         - By default, if the service logon account hasn't been changed, it should have read/write permissions.
 
-            ![Screenshot of the service permissions pane.](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
+            :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png" alt-text="Screenshot of the service permissions pane.":::
 
         - If you've changed the service logon account, mitigate the issue by doing the following:
  
@@ -409,11 +409,11 @@ Go to the integration runtime event log to check the error.
 
     1. Check the *DIAHostService* logon service account in the Windows service panel.
     
-        ![Screenshot of the "Log On" pane for the service account.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the &quot;Log On&quot; pane for the service account.":::
 
     1. Check to see whether the logon service account has **Log on as a service** permission to start the Windows service:
 
-        ![Screenshot of the "Log on as service" properties pane.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Screenshot of the &quot;Log on as service&quot; properties pane.":::
 
 #### More information
 
@@ -427,7 +427,7 @@ If neither of the preceding two resolution patterns applies in your case, try to
 
 When you register a self-hosted IR, the **Register** button isn't displayed on the Configuration Manager pane.
 
-![Screenshot of the Configuration Manager pane, displaying a message that the integration runtime node is not registered.](media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png" alt-text="Screenshot of the Configuration Manager pane, displaying a message that the integration runtime node is not registered.":::
 
 #### Cause
 
@@ -440,7 +440,7 @@ As of the release of Integration Runtime 3.0, the **Register** button on existin
     > [!IMPORTANT] 
     > In the following process, select **Yes**. Do not keep data during the uninstallation process.
 
-    ![Screenshot of the "Yes" button for deleting all user data from the integration runtime.](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Screenshot of the &quot;Yes&quot; button for deleting all user data from the integration runtime.":::
 
 1. If you don't have the integration runtime installer MSI file, go to [download center](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) to download the latest integration runtime.
 1. Install the MSI file, and register the integration runtime.
@@ -492,7 +492,7 @@ When you install a self-hosted IR via Microsoft Integration Runtime Configuratio
 
 "Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate '\<*certificate name*>'. Error code 103"
 
-![Screenshot displaying the error message "... Failed to grant Integration Runtime service account certificate access".](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Screenshot displaying the error message &quot;... Failed to grant Integration Runtime service account certificate access&quot;.":::
 
 #### Cause
 
@@ -508,7 +508,7 @@ To import the certificate, run the following command:
 
 `Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx`
 
-![Screenshot of the certutil command for importing the certificate.](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png" alt-text="Screenshot of the certutil command for importing the certificate.":::
 
 **Solution 2** 
 
@@ -519,9 +519,9 @@ To convert the certificate, run the following commands:
 
 Before and after conversion:
 
-![Screenshot of the result before the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png" alt-text="Screenshot of the result before the certificate conversion.":::
 
-![Screenshot of the result after the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png" alt-text="Screenshot of the result after the certificate conversion.":::
 
 ### Self-hosted integration runtime version 5.x
 For the upgrade to version 5.x of the self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
@@ -549,7 +549,7 @@ When you attempt to register the self-hosted integration runtime, Configuration 
 
 "The Integration Runtime (Self-hosted) node has encountered an error during registration."
 
-![Screenshot of the "The Integration Runtime (Self-hosted) node has encountered an error during registration" message.](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png" alt-text="Screenshot of the &quot;The Integration Runtime (Self-hosted) node has encountered an error during registration&quot; message.":::
 
 #### Cause 
 
@@ -559,7 +559,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
 
 1. Check to see whether the integration runtime service is running. If it is, go to step 2.
     
-   ![Screenshot showing that the self-hosted IR service is running.](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png" alt-text="Screenshot showing that the self-hosted IR service is running.":::
     
 1. If no proxy is configured on the self-hosted IR, which is the default setting, run the following PowerShell command on the machine where the self-hosted integration runtime is installed:
 
@@ -572,7 +572,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
             
     The following is the expected response:
             
-    ![Screenshot of the PowerShell command response.](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the PowerShell command response.":::
             
 1. If you don't receive the response you had expected, use one of the following methods, as appropriate:
             
@@ -601,7 +601,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
 
 The following is the expected response:
             
-![Screenshot of the expected Powershell command response.](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the expected Powershell command response.":::
 
 > [!NOTE] 
 > Proxy considerations:
@@ -615,7 +615,7 @@ The following is the expected response:
 
 The self-hosted integrated runtime node might have a status of **Inactive**, as shown in the following screenshot:
 
-![Screenshot of self-hosted integrated runtime node with inactive status](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png" alt-text="Screenshot of self-hosted integrated runtime node with inactive status":::
 
 This behavior occurs when nodes can't communicate with each other.
 
@@ -642,7 +642,7 @@ This behavior occurs when nodes can't communicate with each other.
    
 1. If you receive the "Could not open connection to the host" command-line error that's shown in the following screenshot, contact your IT department for help to fix this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integration runtime node status.
         
-   ![Screenshot of the "Could not open connection to the host" command-line error.](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png" alt-text="Screenshot of the &quot;Could not open connection to the host&quot; command-line error.":::
         
 1. Check to see whether the error log contains the following entry:
 
@@ -663,7 +663,7 @@ how to collect the network trace, understand how to use it, and [analyze the Mic
 
 You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Azure Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
-![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png" alt-text="Screenshot of a &quot;Processed HTTP request failed&quot; message":::
 
 In either instance, you might encounter the following errors:
 
@@ -679,15 +679,15 @@ When you encounter the preceding errors, troubleshoot them by following the inst
 
     1. You can set the filter to see a reset from the server to the client side. In the following example screenshot, you can see that the server side is the Data Factory server.
 
-        ![Screenshot of the Data factory server.](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png" alt-text="Screenshot of the Data factory server.":::
 
     1. When you get the reset package, you can find the conversation by following Transmission Control Protocol (TCP).
 
-        ![Screenshot of the TCP conversation.](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png" alt-text="Screenshot of the TCP conversation.":::
 
     1. Get the conversation between the client and the Data Factory server below by removing the filter.
 
-        ![Screenshot of conversation details.](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png" alt-text="Screenshot of conversation details.":::
 
 - An analysis of the Netmon trace you've collected shows that the Time to Live (TTL)) total is 64. According to the values mentioned in the [IP Time to Live (TTL) and Hop Limit Basics](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) article, extracted in the following list, you can see that it's the Linux System that resets the package and causes the disconnection.
 
@@ -700,7 +700,7 @@ When you encounter the preceding errors, troubleshoot them by following the inst
     - Windows Server 2019 (2018): 128 for TCP, UDP, and ICMP
     - macOS (2001): 64 for TCP, UDP, and ICMP
 
-    ![Screenshot showing a TTL value of 61.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png" alt-text="Screenshot showing a TTL value of 61.":::
     
     In the preceding example, the TTL is shown as 61 instead of 64, because when the network package reaches its destination, it needs to go through various hops, such as routers or network devices. The number of routers or network devices is deducted to produce the final TTL.
     
@@ -712,7 +712,7 @@ When you encounter the preceding errors, troubleshoot them by following the inst
 
 - In an ideal situation, the TTL hops number would be 128, which means that the Windows operating system is running your data factory instance. As shown in the following example, *128 minus 107 = 21 hops*, which means that 21 hops for the package were sent from the data factory instance to the self-hosted IR during the TCP 3 handshake.
  
-    ![Screenshot showing a TTL value of 107.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png" alt-text="Screenshot showing a TTL value of 107.":::
 
     Therefore, you need to engage the network team to check to see what the fourth hop is from the self-hosted IR. If it's the firewall, as with the Linux System, check any logs to see why that device resets the package after the TCP 3 handshake. 
     
@@ -725,9 +725,9 @@ When you encounter the preceding errors, troubleshoot them by following the inst
 
 When you try to telnet **8.8.8.8 888** with the collected Netmon trace, you should see the trace in the following screenshots:
 
-![Screenshot showing "Could not open connection to the host on port 888" error message.](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png" alt-text="Screenshot showing &quot;Could not open connection to the host on port 888&quot; error message.":::
 
-![Screenshot showing a description of the Netmon trace.](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png" alt-text="Screenshot showing a description of the Netmon trace.":::
  
 
 The preceding images show that you couldn't make a TCP connection to the **8.8.8.8** server side on port **888**, so you see two **SynReTransmit** additional packages there. Because source **SELF-HOST2** couldn't connect to **8.8.8.8** with the first package, it will keep trying to make the connection.
@@ -737,33 +737,33 @@ The preceding images show that you couldn't make a TCP connection to the **8.8.8
 > 1. Select **Load Filter** > **Standard Filter** > **Addresses** > **IPv4 Addresses**.
 > 1. To apply the filter, enter **IPv4.Address == 8.8.8.8**, and then select **Apply**. You should then see the communication from the local machine to destination **8.8.8.8**.
 
-![Screenshot showing filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png" alt-text="Screenshot showing filter addresses.":::
         
-![Screenshot showing more filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png" alt-text="Screenshot showing more filter addresses.":::
 
 Successful scenarios are shown in the following examples: 
 
 - If you can telnet **8.8.8.8 53** without any issues, there's a successful TCP 3 handshake, and the session finishes with a TCP 4 handshake.
 
-    ![Screenshot showing a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png" alt-text="Screenshot showing a successful connection scenario.":::
      
-    ![Screenshot showing details of a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png" alt-text="Screenshot showing details of a successful connection scenario.":::
 
 - The preceding TCP 3 handshake produces the following workflow:
 
-    ![Diagram of a TCP 3 handshake workflow.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png" alt-text="Diagram of a TCP 3 handshake workflow.":::
  
 - The TCP 4 handshake to finish the session is illustrated by the following workflows:
 
-    ![Screenshot of TCP 4 handshake details.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png" alt-text="Screenshot of TCP 4 handshake details.":::
 
-    ![Diagram of a TCP 4 handshake workflow.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png" alt-text="Diagram of a TCP 4 handshake workflow."::: 
 
 ### Microsoft email notification about updating your network configuration
 
 You might receive the following email notification, which recommends that you update your network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
 
-   ![Screenshot of Microsoft email notification requesting update of network configuration.](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png" alt-text="Screenshot of Microsoft email notification requesting update of network configuration.":::
 
 #### Determine whether this notification affects you
 
@@ -787,7 +787,7 @@ How to determine whether you're affected:
 
 - If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything, because the new IP range is under your existing service tags. 
 
-  ![Screenshot of a destination check showing DataFactory as the destination.](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png" alt-text="Screenshot of a destination check showing DataFactory as the destination.":::
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
@@ -817,9 +817,9 @@ When you check the self-hosted IR event log or the client notification logs in t
 
 The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
 
-  ![Screenshot of the check server certificate pane of the Azure Data Factory service.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Screenshot of the check server certificate pane of the Azure Data Factory service.":::
 
-  ![Screenshot of the window for checking the server certification path.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png" alt-text="Screenshot of the window for checking the server certification path.":::
 
 #### Cause
 
@@ -838,7 +838,7 @@ For more information about trusting certificates on Windows, see [Installing the
 #### Additional information
 We've rolled out a new SSL certificate, which is signed from DigiCert. Check to see whether the DigiCert Global Root G2 is in the trusted root CA.
 
-  ![Screenshot showing the DigiCert Global Root G2 folder in the Trusted Root Certification Authorities directory.](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="Screenshot showing the DigiCert Global Root G2 folder in the Trusted Root Certification Authorities directory.":::
 
 If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
@@ -848,7 +848,7 @@ If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.c
 For more help with troubleshooting, try the following resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

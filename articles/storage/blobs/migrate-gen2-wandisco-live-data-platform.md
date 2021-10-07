@@ -22,7 +22,7 @@ The platform consists of two services. [LiveData Migrator for Azure](https://www
 
 Manage both services by using the Azure portal and the Azure CLI. Each service follows the same metered, pay-as-you-go billing model as all other Azure services: data consumption in LiveData Platform for Azure will appear on the monthly Azure bill, which will provide usage metrics.
 
-Unlike migrating data _offline_ by [copying static information to Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during _online_ migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
+Unlike migrating data *offline* by [copying static information to Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during *online* migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
 
 ## Key benefits of WANdisco LiveData Platform for Azure
 
@@ -79,7 +79,7 @@ To perform a migration:
 1. Deploy a LiveData Migrator instance from the Azure portal to your on-premises Hadoop cluster. (You do not need to make changes to or restart the cluster.)
 
    > [!div class="mx-imgBorder"]
-   >![Create a LiveData Migrator instance](./media/migrate-gen2-wandisco-live-data-platform/create-live-data-migrator.png)
+   > ![Create a LiveData Migrator instance](./media/migrate-gen2-wandisco-live-data-platform/create-live-data-migrator.png)
 
    > [!NOTE]
    > WANdisco LiveData Migrator for Azure provides the option to create a Hadoop Test Cluster.

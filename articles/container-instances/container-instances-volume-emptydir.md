@@ -35,7 +35,7 @@ First, populate the `volumes` array in the container group `properties` section 
 For example, the following Resource Manager template creates a container group consisting of two containers, each of which mounts the *emptyDir* volume:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
-[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+[!code-json[volume-emptydir](~/resourcemanager-templates/container-instances/aci-deploy-volume-emptydir.json)]
 
 To see examples of container group deployment, see [Deploy a multi-container group using a Resource Manager template](container-instances-multi-container-group.md) and [Deploy a multi-container group using a YAML file](container-instances-multi-container-yaml.md).
 

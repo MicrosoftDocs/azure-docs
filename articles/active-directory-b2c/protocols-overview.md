@@ -36,7 +36,10 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
 
-![Diagram showing the four OAuth 2.0 Roles](./media/protocols-overview/protocols_roles.png)
+
+
+
+:::image type="content" source="./media/protocols-overview/protocols_roles.png" alt-text="Diagram showing the four OAuth 2.0 Roles.":::
 
 * The **authorization server** is the Azure AD endpoint. It securely handles anything related to user information and access. It also handles the trust relationships between the parties in a flow. It is responsible for verifying the user's identity, granting and revoking access to resources, and issuing tokens. It is also known as the identity provider.
 

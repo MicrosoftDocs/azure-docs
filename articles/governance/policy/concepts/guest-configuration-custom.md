@@ -90,6 +90,22 @@ the state of the machine.
    details are available both about why a machine isn't compliant and to confirm
    that the current state is compliant.
 
+## Trigger Set from outside machine
+
+A challenge in previous versions of DSC has been correcting drift at scale
+without a lot of custom code and reliance on WinRM remote connections. Guest
+configuration solves this problem. Users of guest configuration have control
+over drift correction through
+[Remediation On Demand](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+
+## Maximum size of custom configuration package
+
+In Azure Automation state configuration, DSC configurations were
+[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+Guest configuration supports a total package size of 100MB (before
+compression). There is no specific limit on the size of the MOF file within
+the package.
+
 ## Special requirements for Get
 
 The function `Get` method has special requirements for Azure Policy guest
@@ -126,7 +142,7 @@ returned as a string value for the **Phrase** property.
 $reasons = @()
 $reasons += @{
   Code = 'Name:Name:ReasonIdentifer'
-  Phrase = 'Explain why the setting isn't compliant'
+  Phrase = 'Explain why the setting is not compliant'
 }
 return @{
     reasons = $reasons
@@ -184,7 +200,7 @@ class Example {
   [Example] Get() {
     # return current current state
   }
-  
+
   [void] Set() {
     # set the state
   }
@@ -220,6 +236,18 @@ progressing.
 [Reboot handling](/powershell/scripting/dsc/configurations/reboot-a-node) isn't
 available in the public preview release of guest configuration, including,
 the `$global:DSCMachineStatus` isn't available. Configurations aren't able to reboot a node during or at the end of a configuration.
+
+## Known compatibility issues with supported modules
+
+The `PsDscResources` module in the PowerShell Gallery and the `PSDesiredStateConfiguration`
+module that ships with Windows are supported by Microsoft and have been a commonly-used
+set of resources for DSC. Until the `PSDscResources` module is updated for DSCv3, be aware of the
+following known compatibility issues.
+
+- Do not use resources from the `PSDesiredStateConfiguration` module that ships with Windows. Instead,
+  switch to `PSDscResources`.
+- Do not use the `WindowsFeature` and `WindowsFeatureSet` resources in `PsDscResources`. Instead,
+  switch to the `WindowsOptionalFeature` and `WindowsOptionalFeatureSet` resources.
 
 ## Coexistance with DSC version 3 and previous versions
 

@@ -40,7 +40,7 @@ For example, when you restart your app, you can find the affected instances from
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted because of unplanned events, your Azure Spring Cloud instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
+When your app is restarted because of unplanned events, your Azure Spring Cloud instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane":::
 

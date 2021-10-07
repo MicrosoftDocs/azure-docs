@@ -54,7 +54,7 @@ Virtual machine scale sets VM Get or Update Instance:
 
 ### Flexible alternative 
 Invoke Single VM APIs:
-- [ARM Lock Resource](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json) for Instance Protection type behavior 
+- [ARM Lock Resource](../azure-resource-manager/management/lock-resources.md?tabs=json) for Instance Protection type behavior 
 
 
 ## List instances 

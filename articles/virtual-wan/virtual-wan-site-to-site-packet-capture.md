@@ -73,7 +73,16 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 > Please note you can only run a packet capture on 5 VPN connections concurrently.
 
 
-Please run the following commands. The Name of the Site-to-site VPN Connections can be found by navigating to your Virtual Hub, clicking on VPN (Site-to-site) under Connectivity. Then, navigate to the VPN Site you want to perform the packet capture on and click on the three dots on the right. Click **Edit VPN Connection** in the menu that pops up.
+To find the name of your VPN Site connection, please use the following PowerShell command.
+
+   ```azurepowershell-interactive
+$connections = Get-AzVpnConnection -ResourceGroupName $rg -ParentResourceName "<name of the Gateway"
+$connections
+$connections.name
+   ```
+In the Powershell block above, the local variable *connections* contains an array of all VPN sites connected to the Site-to-site VPN Gateway. Please find the entry corresponding to the VPN Site you wish to perform a packet capture on. Copy the *name* field and use it as the *-Name* parameter in the Start-AzVpnConnectionPacketCapture command below. Alternatively, you may view the names of all your connections by accessing *connections.name*. 
+
+To find the name of the links, please follow the steps below. Navigate to your Virtual Hub, click on VPN (Site-to-site) under Connectivity. Then, navigate to the VPN Site you want to perform the packet capture on and click on the three dots on the right. Click **Edit VPN Connection** in the menu that pops up.
 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/sample-connection.png" alt-text="Image of how to find VPN connection names." lightbox="./media/virtual-wan-pcap-screenshots/sample-connection.png":::
 

@@ -9,6 +9,7 @@ ms.author: timmitchell
 ms.date: 07/22/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Enable and Access Call Summary and Call Diagnostic Logs
 

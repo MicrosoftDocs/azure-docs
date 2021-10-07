@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a Bizagi project using Automation services or server.
 
 * Bizagi for Digital Process Automation supports **SP** initiated SSO.
+* Bizagi for Digital Process Automation supports [Automated user provisioning](bizagi-studio-for-digital-process-automation-provisioning-tutorial.md).
 
 ## Add Bizagi for Digital Process Automation from the gallery
 
@@ -123,6 +124,8 @@ To configure single sign-on on **Bizagi for Digital Process Automation** side, y
 
 In this section, you create a user called Britta Simon in Bizagi for Digital Process Automation. Work with [Bizagi for Digital Process Automation support team](mailto:jarvein.rivera@bizagi.com) to add the users in the Bizagi for Digital Process Automation platform. Users must be created and activated before you use single sign-on.
 
+Bizagi for Digital Process Automation also supports automatic user provisioning, you can find more details [here](./bizagi-studio-for-digital-process-automation-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -131,7 +134,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Bizagi for Digital Process Automation Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Bizagi for Digital Process Automation tile in the My Apps, this will redirect to Bizagi for Digital Process Automation Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Bizagi for Digital Process Automation tile in the My Apps, this will redirect to Bizagi for Digital Process Automation Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

@@ -81,7 +81,8 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 - **storageConnectionString:** The storage account used for internal resource management.
 
 > [!IMPORTANT]
-> Don't enable the soft delete feature on the storage account that's used as a checkpoint store. 
+> - Don't enable the soft delete feature on the storage account that's used as a checkpoint store. 
+> - Don't use a hierarchical storage (Azure Data Lake Storage Gen 2) as a checkpoint store.
 
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
 

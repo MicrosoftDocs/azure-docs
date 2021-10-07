@@ -12,7 +12,7 @@ ms.date: 11/19/2020
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
 
-The [Business Applications ISV Connect Program](https://partner.microsoft.com/solutions/business-applications/isv-overview) aims to accelerate the growth and overall success of Independent Software Vendors (ISVs) building modern, cloud-based, line-of-business (LOB) solutions with Dynamics 365 Customer Engagement and PowerApps (Dynamics CE applications) or Dynamics 365 Finance and Operations (Dynamics Ops applications).
+The [Business Applications ISV Connect Program](https://partner.microsoft.com/solutions/business-applications/isv-overview) aims to accelerate the growth and overall success of Independent Software Vendors (ISVs) building modern, cloud-based, line-of-business (LOB) solutions with Dynamics 365 Customer Engagement and Power Apps (Dynamics CE applications) or Dynamics 365 Finance and Operations (Dynamics Ops applications).
 
 To enroll and take advantage of all the technical, marketing, and sales enablement benefits of the Business Applications ISV Connect Program, complete the following sections in this article.
 

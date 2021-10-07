@@ -1,10 +1,10 @@
 ---
 title: Prebuilt Docker image Python extensibility
 titleSuffix: Azure Machine Learning
-description: 'Extend prebuilt docker images with Python package extensibility solution'
+description: 'Extend prebuilt docker images with Python package extensibility solution.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.date: 05/25/2021
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Python package extensibility for prebuilt Docker images (Preview)
+# Python package extensibility for prebuilt Docker images (preview)
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 

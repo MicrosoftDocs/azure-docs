@@ -1,3 +1,4 @@
+items:
 - name: Azure Maps documentation 
   href: index.yml
 - name: Overview
@@ -396,8 +397,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps

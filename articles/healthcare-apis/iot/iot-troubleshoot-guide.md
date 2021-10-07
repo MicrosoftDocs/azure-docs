@@ -1,29 +1,29 @@
 ---
-title: Azure IoT Connector for FHIR (preview) - Troubleshooting guide and how-to
-description: This article helps users troubleshoot common error messages, conditions, and how to copy mapping files.
+title: IoT connector troubleshooting guide and how-to - Azure Healthcare APIs
+description: This article helps users troubleshoot IoT connector common error messages, conditions, and how to copy mapping files.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 07/20/2021
+ms.date: 10/01/2021
 ms.author: jasteppe
 ---
-# Azure IoT Connector for FHIR (preview) troubleshooting guide
+# IoT connector troubleshooting guide
 
-This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) Conversion Mapping JSON templates such as Device and FHIR. Also, you can use the Conversion Mapping JSON templates for editing and archiving outside of the Azure portal.  
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> [!NOTE]
-> In the remainder of this article, Azure IoT Connector for FHIR (preview) will be referred as IoT Connector.
+This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
 
 > [!TIP]
-> If must open a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, ensure to include copies of your conversion mapping JSON to assist with the troubleshooting process.
+> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
 
-## Device and FHIR Conversion Mapping JSON template validations
+## Device and FHIR destination mapping validations
 
-This section describes the validation process that the IoT Connector performs. The validation process validates the Device and FHIR Conversion Mapping JSON templates before allowing them to be saved for use. These elements are required in the Device and FHIR Conversion Mapping JSON.
+This section describes the validation process that the IoT connector does. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
 
-**Device Mapping**
+**Device mapping**
 
 |Element|Required|
 |:-------|:------|
@@ -39,65 +39,65 @@ This section describes the validation process that the IoT Connector performs. T
 >
 >For example:
 > 
->When a wearable IoMT device is put on or removed, the element(s) don't have any values except for a name that the IoT Connector matches and emits. On the FHIR conversion, the IoT Connector maps it to a code-able concept based on the semantic type. This means that no actual values are populated.
+>When a wearable IoMT device is put on or removed, the element(s) don't have any values except for a name that the IoT connector matches and emits. On the FHIR conversion, the IoT connector maps it to a code-able concept based on the semantic type. This means that no actual values are populated.
 
-**FHIR Mapping**
+**FHIR destination mapping**
 
 |Element|Required|
 |:------|:-------|
 |TypeName|True|
 
 > [!NOTE]
-> This is the only required FHIR Mapping element validated at this time.
+> This is the only required FHIR destination mapping element validated at this time.
 
 ## Error messages and fixes
 
-### IoT Connector Resource
+### IoT connector resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|Azure IoT Connector subscription quota is reached and the default is 25 per subscription.|Delete one of the existing instances of the IoT Connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
-|Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT Connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
-|`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT Connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT Connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
+|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|IoT connector subscription quota is reached (default is 25 per subscription).|Delete one of the existing instances of the IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+|Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
+|`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent Workspace provisioning has completed and submit the provisioning request again.
-|`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT Connector provisioning request `location` property is different from the parent Workspace `location` property.|Set the `location` property of the IoT Connector in the provisioning request to the same value as the parent Workspace `location` property.
+|`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT connector provisioning request `location` property is different from the parent Workspace `location` property.|Set the `location` property of the IoT connector in the provisioning request to the same value as the parent Workspace `location` property.
 
 ### Destination Resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT Connector Destination Resource quota is reached and the default is 1 per IoT Connector).|Delete the existing instance of IoT Connector Destination. Only 1 Destination Resource is permitted per IoT Connector.
-|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of Azure API for FHIR.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure API for FHIR instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`
-|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace or the parent IoT Connector is still provisioning.|Wait until the parent Workspace or the parent IoT Connector provisioning completes, and then submit the provisioning request again.
-|`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent IoT Connector `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent IoT Connector `location` property.
+|The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT connector Destination Resource quota is reached and the default is 1 per IoT connector).|Delete the existing instance of IoT connector Destination Resource. Only one Destination Resource is permitted per IoT connector.
+|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of the Azure Healthcare APIs FHIR service.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure Healthcare APIs FHIR instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`
+|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace or the parent IoT connector is still provisioning.|Wait until the parent Workspace or the parent IoT connector provisioning completes, and then submit the provisioning request again.
+|`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent IoT connector `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent IoT connector `location` property.
 
-## Why is my Azure IoT Connector for FHIR (preview) data not showing up in FHIR service?
+## Why is IoT connector data not showing up in the FHIR service?
 
 |Potential issues|Fixes|
 |----------------|-----|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~15 minutes).  It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device conversion-mapping JSON hasn't been configured.|Configure and save conforming device conversion-mapping JSON.|
-|FHIR conversion-mapping JSON hasn't been configured.|Configure and save conforming FHIR conversion-mapping JSON.|
-|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device mapping match tokens defined in the device message.|
+|Device mapping hasn't been configured.|Configure and save conforming Device mapping.|
+|FHIR destination mapping hasn't been configured.|Configure and save conforming FHIR destination mapping.|
+|The device message doesn't contain an expected expression defined in the Device mapping.|Verify `JsonPath` expressions defined in the Device mapping match tokens defined in the device message.|
 |A Device Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Device Resource in the FHIR service. Ensure the Device Resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
-*Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
+*Reference [Quickstart: Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the IoT connector resolution types (For example: Lookup or Create).
 
-### The operation performed by the IoT Connector
+### The operation done by the IoT connector
 
-This property represents the operation being performed by the IoT Connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
+This property represents the operation being performed by the IoT connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
 
 > [!NOTE]
-> For information about the different stages of data flow in the IoT Connector, see [IoT Connector for FHIR: data flow](iot-data-flow.md).
+> For information about the different stages of data flow in the IoT connector, see [IoT connector data flow](iot-data-flow.md).
 
 |Data flow stage|Description|
 |---------------|-----------|
-|Setup|The setup data flow stage is the operation specific to setting up your instance of the IoT Connector.|
+|Setup|The setup data flow stage is the operation specific to setting up your instance of the IoT connector.|
 |Normalization|Normalization is the data flow stage where the device data gets normalized.|
 |Grouping|The grouping data flow stage where the normalized data gets grouped.|
-|FHIRConversion|FHIRConversion is the data flow stage where the grouped-normalized data is transformed into a FHIR resource.|
+|FHIRConversion|FHIRConversion is the data flow stage where the grouped-normalized data is transformed into an FHIR resource.|
 |Unknown|Unknown is the operation type that's unknown when an error occurs.|
 
 ### The severity of the error
@@ -108,7 +108,7 @@ This property represents the severity of the occurred error. Below is a list of 
 |---------------|-----------|
 |Warning|Some minor issue exists in the data flow process, but processing of the device message doesn't stop.|
 |Error|This message occurs when the processing of a specific device message has run into an error and other messages may continue to execute as expected.|
-|Critical|This error is when some system level issue exists with the IoT Connector, and no messages are expected to process.|
+|Critical|This error is when some system level issue exists with the IoT connector and no messages are expected to process.|
 
 ### The type of the error
 
@@ -116,12 +116,12 @@ This property signifies a category for a given error, which it basically represe
 
 |Error type|Description|
 |----------|-----------|
-|`DeviceTemplateError`|This error type is related to the Device Mapping templates.|
+|`DeviceTemplateError`|This error type is related to the Device mapping.|
 |`DeviceMessageError`|This error type occurs when processing a specific device message.|
-|`FHIRTemplateError`|This error type is related to the FHIR Mapping templates.|
+|`FHIRTemplateError`|This error type is related to the FHIR destination mapping|
 |`FHIRConversionError`|This error type occurs when transforming a message into a FHIR resource.|
-|`FHIRResourceError`|This error type is related to existing resources in the FHIR server that are referenced by the IoT Connector.|
-|`FHIRServerError`|This error type occurs when communicating with the FHIR server.|
+|`FHIRResourceError`|This error type is related to existing resources in the FHIR service that are referenced by the IoT connector.|
+|`FHIRServerError`|This error type occurs when communicating with the FHIR service.|
 |`GeneralError`|This error type is about all other types of errors.|
 
 ### The name of the error
@@ -130,51 +130,51 @@ This property provides the name for a specific error. Below is the list of all e
 
 |Error name|Description|Error type(s)|Error severity|Data flow stage(s)|
 |----------|-----------|-------------|--------------|------------------|
-|`MultipleResourceFoundException`|This error occurs when multiple patient or device resources are found in the FHIR server for the respective identifiers present in the device message.|`FHIRResourceError`|Error|`FHIRConversion`|
-|`TemplateNotFoundException`|A device or FHIR mapping template that isn't configured with the instance of IoT Connector.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
-|`CorrelationIdNotDefinedException`|The correlation ID isn't specified in the Device Mapping template. `CorrelationIdNotDefinedException` is a conditional error that occurs only when the FHIR Observation must group device measurements using a correlation ID because it's not configured correctly.|`DeviceMessageError`|Error|Normalization|
-|`PatientDeviceMismatchException`|This error occurs when the device resource on the FHIR server has a reference to a patient resource. This error type means it doesn't match with the patient identifier present in the message.|`FHIRResourceError`|Error|`FHIRConversionError`|
-|`PatientNotFoundException`|No Patient FHIR resource is referenced by the Device FHIR resource associated with the device identifier present in the device message. Note this error will only occur when the IoT Connector instance is configured with the *Lookup* resolution type.|`FHIRConversionError`|Error|`FHIRConversion`|
-|`DeviceNotFoundException`|No device resource exists on the FHIR Server associated with the device identifier present in the device message.|`DeviceMessageError`|Error|Normalization|
-|`PatientIdentityNotDefinedException`|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping template or patient identifer isn't present in the device message. Note this error occurs only when IoT Connector's resolution type is set to *Create*.|`DeviceTemplateError`|Critical|Normalization|
-|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the Device Mapping template or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
+|`MultipleResourceFoundException`|This error occurs when multiple patient or device resources are found in the FHIR service for the respective identifiers present in the device message.|`FHIRResourceError`|Error|`FHIRConversion`|
+|`TemplateNotFoundException`|A device or FHIR destination mapping that isn't configured with the instance of IoT connector.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
+|`CorrelationIdNotDefinedException`|The correlation ID isn't specified in the Device mapping. `CorrelationIdNotDefinedException` is a conditional error that occurs only when the FHIR Observation must group device measurements using a correlation ID because it's not configured correctly.|`DeviceMessageError`|Error|Normalization|
+|`PatientDeviceMismatchException`|This error occurs when the device resource on the FHIR service has a reference to a patient resource. This error type means it doesn't match with the patient identifier present in the message.|`FHIRResourceError`|Error|`FHIRConversionError`|
+|`PatientNotFoundException`|No Patient FHIR resource is referenced by the Device FHIR resource associated with the device identifier present in the device message. Note this error will only occur when the IoT connector instance is configured with the *Lookup* resolution type.|`FHIRConversionError`|Error|`FHIRConversion`|
+|`DeviceNotFoundException`|No device resource exists on the FHIR service associated with the device identifier present in the device message.|`DeviceMessageError`|Error|Normalization|
+|`PatientIdentityNotDefinedException`|This error occurs when expression to parse patient identifier from the device message isn't configured on the Device mapping or patient identifer isn't present in the device message. Note this error occurs only when IoT connector's resolution type is set to *Create*.|`DeviceTemplateError`|Critical|Normalization|
+|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the Device mapping or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
 |`NotSupportedException`|Error occurred when device message with unsupported format is received.|`DeviceMessageError`|Error|Normalization|
 
-## Creating copies of the IoT Connector conversion mapping JSON
+## Creating copies of the IoT connector Device and FHIR destination mappings
 
-Copying the IoT Connector mapping files can be useful for editing and archiving outside of the Azure portal website.
+Copying the IoT connector mappings can be useful for editing and archiving outside of the Azure portal website.
 
-The mapping file copies should be provided to Azure Technical Support when opening a support ticket to help with the troubleshooting process.
+The mapping copies should be provided to Azure Technical Support when opening a support ticket to help with the troubleshooting process.
 
 > [!NOTE]
-> JSON is the only supported format for Device and FHIR mapping files at this time.
+> JSON is the only supported format for Device and FHIR destination mappings at this time.
 
 > [!TIP]
-> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](how-to-use-fhir-mapping-iot.md)
+> Learn more about the IoT connector [Device and FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
 
-1. Select the **"IoT Connector (preview)"** blade on the left side of the Azure Healthcare APIs Workspace.
+1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
 
-   :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select IoT Connector blade." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
+   :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select IoT connectors." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 
-2. Select the name of **IoT Connector** that you'll be copying the conversion mapping JSON from.
+2. Select the name of **IoT connector** that you'll be copying the Device and FHIR destination mappings from.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
-> [!NOTE]
-> This process may also be used for copying and saving the contents of the **"Configure FHIR mapping"** JSON.
+   > [!NOTE]
+   > This process may also be used for copying and saving the contents of the **"Destination"** mapping.
 
 3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Ensure to save the file with the extension **.json**.
 
 > [!TIP]
-> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your conversion mapping JSON to help with the troubleshooting process.
+> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, make sure to include copies of your Device and FHIR destination mappings to help with the troubleshooting process.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector Overview](iot-connector-overview.md)
+>[IoT connector Overview](iot-connector-overview.md)
 
-FHIR is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
