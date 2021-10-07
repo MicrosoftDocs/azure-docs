@@ -34,7 +34,7 @@ This tutorial describes the steps you need to perform in both Netpresenter and A
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An administrator account with Netpresenter.
 
 ## Step 1. Plan your provisioning deployment
@@ -46,9 +46,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign in to the Netpresenter with an administrator account.
 2. Click on cogwheel icon to go to settings page.
-3. In the settings page, click on **System** to open the sub-menu and click on **Azure AD**.
+3. In the settings page, click on **System** to open the submenu and click on **Azure AD**.
 4. Click on the **Generate Token** button.
-5. Save the **SCIM Endpoint URL** and **Token** at a secure place, you will need it in the **Step 5**.
+5. Save the **SCIM Endpoint URL** and **Token** at a secure place, you'll need it in the **Step 5**.
 
    ![Token and url](media/netpresenter/get-token-and-url.png)
 
@@ -56,15 +56,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Netpresenter from the Azure AD application gallery
 
-Add Netpresenter from the Azure AD application gallery to start managing provisioning to Netpresenter. If you have previously setup Netpresenter for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Netpresenter from the Azure AD application gallery to start managing provisioning to Netpresenter. If you have previously setup Netpresenter for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Netpresenter, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* When assigning users and groups to Netpresenter, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add another roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## Step 5. Configure automatic user provisioning to Netpresenter 
@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Netpresenter**.
 
-9. Review the user attributes that are synchronized from Azure AD to Netpresenter in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Netpresenter for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Netpresenter API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Netpresenter in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Netpresenter for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Netpresenter API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
     |Attribute|Type|Supported for filtering
     |---|---|---|
@@ -124,7 +124,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+13. When you'r ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
