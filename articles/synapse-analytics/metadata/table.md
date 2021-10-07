@@ -59,7 +59,7 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 | Spark data type | SQL data type | Comments |
 |---|---|---|
-| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* represents 8-byte signed integer numbers. [Reference](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql) |
+| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* represents 8-byte signed integer numbers.<BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | |
 | `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* represents arbitrary-precision signed decimal numbers. Backed internally by java.math.BigDecimal. A BigDecimal consists of an arbitrary precision integer unscaled value and a 32-bit integer scale. <br> **SQL**: Fixed precision and scale numbers. When maximum precision is used, valid values are from - 10^38 +1 through 10^38 - 1. The ISO synonyms for decimal are dec and dec(p, s). numeric is functionally identical to decimal. [Reference](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]) |
 | `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** *IntegerType* represents 4-byte signed integer numbers. [Reference](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
