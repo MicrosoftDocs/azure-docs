@@ -105,7 +105,7 @@ make your messages dynamic. For example:  
 
 -   ``@activity("DataFlow").error.Message``
 
-The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. Refer to the
+The above expressions will return the relevant error messages from a Copy activity failure. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
 ## Next Steps
