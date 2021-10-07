@@ -8,7 +8,7 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud using a remote device adapter
 Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using cloud pipelines.
-Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service. This approach is useful in the following scenarios:
+Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol. This approach is useful in the following scenarios:
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
@@ -26,16 +26,17 @@ Connecting cameras to the cloud using a remote device adapter allows cameras to 
 [Connect camera to the cloud](connect-cameras-to-cloud.md#connecting-via-a-remote-device-adapter)
 
 ## Prerequisites
-The following are required for this tutorial:
+The following are required for this how-to guide:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-* Azure Video Analyzer account with associated:
+* [Azure Video Analyzer account](../create-video-analyzer-account.md) with associated:
   * Storage account
   * User-assigned managed identity (UAMI)
 * IoT Hub
-  * Video Analyzer associated UAMI has **Owner** role
+  * User-assigned managed identity with **Contributor** role access
+* Video Analyzer account must be paired with IoT Hub
 > [!NOTE]
-> In Video Analyzer, IoT Hubs must be onboarded with a user-assigned managed identity (UAMI) that must be specified in the list of identities registered with the Video Analyzer account.
+> In Video Analyzer, IoT Hubs must be onboarded with a user-assigned managed identity (UAMI)
 * [IoT Edge with Video Analyzer edge module installed and configured manually](../edge/deploy-iot-edge-device.md)
 * [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
   * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
