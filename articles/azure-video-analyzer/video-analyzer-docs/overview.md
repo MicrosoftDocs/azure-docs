@@ -17,7 +17,7 @@ IoT solutions that combine video analytics with signals from other IoT sensors a
 
 With Video Analyzer, you can continue to use your [CCTV cameras](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) with your existing [video management systems (VMS)](https://en.wikipedia.org/wiki/Video_management_system) and build video analytics apps independently. Video Analyzer can be used in conjunction with computer vision SDKs and toolkits to build cutting edge IoT solutions. The diagram below illustrates this.
 
-![Develop IoT solutions with Video Analyzer](./media/overview/product-diag.svg)
+![Develop IoT solutions with Video Analyzer](./media/overview/product-diagram.png)
 
 ### Concepts
 

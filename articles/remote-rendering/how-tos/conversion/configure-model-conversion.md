@@ -104,13 +104,13 @@ If a model is defined using gamma space, then these options should be set to tru
 ### Scene parameters
 
 * `sceneGraphMode` - Defines how the scene graph in the source file is converted:
-  * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed independently. The node hierarchy at runtime is identical to the structure in the source file.
-  * `static`: All objects are exposed in the API but they cannot be transformed independently.
+  * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed and re-parented arbitrarily. The node hierarchy at runtime is identical to the structure in the source file.
+  * `static`: Similar to `dynamic`, but objects in the scene graph cannot be re-parented to other objects dynamically at runtime. For dynamic models with many moving parts (e.g. 'explosion view'), the `dynamic` option generates a model that is more efficient to render, but `static` mode still allows for individual part transforms. In case dynamic re-parenting is not required, the `static` option is the most suitable for models with many individual parts.
   * `none`: The scene graph is collapsed into one object.
 
-Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it is necessary to move parts individually, for example for an 'explosion view' animation.
+Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it is necessary to move many parts or large sub-graphs simultaneously, for example for an 'explosion view' animation.
 
-The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object, however, can still be moved, rotated, or scaled at no significant performance cost. Furthermore, [spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you still need per-object inspection but no per-object transform changes.
+The `static` mode also exports the full scene graph. [Spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you need per-object inspection, occasional transform changes on individual parts, but no object re-parenting.
 
 The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases are, for example, photogrammetry models that do not have a meaningful scene graph in the first place.
 

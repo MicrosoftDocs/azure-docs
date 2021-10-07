@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ms.author: mjbrown
 ---
 
@@ -95,7 +95,7 @@ Primary/secondary keys come in two versions: read-write and read-only. The read-
 
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
-The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below.
+The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below. To monitor your account for key updates and key regeneration, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
 # [SQL API](#tab/sql-api)
 
@@ -268,6 +268,21 @@ The process of key rotation and regeneration is simple. First, make sure that **
     :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
 ---
+
+## Track the status of key regeneration
+
+After you rotate or regenerate a key, you can track it's status from the Activity log. Use the following steps to track the status:
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+
+1. Open the **Activity log** pane and set the following filters:
+
+   * Set the **Resource type** to **Azure Cosmos DB accounts**.
+   * Set the **Operation** to **Rotate keys**.
+
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Status of key regeneration from Activity log" border="true":::
+
+1. You should see the key regeneration events along with it's status, time at which the operation was issued, details of the user who initiated key regeneration. The key generation operation initiates with **Accepted** status, it then changes to **Started** and then to **Succeeded** when the operation completes.
 
 ## Next steps
 

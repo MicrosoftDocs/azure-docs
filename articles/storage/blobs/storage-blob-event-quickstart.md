@@ -31,7 +31,7 @@ When you complete the steps described in this article, you see that the event da
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group) command. 
+Create a resource group with the [az group create](/cli/azure/group) command.
 
 The following example creates a resource group named `<resource_group_name>` in the *westcentralus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
 
@@ -112,7 +112,6 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
 
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
-
 ```json
 [{
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/myblobstorageaccount",
@@ -141,6 +140,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
+
 If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
 Replace `<resource_group_name>` with the resource group you created above.

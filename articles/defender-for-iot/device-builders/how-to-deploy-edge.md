@@ -2,7 +2,7 @@
 title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 09/23/2021
 ---
 
 # Deploy a security module on your IoT Edge device
@@ -52,8 +52,11 @@ Complete each step to complete your IoT Edge deployment for Defender for IoT.
 #### Step 1: Modules
 
 1. Select the **AzureSecurityCenterforIoT** module.
+
 1. On the **Module Settings** tab, change the **name** to **azureiotsecurity**.
+
 1. On the **Environment Variables** tab, add a variable if needed (for example, you can add *debug level* and set it to one of the following values: "Fatal", "Error", "Warning", or "Information").
+
 1. On the **Container Create Options** tab, add the following configuration:
 
     ``` json
@@ -77,19 +80,19 @@ Complete each step to complete your IoT Edge deployment for Defender for IoT.
 1. On the **Module Twin Settings** tab, add the following configuration:
 
    Module Twin Property:
-   
+
    ``` json
      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
    ```
 
-   Module Twin Property Content: 
+   Module Twin Property Content:
 
    ```json
      {
 
      }
    ```
-    
+
    For more information about configuring the agent, see [Configure security agents](./how-to-agent-configuration.md).
 
 1. Select **Update**.

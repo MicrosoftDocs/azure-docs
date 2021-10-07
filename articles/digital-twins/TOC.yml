@@ -73,8 +73,6 @@
         href: how-to-set-up-instance-cli.md
       - name: PowerShell
         href: how-to-set-up-instance-powershell.md
-      - name: Setup script sample
-        href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
       href: how-to-enable-private-link.md
     - name: Write app authentication code
@@ -137,7 +135,7 @@
     items:
     - name: View metrics in Azure Monitor
       href: troubleshoot-metrics.md
-    - name: Enable and query diagnostics logs
+    - name: Use diagnostics logs
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md
@@ -321,8 +319,6 @@
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: 'Learn: Develop with Azure Digital Twins'
     href: /learn/paths/develop-azure-digital-twins/
-  - name: Channel 9 videos
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

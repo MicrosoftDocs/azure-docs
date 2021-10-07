@@ -82,15 +82,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. zeroheight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The zeroheight application expects the SAML assertions in a specific format and requires you to add custom attribute mappings to your SAML token attributes configuration. Find the following section with the default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, zeroheight application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. zeroheight doesn't use any of the default attributes. Instead, add the following attributes to be passed back in SAML response. These attributes should also be pre-populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| ---------- | --------- |
 	| email | user.mail |
+	| FirstName | user.givenname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
