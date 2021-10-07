@@ -105,7 +105,7 @@ make your messages dynamic. For example:  
 
 -   ``@activity("DataFlow").error.Message``
 
-The above expressions will return the relevant error messages from a Copy activity failure. Refer to the
+The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
 ## Next Steps
