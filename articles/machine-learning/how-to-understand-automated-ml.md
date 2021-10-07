@@ -268,13 +268,12 @@ The primary metric for the evaluation of image object detection and instance seg
 
 **Pascal VOC metrics**: 
 
-[Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) mAP is the default way of mAP computation for object detection/instance segmentation models. Pascal voc style mAP method calculates the area under the precision-recall curve by computing p(rᵢ), which is precision at recall i for all unique recall values whenever the precision drops and with the precision monotonically decreasing. The method also replaces the precision for recall r to the maximum precision obtained for any recall r
-′ ≥ r. Pascal VOC mAP metric are by default evaluated with an IoU threshold of 0.5. 
+[Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) mAP is the default way of mAP computation for object detection/instance segmentation models. Pascal VOC style mAP method calculates the area under a version of the precision-recall curve. First p(rᵢ), which is precision at recall i is computed for all unique recall values. p(rᵢ) is then replaced with maximum precision obtained for any recall r' >= rᵢ. The precision value is monotonically decreasing in this version of the curve. Pascal VOC mAP metric are by default evaluated with an IoU threshold of 0.5. 
 
 
 **COCO metrics**: 
 
-[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML logs all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales in the application logs while the metrics user interface shows only the mAP. 
+[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML logs all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales in the application logs while the metrics user interface shows only the mAP  at an IoU threshold of 0.5. 
 
 > [!TIP]
 > The image object detection model evaluation can use coco metrics if the 'validation_metric_type' hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
@@ -283,7 +282,7 @@ The primary metric for the evaluation of image object detection and instance seg
 The mAP, precision and recall values are logged at an epoch-level for image object detection/instance segmentation models. The mAP, precision and recall metrics are also logged at a class level with the name 'per_label_metrics'.
 
 > [!NOTE]
-> Epoch-level metrics is only available for the primary metric 'mAP' when using the 'coco' method.
+> Epoch-level metrics for precision, recall and per_label_metrics are not available when using the 'coco' method.
 
 ![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-od-mAP.PNG)
 
