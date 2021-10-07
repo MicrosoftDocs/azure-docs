@@ -36,14 +36,18 @@ This method supports managing the installation, management, and removal of VM ex
 
 * Limited automation when using an Azure Resource Manager template, otherwise it is time consuming.
 * Can only focus on a single Arc-enabled server, and not multiple instances.
+* Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to three additional workspaces (multihoming is limited to only supporting a total of four workspacee).
 
 ### Using Azure Policy
 
-Using Azure Policy by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition or the **Enable Azure Monitor for VMs** policy initiative.
+You can use Azure Policy to maintain configuration compliance by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition or the **Enable Azure Monitor for VMs** policy initiative.
 
 #### Advantages
 
 * If the Azure Arc-enabled servers Connected Machine agent is removed, this method reinstalls it.
+* Identifies and installs the VM extension when a new Azure Arc-enabled server is registered with Azure.
+* Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to three additional workspaces (multihoming is limited to only supporting a total of four workspacee).
+*  
 
 #### Disadvantages
 
