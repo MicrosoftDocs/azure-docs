@@ -241,39 +241,6 @@ Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to 
     !cd azure-sentinel-nb && git pull
     ```
 
-<<<<<<< HEAD
-=======
-## Integrate notebooks with Azure Synapse Analytics
-
-Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables you to use built-in functionality to run parallel data processing using a big data analytics platform.
-
-1. In the Azure Sentinel **Notebooks** page, select **Configure Azure Synapse** to create a new Synapse workspace.
-
-1. In the search box, enter **Synapse** to locate the notebooks that work with Synapse. For example, use the **Guided Hunting - Advanced Analytics with AM + Synapse** workbook to WHAT? TBD.
-
-1. At the bottom-right, select **Clone notebook**. In the **Clone notebook pane** that appears, enter a meaningful name for your notebook and select your AML and Synapse workspaces.
-
-1. After your notebook is deployed, select **Launch Notebook** to open it.
-
-For example, the **Guided Hunting - Advanced Analytics with AM + Synapse** includes the following code, which uses PySpark in a Synapse session:
-
-```python
-from pyspark.swl import SparkSession
-
-spark = SparkSession \
-    .builder \
-    .appName("Spark_Data_Analysis") \
-    .config("spark.sql.caseSensitive", "True") \
-    .getOrCreate()
-```
-
-**To manage or select your Synapse workspace**
-
-To manage or select a different Synapse workspace than the one you're currently signed in to, select **Configure Azure Synapse > Manage Synapse workspace**.
-
-Then in the **Select workspace** page, make sure your Azure Active Directory and Subscription values are correct, and select your Synapse workspace from the **Workspace name** dropdown.
-
->>>>>>> 7508da20ccce2fe6d35c637aba1bf3aa60962d2e
 ## Troubleshooting
 
 Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
@@ -362,7 +329,9 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 ## Next steps
 
-The notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
+Integrate your notebook experience with big data analytics in Azure Synapse. For more information, see [Integrate notebooks with Azure Synapse (Public preview)](notebooks-with-synapse.md).
+
+Other notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
 We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
@@ -379,7 +348,7 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 
 For more information, see:
 
-  - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
 - [Tutorial: Azure Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
 - [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)
 - [Webinar: Azure Sentinel notebooks fundamentals](https://www.youtube.com/watch?v=rewdNeX6H94)
