@@ -12,7 +12,7 @@ To quickly manage and deploy applications for Kubernetes, you can use the [open-
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 > [!IMPORTANT]
-> This article has been updated with Helm 3 commands as of version 3.7.0. Helm 3.7.0 includes changes to OCI support that are not backwards-compatible. Helm 3.7.0 cannot pull OCI charts that were packaged in a previous version of Helm. 
+> This article has been updated with Helm 3 commands as of version **3.7.0**. Helm 3.7.0 includes changes to OCI support that are not backward compatible. Helm 3.7.0 cannot pull OCI charts that were packaged in a previous version of Helm. 
 
 ## Helm 3 or Helm 2?
 
@@ -215,20 +215,6 @@ Output, abbreviated in this example, shows a `configMediaType` of `application/v
     ]
 ```
 
-## Pull chart to local archive
-
-To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing local chart named `mycontainerregistry.azurecr.io/helm/hello-world:0.1.0`:
-
-```console
-helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-```
-
-Run `helm pull` to download the chart from the Azure container registry to your local archive:
-
-```console
-helm pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-```
-
 ## Install Helm chart
 
 Run `helm install` to install the Helm chart you pushed to the registry. The chart tag is passed using the `--version` parameter. Specify a release name such as *myhelmtest*, or pass the `--generate-name` parameter. For example:
@@ -260,6 +246,20 @@ Run `helm uninstall` to uninstall the chart release on your cluster:
 
 ```console
 helm uninstall myhelmtest
+```
+
+## Pull chart to local archive
+
+You can optionally pull a chart from the container registry to a local archive. In this example, first remove the local archive `hello-world-0.1.0.tgz`:
+
+```console
+rm hello-world-0.1.0.tgz
+```
+
+Run `helm pull` to download the chart archive from the Azure container registry. The chart tag is passed using the `--version` parameter.
+
+```console
+helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 ## Delete chart from the registry
@@ -309,15 +309,16 @@ myregistry/wordpress            9.0.3           5.3.2           Web publishing p
 [...]
 ```
 
-### Save charts as OCI artifacts
+### Pull and push charts as OCI artifacts
 
-For each chart in the repo, pull the chart locally, and save it as an OCI artifact. Example:
+For each chart in the repo, pull the chart archive locally, and take note of the filename:
 
 ```console 
-helm pull myregisry/ingress-nginx --untar
-cd ingress-nginx
-helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
+helm pull myregisry/ingress-nginx
+ls *.tgz
 ```
+
+The output of `ls` or a similar command indicates that a chart archive `ingress-nginx-3.20.1.tgz` is created.
 
 ### Push charts to registry
 
@@ -327,10 +328,10 @@ Login to the registry:
 az acr login --name myregistry
 ```
 
-Push each chart to the registry:
+Push each chart archive to the registry. Example:
 
 ```console
-helm chart push myregistry.azurecr.io/ingress-nginx:3.20.1
+helm push ingress-nginx-3.20.1.tgz oci://myregistry.azurecr.io/helm
 ```
 
 After pushing a chart, confirm it is stored in the registry:
