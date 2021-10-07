@@ -174,7 +174,7 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
-      - name: Transcribe calls
+      - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Show active speakers
         href: how-tos/calling-sdk/dominant-speaker.md
