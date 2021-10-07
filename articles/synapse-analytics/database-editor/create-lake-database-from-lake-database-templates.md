@@ -1,6 +1,6 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: Create a lake database in Azure Synapse.
+description: Learn how to explore, customize and create a lake database from database template. 
 author: prlangad
 ms.author: prlangad
 ms.service: synapse-analytics
