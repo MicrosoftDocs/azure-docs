@@ -23,7 +23,7 @@ Based on your network and security requirements, you can set up and maintain Azu
 - Use [private endpoints](#option-2---use-private-endpoints). 
 - Use [private endpoints and allow public access on the same Purview account](#option-3---use-both-private-endpoint-and-public-endpoints). 
 
-To understand what option is the most suitable for your environment, we suggest you to perform the following actions first: 
+To understand what option is the most suitable for your environment, we suggest you perform the following actions first: 
 
 - Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information see, [define an Azure network topology](/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology). 
 
