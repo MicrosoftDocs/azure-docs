@@ -80,7 +80,7 @@ In the Layout view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Layout example](../media/quickstarts/layout-get-started.gif)
+![Form Recognizer Layout example](../media/quickstarts/layout-get-started-fixed.gif)
 
 ## Prebuilt models
 
@@ -96,7 +96,7 @@ In the Prebuilt view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Prebuilt example](../media/quickstarts/prebuilt-get-started.gif)
+![Form Recognizer Prebuilt example](../media/quickstarts/prebuilt-get-started-fixed.gif)
 
 ## Custom models
 
