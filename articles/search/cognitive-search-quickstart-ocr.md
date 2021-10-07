@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Text translation and entity recognition"
+title: "Quickstart: OCR and image analysis"
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard and AI cognitive skills to detect language, translate text, and recognize entities. The new fields created through AI become searchable text in an Azure Cognitive Search index. 
+description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to create searchable text from image files. 
 
 manager: nitinme
 author: HeidiSteen
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
 ---
-# Quickstart: Translate text and recognize entities
+# Quickstart: Apply OCR and image analysis
 
 This quickstart demonstrates AI enrichment and skillset support in the Azure portal, showing how language detection, text translation, and entity recognition are used to create searchable text content in an Azure Cognitive Search index.
 
