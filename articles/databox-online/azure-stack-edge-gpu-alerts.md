@@ -28,14 +28,12 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
 * [Minimum configuration alerts](#minimum-configuration-alerts)
 * [Performance alerts](#performance-alerts)
-<!--* [Disaster recovery alerts](#disaster-recovery-alerts)
-* [Volume alerts](#volume-alerts)
-* [Tiering alerts](#tiering-alerts)-->
 * [Storage alerts](#storage-alerts)
 * [Security alerts](#security-alerts)
 * [Key vault alerts](#key-vault-alerts)
 * [Hardware alerts](#hardware-alerts)
 * [Update alerts](#update-alerts)
+* [Cluster alerts](#cluster-alerts)
 
 
 ## Cloud connectivity alerts
@@ -210,7 +208,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | {0} has failed. |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
 
 
-### Update alerts
+## Update alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -228,7 +226,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
 
 
-### Cluster alerts
+## Cluster alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
