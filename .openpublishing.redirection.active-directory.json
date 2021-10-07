@@ -10509,6 +10509,11 @@
             "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
+            "redirect_url": "/azure/active-directory-b2c/troubleshoot",
+            "redirect_document_id": false
+          }
     ]
 }
