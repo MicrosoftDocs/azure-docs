@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
@@ -130,9 +130,11 @@ On a **Logic App (Standard)** resource, the system-assigned identity is automati
 <a name="system-assigned-template"></a>
 <a name="template-system-logic-app"></a>
 
-## Enable system-assigned identity in an ARM template (Consumption)
+## Enable system-assigned identity in an ARM template
 
 To automate creating and deploying Azure resources such as logic apps, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md). To enable the system-assigned managed identity for your logic app resource in the template, add the `identity` object and the `type` child property to the logic app's resource definition in the template, for example:
+
+### [Consumption](#tab/consumption)
 
 ```json
 {
@@ -143,19 +145,29 @@ To automate creating and deploying Azure resources such as logic apps, you can u
    "identity": {
       "type": "SystemAssigned"
    },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-         "actions": {},
-         "parameters": {},
-         "triggers": {},
-         "contentVersion": "1.0.0.0",
-         "outputs": {}
-   },
-   "parameters": {},
-   "dependsOn": []
+   "properties": {},
+   <...>
 }
 ```
+
+### [Standard](#tab/standard)
+
+```json
+{
+   "apiVersion": "2021-01-15",
+   "type": "Microsoft.Web/sites",
+   "name": "[variables('sites_<logic-app-resource-name>_name')]",
+   "location": "[resourceGroup().location]",
+   "kind": "functionapp,workflowapp",
+   "identity": {
+      "type": "SystemAssigned"
+   },
+   "properties": {},
+   <...>
+}
+```
+
+---
 
 When Azure creates your logic app resource definition, the `identity` object gets these other properties:
 
@@ -176,7 +188,7 @@ When Azure creates your logic app resource definition, the `identity` object get
 <a name="azure-portal-user-identity"></a>
 <a name="user-assigned-azure-portal"></a>
 
-## Create user-assigned identity in the Azure portal (Consumption)
+## Create user-assigned identity in the Azure portal (Consumption only)
 
 Before you can enable the user-assigned identity on your **Logic App (Consumption)** resource, you have to first create that identity as a separate Azure resource.
 
@@ -232,7 +244,7 @@ Before you can enable the user-assigned identity on your **Logic App (Consumptio
 
 <a name="template-user-identity"></a>
 
-## Create user-assigned identity in an ARM template (Consumption)
+## Create user-assigned identity in an ARM template (Consumption only)
 
 To automate creating and deploying Azure resources such as logic apps, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
 
@@ -411,23 +423,29 @@ These steps show how to use the managed identity with a trigger or action throug
 
      1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
 
-        ![Screenshot that shows Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
+        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
-     1. On the next page, provide a connection name.
+     1. On the next page, for **Connection name**, provide a name to use for the connection.
 
-        * **Single-authentication triggers and actions**
+     1. For the authentication type, choose one of the following options based on your managed connector:
 
-          By default, the managed identity list shows only the currently enabled managed identity because a logic app supports enabling only one managed identity at a time, for example:
+        * **Single-authentication**: These connectors support only one authentication type. By default, the **Managed identity** property automatically shows the currently enabled managed identity, for example:
 
-          ![Screenshot that shows the connection name page and the selected managed identity.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+          ![Screenshot showing the connection name page and single managed identity selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
-          For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity-consumption).
+        * **Multi-authentication**: These connectors support more than one authentication type. For the **Authentication Type** property, select **Logic Apps Managed Identity** > **Create**, for example:
 
-        * **Multi-authentication triggers and actions**
+          ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected.](./media/create-managed-service-identity/multi-system-identity-consumption.png)
+
+        For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity-consumption).
+
+### [Standard](#tab/standard)
+
+---
 
 <a name="authenticate-built-in-managed-identity-consumption"></a>
 
-#### Example: Authenticate built-in trigger or action with a managed identity
+### Example: Authenticate built-in trigger or action with a managed identity
 
 The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
 
@@ -501,31 +519,32 @@ Here is the example HTTP action that shows all these property values:
    For more information about authorizing access with Azure AD for Azure Storage, review the following documentation:
 
    * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+
    * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the logic app the way that you want.
 
 <a name="authenticate-managed-connector-managed-identity-consumption"></a>
 
-#### Example: Authenticate managed connector trigger or action with a managed identity
+### Example: Authenticate managed connector trigger or action with a managed identity
 
 The Azure Resource Manager action, **Read a resource**, can use the managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
 
-1. After you add the action to your workflow, on the tenant selection page, select **Connect with managed identity**.
+1. After you add the action to your workflow, on the tenant selection page, select **Connect with managed identity (preview)**.
 
-   ![Screenshot that shows Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity.png)
+   ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
    The action now shows the connection name page with the managed identity list, which includes the managed identity type that's currently enabled on the logic app.
 
 1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity, which is **System-assigned managed identity** in this example, and select **Create**. If you enabled a user-assigned managed identity, select that identity instead.
 
-   ![Screenshot that shows Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
    If the managed identity isn't enabled, the following error appears when you try to create the connection:
 
    *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
 
-   ![Screenshot that shows Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
 
 1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
@@ -676,7 +695,7 @@ The following steps remove access to the target resource from the managed identi
 
 <a name="template-disable"></a>
 
-## Disable managed identity in an ARM template (Consumption)
+## Disable managed identity in an ARM template
 
 If you created the logic app's managed identity by using an ARM template, set the `identity` object's `type` child property to `None`.
 
