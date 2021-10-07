@@ -25,6 +25,7 @@ For import orders, following table shows the supported storage accounts.
 
 
 <sup>1</sup> *Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
+
 <sup>2</sup> *Azure Data Lake Storage Gen2 (ADLS Gen2) is supported for imports but not for exports.*
 
 
