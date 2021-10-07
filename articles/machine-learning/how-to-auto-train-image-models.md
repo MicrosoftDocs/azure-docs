@@ -202,6 +202,7 @@ The following table describes the hyperparameters that are model agnostic.
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  15 <br> (except `yolov5`: 30) |
 | `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
 | `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps,and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
 | `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
 | `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
 | `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
@@ -218,8 +219,6 @@ The following table describes the hyperparameters that are model agnostic.
 |`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
 |`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
 |`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
-| `grad_clip_type` | Gradient clipping technique. <br> Must be either `value`, `norm`. |  'value'<br>(except *vit-variants*: 'norm') |
-| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps,and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
 |`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
