@@ -279,7 +279,7 @@ Run your application and open your Application Insights Resource blade on the Az
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more micro-services using the same connection string, you are required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
+> If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
 
 ## Set Cloud Role Name and Cloud Role Instance
 
@@ -951,7 +951,20 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 
 - Review troubleshooting steps in this article.
 - For Azure support issues, open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
-- For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+
+### [.NET](#tab/net)
+
+For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+
+### [Node.js](#tab/nodejs)
+
+For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
+
+### [Python](#tab/python)
+
+For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
+
+---
 
 ## OpenTelemetry feedback
 
@@ -985,3 +998,5 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 -  Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python).
 - [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
+
+---

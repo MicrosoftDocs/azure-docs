@@ -49,13 +49,13 @@ Review the following configuration points before you download the jar file.
 
 Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
 
-### Step 2: Point the JVM  the jar file
+### Step 2: Point the JVM to the jar file
 
 Add `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` to your application's JVM args. 
 
 For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
-### Step 3: Point the jar file to your Application Insights resource
+### Step 3: Set Application Insights connection string
 
 If you don't already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
 
@@ -77,15 +77,18 @@ You can find your connection string in your Application Insights resource:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
-### Step 4: That's it!
+### Step 4: Confirm data is flowing
 
-Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data.
+Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
-> It can take several minutes for your monitoring data to show up in the portal.
+> If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
+
+:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
+> If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
+
 
 ## Configuration options
 
@@ -461,7 +464,8 @@ See [Troubleshooting](java-standalone-troubleshoot.md).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
 
 ## Next Steps
-- [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java)
-- [Azure Monitor Example Application]()
-- [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
-- [Enable web/browser user monitoring](javascript.md)
+
+- Review the source code at the [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java).
+- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application]().
+- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Java GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+- [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
