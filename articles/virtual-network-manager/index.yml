@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Azure Virtual Network Manager documentation
+summary: Learn how to use Azure Virtual Network Manager to simplify dynamic routing between your Network Virtual Appliances and your virtual network.
+
+metadata:
+  title: Azure Virtual Network Manager documentation 
+  description: Learn about Azure Virtual Network Manager
+  services: virtual-network-manager
+  ms.service: virtual-network-manager 
+  ms.topic: landing-page 
+  author: duongau 
+  ms.author: duau 
+  ms.date: 11/02/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Virtual Network Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network Manager?
+            url: overview.md
+            
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and configure a Virtual Network Manager - Portal
+            url: create-virtual-network-manager-portal.md
+
+
