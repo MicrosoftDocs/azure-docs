@@ -69,9 +69,9 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create a demo app
             url: search-create-app-portal.md
-          - text: Text translation and entity recognition
+          - text: Translate text and recognize entities
             url: cognitive-search-quickstart-blob.md
-          - text: OCR and image analysis
+          - text: Apply OCR and image analysis
             url: cognitive-search-quickstart-ocr.md
 
 
@@ -114,10 +114,6 @@ landingContent:
             url: cognitive-search-defining-skillset.md
           - text: Create a knowledge store
             url: knowledge-store-create-portal.md
-      - linkListType: reference
-        links:
-          - text: Built-in skills
-            url: cognitive-search-predefined-skills.md
          
   # Card
   - title: Query data
