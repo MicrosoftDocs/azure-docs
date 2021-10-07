@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 10/07/2021
 ---
 
 # Resource declaration in Bicep
@@ -23,7 +23,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
+You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`.  The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file. Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
 
 Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
@@ -101,7 +101,7 @@ You can apply tags to a resource during deployment. Tags help you logically orga
 
 ## Set managed identities for Azure resources
 
-Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration. 
+Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
 
 You can use either system-assigned or user-assigned identities.
 
@@ -199,7 +199,7 @@ For more information about nested resources, see [Set name and type for child re
 
 ### Explicit dependency
 
-An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency. 
+An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency.
 
 The following example shows a DNS zone named `otherZone` that depends on a DNS zone named `dnsZone`:
 
