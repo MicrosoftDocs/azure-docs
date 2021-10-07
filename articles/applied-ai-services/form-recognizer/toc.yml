@@ -96,7 +96,7 @@ items:
   items:
   - name: Model overview
     href: concept-model-overview.md
-  - name: General document model | preview
+git pu  - name: General document model | preview
     href: concept-general-document.md
   - name: Layout model
     href: concept-layout.md

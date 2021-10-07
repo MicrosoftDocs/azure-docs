@@ -37,19 +37,19 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
 
-   :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
+   :::image type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
 
 1. Select a **container** from the list.
 
 1. Select **Upload** from the menu at the top of the page.
 
-    :::image type="content" source="media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
+    :::image type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
 
 1. The **Upload blob** window will appear.
 
 1. Select your file(s) to upload.
 
-    :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
+    :::image type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
 > By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
