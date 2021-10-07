@@ -49,7 +49,7 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
 1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
 1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
 1. Click on Set modules and select the Video Analyzer edge module.
-2. Select **Container Create Options** and add the following:
+1. Select **Container Create Options** and add the following:
 
     ```JSON
     { 
@@ -64,7 +64,8 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
     } 
     ```
 3. Click **Update** at the bottom.
-4. Click **Review + create** -> **Create**.
+4. Click **Review + create**.
+5. Click **Create**.
 
 ## Use direct method calls
 
@@ -84,52 +85,52 @@ Lists all the discoverable ONVIF devices on the same network as the Video Analyz
 
 1. In the method name enter:
 
-  ```
-  onvifDeviceDiscover
-  ```
+    ```
+    onvifDeviceDiscover
+    ```
 1. In the payload enter:
 
-  ```JSON
-  {
-      "@apiVersion":"1.1",
-      "discoveryDuration":"PT10S"
-  }
-  ```
-    
-  > [!NOTE]
-  > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value.
+    ```JSON
+    {
+        "@apiVersion":"1.1",
+        "discoveryDuration":"PT10S"
+    }
+    ```
 
-  Within a few seconds you see the following `result`:
+    > [!NOTE]
+    > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value.
 
-  ```JSON
-  {
-      "status": 200,
-      "payload": {
-          "value": [
-              {
-                  "serviceIdentifier": "{urn:uuid}",
-                  "remoteIPAddress": "{IP_ADDRESS}",
-                  "transportAddresses": [
-                      "http://10.0.1.79/onvif/device_service",
-                      "https://10.0.1.79/onvif/device_service"
-                  ],
-                  "scopes": [
-                      "onvif://www.onvif.org/type/Network_Video_Transmitter",
-                      "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
-                      "onvif://www.onvif.org/location/",
-                      "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
-                      "onvif://www.onvif.org/Profile/Streaming",
-                      "onvif://www.onvif.org/Profile/G",
-                      "onvif://www.onvif.org/Profile/T"
-                  ]
-              }
-          ]
-      }
-  }
-  ```
+    Within a few seconds you see the following `result`:
 
-  > [!NOTE]
-  > The return status of 200 indicates that the direct method call was handled successfully.
+    ```JSON
+    {
+        "status": 200,
+        "payload": {
+            "value": [
+                {
+                    "serviceIdentifier": "{urn:uuid}",
+                    "remoteIPAddress": "{IP_ADDRESS}",
+                    "transportAddresses": [
+                        "http://10.0.1.79/onvif/device_service",
+                        "https://10.0.1.79/onvif/device_service"
+                    ],
+                    "scopes": [
+                        "onvif://www.onvif.org/type/Network_Video_Transmitter",
+                        "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
+                        "onvif://www.onvif.org/location/",
+                        "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
+                        "onvif://www.onvif.org/Profile/Streaming",
+                        "onvif://www.onvif.org/Profile/G",
+                        "onvif://www.onvif.org/Profile/T"
+                    ]
+                }
+            ]
+        }
+    }
+    ```
+
+    > [!NOTE]
+    > The return status of 200 indicates that the direct method call was handled successfully.
 
 ### onvifDeviceGet
 
@@ -137,101 +138,101 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 1. In the method name enter:
 
-  ```
-  onvifDeviceGet
-  ```
+    ```
+    onvifDeviceGet
+    ```
 1. In the payload enter:
 
-  ```JSON
-  { 
-      "@apiVersion": "1.1",  
-      "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
-      "username": "{USER_NAME}", 
-      "password": "{PASSWORD}" 
-  } 
-  ```
+    ```JSON
+    { 
+        "@apiVersion": "1.1",  
+        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
+        "username": "{USER_NAME}", 
+        "password": "{PASSWORD}" 
+    } 
+    ```
 
-  In the above payload:
+    In the above payload:
 
-  - `remoteIPAddress` is the IP address of the camera you wish to get additional details from.
-  - `username` is the user name that is used to authenticate with the ONVIF device.
-  - `password` is the user accounts password.
+    - `remoteIPAddress` is the IP address of the camera you wish to get additional details from.
+    - `username` is the user name that is used to authenticate with the ONVIF device.
+    - `password` is the user accounts password.
 
-  Within a few seconds you see the following result:
+    Within a few seconds you see the following result:
 
-  ```JSON
-  {
-      "status": 200,
-      "payload": {
-          "hostname": {
-              "fromDHCP": true,
-              "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
-          },
-          "systemDateTime": {
-              "type": "ntp",
-              "time": "2021-09-18T03:05:05.000Z",
-              "timeZone": "GMT"
-          },
-          "dns": {
-              "fromDhcp": true,
-              "ipv4Address": [
-                  "{IP_ADDRESS}"
-              ],
-              "ipv6Address": []
-          },
-          "mediaProfiles": [
-              {
-                  "name": "Profile_L1S1",
-                  "mediaUri": {
-                      "uri": "{RTSP_URI}"
-                  },
-                  "videoEncoderConfiguration": {
-                      "encoding": "h264",
-                      "resolution": {
-                          "width": 3840,
-                          "height": 2160
-                      },
-                      "rateControl": {
-                          "bitRateLimit": 15600,
-                          "encodingInterval": 1,
-                          "frameRateLimit": 30,
-                          "guaranteedFrameRate": false
-                      },
-                      "quality": 50,
-                      "h264": {
-                          "govLength": 255,
-                          "profile": "main"
-                      }
-                  }
-              },
-              {
-                  "name": "Profile_L1S2",
-                  "mediaUri": {
-                      "uri": "{RTSP_URI}"
-                  },
-                  "videoEncoderConfiguration": {
-                      "encoding": "h264",
-                      "resolution": {
-                          "width": 1280,
-                          "height": 720
-                      },
-                      "rateControl": {
-                          "bitRateLimit": 1900,
-                          "encodingInterval": 1,
-                          "frameRateLimit": 30,
-                          "guaranteedFrameRate": false
-                      },
-                      "quality": 50,
-                      "h264": {
-                          "govLength": 255,
-                          "profile": "main"
-                      }
-                  }
-              }
-          ]
-      }
-  }
-  ```
+    ```JSON
+    {
+        "status": 200,
+        "payload": {
+            "hostname": {
+                "fromDHCP": true,
+                "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
+            },
+            "systemDateTime": {
+                "type": "ntp",
+                "time": "2021-09-18T03:05:05.000Z",
+                "timeZone": "GMT"
+            },
+            "dns": {
+                "fromDhcp": true,
+                "ipv4Address": [
+                    "{IP_ADDRESS}"
+                ],
+                "ipv6Address": []
+            },
+            "mediaProfiles": [
+                {
+                    "name": "Profile_L1S1",
+                    "mediaUri": {
+                        "uri": "{RTSP_URI}"
+                    },
+                    "videoEncoderConfiguration": {
+                        "encoding": "h264",
+                        "resolution": {
+                            "width": 3840,
+                            "height": 2160
+                        },
+                        "rateControl": {
+                            "bitRateLimit": 15600,
+                            "encodingInterval": 1,
+                            "frameRateLimit": 30,
+                            "guaranteedFrameRate": false
+                        },
+                        "quality": 50,
+                        "h264": {
+                            "govLength": 255,
+                            "profile": "main"
+                        }
+                    }
+                },
+                {
+                    "name": "Profile_L1S2",
+                    "mediaUri": {
+                        "uri": "{RTSP_URI}"
+                    },
+                    "videoEncoderConfiguration": {
+                        "encoding": "h264",
+                        "resolution": {
+                            "width": 1280,
+                            "height": 720
+                        },
+                        "rateControl": {
+                            "bitRateLimit": 1900,
+                            "encodingInterval": 1,
+                            "frameRateLimit": 30,
+                            "guaranteedFrameRate": false
+                        },
+                        "quality": 50,
+                        "h264": {
+                            "govLength": 255,
+                            "profile": "main"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+    ```
 
 ### Return status of onvifDeviceGet
 
