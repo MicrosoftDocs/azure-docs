@@ -16,6 +16,20 @@ ms.date: 09/29/2021
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+## October 2021
+- **Availability Zones Selection when creating Read replicas**
+
+    When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md)
+
+- **Read replicas in Azure Database for MySQL - Flexible servers will no longer be available on Burstable SKUs**
+    
+    You will not be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
+
+    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you will have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
+
+ - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
+ 
+     Azure Database for MySQL - Flexible Server is now integrated with Azure Monitor Workbooks. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.With this integration, the server has link to workbooks and few sample templates, which help to monitor the service at scale.These templates can be edited, customized to customer requirements and pinned to dashboard to create a focused and organized view of Azure resources.[Query Performance Insights](./tutorial-query-performance-insights.md) , [Auditing](./tutorial-configure-audit.md) and Instance Overview templates are currently available.[Learn More](./concepts-workbooks.md) 
 
 ## September 2021
 

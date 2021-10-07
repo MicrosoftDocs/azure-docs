@@ -193,7 +193,7 @@ For Azure SQL Managed Instance, there is no storage cost added for the first 32 
 
 ### Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Sire Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 
