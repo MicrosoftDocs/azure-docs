@@ -103,17 +103,17 @@ When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure M
 If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal and AppSource.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal only |
+| No              | No          | Yes          | Azure portal and AppSource |
 |||||
 
-&#42; The private plan of the offer will only be available via the Azure portal.
+&#42; The private plan of the offer will only be available via the Azure portal and AppSource.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -128,7 +128,6 @@ If you choose to use the standard contract, you have the option to add universal
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
-
 ## Microsoft 365 integration
 
 Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
@@ -136,7 +135,7 @@ Integration with Microsoft 365 allows your SaaS offer to provide connected exper
     
      If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
 	
-   -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
+   -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on Microsoft AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
     
         To link related add-ins, you need to provide the AppSource link of the add-in, this means the add-in must be first published to AppSource. Supported add-in types you can link are: Teams apps, Office add-ins, and SharePoint Framework (SPFx) solutions. Each linked add-in must be unique for a SaaS offer. 
 
@@ -211,9 +210,9 @@ To help create your offer more easily, prepare some of these items ahead of time
 
   These logos are used in different places in the online stores:
 
-  - The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+  - The Small logo appears in Azure Marketplace search results and on the AppSource main page and search results page.
   - The Medium logo appears when you create a new resource in Microsoft Azure.
-  - The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+  - The Large logo appears on your offer listing page in Azure Marketplace and AppSource.
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
