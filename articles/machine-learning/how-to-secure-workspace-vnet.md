@@ -115,7 +115,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
     > When configuring a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
 
 1. After creating the private endpoints for thee sub-resources, select the __Firewalls and virtual networks__ tab under __Networking__ for the storage account.
-1. Select __Selected networks__, and then nder __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__. Select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Select __Selected networks__, and then under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__. Select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
     > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
