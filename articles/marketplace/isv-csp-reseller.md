@@ -36,7 +36,7 @@ You must meet these pre-requisites to create a private offer for cloud resellers
 
 1. You have created a commercial marketplace account in Partner Center.
 2. Your account is enrolled in the commercial marketplace program.
-3. You have published a transactable and publicly available offer to Azure marketplace.
+3. You have published a transactable and publicly available offer to Azure Marketplace.
 4. Your offer is opted into the Cloud Reseller channel.
 5. You are creating a private offer for a Cloud Reseller who is part of Microsoft’s Cloud Solution Provider (CSP) program.
 

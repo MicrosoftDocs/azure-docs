@@ -82,7 +82,7 @@ sections:
 
           If the ISV adds a new private offer providing the CSP Partner a greater margin percentage and the timeline overlaps the current offer, the higher margin percentage will apply.
 
-      - question: Can a private offer be cancelled?
+      - question: Can a private offer be canceled?
         answer: |
           An ISV will be able to request to cancel/withdraw a private offer. If the CSP partner has not yet transacted the offer, this request will be approved.
 
