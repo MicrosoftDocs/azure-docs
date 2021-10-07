@@ -44,6 +44,8 @@ items:
         href: deployment-best-practices.md
       - name: Collections architecture
         href: concept-best-practices-collections.md
+      - name: Network architecture
+        href: concept-best-practices-network.md         
       - name: Pricing guidelines 
         href: concept-guidelines-pricing.md
   - name: Azure Purview permissions
