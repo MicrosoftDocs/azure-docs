@@ -50,7 +50,7 @@ conceptualContent:
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
           text: Get information from healthcare-related text
-          url:  health/overview.md
+          url:  text-analytics-for-health/overview.md
 
     - title: Classify Text
       links:
