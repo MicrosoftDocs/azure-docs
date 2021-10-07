@@ -126,9 +126,10 @@ For more information, see [Discover and deploy Azure Sentinel solutions](sentine
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
-Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is now enriched with Geolocation and WHoIs information.
+Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
 
-For example: 
+In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+
 TBD SCREENSHOT
 
 For more information, see:
