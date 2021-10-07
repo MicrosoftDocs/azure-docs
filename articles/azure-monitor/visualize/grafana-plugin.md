@@ -68,18 +68,18 @@ If your Grafana instance is hosted on an Azure VM or Azure App Service with mana
 ### Use Managed Identity
 
 3. Enable managed identity on your VM or App Service and change the Grafana server managed identity support setting to true.
-    * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) assigned for the subscription, resource group or resources of interest.
+    * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](/azure/azure-monitor/roles-permissions-security) assigned for the subscription, resource group or resources of interest.
     * Additionally, you will need to update the setting 'managed_identity_enabled = true' in the Grafana server config. See [Grafana Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/) for details. Once both steps are complete, you can then save and test access.
 
 4. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
     
-   ![Grafana data source config approved](./media/grafana-plugin/managed-identity.png)
+   ![Grafana data source managed identity config approved](./media/grafana-plugin/managed-identity.png)
 
 ### Or use App Registration
 
 5. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
-    * See [these instructions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+    * See [these instructions](/azure/active-directory/develop/howto-create-service-principal-portal) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
+    * See [Assign application to role](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](/azure/azure-monitor/roles-permissions-security) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor.
   
 6. Provide the connection details you'd like to use.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
@@ -91,9 +91,9 @@ If your Grafana instance is hosted on an Azure VM or Azure App Service with mana
 
 7. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
     
-   ![Grafana data source config approved](./media/grafana-plugin/app-registration.png)
+   ![Grafana data source app registration config approved](./media/grafana-plugin/app-registration.png)
 
-## Build a Grafana dashboard
+## Build Grafana dashboards
 
 1. Go to the Grafana Home page, and select **New Dashboard**.
 
