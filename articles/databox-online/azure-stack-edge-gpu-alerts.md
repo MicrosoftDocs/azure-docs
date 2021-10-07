@@ -175,7 +175,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-| One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
+|One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to TO COME.<!--GET CORRECT LINK TARGET: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Started the replacement of {0}. |Informational |No action is required from you. |
@@ -226,6 +226,22 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Started a disk firmware update. |Informational |No action is required from you. |
 |Successfully updated the disk firmware. |Informational |No action is required from you. |
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
+
+
+### Cluster alerts
+
+|Alert text |Severity |Description / Recommended action |
+|-----------|---------|---------------------------------|
+|The cluster quorum witness resource is offline. |Critical |Take the following steps:<ol><li>Check the witness resource.</li><li>Start or replace failed nodes on your device.</li></ol> |
+|Cluster resource is down. |Critical |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
+|Cluster resource '{0}' is down. |Critical |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
+|Cluster resource '{0}' is down. Your device will continue to run IO, but you cannot use the local web UI to manage the device. |Warning |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
+|Cluster resource '{0}' is down. The device will not run any scheduled operations. |Warning |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
+|Node {0} is down. |Critical |Start or replace the node. |
+|Node {0} is isolated from the cluster due to connectivity issues. |Critical |If isolation persists, check the network(s) or migrate workloads to other nodes. |
+|Node {0} is quarantined by the cluster. |Critical |Try troubleshooting the server and potential network issues. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |
+|The temperature sensor on the motherboard of server {0} has raised a warning.<!--Move to Hardware?--> |Warning |Check the node temperature. |
 
 
 ## Next steps
