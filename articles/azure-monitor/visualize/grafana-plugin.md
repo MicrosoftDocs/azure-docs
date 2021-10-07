@@ -7,14 +7,19 @@ ms.date: 11/06/2017
 ---
 
 # Monitor your Azure services in Grafana
-You can now monitor Azure services and applications from [Grafana](https://grafana.com/) using the [Azure Monitor data source plugin](https://grafana.com/plugins/grafana-azure-monitor-datasource). The plugin gathers application performance data collected by Azure Monitor, including various logs and metrics. You can then display this data on your Grafana dashboard.
+You can monitor Azure services and applications using [Grafana](https://grafana.com/) and the included [Azure Monitor data source plugin](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). The plugin retrieves data from three Azure services:
+- Azure Monitor Metrics for numeric time series data from data from Azure resources. 
+- Azure Monitor Logs for log and performance data from Azure resources that enables you to query using the powerful Kusto Query Language (KQL).
+- Azure Resource Graph to quickly query and identify Azure resources across subscriptions. 
+
+You can then display this performance and availability data on your Grafana dashboard.
 
 Use the following steps to set up a Grafana server and build dashboards for metrics and logs from Azure Monitor.
 
 ## Set up a Grafana server
 
 ### Set up Grafana locally
-To set up a local Grafana server, [download and install Grafana in your local environment](https://grafana.com/grafana/download). To use the plugin's Azure Monitor integration, install Grafana version 5.3 or higher.
+To set up a local Grafana server, [download and install Grafana in your local environment](https://grafana.com/grafana/download).
 
 ### Set up Grafana on Azure through the Azure Marketplace
 1. Go to Azure Marketplace and pick Grafana by Grafana Labs.
@@ -42,40 +47,51 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser. While 3000 is the default port, note you might have selected a different port during setup. You should see a login page for the Grafana server you built.
 
-    ![Grafana login screen](./media/grafana-plugin/grafana-login-screen.png)
+    ![Grafana login screen](./media/grafana-plugin/login-screen.png)
 
 2. Sign in with the user name *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
 
 ## Configure data source plugin
 
-Once successfully logged in, you should see that the Azure Monitor data source plugin is already included.
+Once successfully logged in, you should see the option to add your first data source.
 
-![Grafana includes Azure Monitor plugin](./media/grafana-plugin/grafana-includes-azure-monitor-plugin-dark.png)
+![Add Data Source](./media/grafana-plugin/add-datasource.png)
 
-1. Select **Add data source** to add and configure the Azure Monitor data source.
+1. Select **Add data source**, filter by name *Azure* and select the **Azure Monitor** data source.
 
-2. Pick a name for the data source and select **Azure Monitor** as the type from the dropdown.
+![Azure Monitor Data Source](./media/grafana-plugin/azure-monitor-datasoruce.png)
 
-3. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
-    * See [these instructions](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
-    The Log Analytics API requires the [Log Analytics Reader role](../../role-based-access-control/built-in-roles.md#log-analytics-reader), which includes the Reader role's permissions and adds to it.
+2. Pick a name for the data source and choose between Managed Identity or App Registration for authentication.
 
-4. Provide the connection details to the APIs you'd like to use. You can connect to all or to some of them. 
-    * If you connect to both metrics and logs in Azure Monitor, you can reuse the same credentials by selecting **Same details as Azure Monitor API**.
+If your Grafana instance is hosted on an Azure VM or Azure App Service with managed identity enabled, you may use this approach for authentication. However, if your Grafana instance is not hosted on Azure or does not have managed identity enabled, you will need to use App Registration with an Azure service principal to setup authentication.
+
+### Use Managed Identity
+
+3. Enable managed identity on your VM or App Service and change the Grafana server managed identity support setting to true.
+    * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) assigned for the subscription, resource group or resources of interest.
+    * Additionally, you will need to update the setting 'managed_identity_enabled = true' in the Grafana server config. See [Grafana Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/) for details. Once both steps are complete, you can then save and test access.
+
+4. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
+    
+   ![Grafana data source config approved](./media/grafana-plugin/managed-identity.png)
+
+### Or use App Registration
+
+5. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
+    * See [these instructions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
+    * See [Assign application to role](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+  
+6. Provide the connection details you'd like to use.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
-    * If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
-
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
         > * Tenant ID is the Azure Directory ID
         > * Client ID is the Azure Active Directory Application ID
         > * Client Secret is the Azure Active Directory Application key value
 
-5. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
-
-6. Select **Save**, and Grafana will test the credentials for each API. You should see a message similar to the following one.  
-    ![Grafana data source config approved](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
+7. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
+    
+   ![Grafana data source config approved](./media/grafana-plugin/app-registration.png)
 
 ## Build a Grafana dashboard
 
