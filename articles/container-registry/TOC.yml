@@ -145,6 +145,8 @@
             href: authenticate-aks-cross-tenant.md
           - name: Authenticate using Kubernetes pull secret
             href: container-registry-auth-kubernetes.md
+        - name: Enable unauthenticated pull access
+          href: anonymous-pull-access.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization
