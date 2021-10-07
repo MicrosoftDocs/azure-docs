@@ -11,6 +11,7 @@ ms.topic: troubleshooting
 ms.date: 10/08/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Troubleshoot Azure AD B2C custom policies and user flows
@@ -35,6 +36,7 @@ blah blah blah
 - The solution
 -
 blah blah blah
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
