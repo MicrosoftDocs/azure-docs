@@ -64,7 +64,7 @@ After you have completed the prequisites, navigate to the [Form Recognizer Studi
 
 1. Review and confirm your selections.
 
-![Form Recognizer Studio Getting Started example](../media/form-recognizer-studio-get-started.gif)
+![Form Recognizer Studio Getting Started example](../media/quickstarts/form-recognizer-studio-get-started.gif)
 
 ## Layout
 
@@ -80,7 +80,7 @@ In the Layout view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Layout example](../media/layout-get-started.gif)
+![Form Recognizer Layout example](../media/quickstarts/layout-get-started.gif)
 
 ## Prebuilt models
 
@@ -96,7 +96,7 @@ In the Prebuilt view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Prebuilt example](../media/prebuilt-get-started.gif)
+![Form Recognizer Prebuilt example](../media/quickstarts/prebuilt-get-started.gif)
 
 ## Custom models
 
@@ -111,7 +111,7 @@ To create custom models, you start with confguring your project:
 1. Review and submit your settings to create the project.
 
 
-![Form Recognizer Cuzstom project Getting Started example](../media/1-custom-model-get-started.gif)
+![Form Recognizer Cuzstom project Getting Started example](../media/quickstarts/1-custom-model-get-started.gif)
 
 After the project creation step, in the custom model phase:
 
@@ -127,7 +127,7 @@ After the project creation step, in the custom model phase:
 
 1. Iterate on the steps to improve your model.
 
-![Form Recognizer Custom project basic workflow](../media/2-custom-model-basic-steps.gif)
+![Form Recognizer Custom project basic workflow](../media/quickstarts/2-custom-model-basic-steps.gif)
 
 In addition, view all your models using the Models tab on the left. From the list view, select model(s) to perform the following actions:
 
