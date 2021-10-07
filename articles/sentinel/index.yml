@@ -54,6 +54,8 @@ landingContent:
         links:
           - text: Connect data to Azure Sentinel
             url: connect-data-sources.md
+          - text: Visualize collected data
+            url: get-visibility.md
           - text: Investigate incidents
             url: investigate-cases.md
           - text: Microsoft 365 Defender integration with Azure Sentinel

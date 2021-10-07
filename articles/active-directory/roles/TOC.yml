@@ -84,7 +84,7 @@
       href: admin-units-assign-roles.md
   - name: Delegate
     items:
-    - name: Delegate app admin role
+    - name: Delegate admin role
       href: delegate-app-roles.md
     - name: My Staff delegation
       href: my-staff-configure.md

@@ -63,7 +63,7 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count toward your 5-TB share limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the share size limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
 
 ## Limits
 

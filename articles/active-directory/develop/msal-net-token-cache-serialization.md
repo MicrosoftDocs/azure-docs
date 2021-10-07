@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 09/30/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about token cache serialization so I can have fine-grained control of the proxy.
 ---
 
@@ -24,15 +24,15 @@ After it [acquires a token](msal-acquire-cache-tokens.md), Microsoft Authenticat
 ## Quick summary
 
 The recommendation is:
-- In web apps and web APIs, use [token cache serializers from "Microsoft.Identity.Web"](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). They even provide distributed database or cache system to store tokens.
-  - In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use Microsoft.Identity.Web as a higher-level API in ASP.NET Core.
-  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL]() provided in Microsoft.Identity.Web. 
+- In web apps and web APIs, use [token cache serializers from "Microsoft.Identity.Web.TokenCache"](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). They even provide distributed database or cache system to store tokens.
+  - In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API in ASP.NET Core.
+  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL](msal-net-token-cache-serialization.md?tabs=aspnet) provided in the Microsoft.Identity.Web.TokenCache NuGet package. 
 - In desktop applications (which can use file system to store tokens), use [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache) with MSAL.Net.
 - In mobile applications (Xamarin.iOS, Xamarin.Android, Universal Windows Platform) don't do anything, as MSAL.NET handles the cache for you: these platforms have a secure storage.
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
-The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library provides a NuGet package [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) containing token cache serialization:
+The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library provides a NuGet package [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) containing token cache serialization:
 
 | Extension Method | Description  |
 | ---------------- | ------------ |
@@ -79,12 +79,13 @@ Here are examples of possible distributed caches:
              .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest }
                .AddDistributedTokenCaches();
 
-// and then choose your implementation
+// and then choose your implementation of distributed cache
 
 // For instance the distributed in memory cache (not cleared when you stop the app)
-services.AddDistributedMemoryCache()
+services.AddDistributedMemoryCache();
 
 // Or a Redis cache
+// Requires the Microsoft.Extensions.Caching.StackExchangeRedis NuGet package
 services.AddStackExchangeRedisCache(options =>
 {
  options.Configuration = "localhost";
@@ -92,11 +93,22 @@ services.AddStackExchangeRedisCache(options =>
 });
 
 // Or even a SQL Server token cache
+// Requires the Microsoft.Extensions.Caching.SqlServer NuGet package
 services.AddDistributedSqlServerCache(options =>
 {
  options.ConnectionString = _config["DistCache_ConnectionString"];
  options.SchemaName = "dbo";
  options.TableName = "TestCache";
+});
+
+// Or a Cosmos DB cache
+// Requires the Microsoft.Extensions.Caching.Cosmos NuGet package
+services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
+{
+    cacheOptions.ContainerName = Configuration["CosmosCacheContainer"];
+    cacheOptions.DatabaseName = Configuration["CosmosCacheDatabase"];
+    cacheOptions.ClientBuilder = new CosmosClientBuilder(Configuration["CosmosConnectionString"]);
+    cacheOptions.CreateIfNotExists = true;
 });
 ```
 
@@ -104,69 +116,93 @@ Their usage is featured in the [ASP.NET Core web app tutorial](/aspnet/core/tuto
 
 ## [Non ASP.NET Core web apps and web APIs](#tab/aspnet)
 
-Even when you use MSAL.NET, you can benefit from token cache serializers brought in Microsoft.Identity.Web 
+Even when you use MSAL.NET, you can benefit from token cache serializers brought in Microsoft.Identity.Web.TokenCache 
 
 ### Referencing the NuGet package
 
-Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package to your project in addition to MSAL.NET
+Add the [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package to your project in addition to MSAL.NET
 
 ### Configuring the token cache
 
-The following code shows how to add an in-memory well partitioned token cache to your app.
+The following code shows how to add an in-memory well-partitioned token cache to your app.
 
 ```CSharp
-#using Microsoft.Identity.Web
-#using Microsoft.Identity.Client
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Client;
+using Microsoft.Extensions.DependencyInjection;
 ```
 
 ```CSharp
 
- private static IConfidentialClientApplication app;
-
- public static async Task<IConfidentialClientApplication> BuildConfidentialClientApplication()
+public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X509Certificate cert, string authority, string[] scopes)
  {
-  if (app== null)
-  {
      // Create the confidential client application
      app= ConfidentialClientApplicationBuilder.Create(clientId)
        // Alternatively to the certificate you can use .WithClientSecret(clientSecret)
-       .WithCertificate(certDescription.Certificate)
+       .WithCertificate(cert)
        .WithLegacyCacheCompatibility(false)
-       .WithTenantId(tenant)
+       .WithAuthority(authority)
        .Build();
 
-     // Add an in-memory token cache. Other options available: see below
-     app.AddInMemoryTokenCaches();
-   }
-   return clientapp;
+     // Add a static in-memory token cache. Other options available: see below
+     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web.TokenCache 1.17+
+   
+     // Make the call to get a token for client_credentials flow (app to app scenario) 
+     return await app.AcquireTokenForClient(scopes).ExecuteAsync();
+     
+     // OR Make the call to get a token for OBO (web api scenario)
+     return await app.AcquireTokenOnBehalfOf(scopes, userAssertion).ExecuteAsync();
+     
+     // OR Make the call to get a token via auth code (web app scenario)
+     return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
+     
+     // OR, when the user has previously logged in, get a token silently
+     var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
+     var account = await app.GetAccountAsync(homeAccountId);
+     try
+     {
+          return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
+     } 
+     catch (MsalUiRequiredException)
+     {
+      	// cannot get a token silently, so redirect the user to be challenged 
+     }
   }
 ```
 
-### Available serialization technologies
+### Available caching technologies
+
+Instead of `app.AddInMemoryTokenCache();` you can use different caching technologies, including distributed token caches provided by .NET.
 
 #### In memory token cache
 
+In memory token cache serialization is great in samples. It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted.
+
 ```CSharp 
      // Add an in-memory token cache
-     app.AddInMemoryTokenCaches();
+     app.AddInMemoryTokenCache();
 ```
 
-#### Distributed in memory token cache
+#### Distributed caches
+
+If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation, therefore enabling you to choose between a distributed memory cache, a Redis cache, a CosmosDb, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
+
+##### Distributed in memory token cache
 
 ```CSharp 
      // In memory distributed token cache
-     app.AddDistributedTokenCaches(services =>
+     app.AddDistributedTokenCache(services =>
      {
        // In net462/net472, requires to reference Microsoft.Extensions.Caching.Memory
        services.AddDistributedMemoryCache();
      });
 ```
 
-#### SQL server
+##### SQL server
 
 ```CSharp 
      // SQL Server token cache
-     app.AddDistributedTokenCaches(services =>
+     app.AddDistributedTokenCache(services =>
      {
       services.AddDistributedSqlServerCache(options =>
       {
@@ -186,11 +222,11 @@ The following code shows how to add an in-memory well partitioned token cache to
      });
 ```
 
-#### Redis cache
+##### Redis cache
 
 ```CSharp 
      // Redis token cache
-     app.AddDistributedTokenCaches(services =>
+     app.AddDistributedTokenCache(services =>
      {
        // Requires to reference Microsoft.Extensions.Caching.StackExchangeRedis
        services.AddStackExchangeRedisCache(options =>
@@ -201,13 +237,16 @@ The following code shows how to add an in-memory well partitioned token cache to
       });
 ```
 
-#### Cosmos DB
+See also [Disabling cache synchronization](#disabling-cache-synchronization) if you observe that token acquisition occasionally takes as much time as
+the redis cache timeout. 
+
+##### Cosmos DB
 
 ```CSharp 
       // Cosmos DB token cache
-      app.AddDistributedTokenCaches(services =>
+      app.AddDistributedTokenCache(services =>
       {
-        // Requires to reference Microsoft.Extensions.Caching.Cosmos (preview)
+        // Requires to reference Microsoft.Extensions.Caching.Cosmos
         services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
         {
           cacheOptions.ContainerName = Configuration["CosmosCacheContainer"];
@@ -219,6 +258,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 ```
 
 ### Disabling legacy token cache
+
 MSAL has some internal code specifically to enable the ability to interact with legacy ADAL cache. When MSAL and ADAL aren't used side by side (therefore the legacy cache isn't used), the related legacy cache code is unnecessary. MSAL [4.25.0](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases/tag/4.25.0) adds the ability to disable legacy ADAL cache code and improve cache usage performance. See pull request [#2309](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/pull/2309) for performance comparison before and after disabling the legacy cache. Call `.WithLegacyCacheCompatibility(false)` on an application builder like below.
 
 ```csharp
@@ -229,6 +269,17 @@ var app = ConfidentialClientApplicationBuilder
 	.Build();
 ```
 
+### Disabling cache synchronization
+
+By default, MSAL will lock cache access at the confidential client application level between cache reads and cache writes. This lock can be an issue if the cache serializer takes a long time until a timeout happens, which can be the case with Redis caches. You can set the `WithCacheSynchronization` flag to false to enable an optimistic cache locking strategy, which may result in better performance, especially when ConfidentialClientApplication objects are reused across requests. 
+
+```csharp
+var app = ConfidentialClientApplicationBuilder
+	.Create(clientId)
+	.WithClientSecret(clientSecret)
+	.WithCacheSynchronization(false)
+	.Build();
+```
 ### Samples
 
 - Using the token cache serializers in a .NET Framework and .NET Core applications is showed-cased in this sample [ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache) 
@@ -275,6 +326,24 @@ var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties );
 cacheHelper.RegisterCache(pca.UserTokenCache);
          
 ```
+
+
+##### Plain text fallback mode
+
+The cross platform token cache allows you to store unencrypted tokens in clear text. This is intended for use in development environments for debugging purposes only. 
+You can use the plain text fallback mode using the following code pattern.
+
+```csharp
+storageProperties =
+    new StorageCreationPropertiesBuilder(
+        Config.CacheFileName + ".plaintext",
+        Config.CacheDir)
+    .WithUnprotectedFile()
+    .Build();
+
+var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
+```
+
 
 ## [Mobile apps](#tab/mobile)
 
@@ -529,6 +598,18 @@ namespace CommonCacheMsalV3
 
 ---
 
+## Monitor cache hit ratios and cache performance
+
+MSAL exposes important metrics as part of [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata) object. You can log these metrics to assess the health of your application.
+
+| Metric       | Meaning     | When to trigger an alarm?    |
+| :-------------: | :----------: | :-----------: |
+|  `DurationTotalInMs` | Total time spent in MSAL, including network calls and cache   | Alarm on overall high latency (> 1 s). Value depends on token source. From the cache: one cache access. From AAD: two cache accesses + one HTTP call. First ever call (per-process) will take longer because of one extra HTTP call. |
+|  `DurationInCacheInMs` | Time spent loading or saving the token cache, which is customized by the app developer (for example, save to Redis).| Alarm on spikes. |
+|  `DurationInHttpInMs`| Time spent making HTTP calls to AAD.  | Alarm on spikes.|
+|  `TokenSource` | Indicates the source of the token. Tokens are retrieved from the cache much faster (for example, ~100 ms versus ~700 ms). Can be used to monitor and alarm the cache hit ratio. | Use with `DurationTotalInMs` |
+
+
 ## Next steps
 
 The following samples illustrate token cache serialization.
@@ -536,4 +617,5 @@ The following samples illustrate token cache serialization.
 | Sample | Platform | Description|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) application calling the Microsoft Graph API. ![Diagram shows a topology with Desktop App WPF TodoListClient flowing to Azure AD by acquiring a token interactively and to Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
-|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set of Visual Studio solutions illustrating the migration of Azure AD v1.0 applications (using ADAL.NET) to Microsoft identity platform applications (using MSAL.NET). In particular, see [Token Cache Migration](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|
+|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set of Visual Studio solutions illustrating the migration of Azure AD v1.0 applications (using ADAL.NET) to Microsoft identity platform applications (using MSAL.NET). In particular, see [Token Cache Migration](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md) and [Confidential client token cache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache) |
+[ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) | ASP.NET (net472) | Example of token cache serialization in an ASP.NET MVC application (using MSAL.NET). See in particular [MsalAppBuilder](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs)

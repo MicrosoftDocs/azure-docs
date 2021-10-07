@@ -38,7 +38,7 @@ sections:
           * The network between the SSIS integration runtime and the data source or destination is unstable, especially when the connection is cross-region or between on-premises and Azure. Apply the retry pattern in the SSIS package by following these steps:
             * Make sure your SSIS packages can rerun on failure without side effects (for example, data loss or data duplication).
             * Configure **Retry** and **Retry interval** of **Execute SSIS Package** activity on the **General** tab.
-              ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+              :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Set properties on the General tab":::
             * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
           
       - question: |
@@ -120,7 +120,7 @@ sections:
           
           * Make sure your SSIS packages can rerun on failure without side effects (for example, data loss or data duplication).
           * Configure **Retry** and **Retry interval** of **Execute SSIS Package** activity on the **General** tab.
-            ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+            :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Set properties on the General tab":::
           * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
           
       - question: |
@@ -213,7 +213,7 @@ sections:
           * The SSIS integration runtime is stopped or has an unhealthy status. To learn how to check the SSIS integration runtime status and errors, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
           
           We also recommend that you set a timeout on the **General** tab:
-           ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
+           :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Set properties on the General tab":::.
           
       - question: |
           Poor performance in package execution
@@ -227,4 +227,4 @@ sections:
           * Check IR node performance in the Azure portal:
             * For information about how to monitor the SSIS integration runtime, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
             * You can find CPU/memory history for the SSIS integration runtime by viewing the metrics of the data factory in the Azure portal.
-              ![Monitor metrics of the SSIS integration runtime](media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png)
+              :::image type="content" source="media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png" alt-text="Monitor metrics of the SSIS integration runtime":::

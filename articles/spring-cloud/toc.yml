@@ -64,6 +64,8 @@
   items:
     - name: Security controls
       href: concept-security-controls.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status
@@ -132,8 +134,12 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: structured-app-log.md
+        - name: Use Dynatrace Java OneAgent
+          href: how-to-dynatrace-one-agent-monitor.md
         - name: New Relic Java in-process agent
           href: how-to-new-relic-monitor.md
+        - name: Monitor app lifecycle events
+          href: monitor-app-lifecycle-events.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network
@@ -142,6 +148,8 @@
           href: access-app-virtual-network.md
         - name: Expose applications to the Internet
           href: expose-apps-gateway-azure-firewall.md
+        - name: Configure Palo Alto
+          href: how-to-configure-palo-alto.md
         - name: Customer responsibilities running Azure Spring Cloud in VNET
           href: vnet-customer-responsibilities.md
         - name: Troubleshooting Azure Spring Cloud in virtual networks
@@ -164,7 +172,7 @@
           href: how-to-github-actions.md
         - name: Auth with Key Vault in GitHub Actions
           href: github-actions-key-vault.md
-        - name: Provision an Azure Spring Cloud instance with terraform
+        - name: Provision an Azure Spring Cloud instance with Terraform
           href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
       items:

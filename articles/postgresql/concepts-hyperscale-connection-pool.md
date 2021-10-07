@@ -37,6 +37,16 @@ through PgBouncer, follow these steps:
    portal.
 2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
    strings will change.)
+
+   > [!IMPORTANT]
+   >
+   > If the checkbox does not exist, PgBouncer isn't enabled for your server
+   > group yet. Managed PgBouncer is being rolled out to all [supported
+   > regions](concepts-hyperscale-configuration-options.md#regions).  Once
+   > enabled in a region, it'll be added to existing server groups in the
+   > region during a [scheduled
+   > maintenance](concepts-hyperscale-maintenance.md) event.
+
 3. Update client applications to connect with the new string.
 
 ## Next steps

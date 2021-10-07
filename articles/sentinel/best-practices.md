@@ -19,6 +19,35 @@ This collection of best practices provides guidance to use when deploying, manag
 >
 
 
+## Best practice references
+
+The Azure Sentinel documentation has best practice guidance scattered throughout our articles. In addition to the content provided in this article, see the following for more information:
+
+- **Admin users**:
+
+    - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md)
+    - [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
+    - [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
+    - [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
+    - [Data collection best practices](best-practices-data.md)
+    - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
+    - [Permissions in Azure Sentinel](roles.md)
+    - [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md)
+    - [Threat intelligence integration in Azure Sentinel](threat-intelligence-integration.md)
+    - [Audit Azure Sentinel queries and activities](audit-sentinel-data.md)
+
+- **Analysts**:
+
+    - [Recommended playbooks](automate-responses-with-playbooks.md#recommended-playbooks)
+    - [Handle false positives in Azure Sentinel](false-positives.md)
+    - [Hunt for threats with Azure Sentinel](hunting.md)
+    - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
+    - [Detect threats out-of-the-box](detect-threats-built-in.md)
+    - [Create custom analytics rules to detect threats](detect-threats-custom.md)
+    - [Use Jupyter Notebook to hunt for security threats](notebooks.md)
+
+For more information, also see our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
 ## Regular SOC activities to perform
 
 Schedule the following Azure Sentinel activities regularly to ensure continued security best practices:
@@ -126,34 +155,6 @@ Use indicators of compromise in analytics rules, when threat hunting, investigat
 Use a watchlist that combines data from ingested data and external sources, such as enrichment data. For example, create lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting, and investigations.
 
 During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
-
-
-## Additional best practice references
-
-The Azure Sentinel documentation has more best practice guidance scattered throughout our articles. For example, see the following articles for more information:
-
-- **Admin users**:
-
-    - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md)
-    - [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
-    - [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
-    - [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
-    - [Data collection best practices](best-practices-data.md)
-    - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
-    - [Permissions in Azure Sentinel](roles.md)
-    - [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md)
-    - [Threat intelligence integration in Azure Sentinel](threat-intelligence-integration.md)
-    - [Audit Azure Sentinel queries and activities](audit-sentinel-data.md)
-
-- **Analysts**:
-
-    - [Recommended playbooks](automate-responses-with-playbooks.md#recommended-playbooks)
-    - [Handle false positives in Azure Sentinel](false-positives.md)
-    - [Hunt for threats with Azure Sentinel](hunting.md)
-    - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
-    - [Detect threats out-of-the-box](detect-threats-built-in.md)
-    - [Create custom analytics rules to detect threats](detect-threats-custom.md)
-    - [Use Jupyter Notebook to hunt for security threats](notebooks.md)
 
 ## Next steps
 

@@ -37,7 +37,7 @@ This article shows how you to enable [NSG Flow Logs](./network-watcher-nsg-flow-
 ## NSG Flow Logs object
 
 The NSG Flow Logs object with all parameters is shown below.
-For a complete overview of the properties, you may read the [NSG Flow Logs template reference](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+For a complete overview of the properties, you may read the [NSG Flow Logs template reference](/azure/templates/microsoft.network/networkwatchers/flowlogs#retentionpolicyparameters).
 
 ```json
 {

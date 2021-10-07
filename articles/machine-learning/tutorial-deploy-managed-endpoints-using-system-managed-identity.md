@@ -3,7 +3,7 @@ title: 'Tutorial: Managed online endpoints for accessing resources'
 description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
@@ -34,7 +34,7 @@ This tutorial demonstrates how to take the following actions with the Azure CLI 
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 

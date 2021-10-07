@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues with Azure Percept Audio and the speech module
+title: Troubleshoot Azure Percept Audio and speech module
 description: Get troubleshooting tips for Azure Percept Audio and azureearspeechclientmodule
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Azure Percept Audio and speech module troubleshooting
+# Troubleshoot Azure Percept Audio and speech module
 
 Use the guidelines below to troubleshoot voice assistant application issues.
 

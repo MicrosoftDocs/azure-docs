@@ -50,8 +50,6 @@ If you leave the checkbox unchecked, then your workspace won't have a Virtual Ne
 After you choose to associate a Managed workspace Virtual Network with your workspace, you can protect against data exfiltration by allowing outbound connectivity from the Managed workspace Virtual Network only to approved targets using [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md). Select **Yes** to limit outbound traffic from the Managed workspace Virtual Network to targets through Managed private endpoints. 
 
 
->[!IMPORTANT]
->Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You will not be able to use Spark SQL in these workspaces.
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" alt-text="Screenshot of the Managed virtual network page, with the Allow outbound data traffic only to approved targets option to Yes.":::
 

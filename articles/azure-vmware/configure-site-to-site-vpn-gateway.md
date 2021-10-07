@@ -146,7 +146,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
    1. Apply the configuration to your on-premises VPN device.
 
-   For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#about-the-vpn-device-configuration-file).
+   For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#config-file).
 
 1. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
 
