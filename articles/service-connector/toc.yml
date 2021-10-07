@@ -40,6 +40,10 @@ items:
   items:
   - name: Service Connection internals
     href: overview.md
+  - name: Supported Services in Service Connector
+    href: overview.md
+  - name: Region Support
+    href: overview.md
 - name: How-to guides
   expanded: true
   items:
@@ -59,9 +63,9 @@ items:
     - name: Azure Database for PostgreSQL
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
-      href: overview.md
+      href: how-to-integrate-mysql.md
     - name: Azure SQL DB
-      href: overview.md
+      href: how-to-integrate-sql.md
     - name: Azure Cosmos DB
       href: overview.md
     - name: Azure Storage
