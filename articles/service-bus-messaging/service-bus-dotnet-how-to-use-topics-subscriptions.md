@@ -168,8 +168,7 @@ In this section, you'll create a .NET Core console application that receives mes
     ```
 
 ### Add code to receive messages from the subscription
-1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.
-    Here are the important steps from the code:
+1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code:
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
     1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
