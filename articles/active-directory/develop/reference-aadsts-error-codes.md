@@ -178,7 +178,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
 | AADSTS51005 | TemporaryRedirect - Equivalent to HTTP status 307, which indicates that the requested information is located at the URI specified in the location header. When you receive this status, follow the location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. |
-| AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the Integrated Windows authentication claim. Request the  user to log in again. |
+| AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the integrated Windows authentication claim. Request the  user to log in again. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - The user has not provided consent for access to LinkedIn resources. |
 | AADSTS53000 | DeviceNotCompliant - Conditional Access policy requires a compliant device, and the device is not compliant. The user must enroll their device with an approved MDM provider like Intune. |
 | AADSTS53001 | DeviceNotDomainJoined - Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
@@ -202,6 +202,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS700054 | Response_type 'id_token' is not enabled for the application.  The application requested an ID token from the authorization endpoint, but did not have ID token implicit grant enabled.  Go to Azure Portal > Azure Active Directory > App registrations > Select your application > Authentication > Under 'Implicit grant and hybrid flows', make sure 'ID tokens' is selected.|
 | AADSTS70007 | UnsupportedResponseMode - The app returned an unsupported value of `response_mode` when requesting a token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - The refresh token has expired due to inactivity. The token was issued on XXX and was inactive for a certain amount of time. |
+| AADSTS700084 | The refresh token was issued to a single page app (SPA), and therefore has a fixed, limited lifetime of {time}, which cannot be extended. It is now expired and a new sign in request must be sent by the SPA to the sign in page. The token was issued on {issueDate}.|
 | AADSTS70011 | InvalidScope - The scope requested by the app is invalid. |
 | AADSTS70012 | MsaServerError - A server error occurred while authenticating an MSA (consumer) user. Try again. If it continues to fail, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 device flow error. Authorization is pending. The device will retry polling the request. |
@@ -268,6 +269,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
 | AADSTS900382 | Confidential Client is not supported in Cross Cloud request. |
+| AADSTS90095  | AdminConsentRequiredRequestAccess-  In the Admin Consent Workflow experience, an interrupt that appears when the user is told they need to ask the admin for consent.  |
 | AADSTS90099 | The application '{appId}' ({appName}) has not been authorized in the tenant '{tenant}'. Applications must be authorized to access the customer tenant before partner delegated administrators can use them. Provide pre-consent or execute the appropriate Partner Center API to authorize the application. |
 | AADSTS900971| No reply address provided.|
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |

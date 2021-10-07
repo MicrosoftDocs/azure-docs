@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: "Learn about the Azure PowerShell sample scripts available for Azure API Management, such as 'Add a user' and 'Import API'."
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 10/09/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc
 ---
 

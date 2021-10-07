@@ -243,7 +243,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 
 # [JavaScript](#tab/javascript)
 
-The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
+The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 

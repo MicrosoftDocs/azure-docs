@@ -1,5 +1,4 @@
 ---
-
 title: Tutorial to migrate Okta sync provisioning to Azure AD Connect based synchronization
 titleSuffix: Active Directory
 description: Learn how to migrate your Okta sync provisioning to Azure AD Connect based synchronization
@@ -15,7 +14,6 @@ ms.author: gasinh
 ms.subservice: app-mgmt
 ---
 
-
 # Tutorial: Migrate Okta sync provisioning to Azure Active Directory Connect based synchronization
 
 This article will guide organizations who currently use User provisioning from Okta to Azure Active Directory (Azure AD), migrate either User sync, or Universal sync to Azure AD Connect. This will enable further provisioning into Azure AD and Office 365.
@@ -26,7 +24,7 @@ Migrating synchronization platforms isn't a small change. Each step of the proce
 
 When switching from Okta provisioning to Azure AD, customers have
 two choices, either Azure AD Connect Server, or Azure AD cloud
-provisioning. It is recommended to read the full [comparison article from Microsoft](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-provisioning) to understand the differences between the two products.
+provisioning. It is recommended to read the full [comparison article from Microsoft](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) to understand the differences between the two products.
 
 Azure AD cloud provisioning will be most familiar migration path for Okta customers using Universal or User sync. The cloud provisioning agents are lightweight, and can be installed on or near domain controllers like the Okta directory sync agents. It is not recommended to install them on the same server.
 
@@ -42,7 +40,7 @@ Azure AD Connect server should be chosen if your organization needs to take adva
 - Support for writeback
 
 >[!NOTE]
->All pre-requisites should be taken into consideration when installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installation.  
+>All pre-requisites should be taken into consideration when installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](../hybrid/how-to-connect-install-prerequisites.md) before installation.  
 
 ## Step 1 - Confirm ImmutableID attribute synchronized by Okta
 
@@ -120,7 +118,7 @@ The example will grab **all** on-premises AD users, and export a list of their o
 
 Once you've prepared your list of source and destination targets, its time to install Azure AD Connect server. If you've opted to use Azure AD Connect cloud provisioning, skip this section.
 
-1. Continue with [downloading and installing Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) to your chosen server. 
+1. Continue with [downloading and installing Azure AD Connect](../hybrid/how-to-connect-install-custom.md) to your chosen server. 
 
 2. On the **Identifying Users** page, under the **select how users should be identified with Azure AD** select the radial for **Choose a specific attribute**. Then, select **mS-DS-ConsistencyGUID** if you haven't modified the Okta defaults.
 
@@ -177,7 +175,7 @@ Before exiting the staging mode, it's important to verify that the ImmutableID's
 
 ## Step 4 - Install Azure AD cloud sync agents
 
-Once you've prepared your list of source and destination targets, its time to [install and configure Azure AD cloud sync agents](https://docs.microsoft.com/azure/active-directory/cloud-sync/tutorial-single-forest). If you've opted to use Azure AD Connect server, skip this section.
+Once you've prepared your list of source and destination targets, its time to [install and configure Azure AD cloud sync agents](../cloud-sync/tutorial-single-forest.md). If you've opted to use Azure AD Connect server, skip this section.
 
 ## Step 5 - Disable Okta provisioning to Azure AD
 

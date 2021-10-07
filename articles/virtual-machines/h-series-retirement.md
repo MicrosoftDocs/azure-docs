@@ -49,4 +49,4 @@ Follow the guide to [request an increase in vCPU quota by VM family](../azure-po
 
 
 ### Resize the current virtual machine
-You can [resize the virtual machine using PowerShell](./windows/resize-vm.md), [Azure CLI](./linux/change-vm-size.md), or through the Azure portal.
+You can [resize the virtual machine](resize-vm.md).

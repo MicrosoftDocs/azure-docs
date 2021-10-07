@@ -98,7 +98,7 @@ The following comparison matrix shows basic functionality of different tools tha
 - Internal hash validation
 
 > [!TIP]
-> Azure File Sync is meant as a permanent, hybrid solution for on-premises caching / sync of a number of Azure file shares. In that function, it provides zero-downtime cloud migration. If you do not plan on caching your Azure file shares on-premises, Azure File Sync is not a good migration tool. Refer to the [Azure file share migration overview](../../../files/storage-files-migration-overview.md) or the other partner tools described in this article.
+> Azure File Sync is meant as a permanent, hybrid solution for on-premises caching / sync of a number of Azure file shares. In that function, it provides zero-downtime cloud migration. If you do not plan on caching your Azure file shares on-premises, Azure File Sync is not a recommended migration tool. Refer to the [Azure file share migration overview](../../../files/storage-files-migration-overview.md) or the other partner tools described in this article.
 
 ### Datadobi DobiMigrate
 

@@ -220,6 +220,8 @@ Limitations:
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You cannot reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.
+* You can't provide your own subnet and route table with a system-assigned managed identity. To provide your own subnet and route table, you must use a [user-assigned managed identity][user-assigned managed identity], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
+* Using the same route table with multiple AKS clusters isn't supported.
 
 After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table.
 You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
@@ -263,3 +265,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
+[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi

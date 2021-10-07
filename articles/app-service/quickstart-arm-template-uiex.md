@@ -101,7 +101,7 @@ The following table details defaults parameters and their descriptions:
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows using Azure CLI. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`."> \<app-name> </abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -113,7 +113,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Replace \<app-name\> with a globally unique app name. Valid characters characters are `a-z`, `0-9`, and `-`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -148,6 +148,7 @@ To deploy a different language stack, update <abbr title="This template is compa
 ::: zone pivot="platform-linux"
 <details>
 <summary>How do I deploy a different language stack?</summary>
+ 
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |

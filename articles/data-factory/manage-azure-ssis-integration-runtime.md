@@ -24,7 +24,7 @@ You can use Data Factory UI to stop, edit/reconfigure, or delete an Azure-SSIS I
 ### To reconfigure an Azure-SSIS IR
 On the **Connections** pane of **Manage** hub, switch to the **Integration runtimes** page and select **Refresh**. 
 
-   ![Connections pane](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png" alt-text="Connections pane":::
 
    You can edit/reconfigure your Azure-SSIS IR by selecting its name. You can also select the relevant buttons to monitor/start/stop/delete your Azure-SSIS IR, auto-generate an ADF pipeline with Execute SSIS Package activity to run on your Azure-SSIS IR, and view the JSON code/payload of your Azure-SSIS IR.  Editing/deleting your Azure-SSIS IR can only be done when it's stopped.
 

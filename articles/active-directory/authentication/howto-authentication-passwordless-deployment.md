@@ -107,11 +107,11 @@ Your communications to end users should include the following information:
 
 * [Guidance on combined registration for both Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)
 
-* [Downloading the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md)
+* [Downloading the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
 * [Registering in the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
 
-* [Signing in with your phone](../user-help/user-help-auth-app-sign-in.md)
+* [Signing in with your phone](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
 Microsoft provides communication templates for end users. Download the [authentication rollout material](https://aka.ms/MFAtemplates) to help draft your communications. The rollout materials include customizable posters and email templates that you can use to inform your users about upcoming passwordless authentication options in your organization.
 
@@ -128,7 +128,7 @@ This method can also be used for easy recovery when the user has lost or forgott
 
 ## Plan for and deploy the Microsoft Authenticator app
 
-The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It’s a free download from Google Play or the Apple App Store. Have users [download the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md) and follow the directions to enable phone sign-in.
+The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It’s a free download from Google Play or the Apple App Store. Have users [download the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
 
 ### Technical considerations
 

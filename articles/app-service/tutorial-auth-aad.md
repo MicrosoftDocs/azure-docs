@@ -4,7 +4,7 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -255,13 +255,7 @@ You use Azure Active Directory as the identity provider. For more information, s
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-1. For **App registration** > **App registration type**, select **Create new app registration**.
-
-1. For **App registration** > **Supported account types**, select **Current tenant-single tenant**.
-
-1. In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
-
-1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
+1. Accept the default settings and click **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
@@ -273,7 +267,7 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app.
+Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app. However, stay on the **Authentication** page for the front-end app because you'll use it in the next step.
 
 If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, *you still can't access the data from the back-end app*, because the back-end app now requires Azure Active Directory sign-in from the front-end app. You need to do three things:
 
@@ -288,13 +282,9 @@ If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It sho
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
+1. In the **Authentication** page for the front-end app, select your front-end app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your front-end app name, then select **API permissions**.
-
-    :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Screenshot of Microsoft - App registrations window with Owned applications, a front-end app name, and API permissions selected.":::
-
-1. Select **Add a permission**, then select **APIs my organization uses** > **\<back-end-app-name>**.
+1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
 1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -310,18 +300,35 @@ The front-end app now has the required permissions to access the back-end app as
 
     :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Screenshot of the Read Only and Read/Write buttons at the top of the Azure Resource Explorer page, with the Read/Write button selected.":::
 
-1. In the left browser, drill down to **config** > **authsettings**.
+1. In the left browser, drill down to **config** > **authsettingsV2**.
 
-1. In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the client ID you copied. 
+1. In the **authsettingsV2** view, click **Edit**. Drill down to `properties.identityProviders.azureActiveDirectory.login` and add `loginParameters` with the following JSON string, using the client ID you copied. 
 
     ```json
-    "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
+    "loginParameters": ["response_type=code id_token","scope=openid offline_access api://<back-end-client-id>/user_impersonation"],
     ```
 
-    :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Screenshot of a code example in the authsettings view showing the additionalLoginParams string with an example of a client ID.":::
+    :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Screenshot of a code example in the authsettingsV2 view showing the loginParameters string with an example of a client ID.":::
+
+    > [!TIP]
+    > The scope `api://<back-end-client-id>/user_impersonation` is added by default to the app registration for the back-end app. To view it in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu. For information about the other scopes, see [openid](../active-directory/develop/v2-permissions-and-consent.md#openid) and [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access).
+    >
+    > Note that the scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
 1. Save your settings by clicking **PUT**.
 
+    ::: zone pivot="platform-linux"
+    
+    > [!NOTE]
+    > For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
+    >
+    > ```azurecli-interactive
+    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+    > ```    
+
+    ::: zone-end
+    
     Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).

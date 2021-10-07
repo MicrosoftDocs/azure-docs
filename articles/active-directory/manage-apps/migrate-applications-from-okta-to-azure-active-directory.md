@@ -77,14 +77,14 @@ Now you can print all the applications in your Okta tenant to a JSON format.
 
 ![image to shows list of applications](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
 
-It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1)
-and [ConvertTo-CSV.](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.1)
+It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)
+and [ConvertTo-CSV.](/powershell/module/microsoft.powershell.utility/convertto-csv)
 
 After Downloading the CSV, the applications in your Okta tenant have been recorded successfully for future reference.
 
 ## Migrate a SAML application to Azure AD
 
-To migrate a SAML 2.0 application to Azure AD, first configure the application in your Azure AD tenant for application access. In this example, we'll be converting a Salesforce instance. Follow [this tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-tutorial) to onboard the applications.
+To migrate a SAML 2.0 application to Azure AD, first configure the application in your Azure AD tenant for application access. In this example, we'll be converting a Salesforce instance. Follow [this tutorial](../saas-apps/salesforce-tutorial.md) to onboard the applications.
 
 To complete the migration process, repeat configuration steps for all applications discovered in the Okta tenant.
 
@@ -146,7 +146,7 @@ Settings** > **New from Metadata File**
 
     ![image to shows select new identity provider](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
 
-15. If everything has been correctly configured, the user will land at the Salesforce homepage. If there are any issues follow the [debugging guide](https://docs.microsoft.com/azure/active-directory/manage-apps/debug-saml-sso-issues).
+15. If everything has been correctly configured, the user will land at the Salesforce homepage. If there are any issues follow the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
 
 16. After testing the SSO connection from Azure, return to the enterprise application and assign the remaining users to the Salesforce application with the correct roles.
 
@@ -174,7 +174,7 @@ To complete the migration process, repeat configuration steps for all applicatio
 
    ![image to shows new oidc application](media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png)
 
-3. On the next page, you'll be presented with a choice about tenancy of your application registration. See [this article](https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps) for details.
+3. On the next page, you'll be presented with a choice about tenancy of your application registration. See [this article](../develop/single-and-multi-tenant-apps.md) for details.
 
 In this example, we are selecting **Accounts in any organizational
 directory**, any Azure AD directory **Multitenant** followed by **Register**.
@@ -183,7 +183,7 @@ directory**, any Azure AD directory **Multitenant** followed by **Register**.
 
 4. After registering the application, navigate to the **App registrations** page under **Azure Active Directory**, and open the newly created registration.
 
-   Depending on the [application scenario,](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios) various configuration actions
+   Depending on the [application scenario,](../develop/authentication-flows-app-scenarios.md) various configuration actions
    might be needed. As most scenarios require App client secret, we'll cover those examples.
 
 5. On the **Overview** page, record the Application (client) ID for use in your application later.
@@ -223,7 +223,7 @@ directory**, any Azure AD directory **Multitenant** followed by **Register**.
 
 ## Migrate a custom authorization server to Azure AD
 
-Okta authorization servers map one-to-one to application registrations that [expose an API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#add-a-scope).
+Okta authorization servers map one-to-one to application registrations that [expose an API](../develop/quickstart-configure-app-expose-web-apis.md#add-a-scope).
 
 Default Okta authorization server should be mapped to Microsoft Graph scopes/permissions.
 

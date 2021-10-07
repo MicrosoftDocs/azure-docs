@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Prebuilt Docker images for inference (Preview)
+# Prebuilt Docker images for inference (preview)
 
 Prebuilt Docker container images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
 

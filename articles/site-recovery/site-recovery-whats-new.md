@@ -40,10 +40,10 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 > To setup the preview experience, you will have to perform a fresh setup and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
 
 This public preview covers a complete overhaul of the current architecture for pretecting VMware machines.
-- [Learn](https://docs.microsoft.com/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
-- Check the pre-requisites and setup the ASR replication appliance by following [these steps](https://docs.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
-- [Enable replication](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview) for your VMware machines.
-- Check out the [automatic upgrade](https://docs.microsoft.com/azure/site-recovery/upgrade-mobility-service-preview) and [switch](https://docs.microsoft.com/azure/site-recovery/switch-replication-appliance-preview) capability for ASR replication appliance.
+- [Learn](./vmware-azure-architecture-preview.md) about the new architecture and the changes introduced.
+- Check the pre-requisites and setup the ASR replication appliance by following [these steps](./deploy-vmware-azure-replication-appliance-preview.md).
+- [Enable replication](./vmware-azure-set-up-replication-tutorial-preview.md) for your VMware machines.
+- Check out the [automatic upgrade](./upgrade-mobility-service-preview.md) and [switch](./switch-replication-appliance-preview.md) capability for ASR replication appliance.
 
 
 ### Update rollup 56

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -117,6 +117,22 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 * *Other throughput*   
     Other throughput (that is not read or write) in bytes per second.
 
+## Volume backup metrics  
+
+* *Is Volume Backup Enabled*   
+    Shows whether backup is enabled for the volume. `1` is enabled. `0` is disabled.
+
+* *Is Volume Backup Operation Complete*   
+    Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
+
+* *Is Volume Backup Suspended*   
+    Shows whether the backup policy is suspended for the volume.  `1` is not suspended. `0` is suspended.
+
+* *Volume Backup Bytes*   
+    The total bytes backed up for this volume.
+
+* *Volume Backup Last Transferred Bytes*   
+    The total bytes transferred for the last backup or restore operation.  
 
 ## Next steps
 
