@@ -35,7 +35,7 @@ items:
   - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
   - name: "Java"
-    href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
   - name: "JavaScript"
