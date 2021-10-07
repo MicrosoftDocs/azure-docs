@@ -30,7 +30,7 @@ To import a LUIS application JSON file, click on the icon next to **Create a new
 
 ## Use a published LUIS application in Custom Language Understanding orchestration projects
 
-You can only to connect to a published LUIS applications that are owned by the same resource that you use for Custom Language Understanding. See the [LUIS documentation](../../../luis/luis-how-to-azure-subscription.md#assign-luis-resources) for steps on assigning a different resource to your LUIS application. You must train and publish LUIS applications for them to appear in Custom Language Understanding when you want to connect them to orchestration projects.
+You can only to connect to published LUIS applications that are owned by the same resource that you use for Custom Language Understanding. See the [LUIS documentation](../../../luis/luis-how-to-azure-subscription.md#assign-luis-resources) for steps on assigning a different resource to your LUIS application. You must train and publish LUIS applications for them to appear in Custom Language Understanding when you want to connect them to orchestration projects.
 
 ## Supported Features
 
