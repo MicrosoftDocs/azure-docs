@@ -83,7 +83,7 @@ Virtual machines and virtual machine scale sets have two categories of metrics: 
 
 By default, Guest (classic) metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
 
-![metric image](./media/metrics-troubleshoot/vmMetrics.png)
+![metric image](./media/metrics-troubleshoot/vm-metrics.png)
 
 **Solution:** If you don't see **Guest (classic)** namespace and metrics in metrics explorer:
 
