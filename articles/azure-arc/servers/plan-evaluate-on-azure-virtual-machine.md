@@ -1,7 +1,7 @@
 ---
 title: How to evaluate Azure Arc-enabled servers with an Azure VM
 description: Learn how to evaluate Azure Arc-enabled servers using an Azure virtual machine.
-ms.date: 09/20/2021
+ms.date: 10/01/2021
 ms.topic: conceptual
 ---
 
@@ -10,6 +10,9 @@ ms.topic: conceptual
 Azure Arc-enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc-enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc-enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be canceled.
 
 While you cannot install Azure Arc-enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc-enabled servers to run on an Azure VM for *evaluation and testing purposes only*. This article will help you set up an Azure VM before you can enable Azure Arc-enabled servers on it.
+
+> [!NOTE]
+> The steps in this article are intended for virtual machines hosted in the Azure cloud. Azure Arc-enabled servers is not supported on virtual machines running on Azure Stack Hub or Azure Stack Edge.
 
 ## Prerequisites
 
