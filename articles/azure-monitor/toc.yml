@@ -151,8 +151,6 @@
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
       href: alerts/activity-log-alerts.md  
-  - name: Visualize data
-    href: visualizations.md
   - name: Partner integrations
     href: partners.md
   - name: Security
