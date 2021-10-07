@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging - Azure
+title: Monitoring and logging - Azure Video Analyzer service
 description: This article provides an overview of monitoring and logging in Azure Video Analyzer service.
 ms.topic: how-to
 ms.date: 10/07/2021
@@ -101,7 +101,7 @@ Every event, when observed via IoT Hub, has a set of common properties:
 | `operationName`| applicationProperty| string    | Event type identifier. (See the following section.)          |
 | `level`        | system             | string    | Event level (Informational|Warning|Error|Critical)           |
 | `body`        | body                | object    | Particular event data.                                       |
-| `operationVersion` | system | string    | Event Data version {Major}.{Minor}                                   |
+| `operationVersion` | system         | string    | Event Data version {Major}.{Minor}                           |
 
 ### Properties Sample
 
@@ -253,4 +253,5 @@ If you have questions, see the [monitoring and metrics FAQ](../faq.yml#monitorin
 
 ## Next steps
 
-[Troubleshoot Azure Video Analyzer](troubleshoot.md)
+[Troubleshoot Azure Video Analyzer service](troubleshoot.md)
+<!-- TODO : link to update above --> <!-- TODO : link to update -->
