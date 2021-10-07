@@ -77,16 +77,16 @@ If it doesn't already exist, you can create the Azure resource group:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_group_create":::
 
+And create a machine learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
+
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
-
-Now create the machine learning workspace:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 ## Next steps
 
