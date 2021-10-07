@@ -21,14 +21,14 @@ Opting in is not required at this time. However, in the future, using simplified
 
 The Azure Batch service is simplifying the way Batch pool infrastructure is managed on behalf of users. The new communication method reduces the complexity and scope of inbound and outbound networking connections required in baseline operations.
 
-Batch pools in accounts which hasn't been opted in to simplified compute node communication require the following networking rules in NSGs, UDRs, and firewalls when [creating a pool in a virtual network](batch-virtual-network.md):
+Batch pools in accounts which haven't been opted in to simplified compute node communication require the following networking rules in NSGs, UDRs, and firewalls when [creating a pool in a virtual network](batch-virtual-network.md):
 
 - Inbound:
-  - Destination ports 29876, 29877 over TCP from BatchNodeManagement.<region> 
+  - Destination ports 29876, 29877 over TCP from BatchNodeManagement.*region*
 
 - Outbound:
-  - Destination port 443 over TCP to Storage.<region> 
-  - Destination port 443 over TCP to BatchNodeManagement.<region> for certain workloads that require communication back to the Batch Service, such as Job Manager tasks 
+  - Destination port 443 over TCP to Storage.*region*
+  - Destination port 443 over TCP to BatchNodeManagement.*region* for certain workloads that require communication back to the Batch Service, such as Job Manager tasks 
 
 With the new model, Batch pools in accounts that are opted in to the simplified compute node communication feature require the following networking rules in NSGs, UDRs, and firewalls: 
 
@@ -36,7 +36,7 @@ With the new model, Batch pools in accounts that are opted in to the simplified 
   - None
 
 - Outbound:
-  - Destination port 443 over TCP to BatchNodeManagement.<region> 
+  - Destination port 443 over TCP to BatchNodeManagement.*region* 
 
 Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API will report the base set of dependencies, depending upon the Batch account pool communication model. User-specific workloads may need additional rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry, etc.) or endpoints like the Microsoft package repository for virtual file system mounting functionality.  
 
@@ -57,10 +57,10 @@ For impacted users, the following set of steps are required to migrate to the ne
 
 1. Your networking configuration as applicable to Batch pools (e.g., NSGs, UDRs, firewalls) must be a union of the models (i.e., network rules prior to simplified compute node communication and after). At a minimum, these rules would be:
    - Inbound:
-     - Destination ports 29876, 29877 over TCP from BatchNodeManagement.<region> 
+     - Destination ports 29876, 29877 over TCP from BatchNodeManagement.*region*
    - Outbound:
-     - Destination port 443 over TCP to Storage.<region> 
-     - Destination port 443 over TCP to BatchNodeManagement.<region> 
+     - Destination port 443 over TCP to Storage.*region*
+     - Destination port 443 over TCP to BatchNodeManagement.*region*
 1. If you have any additional inbound or outbound scenarios required by your workflow, you will need to ensure that your rules reflect these requirements.
 1. [Opt in to simplified compute node communication](#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication) as described below.
 1. You have two options for updating your workloads to use the new communication model:
@@ -72,7 +72,7 @@ For impacted users, the following set of steps are required to migrate to the ne
    - Inbound:
      - None
    - Outbound:
-     - Destination port 443 over TCP to BatchNodeManagement.<region> 
+     - Destination port 443 over TCP to BatchNodeManagement.*region*
 
 If you follow these steps, but later want to stop using simplified compute node communication, you'll need to do the following:: 
 
@@ -82,7 +82,7 @@ If you follow these steps, but later want to stop using simplified compute node 
 
 ## Opt your Batch account in or out of simplified compute node communication
 
-To opt a Batch account in or out of simplified compute node communication, [create a new support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+To opt a Batch account in or out of simplified compute node communication, [create a new support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 > [!IMPORTANT]
 > When you opt in (or opt out) of simplified compute node communication, the change only impacts future behavior. Any Batch pools  containing non-zero compute nodes that were created before the request are unaffected, and will use whichever model was active before the request. Please see the migration steps for more information on how to migrate existing pools before either opting-in or opting-out.
@@ -104,7 +104,7 @@ Use the following options when creating your request.
 1. Make any other required selections on the page, then select **Next**.
 1. Review your request details, then select **Create** to submit your support request.
 
-After your request has been submitted, you should see the change within *XX hours or days??**. 
+After your request has been submitted, you should see the change within *XX hours or days??**.
 
 ## Current limitations
 
@@ -117,5 +117,5 @@ The following are known limitations for accounts that opt in to simplified compu
 
 ## Next steps
 
-- Learn more about [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
-- Learn how to [move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md).
+- Learn more about [pools in virtual networks](batch-virtual-network.md).
+- Learn how to [create a pool pool with specified public IP addresses](create-pool-public-ip.md).
