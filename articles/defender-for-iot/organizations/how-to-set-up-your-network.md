@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ---
 
@@ -102,7 +102,6 @@ Verify that your organizational security policy allows access to the following:
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
 | WMI | UDP | Out | 135 | Monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
-| Passive SPAN |  |  |  |  |  |  |  |
 | OT Protocols | TCP/UDP | Out |  | Monitoring | Active querying from sensor to network |  | Relevant network element |
 
 #### User access to the sensor and management console
@@ -125,7 +124,7 @@ Verify that your organizational security policy allows access to the following:
 |--|--|--|--|--|--|--|--|
 | SSL | TCP | In/Out | 443 | Sensor and on-premises management console | The connection between the sensor and the Central Management | Sensor | On-premises management console |
 | NTP | UDP | In | 123 | Time Sync | Uses the on-premises management console as NTP to the sensor | Sensor | on-premises management console |
-| Tunneling | TCP | In | 9000 </br></br> on top of port 443 </br></br> From the end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
+| Tunneling | TCP | In | 9000 </br></br> on top of port 443 </br></br> From the sensor, or end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
 
 #### (Optional) Defender for IoT extra services
