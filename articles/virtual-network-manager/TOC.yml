@@ -17,7 +17,8 @@
   items:
   - name: Security admin rules
     href: concept-security-admins.md
-  - name: Deployments
+  - name: Remove or update components
+    href: concept-remove-components-checklist.md
 - name: How-to guides
   items:
   - name: Block network traffic

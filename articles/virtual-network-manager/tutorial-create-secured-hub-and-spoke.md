@@ -278,4 +278,4 @@ Use the [remove components checklist](concept-remove-components-checklist.md) to
 
 ## Next steps
 
-See [Network Manager FAQ][faq.md] for frequently asked questions.
+Learn how to block network traffic with a [Security admin configuration](how-to-block-network-traffic-portal.md).
