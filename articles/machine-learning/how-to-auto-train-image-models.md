@@ -459,6 +459,9 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
+Alternatively, you can deploy the model from the Azure ML Studio UI, by navigating to the model you wish to deploy in the 'Models' tab of the AutoML run, and clicking on the 'Deploy' button. 
+    
+ You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the 'Deploy a model' pane that follows.
 
 ## Example notebooks
 For a detailed code example, see the [object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
