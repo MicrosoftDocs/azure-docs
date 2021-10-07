@@ -45,7 +45,7 @@ To automatically surface the vulnerabilities, without the need to manually remed
 
 ### Vulnerability assessment solutions can now be auto enabled (in preview)
 
-Security Center's auto provisioning page now includes the option to automatically enabled a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
+Security Center's auto provisioning page now includes the option to automatically enable a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
 
 Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability assessment solutions:
 
@@ -70,7 +70,7 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
 With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
@@ -543,9 +543,9 @@ Security Center includes built-in vulnerability scanners to scan your VMs, SQL s
 
 With this change, you can use the **Open query** button to also open the query showing the security findings.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner related recommendations.":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner-related recommendations.":::
 
-The **Open query** button offers additional options for some other recommendations too where relevant.
+The **Open query** button offers additional options for some other recommendations where relevant.
 
 Learn more about Security Center's vulnerability scanners:
 
