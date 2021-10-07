@@ -34,7 +34,7 @@ You can exchange a reservation for another reservation of the same type, you can
 
 ## Reservation discount
 
-You may save up to 65% on compute costs with reserved instances. In order to find the discount for your case, please visit the [Reservation blade on the Azure Portal](https://aka.ms/reservations) and check the savings per pricing tier and per region. Reserved instances help you manage your workloads, budget, and forecast better with an upfront payment for a one-year or three-year term. You can also exchange or cancel reservations as business needs change.
+You may save up to 65% on compute costs with reserved instances. In order to find the discount for your case, please visit the [Reservation blade on the Azure portal](https://aka.ms/reservations) and check the savings per pricing tier and per region. Reserved instances help you manage your workloads, budget, and forecast better with an upfront payment for a one-year or three-year term. You can also exchange or cancel reservations as business needs change.
 
 ## Determine the right server size before purchase
 
