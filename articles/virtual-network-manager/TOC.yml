@@ -35,6 +35,10 @@
   items:
   - name: Block network traffic
     href: how-to-block-network-traffic-portal.md
+  - name: Create a hub and spoke topology
+    href: how-to-create-hub-and-spoke.md
+  - name: Exclude elements from dynamic membership
+    href: how-to-exclude-elements.md
 - name: Resources
   items:
   - name: Azure roadmap
