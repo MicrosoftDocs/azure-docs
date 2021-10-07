@@ -138,10 +138,6 @@ Getting started with link translation is as easy as clicking a button:
 
 Now, when your users access this application, the proxy will automatically scan for internal URLs that have been published through Application Proxy on your tenant.
 
-## Send feedback
-
-We want your help to make this feature work for all your apps. We search over 30 tags in HTML and CSS. If you have an example of generated links that aren't being translated, send a code snippet to [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
-
 ## Next steps
 [Use custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL
 
