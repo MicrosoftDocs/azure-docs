@@ -54,6 +54,7 @@ account - Azure
 Storage.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
 To confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
 
+```
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -71,6 +72,7 @@ To confirm that this functionality is enabled for your subscription, execute fol
 <tbody>
 </tbody>
 </table>
+```
 
 If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
 
