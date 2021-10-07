@@ -15,54 +15,59 @@ ms.author: jgol
 
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
-The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it,
-the Application Insights Java agent will monitor your app.
+The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Application Insights Java agent will monitor your app.
 
-Adding the Application Insights Java 2.x SDK to your application is no longer required,
-as the Application Insights Java 3.x agent auto-collects requests, dependencies and logs all on its own.
+Adding the Application Insights Java 2.x SDK to your application is no longer required, as the Application Insights Java 3.x agent auto-collects requests, dependencies and logs all on its own.
 
-You can still send custom telemetry from your application.
-The 3.x agent will track and correlate it along with all of the auto-collected telemetry.
+You can still send custom telemetry from your application. The 3.x agent will track and correlate it along with all of the auto-collected telemetry.
 
 The 3.x agent supports Java 8 and above.
 
 ## Quickstart
 
-**1. Download the agent**
+Follow these steps for a quick start to using Java codeless application monitoring with Azure Monitor Application Insights.
+
+### Step 1: Download the agent
+
+Review the following configuration points before you download the jar file.
 
 > [!WARNING]
-> **If you are upgrading from 3.0 Preview**
+> 
+> - **If you're upgrading from 3.0 Preview**
 >
-> Please review all the [configuration options](./java-standalone-config.md) carefully,
-> as the json structure has completely changed, in addition to the file name itself which went all lowercase.
-
-> [!WARNING]
-> **If you are upgrading from 3.0.x**
+>    Please review all the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed, in addition to the file name itself which went all lowercase.
+> 
+> - **If you're upgrading from 3.0.x**
+> 
+>    The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
+>    This can affect custom dashboards or alerts if they relied on the previous values.
+>    See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0) for more details.
 >
-> The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
-> This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
-> See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
-> for more details.
+> - **If you're upgrading from 3.1.x**
+> 
+>    Database dependency names are now more concise, with the full (sanitized) query still present in the `data` field. And HTTP dependency names are now more descriptive.
+>    This can affect custom dashboards or alerts if they relied on the previous values.
+>    See the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) for more details.
 
-Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar)
+Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
 
-**2. Point the JVM to the agent**
+### Step 2: Point the JVM to the agent
 
-Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
+Add `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` to your application's JVM args. 
 
 For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
-**3. Point the agent to your Application Insights resource**
+### Step 3: Point the agent to your Application Insights resource
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
+If you don't already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
 
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
-```
+```console
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.1.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.0.jar`, with the following content:
 
 ```json
 {
@@ -74,12 +79,12 @@ You can find your connection string in your Application Insights resource:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
-**4. That's it!**
+### Step 4: That's it!
 
 Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data.
 
 > [!NOTE]
-> It may take a couple of minutes for your monitoring data to show up in the portal.
+> It can take several minutes for your monitoring data to show up in the portal.
 
 
 ## Configuration options
@@ -112,9 +117,15 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Auto-collected dependencies plus downstream distributed trace propagation:
 
-* Apache HttpClient and HttpAsyncClient
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
 * gRPC
 * java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS Client
+* Jetty HttpClient
 * JMS
 * Kafka
 * Netty client
@@ -138,10 +149,9 @@ Auto-collected dependencies (without downstream distributed trace propagation):
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-## Azure SDKs (preview)
+## Azure SDKs
 
-See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
-to enable this preview feature and auto-collect the telemetry emitted by these Azure SDKs:
+Telemetry emitted by these Azure SDKs is auto-collected by default:
 
 * [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
@@ -394,13 +404,12 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get the request telemetry Id and the operation Id using the 2.x SDK
+### Get the request telemetry ID and the operation ID by using the 2.x SDK
 
 > [!NOTE]
 > This feature is only in 3.0.3 and later
 
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+Add `applicationinsights-web-2.6.3.jar` to your application (all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
@@ -410,7 +419,7 @@ Add `applicationinsights-web-2.6.3.jar` to your application
 </dependency>
 ```
 
-and get the request telemetry Id and the operation Id in your code:
+And get the request telemetry ID and the operation ID in your code:
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
