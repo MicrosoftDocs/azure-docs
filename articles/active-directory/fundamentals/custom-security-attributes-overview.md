@@ -125,7 +125,7 @@ The following table lists the properties you can specify for attribute sets and 
 | Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are Boolean, Integer, and String. |
 | Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. |
 | Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. |
-| Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can added later. Values can include spaces. |
+| Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can added later. Values can include spaces, but some special characters are not allowed. |
 | Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. |
 | Attribute is active |  | :heavy_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
 
@@ -143,7 +143,8 @@ Here are some of the limits and constraints for custom security attributes.
 > | Attribute description length | 128 | Unicode characters |
 > | Predefined values per attribute | 100 |  |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Special characters for:<br/>Attribute set name<br/>Attribute name | No special characters allowed:<br/>` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? / &lt;space&gt;  | Does not apply to attribute values |
+> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | `` ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? / <space>`` |  |
+> | Characters not allowed for:<br/>Attribute values | `# % & * + \ : " / < > ?` |  |
 
 ## Custom security attribute roles
 
