@@ -180,7 +180,7 @@ The additional details will be one of the following:
 ## Reporting on private offers
 
 The payout amount and agency fee that Microsoft charges is based on the price after margin is applied for line items with an associated margin.
-<!-->
+<!--
 ## Next steps
 
 - [FAQs](https://)
