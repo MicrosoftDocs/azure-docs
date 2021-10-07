@@ -11,7 +11,7 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Create a secured mesh network
+  - name: Create a secured hub and spoke
     href: tutorial-create-secured-hub-and-spoke.md
 - name: Concepts
   items:
