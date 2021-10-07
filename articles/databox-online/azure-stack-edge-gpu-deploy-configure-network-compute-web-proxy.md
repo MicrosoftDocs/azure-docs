@@ -331,7 +331,7 @@ This is an optional configuration.
 
 In this tutorial, you learned about:
 
-::: zone pivot="two-node"
+::: zone pivot="single-node"
 
 > [!div class="checklist"]
 > * Prerequisites
