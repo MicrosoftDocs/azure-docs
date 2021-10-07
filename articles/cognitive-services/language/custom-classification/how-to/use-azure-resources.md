@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.author: aahi
+ms.custom: references_regions
 ---
 
 # Using Azure resources for custom text classification
