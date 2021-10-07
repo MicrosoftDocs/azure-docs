@@ -131,12 +131,12 @@ $RouteTableResourceGroupName = "[name of Azure resource group that contains your
 $RouteTableResourceName = "[resource name of your Azure Route Table ]"
 $RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
 $ServiceTags = Get-AzNetworkServiceTag -Location $Location
-$BatchServiceTagName = "BatchNodeManagement." + $Location
+$BatchServiceTagName = "BatchNodeManagement"
 $UdrRulePrefixForBatch = $BatchServiceTagName
-if ($ServiceTags -ne $null)
+if ($null -ne $ServiceTags)
 {
     $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
-    if ($BatchIPRanges -ne $null)
+    if ($null -ne $BatchIPRanges)
     {
         Write-Host "Start to add rule for your route table..."
         for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
