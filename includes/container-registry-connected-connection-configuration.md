@@ -2,10 +2,10 @@
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 09/16/2021
+ms.date: 10/07/2021
 ms.author: danlep
 ---
-The following example output shows the connection string for the *myconnectedregistry* connected registry with parent registry *contosoregistry*:
+The following example output shows the connection string for the connected registry named *myconnectedregistry*  with parent registry *contosoregistry*:
 
 ```json
 {

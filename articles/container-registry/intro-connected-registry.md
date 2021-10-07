@@ -4,7 +4,7 @@ description: Overview and scenarios of the connected registry feature of Azure C
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 10/07/2021
 ---
 
 # What is a connected registry? 
@@ -37,7 +37,7 @@ Scenarios for a connected registry include:
 
 The following image shows a typical deployment model for the connected registry.
 
-![Connected registry overview](media/connected-registry/connected-registry-overview.svg)
+![Connected registry overview](media/intro-connected-registry/connected-registry-overview.svg)
 
 ### Deployment
 

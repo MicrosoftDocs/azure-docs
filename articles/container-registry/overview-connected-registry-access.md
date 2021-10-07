@@ -5,7 +5,7 @@ author: toddysm
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 08/23/2021
+ms.date: 10/07/2021
 ---
 
 # Understand access to a connected registry
@@ -15,7 +15,7 @@ To access and manage a [connected registry](intro-connected-registry.md), curren
 * [**Client tokens**](#client-tokens) - One or more tokens that on-premises clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
 * [**Sync token**](#sync-token) - A token used by each connected registry to access its parent and synchronize content.
 
-![Connected registry authentication verview](media/connected-registry/connected-registry-authentication-overview.svg)
+![Connected registry authentication verview](media/overview-connected-registry-access/connected-registry-authentication-overview.svg)
 
 > [!IMPORTANT]
 > Store token passwords for each connected registry in a safe location. After they are created, token passwords can't be retrieved. You can regenerate token passwords at any time.
@@ -36,7 +36,7 @@ Update client tokens, passwords, or scope maps as needed by using [az acr token]
 
 Each connected registry uses a sync token to authenticate with its immediate parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
 
-* The sync token is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to generate the passwords.
+* The sync token and passwords are generated automatically when you create the connected registry resource. Run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to regenerate the passwords.
 * Include sync token credentials in the configuration used to deploy the connected registry on-premises. 
 * By default, the sync token is granted permission to synchronize selected repositories with its parent. You must provide an existing sync token or one or more repositories to sync when you create the connected registry resource.
 * It also has permissions to read and write synchronization messages on a gateway used to communicate with the connected registry's parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.

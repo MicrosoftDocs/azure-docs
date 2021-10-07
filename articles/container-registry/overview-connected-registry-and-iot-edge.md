@@ -1,6 +1,6 @@
 ---
 title: Using connected registry with Azure IoT Edge
-description: Overview of the connected registry in hierarchical IoT Edge scenarios
+description: Overview of the connected Azure container registry in hierarchical IoT Edge scenarios
 author: toddysm
 ms.author: memladen
 ms.service: container-registry
@@ -10,7 +10,7 @@ ms.date: 08/24/2021
 
 # Using connected registry with Azure IoT Edge
 
-In this article, you learn about using an Azure [connected registry](intro-connected-registry.md) in hierarchical [IoT Edge](../iot-edge/about-iot-edge.md) scenarios. The connected registry can be deployed as an IoT Edge module and play an essential role in serving container images required by the devices in the hierarchy.
+In this article, you learn about using an Azure [connected registry](intro-connected-registry.md) in hierarchical [IoT Edge](../iot-edge/about-iot-edge.md) scenarios. The connected container registry can be deployed as an IoT Edge module and play an essential role in serving container images required by the devices in the hierarchy.
 
 ## What is a hierarchical IoT Edge deployment?
 
@@ -22,7 +22,7 @@ To learn how to create a hierarchy of IoT Edge devices, see [Tutorial: Create a 
 
 The following image shows how the connected registry can be used to support the hierarchical deployment of IoT Edge. Solid gray lines show the actual network flow, while the dashed lines show the logical communication between components and the connected registries.
 
-![Connected Registry and hierarchical IoT Edge deployments](media/connected-registry/connected-registry-iot-edge-overview.svg)
+![Connected Registry and hierarchical IoT Edge deployments](media/overview-connected-registry-and-iot-edge/connected-registry-iot-edge-overview.svg)
 
 ### Top layer
 

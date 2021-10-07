@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Deploy a connected registry to a nested IoT Edge device
-description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to a nested Azure IoT Edge hierarchy.
+description: Use Azure CLI commands to deploy a connected Azure container registry to a nested Azure IoT Edge hierarchy.
 ms.topic: quickstart
-ms.date: 09/16/2021
+ms.date: 10/07/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy
 
-In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge device and deploy a [connected registry](intro-connected-registry.md) as a module at each layer.
+In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge devices and deploy a [connected registry](intro-connected-registry.md) as a module at each layer.
 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md). In this scenario, a device in the [top layer](overview-connected-registry-and-iot-edge.md#top-layer) communicates with a cloud registry, and a device in the [lower layer](overview-connected-registry-and-iot-edge.md#top-layer) communicates with its connected registry parent in the top layer. 
 
@@ -27,7 +27,7 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 To deploy each connected registry to the IoT Edge device in the hierarchy, you need to use the configuration from the connected registry resource in Azure. If needed, run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command for each connected registry to retrieve the configuration.
 
 > [!WARNING]
-> If you previously retrieved the configuration for a connected registry, running `az acr connected-registry install renew-credentials` generates a new connection string with new sync token credentials. The previous connection string and sync token password are no longer valid.
+> If you previously retrieved the configuration for a connected registry, running `az acr connected-registry install renew-credentials` generates a new connection string with new sync token credentials.
 
 ```azurecli
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
@@ -72,10 +72,10 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
     
     When you set up the top layer connected registry, make sure it will sync all the required images locally (`azureiotedge-agent`, `azureiotedge-hub`, `azureiotedge-api-proxy`, `acr/connected-registry`). The lower layer IoT device needs to pull these images from the top layer connected registry.
 - It uses the sync token configured at the lower layer to authenticate with the top layer connected registry.
-- It configures the parent gateway endpoint with the top layer connected registry IP address or FQDN instead of with the cloud registry's FQDN. 
+- It configures the parent gateway endpoint with the top layer connected registry's IP address or FQDN instead of with the cloud registry's FQDN. 
 
 > [!IMPORTANT]
-> In the following deployment manifest, `$upstream` is used as the IP address or FQDN of the device hosting the parent connected registry. However, `$upstream` is not supported in an environment variable. The connected registry needs to read the environment variable `ACR_PARENT_GATEWAY_ENDPOINT` to get the parent gateway endpoint. Instead of using `$upstream`, the connected registry supports dynamically resolving the IP or FQDN from another environment variable. On the nested IoT Edge, there's an environment variable `$IOTEDGE_PARENTHOSTNAME` on the lower layer that is equal to the IP address or FQDN of the parent device. Manually replace the environment variable as the value of `ParentGatewayEndpoint` in the connection string to avoid hard-coding the parent IP address or FQDN. You also need to select the proper protocol in `ParentEndpointProtocol`.
+> In the following deployment manifest, `$upstream` is used as the IP address or FQDN of the device hosting the parent connected registry. However, `$upstream` is not supported in an environment variable. The connected registry needs to read the environment variable `ACR_PARENT_GATEWAY_ENDPOINT` to get the parent gateway endpoint. Instead of using `$upstream`, the connected registry supports dynamically resolving the IP address or FQDN from another environment variable. On the nested IoT Edge, there's an environment variable `$IOTEDGE_PARENTHOSTNAME` on the lower layer that is equal to the IP address or FQDN of the parent device. Manually replace the environment variable as the value of `ParentGatewayEndpoint` in the connection string to avoid hard-coding the parent IP address or FQDN. Because the parent device in this examle is running nginx on port 8000, pass `$IOTEDGE_PARENTHOSTNAME:8000`. You also need to select the proper protocol in `ParentEndpointProtocol`.
 
 ```json
 {
@@ -91,7 +91,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                         "type": "docker",
                         "env": {
                             "ACR_REGISTRY_CONNECTION_STRING": {
-                                "value": "ConnectedRegistryName=<REPLACE_WITH_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_SYNC_TOKEN_NAME>;SyncTokenPassword=<REPLACE_WITH_SYNC_TOKEN_PASSWORD>;ParentGatewayEndpoint=$IOTEDGE_PARENTHOSTNAME;ParentEndpointProtocol=https"
+                                "value": "ConnectedRegistryName=<REPLACE_WITH_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_SYNC_TOKEN_NAME>;SyncTokenPassword=<REPLACE_WITH_SYNC_TOKEN_PASSWORD>;ParentGatewayEndpoint=$IOTEDGE_PARENTHOSTNAME:8000;ParentEndpointProtocol=https"
                             }
                         },
                         "status": "running",
@@ -186,7 +186,8 @@ The following steps are adapted from [Tutorial: Create a hierarchy of IoT Edge d
 
 Create top layer and lower layer VMs using an existing [ARM template](https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json). The template also installs the IoT Edge agent. If you want to deploy from your own devices instead, see [Tutorial: Install or uninstall Azure IoT Edge for Linux](../iot-edge/how-to-install-iot-edge.md) to learn how to manually set up the device.
 
-Open the following ports inbound on the top layer device: 8000, 443, 5671, 8883. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+> [!IMPORTANT]
+> For later access to the modules deployed on the top layer device, make sure that you open the following ports inbound: 8000, 443, 5671, 8883. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
 
 ### Create and configure the hierarchy
 
@@ -268,9 +269,9 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
 
         ```bash
         sudo apt install zip
-        unzip ~/<PATH_TO_CONFIGURATION_BUNDLE>/<CONFIGURATION_BUNDLE>.zip (unzip top-layer.zip)
+        unzip ~/<PATH_TO_CONFIGURATION_BUNDLE>/<CONFIGURATION_BUNDLE>.zip #unzip top-layer.zip
         ```
-    1. Run `sudo ./install.sh`, input the hostname.
+    1. Run `sudo ./install.sh`, input the IP address or hostname. We recommend using the IP address.
     1. Run `sudo iotedge list` to confirm that all modules are running.
 
 1. Connect to the lower layer device to install the configuration bundle.
@@ -278,9 +279,9 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
 
         ```bash
         sudo apt install zip
-        unzip ~/<PATH_TO_CONFIGURATION_BUNDLE>/<CONFIGURATION_BUNDLE>.zip (unzip lower-layer.zip)
+        unzip ~/<PATH_TO_CONFIGURATION_BUNDLE>/<CONFIGURATION_BUNDLE>.zip #unzip lower-layer.zip
         ```
-    1. Run `sudo ./install.sh`, input the hostname and parent hostname.
+    1. Run `sudo ./install.sh`, input the device and parent IP addresses or hostnames. We recommend using the IP addresses.
     1. Run `sudo iotedge list` to confirm that all modules are running.
  
     
@@ -313,6 +314,8 @@ az acr connected-registry show \
 You may need to a wait a few minutes until the deployment of the connected registry completes.
 
 After successful deployment, the connected registry shows a status of `Online`.
+
+To troubleshoot a deployment, run `iotedge check` on the affected device. For more information, see [Troubleshooting](../iot-edge/tutorial-nested-iot-edge.md#troubleshooting).
 
 ## Next steps
 

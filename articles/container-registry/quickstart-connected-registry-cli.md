@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create connected registry using the CLI
-description: Use Azure CLI commands to create a connected registry resource.
+description: Use Azure CLI commands to create a connected Azure container registry resource that can synchronize images and other artifacts with the cloud registry.
 ms.topic: quickstart
-ms.date: 09/20/2021
+ms.date: 10/07/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -12,7 +12,9 @@ ms.custom:
 
 In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry remotely or on your premises and synchronize images and other artifacts with the cloud registry. 
 
-In this quickstart, you create two connected registry resources for a cloud registry: one connected registry allows read and write (artifact pull and push) functionality and one allows read-only functionality. After creating a connected registry, you can follow other quickstart guides to deploy and use it on your on-premises or remote infrastructure.
+Here you create two connected registry resources for a cloud registry: one connected registry allows read and write (artifact pull and push) functionality and one allows read-only functionality. 
+
+After creating a connected registry, you can follow other guides to deploy and use it on your on-premises or remote infrastructure.
 
 [!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -20,7 +22,7 @@ In this quickstart, you create two connected registry resources for a cloud regi
 
 ## Enable the dedicated data endpoint for the cloud registry
 
-Enable the dedicated data endpoint for the Azure Container Registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry, t
+Enable the dedicated data endpoint for the Azure Container Registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry.
 
 ```azurecli
 # Set the REGISTRY_NAME environment variable to identify the existing cloud registry
