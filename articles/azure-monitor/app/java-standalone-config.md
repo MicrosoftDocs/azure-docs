@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.1.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.0.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.1.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.0.jar` is located.
 
 ## Connection string
 
@@ -184,6 +184,22 @@ If you want to add custom dimensions to all of your telemetry:
 > Starting from version 3.0.2, if you add a custom dimension named `service.version`, the value will be stored
 > in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
 
+## Inherited attribute (preview)
+
+Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry, and have it inherited by dependency telemetry that follows:
+
+```json
+{
+  "inheritedAttributes": [
+    {
+      "key": "mycustomer",
+      "type": "string"
+    }
+  ]
+}
+```
+
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
@@ -268,30 +284,6 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry (preview)
-
-Many of the latest Azure SDK libraries emit telemetry (see the [full list](./java-in-process-agent.md#azure-sdks-preview)).
-
-Starting from Application Insights Java 3.0.3, you can enable capturing this telemetry.
-
-If you want to enable this feature:
-
-```json
-{
-  "preview": {
-    "instrumentation": {
-      "azureSdk": {
-        "enabled": true
-      }
-    }
-  }
-}
-```
-
-You can also enable this feature by setting the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` to `true`
-(which will then take precedence over enabled specified in the json configuration).
-
 ## Suppressing specific auto-collected telemetry
 
 Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
@@ -299,6 +291,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 ```json
 {
   "instrumentation": {
+    "azureSdk": {
+      "enabled": false
+    },
     "cassandra": {
       "enabled": false
     },
@@ -317,6 +312,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
     "mongo": {
       "enabled": false
     },
+    "rabbitmq": {
+      "enabled": false
+    },
     "redis": {
       "enabled": false
     },
@@ -329,12 +327,14 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 
 You can also suppress these instrumentations by setting these environment variables to `false`:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_AZURE_SDK_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
@@ -343,6 +343,31 @@ You can also suppress these instrumentations by setting these environment variab
 > [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
+
+## Preview instrumentations
+
+Starting from version 3.2.0, the following preview instrumentations can be enabled:
+
+```
+{
+  "preview": {
+    "instrumentation": {
+      "apacheCamel": {
+        "enabled": true
+      },
+      "grizzly": {
+        "enabled": true
+      },
+      "quartz": {
+        "enabled": true
+      },
+      "springIntegration": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
 
 ## Heartbeat
 
@@ -454,7 +479,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.1.1.jar` is located.
+`applicationinsights-agent-3.2.0.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
