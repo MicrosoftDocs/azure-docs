@@ -17,6 +17,21 @@ This document explains how to expose applications to the Internet using Applicat
 
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
 
+## Configuring Application Gateway for Azure Spring Cloud
+
+In order to enjoy the best experience using Application Gateway to expose Azure Spring Cloud hosted applications residing in a virtual network, it is recommended to ensure that the domain name as seen by the browser is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud backend.  If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect url's can be broken for example.
+
+To configure Application Gateway in front of Azure Spring Cloud:
+
+- [deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+- acquire a certificate for your domain of choice and [store that in Key Vault](../key-vault/quick-create-cli.md#add-a-certificate-to-key-vault)
+- [configure a custom domain and corresponding certificate](./tutorial-custom-domain.md) from Key Vault on an app deployed onto Azure Spring Cloud
+- deploy Application Gateway in a virtual network:
+  - using Azure Spring Cloud in the backend pool, referenced by the domain suffixed with "private.azuremicroservices.io"
+  - with an https listener using the same certificate from Key Vault
+  - configured with http settings which use the custom domain name configured on Azure Spring Cloud instead of the domain suffixed with "private.azuremicroservices.io"
+- configure your public DNS to point to Application Gateway
+
 ## Define variables
 
 Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.  When you define SPRING_APP_PRIVATE_FQDN, remove 'https' from the uri.
