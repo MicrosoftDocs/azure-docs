@@ -13,6 +13,8 @@
     href: flexible-server/whats-new.md
   - name: Try Flexible Server for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -31,8 +33,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
   - name: Quickstarts
     expanded: true
     items:
