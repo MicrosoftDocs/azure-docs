@@ -792,6 +792,9 @@
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
+      - name: Virtual Network Manager
+        tocHref: /azure/virtual-network-manager/
+        topicHref: /azure/virtual-network-manager/
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
