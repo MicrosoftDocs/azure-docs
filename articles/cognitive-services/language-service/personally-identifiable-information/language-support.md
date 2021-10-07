@@ -17,7 +17,7 @@ ms.author: aahi
 Use this article to learn which natural languages are supported by the PII feature of Azure Cognitive Service for Language.
 
 > [!NOTE]
-> * Languages are added as new [model versions](../concepts/specify-model-version.md) are released for this feature.
+> * Languages are added as new [model versions](how-to-call.md#specify-the-pii-detection-model) are released.
 > * The current model version for PII is `2021-01-15`.
 
 ## PII language support

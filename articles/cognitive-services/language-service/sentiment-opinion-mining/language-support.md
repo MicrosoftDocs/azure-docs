@@ -17,7 +17,7 @@ ms.author: aahi
 Use this article to learn which natural languages are supported by the Sentiment Analysis and Opinion Mining features of Language Services.
 
 > [!NOTE]
-> Languages are added as new [model versions](../concepts/specify-model-version.md) are released for this feature. The current model version for Sentiment Analysis is `2020-04-01`.
+> Languages are added as new [model versions](how-to/call-api.md#specify-the-sentiment-analysis-model) are released. The current model version for Sentiment Analysis is `2020-04-01`.
 
 ## Sentiment Analysis language support
 

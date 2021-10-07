@@ -57,4 +57,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Health API overview](overview.md)
+* [Language detection overview](overview.md)
