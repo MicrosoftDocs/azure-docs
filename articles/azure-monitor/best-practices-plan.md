@@ -9,7 +9,7 @@ ms.date: 09/28/2021
 ---
 
 # Azure Monitor best practices - Planning your monitoring strategy and configuration
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular usiness requirements.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It describes planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular usiness requirements.
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). That guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes. This article will refer to sections of that guide that are relevant to particular planning steps.
 ## Understand Azure Monitor costs

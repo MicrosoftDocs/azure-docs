@@ -9,7 +9,7 @@ ms.date: 09/28/2021
 ---
 
 # Azure Monitor best practices - Configure data collection
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes recommended steps to configure data collection required to enable Azure Monitor features for your Azure and hybrid applications and resources.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It describes recommended steps to configure data collection required to enable Azure Monitor features for your Azure and hybrid applications and resources.
 
 
 > [!IMPORTANT]

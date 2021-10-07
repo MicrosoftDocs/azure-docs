@@ -29,7 +29,7 @@ This article introduces the scenario. If you want to jump right into a specific 
 |:---|:---|
 | [Planning](best-practices-plan.md)  | Planning that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
 | [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from you Azure and hybrid applications and resources. |
-| [Analysis and visualizations](visualizations.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
+| [Analysis and visualizations](best-practices-analysis.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
 | [Alerts and automated responses](best-practices-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
 
 

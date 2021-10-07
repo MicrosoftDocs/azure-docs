@@ -9,7 +9,7 @@ ms.date: 09/28/2021
 ---
 
 # Deploying Azure Monitor - Alerts and automated actions
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It provides guidance on alerts in Azure Monitor, which proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal, have them send a proactive notification, or have them initiated some automated action to attempt to remediate the issue. 
+This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It provides guidance on alerts in Azure Monitor, which proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal, have them send a proactive notification, or have them initiated some automated action to attempt to remediate the issue. 
 ## Alerting strategy
 An alerting strategy defines your organizations standards for the types of alert rules that you'll create for different scenarios, how you'll categorize and manage alerts after they're created, and automated actions and notifications that you'll take in response to alerts. Defining an alert strategy assists you defining the configuration of alert rules including alert severity and action groups.
 

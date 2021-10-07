@@ -9,7 +9,7 @@ ms.date: 07/28/2021
 ---
 
 # Azure Monitor best practices - Analyze and visualize data
-This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes builtin features in Azure Monitor for analyzing collected data and options for creating custom visualizations to meet the requirements of different users in your organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It describes builtin features in Azure Monitor for analyzing collected data and options for creating custom visualizations to meet the requirements of different users in your organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns.
 
 
 ## Builtin analysis features

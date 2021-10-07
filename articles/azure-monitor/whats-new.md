@@ -174,7 +174,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Visualizing data from Azure Monitor](visualizations.md)
+- [Visualizing data from Azure Monitor](best-practices-analysis.md)
 ## June, 2021
 ### Agents
 
