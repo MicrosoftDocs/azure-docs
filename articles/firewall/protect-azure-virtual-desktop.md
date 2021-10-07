@@ -36,7 +36,6 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 
 | Name      | Source type | Source                    | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | ----------- | ------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
-| Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 443               | Service Tag      | AzureCloud, WindowsVirtualDesktop |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
 |Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246                    |
