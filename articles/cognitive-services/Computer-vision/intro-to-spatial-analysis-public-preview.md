@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/06/2021
+ms.custom: contperf-fy22q2
 ---
 
 # What is Spatial Analysis?
