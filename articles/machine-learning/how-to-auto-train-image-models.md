@@ -270,6 +270,20 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
+### Data Augmentation 
+
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
+
+|Task | Impacted dataset | Data augmentation technique(s) applied |
+|-------|------|-----------|
+|Image (multi-class and multi-label) classification | Training | Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation |
+|Image (multi-class and multi-label) classification | Validation & Test | Resize, center crop, normalization
+|Object detection, instance segmentation| Training |Random crop around bounding boxes, expand, horizontal flip, normalization, resize|
+|Object detection, instance segmentation| Validation & Test |Normalization, resize|
+|Object detection using yolov5| Training |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip|
+|Object detection using yolov5| Validation & Test |Letterbox resizing|
+
+
 ## Configure your experiment settings
 
 Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This way, you can employ a more iterative approach, because with multiple models and multiple hyperparameters for each, the search space grows exponentially and you need more iterations to find optimal configurations.
@@ -444,6 +458,7 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
+
 
 ## Example notebooks
 For a detailed code example, see the [object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
