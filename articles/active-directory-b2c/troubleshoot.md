@@ -16,26 +16,27 @@ zone_pivot_groups: b2c-policy-type
 
 # Troubleshoot Azure AD B2C custom policies and user flows
 
-You app needs to react to certain errors coming from B2C. This article provides some of the common errors.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Your application needs to handle certain errors coming from Azure B2C service. This article highlights some of the common errors and how to handle them.
 
 ::: zone pivot="b2c-user-flow"
 
 ## Password reset error
 
+This error occurs when the [self-service password reset experience](add-password-reset-policy.md#self-service-password-reset-recommended) isn't enabled in a user flow. Thus, selecting the **Forgot your password?** link doesn't trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application.
 
-- The error
-- The solution
-    - Respond back with new auth request
-    - Use recommended SSPR + a link to this article https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-password-reset-policy?pivots=b2c-user-flow#self-service-password-reset-recommended 
+There are 2 solutions to this problem:  
+  - Respond back with a new authentication request using Azure AD B2C password reset user flow.
+  - Use recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
 
 
 ## User cancelled the operation
-- The error
+Azure AD B2C service can also return an error to your application when a user cancels an operation. The following are examples of scenarios where a user performs a cancel operation: 
+-  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
+- A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
 
-blah blah blah
-- The solution
--
-blah blah blah
+To handle this error, fetch the **error description** for the user and respond back with a new authentication request with the same user flow. 
 
 ::: zone-end
 
