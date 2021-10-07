@@ -263,7 +263,7 @@ items:
       href: policy/how-to-storage-access-policies.md
     - name: How to create data access policies for Azure SQL DB
       href: policy/how-to-storage-access-policies.md
-name: Reference
+- name: Reference
   items:
     - name: Azure Purview product glossary
       href: reference-purview-glossary.md
