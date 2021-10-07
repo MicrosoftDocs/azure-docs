@@ -44,10 +44,10 @@ items:
         href: deployment-best-practices.md
       - name: Collections architecture
         href: concept-best-practices-collections.md
-      - name: Network architecture
-        href: concept-best-practices-network.md             
       - name: Purview pricing guidelines 
         href: concept-guidelines-pricing.md
+      - name: Network architecture
+        href: concept-best-practices-network.md             
   - name: Purview permissions
     href: catalog-permissions.md
   - name: Data map
