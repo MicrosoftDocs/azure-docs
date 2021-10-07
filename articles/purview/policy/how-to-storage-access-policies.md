@@ -117,11 +117,9 @@ Purview \| Microsoft Docs](../create-catalog-portal.md)
 The data source needs to be registered and scanned with Purview in order to define policies. Follow the Purview registration guides to
 register your storage account:
 
--   [How to scan Azure storage blob - Azure
-    Purview](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-blob-storage-source)
+-   [How to scan Azure storage blob - Azure Purview](../register-scan-azure-blob-storage-source.md)
 
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure
-    Purview](https://docs.microsoft.com/en-us/azure/purview/register-scan-adls-gen2)
+-   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](../register-scan-adls-gen2.md)
 
 ### Configure permissions for policy management actions
 
@@ -150,7 +148,7 @@ Steps to create a new policy in Purview
 5.  To add policy statements to the new policy, select the **New policy
     statement** button. This will bring up the policy statement builder.
 
-<img src="media/image2.PNG" style="width:5.47015in;height:3.94131in" alt="Image shows how a Data Owner can create a new policy statement" />
+    :::image type="content" source="./media/how-to-storage-access-policies/create-new-policy-storage.png" alt-text="Image shows how a Data Owner can create a new policy statement.":::
 
 6.  Select the **Action** button and choose Read or Modify from the drop-down list.
 
