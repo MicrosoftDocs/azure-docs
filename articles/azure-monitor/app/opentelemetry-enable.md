@@ -304,10 +304,6 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .Build();
 ```
 
-Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
-
-<!-- For more information, see [GitHub Repo](link). -->
-
 
 ### [Node.js](#tab/nodejs)
 
@@ -328,8 +324,6 @@ const provider = new NodeTracerProvider(config);
 ...
 ```
 
-Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
-
 ### [Python](#tab/python)
 
 ```python
@@ -349,11 +343,9 @@ trace.set_tracer_provider(
 ...
 ```
 
-Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
-
-<!-- For more information, see [GitHub Repo](link). -->
-
 ---
+
+Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md)
 
 ## Sampling
 
