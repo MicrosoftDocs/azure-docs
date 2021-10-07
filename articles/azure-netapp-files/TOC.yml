@@ -17,6 +17,8 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: Azure NetApp Files reserved capacity
+    href: optimize-costs-reserved-capacity.md
   - name: Service levels for Azure NetApp Files
     href: azure-netapp-files-service-levels.md
   - name: Resource limits for Azure NetApp Files
