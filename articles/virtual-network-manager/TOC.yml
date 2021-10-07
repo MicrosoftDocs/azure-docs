@@ -1,0 +1,32 @@
+- name: Virtual Network Manager documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Virtual Network Manager?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create Virtual Network Manager - Portal
+    href: create-virtual-network-manager-portal.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Create a secured mesh network
+    href: tutorial-create-secured-hub-and-spoke.md
+- name: Concepts
+  items:
+  - name: Security admin rules
+    href: concept-security-admins.md
+  - name: Deployments
+- name: How-to guides
+  items:
+  - name: Block network traffic
+    href: how-to-block-network-traffic-portal.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking Blog
+    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
