@@ -20,27 +20,27 @@ To complete the steps in this article, you need to:
   - [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
-
-    The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in this topic. <!--[container create options][#containercreateoptions]-->
+    
+    The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in [Enable ONVIF discovery feature](#enable-onvif-discovery-feature).
   
 > [!NOTE]
 > If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module, you can skip to the section for [Use direct method calls](#use-direct-method-calls). Otherwise, follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
 
 ## Check the Video Analyzer edge modules version
 
-1. From a command prompt run the following command:
+From a command prompt run the following command:
 
-  ```CLI
-  az iot hub module-twin show -m <VIDEO_ANALYZER_IOT_EDGE_MODULE_NAME> -n <IOT_HUB_NAME> -d <IOT_EDGE_DEVICE_NAME> --query 'properties.reported.ProductInfo' -o tsv
-  ```
-  
-  If the result of the above command is **Azure Video Analyzer:1.0.1** then run the following steps to update the Video Analyzer module to 1.1.
+```CLI
+az iot hub module-twin show -m <VIDEO_ANALYZER_IOT_EDGE_MODULE_NAME> -n <IOT_HUB_NAME> -d <IOT_EDGE_DEVICE_NAME> --query 'properties.reported.ProductInfo' -o tsv
+```
 
-  1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
-  1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
-  1. Click on Set modules and click on review + create.
-  1. Click on create.
-  1. After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
+If the result of the above command is **Azure Video Analyzer:1.0.1** then run the following steps to update the Video Analyzer edge module to version 1.1.
+
+1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+1. Click on Set modules and click on review + create.
+1. Click on create.
+1. After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
 
 ### Enable ONVIF discovery feature
 
