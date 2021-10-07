@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Update the storage type of a managed disk
 
-**Applies to:** :heavy_check_mark: Linux VMs:heavy_check_mark: Windows 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
 There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 

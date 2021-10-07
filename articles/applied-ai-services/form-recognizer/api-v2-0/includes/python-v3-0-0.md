@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library for Python"
 description: Use the Form Recognizer client library for Python to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

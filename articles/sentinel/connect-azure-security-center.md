@@ -50,7 +50,7 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 
 1. In Azure Sentinel, select **Data connectors** from the navigation menu.
 
-1. From the data connectors gallery, select **Azure Defender**, and click **Open connector page** in the details pane.
+1. From the data connectors gallery, select **Azure Defender**, and select **Open connector page** in the details pane.
 
 1. Under **Configuration**, you will see a list of the subscriptions in your tenant, and the status of their connection to Azure Defender. Select the **Status** toggle next to each subscription whose alerts you want to stream into Azure Sentinel. If you want to connect several subscriptions at once, you can do this by marking the check boxes next to the relevant subscriptions and then selecting the **Connect** button on the bar above the list.
 

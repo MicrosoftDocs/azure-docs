@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps

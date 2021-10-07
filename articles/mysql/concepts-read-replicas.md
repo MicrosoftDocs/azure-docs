@@ -20,7 +20,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## When to use a read replica
@@ -39,7 +39,7 @@ You can create a read replica in a different region from your source server. Cro
 
 You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
-[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 
@@ -95,9 +95,9 @@ However, there are limitations to consider:
 ## Create a replica
 
 > [!IMPORTANT]
-> The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> * The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> * If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details. 
 
-If a source server has no existing replica servers, the source will first restart to prepare itself for replication.
 
 When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the source server. The creation time depends on the amount of data on the source and the time since the last weekly full backup. The time can range from a few minutes to several hours. The replica server is always created in the same resource group and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation.
 
@@ -194,7 +194,9 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 ### Source server restart
 
-When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+Server that has General purpose storage v1, the `log_bin` parameter will be OFF by default. The value will be turned ON when you create the first read replica. If a source server has no existing read replicas, source server will first restart to prepare itself for replication. Please consider server restart and perform this operation during off-peak hours.
+
+Source server that has General purpose storage v2, the `log_bin` parameter will be ON by default and does not require a restart when you add a read replica. 
 
 ### New replicas
 

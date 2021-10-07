@@ -74,6 +74,7 @@ Perform the following steps to update a specific cluster in your subscription us
 
 1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
 
+
     ```azurecli
     az login
     az account set --subscription "<subscriptionName>"
@@ -81,7 +82,9 @@ Perform the following steps to update a specific cluster in your subscription us
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
+
     To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value, you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
+
 
     ```azurecli
     az login
@@ -89,6 +92,11 @@ Perform the following steps to update a specific cluster in your subscription us
     az aks show -g <resourceGroupName> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
     ```
+
+
+
+>[!NOTE]
+>If you use your user account and wanted to perform the role assignment then use --assignee parameter as shown in below example. Else if you login with SPN and wanted to perform the role assignment then use --assignee-object-id --assignee-principal-type parameters instead of --assignee parameter.
 
 ## Upgrade all clusters using Azure PowerShell
 

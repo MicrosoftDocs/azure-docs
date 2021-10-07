@@ -64,8 +64,6 @@
       href: howto-find-activity-reports.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
-    - name: Remediate users flagged for risk
-      href: howto-remediate-users-flagged-for-risk.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: How to use Azure AD workbooks
@@ -100,6 +98,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Basic info identifiers in the sign-in log
+    href: reference-basic-info-identifiers.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
@@ -113,6 +113,6 @@
   - name: Reporting latencies
     href: reference-reports-latencies.md
   - name: Frequently asked questions
-    href: reports-faq.md
+    href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md

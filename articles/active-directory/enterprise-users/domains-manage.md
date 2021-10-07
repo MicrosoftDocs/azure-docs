@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 

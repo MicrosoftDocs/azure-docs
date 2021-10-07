@@ -119,7 +119,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
 6. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Add a NIC to an existing VM
-To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](../sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
+To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](../sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](../resize-vm.md).
 
 1. Deallocate the VM with [Stop-AzVM](/powershell/module/az.compute/stop-azvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 

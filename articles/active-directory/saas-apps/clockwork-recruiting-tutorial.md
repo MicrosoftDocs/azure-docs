@@ -122,7 +122,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Select **Test this application** in the Azure portal. You're redirected to the Clockwork Recruiting Sign-on URL where you can initiate the login flow. 
 * Go to the Clockwork Recruiting Sign-on URL directly and initiate the login flow from there.
-* You can use Microsoft My Apps. When you select the Clockwork Recruiting tile in My Apps, you're redirected the to Clockwork Recruiting Sign-on URL. For more information about My Apps, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you select the Clockwork Recruiting tile in My Apps, you're redirected the to Clockwork Recruiting Sign-on URL. For more information about My Apps, see [Introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

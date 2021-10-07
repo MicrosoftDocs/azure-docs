@@ -308,9 +308,9 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Troubleshooting
 
-* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your [network allows websocket connections](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* When compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+* When a compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you are using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
 
 * If your kernel crashed and was restarted, you can run the following command to look at jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
 
@@ -320,4 +320,4 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
-* [Working in secure environments](./how-to-secure-training-vnet.md#compute-instance)
+* [Working in secure environments](./how-to-secure-training-vnet.md#compute-cluster)

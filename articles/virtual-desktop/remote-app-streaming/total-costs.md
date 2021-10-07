@@ -108,3 +108,4 @@ User access costs will appear each billing cycle on the Azure billing invoice fo
 If you'd like to get a clearer idea of how much specific parts of your deployment will cost, take a look at these articles:
 
 - [Understanding licensing and per-user access pricing](licensing.md)
+- [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md)

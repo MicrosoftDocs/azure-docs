@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy
 ms.author: jordane

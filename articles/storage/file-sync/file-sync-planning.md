@@ -192,19 +192,21 @@ With Azure File Sync, you will need to account for the following taking up space
     - Azure File Sync heatstore
     - Azure File Sync metadata database
 
-We'll use an example to illustrate how to estimate the amount of free space would need on your local disk. Let's say you installed your Azure File Sync agent on your Azure Windows VM, and plan to create a server endpoint on disk F. You have 1 million files and would like to tier all of them, 100,000 directories, and a disk cluster size of 4 KB. The disk size is 1000 GB. You want to enable cloud tiering and set your volume free space policy to 20%. 
+We'll use an example to illustrate how to estimate the amount of free space would need on your local disk. Let's say you installed your Azure File Sync agent on your Azure Windows VM, and plan to create a server endpoint on disk F. You have 1 million files and would like to tier all of them, 100,000 directories, and a disk cluster size of 4 KiB. The disk size is 1000 GiB. You want to enable cloud tiering and set your volume free space policy to 20%. 
 
-1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KB cluster size = 4,000,000 KB (4 GB)
+1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
 > [!Note]  
 > The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
-3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KB (4.4 GB)
-4. Azure File Sync heatstore occupies 1.1 KB per file. 1 million files * 1.1 KB = 1,100,000 KB (1.1 GB)
-5. Volume free space policy is 20%. 1000 GB * 0.2 = 200 GB
+3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KiB cluster size = 4,400,000 KiB (4.4 GiB)
+4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
+5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
 
-In this case, Azure File Sync would need about 209,500,000 KB (209.5 GB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
+In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
 ### Failover Clustering
-Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
+1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. 
+2. The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks
+3. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs) or local disks.
 
 > [!Note]  
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.

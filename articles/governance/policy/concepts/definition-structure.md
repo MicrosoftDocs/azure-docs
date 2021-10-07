@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -135,8 +135,13 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider mode is fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
-  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
+  custom definitions as a _public preview_. See
+  [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to create a
+  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
+  GateKeeper v3
+  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
+  of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
 
 The following Resource Provider modes are currently supported as a **preview**:
 
@@ -151,7 +156,7 @@ The following Resource Provider modes are currently supported as a **preview**:
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md).
+> [exemptions](./exemption-structure.md) if not explicitly stated.
 
 ## Metadata
 
@@ -945,6 +950,8 @@ For complete details on each effect, order of evaluation, properties, and exampl
 [Understanding Azure Policy Effects](effects.md).
 
 ### Policy functions
+
+Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/templates/template-functions.md) are available to use

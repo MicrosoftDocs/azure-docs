@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for C# to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
+[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## Prerequisites
 

@@ -4,7 +4,7 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/17/2021
+ms.date: 10/04/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -73,6 +73,24 @@ Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps
      -Name "myAccount" `
      -BackupPolicyType Continuous
    ```
+
+### Check the migration status
+
+Run the following command and check the **status**, **targetType** properties of the **backupPolicy** object. The status shows in-progress after the migration starts:
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
+
+When the migration is complete, backup type changes to **Continuous**. Run the same command again to check the status:
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
 
 ## <a id="cli"></a>Migrate using CLI
 
@@ -170,7 +188,7 @@ To restore to a time after t5 because your account is now in continuous mode, yo
 To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
 
 #### Which account level control plane operations are blocked during migration?
-Operations such as add/remove region, failover, replication, changing backup policy, throughput changes resulting in data movement are blocked during migration.
+Operations such as add/remove region, failover, changing backup policy, throughput changes resulting in data movement are blocked during migration.
 
 #### If the migration fails for some underlying issue, would it still block the control plane operation until it is retried and completed successfully?
 Failed migration will not block any control plane operations. If migration fails, it’s recommended to retry until it succeeds before performing any other control plane operations.
@@ -195,3 +213,7 @@ To learn more about continuous backup mode, see the following articles:
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
 * Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+   * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+   * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

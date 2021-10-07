@@ -32,7 +32,7 @@ To understand the intersection between data shapes and projections, refer to the
     "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
-            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
             "name": "#1",
             "description": null,
             "context": "/document/merged_content",

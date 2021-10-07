@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
 ---
@@ -102,22 +102,27 @@ The ASEv3 is available in the following regions.
 |Central US	|East US 2|
 |East Asia	| France Central|
 |East US	| Germany West Central|
-|East US 2|	North Europe|
-|France Central	| South Central US|
-|Germany West Central	|	Southeast Asia|
+|East US 2|	Japan East|
+|France Central	| North Europe|
+|Germany West Central	|	South Central US|
+|Japan East	| Southeast Asia|
 |Korea Central	| UK South|
-|North Europe	| West Europe|
-|Norway East	| West US 2	|
+|North Central US	| West Europe|
+|North Europe	| West US 2|
+|Norway East	| |
+|South Africa North	| |
 |South Central US	| |
 |Southeast Asia| |
 |Switzerland North	| |	
+|UAE North| |	
 |UK South| |	
 |UK West| |
 |West Central US	| |	
 |West Europe	| |
 |West US	| |	
 |West US 2| |
+|West US 3| |
 
 <!--Links-->
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

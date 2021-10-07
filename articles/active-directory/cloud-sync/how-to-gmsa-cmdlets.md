@@ -68,7 +68,7 @@ The following prerequisites are required to use these cmdlets.
 |PasswordWriteBack|See [PasswordWriteBack](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) permissions for Azure AD Connect|
 |HybridExchangePermissions|See [HybridExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) permissions for Azure AD Connect|
 |ExchangeMailPublicFolderPermissions| See [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) permissions for Azure AD Connect|
-|CloudHR| Applies 'Full control' on 'Descendant User objects' and 'Create/delete User objects' on 'This object and all descendant objects'|
+|CloudHR| Applies 'Create/delete User objects' on 'This object and all descendant objects'|
 |All|adds all the above permissions.|
 
 You can use AADCloudSyncPermissions in one of two ways:

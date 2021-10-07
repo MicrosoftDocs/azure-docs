@@ -1,7 +1,7 @@
 ---
 title: Flatten transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Denormalize hierarchical data using the flatten transformation
+description: Denormalize hierarchical data using the flatten transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -9,20 +9,24 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 09/29/2021
 ---
 
 # Flatten transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
 
 ## Configuration
 
 The flatten transformation contains the following configuration settings
 
-![Flatten settings](media/data-flow/flatten1.png "Flatten settings")
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings":::
 
 ### Unroll by
 
@@ -42,7 +46,7 @@ Refer to the inspect tab and data preview to verify your mapping output.
 
 The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that will flatten arrays based on rules and flatten structures based on hierarchy levels.
 
-![Flatten pattern](media/data-flow/flatten-pattern.png "Flatten patterns")
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Flatten pattern":::
 
 ### Matching condition
 
@@ -50,7 +54,7 @@ Enter a pattern matching condition for the column or columns that you wish to fl
 
 ### Deep column traversal
 
-Optional setting that tells ADF to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
+Optional setting that tells the service to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
 
 ### Hierarchy level
 

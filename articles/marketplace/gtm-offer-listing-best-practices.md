@@ -35,7 +35,7 @@ For an analysis of how your offers are performing, go to the [Marketplace Insigh
 
 ## Link to your offer page from your website
 
-To easily direct users to your offer in the commercial marketplace, leverage our **Get It Now** badges on your website or in your digital marketing collateral. Find these badges in our [Marketplace Marketing Toolkit](/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+To easily direct users to your offer in the commercial marketplace, leverage our **Get It Now** badges on your website or in your digital marketing collateral. Find these badges in our [Marketplace Marketing Toolkit](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 When you link from the AppSource or Azure Marketplace badge on your site to your listing in the commercial marketplace, support strong analytics and reporting by including the following query parameters at the end of the URL:
 * **src**: Include the source from which the traffic is routed to AppSource (for example, website, LinkedIn, or Facebook).
@@ -48,7 +48,7 @@ After adding these parameters to your AppSource URL, review the effectiveness of
 
 ## Listing creation technical best practices
 
-Navigating Markdown can be tricky. To help, we've compiled some best practices for revising and reviewing offer listings for the commercial marketplace in Partner Center. The [commercial marketplace listing technical best practices guide](/collection/azure-marketplace-and-appsource-publisher-toolkit#/) shows how to edit your listing and preview your Markdown code.
+Navigating Markdown can be tricky. To help, we've compiled some best practices for revising and reviewing offer listings for the commercial marketplace in Partner Center. The [commercial marketplace listing technical best practices guide](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) shows how to edit your listing and preview your Markdown code.
 
 ## Next steps
 
