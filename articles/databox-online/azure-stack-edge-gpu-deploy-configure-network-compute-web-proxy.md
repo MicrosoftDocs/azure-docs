@@ -30,9 +30,9 @@ The procedure can take around 45 minutes to complete.
 
 ::: zone-end
 
-::: zone pivot="single-node"
-
 In this tutorial, you learn about:
+
+::: zone pivot="single-node"
 
 > [!div class="checklist"]
 >
@@ -48,6 +48,7 @@ In this tutorial, you learn about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Configure network
+> * Get authentication token
 > * Configure cluster
 > * Configure advanced networking
 > * Configure web proxy
@@ -133,7 +134,7 @@ Follow these steps to configure the network for your device.
 
 You'll configure network on both nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
 
-## Configure network on first node
+### Configure network on first node
 
 To configure the network for a 2-node device, follow these steps on the 1st node of the device:
 
@@ -157,7 +158,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 1. Make sure that the 2nd node is cabled as per the topology you selected for the 1st node. In the **Network** page, choose and **Apply** the same topology that you selected for the 1st node.
 1. Select **Back to get started**.
 
-## Get authentication token for second node
+## Get authentication token
 
 You'll now get the authentication token that will be needed when adding this node to form a cluster. Follow these steps in the local UI of the second node:
 
@@ -165,7 +166,13 @@ You'll now get the authentication token that will be needed when adding this nod
 1. Select **Get token**.
 1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
 
-## Configure cluster witness on first node
+
+## Configure cluster 
+
+To configure the cluster, you'll need to establish a cluster witness and then add a prepared node. You'll also need to configure virtual IP settings so that you can connect to a cluster as opposed to a specific node.
+
+
+### Configure cluster witness
 
 You'll now create a cluster witness. A cluster witness helps establish quorum for a two-node device if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
 
@@ -182,7 +189,7 @@ Before you create a cluster witness, make sure that you've reviewed the cluster 
 
 Follow these steps to configure the cluster witness.
 
-### Configure cloud witness
+#### Configure cloud witness
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 1. In the **Modify cluster witness** blade, enter the following inputs.
@@ -192,7 +199,7 @@ Follow these steps to configure the cluster witness.
     1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
     1. Select **Apply**.
 
-### Configure local witness
+#### Configure local witness
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 1. In the **Modify cluster witness** blade, enter the following inputs.
@@ -200,7 +207,7 @@ Follow these steps to configure the cluster witness.
     1. Enter the file share path as *//server/fileshare* format.
     1. Select **Apply**. 
 
-## Add second node to create cluster
+### Add node to cluster
 
 You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
 
@@ -339,6 +346,7 @@ In this tutorial, you learned about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Configure network
+> * Get authentication token
 > * Configure cluster
 > * Configure advanced networking
 > * Configure web proxy
