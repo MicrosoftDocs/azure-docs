@@ -49,9 +49,7 @@ portal.](../create-catalog-portal.md)
 
 #### Create Azure Storage account
 
-To create a new Azure Storage account, refer to [Create a storage
-account - Azure
-Storage.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
+To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
 To confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
 
 ```
