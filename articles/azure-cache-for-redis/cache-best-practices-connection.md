@@ -19,7 +19,7 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
 
-## TCP settings for Linux-hosted client applications:
+## TCP settings for Linux-hosted client applications
 .
 <!-- Rewrite this
 Due to an optimistic default TCP settings in some Linux distros, a client connection isn't reestablished for a long time if the Redis server stops responding without closing the client connection gracefully.
