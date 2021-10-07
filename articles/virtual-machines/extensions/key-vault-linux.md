@@ -30,7 +30,8 @@ The Key Vault VM extension supports these Linux distributions:
 > 
 
 > [!NOTE]
-> The Key Vault VM Extension changes the permissions of the folder, when using the command "certStoreLocation", to 0700 (read, write, and execute permission) to the owner of the folder. This is done by design.
+> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The KeyValut VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
+
 ### Supported certificate content types
 
 - PKCS #12
