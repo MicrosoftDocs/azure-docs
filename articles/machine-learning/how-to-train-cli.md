@@ -78,7 +78,7 @@ YAML job specification values can be overridden using `--set` when creating or u
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_set":::
 
 > [!TIP]
-The `--set` parameter is useful for changing the compute target or training parameters when experimenting. It can also be used with `az ml job update`, which is shown below.
+> The `--set` parameter is useful for changing the compute target or training parameters when experimenting. It can also be used with `az ml job update`, which is shown below.
 
 ## Job names
 
@@ -119,19 +119,19 @@ You can run this job:
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_env_var":::
 
 > [!WARNING]
-> It is recommended to use `inputs` for passing arguments in the `command`. See [inputs and outputs](##inputs-and-outputs).
+> It is recommended to use `inputs` for passing arguments in the `command`. See [inputs and outputs](#inputs-and-outputs).
 
-## Tracking models and their source code
+## Track models and source code
 
 Production machine learning models need to be auditable if not reproducible. It is crucial to keep track of the source code for a given model. Azure Machine Learning takes a snapshot of your source code and keeps it with the job. Additionally, the source repository and commit are kept if you are running jobs from a Git repository.
 
-> [!TIP] 
+> [!TIP]
 > If you're following along and running from the examples repository, you can see the source repository and commit in the studio on any of the jobs run so far.
 
 You can specify the `code.local_path` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
 
-> [!TIP] 
-> The source code should not include large data inputs for model training. Instead, [use data inputs](###data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot.
+> [!TIP]
+> The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot.
 
 Let's look at a job that specifies code:
 
@@ -321,7 +321,7 @@ The scikit-learn framework is supported by MLflow for autologging, so a single `
 
 To run this in the cloud, specify as a job:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/single-step/scikit-learn/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
 And run it:
 
@@ -390,7 +390,7 @@ We can write these three jobs as a pipeline job:
 
 And run:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="cifar_10_pipeline":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="pipeline_cifar":::
 
 ## Next steps
 
