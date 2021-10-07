@@ -137,11 +137,11 @@ You'll configure network on both nodes. These steps can be done in parallel. The
 
 ### Configure network on first node
 
-To configure the network for a 2-node device, follow these steps on the 1st node of the device:
+To configure the network for a 2-node device, follow these steps on the first node of the device:
 
-1. In the local UI of the 1st node, go to the **Network** page. Choose the topology for cluster and the storage traffic between nodes from the following options: 
+1. In the local UI of the first node, go to the **Network** page. Choose the topology for cluster and the storage traffic between nodes from the following options: 
 
-    - **Switchless**. Use this option when high speed switches aren't available for storage and clustering traffic.
+    - **Switchless**. Use this option when high-speed switches aren't available for storage and clustering traffic.
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/technologies/nic-teaming/nic-teaming).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
 
@@ -156,7 +156,7 @@ To configure the network for a 2-node device, follow these steps on the 1st node
 You'll now prepare the second node for clustering. You'll first need to configure the network. Follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
-1. Make sure that the 2nd node is cabled as per the topology you selected for the 1st node. In the **Network** page, choose and **Apply** the same topology that you selected for the 1st node.
+1. Make sure that the second node is cabled as per the topology you selected for the first node. In the **Network** page, choose and **Apply** the same topology that you selected for the first node.
 1. Select **Back to get started**.
 
 ## Get authentication token
@@ -179,7 +179,7 @@ You'll now create a cluster witness. A cluster witness helps establish quorum fo
 
 A cluster witness can be: 
 
-- **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in case of split-brain resolution. 
+- **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. 
 
     Use cloud witness when you have internet access. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](windows-server/failover-clustering/deploy-cloud-witness).
 - **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. 
@@ -278,7 +278,7 @@ Follow these steps to enable compute and configure compute network.
     > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
+1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
     > [!IMPORTANT]
     > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
@@ -302,8 +302,8 @@ Follow these steps to enable compute and configure compute network.
 You'll now configure the intent of the virtual switches that are created based on the network topology that you created.
 
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, select a virtual switch. In the Network settings blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use CRTL + Click to select more than one intents for your virtual switch. 
-1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
+1. In the **Virtual switch** section, select a virtual switch. In the Network settings blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use CRTL + Click to select more than one intent for your virtual switch. 
+1. For a virtual switch that is intended for compute, you can assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided.
 
@@ -311,7 +311,7 @@ You'll now configure the intent of the virtual switches that are created based o
     > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
+1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
     > [!IMPORTANT]
     > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
