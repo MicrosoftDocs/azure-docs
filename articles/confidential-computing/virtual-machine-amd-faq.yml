@@ -1,0 +1,103 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure confidential VMs FAQ
+  description: Answers to frequently asked questions about Azure confidential VMs.
+  author: EdCohen
+  ms.topic: troubleshooting
+  ms.workload: infrastructure
+  ms.service: virtual-machines
+  ms.subservice: confidential-computing
+  ms.date: 10/7/2021
+  ms.author: edcohen
+    
+title: Frequently asked questions for Azure confidential VMs
+summary: |
+  This article provides answers to some of the most common questions about running [confidential computing workloads on Azure confidential virtual machines](confidential-vm--overview.md).
+  
+  
+sections:
+  - name: Ignored
+    questions:
+      - question: | 
+          What are Confidential VMs (CVMs)?
+        answer: |
+          CVMs are designed as IaaS virtual machines for tenants with especially high security and confidentiality requirements. Confidential VMs offer access to the following technologies and benefits: 
+            1.	Encryption for “data in use” such that no component outside the processor, and no process outside the VM, can access a Confidential VM’s state. 
+            2.	Host attestation to attest the full health and compliance of the server prior to initializing a Confidential VM.
+            3.	Encryption of “data at rest” such that keys are guarded by an HSM (Hardware Security Module) and can be exclusively owned by the tenant. 
+            4.	New UEFI boot architecture supporting the Guest OS for enhanced security settings and capabilities.
+            5.	A dedicated virtual instance of a TPM (Confidential Platform Module) to attest the health of the VM and provide hardened key management functions (supporting use cases such as BitLocker)
+          
+      - question: |
+          Why should I consider CVMs?
+        answer: |
+          CVMs are Azure’s response to customers’ growing desire to do more on the cloud, and as a result, place greater trust in the cloud. If you ever felt uneasy about moving sensitive workloads off-premises to run on the cloud, CVMs are designed to address this.
+          As such, these VMs are architected, deployed, and operated such that underlying infrastructure and cloud operators are prevented from accessing customer workloads and data. Unlike other approaches and solutions, there is no expectation that you adapt your existing workloads to fit the platform’s technical needs.
+
+      - question: |
+          What are AMD SEV technologies and how does this relate to Azure confidential VMs?
+        answer: |
+          AMD SEV technologies, and particularly SEV-SNP (Secure Encrypted Virtualization-Secure Nested Paging) offer memory encryption using unique CPU keys, encryption for the processor register state, strong integrity protection, firmware rollback prevention, side channel hardening, restrictions on interrupt and exceptions behavior, and more. 
+          Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. Combined with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview), customer code and data are encrypted in use, 
+          in transit, and at rest using keys which can be end-to-end protected and exclusively controlled by the customer. By utilizing built-in [Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) capabilities, VM administrators can independently establish trust in the healthy posture and underlying infrastructure of these virtual machines.
+          Please note that during the preview phase not all of these capabilities may be available.
+
+      - question: |
+          How can I deploy Azure confidential VMs?
+        answer: |
+          Here are some ways you can deploy a DCasv5/ECasv5 VM:
+             - From the [Azure portal](quick-create-portal-cvm.md)
+             - From the [Command-line interface](quick-create-cli-amd-cvm.md)
+
+      - question: |
+          Will all OS images work with Azure confidential VMs?
+        answer: |
+          At this time OS images must meet certain security and compatibility requirements to run on a confidential VM. These requirements ensure that VMs are securely mounted, attested, and isolated from the underlying cloud infrastructure. Microsoft is working to bring this compatibility into additional OS versions across Linux and Windows. 
+
+          Using [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) it is possible to modify one of these confidential VM images (e.g. by installing certain applications) and using it as a baseline for deploying other confidential VMs.
+
+      - question: |
+          Can I convert a non-confidential VM into a confidential VM?
+        answer: |
+          No. For security reasons, Confidential VMs need to be created as such from the start.
+
+      - question: |
+          DCasv5/ECasv5 virtual machines don't show up when I try to search for them in the portal size selector
+        answer: |
+          Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector. 
+          
+      - question: |
+          Can I enable Accelerated Networking with Azure confidential VMs?
+        answer:  No. Accelerated Networking isn't supported on DCasv5-Series or ECasv5-Series virtual machines. Accelerated Networking cannot be enabled for any confidential computing virtual machine deployment or Azure Kubernetes Service cluster deployment running on confidential computing.
+
+      - question: |
+          I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
+        answer: |
+          [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
+          
+      - question: |
+          What’s the difference between DCasv5-Series and ECasv5-series VMs?
+        answer: |
+          ECasv5-series are memory optimized VM sizes which offer a higher memory-to-CPU ratio. This is great for relational database servers, medium to large caches, and in-memory analytics. There are no material differences otherwise.
+          
+      - question: |
+          Are DCasv5/ECasv5 virtual machines available globally?
+        answer: |
+          No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
+
+      - question: |
+          What happens if I need Microsoft to help me service or access data on my confidential VM?
+        answer: |
+          Confidential VMs are designed, deployed, and operated such that Microsoft is precluded from accessing, using or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to its employees, even if authorized by a customer. This means that various recovery and support scenarios are not possible when using Azure confidential VMs.
+
+      - question: |
+          Do confidential VMs support virtualization and solutions such as Azure VMware?
+        answer: |
+          No, CVMs don’t currently support nested virtualization (the ability to run a hypervisor inside a VM). 
+
+
+      - question: |
+          Is there be an additional cost to using CVMs?
+        answer: |
+          CVMs are billed based on virtual machine usage according to the size and region. Note that CVMs are offered through dedicated sizes, so prices are not the same as general-purpose VMs. For some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
+
