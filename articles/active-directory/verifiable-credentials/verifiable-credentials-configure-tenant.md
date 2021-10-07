@@ -11,7 +11,7 @@ ms.date: 09/28/2021
 
 ---
 
-# Configure your tenant for Azure AD Verifiable Credentials
+# Configure your tenant for Azure AD Verifiable Credentials (preview)
 
 Azure Active Directory (Azure AD) Verifiable Credentials service allows you to issue and verify credentials. To be able to issue, verify credentials (or both), follow the guidance in this tutorial.
 

@@ -6,12 +6,12 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 09/22/2021
+ms.date: 10/08/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
 
-# Issue Azure AD Verifiable Credentials from an Application
+# Issue Azure AD Verifiable Credentials from an Application (preview)
 
 In this tutorial, you run a sample application from your local machine that connects to your Azure AD tenant. Using the application, you are going to ask yourself to present a Verified Credential Expert Card to verify. 
 
