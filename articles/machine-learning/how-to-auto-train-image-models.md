@@ -266,7 +266,7 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
 ### Data Augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is not a hyperparameter to change data augmentations techniques. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|------|-----------|
