@@ -64,21 +64,21 @@ The "hello world" job has all three:
 > [!WARNING]
 > Python must be installed in the environment used for jobs. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed, or derive from a base image with Python installed already. This limitation will be removed in a future release.
 
+> [!TIP]
+> The `$schema:` throughout examples allows for schema validation and autocompletion if authoring YAML files in [VSCode with the Azure Machine Learning extension](how-to-setup-vscode).
+
 Which you can run:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world":::
 
-> [!TIP] 
+> [!TIP]
 > The `--web` parameter will attempt to open your job in the Azure Machine Learning studio using your default web browser. The `--stream` parameter can be used to stream logs to the console and block further commands.
 
-## Overriding values with `--set`
+## Overriding values on create or update
 
 YAML job specification values can be overridden using `--set` when creating or updating a job. For instance:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_set":::
-
-> [!TIP]
-> The `--set` parameter is useful for changing the compute target or training parameters when experimenting. It can also be used with `az ml job update`, which is shown below.
 
 ## Job names
 
@@ -104,7 +104,7 @@ You can run this job, where these properties will be immediately visible in the 
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_org":::
 
-Using `--set` we can update the mutable values after the job is created:
+Using `--set` you can update the mutable values after the job is created:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_org_set":::
 
@@ -139,8 +139,8 @@ Let's look at a job that specifies code:
 
 The Python script is in the local source code directory. The command then invokes `python` to run the script. The same pattern can be applied for other programming languages.
 
-> [!WARNING] 
-> The "hello" family of jobs shown in this article are for demonstration purposes do not necessarily follow recommended best practices. Using `&&` or similar to run many jobs in a sequence is not recommended - instead, consider writing the commands to a script file in the source code directory and invoking the script in your `command`. Installing dependencies in the `command`, as shown above via `pip install`, is not recommended - instead, all job dependencies should be specified as part of your environment. See [how to manage environments with the CLI (v2)](TODO) for details.
+> [!WARNING]
+> The "hello" family of jobs shown in this article are for demonstration purposes do not necessarily follow recommended best practices. Using `&&` or similar to run many commands in a sequence is not recommended - instead, consider writing the commands to a script file in the source code directory and invoking the script in your `command`. Installing dependencies in the `command`, as shown above via `pip install`, is not recommended - instead, all job dependencies should be specified as part of your environment. See [how to manage environments with the CLI (v2)](TODO) for details.
 
 ### Model tracking with MLflow
 
@@ -156,7 +156,7 @@ Let's take a look at Python script invoked in the job above which uses `mlflow` 
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-mlflow.py":::
 
-We can run this job in the cloud via Azure Machine Learning, where it is tracked and auditable:
+You can run this job in the cloud via Azure Machine Learning, where it is tracked and auditable:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_mlflow":::
 
@@ -172,11 +172,11 @@ Use the output of this command in `mlflow.set_tracking_uri(<YOUR_TRACKING_URI>)`
 
 ## Inputs and outputs
 
-Jobs typically have inputs and outputs. Inputs can take the form of model inputs, which might be sweeped over for hyperparameter optimization, or cloud data inputs that are mounted or downloaded to the compute target. Outputs (ignoring metrics) are artifacts which can be written or copied to the default outputs or a named data output.
+Jobs typically have inputs and outputs. Inputs can be model parameters, which might be sweeped over for hyperparameter optimization, or cloud data inputs that are mounted or downloaded to the compute target. Outputs (ignoring metrics) are artifacts that can be written or copied to the default outputs or a named data output.
 
 ### Literal inputs
 
-Literal inputs are directly inferred in the command. We can modify our "hello world" job to use literal inputs:
+Literal inputs are directly inferred in the command. You can modify our "hello world" job to use literal inputs:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
 
@@ -197,7 +197,7 @@ For a sweep job, you can specify a search space for literal inputs to be chosen 
 > [!WARNING]
 > Sweep jobs are not currently supported in pipeline jobs. This limitation will be removed in a future release.
 
-We can demonstrate the concept with a simple Python script which takes in arguments and logs a random metric:
+Let's demonstrate the concept with a simple Python script which takes in arguments and logs a random metric:
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-sweep.py":::
 
@@ -213,7 +213,7 @@ And run it:
 
 The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once it is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
 
-We can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
+You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
 
@@ -229,7 +229,7 @@ And download the logs, where `helloworld.txt` will be present in the `<RUN_ID>/o
 
 Data inputs are inferred as a path on the job compute's local filesystem. Let's demonstrate with the classic Iris dataset, which is hosted publicly in a blob container at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`.
 
-We can author a Python script which takes the path to the Iris CSV file as an argument, reads it into a dataframe, prints the first 5 lines, and saves it to the `outputs` directory.
+You can author a Python script which takes the path to the Iris CSV file as an argument, reads it into a dataframe, prints the first 5 lines, and saves it to the `outputs` directory.
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-iris.py":::
 
@@ -249,10 +249,12 @@ And run:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="iris_folder":::
 
-For private data in Azure Blob or Azure Data Lake Storage connected to Azure Machine Learning through a datastore, you can use Azure Machine Learning URIs of the format `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>` for input data. For instance, if we upload the Iris CSV to a directory named `"example-data"` in the Blob container corresponding to the datastore named `workspaceblobstore` we can modify our job to use a file:
+#### Private data
+
+For private data in Azure Blob or Azure Data Lake Storage connected to Azure Machine Learning through a datastore, you can use Azure Machine Learning URIs of the format `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>` for input data. For instance, if you upload the Iris CSV to a directory named `/example-data/` in the Blob container corresponding to the datastore named `workspaceblobstore` you can modify a previous job to use the file in the datastore:
 
 > [!WARNING]
-> Running these jobs will fail for you if you have not copied the Iris CSV to the same location.
+> Running these jobs will fail for you if you have not copied the Iris CSV to the same location in `workspaceblobstore`.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
 
@@ -264,7 +266,7 @@ Or the entire directory:
 
 You can specify named data outputs. This will create a directory in the default datastore which will be read/write mounted by default.
 
-We can modify the earlier "hello world" job to write to a named data output:
+You can modify the earlier "hello world" job to write to a named data output:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
 
@@ -275,7 +277,7 @@ We can modify the earlier "hello world" job to write to a named data output:
 
 Pipeline jobs can run multiple jobs in parallel. If there are input/output dependencies between steps in a pipeline, the dependent step will run after the other completes.
 
-We can split a "hello world" job into two jobs:
+You can split a "hello world" job into two jobs:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline.yml":::
 
@@ -285,7 +287,7 @@ And run it:
 
 The "hello" and "world" jobs respectively will run in parallel if the compute target has the available resources to do so.
 
-To pass data between steps in a pipeline, we define a data output in the "hello" job. We define a corresponding input in the "world" job, which refers to the prior's output:
+To pass data between steps in a pipeline, define a data output in the "hello" job and a corresponding input in the "world" job, which refers to the prior's output:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-io.yml":::
 
@@ -303,7 +305,7 @@ You can run this:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline_settings":::
 
-The corresponding setting on an individual job will override the common settings for a pipeline job. We can combine the concepts so far into a three-step pipeline job. The "C" job has a data dependency on the "B" job, while the "A" job can run independently. The "A" job will also use an individually set environment and bind one of its inputs to a top-level input:
+The corresponding setting on an individual job will override the common settings for a pipeline job. The concepts so far can be combined into a three-step pipeline job with jobs "A", "B", and "C". The "C" job has a data dependency on the "B" job, while the "A" job can run independently. The "A" job will also use an individually set environment and bind one of its inputs to a top-level input:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
 
@@ -313,7 +315,7 @@ You can run this:
 
 ## Train a model
 
-At this point, we still haven't trained a model. Let's add some `sklearn` code into a Python script with MLflow tracking to train a model on the Iris CSV:
+At this point, a model still hasn't been trained. Let's add some `sklearn` code into a Python script with MLflow tracking to train a model on the Iris CSV:
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
 
@@ -333,7 +335,7 @@ To register a model, you can download the outputs and create a model from the lo
 
 ### Sweep hyperparameters
 
-We can modify the previous job to sweep over hyperparameters:
+You can modify the previous job to sweep over hyperparameters:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
@@ -350,9 +352,9 @@ For more sweep options, see the [sweep job YAML reference](TODO).
 
 Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed training. See the [distributed section of a command job](TODO) for details.
 
-As an example, we'll train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/cli-preview/jobs/single-step/pytorch/cifar-distributed/).
+As an example, you can train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/cli-preview/jobs/single-step/pytorch/cifar-distributed/).
 
-The CIFAR-10 dataset in `torchvision` expects as input a directory that contains the `cifar-10-batches-py` directory. We can download the zipped source and extract into a local directory:
+The CIFAR-10 dataset in `torchvision` expects as input a directory that contains the `cifar-10-batches-py` directory. You can download the zipped source and extract into a local directory:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-datasets.sh" id="download_untar_cifar":::
 
@@ -364,9 +366,9 @@ Optionally, remove the local file and directory:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
-Datasets (File only) can be referred to in a job using the `dataset` key of a data input. The format is `azureml:<DATASET_NAME>:<DATASET_VERSION>`, so for the CIFAR-10 dataset we just created `azureml:cifar-10-example:1`.
+Datasets (File only) can be referred to in a job using the `dataset` key of a data input. The format is `azureml:<DATASET_NAME>:<DATASET_VERSION>`, so for the CIFAR-10 dataset just created `azureml:cifar-10-example:1`.
 
-With the dataset in place, we can author a distributed PyTorch job to train our model:
+With the dataset in place, you can author a distributed PyTorch job to train our model:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
@@ -376,7 +378,7 @@ And run it:
 
 ## Build a training pipeline
 
-The CIFAR-10 example above translates well to a pipeline job. We will split the previous job into three jobs for orchestration in a pipeline:
+The CIFAR-10 example above translates well to a pipeline job. The previous job can be split into three jobs for orchestration in a pipeline:
 
 - "get-data" to run a Bash script to download and extract `cifar-10-batches-py`
 - "train-model" to take the data and train a model with distributed PyTorch
@@ -384,7 +386,7 @@ The CIFAR-10 example above translates well to a pipeline job. We will split the 
 
 Both "train-model" and "eval-model" will have a dependency on the "get-data" job's output. Additionally, "eval-model" will have a dependency on the "train-model" job's output. Thus the three jobs will run sequentially.
 
-We can write these three jobs as a pipeline job:
+You can write these three jobs as a pipeline job:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
 
