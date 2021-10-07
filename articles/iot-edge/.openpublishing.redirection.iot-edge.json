@@ -189,6 +189,21 @@
             "source_path_from_root": "/articles/iot-edge/how-to-auto-provision-symmetric-keys.md",
             "redirect_url": "/azure/iot-edge/how-to-provision-devices-at-scale-linux-symmetric",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-auto-provision-simulated-device-linux.md",
+            "redirect_url": "/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-auto-provision-tpm-linux-on-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-provision-devices-at-scale-linux-on-windows-tpm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-auto-provision-simulated-device-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-provision-devices-at-scale-windows-tpm",
+            "redirect_document_id": false
         }
     ]
 }
