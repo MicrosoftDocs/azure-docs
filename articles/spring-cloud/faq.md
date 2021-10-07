@@ -208,12 +208,12 @@ Yes. For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
 
 Azure Spring Cloud is continuously probing port 1025 for customer's applications, to know whether the application container is ready to start accepting traffic and whether need to restart the application container. Internally, Azure Spring Cloud is using Kubernetes liveness probe and readiness probe to achieve the status monitoring.
 
+>[!NOTE]
+> As a result, currently applications without exposing port 1025 aren't able to be launched in Azure Spring Cloud.
+
 ### Whether and when will my application be restarted?
 
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
-
->[!NOTE]
-> As a result, currently applications without exposing port 1025 aren't able to be launched in Azure Spring Cloud.
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
