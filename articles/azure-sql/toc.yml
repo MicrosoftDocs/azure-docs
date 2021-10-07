@@ -1330,7 +1330,7 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Configure connectivity
+          - name: Configure connectivity (Single subnet)
             items: 
             - name: Virtual network name (VNN)
               href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md

@@ -18,6 +18,13 @@ ms.date: 09/01/2021
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## October 2021
+
+| Changes | Details |
+| --- | --- |
+| **Eliminate need for Azure Load Balancer or DNN** | Deploy your SQL Server VMs to multiple subnets to eliminate the dependency on the Azure Load Balancer or distributed network name (DNN) to route traffic to your HADR solution! See the [multi-subnet availability group](availability-group-configure-prerequisites-tutorial-multi-subnet.md) tutorial, and [prepare SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md#choose-subnet-deployment) article to learn more. | 
+
+
 ## September 2021
 
 | Changes | Details |

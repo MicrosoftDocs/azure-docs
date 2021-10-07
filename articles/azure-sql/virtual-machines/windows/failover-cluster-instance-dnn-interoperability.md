@@ -19,6 +19,9 @@ ms.author: mathoma
 # Feature interoperability with SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!TIP]
+> Eliminate the need for a distributed network name (DNN) for failover cluster instance by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
+
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) resource with your failover cluster instance and SQL Server on Azure VMs, there are some additional considerations. 
 
 In this article, learn how to configure the network alias when using the DNN resource, as well as which SQL Server features require additional consideration.

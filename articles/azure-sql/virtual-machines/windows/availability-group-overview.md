@@ -50,7 +50,9 @@ While Availability Zones may provide better availability than Availability Sets 
 
 ## Connectivity
 
-You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
+To match the on-premises experience for connecting to your availability group listener, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name to route your traffic to your listener. 
+
+If you deploy your SQL Server VMs to a single subnet, you can configure a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) to route traffic to your availability group listener. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
 Most SQL Server features work transparently with availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 

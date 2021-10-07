@@ -23,7 +23,7 @@ ms.custom: "seo-lt-2019"
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-This article explains how to create a load balancer for a SQL Server Always On availability group in Azure Virtual Machines that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
+This article explains how to create a load balancer for a SQL Server Always On availability group in Azure Virtual Machines within a single subnet that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
 To complete this task, you need to have a SQL Server Always On availability group deployed in Azure VMs that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](./availability-group-quickstart-template-configure.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
 

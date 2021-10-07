@@ -37,6 +37,10 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
    - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 
+## Choose subnet deployment
+
+For SQL Server on Azure VMs, you have the option to deploy your SQL Server VMs to a single subnet, or to multiple subnets. Deploying your VMs to multiple subnets matches the on-premises experience when connecting to your failover cluster instance. Deploying your VMs to a single subnet requires the additional dependency of relying on an Azure Load Balancer or distributed network name (DNN) to route traffic to your FCI. Either deploy your SQL Server VMs to multiple subnets, or if you choose to deploy your SQL Server VMs to a single subnet [review the differences between the Azure Load Balancer and DNN connectivity options](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and decide which option will work best for you before preparing the rest of your environment for your FCI. 
+
 ## Choose an FCI storage option
 
 The configuration settings for your virtual machine vary depending on the storage option you're planning to use for your SQL Server failover cluster instance. Before you prepare the virtual machine, review the [available FCI storage options](failover-cluster-instance-overview.md#storage) and choose the option that best suits your environment and business need. Then carefully select the appropriate VM configuration options throughout this article based on your storage selection. 
