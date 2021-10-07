@@ -1,13 +1,13 @@
 ---
 title: Deploy the Log Analytics agent on Azure Arc-enabled servers
 description: This article tells how to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 10/06/2021
+ms.date: 10/07/2021
 ms.topic: conceptual 
 ---
 
 # Deploy the Log Analytics agent on Azure Arc-enabled servers
 
-Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers supports the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs. 
+Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers supports the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
 
 The Log Analytics agent is required if you want to:
 
@@ -17,7 +17,7 @@ The Log Analytics agent is required if you want to:
 * Collect inventory and track changes by using Azure Automation Change Tracking and Inventory.
 * Run Automation runbooks directly on the machine and against resources in the environment to manage them by using an Azure Automation Hybrid Runbook Worker.
 
-This article reviews deployment methods for the Log Analytics agent VM extension, available through Azure Arc-enabled servers, to help you determine which works best for your organization.
+This article reviews the deployment methods for the Log Analytics agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization.
 
 ## Installation options
 
@@ -40,7 +40,7 @@ This method supports managing the installation, management, and removal of VM ex
 
 ### Using Azure Policy
 
-You can use Azure Policy to maintain configuration compliance by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition or the **Enable Azure Monitor for VMs** policy initiative.
+You can use Azure Policy to deploy the Log Analytics agent VM extension at-scale to machines in your environment, and maintain configuration compliance. This is accomplished by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition, or the **Enable Azure Monitor for VMs** policy initiative.
 
 #### Advantages
 
@@ -51,5 +51,20 @@ You can use Azure Policy to maintain configuration compliance by using either th
 #### Disadvantages
 
 * The **Configure Log Analytics extension on Azure Arc enabled** *operating system* **servers** policy only installs the Log Analytics VM extension and configures the agent to report to a specified Log Analytics workspace. If you are interested in VM insights to monitor the operating system performance, running processes and dependencies on other resources, then you should apply the policy initiative **Enable Azure Monitor for VMs**. It installs and configures the Log Analytics VM extension and the Dependency agent VM extension, which requires both agents.
+* Standard compliance evaluation cycle is once every 24 hours. An evaluation scan for a subscription or a resource group can be started with Azure CLI, Azure PowerShell, a call to the REST API, or by using the Azure Policy Compliance Scan GitHub Action. For more information, see [Evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+
+### Using Azure Automation
+
+The process automation operating environment in Azure Automation and its support for PowerShell and Python runbooks can enable you to automate the deployment of the Log Analytics agent VM extension at-scale to machines in your environment.
+
+#### Advantages
+
+* Can use a scripted method to automate its deployment and configuration using scripting languages your familiar with.
+* Runs on a schedule that you define and control.
+* Use a managed identity to authenticate securely to Arc-enabled servers from the Automation account.
+
+#### Disadvantages
+
+
 
 ## Next steps
