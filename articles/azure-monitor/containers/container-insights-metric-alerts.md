@@ -14,9 +14,8 @@ This article reviews the experience and provides guidance on configuring and man
 
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
->[!NOTE]
->Starting 10/08/2021, Three alerts have been updated to correctly calculate the alert condition. These alerts are **Container CPU %**, **Container working set memory %** & **Persistent Volume Usage %**. These new alerts with the same name as their corresponding previously available alerts uses new updated metrics. It is recommended to disable the alerts using "Old" metrics below and enable the “New” ones. These “Old” metrics will no longer be available in recommended alerts once disabled but may be manually re-enabled if desired. Details below
->
+> [!NOTE]
+> Beginning October 8, 2021, three alerts have been updated to correctly calculate the alert condition: **Container CPU %**, **Container working set memory %**, and **Persistent Volume Usage %**. These new alerts have the same names as their corresponding previously available alerts, but they use new, updated metrics. We recommend that you disable the alerts that use the "Old" metrics, described in this article, and enable the "New" metrics. The "Old" metrics will no longer be available in recommended alerts after they are disabled, but you can manually re-enable them.
 
 ## Prerequisites
 
