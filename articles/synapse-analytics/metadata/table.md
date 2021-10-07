@@ -2,13 +2,13 @@
 title: Shared metadata tables
 description: Azure Synapse Analytics provides a shared metadata model where creating a table in serverless Apache Spark pool will make it accessible from serverless SQL pool and dedicated SQL pool without duplicating the data. 
 services: sql-data-warehouse 
-author: maburd 
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
 ms.date: 10/05/2021
+author: maburd 
 ms.author: maburd 
-ms.reviewer: jrasnick, jocaplan
+ms.reviewer: jrasnick, wiassaf
 ms.custom: devx-track-csharp
 ---
 
@@ -70,9 +70,9 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `DateType`, `date`                          | `date`                | **Spark**: *DateType* represents values comprising values of fields year, month and day, without a time-zone.<BR>**SQL**: See [date](/sql/t-sql/data-types/date-transact-sql).|
 | `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* represents values comprising values of fields year, month, day, hour, minute, and second, with the session local time-zone. The timestamp value represents an absolute point in time.<BR>**SQL**: See [datetime2](/sql/t-sql/data-types/datetime2-transact-sql). |
 | `char`                                      | `char`                |
-| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. Char type column comparison will pad the short one to the longer length. <br> **SQL**: If there's a length provided from Spark, n in *varchar(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *varchar(max)*. See [char and varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql).<br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
+| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. *CharType(n)* column comparison will pad the short one to the longer length. <br> **SQL**: If there's a length provided from Spark, n in *varchar(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *varchar(max)*. See [char and varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql).<br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
 | `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: If there's a length provided from Spark, `n` in *Varbinary(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *Varbinary(max)*.  See [binary and varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql).|
-| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
+| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8`. See [JSON Data](/sql/relational-databases/json/json-data-sql-server).|
 
 >[!NOTE]
 >Database level collation is `Latin1_General_100_CI_AS_SC_UTF8`.
