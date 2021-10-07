@@ -72,6 +72,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
 | On-demand provisioning|● |● |
+| Support for US Government|● |● |
 
 ## Next steps 
 
