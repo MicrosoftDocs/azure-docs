@@ -11,7 +11,7 @@ manager: eriklind
 ms.custom: 
 ---
 
-# Add a heat map layer
+# Add a heat map layer to the Azure Maps visual for Power BI
 
 In this article you will learn how to add a heat map layer to an Azure Maps visual in Power BI.
 
