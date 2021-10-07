@@ -76,8 +76,22 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in the
 | Southeast Asia | `southeastasia`      |
 
 ### Speaker Recognition
-
-Speaker Recognition is currently only available in the `westus` region.
+Available regions for **Speaker Recognition** via the Speech SDK are the following:
+| Geography | Region           | Region identifier |
+| ------------- | ---------------- | -------------------- |
+| Americas     | Central US   | `centralus` |
+| Americas     | East US   | `eastus`  |
+| Americas     | East US 2  | `eastus2`  |
+| Americas     | West Central US  | `westcentralus`  |
+| Americas     | West US  | `westus`  |
+| Americas     | West US 2  | `westus2`  |
+| Asia Pacific  | East Asia   | `eastasia` |
+| Asia Pacific  | Southeast Asia   | `southeastasia` |
+| Asia Pacific  | Central India   | `centralindia` |
+| Australia     | Australia East   | `australiaeast` |
+| Europe     | North Europe   | `northeurope` |
+| Europe     | West Europe   | `westeurope` |
+| Europe     | UK South   | `uksouth` |
 
 ## REST APIs
 
