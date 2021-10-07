@@ -266,13 +266,16 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
 ### Data Augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. 
-We apply different data augmentation techniques with random probability for input images for each task (classification, object detection and instance segmentation) before feeding them to the model. 
-- Image (multi-class and multi-label) classification: we apply random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue) and normalization using channel-wise ImageNet’s mean and standard deviation for a training dataset while we do resize, center crop and normalization for validation and test datasets.
-- Object detection and instance segmentation: we apply random crop around bounding boxes, expand, horizontal flip, normalization and resize for a training dataset while we do normalization and resize for validation and test datasets.
-- Object detection using yolov5: we apply mosaic, random affine (rotation, translation, scale, shear) and horizontal flip for a training dataset, while we apply letterbox resizing for validation and test dataset. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is not a hyperparameter to change data augmentations techniques. 
 
-At the moment, we don't expose any hyperparameter to control data augmentations techniques.
+|Task | Impacted dataset | Data augmentation technique(s) applied |
+|-------|------|-----------|
+|Image (multi-class and multi-label) classification | Training | Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation |
+|Image (multi-class and multi-label) classification | Validation & Test | Resize, center crop, normalization
+|Object detection, instance segmentation| Training |Random crop around bounding boxes, expand, horizontal flip, normalization, resize|
+|Object detection, instance segmentation| Validation & Test |Normalization, resize|
+|Object detection using yolov5| Training |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip|
+|Object detection using yolov5| Validation & Test |Letterbox resizing|
 
 
 ## Configure your experiment settings
