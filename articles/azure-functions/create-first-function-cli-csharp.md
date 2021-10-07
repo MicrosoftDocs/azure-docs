@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 [!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
-# [In-process](#tab/in-process)    
+# [In-process](#tab/in-process)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
@@ -41,7 +41,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
 # [Isolated process](#tab/isolated-process)
 
@@ -55,7 +55,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 ---
 ::: zone-end
 
@@ -81,7 +81,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `dotnet --list-sdks` to check that the required versions are installed.
 
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
@@ -91,9 +91,9 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
-    # [In-process](#tab/in-process) 
+    # [In-process](#tab/in-process)
 
     ```csharp
     func init LocalFunctionProj --dotnet
@@ -118,7 +118,7 @@ In Azure Functions, a function project is a container for one or more individual
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ``` 
+    ```
 
     `func new` creates a HttpExample.cs code file.
 
@@ -128,23 +128,23 @@ If desired, you can skip to [Run the function locally](#run-the-function-locally
 
 #### HttpExample.cs
 
-The function code generated from the template depends on the type of compiled C# project.  
+The function code generated from the template depends on the type of compiled C# project.
 
-# [In-process](#tab/in-process) 
+# [In-process](#tab/in-process)
 
 *HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). 
+The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400).
 
 # [Isolated process](#tab/isolated-process)
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself. 
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
 
-The return object is an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object that contains the data that's handed back to the HTTP response. 
+The return object is an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object that contains the data that's handed back to the HTTP response.
 
 ---
 
@@ -158,28 +158,28 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     func start
     ```
 
-    Toward the end of the output, the following lines should appear: 
-    
+    Toward the end of the output, the following lines should appear:
+
     <pre>
     ...
-    
+
     Now listening on: http://0.0.0.0:7071
     Application started. Press Ctrl+C to shut down.
-    
+
     Http Functions:
-    
+
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ...
-    
+
     </pre>
-    
-    >[!NOTE]  
+
+    >[!NOTE]
     > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
 1. Copy the URL of your `HttpExample` function from this output to a browser:
 
     # [In-process](#tab/in-process)
-    
+
      To the function URL, append the query string `?name=<YOUR_NAME>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a response message that echoes back your query string value. The terminal in which you started your project also shows log output as you make requests.
 
     # [Isolated process](#tab/isolated-process)
@@ -199,23 +199,23 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
+    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
 
     # [Azure CLI](#tab/azure-cli/isolated-process)
 
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ``` 
-    
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
+    ```
+
+    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell/in-process)
-    
+
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell/isolated-process)
 
@@ -223,7 +223,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
 
     ---
 
@@ -231,18 +231,18 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     > [!NOTE]
     > This command creates a function app using the 3.x version of the Azure Functions runtime. The `func azure functionapp publish` command that you'll run later updates the app to version 4.x.
     ::: zone-end
-    
-    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
-    
+
+    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
 ## Invoke the function on Azure
 
-Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser.  
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser.
 
-# [In-process](#tab/in-process) 
+# [In-process](#tab/in-process)
 
 Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `?name=Functions`. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 
@@ -258,7 +258,7 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 
 ## Next steps
 
-# [In-process](#tab/in-process) 
+# [In-process](#tab/in-process)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=in-process)
