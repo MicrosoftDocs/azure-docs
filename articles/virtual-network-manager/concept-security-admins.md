@@ -20,12 +20,12 @@ Azure Virtual Network Manager provides two different types of configurations you
 
 ## Security admin rules
 
-A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than Network security group (NSG) rules and will get evaluated before NSG rules. For example, an administrator can deny all high risk ports/protocol from the Internet with security admin rules and these will trump allow NSG rules created at the VM or subnet level.
+A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than Network security group (NSG) rules and will get evaluated before NSG rules. For example, an administrator can deny all high risk ports or protocol from the Internet with security admin rules, and these rules will override allowed NSG rules created at the VM or subnet level.
 
 > [!IMPORTANT]
 > Some services have network intent policies to ensure the network traffic is working as needed for their services. When you use security admin rules, you could break the network intent policies created for those services. For example, creating a deny admin rule can block some traffic allowed by the *SQL managed instance* service, which is defined by their network intent policy. Make sure to review your environment before applying a security admin rule. 
 
-The following are fields you can defined in a security admin rule:
+The following are fields you can define in a security admin rule:
 
 ## Required fields
 
@@ -42,7 +42,8 @@ You can define one of three actions for a security rule:
 * **Always allow**: Regardless of other rules with lower priority & user-defined NSGs, allow traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
 
 ### Direction
-You can specific the direction of traffic for which the rule applies. You have the option to define either inbound or outbound.
+
+You can specify the direction of traffic for which the rule applies. You can define either inbound or outbound.
 
 ### Protocol
 
