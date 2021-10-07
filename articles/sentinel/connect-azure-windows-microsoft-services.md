@@ -230,6 +230,56 @@ You'll see all your data collection rules (including those created through the A
 > - If you receive the message No events were found that match the specified selection criteria., the query may be valid, but there are no matching events on the local machine.
 > - If you receive the message The specified query is invalid , the query syntax is invalid.
 
+### Create data collection rules using the API
+
+You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+
+**Request URL and header**
+
+```http
+PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule?api-version=2019-11-01-preview
+```
+
+**Request body**
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "dataSources": {
+            "windowsEventLogs": [
+                {
+                    "streams": [
+                        "Microsoft-SecurityEvent"
+                    ],
+                    "xPathQueries": [
+                        "Security!*[System[(EventID=) or (EventID=4688) or (EventID=4663) or (EventID=4624) or (EventID=4657) or (EventID=4100) or (EventID=4104) or (EventID=5140) or (EventID=5145) or (EventID=5156)]]"
+                    ],
+                    "name": "eventLogsDataSource"
+                }
+            ]
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+                    "name": "centralWorkspace"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Microsoft-SecurityEvent"
+                ],
+                "destinations": [
+                    "centralWorkspace"
+                ]
+            }
+        ]
+    }
+}
+```
 
 ---
 

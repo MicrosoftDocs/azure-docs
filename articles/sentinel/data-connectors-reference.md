@@ -1322,12 +1322,14 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article);<br>**[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
+
+See also: [**Windows Security Events**](#windows-security-events-preview).
 
 ## SentinelOne (Preview)
 
@@ -1560,7 +1562,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
@@ -1578,7 +1580,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article);<br>**[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
