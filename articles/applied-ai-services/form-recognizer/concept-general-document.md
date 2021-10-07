@@ -23,7 +23,7 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * Form Recognizer studio and the general document model are available with the preview (v3.0) API.
 
-* Extract tables, values and entities from forms and documents with our Form Recognizer Studio General Documents feature:
+* Extract tables, values, and entities from forms and documents with our Form Recognizer Studio General Documents feature:
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
@@ -32,21 +32,21 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * There is no need to train a custom model to extract key-value pairs.
 
-* A single API is used to extract key value pairs, entities, text, tables and structure from documents.
+* A single API is used to extract key value pairs, entities, text, tables, and structure from documents.
 
 * It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
 
-* The general document model supports structured, semi-structured and unstructured data.
+* The general document model supports structured, semi-structured, and unstructured data.
 
 ## Key-value pairs
 
-Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form this could be the label and the value the user entered for that field or in a unstructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats and structures.
+Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, this could be the label and the value the user entered for that field or in an unstructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
 
 ## Entities
 
-Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types for example an individual or an organization.
+Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
 The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key value pairs. This ensures that complex structures where a key cannot be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
 * The general document is a pre-trained model and can be directly invoked via the REST API. 

@@ -29,7 +29,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 ## What is a composed model?
 
-With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may be comprised of custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 ## Try Form Recognizer Studio (Preview)
 
@@ -57,11 +57,11 @@ In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
 
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool select custom option.":::
+      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtool selection of custom option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project.":::
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
 
 ## Input requirements
 
@@ -96,7 +96,7 @@ In the Form Recognizer UI:
 
  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* **Custom model API (v3.0)** supports signature detection for custom forms. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model it will indicate whether a signature has been detected or not.
+* **Custom model API (v3.0)** supports signature detection for custom forms. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model, it will indicate whether a signature has been detected or not.
 
 * Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
@@ -108,11 +108,11 @@ In the Form Recognizer UI:
 
 1. Navigate to the [**Form Recognizer sample labeling tool**](https://fott-preview-private.azurewebsites.net) and select **Use Custom to train a models with labels and get key value pairs**:
 
-    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool select custom option.":::
+    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtools selection of the custom option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project.":::
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
 
 1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
 

@@ -593,7 +593,7 @@ def analyze_invoice():
 python form_recognizer_quickstart.py
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze a variety of forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
+Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
 
 ## Next steps
 

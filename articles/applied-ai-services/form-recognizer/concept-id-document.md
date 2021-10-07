@@ -27,7 +27,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
-* Extract name, machine readable zone, expiration date with our Form Recognizer Studio ID document feature:
+* Extract name, machine-readable zone, expiration date with our Form Recognizer Studio ID document feature:
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)

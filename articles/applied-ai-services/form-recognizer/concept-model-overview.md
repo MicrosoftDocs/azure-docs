@@ -21,7 +21,7 @@ recommendations: false
 
 | **Model**   | **Description**   |
 | --- | --- |
-| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs and named entities.  |
+| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |

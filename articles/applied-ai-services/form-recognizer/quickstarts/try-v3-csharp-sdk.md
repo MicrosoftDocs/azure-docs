@@ -498,7 +498,7 @@ Choose the green **Start** button next to formRecognizer_quickstart to build and
 
 ---
 
-Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze a variety of forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 

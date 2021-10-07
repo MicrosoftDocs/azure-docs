@@ -39,11 +39,11 @@ In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
   
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool select custom option.":::
+      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool selection of custom option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project."::: 
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool selection of new project."::: 
 
 ## Create your models
 
@@ -169,7 +169,7 @@ Use the programming language code of your choice to create a composed model that
 
 ## Analyze documents with your custom or composed model
 
- The custom form **Analyze**operation requires you to provide the `modelID`  in the call to Form Recognizer . You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
+ The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
 ### [**Form Recognizer sample labeling tool**](#tab/fott)
 
