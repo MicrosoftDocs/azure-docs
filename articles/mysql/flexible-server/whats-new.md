@@ -4,7 +4,7 @@ description: Learn about recent updates to Azure Database for MySQL - Flexible S
 author: hjtoland3
 ms.service: mysql
 ms.author: jtoland
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 09/29/2021
 ---
@@ -16,10 +16,12 @@ ms.date: 09/29/2021
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
 ## October 2021
+
 - **Availability Zones Selection when creating Read replicas**
 
-    When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md)
+    When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md).
 
 - **Read replicas in Azure Database for MySQL - Flexible servers will no longer be available on Burstable SKUs**
     
@@ -29,7 +31,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
  - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
  
-     Azure Database for MySQL - Flexible Server is now integrated with Azure Monitor Workbooks. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.With this integration, the server has link to workbooks and few sample templates, which help to monitor the service at scale.These templates can be edited, customized to customer requirements and pinned to dashboard to create a focused and organized view of Azure resources.[Query Performance Insights](./tutorial-query-performance-insights.md) , [Auditing](./tutorial-configure-audit.md) and Instance Overview templates are currently available.[Learn More](./concepts-workbooks.md) 
+     Azure Database for MySQL - Flexible Server is now integrated with Azure Monitor Workbooks. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. With this integration, the server has link to workbooks and few sample templates, which help to monitor the service at scale. These templates can be edited, customized to customer requirements and pinned to dashboard to create a focused and organized view of Azure resources. [Query Performance Insights](./tutorial-query-performance-insights.md), [Auditing](./tutorial-configure-audit.md), and Instance Overview templates are currently available. [Learn more](./concepts-workbooks.md).
+
+- **Prepay for Azure Database for MySQL compute resources with reserved instances**
+     Azure Database for MySQL - Flexible Server now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved instances, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. You can also exchange a reservation from Azure Database for MySQL - Single Server with Flexible Server. [Learn more](../concept-reserved-pricing.md).
 
 ## September 2021
 
@@ -37,21 +42,21 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Availability in three additional Azure regions**
 
-  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+   The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
 
-  - UK West
-  - Canada East
-  - Japan West
+   - UK West
+   - Canada East
+   - Japan West
 
 - **Bug fixes**
 
-  Same-zone HA creation is fixed in the following regions:
+   Same-zone HA creation is fixed in the following regions:
 
-  - Central India
-  - East Asia
-  - Korea Central
-  - South Africa North
-  - Switzerland North
+   - Central India
+   - East Asia
+   - Korea Central
+   - South Africa North
+   - Switzerland North
 
 ## August 2021
 
@@ -83,19 +88,21 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Availability in four additional Azure regions**
 
-  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions [Learn more](overview.md#azure-regions):
+   The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
 
-  - Australia Southeast
-  - South Africa North
-  - East Asia (Hong Kong)
-  - Central India
+   - Australia Southeast
+   - South Africa North
+   - East Asia (Hong Kong)
+   - Central India
 
-- **Known issue**
+   [Learn more](overview.md#azure-regions).
 
-  - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using SSL with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
-  - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
-  - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
-  - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
+- **Known issues**
+
+   - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using SSL with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
+   - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
+   - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
+   - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
 
 ## July 2021
 
@@ -142,9 +149,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   This release includes fixes for known issues related to forced failover to ensure that server parameters and additional IOPS changes are persisted across failovers.
 
-- **Known issue**
+- **Known issues**
 
-  - Trying to perform a compute scale up or scale down operation on an existing server with less than 20 GB of storage provisioned won't complete successfully. Resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
+   - Trying to perform a compute scale up or scale down operation on an existing server with less than 20 GB of storage provisioned won't complete successfully. Resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
 
 ## May 2021
 
@@ -164,9 +171,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-  - Additional IOPs changes don’t take effect in zone redundant HA enabled servers. Customers can work around the issue by disabling HA, scaling IOPs, and the re-enabling zone redundant HA.
-  - After force failover, the standby availability zone is inaccurately reflected in the portal. (No workaround)
-  - Server parameter changes don't take effect in zone redundant HA enabled server after forced failover. (No workaround)
+   - Additional IOPs changes don’t take effect in zone redundant HA enabled servers. Customers can work around the issue by disabling HA, scaling IOPs, and the re-enabling zone redundant HA.
+   - After force failover, the standby availability zone is inaccurately reflected in the portal. (No workaround)
+   - Server parameter changes don't take effect in zone redundant HA enabled server after forced failover. (No workaround)
 
 ## April 2021
 
@@ -206,8 +213,8 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-  - SSL\TLS 1.2 is enforced and cannot be disabled. (No workarounds)
-  - There are intermittent provisioning failures for servers provisioned in a VNet. The workaround is to retry the server provisioning until it succeeds.
+   - SSL\TLS 1.2 is enforced and cannot be disabled. (No workarounds)
+   - There are intermittent provisioning failures for servers provisioned in a VNet. The workaround is to retry the server provisioning until it succeeds.
 
 ## February 2021
 
@@ -227,7 +234,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Up to 10 read replicas for MySQL - Flexible Server**
 
-  Flexible Server now supports asynchronous replication of data from one Azure Database for MySQL server (the ‘source’) to up to 10 Azure Database for MySQL servers (the ‘replicas’) in the same region. This functionality enables read-heavy workloads to scale out and be balanced across replica servers according to a user's preferences. [Learn more](concepts-read-replicas.md).
+  Flexible Server now supports asynchronous replication of data from one Azure Database for MySQL server (the 'source') to up to 10 Azure Database for MySQL servers (the 'replicas') in the same region. This functionality enables read-heavy workloads to scale out and be balanced across replica servers according to a user's preferences. [Learn more](concepts-read-replicas.md).
 
 ## Contacts
 
