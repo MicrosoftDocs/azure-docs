@@ -32,9 +32,3 @@ We have support for both dark theme and light theme. While the light theme is th
 
 If your application uses organizations, you can select a default organization to use whenever you need to select an organization. For example, the default organization pre-populates the organization field when you add a new device to your application.
 
-## Next steps
-
-Now that you've learned how to manage your profile in Azure IoT Central, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Toggle live chat](howto-show-hide-chat.md)

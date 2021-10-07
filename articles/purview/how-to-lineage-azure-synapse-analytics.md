@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ---
 # How to get lineage from Azure Synapse Analytics into Azure Purview
 
@@ -40,7 +40,7 @@ You can create pipelines with Copy activity in Azure Synapse workspace. You don'
 
 ### Step 3: Monitor lineage reporting status
 
-After you run the Azure Synapse pipeline, in the Synapse pipeline monitoring view, you can check the lineage reporting status by clicking the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
+After you run the Azure Synapse pipeline, in the Synapse pipeline monitoring view, you can check the lineage reporting status by selecting the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
 
 :::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view.":::
 

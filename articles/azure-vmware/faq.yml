@@ -5,7 +5,7 @@ metadata:
   ms.topic: article
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date:  08/19/2021
+  ms.date:  09/29/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -40,9 +40,6 @@ sections:
   - name: Billing 
     questions:
 
-      - question: How will I be billed during Preview?
-        answer: Billing during Preview is monthly on a pay-as-you-go basis. Additional options are available at general availability (GA).
-
       - question: Is there an SLA on disk replacement when failures occur? 
         answer: Any host with disk issues are replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
 
@@ -59,9 +56,6 @@ sections:
           - **Azure VMware Solution to vNet** is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
 
           - **Azure VMware Solution to on-premises** is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. 
-
-      - question: When does metering begin and end for trial Azure VMware Solution clusters?
-        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 
@@ -260,6 +254,11 @@ sections:
       - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
         answer: No.
 
+      - question: Why can't I reach the Azure VMware Solution vCenter Server Appliance and NSX-T Manager from on-premises or Azure Virtual Network?
+        answer: |
+          By design, you won't be able to reach NSX-T Manager and vCenter Server Appliance (VCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You'll need to advertise specific networking routes/subnets to access NSX-T Manager and VCSA. 
+
+
 
 
 
@@ -326,17 +325,8 @@ sections:
       - question: Is the underlying infrastructure shared?
         answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
 
-      - question: What are the minimum and the maximum number of hosts per cluster?
-        answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
-
-      - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. 
-
-      - question: What are trial clusters?
-        answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
-
-
-
+      - question: What are the minimum and the maximum number of hosts per cluster? Can I scale my private cloud clusters?
+        answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. 
 
 
 

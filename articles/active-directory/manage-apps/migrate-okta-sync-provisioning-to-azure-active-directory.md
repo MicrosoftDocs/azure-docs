@@ -1,5 +1,4 @@
 ---
-
 title: Tutorial to migrate Okta sync provisioning to Azure AD Connect-based synchronization
 titleSuffix: Active Directory
 description: In this tutorial, you learn how to migrate your Okta sync provisioning to Azure AD Connect-based synchronization.
@@ -14,7 +13,6 @@ ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
 ---
-
 
 # Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization
 
@@ -37,7 +35,6 @@ Use an Azure AD Connect server if your organization needs to take advantage of a
 
 >[!NOTE]
 >All prerequisites should be taken into consideration when you install Azure AD Connect or Azure AD cloud provisioning. To learn more before you continue with installation, see [Prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
-
 ## Confirm ImmutableID attribute synchronized by Okta
 
 ImmutableID is the core attribute used to tie synchronized objects to their on-premises counterparts. Okta takes the Active Directory objectGUID of an on-premises object and converts it to a Base64 encoded string. Then, by default it stamps that string to the ImmutableID field in Azure AD.
@@ -67,7 +64,6 @@ After the module is installed, import it, and follow these steps to connect to t
    ```PowerShell
    Get-ADUser onpremupn | fl objectguid
    $objectguid = 'your-guid-here-1010'
-
    [system.convert]::ToBase64String(([GUID]$objectGUID).ToByteArray())
    ```
 
@@ -94,7 +90,6 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
 1. Run these commands in an Azure AD PowerShell session to gather the already synchronized values:
 
    ```powershell
-
    Get-AzureADUser -all $true | Where-Object {$_.dirsyncenabled -like
    "true"} | Select-Object UserPrincipalName, @{Name = 'objectGUID';
    Expression = {
@@ -108,7 +103,6 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
 
    >[!IMPORTANT]
    >If your ImmutableID values in the cloud don't match objectGUID values, you've modified the defaults for Okta sync. You've likely chosen another attribute to determine ImmutableID values. Before you move on to the next section, it's critical to identify which source attribute is populating ImmutableID values. Ensure that you update the attribute Okta is syncing before you disable Okta sync.
-
 ## Install Azure AD Connect in staging mode
 
 After you've prepared your list of source and destination targets, it's time to install an Azure AD Connect server. If you've opted to use Azure AD Connect cloud provisioning, skip this section.
@@ -119,7 +113,6 @@ After you've prepared your list of source and destination targets, it's time to 
 
    >[!WARNING]
    >This is the most critical step on this page. Before you select **Next**, ensure that the attribute you're selecting for a source anchor is what *currently* populates your existing Azure AD users. If you select the wrong attribute, you must uninstall and reinstall Azure AD Connect to reselect this option.
-
    ![Screenshot that shows mS-DS-ConsistencyGuid.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/consistency-guid.png)
 
 1. On the **Configure** page, make sure to select the **Enable staging mode** checkbox. Then select **Install**.
@@ -166,7 +159,6 @@ After you've prepared your list of source and destination targets, it's time to 
 
    >[!NOTE]
    >Before you continue to the next step, ensure all user attributes are syncing properly and show on the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID values match and the user is in one of the selected OUs for synchronization.
-
 ## Install Azure AD cloud sync agents
 
 After you've prepared your list of source and destination targets, it's time to [install and configure Azure AD cloud sync agents](../cloud-sync/tutorial-single-forest.md). If you've opted to use an Azure AD Connect server, skip this section.
@@ -185,7 +177,6 @@ After you've verified the Azure AD Connect installation and your pending exports
 
    >[!NOTE]
    >If you have multiple Office 365 apps handling provisioning to Azure AD, ensure they're all switched off.
-
 ## Disable staging mode in Azure AD Connect
 
 After you disable Okta provisioning, the Azure AD Connect server is ready to begin synchronizing objects. If you've chosen to go with Azure AD cloud sync agents, skip this section.

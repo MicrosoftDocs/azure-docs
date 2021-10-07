@@ -243,4 +243,4 @@ If the publish branch is out of sync with the collaboration branch and contains 
 
 ## Next steps
 
-* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-deployment.md).
+* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-delivery.md).

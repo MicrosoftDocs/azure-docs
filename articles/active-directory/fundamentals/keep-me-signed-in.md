@@ -56,7 +56,7 @@ You also can use the persistent browser session controls in conditional access t
 
 To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
 
-* User is signed in via seamless SSO and Integrated Windows Authentication (IWA)
+* User is signed in via seamless SSO and integrated Windows authentication (IWA)
 * User is signed in via Active Directory Federation Services and IWA
 * User is a guest in the tenant
 * User's risk score is high
