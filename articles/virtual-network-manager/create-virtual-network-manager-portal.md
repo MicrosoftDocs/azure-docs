@@ -81,7 +81,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | Name | Enter a name for this AVNM instance. This example will use the name **myAVNM**. |
     | Region | Select a region for this deployment. AVNM can manage virtual networks in any region. The region selected is for where the ANVM instance will be deployed. |
     | Description | *(Optional)* Provide a description about this AVNM and the task it will be managing. |
-    | Scope | Define the scope for which this AVNM will manage. For more information, see [scope](concept-network-manager-scope.md).
+    | Scope | Define the scope for which this AVNM will manage.
     | Features | Select the features you want to enable for this AVNM. Available features are *Connectivity*, *SecurityAdmin, and *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
 
 
