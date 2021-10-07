@@ -54,6 +54,8 @@ items:
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Migrate to Form Recognizer v3.0 (preview)
+    href: v3-migration-guide.md
   - name: Build and train a custom model
     items:
     - name: Assemble a training data set
@@ -64,8 +66,8 @@ items:
       href: label-tool.md
     - name: Use table tags to train your custom model
       href: supervised-table-tags.md
-  - name: Migrate to Form Recognizer v3.0 (preview)
-    href: v3-migration-guide.md
+  - name: Compose custom models
+    href: compose-custom-models.md 
   - name: Use containers
     items:
     - name: Install and run containers
@@ -92,26 +94,24 @@ items:
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
   items:
-   - name: Form Recognizer models
-     items:
-      - name: Overview
-        href: concept-model-overview.md
-      - name: General document model | preview
-        href: concept-general-document.md
-      - name: Layout model
-        href: concept-layout.md
-      - name: Receipt model
-        href: concept-receipts.md
-      - name: Business card model
-        href: concept-business-cards.md
-      - name: Invoice model
-        href: concept-invoices.md
-      - name: Identity document model
-        href: concept-identification-cards.md
-      - name: Custom model
-        href: concept-custom.md
-   - name:  Form Recognizer Studio
-     href: concept-studio.md
+  - name: Model overview
+    href: concept-model-overview.md
+  - name:  Form Recognizer Studio
+    href: concept-studio.md
+  - name: General document model | preview
+    href: concept-general-document.md
+  - name: Layout model
+    href: concept-layout.md
+  - name: Receipt model
+    href: concept-receipts.md
+  - name: Business card model
+    href: concept-business-cards.md
+  - name: Invoice model
+    href: concept-invoices.md
+  - name: Identity document model
+    href: concept-identification-cards.md
+  - name: Custom model
+    href: concept-custom.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"

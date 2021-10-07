@@ -32,6 +32,9 @@ You can see how data is extracted from custom forms by trying our Sample Labelin
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
+> [!div class="nextstepaction"]
+> [Try it](https://fott-2-1.azurewebsites.net/projects/create)
+
 In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.

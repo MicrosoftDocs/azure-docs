@@ -79,17 +79,17 @@ The following features  and development options are supported by the Form Recogn
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint window in the Azure portal.":::
 
-## REST API workflows
+ ## Form Recognizer workflows
 
 | Document type | Considerations | Solution<img width=300/> |
 | -----------------|-------------------| ----------|
 |<ul><li>**Invoice**</li><li>**Receipt**</li><li>**Business card**</li></ul>| Is your invoice, receipt, or business card document composed of English-text? | <ul><li>Yes → [**Invoice**](concept-invoice.md), [**Receipt**](concept-receipt.md), or [**Business Card**](concept-business-card.md) model</li><li>No → [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
 |<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>Yes → [**ID document**](concept-id-document.md) model</li><li>No → [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
-|<ul><li>**Form**</li></ul>| Is your form an industry-standard format commonly used in your business or industry?| <ul><li>Yes → [**Layout**](concept-id-document.md) or [**General document (preview)**](concept-general-document.md) model</li><li>No → [**Train and build a custom model**](concept-layout.md) 
+|<ul><li>**Form** or **Document**</li></ul>| Is your form or document an industry-standard format commonly used in your business or industry?| <ul><li>Yes → [**Layout**](concept-id-document.md) or [**General document (preview)**](concept-general-document.md) model</li><li>No → [**Train and build a custom model**](concept-layout.md) 
 
 ## Data privacy and security
 
- As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context) page. </br></br>
+ As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security) page. </br></br>
 
 ## Next steps
 

@@ -28,6 +28,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
+
   #### Prebuilt model data extraction
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
@@ -38,16 +39,17 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   |Receipt  | ✓  |   ✓ |   |  ||
   | ID document | ✓  |   ✓  |   |   ||
   | Business card    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
 
-### Support for 122 languages (print) and 7 languages (handwritten)
+* Support for 122 languages (print) and 7 languages (handwritten)
 
-Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages.
+* Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages.
 
-Extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* Extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 
-### Tables and text extraction enhancements
+* Tables and text extraction enhancements
 
-Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
+    * Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
 ## September 2021
 

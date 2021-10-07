@@ -23,6 +23,15 @@ The business card model combines powerful Optical Character Recognition (OCR) ca
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
+## Try Form Recognizer Studio (Preview)
+
+* Form Recognizer studio is available with the preview (v3.0) API.
+
+* Extract name, job title, address, email, company name, and more with our Form Recognizer Studio Business Card feature:
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
+
 ## Try it: Sample labeling tool
 
 You can see how business card data is extracted by trying our Sample Labeling tool. You'll need the following:

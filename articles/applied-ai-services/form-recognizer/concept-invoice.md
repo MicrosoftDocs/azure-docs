@@ -23,6 +23,15 @@ recommendations: false
 
 :::image type="content" source="media/overview-invoices.jpg" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
+## Try Form Recognizer Studio (Preview)
+
+* Form Recognizer studio is available with the preview (v3.0) API.
+
+* Extract customer and vendor details, line items, and more with our Form Recognizer Studio Invoice feature:
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
+
 ## Try it: Sample labeling tool
 
 You can see how invoice data is extracted by trying our Sample Labeling tool. You'll need the following:

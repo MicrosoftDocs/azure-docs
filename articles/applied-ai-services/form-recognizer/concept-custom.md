@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer Custom and composed models 
+title: Form Recognizer Custom and composed models
 titleSuffix: Azure Applied AI Services
 description: Learn how to create, use, and manage Form Recognizer custom and composed models.
 author: laujan
@@ -14,11 +14,14 @@ recommendations: false
 
 # Form Recognizer custom and composed models
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models. See our 
+Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models. See our
 
 * **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
+
+:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+
 
 ## What is a custom model?
 
@@ -28,6 +31,48 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may be comprised of custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
+## Try Form Recognizer Studio (Preview)
+
+* Form Recognizer studio is available with the preview (v3.0) API.
+
+* Analyze forms of a specific or unique type with our Form Recognizer Studio Custom Form feature:
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+
+## Try Form Recognizer Sample labeling tool
+
+You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
+
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+> [!div class="nextstepaction"]
+> [Try it](https://fott-2-1.azurewebsites.net/projects/create)
+
+In the Form Recognizer UI:
+
+1. Select **Use Custom to train a model with labels and get key value pairs**.
+
+      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool select custom option.":::
+
+1. In the next window, select **New project**:
+
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project.":::
+
+## Create your models
+
+The steps for building, training, and using custom and composed models are as follows:
+
+* [**Assemble your training dataset**](#assemble-your-training-dataset)
+* [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
+* [**Train your custom model**](#train-your-custom-model)
+* [**Compose custom models**](#create-a-composed-model)
+* [**Analyze documents**](#analyze-documents-with-your-custom-or-composed-model)
+* [**Manage your custom models**](#manage-your-custom-models)
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
@@ -77,7 +122,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project."::: 
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project.":::
 
 1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
 

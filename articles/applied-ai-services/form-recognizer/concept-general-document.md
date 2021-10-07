@@ -15,9 +15,18 @@ recommendations: false
 
 # Form Recognizer general document model | Preview
 
-The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0)) API, see our [migration guide](v3-migration-guide.md).
+The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](how-to-use-custom-composed-models.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+
+## Try Form Recognizer Studio (Preview)
+
+* Form Recognizer studio and the general document model are available with the preview (v3.0) API.
+
+* Extract tables, values and entities from forms and documents with our Form Recognizer Studio General Documents feature:
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
 
 ## General document features
 
@@ -31,7 +40,7 @@ The General document preview model combines powerful Optical Character Recogniti
 
 ## Key-value pairs
 
-Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form this could be the label and the value the user entered for that field or in a ustructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats and structures.
+Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form this could be the label and the value the user entered for that field or in a unstructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
 
@@ -64,9 +73,6 @@ The key value pair extraction model and entity identification model are run in p
   * data must contain keys and values.
   * keys must appear above or to the left of the values; they can't appear below or to the right.
 
-> [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
 ### Named entity recognition (NER) categories
 
 | Category | Type | Description |
@@ -82,7 +88,7 @@ The key value pair extraction model and entity identification model are run in p
 | Phone number | string| Phone numbers. | 
 Email | string | Email address. |
 | URL | string| Website URLs and links|
-| IPAddress | string| Network IP addresses. |
+| IP Address | string| Network IP addresses. |
 | DateTime | string| Dates and times of day. |
 | Quantity | string | Numerical measurements and units. |
 

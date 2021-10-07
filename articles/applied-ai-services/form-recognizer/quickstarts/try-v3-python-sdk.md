@@ -37,11 +37,11 @@ The Python SDK supports the following models and capabilities:
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-documentl)
+* [**General document**](#try-it-general-document-model)
 
-* [**Layout**](#layout)
+* [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#prebuilt-invoice)
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
@@ -100,11 +100,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```
 
-## Analyze a document with a Form Recognizer model
-
-### General document
-
-#### General document model
+## **Try it**: General document model
 
 > [!div class="checklist"]
 >
@@ -206,9 +202,7 @@ def analyze_document():
     analyze_document()
 ```
 
-### Layout
-
-#### Layout model
+## **Try it**:  Layout model
 
 > [!div class="checklist"]
 >
@@ -312,9 +306,7 @@ def analyze_layout():
 
 ```
 
-### Prebuilt invoice
-
-#### Prebuilt invoice model
+## **Try it**: Prebuilt invoice model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../concept-invoice.md#key-value-pair-extraction)
 

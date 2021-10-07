@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer prebuilt models
+# Form Recognizer models
 
  Azure Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
@@ -21,12 +21,24 @@ recommendations: false
 
 | **Model**   | **Description**   |
 | --- | --- |
+| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
-| 🆕[General document (preview)](#general-document) | Extract text, tables, structure, key-value pairs and named entities.  |
+| [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+
+### General document (preview)
+
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+
+* The general document is a pre-trained model and can be directly invoked via the REST API.
+
+* The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
+
+> [!div class="nextstepaction"]
+> [Learn more: general document model](concept-general-document.md)
 
 ### Layout
 
@@ -35,6 +47,9 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 ##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
 :::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
+
+> [!div class="nextstepaction"]
+> [Learn more: layout model](concept-layout.md)
 
 ### Invoice
 
@@ -80,25 +95,28 @@ The business card model analyzes and extracts key information from business card
 > [!div class="nextstepaction"]
 > [Learn more: business card model](concept-business-card.md)
 
-### General document
+### Custom
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](chow-to-use-custom-composed-models.md#train-without-labels).
+The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-* The general document is a pre-trained model and can be directly invoked via the REST API.
+##### Sample custom form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
-* The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
+:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
-> [Learn more: business card model](concept-general-document.md)
+> [Learn more: custom model](concept-custom.md)
 
 ## Data extraction
 
-| **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   | **Entitites**|
-| --- | :---: |:---:| :---: | :---: | :---: |
-| Invoice  | ✓ | ✓  | ✓  | ✓  | |
-| Receipt  | ✓  |   ✓ |   |  | |
-| ID document  | ✓  |   ✓  |   |   | |
-| Business Card  | ✓  |   ✓ |   |   | |
+ | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
 
 ## Input requirements
 
@@ -126,17 +144,6 @@ The business card model analyzes and extracts key information from business card
 * [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
-  #### Prebuilt model data extraction
-
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-
 ### Version migration
 
 Learn how to use Form Recognizer v3.0 in your applications by following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md)
@@ -146,93 +153,3 @@ Learn how to use Form Recognizer v3.0 in your applications by following our [**F
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a form processing app in the development language of your choice.
-
-
-## Key-value pair extraction
-
-### [Invoice](#tab/invoice)
-
-|Name| Type | Description | Standardized output |
-|:-----|:----|:----|:---:|
-| CustomerName | string | Invoiced customer| |
-| CustomerId | string | Customer reference ID | |
-| PurchaseOrder | string | Purchase order reference number | |
-| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | |
-| InvoiceDate | date | Date the invoice was issued | yyyy-mm-dd|
-| DueDate | date | Date payment for this invoice is due | yyyy-mm-dd|
-| VendorName | string | Vendor name |  |
-| VendorAddress | string |  Vendor mailing address|  |
-| VendorAddressRecipient | string | Name associated with the VendorAddress |  |
-| CustomerAddress | string | Mailing address for the Customer | |
-| CustomerAddressRecipient | string | Name associated with the CustomerAddress | |
-| BillingAddress | string | Explicit billing address for the customer |  |
-| BillingAddressRecipient | string | Name associated with the BillingAddress | |
-| ShippingAddress | string | Explicit shipping address for the customer | |
-| ShippingAddressRecipient | string | Name associated with the ShippingAddress |  |
-| SubTotal | number | Subtotal field identified on this invoice | integer |
-| TotalTax | number | Total tax field identified on this invoice | integer |
-| InvoiceTotal | number (USD) | Total new charges associated with this invoice | integer |
-| AmountDue |  number (USD) | Total Amount Due to the vendor | integer |
-| ServiceAddress | string | Explicit service address or property address for the customer | |
-| ServiceAddressRecipient | string | Name associated with the ServiceAddress |  |
-| RemittanceAddress | string | Explicit remittance or payment address for the customer |   |
-| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress |  |
-| ServiceStartDate | date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
-| ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
-| PreviousUnpaidBalance | number | Explicit previously unpaid balance | integer |
-
-### [Receipt](#tab/receipt)
-
-|Name| Type | Description | Standardized output |
-|:-----|:----|:----|:----|
-| ReceiptType | string | Type of sales receipt |  Itemized |
-| MerchantName | string | Name of the merchant issuing the receipt |  |
-| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx |
-| MerchantAddress | string | Listed address of merchant |   |
-| TransactionDate | date | Date the receipt was issued | yyyy-mm-dd |
-| TransactionTime | time | Time the receipt was issued | hh-mm-ss (24-hour)  |
-| Total | number (USD)| Full transaction total of receipt | Two-decimal float|
-| Subtotal | number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
-| Tip | number (USD) | Tip included by buyer | Two-decimal float|
-| Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | string | Item name | |
-| Quantity | number | Quantity of each item | integer |
-| Price | number | Individual price of each item unit| Two-decimal float |
-| Total Price | number | Total price of line item | Two-decimal float |
-
-### [ID document](#tab/id)
-
-|Name| Type | Description | Standardized output |
-|:-----|:----|:----|:----|
-|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-|  DateOfBirth | date | DOB | yyyy-mm-dd |
-|  DateOfExpiration | date | Expiration date DOB | yyyy-mm-dd |
-|  DocumentNumber | string | Passport number, driver's license number, etc. |  |
-|  FirstName | string | Extracted given name and middle initial if applicable |  |
-|  LastName | string | Extracted surname |  |
-|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-|  Sex | string | Possible extracted values include "M", "F" and "X" | |
-|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | |
-|  DocumentType | string | Document type, for example, Passport, Driver's License | |
-|  Address | string | Extracted address (Driver's License only) ||
-|  Region | string | Extracted region, state, province, etc. (Driver's License only) |  |
-
-### [Business card](#tab/businesscard)
-
-|Name| Type | Description |Standardized output |
-|:-----|:----|:----|:----:|
-| ContactNames | array of objects | Contact name |  |
-| FirstName | string | First (given) name of contact |  |
-| LastName | string | Last (family) name of contact |  |
-| CompanyNames | array of strings | Company name(s)|  |
-| Departments | array of strings | Department(s) or organization(s) of contact |  |
-| JobTitles | array of strings | Listed Job title(s) of contact |  |
-| Emails | array of strings | Contact email address(es) |  |
-| Websites | array of strings | Company website(s) |  |
-| Addresses | array of strings | Address(es) extracted from business card | |
-| MobilePhones | array of phone numbers | Mobile phone number(s) from business card |+1 xxx xxx xxxx |
-| Faxes | array of phone numbers | Fax phone number(s) from business card | +1 xxx xxx xxxx |
-| WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx |
-| OtherPhones     | array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
-

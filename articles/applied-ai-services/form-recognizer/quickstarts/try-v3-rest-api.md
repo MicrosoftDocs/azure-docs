@@ -34,11 +34,11 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document)
+* [**General document**](#try-it-general-document-model)
 
-* [**Layout**](#layout)
+* [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#prebuilt-invoice)
+* [**Prebuilt Invoice**]#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
@@ -57,9 +57,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-## Analyze a document with a Form Recognizer model
-
-### General document
+## **Try it**: General document model
 
 > [!div class="checklist"]
 >
@@ -315,7 +313,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 ```
 
-### Layout
+## **Try it**:  Layout model
 
 > [!div class="checklist"]
 >
@@ -359,7 +357,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-docume
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-### Prebuilt invoice
+## **Try it**: Prebuilt invoice model
 
 > [!div class="checklist"]
 >
