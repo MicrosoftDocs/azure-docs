@@ -64,5 +64,5 @@ A connectivity configuration enables you to create a mesh or a hub and spoke net
 
 ## Next step
 
-- Create an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
 - Learn more about [security admin configurations](concept-security-admins.md).
