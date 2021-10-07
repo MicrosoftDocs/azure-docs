@@ -38,7 +38,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
     * Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
- #### Prebuilt model data extraction
+ #### Form Recognizer model data extraction
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
   | --- | :---: |:---:| :---: | :---: |:---: |
