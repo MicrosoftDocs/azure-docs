@@ -1,6 +1,6 @@
 ---
-title: How to integrate Azure Storage into Azure Purview Data Policies
-description: Understand Azure Purview Data Policies
+title: How to create data access policies for Azure Storage
+description: Step-by-step guide on how to integrate Azure Storage into Azure Purview Data Policies
 author: vlrodrig
 ms.author: vlrodrig
 ms.service: purview
@@ -109,10 +109,8 @@ Storage accounts in the regions where this functionality is available.
 Create a new Azure Purview account in the regions where the new functionality is enabled, under the subscription that is isolated for
 the new functionality.
 
-For more information on creating a Purview account, see [Quickstart:
-Create an Azure Purview account in the Azure portal (preview) - Azure
-Purview \| Microsoft
-Docs](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
+For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account in the Azure portal (preview) - Azure
+Purview \| Microsoft Docs](../create-catalog-portal.md)
 
 ### Register and scan data sources in Purview
 
