@@ -32,7 +32,7 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 Container Apps supports a large number of scale triggers. For more information about supported scale triggers, see [KEDA Scalers](https://keda.sh/docs/scalers/).
 
-The KEDA documentation shows code examples in YAML, while the Container Apps ARM template is in JSON. As you transform examples from KEDA for your needs, make sure to switch property names from [kebab] (https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing.
+The KEDA documentation shows code examples in YAML, while the Container Apps ARM template is in JSON. As you transform examples from KEDA for your needs, make sure to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) casing.
 
 ## HTTP
 
@@ -41,8 +41,6 @@ With an HTTP scaling rule, you have control over the threshold that determines w
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
 | `concurrentRequests`| Once the number of requests exceeds this value, then more replicas are added, up to the `maxReplicas` amount. | 50 | 1 | n/a |
-
-### Example
 
 ```json
 {
@@ -74,8 +72,6 @@ In this example, the container app scales out up to five replicas and can scale 
 Container Apps can scale based of a wide variety of event types. Any event supported by [KEDA](https://keda.sh/docs/scalers/), is supported in Container Apps.
 
 Each event type features different properties in the `metadata` section of the KEDA definition. Use these properties to define a scale rule in Container Apps.
-
-### Example
 
 The following example shows how to create a scale rule based on an [Azure Queue Storage](https://keda.sh/docs/scalers/azure-storage-queue/).
 
@@ -123,8 +119,6 @@ In this example, the container app scales according to the following behavior:
 
 CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA CPU scaler](https://keda.sh/docs/scalers/cpu/).
 
-### Example
-
 The following example shows how to create a CPU scaling rule.
 
 ```json
@@ -158,8 +152,6 @@ In this example, the container app scales when CPU utilization exceeds 50%.
 ## Memory
 
 CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
-
-### Example
 
 The following example shows how to create a memory scaling rule.
 
