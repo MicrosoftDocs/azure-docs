@@ -25,7 +25,7 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 >
 > The Read API uses universal script models to extract all multi-lingual text in your images or documents, including mixed langauge text lines. Do not provide the language parameter unless you are sure that there is only one language in the image or document. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages. The preview model includes any enhancements to the currently GA languages.
+See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. The preview model includes any enhancements to the currently GA version.
 
 ### Handwritten text
 |Language| Language code (optional) | Read |
