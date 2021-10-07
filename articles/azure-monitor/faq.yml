@@ -477,8 +477,6 @@ sections:
           * [Import to Analytics](logs/data-collector-api.md)
           * [Log Analytics](logs/data-collector-api.md)
           * [Logstash](logs/data-collector-api.md)
-
-          We also collect [Statsbeat](app/statsbeat.md) to monitor essential and non-essential stats about Application Insights SDKs and Auto-Instrumentation.
           
       - question: |
           Can I filter out or modify some telemetry?
