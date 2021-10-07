@@ -2,8 +2,8 @@
 title: What's new for Azure Active Directory Verifiable Credentials
 description: Recent updates for Azure Active Directory Verifiable Credentials
 author: barclayn
-ms.service: Active-directory
-ms.subservice: general
+ms.service: active-directory
+ms.subservice: verifiable-credentials
 ms.topic: reference
 ms.date: 10/07/2021
 ms.author: barclayn
