@@ -26,6 +26,10 @@ Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and acce
 
 To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure, Azure AD, and Microsoft 365.
 
+> [!NOTE]
+> Inviting a Guest that is using a Microsoft Account such as an “@outlook.com” email that has multiple aliases may prevent the user from joining. For more information, see [Issues with MSA accounts with multiple aliases](https://docs.microsoft.com/microsoft-accounts/multiple-aliases).
+
+
 ## Who uses Azure AD?
 
 Azure AD is intended for:
