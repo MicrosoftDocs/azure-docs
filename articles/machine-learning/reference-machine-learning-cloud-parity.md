@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
 | [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
-| **[Labeling](how-to-create-labeling-projects.md)** |   | | |
+| **Labeling [images](how-to-create-image-labeling-projects.md) and [text](how-to-create-text-labeling-projects.md)** |   | | |
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
