@@ -87,18 +87,16 @@ items:
       href: /azure/data-explorer/kusto/management/clear-table-data-command?context=/azure/synapse-analytics/context/context
   - name: External tables
     items:
-    - name: External tables commands
-      href: /azure/data-explorer/kusto/management/ external-table-commands?context=/azure/synapse-analytics/context/context
+    - name: Create and alter Azure Storage external tables
+      href: /azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake?context=/azure/synapse-analytics/context/context
+    - name: Create and alter SQL Server external tables
+      href: /azure/data-explorer/kusto/management/external-sql-tables?context=/azure/synapse-analytics/context/context
     - name: .drop external table
       href: /azure/data-explorer/kusto/management/drop-external-table?context=/azure/synapse-analytics/context/context
     - name: .show external table
       href: /azure/data-explorer/kusto/management/show-external-tables?context=/azure/synapse-analytics/context/context
     - name: .show external table schema
       href: /azure/data-explorer/kusto/management/show-external-table-schema?context=/azure/synapse-analytics/context/context
-    - name: Create and alter external tables in Azure Storage or Azure Data Lake
-      href: /azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake?context=/azure/synapse-analytics/context/context
-    - name: Create and alter external SQL tables
-      href: /azure/data-explorer/kusto/management/external-sql-tables?context=/azure/synapse-analytics/context/context
   - name: Materialized views
     items:
     - name: Materialized views overview
@@ -216,6 +214,16 @@ items:
       href: /azure/data-explorer/kusto/management/retentionpolicy?context=/azure/synapse-analytics/context/context
     - name: retention policy command
       href: /azure/data-explorer/kusto/management/retention-policy?context=/azure/synapse-analytics/context/context
+  - name: Extent tags retention
+    items:
+    - name: Extent tags retention policy
+      href: /azure/data-explorer/kusto/management/extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+    - name: .show extent tags retention policy
+      href: /azure/data-explorer/kusto/management/show-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+    - name: .delete extent tags retention policy
+      href: /azure/data-explorer/kusto/management/delete-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+    - name: .alter extent tags retention policy
+      href: /azure/data-explorer/kusto/management/alter-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
   - name: Restricted view access
     items:
     - name: Restricted view access policy
@@ -260,6 +268,14 @@ items:
       href: /azure/data-explorer/kusto/management/updatepolicy?context=/azure/synapse-analytics/context/context
     - name: update policy commands
       href: /azure/data-explorer/kusto/management/update-policy?context=/azure/synapse-analytics/context/context
+  - name: Query weak consistency
+    items:
+    - name: Query weak consistency policy
+      href: /azure/data-explorer/kusto/management/query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+    - name: .alter query weak consistency policy
+      href: /azure/data-explorer/kusto/management/alter-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+    - name: .show query weak consistency policy
+      href: /azure/data-explorer/kusto/management/show-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
 - name: Security roles
   href: /azure/data-explorer/kusto/management/security-roles?context=/azure/synapse-analytics/context/context
 - name: Data ingestion
@@ -364,8 +380,6 @@ items:
         href: /azure/data-explorer/kusto/management/drop-extents?context=/azure/synapse-analytics/context/context
       - name: .drop extent tags
         href: /azure/data-explorer/kusto/management/drop-extent-tags?context=/azure/synapse-analytics/context/context
-      - name: .merge extents
-        href: /azure/data-explorer/kusto/management/merge-extents?context=/azure/synapse-analytics/context/context
       - name: .move extents
         href: /azure/data-explorer/kusto/management/move-extents?context=/azure/synapse-analytics/context/context
       - name: .replace extents

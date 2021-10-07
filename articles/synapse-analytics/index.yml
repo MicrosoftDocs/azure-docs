@@ -72,6 +72,18 @@ landingContent:
             url: get-started-knowledge-center.md
 
   # Card
+  - title: Data Explorer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data Explorer in Azure Synapse Analytics
+            url: data-explorer/data-explorer-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Data Explorer pool using the Synapse Studio
+            url: data-explorer/data-explorer-create-pool-studio.md
+
+  # Card
   - title: Apache Spark
     linkLists:
       - linkListType: overview

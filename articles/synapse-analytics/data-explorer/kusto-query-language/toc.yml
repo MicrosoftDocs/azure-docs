@@ -1,22 +1,14 @@
 items:
-- name: Context test (ignore)
-  items:
-  - name: Query using .NET Core
-    href: ../../../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
-  - name: Add an Azure Stream Analytics job
-    href: ../../sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?context=/azure/synapse-analytics/context/context
-- name: Getting started with Kusto
-  href: /azure/data-explorer/kusto/concepts/index?context=/azure/synapse-analytics/context/context
+- name: Kusto query overview
+  href: /azure/data-explorer/kusto/query/index?context=/azure/synapse-analytics/context/context
+- name: Quick reference guide
+  href: /azure/data-explorer/kql-quick-reference?context=/azure/synapse-analytics/context/context
 - name: Tutorial
-  href: /azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context
+  href: /azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context&pivots=synapse
 - name: Samples
-  href: /azure/data-explorer/kusto/query/samples?context=/azure/synapse-analytics/context/context
-- name: Queries
-  items:
-  - name: Overview of queries
-    href: /azure/data-explorer/kusto/query/index?context=/azure/synapse-analytics/context/context
-  - name: Query best practices
-    href: /azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context
+  href: /azure/data-explorer/kusto/query/samples?context=/azure/synapse-analytics/context/context&pivots=synapse
+- name: Query best practices
+  href: /azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context
 - name: Cross-cluster queries
   items:
   - name: Cross-cluster queries and schema changes
@@ -974,25 +966,3 @@ items:
     href: /azure/data-explorer/kusto/query/sqlcheatsheet?context=/azure/synapse-analytics/context/context
   - name: Splunk to Kusto cheat sheet
     href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?context=/azure/synapse-analytics/context/context
-- name: Query tools
-  items:
-  - name: Kusto.Explorer
-    items:
-    - name: Kusto.Explorer installation and user interface
-      href: /azure/data-explorer/kusto/tools/kusto-explorer?context=/azure/synapse-analytics/context/context
-    - name: Using Kusto.Explorer
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-using?context=/azure/synapse-analytics/context/context
-    - name: Kusto.Explorer options
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-options?context=/azure/synapse-analytics/context/context
-    - name: Keyboard shortcuts
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-shortcuts?context=/azure/synapse-analytics/context/context
-    - name: Code Refactoring
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-refactor?context=/azure/synapse-analytics/context/context
-    - name: Code Navigation
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-codenav?context=/azure/synapse-analytics/context/context
-    - name: Code Analyzer
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-code-analyzer?context=/azure/synapse-analytics/context/context
-    - name: Troubleshooting Kusto.Explorer
-      href: /azure/data-explorer/kusto/tools/kusto-explorer-troubleshooting?context=/azure/synapse-analytics/context/context
-  - name: Kusto.Cli
-    href: /azure/data-explorer/kusto/tools/kusto-cli?context=/azure/synapse-analytics/context/context

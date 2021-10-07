@@ -52,13 +52,13 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | Setting | Suggested value | Description |
     |--|--|--|
     | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Workload | Computer optimized | This workload provides a higher CPU to SSD storage ratio. |
+    | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
     ![Basics for Azure portal new Data Explorer pool](media/create-data-explorer-pool-portal/create-data-explorer-pool-basics-portal.png)
 
     > [!IMPORTANT]
-    > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
+    > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain lowercase letters and numbers only, must be between 4 and 15 characters, and must start with a letter.
 
 1. Select **Next: Additional settings**. Use the following settings and leave the defaults for the remaining settings.
 

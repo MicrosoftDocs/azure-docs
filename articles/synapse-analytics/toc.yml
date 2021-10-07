@@ -577,32 +577,26 @@ items:
     items:
     - name: Data Explorer overview
       href: data-explorer/data-explorer-overview.md
-    - name: Set up Data Explorer in Azure Synapse Analytics
-      href: data-explorer/data-explorer-setup.md
+    - name: Compare with Azure Data Explorer
+      href: data-explorer/data-explorer-compare.md
   - name: Quickstarts
     items:
     - name: Create a Data Explorer pool using the Azure portal
       href: data-explorer/data-explorer-create-pool-portal.md
     - name: Create a Data Explorer pool using the Synapse Studio
       href: data-explorer/data-explorer-create-pool-studio.md
-    - name: Ingest data into Data Explorer pools
-      href: data-explorer/data-explorer-ingest-event-hub.md
-    - name: Access data from external tables
-      href: data-explorer/data-explorer-access-external-data.md
-    - name: Query data with data explorer pools
-      href: data-explorer/data-explorer-query-with-pool.md
-    - name: Schedule pool activities in pipelines
-      href: data-explorer/data-explorer-schedule-pool-pipeline.md
     - name: Monitor and diagnose pools
-      href: data-explorer/data-explorer-monitor-diagnose-pools.md
+      href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
     href: data-explorer/kusto-query-language/toc.yml
+  - name: Management commands
+    href: data-explorer/management/toc.yml
   - name: Reference
     items:
-    - name: Management
-      href: data-explorer/management/toc.yml
     - name: API
       href: data-explorer/api/toc.yml
+    - name: Functions library
+      href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
   - name: Overview
