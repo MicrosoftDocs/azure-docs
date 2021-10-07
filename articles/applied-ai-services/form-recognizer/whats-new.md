@@ -38,7 +38,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
     * Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
-* [Python](quickstarts/try-v3-python-sdk.md) and [.NET]9quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
+* [Python](quickstarts/try-v3-python-sdk.md) and [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
  #### Form Recognizer model data extraction
 
