@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics  
 ms.topic: overview
 ms.subservice: metadata
-ms.date: 05/01/2020
+ms.date: 10/07/2020
 author: maburd
 ms.author: jocaplan 
 ms.reviewer: jrasnick, wiassaf
