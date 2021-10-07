@@ -49,7 +49,7 @@ This section provides a list of Video Analyzer endpoints.
 
 ## Azure Storage
 
-* **Purpose**: to record audio, video, and inference data when [pipelines](pipeline.md) are configured to store video on the cloud via the [Video Sink](pipeline.md#video-sink) node.
+* **Purpose**: to record audio, video, and inference data when [pipelines](pipeline.md) are configured to store video on the cloud via the [video sink](pipeline.md#video-sink) node.
 * **Authentication and Authorization**: authorization is performed by standard Azure Storage service authentication and authorization enforcement. In this case, storage is accessed through container specific SAS URLs.
 * **Requirement**: access to this endpoint is only required when a Video Analyzer edge pipeline is configured to archive the video to the cloud.
 
