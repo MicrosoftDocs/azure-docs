@@ -47,9 +47,9 @@ You'll need to resize or deallocate your H-series VMs. We recommend that you mig
 
 As a result, HC, HBv2, and HBv3 series will in general offer substantially better performance per unit of cost (maximizing performance for a fixed amount of spend) and cost per performance (minimizing cost for a fixed amount of performance).
 
-**General purpose workloads:** [Dv4](dv4-dsv4-series.md), [Dav4](dav4-dasv4-series.md), and Dv5 VMs offer the same or better CPU performance at identical or larger core counts, a comparable amount of memory per physical CPU core, better Azure Networking capabilities, and lower overall cost.
+**General purpose workloads:** [Dv4](dv4-dsv4-series.md), [Dav4](dav4-dasv4-series.md), and Dv5 VMs offer the same or better CPU performance at identical or larger core counts, a comparable amount of memory per physical CPU core, better Azure networking capabilities, and lower overall cost.
 
-**Memory-optimized workloads:** [Ev4](ev4-esv4-series.md), [Eav4](eav4-easv4-series.md), and Ev5 VMs offer the same or better CPU performance at identical or larger core counts, a comparable amount of memory per physical CPU core, better Azure Networking capabilities, and lower overall cost.
+**Memory-optimized workloads:** [Ev4](ev4-esv4-series.md), [Eav4](eav4-easv4-series.md), and Ev5 VMs offer the same or better CPU performance at identical or larger core counts, a comparable amount of memory per physical CPU core, better Azure networking capabilities, and lower overall cost.
 
 [H-series](h-series.md) and H-series Promo VMs won't be retired until September 2022. We're providing this guide in advance to give you a long window to assess, plan, and execute your migration.
 
