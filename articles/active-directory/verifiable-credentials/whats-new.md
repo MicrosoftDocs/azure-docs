@@ -8,13 +8,13 @@ ms.topic: reference
 ms.date: 10/07/2021
 ms.author: barclayn
 
-#Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
+#Customer intent: As an Azure AD Verifiable Credentials issuer, verifier or developer, I want to know what's new in the product so that I can leverage all the great features that are being rolled out.
 
 ---
 
-# What's new for Azure Active Directory Verifiable Credentials (preview)
+# What's new in Azure Active Directory Verifiable Credentials (preview)
 
-Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
+In this document you can find the latest features, improvements and changes in the Azure AD Verifiable Credentials service.
 
 ## October 2021
 
