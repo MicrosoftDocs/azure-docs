@@ -158,6 +158,8 @@ items:
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Azure Advisor
+    href: concepts/advisor-overview.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides
