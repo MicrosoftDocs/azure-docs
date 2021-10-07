@@ -15,8 +15,20 @@
     href: tutorial-create-secured-hub-and-spoke.md
 - name: Concepts
   items:
-  - name: Security admin rules
-    href: concept-security-admins.md
+  - name: Network Manager FAQ
+    href: faq.md
+  - name: Scope
+    href: concept-network-manager-scope.md
+  - name: Network groups
+    href: concept-network-groups.md
+  - name: Configuration types
+    items:
+    - name: Connectivity
+      href: concept-connectivity-configuration.md
+    - name: Security admin rules
+      href: concept-security-admins.md
+  - name: Deployments
+    href: concept-deployments.md
   - name: Remove or update components
     href: concept-remove-components-checklist.md
 - name: How-to guides
