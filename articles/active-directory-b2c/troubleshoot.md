@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot custom policies in Azure Active Directory B2C
+title: Troubleshoot custom policies and user flows in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -8,12 +8,36 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/25/2021
+ms.date: 10/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Troubleshoot Azure AD B2C custom policies
+# Troubleshoot Azure AD B2C custom policies and user flows
+
+You app needs to react to certain errors coming from B2C. This article provides some of the common errors.
+
+::: zone pivot="b2c-user-flow"
+
+## Password reset error
+
+
+- The error
+- The solution
+    - Respond back with new auth request
+    - Use recommended SSPR + a link to this article https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-password-reset-policy?pivots=b2c-user-flow#self-service-password-reset-recommended 
+
+
+## User cancelled the operation
+- The error
+
+blah blah blah
+- The solution
+-
+blah blah blah
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 If you use Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md), you might experience challenges with policy language XML format or runtime issues. This article describes some tools and tips that can help you discover and resolve issues. 
 
@@ -461,6 +485,9 @@ You try to upload a policy to your tenant, but a policy with same name is alread
 To fix this type of error, when you upload the policy, select the **Overwrite the custom policy if it already exists** checkbox.
 
 ![Screenshot that demonstrates how to overwrite the custom policy if it already exists.](./media/troubleshoot-custom-policies/overwrite-custom-policy-if-exists.png)
+
+::: zone-end
+
 
 
 ## Next steps
