@@ -2,12 +2,12 @@
 title: Use external tables with Synapse SQL
 description: Reading or writing data files with external tables in Synapse SQL
 services: synapse-analytics
-author: julieMSFT
+author: ma77b
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 07/23/2021
-ms.author: jrasnick
+ms.author: maburd
 ms.reviewer: wiassaf
 ---
 
