@@ -73,6 +73,12 @@ The key value pair extraction model and entity identification model are run in p
   * data must contain keys and values.
   * keys must appear above or to the left of the values; they can't appear below or to the right.
 
+## Supported languages and locales
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|General document| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+
 ### Named entity recognition (NER) categories
 
 | Category | Type | Description |
