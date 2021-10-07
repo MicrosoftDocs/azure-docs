@@ -3,74 +3,86 @@
 - name: Overview 
   expanded: true
   items:
-  - name: Welcome to Azure confidential computing 
+  - name: What is confidential computing?
     href: overview.md
+  - name: Confidential computing on Azure
+    href: overview-azure-products.md
   - name: Use cases and scenarios
     href: use-cases-scenarios.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Virtual machines
+  - name: Confidential VMs
     items:
-    - name: Create in the Azure portal
-      href: quick-create-portal.md
-    - name: Create with Marketplace
-      href: quick-create-marketplace.md
-  - name: Azure Kubernetes Services (AKS)
+  - name: Confidential VMs with enclaves
     items:
-    - name: AKS Confidential nodes overview
-      href: confidential-nodes-aks-overview.md
-    - name: Confidential nodes with Azure CLI
-      href: confidential-nodes-aks-get-started.md
-    - name: Confidential nodes on AKS FAQ
-      href: confidential-nodes-aks-faq.yml
-  
+      - name: Deploy Intel SGX
+        items:
+          - name: Create Intel SGX VM with Azure Portal
+            href: quick-create-portal.md
+          - name: Create Intel SGX VM with Marketplace
+            href: quick-create-marketplace.md
 - name: Concepts
   expanded: true
   items:
-  - name: Virtual machines (VMs)
+  - name: Building confidential computing solutions
+    href: confidential-computing-solutions.md
+  - name: Deploying solutions on confidential computing
+    href: confidential-computing-deployment-models.md
+  - name: Confidential virtual machines
     items:
-    - name: Enclave-aware virtual machines
-      href: confidential-computing-enclaves.md
-    - name: Solutions on virtual machines
-      href: virtual-machine-solutions.md
-    - name: Confidential computing VM FAQ 
-      href: faq.yml
-
-  
-  - name: Container Compute
-    expanded: true
+    - name: Overview
+      href: confidential-computing-vm-overview.md
+    - name: Choosing the right VM offering
+      href: choose-confidential-computing-vm-offerings.md
+    - name: Build with enclaves
+      items:
+      - name: Enclaves overview
+        href: confidential-computing-enclaves.md
+      - name: Developing enclave applications 
+        items:
+        - name: Enclave development overview
+          href: application-development.md
+        - name: Open-source projects for development
+          href: enclave-development-oss.md
+      - name: Intel SGX
+        items:
+        - name: Deploying Intel SGX virtual machines
+          href: virtual-machine-solutions-sgx.md
+      - name: Application enclave VM FAQ
+        href: faq-application-enclaves.md 
+  - name: Confidential containers
     items:  
-    - name: Confidential containers
+    - name: Container solutions overview
+      href: confidential-containers.md
+    - name: Choosing the right container offering
+      href: choose-confidential-containers-offerings.md
+    - name: Deploy Containers
       items:
-      - name: Getting started
-        href: confidential-containers.md
-    - name: Enclave-aware containers
+        - name: Using open-source and partners (ISV, OSS)
+          href: open-source-for-container-deployment.md
+        - name: Using AMD SEV-SNP VM Nodes
+          href: amd-sev-snp-containers.md
+    - name: Build with enclaves
       items:
-        - name: Getting started 
-          href: enclave-aware-containers.md
-  - name: Attestation
-    href: attestation.md
-  - name: Application development
-    href: application-development.md
+        - name: Using open-source projects (OSS)
+          href: open-source-for-building-container-enclaves.md
 - name: How To
   items:
-  - name: Fortanix Confidential Computing Manager
-    href: how-to-fortanix-confidential-computing-manager.md
-  - name: Fortanix Confidential Computing Manager Node Agent
-    href: how-to-fortanix-confidential-computing-manager-node-agent.md
-- name: References
-  items:
-  - name: SGX Quote helper feature
-    href: confidential-nodes-out-of-proc-attestation.md
+  - name: Partner Solutions
+    items:
+    - name: Fortanix
+      items:
+      - name: Fortanix Confidential Computing Manager
+        href: how-to-fortanix-confidential-computing-manager.md
+      - name: Fortanix Confidential Computing Manager Node Agent
+        href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: Resources
   items:
   - name: Confidential computing feedback
     href: https://feedback.azure.com/forums/919792-azure-confidential-compute
   - name: StackOverflow
     href: https://stackoverflow.com/questions/tagged/azure-confidential-computing
-  - name: Open Enclave SDK
-    href: https://aka.ms/oesdkGitHubRepo
   - name: Confidential Computing Consortium
     href: https://confidentialcomputing.io/
   - name: Virtual Machines on Azure
