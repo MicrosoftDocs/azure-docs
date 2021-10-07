@@ -932,14 +932,10 @@ To run the preceding command, you need only to pass the new Root Collection Admi
 {"objectId": "{guid}"}
 ```
 
-After a successful run, all REST APIs return HTTP response "200 OK".
-
 > [!NOTE]
 > Users who call this API must have Owner or User Account and Authentication (UAA) permissions on the Azure Purview account to execute a write action on the account.
 
 ## Additional resources
-
-To get started quickly with Azure Purview APIs, [download a zip-file archive](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) of all Azure Purview REST API specs. You can use these API templates to understand and build out your own code, script, automation, [AutoRest](https://github.com/Azure/autorest), or Postman Collection of Azure Purview APIs.
 
 You may choose to execute Azure Purview REST APIs by using the [PowerShell utility](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. With this utility, you can execute all the same commands, but from Windows PowerShell.
 

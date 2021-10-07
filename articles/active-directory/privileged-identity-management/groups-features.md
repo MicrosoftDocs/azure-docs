@@ -4,7 +4,7 @@ description: How to manage members and owners of privileged access groups in Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
