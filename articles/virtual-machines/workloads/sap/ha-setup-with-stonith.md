@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 In this article, we'll go through the steps to set up high availability (HA) in HANA Large Instances on the SUSE operating system by using the STONITH device.
 
 > [!NOTE]
-> This guide is derived by successfully testing the setup in the Microsoft HANA Large Instances environment. The Microsoft Service Management team for HANA Large Instances doesn't support the operating system. So you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. 
+> This guide is derived from successfully testing the setup in the Microsoft HANA Large Instances environment. The Microsoft Service Management team for HANA Large Instances doesn't support the operating system. For troubleshooting or clarification on the operating system layer, contact SUSE. 
 >
 > The Microsoft Service Management team does set up and fully support the STONITH device. It can help troubleshoot STONITH device problems.
 
@@ -31,9 +31,9 @@ To set up high availability by using SUSE clustering, you need to:
 
 - Provision HANA Large Instances.
 - Install and register the operating system with the latest patches.
-- Connect HANA Large Instances servers to the SMT server to get patches and packages.
+- Connect HANA Large Instance servers to the SMT server to get patches and packages.
 - Set up Network Time Protocol (NTP time server).
-- Read and understand the latest version of the SUSE documentation on HA setup.
+- Read and understand the latest SUSE documentation on HA setup.
 
 ## Setup details
 
@@ -50,7 +50,7 @@ When you set up HANA Large Instances with HANA system replication, you can reque
 
 If you're an existing customer with HANA Large Instances already provisioned, you can still get the STONITH device set up. Provide the following information to the Microsoft Service Management team in the service request form (SRF). You can get the SRF through the Technical Account Manager or your Microsoft contact for HANA Large Instance onboarding.
 
-- Server name and server IP address (for example, myhanaserver1, 10.35.0.1)
+- Server name and server IP address (for example, myhanaserver1 and 10.35.0.1)
 - Location (for example, US East)
 - Customer name (for example, Microsoft)
 - HANA system identifier (SID) (for example, H11)
@@ -74,7 +74,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     
     ![Screenshot that shows an initiatorname file with InitiatorName values for a node.](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-2. Modify */etc/iscsi/iscsid.conf*: Set `node.session.timeo.replacement_timeout=5` and `node.startup = automatic`. Modify the file on *both* nodes.
+2. Modify */etc/iscsi/iscsid.conf* by setting `node.session.timeo.replacement_timeout=5` and `node.startup = automatic`. Modify the file on *both* nodes.
 
 3. Run the following discovery command on *both* nodes.
 
@@ -102,7 +102,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     rescan-scsi-bus.sh
     ```
     
-    In the results, you should see a LUN number greater than zero (for example: 1, 2, and so on).
+    The results should show a LUN number greater than zero (for example: 1, 2, and so on).
      
     ![Screenshot that shows a console window with results of the script.](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
@@ -125,7 +125,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     ```
     ![Screenshot that shows a console window with the result of the s b d create command.](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
-2. Use the following command to check what has been written to the device. Do it on *both* nodes.
+2. Use the following command on *both* nodes to check what has been written to the device.
 
     ```
     sbd -d <SBD Device Name> dump
@@ -133,7 +133,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
 
 ## Configure the SUSE HA cluster
 
-1. First, install the package. Use the following command to check whether ha_sles and SAPHanaSR-doc patterns are installed on *both* nodes. If they're not installed, install them.
+1. Use the following command to check whether ha_sles and SAPHanaSR-doc patterns are installed on *both* nodes. If they're not installed, install them.
 
     ```
     zypper in -t pattern ha_sles
@@ -143,25 +143,23 @@ Follow the steps in the following sections to set up HA by using STONITH.
     
     ![Screenshot that shows a console window with the result of the SAPHanaSR-doc command.](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
     
-2. Now, set up the cluster.	You can use either the `ha-cluster-init` command or the yast2 wizard. In this example, we're using the yast2 wizard. Do this step *only on the primary node*.
+2. Set up the cluster by using either the `ha-cluster-init` command or the yast2 wizard. In this example, we're using the yast2 wizard. Do this step *only on the primary node*.
 
-    1. Follow **yast2** > **High Availability** > **Cluster**.
+    1. Go to **yast2** > **High Availability** > **Cluster**.
     
-        ![Screenshot that shows the YaST Control Center with High Availability and Cluster selected.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
-        
+        ![Screenshot that shows the YaST Control Center with High Availability and Cluster selected.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)        
+                
+    1. In the dialog that appears about the hawk package installation, select **Cancel** because the halk2 package is already installed.
+    
         ![Screenshot that shows a dialog with Install and Cancel options.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
-        
-    1. Select **Cancel** because the halk2 package is already installed.
+                    
+    1. In the dialog that appears about continuing, select **Continue**.
     
-        ![Screenshot that shows a message about your cancel option.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
-    
-    1. Select **Continue**.
-    
-        The expected value is the number of nodes deployed (in this case, 2).
+        ![Screenshot that shows a message about continuing without installing required packages.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)        
         
-        ![Screenshot that shows Cluster Security with an Enable Security Auth checkbox.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
-        
-    1. Select **Next**.        
+    1. The expected value is the number of nodes deployed (in this case, 2). Select **Next**.  
+
+        ![Screenshot that shows Cluster Security with an Enable Security Auth checkbox.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)     
         
     1. Add node names, and then select **Add suggested files**.
 
@@ -169,23 +167,21 @@ Follow the steps in the following sections to set up HA by using STONITH.
         
     1. Select **Turn csync2 ON**.
     
-    1. Select **Generate Pre-Shared-Keys**. The following pop-up message appears.
+    1. Select **Generate Pre-Shared-Keys**. 
+    
+    1. In the pop-up message that appears, select **OK**.
     
         ![Screenshot that shows a message that your key has been generated.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
         
-    1. Select **OK**.
+    1. The authentication is performed using the IP addresses and preshared keys in Csync2. The key file is generated with `csync2 -k /etc/csync2/key_hagroup`. 
     
-        The authentication is performed using the IP addresses and pre-shared keys in Csync2. The key file is generated with `csync2 -k /etc/csync2/key_hagroup`. The file *key_hagroup* should be copied to all members of the cluster manually after it's created. 
-        
-        Be sure to copy the file from node1 to node2.
+        Manually copy the file *key_hagroup* to all members of the cluster after it's created. Be sure to copy the file from node1 to node2. Then select **Next**.
         
         ![Screenshot that shows a Cluster Configure dialog box with options necessary to copy the key to all members of the cluster.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
         
-    1. Select **Next**.
-       
-        In the default option, **Booting** was **Off**. Change it to **On**, so the pacemaker service is started on boot. You can make the choice based on your setup requirements.
+    1. In the default option, **Booting** was **Off**. Change it to **On**, so the pacemaker service is started on boot. You can make the choice based on your setup requirements.
 
-        ![Screenshot that shows the Cluster Service window.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+        ![Screenshot that shows the Cluster Service window with Booting turned on.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
     
     1. Select **Next**, and the cluster configuration is complete.
 
@@ -212,7 +208,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     ```
     ![Screenshot that shows part of a console window with the command modprobe softdog.](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4. Ensure that softdog is running as follows on *both* nodes.
+4. Use the following command to ensure that softdog is running on *both* nodes.
     
     ```
     lsmod | grep dog
@@ -231,7 +227,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     ```
     sbd -d <SBD Device Name> list
     ```
-    You'll see two entries after you configure it on both nodes.    
+    The results show two entries after configuration on both nodes.    
     
     ![Screenshot that shows part of a console window displaying two entries.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
     
@@ -240,7 +236,6 @@ Follow the steps in the following sections to set up HA by using STONITH.
     ```
     sbd  -d <SBD Device Name> message <node2> <message>
     ```
-    ![Screenshot that shows part of a console window displaying two entries.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
     
 8. On the *second* node (node2), use the following command to check the message status.
     
@@ -269,17 +264,17 @@ Follow the steps in the following sections to set up HA by using STONITH.
 
 ## Join the node to the cluster
 
-Run the following command on **node2** to let node2 join the cluster.
+Run the following command on *node2* to let that node join the cluster.
 
 ```
 ha-cluster-join
 ```
 
-If you receive an error during joining of the cluster, see the section [Scenario 6: Node 2 unable to join the cluster](#node-2-unable-to-join-the-cluster) later in this article.
+If you receive an error during joining of the cluster, see the section [Scenario 6: Node2 unable to join the cluster](#node2-unable-to-join-the-cluster) later in this article.
 
 ## Validate the cluster
 
-1. Start the cluster service. Use the following commands to check and optionally start the cluster for the first time on *both* nodes:
+1. Use the following commands to check and optionally start the cluster for the first time on *both* nodes:
     
      ```
     systemctl status pacemaker
@@ -287,7 +282,7 @@ If you receive an error during joining of the cluster, see the section [Scenario
     ```
     ![Screenshot that shows a console window with the status of pacemaker.](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
         
-2. Monitor the status. Run the following command to ensure that *both* nodes are online. You can run it on *any of the nodes* of the cluster.
+2. Run the following command to ensure that *both* nodes are online. You can run it on *any of the nodes* of the cluster.
     
     ```
     crm_mon
@@ -305,7 +300,7 @@ In this example, you set up the following resources. You can configure the rest 
 - STONITH device
 - Virtual IP address
 
-Do the configuration in *the primary node* only.
+Do the configuration on the *primary node* only.
 
 1. Create the cluster bootstrap file and configure it by adding the following text:
     
@@ -355,7 +350,7 @@ Do the configuration in *the primary node* only.
     params ip="10.35.0.197"
     ```
     
-    Use the folowing command to add the configuration to the cluster:
+    Use the following command to add the configuration to the cluster:
     
     ```
     crm configure load update crm-vip.txt
@@ -363,11 +358,11 @@ Do the configuration in *the primary node* only.
         
 5. Use the `crm_mon` command to validate the resources. 
 
-    In the results, you can see the two resources.
+    The results show the two resources.
 
     ![Screenshot that shows a console window with two resources.](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-    You can also see the status at *https://\<node IP address>:7630/cib/live/state*.
+    You can also check the status at *https://\<node IP address>:7630/cib/live/state*.
     
     ![Screenshot that shows the status of the two resources.](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
     
@@ -383,33 +378,35 @@ Do the configuration in *the primary node* only.
 
 2. Stop the pacemaker service on node2, and resources fail over to node1.
 
-    **Before failover**  
+    Here's the status before failover:  
     ![Screenshot that shows the status of the two resources before failover.](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
     
-    **After failover**  
+    Here's the status after failover:  
     ![Screenshot that shows the status of the two resources after failover.](media/HowToHLI/HASetupWithStonith/after-failover.png)
     
     ![Screenshot that shows a console window with the status of resources after failover.](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
     
 
 ## Troubleshooting
-This section describes the few failure scenarios that can be encountered during setup. You may not necessarily face these issues.
+
+This section describes failure scenarios that you might encounter during setup.
 
 ### Scenario 1: Cluster node not online
 
-If any of the nodes don't show online in cluster manager, you can try the following to bring it online.
+If any of the nodes don't show online in Cluster Manager, you can try this procedure to bring it online.
 
-1. Start the iSCSI service:
+1. Use the following command to start the iSCSI service.
 
     ```
     service iscsid start
     ```
     
-2. Now sign in to that iSCSI node.
+2. Use the following command to sign in to that iSCSI node.
 
     ```
     iscsiadm -m node -l
     ```
+    
     The expected output looks like:
 
     ```
@@ -423,112 +420,109 @@ If any of the nodes don't show online in cluster manager, you can try the follow
     Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.22,3260] successful.
     Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
     ```
-### Scenario 2: yast2 doesn't show graphical view
+### Scenario 2: Yast2 doesn't show graphical view
 
-The yast2 graphical screen is used to set up the high availability cluster in this document. If yast2 doesn't open with the graphical window as shown, and throws a Qt error, do the following steps. If it opens with the graphical window, you can skip the steps.
+The yast2 graphical screen is used to set up the high-availability cluster in this article. If yast2 doesn't open with the graphical window as shown, and it throws a Qt error, take the following steps. If it opens with the graphical window, you can skip the steps.
 
-**Error**
+Here's an example of the Qt error.
 
 ![Screenshot that shows part of a console window with an error message.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
-**Expected Output**
+Here's an example of the expected output.
 
 ![Screenshot that shows the YaST Control Center with High Availability and Cluster highlighted.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
-If the yast2 doesn't open with the graphical view, follow these steps:
+1. Install the required packages. You must be logged in as user “root” and have SMT set up to download and install the packages.
 
-1. Install the required packages. You must be logged in as user “root” and have SMT set up to download/install the packages.
-
-2. To install the packages, use yast>Software>Software Management>Dependencies> option “Install recommended packages…”. The following screenshot illustrates the expected screens.
+2. To install the packages, go to **yast** > **Software** > **Software Management** > **Dependencies**, and then select **Install recommended packages**. 
 
     >[!NOTE]
-    >You need to perform the steps on both nodes, so that you can access the yast2 graphical view from both nodes.
+    >Perform the steps on *both* nodes, so that you can access the yast2 graphical view from both nodes.
+    
+    The following screenshot shows the expected screen.
     
     ![Screenshot that shows a console window displaying the YaST Control Center.](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
     
-3. Under Dependencies, select **Install Recommended Packages**.
+3. Under **Dependencies**, select **Install Recommended Packages**.
 
     ![Screenshot that shows a console window with Install Recommended Packages selected.](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
 4. Review the changes and select **OK**.
 
-    ![yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
+    ![Screenshot that shows a console window with a list of packages that have been selected for installation.](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
 
     The package installation proceeds.
 
     ![Screenshot that shows a console window displaying progress of the installation.](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-5. Select **Next**.
+5. Select **Next**.    
+
+6. When the **Installation Successfully Finished** screen appears, select **Finish**.
 
     ![Screenshot that shows a console window with a success message.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
-6. Select **Finish**.
-
-7. You also need to install the libqt4 and libyui-qt packages.
+7. Use the following commands to install the libqt4 and libyui-qt packages.
     
     ```
     zypper -n install libqt4
     ```
-    ![Screenshot that shows a console window installing the libqt4 package.](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
+    ![Screenshot that shows a console window installing the first package.](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
     
     ```
     zypper -n install libyui-qt
     ```
-    ![Screenshot that shows a console window installing the libyui-qt package.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
+    ![Screenshot that shows a console window installing the second package.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
     
-    ![Screenshot that shows a console window installing the libyui-qt package, continued.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
+    ![Screenshot that shows a console window installing the second package, continued.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
     
-    Yast2 can now open the graphical view as shown here.
+    Yast2 can now open the graphical view.
 
     ![Screenshot that shows the YaST Control Center with Software and Online Update selected.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
-### Scenario 3: yast2 doesn't show the high availability option
+### Scenario 3: Yast2 doesn't show the high-availability option
 
-For the high availability option to be visible on the yast2 control center, you need to install the other packages.
+For the high-availability option to be visible on the yast2 control center, you need to install the other packages.
 
-1. Using Yast2>Software>Software management, select the following patterns:
+1. Go to **Yast2** > **Software** > **Software Management**. Then select **Software** > **Online Update**.  
+
+    ![Screenshot that shows the YaST Control Center with Software and Online Update selected.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+
+2. Select patterns for the following items. Then select **Accept**.
 
     - SAP HANA server base
-    - C/C++ Compiler and tools
+    - C/C++ compiler and tools
     - High availability
-    - SAP Application server base
+    - SAP application server base
 
-    The following screen shows the steps to install the patterns.
+    ![Screenshot that shows selecting the first pattern in the item for compiler and tools.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 
-    Using yast2 > Software > Software Management
+    ![Screenshot that shows selecting the second pattern in the item for compiler and tools.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-    ![Screenshot that shows the YaST Control Center with Software and Online Update selected to begin the installation.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+4. In the list of packages that have been changed to resolve dependencies, select **Continue**.
 
-2. Select the patterns.
+    ![Screenshot that shows the Changed Packages dialog with packages changed to resolve dependencies.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-    ![Screenshot that shows selecting the first pattern in the C / C++ Compiler and Tools item.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
-
-    ![Screenshot that shows selecting the second pattern in the C / C++ Compiler and Tools item.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
-
-3. Select **Accept**.
-
-    ![Screenshot that shows the Changed Packages dialog box with packages changed to resolve dependencies.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
-
-4. Select **Continue**.
+4. On the **Performing Installation** status page, select **Next**.
 
     ![Screenshot that shows the Performing Installation status page.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-5. Select **Next** when the installation is complete.
+5. When the installation is complete, an installation report appears. Select **Finish**.
 
     ![Screenshot that shows the installation report.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
 ### Scenario 4: HANA installation fails with gcc assemblies error
-The HANA installation fails with the following error.
+
+If the HANA installation fails, you might get the following error.
 
 ![Screenshot that shows an error message that the operating system isn't ready to perform g c c 5 assemblies.](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
-- To fix the issue, you need to install libraries (libgcc_sl and libstdc++6) as per the following screenshot.
+To fix the problem, install the libgcc_sl and libstdc++6 libraries as shown in the following screenshot.
 
-    ![Screenshot that shows a console window installing required libraries.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
+![Screenshot that shows a console window installing required libraries.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
 ### Scenario 5: Pacemaker service fails
 
-The following issue occurred during the pacemaker service start.
+The following information appears if the pacemaker service can't start.
 
 ```
 sapprdhdb95:/ # systemctl start pacemaker
@@ -569,25 +563,27 @@ sapprdhdb95:/ # tail -f /var/log/messages
 2017-09-28T18:45:01.308066-04:00 sapprdhdb95 CRON[57995]: pam_unix(crond:session): session closed for user root
 ```
 
-- To fix it, delete the following line from the file */usr/lib/systemd/system/fstrim.timer*
+To fix it, delete the following line from the file */usr/lib/systemd/system/fstrim.timer*:
 
-    ```
-    Persistent=true
-    ```
+```
+Persistent=true
+```
     
-    ![Screenshot that shows the f s trim file with the value of Persistent=true to be deleted.](media/HowToHLI/HASetupWithStonith/Persistent.png)
+![Screenshot that shows the f s trim file with the value of Persistent=true to be deleted.](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
-### Scenario 6: Node 2 unable to join the cluster
+### Scenario 6: Node2 can't join the cluster
 
-When joining the node2 to the existing cluster using the *ha-cluster-join* command, the following error occurred.
+The following error appears if there's a problem with joining node2 to the existing cluster through the *ha-cluster-join* command.
 
 ```
 ERROR: Can’t retrieve SSH keys from <Primary Node>
 ```
 
-![Screenshot that shows a console window with the error message Can’t retrieve S S H keys from an I P address.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
+![Screenshot that shows a console window with an error message that says S S H keys can't be retrieved from a particular I P address.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
 
-1. To fix it, run the following on both nodes:
+To fix it:
+
+1. Run the following commands on *both nodes*.
 
     ```
     ssh-keygen -q -f /root/.ssh/id_rsa -C 'Cluster Internal' -N ''
@@ -598,20 +594,20 @@ ERROR: Can’t retrieve SSH keys from <Primary Node>
 
     ![Screenshot that shows part of a console window running the command on the second node.](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
 
-2. After the preceding fix, node2 should be added to the cluster.
+2. Confirm that node2 is added to the cluster.
 
-    ![Screenshot that shows a console window with a successful ha-cluster-join command.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
+    ![Screenshot that shows a console window with a successful join command.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## Next steps
 
 You can find more information on SUSE HA setup in the following articles: 
 
-- [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/support/kb/doc/?id=000019450 )
-- [Storage-based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
-- [Blog - Using Pacemaker Cluster for SAP HANA- Part 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
-- [Blog - Using Pacemaker Cluster for SAP HANA- Part 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)
+- [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/support/kb/doc/?id=000019450) (SUSE website)
+- [Storage-based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html) (SUSE website)
+- [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 1: Basics](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/) (SAP blog)
+- [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 2: Failure of Both Nodes](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/) (SAP blog)
 
-Learn how to do an operating system file level backup and restore.
+Learn how to do an file-level backup and restore for an operating system:
 
 > [!div class="nextstepaction"]
 > [OS backup and restore](large-instance-os-backup.md)
