@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
 
-2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/use-azure-resources.md#identity-management-for-your-language-services-resource) and roles for your resource and storage account.
+2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/use-azure-resources.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
 
 3. From the top of the projects screen, select **Create new project**. If requested, choose your storage account from the menu that appears.
 
