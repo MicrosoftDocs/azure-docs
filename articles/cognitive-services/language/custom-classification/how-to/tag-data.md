@@ -63,7 +63,7 @@ If you want to save manually, hover over the red indicator and click on **Save n
 
 :::image type="content" source="../media/tag-status.png" alt-text="The tag status" lightbox="../media/tag-status.png":::
 
-If you want to remove a tag in multiple label classification, uncheck the class you want to remove from file.
+If you want to remove a tag, uncheck the button next to the class.
 
 To delete/rename a class,
   * Select the class you want to edit from the right side menu
@@ -74,7 +74,7 @@ To delete/rename a class,
 >[!NOTE]
 > The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 20 tagged files per classification.
 
-While you are tagging your data keep an eye for the training readiness recommendation at the top right of the page.
+As you tag your data, you can find a training readiness recommendation in the top-right corner of the page.
 :::image type="content" source="../media/tag-train-ready.png" alt-text="Readiness recommendation" lightbox="../media/tag-train-ready.png":::
 
 ## Data tag JSON file format
@@ -110,7 +110,7 @@ Your tags file should be in the `json` format below.
     *  `../file.txt` For documents one directory level above.
 * `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
 * `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
-* `intents`: Array of classes assigned to the document. For single classification this value must be one item only.
+* `intents`: Array of classes assigned to the document. If you're working on a single classification project, this value must be one item only.
 
 ## Next Steps
 

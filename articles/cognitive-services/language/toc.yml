@@ -31,6 +31,8 @@ items:
     href: custom-classification/quickstart.md
   - name: Language support
     href: custom-classification/language-support.md
+  - name: FAQ
+    href: custom-classification/faq.md
   - name: How-to guides
     items:
     - name: Using Azure resources

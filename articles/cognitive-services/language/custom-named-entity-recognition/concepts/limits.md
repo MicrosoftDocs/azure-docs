@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
@@ -21,6 +21,13 @@ Use this article to learn about the data and service limits when using Custom NE
 * You can only use `.txt`. files for custom text. If your data is in another format, you can use the [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to open your document and extract the text.
 
 * All files uploaded in your container must contain data. Empty files are not allowed for training.
+
+* All files should be available at the root of your container.
+
+* Maximum allowed length for your file sis 128,000 characters, which is approximately 28,000 words or 56 pages.
+
+* Your [training dataset](../how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
+
 
 ## APIs limits
 
@@ -35,7 +42,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 ## Text analytics resource
 
-* You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource you cannot unlink it later.
+* You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later.
 
 * You can have up to 500 projects per resource.
 
@@ -43,7 +50,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 ## Project
 
-* You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project you cannot disconnect it later.
+* You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project, you cannot disconnect it later.
 
 * You can only have 1 [tags file](../how-to/tag-data.md) per project. You cannot change to a different tags file later. You can only update the tags within your project.
 
@@ -59,18 +66,22 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can only train one model at a time per project.
 
-* You can have only 1 deployed model per project.
+## Entity
 
-* Your tagged entity length cannot exceed 128 tokens.
+* Your tagged entity is recommended to be 10 words but the maximum allowed is 100 characters.
+
+* You should have at least 1 entity in your project and the maximum is 200 entities.
+
+* It is recommended to have around 200 tagged instances per entity and you must have a minimum of 10 of tagged instances per entity.
 
 ## Naming limits
 
 | Attribute | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
-| Entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| File names | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Model name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Entity names| You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
+| File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
 
 ## Next steps
 

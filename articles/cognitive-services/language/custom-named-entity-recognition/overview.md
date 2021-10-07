@@ -14,11 +14,9 @@ ms.author: aahi
 
 # What is Custom Named Entity Recognition (NER)?
 
-Custom NER is a cloud-based API service that is built using transformer-based models from [Microsoft Turing](https://msturing.org/about) to extract information from unstructured documents.
+Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
 
-[Azure Cognitive Service for Language](../overview.md) offers a pre-configured [Named Entity Recognition API](../named-entity-recognition/overview.md) for common named entity types, but custom NER lets you extract specific entities that are more relevant to your data. 
-
-Building custom models can be a complex process that requires AI expertise. Custom NER simplifies many of the details required, letting you focus on building a model around your data. Your data can be previously tagged or you can tag it within the [Language Studio](https://language.azure.com).
+To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://language.azure.com). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 This documentation contains the following article types:
 
@@ -26,13 +24,19 @@ This documentation contains the following article types:
 * [Concepts](concepts/recommended-practices.md) provide explanations of the service functionality and features.
 * [How-to guides](how-to/tag-data.md) contain instructions for using the service in more specific or customized ways.
 
-## Example: Use Custom NER for information extraction
+## Example usage scenarios
 
-With an abundance of electronic documents in an enterprise, the process of extracting information from them can be difficult and time consuming. With Custom NER, you can save a significant amount of time and effort by building custom models to ease the process of information extraction from unstructured documents like contracts or financial documents.
+### Information extraction
 
-## Example: Use Custom NER for to enrich semantic search
+Many financial and legal organizations extract and normalize data from thousands of complex unstructured text, such as bank statements, legal agreements, or bank forms on a daily basis. Instead of manually processing these forms, custom NER can help automate this process.
 
-Search can be foundational to apps that deliver text content to users, with common scenarios including: catalog or document search, retail product search, or knowledge mining for data science. Custom NER enables you to build your own custom models to extract specific entities from your unstructured text. You can also integrate the service with [Cognitive Search](/azure/search/search-what-is-azure-search) to enrich your index with the extracted entities from files.
+### Knowledge mining to enhance/enrich semantic search
+
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use Custom NER for extracting entities from the text that are relevant to their industry. These entities could be used to enrich the indexing of the file for a more customized search experience. 
+
+### Audit and compliance
+
+Instead of manually long text files to audit and apply organizational policies, custom NER can be used to help build automated solutions and apply necessary business rules. 
 
 ## Development life cycle
 
@@ -47,7 +51,7 @@ Using Custom NER typically involves several different steps.
     2. **Tag consistently**:  The same entity should have the same tag across all the files.
     3. **Tag completely**: Tag all the instances of the entity in all your files.
 
-3. **Train model**: This is where the magic happens, your model starts learning from you tagged data.
+3. **Train model**: Your model starts learning from you tagged data.
 
 4. **View the model evaluation details**: After training is completed, view the model's evaluation details and its performance.
 

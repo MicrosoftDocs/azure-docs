@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 10/06/2021
 ms.author: aahi
 ---
 
@@ -18,9 +18,9 @@ Learn about definitions used in the custom text classification feature of Langua
 
 ## Project
 
-A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and other people who have contributor access to the Azure resource you are using.
+A project is a work area for building your custom AI models based on your data.  Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 As a prerequisite to creating a Custom entity extraction project, you have to [connect your resource to a storage account](how-to/use-azure-resources.md).
-As part of the project creation flow, you need connect it to a blob container where you have uploaded your dataset. Your project automatically includes all the `.txt` files available in your container. See the [limits](concepts/data-limits.md) article for more information.
+As part of the project creation flow, you need connect it to a blob container where you have uploaded your dataset. Your project automatically includes all the `.txt` files available in your container. You can have multiple models within your project all built on the same dataset. See the [limits](concepts/data-limits.md) article for more information.
 
 Within your project you can do the following operations:
 
@@ -41,7 +41,8 @@ Custom text classification supports two types of projects
 
 ## Model
 
-A model is an object that has been trained to do a certain task, in our case custom entity extraction.
-* **Model training** is the process of teaching your model what to extract based on your tagged data.
-* **Model evaluation** is the process that happens right after training to know how well does your model perform.
-* **Model deployment** is the process of making it available for use.
+A model is an object that is trained to do a certain task, in our case custom text classification. Models are trained by providing tagged data to learn from so they can later be used for classifying text. After you're satisfied with the model's performance, it can be deployed, which makes it [available for consumption](https://aka.ms/ct-runtime-swagger).
+
+## Class
+
+A class is a user defined category that is used to indicate the overall classification of the text. You will tag your data with your assigned classes before passing it to the model for training. 
