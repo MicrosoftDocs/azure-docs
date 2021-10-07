@@ -13,7 +13,7 @@ The Log Analytics agent is required if you want to:
 
 * Monitor the operating system, any workloads running on the machine or server, further analyze, and alert using Azure Monitor.
 * Perform security monitoring in Azure by using Azure Security Center and Azure Sentinel.
-* Manage operating system updates by using Azure Automation Update Management. 
+* Manage operating system updates by using Azure Automation Update Management.
 * Collect inventory and track changes by using Azure Automation Change Tracking and Inventory.
 * Run Automation runbooks directly on the machine and against resources in the environment to manage them by using an Azure Automation Hybrid Runbook Worker.
 
@@ -70,3 +70,4 @@ The process automation operating environment in Azure Automation and its support
 * Creating a runbook based on PowerShell or Python depending on the target operating system.
 
 ## Next steps
+
