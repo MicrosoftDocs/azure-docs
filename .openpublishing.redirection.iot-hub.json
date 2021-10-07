@@ -126,6 +126,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/about-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-concepts.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },   
+    {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
       "redirect_url": "/azure/iot-hub/about-iot-hub",
       "redirect_document_id": true
