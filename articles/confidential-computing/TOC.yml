@@ -34,7 +34,7 @@
     - name: Overview
       href: confidential-computing-vm-overview.md
     - name: Choosing the right VM offering
-      href: choose-confidential-computing-vm-offerings.md
+      href: choose-confidential-vm-offerings.md
     - name: Build with enclaves
       items:
       - name: Enclaves overview
@@ -50,7 +50,7 @@
         - name: Deploying Intel SGX virtual machines
           href: virtual-machine-solutions-sgx.md
       - name: Application enclave VM FAQ
-        href: faq-application-enclaves.md 
+        href: faq-application-enclaves.yml 
   - name: Confidential containers
     items:  
     - name: Container solutions overview
@@ -61,8 +61,6 @@
       items:
         - name: Using open-source and partners (ISV, OSS)
           href: open-source-for-container-deployment.md
-        - name: Using AMD SEV-SNP VM Nodes
-          href: amd-sev-snp-containers.md
     - name: Build with enclaves
       items:
         - name: Using open-source projects (OSS)
