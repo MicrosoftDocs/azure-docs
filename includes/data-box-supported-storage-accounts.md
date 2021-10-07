@@ -11,7 +11,7 @@ Here is a list of the supported storage accounts and storage types for a Data Bo
 
 For import orders, following table shows the supported storage accounts.
 
-| **Storage account / Supported storage types** | **Block blob** |**Page blob*** |**Azure files** |**Notes**|
+| **Storage account / Supported storage types** | **Block blob** |**Page blob**<sup>*</sup> |**Azure files** |**Notes**|
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
 | General-purpose v1 Standard  | Y | Y | Y | Both hot and cool tiers are supported.|
@@ -22,7 +22,7 @@ For import orders, following table shows the supported storage accounts.
 | Blob storage Standard | Y | | | Both hot and cool tiers are supported. |
 
 
-\* *- Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
+<sup>*</sup> *Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
 
 For export orders, following table shows the supported storage accounts.
 
