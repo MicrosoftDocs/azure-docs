@@ -85,7 +85,7 @@ Azure Sentinel provides the built-in, **Configure Azure ML and Azure Synapse Ana
 
 1. Locate and select the **Configure Azure ML and Azure Synapse Analytics** notebook, and then select **Clone notebook template** at the bottom right.
 
-    In the **Clone notebook** pane, modify the notebook name if needed, select your [Azure Machine Learning workspace](#connect-to-azure-machine-learning-and-synapse-workspaces), and then select **Save**.
+    In the **Clone notebook** pane, modify the notebook name if needed, select your [Azure Machine Learning workspace](#connect-to-azure-ml-and-synapse-workspaces), and then select **Save**.
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
@@ -115,7 +115,7 @@ Azure Sentinel provides the built-in **Guided Hunting - Detect potential network
 
 1. Locate and select the **Guided Hunting - Detect potential network beaconing using Apache Spark via Azure Synapse** notebook, and then select **Clone notebook template** at the bottom right.
 
-    In the **Clone notebook** pane, modify the notebook name if needed, select your [Azure Machine Learning workspace](#connect-to-azure-machine-learning-and-synapse-workspaces), and then select **Save**.
+    In the **Clone notebook** pane, modify the notebook name if needed, select your [Azure Machine Learning workspace](#connect-to-azure-ml-and-synapse-workspaces), and then select **Save**.
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 

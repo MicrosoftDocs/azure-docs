@@ -202,7 +202,7 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
-        name: Overview
+      - name: Overview
         href: notebooks.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
