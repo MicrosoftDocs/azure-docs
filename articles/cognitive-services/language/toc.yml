@@ -70,6 +70,10 @@ items:
       href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Submit a Custom NER task
       href: custom-named-entity-recognition/how-to/submit-task.md
+  - name: Tutorials
+    items:
+      - name: Enrich a Cognitive Search index with custom entities
+        href: custom-named-entity-recognition/tutorials/cognitive-search.md
   - name: Concepts
     items:
       - name: Recommended practices
