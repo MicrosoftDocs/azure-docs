@@ -851,7 +851,7 @@ provider.register();
 
 #### [Python](#tab/python)
 
-1. Install the [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) package.
+1. Install the [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) and [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) packages.
 
 2. Add following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details refer to this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
 
@@ -907,7 +907,22 @@ provider.register();
 
 #### [Python](#tab/python)
 
-Placeholder
+The Azure Monitor exporter uses Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor exporter logs are usually logged in severity level WARNING or ERROR for irregular activity, and INFO for regular/successful activity. The default Python logging library defaults severity level to WARNING, so you must change the severity level to see logs under this severity. Below is an example of how to output logs of ALL severity to the console AND a file.
+
+```python
+...
+import logging
+
+logging.basicConfig(format="%(asctime)s:%(levelname)s:%(message)s", level=logging.DEBUG)
+
+logger = logging.getLogger(__name__)
+file = logging.FileHandler("example.log")
+stream = logging.StreamHandler()
+logger.addHandler(file)
+logger.addHandler(stream)
+...
+
+```
 
 ---
 
