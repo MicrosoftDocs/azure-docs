@@ -24,7 +24,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
-* [FPGA only - Edge compute alerts](#fpga-only-edge-compute-alerts)
+* [FPGA only - Edge compute alerts](#fpga-only---edge-compute-alerts)
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
 * [Minimum configuration alerts](#minimum-configuration-alerts)
 * [Performance alerts](#performance-alerts)
