@@ -23,7 +23,7 @@ To help with this problem, automated ML supports tiling as part of the public pr
 
 When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap with each other in width and height dimensions. The tiles are cropped from the original as shown in the following image. 
 
-![Tiles generation](./media/how-to-use-automl-train-small-object-detect/tiles-generation.jpg)
+![Tiles generation](./media/how-to-use-automl-small-object-detect/tiles-generation.png)
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ The following are the parameters you can use to control the tiling feature.
 
 When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
 
-![Object proposals merge](./media/how-to-use-automl-train-small-object-detect/tiles-merge.jpg)
+![Object proposals merge](./media/how-to-use-automl-small-object-detect/tiles-merge.png)
 
 You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training. 
 
