@@ -245,6 +245,8 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 ## Troubleshooting
 
+This section covers some troubleshooting steps:
+
 - If you receive the error "An error prevented the operation from successfully completing. The request failed with status code 504.":
 
     :::image type="content" source="./media/camera-discovery/five-zero-four-error.png" alt-text="Screenshot that shows the 504 error.":::
