@@ -15,8 +15,9 @@ ms.custom: devx-track-csharp
 
 Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for .NET to:
+The examples in this quickstart show you how to use the Azure Blob Storage client library v12 for .NET to:
 
+- [Get the connection string](#get-the-connection-string)
 - [Create a container](#create-a-container)
 - [Upload a blob to a container](#upload-a-blob-to-a-container)
 - [List blobs in a container](#list-blobs-in-a-container)
@@ -105,14 +106,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob Storage client library for .NET:
-
-- [Get the connection string](#get-the-connection-string)
-- [Create a container](#create-a-container)
-- [Upload blobs to a container](#upload-blobs-to-a-container)
-- [List the blobs in a container](#list-the-blobs-in-a-container)
-- [Download blobs](#download-blobs)
-- [Delete a container](#delete-a-container)
+The sample code snippets in the following sections show you how to perform basic data operations with the Azure Blob Storage client library for .NET.
 
 ### Get the connection string
 
