@@ -793,13 +793,6 @@
       "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
       "redirect_document_id": false
     },
-
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
-      "redirect_url": "/azure/active-directory-b2c/troubleshoot",
-      "redirect_document_id": false
-    },
-
     {
       "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app-webapi.md",
       "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
