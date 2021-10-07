@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
 ms.date: 05/01/2020
-author: jocaplan
+author: maburd
 ms.author: jocaplan 
 ms.reviewer: jrasnick, wiassaf
 ms.custom: devx-track-csharp
