@@ -26,7 +26,9 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Auto-population of User ID and User IP when using the [Application Insights JavaScript SDK](javascript.md)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - Distributed Tracing context propagation through Azure Functions Worker
  
@@ -43,9 +45,12 @@ Please consider carefully whether this preview is right for you. It enables dist
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Auto-population of User ID and User IP when using the [Application Insights JavaScript SDK](javascript.md)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - Distributed Tracing context propagation through Azure Functions Worker
+
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
@@ -63,9 +68,12 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Auto-population of User ID and User IP when using the [Application Insights JavaScript SDK](javascript.md)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
  - Distributed Tracing context propagation through Azure Functions Worker
+
 
  Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -537,9 +545,6 @@ Use the add [custom property example](#add-custom-property), except change out t
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
-> [!TIP]
-> The .NET exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
 ##### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
@@ -557,9 +562,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 ```
 
-> [!TIP]
-> The JavaScript exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code in `SpanEnrichingProcessor.py`:
@@ -568,10 +570,8 @@ Use the add [custom property example](#add-custom-property), except change out t
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
-> [!TIP]
-> The Python exporter will automatically populate User IP if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
 ---
+<!--
 
 #### Set user ID or authenticated user ID
 
@@ -587,9 +587,6 @@ Use the add [custom property example](#add-custom-property), except change out t
 ```C#
 Placeholder
 ```
-
-> [!TIP]
-> The .NET exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
 
 ##### [Node.js](#tab/nodejs)
 
@@ -608,9 +605,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 ```
 
-> [!TIP]
-> The JavaScript exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
@@ -619,10 +613,8 @@ Use the add [custom property example](#add-custom-property), except change out t
 span._attributes["enduser.id"] = "<User ID>"
 ```
 
-> [!TIP]
-> The Python exporter will automatically populate User ID if you instrument with the [Application Insights JavaScript SDK](javascript.md).
-
 ---
+-->
 
 ### Filter Telemetry
 
