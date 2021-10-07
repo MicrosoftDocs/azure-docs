@@ -38,4 +38,4 @@ The information presented in this table assumes you have a connectivity or secur
 
 ## Next steps
 
-Create an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md) instance using the Azure portal.
+Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
