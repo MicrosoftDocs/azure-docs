@@ -143,7 +143,7 @@ Follow the steps in the following sections to set up HA by using STONITH.
     
     ![Screenshot that shows a console window with the result of the SAPHanaSR-doc command.](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
     
-2. Set up the cluster by using either the `ha-cluster-init` command or the yast2 wizard. In this example, we're using the yast2 wizard. Do this step *only on the primary node*.
+2. Set up the cluster by using either the `ha-cluster-init` command or the yast2 wizard. In this example, we're using the yast2 wizard. Do this step only on the *primary node*.
 
     1. Go to **yast2** > **High Availability** > **Cluster**.
     
@@ -270,11 +270,11 @@ Run the following command on *node2* to let that node join the cluster.
 ha-cluster-join
 ```
 
-If you receive an error during joining of the cluster, see the section [Scenario 6: Node2 can't join the cluster](#scenario-6-node2-can't-join-the-cluster) later in this article.
+If you receive an error during joining of the cluster, see the section [Scenario 6: Node2 can't join the cluster](#scenario-6-node2-cant-join-the-cluster) later in this article.
 
 ## Validate the cluster
 
-1. Use the following commands to check and optionally start the cluster for the first time on *both* nodes:
+1. Use the following commands to check and optionally start the cluster for the first time on *both* nodes.
     
      ```
     systemctl status pacemaker
@@ -302,7 +302,7 @@ In this example, you set up the following resources. You can configure the rest 
 
 Do the configuration on the *primary node* only.
 
-1. Create the cluster bootstrap file and configure it by adding the following text:
+1. Create the cluster bootstrap file and configure it by adding the following text.
     
     ```
     sapprdhdb95:~ # vi crm-bs.txt
@@ -350,7 +350,7 @@ Do the configuration on the *primary node* only.
     params ip="10.35.0.197"
     ```
     
-    Use the following command to add the configuration to the cluster:
+    Use the following command to add the configuration to the cluster.
     
     ```
     crm configure load update crm-vip.txt
@@ -422,19 +422,19 @@ If any of the nodes don't show online in Cluster Manager, you can try this proce
     ```
 ### Scenario 2: Yast2 doesn't show graphical view
 
-The yast2 graphical screen is used to set up the high-availability cluster in this article. If yast2 doesn't open with the graphical window as shown, and it throws a Qt error, take the following steps. If it opens with the graphical window, you can skip the steps.
+The yast2 graphical screen is used to set up the high-availability cluster in this article. If yast2 doesn't open with the graphical window as shown, and it throws a Qt error, take the following steps to install the required packages. If it opens with the graphical window, you can skip the steps.
 
-Here's an example of the Qt error.
+Here's an example of the Qt error:
 
 ![Screenshot that shows part of a console window with an error message.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
-Here's an example of the expected output.
+Here's an example of the expected output:
 
 ![Screenshot that shows the YaST Control Center with High Availability and Cluster highlighted.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
-1. Install the required packages. You must be logged in as user “root” and have SMT set up to download and install the packages.
+1. Make sure that you're logged in as user "root" and have SMT set up to download and install the packages.
 
-2. To install the packages, go to **yast** > **Software** > **Software Management** > **Dependencies**, and then select **Install recommended packages**. 
+2. Go to **yast** > **Software** > **Software Management** > **Dependencies**, and then select **Install recommended packages**. 
 
     >[!NOTE]
     >Perform the steps on *both* nodes, so that you can access the yast2 graphical view from both nodes.
