@@ -57,12 +57,10 @@ To start a support request:
 
 We'll walk you through some steps to gather information about your problem and help you solve it. Each step is described in the following sections.
 
-You must be an enterprise administrator or partner administrator of an enterprise enrollment to create an enrollment administration issue.
-
 ### Problem description
 
 1. Type a summary of your issue and then select **Issue type**. 
-1. In the **Issue type** list, select **Enrollment administration**.  
+1. In the **Issue type** list, select **Enrollment administration** for EA portal related issues.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" alt-text="Screenshot showing Select Enrollment administration." lightbox="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" :::
 1. For **Enrollment number**, select the enrollment number. 
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="Screenshot showing Select Enrollment number." :::
