@@ -56,6 +56,8 @@ items:
   items:
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
+  - name: Generate SAS tokens for Azure Blob containers
+    href:  generate-sas-tokens.md   
   - name: Build and train a custom model
     items:
     - name: Assemble a training data set
@@ -100,14 +102,14 @@ items:
     href: concept-general-document.md
   - name: Layout model
     href: concept-layout.md
-  - name: Receipt model
-    href: concept-receipts.md
-  - name: Business card model
-    href: concept-business-cards.md
   - name: Invoice model
-    href: concept-invoices.md
-  - name: Identity document model
-    href: concept-identification-cards.md
+    href: concept-invoice.md
+  - name: Receipt model
+    href: concept-receipt.md
+  - name: ID document model
+    href: concept-id-document.md
+  - name: Business card model
+    href: concept-business-card.md
   - name: Custom model
     href: concept-custom.md
 - name: Tutorials

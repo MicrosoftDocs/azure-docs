@@ -62,7 +62,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.</br></br>
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
 ```console
 dotnet new console -n formrecognizer-quickstart

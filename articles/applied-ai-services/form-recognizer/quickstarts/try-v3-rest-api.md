@@ -162,7 +162,6 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
                     }
                 ]
             }
-           
         ],
         "tables": [
             {
@@ -336,7 +335,7 @@ bash
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
-https:<span></span>//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
+    https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
 
 ### Get general document results
 

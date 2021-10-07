@@ -54,8 +54,8 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
-| **Request URL prefix**| **https:<span></span>//{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https:<span></span>//{your-form-recognizer-endpoint}/formrecognizer** |
-|🆕 **General document**|N/A|/documentModels/prebuit-document:analyze |
+| **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
+|🆕 **General document**|N/A|/documentModels/prebuilt-document:analyze |
 | **Layout**| /layout/analyze |/documentModels/prebuilt-layout:analyze|
 |**Custom**| /custom/{modelId}/analyze    |/documentModels/{modelId}:analyze |
 | **Invoice** | /prebuilt/invoice/analyze    | /documentModels/prebuilt-invoice:analyze |
@@ -154,14 +154,16 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
 
 ## Changes to copy model
 
-The call pattern for copy model remains unchanged
-1. Authorize the copy operation with the target resource calling ```authorizeCopy```. Now a POST request.
-2. Submit the authorization to the source resource to copy the model calling ```copy-to```
-3. Poll the returned operation to validate the operation completed successfully
+The call pattern for copy model remains unchanged:
+
+* Authorize the copy operation with the target resource calling ```authorizeCopy```. Now a POST request.
+* Submit the authorization to the source resource to copy the model calling ```copy-to```
+* Poll the returned operation to validate the operation completed successfully
 
 The only changes to the copy model function are:
-1. HTTP action on the ```authorizeCopy``` is now a POST request.
-2. The authorization payload contains all the information needed to submit the copy request.
+
+* HTTP action on the ```authorizeCopy``` is now a POST request.
+* The authorization payload contains all the information needed to submit the copy request.
 
 Authorize the copy.
 ```json

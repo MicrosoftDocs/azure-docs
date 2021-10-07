@@ -15,8 +15,6 @@ recommendations: false
 
 # Form Recognizer receipt model
 
-## Overview
-
 The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
 
 ##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):

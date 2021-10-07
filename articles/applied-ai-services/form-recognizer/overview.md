@@ -41,7 +41,7 @@ This documentation contains the following article types:
 
 The following features are supported by the Form Recognizer service v2.1. Use the links in the table to learn more about each feature and browse the API references.
 
-| Feature | Description | Development options <img width=300/>|
+| Feature | Description | Development options |
 |----------|--------------|-------------------------|
 |[**Layout API**](concept-layout.md) | Extraction and analysis of text, selection marks, and table structures,  along with their bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Business card model**](concept-business-card.md) | Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
@@ -57,7 +57,7 @@ The following features are supported by the Form Recognizer service v2.1. Use th
 
 The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
-| Feature | Description | Development options<img width=300/> |
+| Feature | Description | Development options |
 |----------|--------------|-------------------------|
 |[🆕 **General document model**](concept-general-document.md)|Extract text, tables, structure, key-value pairs and, named entities.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul> |
 |[**Layout model**](concept-layout.md) | Extract text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents.</br></br> Layout API has been updated to a prebuilt model. | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|
@@ -81,7 +81,7 @@ The following features  and development options are supported by the Form Recogn
 
  ## Form Recognizer workflows
 
-| Document type | Considerations | Solution<img width=300/> |
+| Document type | Considerations | Solution |
 | -----------------|-------------------| ----------|
 |<ul><li>**Invoice**</li><li>**Receipt**</li><li>**Business card**</li></ul>| Is your invoice, receipt, or business card document composed of English-text? | <ul><li>Yes → [**Invoice**](concept-invoice.md), [**Receipt**](concept-receipt.md), or [**Business Card**](concept-business-card.md) model</li><li>No → [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
 |<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>Yes → [**ID document**](concept-id-document.md) model</li><li>No → [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
@@ -89,7 +89,7 @@ The following features  and development options are supported by the Form Recogn
 
 ## Data privacy and security
 
- As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security) page. </br></br>
+ As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security) page. 
 
 ## Next steps
 

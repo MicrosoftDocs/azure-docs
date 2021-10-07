@@ -16,7 +16,7 @@ ms.author: sajagtap
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. some features may not be supported or have limited capabilities. 
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Ceate projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
 
 ## Sign into the Form Recognizer Studio preview
 
-After you have completed the prequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
+After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
@@ -76,7 +76,7 @@ In the Layout view:
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
-1. Show and hide the text, tables, and selection marks layers to focus on each one of them at a tme.
+1. Show and hide the text, tables, and selection marks layers to focus on each one of them at a time.
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
@@ -100,7 +100,7 @@ In the Prebuilt view:
 
 ## Custom models
 
-To create custom models, you start with confguring your project:
+To create custom models, you start with configuring your project:
 
 1. From the Studio home, select the Custom form project to open the Custom form home page.
 
@@ -111,7 +111,7 @@ To create custom models, you start with confguring your project:
 1. Review and submit your settings to create the project.
 
 
-![Form Recognizer Cuzstom project Getting Started example](../media/quickstarts/1-custom-model-get-started.gif)
+![Form Recognizer Custom project Getting Started example](../media/quickstarts/1-custom-model-get-started.gif)
 
 After the project creation step, in the custom model phase:
 
@@ -123,7 +123,7 @@ After the project creation step, in the custom model phase:
 
 1. Select the Train command and enter model name and description to start training your custom model.
 
-1. Once the model is ready, use the Test command to validate the mode with your test docuemnts and observe the results.
+1. Once the model is ready, use the Test command to validate the mode with your test documents and observe the results.
 
 1. Iterate on the steps to improve your model.
 
@@ -142,4 +142,4 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 ## Next steps
 
-[Get started with the Form Recognizer Studio prview](https://formrecognizer.appliedai.azure.com).
+[Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
