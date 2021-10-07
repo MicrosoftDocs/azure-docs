@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
-ms.date: 07/15/2021
+ms.date: 10/07/2021
 author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
