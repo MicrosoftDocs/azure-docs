@@ -19,7 +19,7 @@ In this article, you'll learn how to train an object detection model to detect s
 
 Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under perform when tasked to detect small objects in high-resolution images. Because high resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
-To help with this problem, automated ML supports tiling as part of the public preview computer vision capabilities.
+To help with this problem, automated ML supports tiling as part of the public preview computer vision capabilities. The tiling capability in automated ML is based on the concepts in [The Power of Tiling for Small Object Detection](https://openaccess.thecvf.com/content_CVPRW_2019/papers/UAVision/Unel_The_Power_of_Tiling_for_Small_Object_Detection_CVPRW_2019_paper.pdf).
 
 When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap with each other in width and height dimensions. The tiles are cropped from the original as shown in the following image. 
 
@@ -32,21 +32,23 @@ When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap 
 * This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models.md). 
 
 [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
 ## Supported models
 
 Small object detection using tiling is currently supported for the following models:
 
+* fasterrcnn_resnet18_fpn
 * fasterrcnn_resnet50_fpn
 * fasterrcnn_resnet34_fpn
-* fasterrcnn_resnet18_fpn
+* fasterrcnn_resnet101_fpn
+* fasterrcnn_resnet152_fpn
 * retinanet_resnet50_fpn
-
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the width and 2 is the height. When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles. Each tile has an overlap of 25% with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the width and 2 is the height. When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
 
-When tiling is enabled, the entire image and the tiles generated from it are passed through the model. The computation time increases proportionally because of processing this extra data. 
+When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data. 
 
 During training, the generated tiles and the entire image are passed through the model. For example, when the tile_grid_size parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
 
@@ -96,7 +98,11 @@ Doing so, may improve performance times for some datasets, and won't incur the e
 
 ## Example notebooks
 
-See the [object detection sample notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb) for detailed code examples of setting up and training a small object detection model.
+See the [object detection sample notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb) for detailed code examples of setting up and training an object detection model.
+
+>[!NOTE]
+> All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).  
+> Copyright © 2020 Roboflow, Inc.
 
 ## Next steps
 
