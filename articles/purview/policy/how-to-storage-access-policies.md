@@ -132,8 +132,7 @@ register your storage account:
 
 ## Policy Authoring
 
-This section describes the steps for creating, updating and publishing
-Purview data policies.
+This section describes the steps for creating, updating, and publishing Purview data policies.
 
 ### Create new policy
 
@@ -161,7 +160,7 @@ Steps to create a new policy in Purview
 
 8.  Select the **Data Resources** button to bring up the options to provide the data asset path
 
-9.  In the **Assets** box enter the **Data Source Type** and select the
+9.  In the **Assets** box, enter the **Data Source Type** and select the
     **Name** of a previously registered data source.
 
 <img src="media/image3.png" style="width:5.93913in;height:2.59329in" alt="Image shows how a Data Owner can select a Data Resource when editing a policy statement" />
@@ -171,7 +170,7 @@ Steps to create a new policy in Purview
 
 <img src="media/image4.png" style="width:2.8087in;height:2.4881in" alt="Image shows how a Data Owner can select the asset when creating or editing a policy statement" />
 
-11. Select the **Subjects** button and enter the subject identity as a principal, group or MSI. Then select the **OK** button. This will
+11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will
     take you back to the policy editor
 
 <img src="media/image5.png" style="width:4.08955in;height:1.58208in" alt="Image shows how a Data Owner can select the subject when creating or editing a policy statement" />
