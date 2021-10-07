@@ -24,6 +24,9 @@ In this tutorial, you:
 
 People you granted access in the Power BI service, and members of the Teams channel, can see the report without needing Azure Sentinel permissions.
 
+> [!NOTE]
+> This tutorial provides a scenario-based procedure for a top customer ask: viewing analysis reports in PowerBI for your Azure Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
+>
 ## Prerequisites
 
 To complete this tutorial, you need:

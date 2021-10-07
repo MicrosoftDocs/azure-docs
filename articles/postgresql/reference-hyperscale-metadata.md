@@ -553,8 +553,41 @@ counted.
 > then master\_query\_host\_name and master\_query\_host\_port columns will be
 > NULL in citus\_worker\_stat\_activity.
 
-To see how `citus_lock_waits` works, we can generate a locking situation
-manually. First we\'ll set up a test table from the coordinator:
+Here are examples of useful queries you can build using
+`citus_worker_stat_activity`:
+
+```postgresql
+-- active queries' wait events on a certain node
+
+SELECT query, wait_event_type, wait_event
+  FROM citus_worker_stat_activity
+ WHERE query_hostname = 'xxxx' and state='active';
+
+-- active queries' top wait events
+
+SELECT wait_event, wait_event_type, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY wait_event, wait_event_type
+ ORDER BY count(*) desc;
+
+-- total internal connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ GROUP BY query_hostname;
+
+-- total internal active connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY query_hostname;
+```
+
+The next view is `citus_lock_waits`. To see how it works, we can generate a
+locking situation manually. First we'll set up a test table from the
+coordinator:
 
 ```postgresql
 CREATE TABLE numbers AS

@@ -56,7 +56,7 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 * See more information on [How to select algorithms](how-to-select-algorithms.md)
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-ml.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-machine-learning.md).
 
 * [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 

@@ -36,7 +36,7 @@ Before you resize a VM running on your device via the Azure portal, make sure th
 
 1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the Overview page, select **Stop** and then select **Yes** when prompted for confirmation. Before you resize your VM, you must stop the VM.
 
-    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Screenshot of the screen for stopping a VM from the Virtual Machines overview. The Yes button is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## Resize a VM
@@ -45,15 +45,15 @@ Follow these steps to resize a virtual machine deployed on your device.
 
 1. Go to the virtual machine that you have stopped, and select **VM size (change)** in the virtual machine **Details**.
     
-    ![Select VM Size Change in Details for the virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
+    ![Screenshot of the Details tab for a virtual machine. The Details tab and the VM Size option are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
 
 2. In the **Change VM size** blade, from the command bar, select the **VM size** and then select **Change**.
 
-    ![Select new VM size](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
+    ![Screenshot of the Change VM size screen. A VM size is highlighted, as is the Change button.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
 
 3. You'll see a notification that the virtual machine is being updated. After the virtual machine is successfully updated, the **Overview** page refreshes to display the resized VM.
 
-    ![Resized VM ](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
+    ![Screenshot of the Overview page for a VM. The VM Size value for the resized VM is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
 
 
 ## Next steps

@@ -89,12 +89,12 @@ N/A
 
 When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 You can check the status of the asynchronous operation by sending a GET request to the endpoint in *Azure-AsyncOperation* header:
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -124,7 +124,7 @@ Clusters support System-assigned managed identity and identity `type` property s
   }
   ```
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#create-a-dedicated-cluster). 
 
 ## Grant Key Vault permissions
 
@@ -160,18 +160,22 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
 # [PowerShell](#tab/powershell)
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
 # [REST](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -179,7 +183,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
   },
   "sku": {
@@ -191,7 +195,7 @@ Content-type: application/json
 
 **Response**
 
-It takes the propagation of the key a few minutes to complete. You can check the update state in two ways:
+It takes the propagation of the key a while to complete. You can check the update state in two ways:
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
@@ -202,27 +206,34 @@ A response to GET request should look like this when the key update is complete:
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principle-id"
-    },
+    "principalId": "principal-id"
+  },
   "sku": {
-    "name": "capacityReservation",
-    "capacity": 500,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
+    "name": "capacityreservation",
+    "capacity": 500
+  },
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "billingType": "cluster",
-    "clusterId": "cluster-id"
+    "clusterId": "cluster-id",
+    "billingType": "Cluster",
+    "lastModifiedDate": "last-modified-date",
+    "createdDate": "created-date",
+    "isDoubleEncryptionEnabled": false,
+    "isAvailabilityZonesEnabled": false,
+    "capacityReservationProperties": {
+      "lastSkuUpdate": "last-sku-modified-date",
+      "minCapacity": 500
+    }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
   "name": "cluster-name",
   "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "cluster-region"
 }
 ```
 
@@ -235,7 +246,7 @@ A response to GET request should look like this when the key update is complete:
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## Key revocation
 
@@ -250,7 +261,7 @@ The cluster's storage periodically checks your Key Vault to attempt to unwrap th
 ## Key rotation
 
 Key rotation has two modes: 
-- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the latest versions.
+- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will automatically use the latest versions.
 - Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, any new key versions require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
@@ -286,6 +297,9 @@ N/A
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -293,13 +307,16 @@ az monitor log-analytics workspace linked-storage create --type Query --resource
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -330,6 +347,9 @@ N/A
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -337,13 +357,16 @@ az monitor log-analytics workspace linked-storage create --type ALerts --resourc
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -404,10 +427,10 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
-  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - If you create a cluster and get an error "region-name doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
-  - Setting the cluster's `identity` `type` to `None` acks also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
+  - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
 
   - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 

@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 09/29/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -16,6 +16,84 @@ ms.date: 07/28/2021
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+## October 2021
+- **Availability Zones Selection when creating Read replicas**
+
+    When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md)
+
+- **Read replicas in Azure Database for MySQL - Flexible servers will no longer be available on Burstable SKUs**
+    
+    You will not be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
+
+    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you will have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
+
+ 
+
+## September 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Availability in three additional Azure regions**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+
+  - UK West
+  - Canada East
+  - Japan West
+
+- **Bug fixes**
+
+  Same-zone HA creation is fixed in the following regions:
+
+  - Central India
+  - East Asia
+  - Korea Central
+  - South Africa North
+  - Switzerland North
+
+## August 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **High availability within a single zone using Same-Zone High Availability**
+
+  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
+
+- **Standby zone selection using Zone-Redundant High Availability**
+
+  The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Colocating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+
+- **Private DNS zone integration**
+
+  [Azure Private DNS](../../dns/private-dns-privatednszone.md) provides a reliable and secure DNS service (responsible for translating a service name to IP address) for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. This enables you to connect your application running on a virtual network to your flexible server running on a locally or globally peered virtual network. The Azure Database for MySQL - Flexible Server now provides integration with an Azure private DNS zone to allow seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS zone is linked. With this integration, if the IP address of the backend flexible server changes during failover or any other event, your integrated private DNS zone will be updated automatically to ensure your application connectivity resumes automatically once the server is online. [Learn more](./concepts-networking-vnet.md).
+
+- **Point-In-Time Restore for a server in a specified virtual network**
+
+  The Point-In-Time Restore experience for the service now enables customers to configure networking settings, allowing users to switch between private and public networking options when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](./how-to-restore-server-portal.md).
+
+- **Point-In-Time Restore for a server in an availability zone**
+
+  The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Colocating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+
+- **validate_password and caching_sha2_password plugin available in private preview**
+
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Email us at AskAzureDBforMySQL@service.microsoft.com
+
+- **Availability in four additional Azure regions**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions [Learn more](overview.md#azure-regions):
+
+  - Australia Southeast
+  - South Africa North
+  - East Asia (Hong Kong)
+  - Central India
+
+- **Known issue**
+
+  - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using SSL with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
+  - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
+  - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
+  - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
 
 ## July 2021
 
@@ -23,7 +101,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Online migration from Single Server to Flexible Server**
 
-  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](https://docs.microsoft.com/azure/mysql/howto-migrate-single-flexible-minimum-downtime).
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](../howto-migrate-single-flexible-minimum-downtime.md).
 
 - **Availability in West US and Germany West Central**
 
@@ -44,11 +122,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Free 12-month offer**
 
-  As of June 15, 2021, the [Azure free account](https://azure.microsoft.com/free/) provides customers with up to 12 months of free access to Azure Database for MySQL – Flexible Server with 750 hours of usage and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. [Learn more](https://go.microsoft.com/fwlink/?linkid=2165892).
+  As of June 15, 2021, the [Azure free account](https://azure.microsoft.com/free/) provides customers with up to 12 months of free access to Azure Database for MySQL – Flexible Server with 750 hours of usage and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. [Learn more](./how-to-deploy-on-azure-free-account.md).
 
 - **Storage auto-grow**
 
-  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
+  Storage auto grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
 
 - **Data-in Replication**
 
@@ -64,7 +142,6 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issue**
 
-  - If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because the application can't resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
   - Trying to perform a compute scale up or scale down operation on an existing server with less than 20 GB of storage provisioned won't complete successfully. Resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
 
 ## May 2021
@@ -156,7 +233,7 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps
 

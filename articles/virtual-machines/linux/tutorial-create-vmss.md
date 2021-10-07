@@ -16,6 +16,8 @@ ms.custom: mimckitt, devx-track-js, devx-track-azurecli
 
 # Tutorial: Create a virtual machine scale set and deploy a highly available app on Linux with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
+
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
 > [!div class="checklist"]

@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription.md) device.

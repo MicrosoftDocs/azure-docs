@@ -12,10 +12,10 @@ ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs
+# Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
+[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
 ## Prerequisites
 
@@ -106,7 +106,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -205,7 +205,7 @@ Create a new Python application in your preferred editor or IDE. Then import the
 ```
 
 Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+more information, *see*  [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```python
  subscriptionKey = "<your-subscription-key>"

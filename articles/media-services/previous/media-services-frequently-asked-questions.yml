@@ -4,7 +4,7 @@ metadata:
   description: This article gives answers to the Frequently asked questions about Azure Media Services.
   services: media-services
   documentationcenter: ''
-  author: IngridAtMicrosoft
+  author: jiayali-ms
   manager: femila
   editor: ''
   ms.service: media-services
@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 03/10/2021
+  ms.date: 08/24/2021
   ms.author: inhenkel
     
 title: Media Services v2 frequently asked questions
@@ -32,7 +32,7 @@ sections:
           
       - question: How do you scale indexing?
         answer: |
-          The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
+          AMS used to use Media Reserved Units for scaling. This feature is no longer supported. 
           
       - question: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
         answer: One of the most common reasons is you do not have the streaming endpoint from which you are trying to play back in the **Running** state.  

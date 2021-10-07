@@ -41,7 +41,7 @@ You can use your own workflows and processes to handle node reboots, or use `kur
 
 Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete.
 
-Alternatively, you can use node image upgrade to check for and update node images used by your cluster. For more details on nod image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
+Alternatively, you can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
 ### Node upgrades
 

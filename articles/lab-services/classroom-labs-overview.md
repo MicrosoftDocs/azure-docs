@@ -2,7 +2,7 @@
 title: About labs in Azure Lab Services | Microsoft Docs
 description: Learn how to quickly set up a classroom lab environment in the cloud - configure a lab with a template VM with the software required for the class and make a copy of the VM available to each student in the class. 
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 08/26/2021
 ---
 
 # Introduction to labs

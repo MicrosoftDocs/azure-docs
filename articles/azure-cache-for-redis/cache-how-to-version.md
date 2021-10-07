@@ -1,8 +1,8 @@
 ---
 title: Set Redis version for Azure Cache for Redis (Preview)
 description: Learn how to configure Redis version
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
@@ -52,6 +52,16 @@ To create a cache, follow these steps:
     > [!NOTE]
     > At this time, the Redis version can't be changed once a cache is created.
     >
+
+## FAQ
+
+### What features aren't supported with Redis 6?
+
+Currently, Redis 6 does not support clustering, zone redundancy, ACL, PowerShell, Azure CLI, Terraform, and geo-replication between a Redis 4.0 and 6.0 cache. 
+
+### Can I change the version of my cache after it's created?
+
+Currently, you cannot change the version of your cache once it's created.
 
 ## Next Steps
 Learn more about Azure Cache for Redis features.

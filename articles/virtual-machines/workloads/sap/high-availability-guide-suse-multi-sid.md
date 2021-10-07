@@ -1,13 +1,9 @@
 ---
 title: Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide | Microsoft Docs
 description: Multi-SID high-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,7 +11,6 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide
@@ -580,7 +575,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
 1. Test HAGetFailoverConfig and HACheckFailoverConfig
 
-   Run the following commands as <sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid\>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

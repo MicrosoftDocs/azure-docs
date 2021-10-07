@@ -372,7 +372,7 @@ The authentication function also verifies that the web API is called with the ri
 
 ## Step 5: Configure the web server
 
-In a development environment, set the web API to listen on an incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API is `http://localhost:6000`.
+In a development environment, set the web API to listen on incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API will be: <'http://localhost:6000'>
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -528,6 +528,10 @@ Open a browser and go to `http://localhost:6000/public`. In the browser window, 
 Try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API will return an unauthorized HTTP error message, confirming that web API is protected with a bearer token.
 
 Continue to configure your app to call the web API. For guidance, see the [Prerequisites](#prerequisites) section.
+
+Watch this video to learn about some best practices when you integrate Azure AD B2C with an API.
+
+>[!Video https://www.youtube.com/embed/wuUu71RcsIo]
 
 ## Next steps
 

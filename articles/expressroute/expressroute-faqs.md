@@ -106,7 +106,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
 
 For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
 
@@ -238,7 +238,7 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
-Yes. You can link a single virtual network with up to four ExpressRoute circuits in either the same or different peering locations. 
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 
@@ -295,7 +295,7 @@ You will also have to follow up with your connectivity provider to ensure that t
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
-You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+You can update the bandwidth of the ExpressRoute circuit using the Azure Portal, REST API, PowerShell, or Azure CLI.
 
 ### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
 

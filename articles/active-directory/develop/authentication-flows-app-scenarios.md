@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ---
 
@@ -56,7 +56,7 @@ However, there are also daemon apps. In these scenarios, applications acquire to
 
 Security tokens can be acquired by multiple types of applications. These applications tend to be separated into the following three categories. Each is used with different libraries and objects.
 
-- **Single-page applications**: Also known as SPAs, these are web apps in which tokens are acquired by a JavaScript or TypeScript app running in the browser. Many modern apps have a single-page application at the front end that's primarily written in JavaScript. The application often uses a framework like Angular, React, or Vue. MSAL.js is the only Microsoft authentication library that supports single-page applications.
+- **Single-page applications**: Also known as SPAs, these are web apps in which tokens are acquired by a JavaScript or TypeScript app running in the browser. Many modern apps have a single-page application at the front end that's primarily written in JavaScript. The application often uses a framework like Angular, React, or Vue. MSAL.js is the only Microsoft Authentication Library that supports single-page applications.
 
 - **Public client applications**: Apps in this category, like the following types, always sign in users:
   - Desktop apps that call web APIs on behalf of signed-in users
@@ -124,17 +124,17 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](https://aka.ms/msal-net-device-code-flow).
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
-Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token.md#username-and-password) is available in public client applications. This flow is still needed in some scenarios like DevOps.
+Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-username-password.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](scenario-desktop-acquire-token.md#file-based-token-cache). By implementing [dual token cache serialization](scenario-desktop-acquire-token.md#dual-token-cache-serialization-msal-unified-cache--adal-v3), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing [dual token cache serialization](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 
@@ -221,14 +221,14 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt="Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">Desktop app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">authorization code</a> with PKCE</td>
    <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
-   <td>Integrated Windows Authentication</td>
+   <td>Integrated Windows authentication</td>
    <td>Work or school accounts</td>
  </tr>
 
@@ -238,7 +238,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token-device-code-flow.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
    <td>Work or school accounts, personal accounts, but not Azure AD B2C</td>
  </tr>
@@ -274,7 +274,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 
 ## Scenarios and supported platforms and languages
 
-Microsoft authentication libraries support multiple platforms:
+Microsoft Authentication Libraries support multiple platforms:
 
 - .NET Core
 - .NET Framework

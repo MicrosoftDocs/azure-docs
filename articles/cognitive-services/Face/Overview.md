@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -18,15 +18,17 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 # What is the Azure Face service?
 
 > [!WARNING]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](../cognitive-services-apis-create-account-cli.md#prerequisites) and will use this service in accordance with it.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
-**Identity verification** checks that a new (remote) user is who they claim to be by matching their face against the photo on their identity document. It is commonly used in the gig economy, banking and online education industries.
+Identity Verification: Verifies someone’s identity against a government-issued ID card like a passport or driver’s license or other enrollment image to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeatedly as someone accesses a digital or physical service.
 
-**Face analysis** locates human faces in an image and returns different kinds of face-related data, such as whether the person is wearing a mask, glasses, facial hair, etc.
+Touchless Access Control: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, or buildings as well as reception kiosks at offices, hospitals, gyms, clubs, or schools.
+
+Face Redaction: Redact or blur detected faces of people recorded in a video to protect their privacy.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -48,7 +50,11 @@ For more information on face detection and analysis, see the [Face detection](co
 
 ## Identity verification
 
-Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
+Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. 
+
+### Identification
+
+Face identification can address "one-to-many" matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
@@ -58,7 +64,11 @@ After you create and train a group, you can do identification against the group 
 
 ### Verification
 
-The verification operation answers the question, "Do these two faces belong to the same person?". Verification is also called "one-to-one" matching because the probe face data is compared to only a single enrolled face. Verification is used in the identification scenario to double-check that a given match is accurate. 
+The verification operation answers the question, "Do these two faces belong to the same person?". 
+
+Verification is also "one-to-one" matching of one face in an image to one face in a secure repository or photo
+
+Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card).
 
 For more information about identity verification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 

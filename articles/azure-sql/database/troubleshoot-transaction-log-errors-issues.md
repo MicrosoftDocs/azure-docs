@@ -125,7 +125,7 @@ For more information on managing the file space of databases and elastic pools, 
 
 ### Error 40552: The session has been terminated because of excessive transaction log space usage
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 To resolve this issue, try the following methods:
 
@@ -149,4 +149,3 @@ For information on transaction log sizes, see:
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md)
 - For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md)
 - For resource limits for SQL Managed Instance, see [resource limits for SQL Managed Instance](../managed-instance/resource-limits.md).
-

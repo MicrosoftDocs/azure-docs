@@ -3,7 +3,7 @@ title: Write createOptions for modules  - Azure IoT Edge | Microsoft Docs
 description: How to use createOptions in the deployment manifest to configure modules at runtime
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/01/2020
 ms.topic: conceptual

@@ -133,6 +133,10 @@ See the following list of possible errors and their causes:
     * Timeout - Image processing timed out.
     * InternalServerError
 
+> [!TIP]
+> While working with Computer Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
+
+
 ## Next steps
 
 To try out the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).

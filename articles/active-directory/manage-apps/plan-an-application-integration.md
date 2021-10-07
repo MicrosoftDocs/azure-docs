@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/05/2021
 ms.author: davidmu
-ms.reviewer: asteen
+ms.reviewer: ergreenl
 ---
 
 # Integrating Azure Active Directory with applications getting started guide
