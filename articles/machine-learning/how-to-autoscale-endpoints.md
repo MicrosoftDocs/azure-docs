@@ -75,7 +75,7 @@ az monitor autoscale rule create \
   --scale in 1
 ```
 
-The condition for this rule is that the five-minute average CPU consumption has dropped below 30%. When this rule triggers, the number of VM instances will be decreased by one. 
+The condition for this rule is that the five-minute average CPU consumption has dropped below 30%. When this rule triggers, the number of VM instances will be decreased by one.
 
 # [Portal](#tab/azure-portal)
 
@@ -123,6 +123,54 @@ Once you have created both rules, your autoscale rules should look like the foll
 :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
 
 --- 
+
+## Create a rule for endpoint metrics
+{>> TODO 2021-10-07 Write the walkthrough <<}
+The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. 
+
+# [Azure CLI](#tab/azure-cli)
+{>> TODO 2021-10-07: Needs example code from Sethu <<}
+
+# [Portal](#tab/azure-portal)
+
+To create an endpoint-focused rule: 
+
+* Choose "+ Add a scale condition" 
+* Choose "Scale based on metric"
+* Set Metric source to 'Other resource' (this is key difference from previous)
+* Set Resource type to 'Machine learning online endpoints'
+* Select your resource
+* Set necessary params as in
+
+:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing schedule-based rules":::
+
+{>> TODO / Notes
+
+Use https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Monitoring=azureML#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/autoscale if necessary. (Note that you have to use feature flags.
+
+The endpoint-rule.png has a little pii in the Resource `laobri-canary-ws` 
+
+<<}
+
+---
+
+## Create a schedule-based rule
+{>> TODO 2021-10-07 <<}
+blah blah 
+
+# [Azure CLI](#tab/azure-cli)
+{>> TODO 2021-10-07: Needs example from Sethu <<}
+
+# [Portal](#tab/azure-portal)
+
+* Choose "+ Add a scale condition" 
+* Choose "Scale to a specific instance count" (this is key difference from others)
+* Set params as in
+
+:::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="Screenshot showing schedule-based rules":::
+
+---
+
 ## Delete resources
 
 If you are not going to use your deployments, delete them:
