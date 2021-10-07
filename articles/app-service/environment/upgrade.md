@@ -53,7 +53,7 @@ After Step 1 completes, you have 72 hours to continue to Step 2 or the pre-provi
 
 ## Pricing
 
-There's no cost to upgrade your App Service Environment. You'll stop being charged for your previous App Service Environment as soon as it shuts down and you'll begin being charged for your App Service Environment v3 as soon as it's deployed. For more information about App Service Environment v3 pricing, see [pricing details](overview.md#pricing). make sure you understand how things will change...
+There's no cost to upgrade your App Service Environment. You'll stop being charged for your previous App Service Environment as soon as it shuts down and you'll begin being charged for your new App Service Environment v3 as soon as it's deployed. Be sure to understand how the [pricing model](https://azure.microsoft.com/pricing/details/app-service/windows/) changes with App Service Environment v3 and how it affects your monthly spend, specifically when you change from an Isolated to an Isolated v2 Service Plan. For more information about App Service Environment v3 pricing, see [pricing details](overview.md#pricing).
 
 ## How to upgrade to App Service Environment v3
 
