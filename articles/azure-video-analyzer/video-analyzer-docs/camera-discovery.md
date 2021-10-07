@@ -21,7 +21,7 @@ To complete the steps in this article, you need to:
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
 
-    The ONVIF feature of the Video Analyzer edge module requires specific container create options, as descred in this topic. <!--[container create options][#containercreateoptions]-->
+    The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in this topic. <!--[container create options][#containercreateoptions]-->
   
 > [!NOTE]
 > If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module, you can skip to the section for [Use direct method calls][#use-direct-method-calls]. Otherwise, follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
