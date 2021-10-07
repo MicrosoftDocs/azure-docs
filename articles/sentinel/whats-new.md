@@ -140,13 +140,17 @@ For more information, see:
 
 ### Use notebooks with Azure Synapse in Azure Sentinel
 
-Azure Sentinel nowpports integrating notebooks with Azure Synapse for advanced data science scearios. Using the Azure Synapse functionality now built-in to notebooks, you can run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
 
 While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
 
-To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as the following notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
+To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as new notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
 
-The Notebooks area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+
+For example:
+
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
