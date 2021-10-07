@@ -1,36 +1,102 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Language Services documentation
-summary: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions.'
+title: Azure Cognitive Service for language documentation
+summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
+brand: azure
 
 metadata:
-  title: Language Services documentation - Tutorials, API reference | Microsoft Docs
+  title: Azure Cognitive Service for language documentation - Tutorials, API Reference | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  description: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
+  description: Learn how to integrate AI that works on written text into your applications.
   author: aahill
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: text-analytics
-  ms.topic: landing-page
-  ms.date: 07/20/2021
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 09/13/2021
   ms.author: aahi
 
-landingContent:
-- title: About Language Services
-  linkLists:
-    - linkListType: overview
-      links:
-        - text: What is Language Services
-          url: overview.md
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure Cognitive Service for language?
+      itemType: overview
+      url: overview.md
+    - title: What's new?
+      itemType: whats-new
+      url: whats-new.md
+    - title: Get started with Language Studio
+      itemType: get-started
+      url: concepts/language-studio.md
+    - title: Responsible use of AI
+      itemType: concept
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context
 
-- title: Sentiment analysis   
-  linkLists:
-    - linkListType: how-to-guide
+conceptualContent:
+  items:
+    - title: Extract information
       links:
-        - text: Sentiment analysis
-          url: sentiment-opinion-mining/how-to/call-api.md
-    - linkListType: concept
+        - itemType: overview
+          text: Extract key phrases
+          url:  key-phrase-extraction/overview.md
+        - itemType: overview
+          text: Find linked entities
+          url:  entity-linking/overview.md 
+        - itemType: overview
+          text: Extract entities (NER) and sensitive information (PII)
+          url:  named-entity-recognition/overview.md
+        - itemType: overview
+          text: Custom text extraction
+          url:  custom-named-entity-recognition/overview.md
+        - itemType: overview
+          text: Get information from healthcare-related text
+          url:  health/overview.md
+
+    - title: Classify Text
       links:
-        - text: Multilingual and emoji support
-          url: concepts/multilingual-emoji-support.md
+        - itemType: overview
+          text: Analyze sentiment and mine text for opinions
+          url: sentiment-opinion-mining/overview.md
+        - itemType: overview
+          text: Detect Language
+          url: language-detection/overview.md       
+        - itemType: overview
+          text: Custom classification
+          url: custom-classification/overview.md    
+
+    - title: Understand conversations and answer questions
+      links:
+        - itemType: overview
+          text: Custom language understanding
+          url: custom-language-understanding/overview.md 
+        - itemType: overview
+          text: Question answering
+          url: custom-question-answering/overview.md 
+
+
+    - title: Translate text 
+      links:
+        - itemType: overview
+          text: Use machine translation on text. 
+          url: ../translator/translator-overview.md
+
+    
+    - title: Summarize text
+      links:
+        - itemType: overview
+          text: Text summarization
+          url: text-summarization/overview.md 
+
+additionalContent:
+  sections:
+    - items:
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+        - text: Learn
+          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+      - title: Support
+        links:
+        - text: Support and help
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
