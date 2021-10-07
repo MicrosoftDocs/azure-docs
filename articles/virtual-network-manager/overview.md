@@ -30,7 +30,7 @@ After you deploy the Virtual Network Manager instance, you then create a *networ
 
 A connectivity configuration enables you to create a mesh or a hub and spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created the network groups and configurations, you can deploy the configurations to any region of your choosing.
 
-## Key benefits:
+## Key benefits
 
 * Centrally manage connectivity and security policies globally across regions and subscriptions.
 

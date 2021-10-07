@@ -89,7 +89,7 @@ This procedure walks you through creating three virtual networks. Two of which w
 
 1. On the *Basics* tab, enter or select the following settings:
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create a virtual network gateway basics tab." lightbox="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create a virtual network gateway basics tab." lightbox="./media/tutorial-create-secured-hub-and-spoke/gateway-basics-expanded.png":::
 
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete.
 
@@ -172,7 +172,7 @@ Ensure the virtual network gateway has been successfully deployed before deployi
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployments.png" alt-text="Screenshot of deployments page in Network Manager.":::
 
-1. 1. Select the following settings:
+1. Select the following settings:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-configuration.png" alt-text="Screenshot of deploy a configuration page.":::
 

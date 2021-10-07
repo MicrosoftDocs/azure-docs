@@ -58,12 +58,12 @@ Protocols currently supported with security admin rules are:
 
 ## Optional fields
 
-### Source and Destination types
+### Source and destination types
 
 * **IP addresses**: You can provide IPv4 or IPv6 addresses or blocks of address in CIDR notation. To list multiple IP address, separate each IP using a comma.
 * **Service Tag**: You can define specific service tags based on regions or a whole service. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags.
 
-### Source and Destination ports
+### Source and destination ports
 
 You can define specific common ports to block from the source or to the destination. See below for a list of common ports:
 

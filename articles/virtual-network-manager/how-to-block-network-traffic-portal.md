@@ -94,7 +94,7 @@ If you just created a new security admin configuration, make sure to deploy this
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-configuration.png" alt-text="Screenshot of deploy a configuration button.":::
 
-1. Select the configuration type of **SecurityAdmin** and the configuration you created in the last section. Then chose the region(s) you would like to deploy this configuration to and select **Deploy**.
+1. Select the configuration type of **SecurityAdmin** and the configuration you created in the last section. Then choose the region(s) you would like to deploy this configuration to and select **Deploy**.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-security-configuration.png" alt-text="Screenshot of deploy a security configuration page.":::
 

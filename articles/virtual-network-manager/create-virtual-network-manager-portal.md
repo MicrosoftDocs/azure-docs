@@ -45,6 +45,8 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 1. Select **Next: IP Addresses >** and configure the following network address spaces:
 
+     :::image type="content" source="./media/create-virtual-network-manager-portal/create-mesh-vnet-ip.png" alt-text="Screenshot of create a virtual network ip addresses page.":::
+
     | Setting | Value |
     | -------- | ----- |
     | IPv4 address space | 10.0.0.0/16 |
@@ -83,8 +85,6 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | Description | *(Optional)* Provide a description about this AVNM and the task it will be managing. |
     | Scope | Define the scope for which this AVNM will manage.
     | Features | Select the features you want to enable for this AVNM. Available features are *Connectivity*, *SecurityAdmin, and *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
-
-
 
 1. Select **Review + create** and then select **Create** once validation has passed.
 
@@ -174,6 +174,8 @@ To have your configurations applied to your environment, you'll need to commit a
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
 
 1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 ## Confirm configuration deployment
 
