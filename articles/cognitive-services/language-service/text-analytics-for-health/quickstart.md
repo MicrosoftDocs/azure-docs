@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Use the Health API client library"
+title: "Quickstart: Use the Text Analytics for health REST API and client library"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to start using the Health API.
+description: Use this quickstart to start using Text Analytics for health.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,9 +14,9 @@ keywords: text mining, health, text analytics
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 
-# Quickstart: using the Health API client library and REST API
+# Quickstart: using Text Analytics for health client library and REST API
 
-Use this article to get started with Health API using the Language Services client library and REST API. Follow these steps to try out examples code for mining text:
+Use this article to get started with Text Analytics for health using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -57,4 +57,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Health API overview](overview.md)
+* [Text Analytics for health overview](overview.md)

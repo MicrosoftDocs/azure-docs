@@ -1,7 +1,7 @@
 ---
-title: How to call the Health API
+title: How to call Text Analytics for health
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information from unstructured clinical text with the Health API. 
+description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: aahi
 # How to use Text Analytics for health
 
 > [!IMPORTANT] 
-> The Health API is a capability provided “AS IS” and “WITH ALL FAULTS.” The Health API is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Health API. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
+> Text Analytics for health is a capability provided “AS IS” and “WITH ALL FAULTS.” Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
 
 Text Analytics for health can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
@@ -26,7 +26,7 @@ Text Analytics for health can be used to extract and label relevant medical info
 ## Features
 
 Text Analytics for health performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
-See the [entity categories](../concepts/health-entity-categories.md) returned by the Health API for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
+See the [entity categories](../concepts/health-entity-categories.md) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
@@ -94,7 +94,7 @@ If a document exceeds the character limit, the API won't process a document that
 
 ### Rate limits
 
-Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing). These limits are the same for both versions of the API. These rate limits don't apply to the Health API container, which does not have a set rate limit.
+Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|

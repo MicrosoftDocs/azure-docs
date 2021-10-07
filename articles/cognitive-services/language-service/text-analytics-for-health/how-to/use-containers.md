@@ -1,7 +1,7 @@
 ---
-title: How to use the Health API container
+title: How to use Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information on premises using the Health API Docker container. 
+description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/18/2021
 ms.author: aahi
 ---
 
-# Use the Health API container
+# Use Text Analytics for health containers
 
-Containers enable you to run the Health API in your own environment and are great for your specific security and data governance requirements.
+Containers enable you to run Text Analytics for health in your own environment and are great for your specific security and data governance requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Health API containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+You must meet the following prerequisites before using Text Analytics for health containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
@@ -33,7 +33,7 @@ You must meet the following prerequisites before using Health API containers. If
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available Health API containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the Text Analytics for health containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -63,7 +63,7 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 >   * The [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
 > * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
 
-There are multiple ways you can install and run the Health API container. 
+There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the Azure portal to create a Language Services resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
@@ -90,7 +90,7 @@ Logging:Disk:Format=json
 
 This command:
 
-- Runs the Health API container from the container image
+- Runs the Text Analytics for health container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
@@ -265,7 +265,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ```
 
-The following JSON is an example of a JSON file attached to the Health API request's POST body:
+The following JSON is an example of a JSON file attached to the Text Analytics for health request's POST body:
 
 ```json
 example.json
@@ -288,7 +288,7 @@ example.json
 
 ### Container response body
 
-The following JSON is an example of the Health API response body from the containerized synchronous call:
+The following JSON is an example of the Text Analytics for health response body from the containerized synchronous call:
 
 ```json
 {
@@ -429,6 +429,22 @@ The following JSON is an example of the Health API response body from the contai
 }
 ```
 
+## Run the container with client library support
+
+Starting with container version `3.0.017010001-onprem-amd64` (or if you use the `latest` container), you can run the Text Analytics for health container to work with the Text Analytics [client library](../quickstart.md) health operation. To do so, add the following parameter to the `docker run` command:
+
+`enablelro=true`
+
+Afterwards when you authenticate the Text Analytics client, use the endpoint that your container is running on:
+
+`http://localhost:5000`
+
+For example, if you're using C# you would use the following code:
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
+
 ## Stop the container
 
 [!INCLUDE [How to stop the container](../../../../../includes/cognitive-services-containers-stop.md)]
@@ -441,18 +457,18 @@ If you run the container with an output [mount](configure-containers.md#mount-se
 
 ## Billing
 
-Health API containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
+Text Analytics for health containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Health API containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics for health containers. In summary:
 
-* The Health API provides a Linux container for Docker
+* Text Analytics for health provides a Linux container for Docker
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Health API containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Text Analytics for health containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
