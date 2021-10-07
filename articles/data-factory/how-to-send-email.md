@@ -96,6 +96,18 @@ Once you create the Logic App workflow to send email, you can trigger it from a 
 
    :::image type="content" source="media/how-to-send-email/pipeline-manually-trigger.png" alt-text="Shows how to manually trigger the pipeline."::: 
 
+## Add dynamic messages with system variables and expressions
+
+You can use [system variables](control-flow-system-variables.md) and [expressions](control-flow-expression-language-functions.md) to
+make your messages dynamic. For example:  
+
+-   ``@activity("CopyData").output.errors[0].Message``
+
+-   ``@activity("DataFlow").error.Message``
+
+The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. Refer to the
+[Copy activity output properties](copy-activity-monitoring.md) article for more details.
+
 ## Next Steps
 
 [How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)
