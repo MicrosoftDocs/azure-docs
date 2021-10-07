@@ -11,7 +11,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy Azure IoT Connector for FHIR (preview)
+    - name: Deploy IoT connector
       expanded: true
       items:
         - name: Using portal
@@ -24,10 +24,12 @@ items:
       href: device-data-through-iot-hub.md 
     - name: IoT data flow
       href: iot-data-flow.md
-    - name: Use device mapping templates
+    - name: Use Device mapping templates
       href: how-to-use-device-mapping-iot.md
-    - name: Use FHIR mapping templates
+    - name: Use FHIR destination mapping templates
       href: how-to-use-fhir-mapping-iot.md
+    - name: Export IoT connector Metrics through Diagnostic settings
+      href: iot-metrics-diagnostics-export.md
 
 - name: Resources
   expanded: true

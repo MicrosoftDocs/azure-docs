@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 09/27/2021
 ---
 
 # Azure Purview collections architectures and best practices  
@@ -48,7 +48,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Data sources, scans, and assets can belong to only one collection. 
 
-- A collections hierarchy in an Azure Purview can support as many as 300 collections, with a maximum of eight levels of depth. This doesn't include the root collection. 
+- A collections hierarchy in an Azure Purview can support as many as 256 collections, with a maximum of eight levels of depth. This doesn't include the root collection. 
 
 - By design, you can't register data sources multiple times in a single Purview account. This architecture helps to avoid the risk of assigning different levels of access control to a single data source. If multiple teams consume the metadata of a single data source, you can register and manage the data source in a parent collection. You can then create corresponding scans under each subcollection so that relevant assets appear under each child collection.
 
@@ -60,7 +60,9 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
 
-- Currently, certain operations, like delete, move, and rename of a collection, aren't allowed. 
+- Currently, certain operations, like move and rename of a collection, aren't allowed. 
+
+- You can delete a collection if it does not have any assets, associated scans, data sources or child collections.
 
 - Data sources, scans, and assets must belong to a collection if they exist in the Azure Purview data map.    
 
@@ -69,9 +71,6 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
 
-- Certain operations, like delete, move, and rename of a collection, aren't allowed via the Azure Purview Studio graphical interface. You can use the API to perform such operations directly in your Azure Purview data map. 
-
-- You can delete a collection if there are no assets or data sources associated with the collection. You can delete a collection that has a scan associated with it. 
 -->
 
 ### Design recommendations 
@@ -84,7 +83,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Consider security and access management a part of your design decision-making process when you build collections in Azure Purview. 
 
-- Each collection has a name attribute and a friendly name attribute. If you use Azure Purview Studio to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+- Each collection has a name attribute and a friendly name attribute. If you use Azure [Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
 
 - When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
 
@@ -94,7 +93,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ## Define an authorization model
 
-Azure Purview data-plane roles are managed in Azure Purview. After you deploy a Purview account, the creator of the Purview account is automatically assigned the following roles at the root collection. You can use Purview Studio or a programmatic method to directly assign and manage roles in Azure Purview.
+Azure Purview data-plane roles are managed in Azure Purview. After you deploy a Purview account, the creator of the Purview account is automatically assigned the following roles at the root collection. You can use [Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
 
   - **Collection Admins** can edit Purview collections and their details and add subcollections. They can also add users to other Purview roles on collections where they're admins.
   - **Data Source Admins** can manage data sources and data scans.

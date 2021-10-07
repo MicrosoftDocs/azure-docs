@@ -168,7 +168,7 @@ You can increase or decrease the replication bandwidth using the _NetQosPolicy._
 
 You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
-```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
+`New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB`
 
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.

@@ -79,6 +79,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+        - name: Manage with Azure CLI
+          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -325,8 +327,6 @@
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-      - name: Send to Power BI
-        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -1348,7 +1348,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: visualize/powerbi.md
+        href: logs/log-powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards

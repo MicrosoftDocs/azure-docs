@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Tips to help you succeed with batch endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri

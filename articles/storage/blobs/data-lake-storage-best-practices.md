@@ -1,101 +1,195 @@
 ---
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2
+description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: sachins
 ---
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-This article presents best practice recommendations about security, resiliency, and directory structure in a Data Lake Storage Gen2 enabled storage account. For best practice recommendations around performance optimization, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
+This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account. 
 
-## Security considerations
+## Find documentation
 
-### Use security groups instead of individual users
+Azure Data Lake Storage Gen2 is not a dedicated service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery. 
 
-When applying access control lists (ACLs), always use Azure AD security groups as the assigned principal in an ACL entry. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users and service principals from the appropriate Azure AD security group. 
+#### Evaluate feature support and known issues
 
-For more information about applying this best practice, see [Security groups](data-lake-storage-access-control-model.md#security-groups).
+Use the following pattern as you configure your account to use Blob storage features.
 
-For general information about the Data Lake Storage Gen2 access control model, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage Gen2 enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
 
-### Configure the Azure Storage firewall with Azure service access
+2. Review the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
 
-Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
+3. Scan feature articles for any guidance that is specific to Data Lake Storage Gen2 enabled accounts. 
 
-For more information about how to apply this best practice, see [Grant access to trusted Azure services](../common/storage-network-security.md).
+#### Understand the terms used in documentation
 
-For general security recommendations, see [Security recommendations for Blob storage](security-recommendations.md)
+As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term *blob* instead of *file*. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, this can cause confusion if you're use to the term *file*. You'll also see the term *container* used to refer to a *file system*. Consider these terms as synonymous.
 
-## Resiliency considerations
+## Optimize for data ingest
 
-When designing a system with Data Lake Storage Gen2 or any cloud service, consider your availability requirements and how to respond to potential interruptions in the service. An issue could be localized to the specific instance or even region-wide, so having a plan for both is important. Depending on the recovery time objective and the recovery point objective service-level agreement for your workload, you might choose a more or less aggressive strategy for high availability and disaster recovery.
+When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.  
 
-### High availability and disaster recovery
+![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage Gen2.](./media/data-lake-storage-best-practices/bottleneck.png)
 
-Data Lake Storage Gen2 already handles 3x replication to guard against localized hardware failures. Replication options such as zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS) improve availability. With these capabilities, workloads can respond to a service interruption by switching over to a separately replicated instance locally or in a new region.
+### Source hardware
 
-To prepare for a catastrophic failure of a region, make sure to replicate data to a different region by using replication options such as geo-redundant storage (GRS) and read-access geo-redundant storage (RA-GRS). Also consider your requirements for edge cases such as data corruption where you might want to create periodic snapshots to fall back on. Depending on the importance and size of the data, consider rolling delta snapshots of 1-, 6-, and 24-hour periods, according to risk tolerances.
+Whether you are using on-premise machines or Virtual Machines (VMs) in Azure, make sure to carefully select the appropriate hardware. For disk hardware, consider using Solid State Drives (SSD) and pick disk hardware that has faster spindles. For network hardware, use the fastest Network Interface Controllers (NIC) as possible. On Azure, we recommend Azure D14 VMs, which have the appropriately powerful disk and networking hardware.
 
-In addition to choosing an appropriate replication model, consider ways to help connecting clients automatically fail over to the secondary region through monitoring triggers, length of failed attempts, or perhaps send a notification to admins for manual intervention. Keep in mind that there is tradeoff of failing over versus waiting for a service to come back online.
+### Network connectivity to the storage account
 
-### Use Distcp for data movement between two locations
+The network connectivity between your source data and your storage account can sometimes be a bottleneck. When your source data is on premise, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). If your source data is in Azure, the performance is best when the data is in the same Azure region as your Data Lake Storage Gen2 enabled account.
 
-Short for distributed copy, DistCp is a Linux command-line tool that comes with Hadoop and provides distributed data movement between two locations. The two locations can be Data Lake Storage Gen2, Hadoop Distributed File System (HDFS), or S3. This tool uses MapReduce jobs on a Hadoop cluster (for example, HDInsight) to scale out on all the nodes. Distcp is considered one of the fastest ways to move big data without special network compression appliances. Distcp also provides an option to only update deltas between two locations, handles automatic retries, as well as dynamic scaling of compute. This approach is incredibly efficient when it comes to replicating items such like Hive/Spark tables that can have many large files in a single directory, and you only want to copy over the modified data. For these reasons, Distcp is the most recommended tool for copying data between big data stores.
+### Configure data ingestion tools for maximum parallelization
 
-Copy jobs can be triggered by Apache Oozie workflows using frequency or data triggers, as well as Linux cron jobs. For intensive replication jobs, we recommend that you spin up a separate HDInsight Hadoop cluster that can be tuned and scaled specifically for the copy jobs. This ensures that copy jobs do not interfere with critical jobs. If running replication on a wide enough frequency, the cluster can even be taken down between each job. If failing over to secondary region, make sure that another cluster is also spun up in the secondary region to replicate new data back to the primary Data Lake Storage Gen2 account once it comes back up. For examples of using Distcp, see [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2](../blobs/data-lake-storage-use-distcp.md).
+To achieve the best performance, use all available throughput by performing as many reads and writes in parallel as possible.
 
-### Use Azure Data Factory to schedule copy jobs
+![Data Lake Storage Gen2 performance](./media/data-lake-storage-best-practices/throughput.png)
 
-[Azure Data Factory](../../data-factory/introduction.md) can also be used to schedule copy jobs by using a Copy Activity, and can even be set up on a frequency via the Copy Wizard. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so directories like Hive tables would require a complete copy to replicate. Refer to the [data factory article](../../data-factory/load-azure-data-lake-storage-gen2.md) for more information on copying with Data Factory.
+The following table summarizes the key settings for several popular ingestion tools.  
 
-## Monitoring considerations
+| Tool               | Settings | 
+|--------------------|------------------------------------------------------|
+| [DistCp](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)             | -m (mapper)	|
+| [Azure Data Factory](../../data-factory/copy-activity-performance.md) | parallelCopies	| 
+| [Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)          | fs.azure.block.size, -m (mapper)	|	
 
-Data Lake Storage Gen2 provides metrics in the Azure portal under the Data Lake Storage Gen2 account and in Azure Monitor. Availability of Data Lake Storage Gen2 is displayed in the Azure portal. To get the most up-to-date availability of a Data Lake Storage Gen2 account, you must run your own synthetic tests to validate availability. Other metrics such as total storage utilization, read/write requests, and ingress/egress are available to be leveraged by monitoring applications and can also trigger alerts when thresholds (for example, Average latency or # of errors per minute) are exceeded.
+> [!NOTE]
+> The overall performance of your ingest operations depend on other factors that are specific to the tool that you're using to ingest data. For the best up-to-date guidance, see the documentation for each tool that you intend to use.
 
+Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
-## Directory layout considerations
+## Structure data sets
 
-When ingesting data it's important to pre-plan the structure of the data so that security, partitioning, and processing can be utilized effectively. Many of the following recommendations are applicable for all big data workloads. Every workload has different requirements on how the data is consumed, but below are some common layouts to consider when working with Internet of Things (IoT) and batch scenarios.
+Consider pre-planning the structure of your data. File format, file size, and directory structure can all impact performance and cost. 
 
-### IoT structure
+### File formats
+
+Data can be ingested in various formats. Data can be appear in human readable formats such as JSON, CSV, or XML or as compressed binary formats such as `.tar.gz`. Data can come in various sizes as well. Data can be composed of large files (a few terabytes) such as data from an export of a SQL table from your on-premise systems. Data can also come in the form of a large number of tiny files (a few kilobytes) such as data from real-time events from an Internet of things (IoT) solution. You can optimize efficiency and costs by choosing an appropriate file format and file size. 
+
+Hadoop supports a set of file formats that are optimized for storing and processing structured data. Some common formats are Avro, Parquet, and Optimized Row Columnar (ORC) format. All of these formats are machine-readable binary file formats. They are compressed to help you manage file size. They have a schema embedded in each file, which makes them self-describing. The difference between these formats is in how data is stored. Avro stores data in a row-based format and the Parquet and ORC formats store data in a columnar format.
+
+Consider using the Avro file format in cases where your I/O patterns are more write heavy, or the query patterns favor retrieving multiple rows of records in their entirety. For example, the Avro format works well with a message bus such as Event Hub or Kafka that write multiple events/messages in succession.
+
+Consider Parquet and ORC file formats when the I/O patterns are more read heavy or when the query patterns are focused on a subset of columns in the records. Read transactions can be optimized to retrieve specific columns instead of reading the entire record.
+
+Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because they can narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet supports efficient data compression and encoding schemes that can lower data storage costs. Services such as [Azure Synapse Analytics](../../synapse-analytics/overview-what-is.md), [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure Data Factory](../../data-factory/introduction.md) have native functionality that take advantage of Parquet file formats.
+
+### File size
+
+Larger files lead to better performance and reduced costs. 
+
+Typically, analytics engines such as HDInsight have a per-file overhead that involves tasks such as listing, checking access, and performing various metadata operations. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256 MB to 100 GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100 GB in size. 
+
+Increasing file size can also reduce transaction costs. Read and write operations are billed in 4 megabyte increments so you're charged for operation whether or not the file contains 4 megabytes or only a few kilobytes. For pricing information, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
+Sometimes, data pipelines have limited control over the raw data, which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. If you're processing data in real time, you can use a real time streaming engine (such as [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or [Spark Streaming](https://databricks.com/glossary/what-is-spark-streaming)) together with a message broker (such as [Event Hub](../../event-hubs/event-hubs-about.md) or [Apache Kafka](https://kafka.apache.org/)) to store your data as larger files. As you aggregate small files into larger ones, consider saving them in a read-optimized format such as [Apache Parquet](https://parquet.apache.org/) for downstream processing. 
+
+### Directory structure
+
+Every workload has different requirements on how the data is consumed, but these are some common layouts to consider when working with Internet of Things (IoT), batch scenarios or when optimizing for time-series data.
+
+#### IoT structure
 
 In IoT workloads, there can be a great deal of data being ingested that spans across numerous products, devices, organizations, and customers. It's important to pre-plan the directory layout for organization, security, and efficient processing of the data for down-stream consumers. A general template to consider might be the following layout:
 
-*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
+`*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*`
 
 For example, landing telemetry for an airplane engine within the UK might look like the following structure:
 
-*UK/Planes/BA1293/Engine1/2017/08/11/12/*
+`*UK/Planes/BA1293/Engine1/2017/08/11/12/*`
 
 In this example, by putting the date at the end of the directory structure, you can use ACLs to more easily secure regions and subject matters to specific users and groups. If you put the data structure at the beginning, it would be much more difficult to secure these regions and subject matters. For example, if you wanted to provide access only to UK data or certain planes, you'd need to apply a separate permission for numerous directories under every hour directory. This structure would also exponentially increase the number of directories as time went on.
 
-### Batch jobs structure
+#### Batch jobs structure
 
 A commonly used approach in batch processing is to place data into an "in" directory. Then, once the data is processed, put the new data into an "out" directory for downstream processes to consume. This directory structure is sometimes used for jobs that require processing on individual files, and might not require massively parallel processing over large datasets. Like the IoT structure recommended above, a good directory structure has the parent-level directories for things such as region and subject matters (for example, organization, product, or producer). Consider date and time in the structure to allow better organization, filtered searches, security, and automation in the processing. The level of granularity for the date structure is determined by the interval on which the data is uploaded or processed, such as hourly, daily, or even monthly.
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, a directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure:
 
-*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\
-*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*\
-*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
+`*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\`
+`*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*\`
+`*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*`
 
 For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed:
 
-*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
-*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
+`*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\`
+`*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*`
 
-In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
+In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn't a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
+
+#### Time series data structure
+
+For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data, which improves performance.    
+
+Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. Below is a common example we see for data that is structured by date:
+
+*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
+
+Notice that the datetime information appears both as folders and in the filename.
+
+For date and time, the following is a common pattern
+
+*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
+
+Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
+
+## Set up security
+
+Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Azure Active Directory (Azure AD) as the basis of identity management. 
+
+Then, review the [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage Gen2 enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
+
+## Ingest, process, and analyze
+
+There are many different sources of data and different ways in which that data can be ingested into a Data Lake Storage Gen2 enabled account. 
+
+For example, you can ingest large sets of data from HDInsight and Hadoop clusters or smaller sets of *ad hoc* data for prototyping applications. You can ingest streamed data that is generated by various sources such as applications, devices, and sensors. For this type of data, you can use tools to capture and process the data on an event-by-event basis in real time, and then write the events in batches into your account. You can also ingest web server which contain information such as the history of page requests. For log data, consider writing custom scripts or applications to upload them so that you'll have the flexibility to include your data uploading component as part of your larger big data application. 
+
+Once the data is available in your account, you can run analysis on that data, create visualizations, and even download data to your local machine or to other repositories such as an Azure SQL database or SQL Server instance. 
+
+The following table recommends tools that you can use to ingest, analyze, visualize, and download data. Use the links in this table to find guidance about how to configure and use each tool. 
+
+| Purpose | Tools & Tool guidance |
+|---|---|
+| Ingest ad hoc data| Azure portal, [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [Apache DistCp](data-lake-storage-use-distcp.md), [AzCopy](../common/storage-use-azcopy-v10.md)|
+| Ingest streaming data | [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md), [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md) |
+| Ingest relational data | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) |
+| Ingest web server logs | [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), Azure SDKs ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md)), [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) |
+| Ingest from HDInsight clusters | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md), [Apache DistCp](data-lake-storage-use-distcp.md), [AzCopy](../common/storage-use-azcopy-v10.md) |
+| Ingest from Hadoop clusters | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md), [Apache DistCp](data-lake-storage-use-distcp.md), [WANdisco LiveData Migrator for Azure](migrate-gen2-wandisco-live-data-platform.md), [Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
+| Ingest large data sets (several terabytes) | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) |
+| Process & analyze data | [Azure Synapse Analytics](../../synapse-analytics/get-started-analyze-storage.md), [Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
+| Visualize data | [Power BI](/power-query/connectors/datalakestorage), [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md) |
+| Download data | Azure portal, [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), Azure SDKs ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md)), [Azure Storage Explorer](data-lake-storage-explorer.md), [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data), [Azure Data Factory](../../data-factory/copy-activity-overview.md), [Apache DistCp](./data-lake-storage-use-distcp.md) |
+
+> [!NOTE]
+> This table doesn't reflect the complete list of Azure services that support Data Lake Storage Gen2. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). 
+
+
+## Monitor telemetry
+
+Monitoring use and performance is an important part of operationalizing your service. Examples include frequent operations, operations with high latency, or operations that cause service-side throttling. 
+
+All of the telemetry for your storage account is available through [Azure Storage logs in Azure Monitor](monitor-blob-storage.md). This feature integrates your storage account with Log Analytics and Event Hubs, while also enabling you to archive logs to another storage account. To see the full list of metrics and resources logs and their associated schema, see [Azure Storage monitoring data reference](monitor-blob-storage-reference.md).
+
+Where you choose to store your logs depends on how you plan to access them. For example, if you want to access your logs in near real time, and be able to correlate events in logs with other metrics from Azure Monitor, you can store your logs in a Log Analytics workspace. This allows you to query your logs using KQL and author queries, which enumerate the `StorageBlobLogs` table in your workspace.
+
+If you want to store your logs for both near real-time query and long term retention, you can configure your diagnostic settings to send logs to both a Log Analytics workspace and a storage account.
+
+If you want to access your logs through another query engine such as Splunk, you can configure your diagnostic settings to send logs to an Event Hub and ingest logs from the Event Hub to your chosen destination.
+
+Azure Storage logs in Azure Monitor can be enabled through the Azure portal, PowerShell, the Azure CLI, and Azure Resource Manager templates. For at-scale deployments, Azure Policy can be used with full support for remediation tasks. For more information, see [Azure/Community-Policy](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) and [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy).
+
 
 ## See also
 
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
-- [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md)
 - [The hitchhiker's guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-
