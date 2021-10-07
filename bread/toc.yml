@@ -422,9 +422,9 @@
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
-    - name: Language Service
-      tocHref: /azure/cognitive-services/language/
-      topicHref: /azure/cognitive-services/language/
+    - name: Language service
+      tocHref: /azure/cognitive-services/language-service/
+      topicHref: /azure/cognitive-services/language-service/
     - name: Language Understanding (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
