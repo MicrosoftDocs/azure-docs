@@ -1,18 +1,18 @@
 ### YamlMime:Hub
 
-title: Azure DevTest Offer documentation
+title: Azure Dev/Test offer documentation
 summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
 
 metadata:
-  title: Azure DevTest Offer documentation
-  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
+  title: Azure Dev/Test offer documentation
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest offer. Tutorials, code examples, API references, and more. 
  
   ms.topic: hub-page
   ms.collection: collection
   ms.prod: visual-studio-windows
   ms.author: jmartens
   author: j-martens
-  ms.date: 09/30/2021
+  ms.date: 10/06/2021
   ms.custom: devtestoffer
   adobe-target: true
 
@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Azure DevTest Offer?
+    - title: What is Azure Dev/Test offer?
       itemType: overview
       url: ../../machine-learning/overview-what-is-azure-machine-learning.md
     # Card
@@ -107,7 +107,6 @@ conceptualContent:
         - url: /python/api/overview/azure/ml/
           itemType: reference
           text: Python SDK
-
     # Card
     - title: Resources
       links:

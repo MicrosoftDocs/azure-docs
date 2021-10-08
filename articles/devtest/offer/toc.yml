@@ -1,4 +1,4 @@
-- name: Azure DevTest Offer Docs
+- name: Azure Dev/Test offer Docs
   href: index.yml
 - name: Overview
   items: 
@@ -9,14 +9,26 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python get started (Day 1)"
+    - name: "Python get started (day 1)"
       expanded: true
       items:
-        - name: 3. Use your own data
+        - name: Use your own data
           href: tutorial-experiment-bring-data.md
 - name: Samples
-- name: Concepts  
+- name: Concepts
+  items:
 - name: How-to guides
+  items:
+#  - name: Get started with an individual Azure Dev/Test credit
+#    href: how-to-individual-credit.md
+#  - name: Change directory tenants
+#    href: change-directory-tenants.md
+  - name: Remove credit limits 
+    href: remove-credit-limits.md
+  - name: Add users to your directory
+    href: add-users-directory.md
+#  - name: Sign into Azure with GitHub
+#    href: sign-into-azure-with-github.md
 - name: Resources
   items: 
     - name: Azure roadmap
