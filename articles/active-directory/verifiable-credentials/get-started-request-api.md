@@ -201,13 +201,13 @@ To issue, or verify a verifiable credential, follow these steps:
 
 1. Set the `Content-Type` header to `Application/json`.
 
-1. Prepare and attach the [Issuance](issuance-request.md#issuance-request-payload), or [Presentation](presentation-request.md#presentation-request-payload) request payload to the request body.
+1. Prepare and attach the [Issuance](issuance-request-api.md#issuance-request-payload), or [Presentation](presentation-request-api.md#presentation-request-payload) request payload to the request body.
 
 1. Submit the request to the Request Service REST API.
 
 ## Issuance request example
 
-The following example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request.md)
+The following example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request-api.md)
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -246,7 +246,7 @@ For the complete code, check out one of the following code samples, [C#](https:/
 
 ## Presentation request example
 
-The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request.md)
+The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request-api.md)
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -288,11 +288,11 @@ For the complete code, check out one of the following code samples:
 
 ## Callback events
 
-The request payload contains the [issuance](issuance-request.md#callback-events) and [presentation](presentation-request.md#callback-events) callback endpoint. The endpoint is part of your web application and should be publicly available. Azure AD verifiable credentials service calls your endpoint to inform your app on certain events. For example, when a user scans the QR code, uses the deep link their authenticator app, or finishes the presentation process.
+The request payload contains the [issuance](issuance-request-api.md#callback-events) and [presentation](presentation-request-api.md#callback-events) callback endpoint. The endpoint is part of your web application and should be publicly available. Azure AD verifiable credentials service calls your endpoint to inform your app on certain events. For example, when a user scans the QR code, uses the deep link their authenticator app, or finishes the presentation process.
 
 The following diagram describes the call your app makes to the Request Service REST API, and the callbacks to your application.
 
-![Diagram describes the call to the API and the callback events.](media/call-request-api/callback-events.png)
+![Diagram describes the call to the API and the callback events.](media/get-started-request-api/callback-events.png)
 
 Configure your endpoint to listen to incoming HTTP POST requests. The following code snippet demonstrates how to handle the issuance callback HTTP request and update the UI accordantly:
 

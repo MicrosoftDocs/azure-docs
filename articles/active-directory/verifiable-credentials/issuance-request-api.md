@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 10/01/2021
+ms.date: 10/08/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -277,4 +277,4 @@ The following example demonstrates a callback payload when an error occurred.
 
 ## Next steps
 
-Learn [how to call the Request Service REST API](call-request-api.md)
+Learn [how to call the Request Service REST API](get-started-request-api.md)

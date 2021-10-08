@@ -254,4 +254,4 @@ The following example demonstrates a callback payload after verifiable credentia
 
 ## Next steps
 
-Learn [how to call the Request Service REST API](call-request-api.md)
+Learn [how to call the Request Service REST API](get-started-request-api.md)
