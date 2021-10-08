@@ -93,6 +93,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
+[ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
 ```
 
 ## Arguments
@@ -247,6 +248,10 @@ Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
 Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+
+ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is usefull option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file#querying-appendable-files) section.
 
 ## Fast delimited text parsing
 
