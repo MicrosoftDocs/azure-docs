@@ -31,7 +31,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. Should NOT begin with a verb.
 -->
 
-# [H1 heading here]
+# Choosing Confidential Virtual Machine offerings
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
