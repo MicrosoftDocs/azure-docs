@@ -31,3 +31,23 @@ Intro
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java](./includes/create_teams_access_token-java.md)]
 ::: zone-end
+
+Outro
+
+## Next Steps
+
+In this quickstart, you learned how to:
+
+> [!div class="checklist"]
+> * Issue access tokens for teams users
+> * Use the Communication Services Identity SDK
+
+
+> [!div class="nextstepaction"]
+> [Add voice calling to your app](./voice-video-calling/getting-started-with-calling.md)
+
+You may also want to:
+
+ - [Learn about authentication](../concepts/authentication.md)
+ - [Add chat to your app](./chat/get-started.md)
+ - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
