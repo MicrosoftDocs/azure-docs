@@ -17,11 +17,9 @@ When developing client applications, be sure to consider the relevant best pract
 
 ## Consider more keys and smaller values
 
-Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
+Azure Cache for Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
-<!-- In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size). -->
-
-<!-- ## Large request or response size -->
+## Large request or response size
 
 A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
 
@@ -48,8 +46,6 @@ Resolutions for large response sizes are varied but include:
     - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
 1. Increase the number of connection objects your application uses.
     - Use a round-robin approach to make requests over different connection objects.
-
-
 
 ## Key distribution
 
