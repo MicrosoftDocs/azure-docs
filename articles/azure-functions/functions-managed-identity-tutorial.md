@@ -1,17 +1,16 @@
 ---
-title: How to configure a secretless Azure Function with identity-based connections
+title: Create a function app that uses identity-based Azure service connections
 description: Learn how to use identity-based connections with Azure Functions without having the handle service-specific connection strings.
 ms.topic: tutorial
 ms.date: 7/26/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
 ---
 
-# Tutorial: Create a function app that uses identity-based service connections
+# Tutorial: Create a function app that uses identity-based Azure service connections
 
-This tutorial shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure a function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions specifically. 
-
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -46,9 +45,9 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
 
 1. On the **New** page, select **Compute** > **Function App**.
 
-1. On the **Basics** page, use the following table to configure the function app settings.
+1. On the **Basics** page, use the following table to configure the function app.
 
-    | Setting      | Suggested value  | Description |
+    | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | Subscription under which this new function app is created. |
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group where you'll create your function app. |
@@ -57,7 +56,7 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
     | **Runtime stack** | .NET | This tutorial uses .NET. |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
 
-1. Select **Review + create**. Your app uses the default values on the **Hosting** and **Monitoring** page. You're welcome to review these default settings, and they'll be included in the ARM template that you generate. 
+1. Select **Review + create**. Your app uses the default values on the **Hosting** and **Monitoring** page. You're welcome to review the default options, and they'll be included in the ARM template that you generate. 
 
 1. Instead of creating your function app here, choose **Download a template for automation**, which is to the right of the **Next** button.
 
@@ -81,7 +80,7 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
  
 1. Select **Save** to save the updated ARM template.
 
-1. Make sure that your settings, including **Resource Group**, are still correct and select **Review + create**.
+1. Make sure that your create options, including **Resource Group**, are still correct and select **Review + create**.
 
 1. After your template validates, make a note of your **Storage Account Name**, since you'll use this account later. Finally, select **Create** to provision and deploy the function app. 
 
@@ -105,11 +104,11 @@ Next, you'll enable managed identities so that your function app works without h
 
 1. Select **Azure role assignments** and then **Azure role assignment (Preview)**.
 
-1. In the to open the **Add role assignment** page, enter settings as shown in the table below.
+1. In the to open the **Add role assignment** page and use options as shown in the table below.
 
     :::image type="content" source="./media/functions-secretless-tutorial/5-role-assignment.png" alt-text="Screenshot of how to role assignments for storage":::
 
-    | Setting      | Suggested value  | Description |
+    | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Scope** |  Storage |  Scope is a set of resources that the role assignment applies to. Scope has levels that are inherited at lower levels. For example, if you select a subscription scope, the role assignment applies to all resource groups and resources in the subscription. |
     |**Subscription**| Your subscription | Subscription under which this new function app is created. |
@@ -203,9 +202,9 @@ Congratulations! You've successfully run your timer trigger in Azure. Now, you c
 
 1. Select the **Edit** button next to the **AzureWebJobsStorage** application setting, and change it based on the following values.
 
-    | Setting      | Suggested value  | Description |
+    | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to use the identity instead of secrets. Please be aware that the new setting uses a double underscore (`__`), which is a special character in settings.  |
+    | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to the exact name `AzureWebJobsStorage__accountName`. This tells the host to use the identity instead of looking for a stored secret. Please be aware that the new setting uses a double underscore (`__`), which is a special character in application settings.  |
     | **Value** | Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
 
 1. Select **OK** and then **Save** > **Continue** to save your changes. 

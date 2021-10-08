@@ -2,13 +2,13 @@
 title: How to configure Azure Functions Application Insights with Key Vault and identity-based connections
 description: Article that shows you how to use identity-based connections and key vault in place of connection strings for application insights
 ms.topic: article
-ms.date: 8/206/2021
+ms.date: 08/09/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that my function app can connect to Application Insights using secrets stored in Key Vault and system managed identities for better security.
 ---
 
 # Tutorial: Access Application Insights secrets using Azure Key Vault
 
-This article shows you how to configure the Azure Application Insights instance used by your function app with Azure Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure the Azure Application Insights instance used by your function app with Azure Key Vault and managed identities. The tutorial is a continuation of the [Functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
 > [!div class="checklist"]
@@ -37,9 +37,9 @@ Complete the previous tutorial [Create a function app with identity-based connec
 
 1. On the **Create a resource** page, search for *key vault*, select **Key Vault**, and then select **+ Create**.
 
-1. On the **Basics** tab, configure the key vault settings based on the values from the following table: 
+1. On the **Basics** tab, configure the key vault based on the values from the following table: 
 
-    | Setting      | Suggested value  | Description      |
+    | Option      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
@@ -70,9 +70,9 @@ Now, you have permissions to add a secret to the RBAC-enabled vault. The secret 
  
 1. In your key vault, select **Secrets** under **Settings**.
 
-1. Select **Generate/Import** and supply the following settings: 
+1. Select **Generate/Import** and set the options as follows: 
 
-    | Setting      | Suggested value  | Description      |
+    | Option      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Name**  | AppInsights | The name for you secret. The suggested value is AppInsights as the secret will be for our Application Insights connection string. |
     | **Value** | yourAppInsightsConnectionString | The connection string value you copied from your Application Insights overview. |
@@ -85,9 +85,9 @@ Now, you have permissions to add a secret to the RBAC-enabled vault. The secret 
 
 1. Select **Azure role assignments** on the **System assigned** tab.
 
-1. Select **Add role assignment (preview)** and create a role with the following settings:
+1. Select **Add role assignment (preview)** and create a role with the following options:
 
-    | Setting      | Suggested value  | Description      |
+    | Option      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Scope**  | Key Vault | Scope is a set of resources to which the role assignment applies. |
     | **Subscription** | yourSubscription | Your subscription. | 
@@ -116,7 +116,7 @@ Now, you'll see logs continue to be sent to Application Insights when using the 
 
 ## Validate your changes
 
-1. In the portal, search for `Application Insights` and select **Application Insights** under **Settings**.  
+1. In the portal, search for `Application Insights` and select **Application Insights** under **Services**.  
 
 1. In **Application Insights**, browse or search for your named instance. 
 
