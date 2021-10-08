@@ -13,20 +13,20 @@ ms.date: 09/30/2021
 
 # Preparing Datasets for AutoML Images
 
-In this article, you'll learn how to prepare image datasets for computer vision models on AutoML. we'll describe the schema and data preparation needed for 
+In this article, you'll learn how to prepare image datasets to build computer vision models using AutoML. we'll describe the schema and data preparation needed for 
 + **Image Classification**
-+ **Multi-label Image Classification**
++ **Image Classification Multi-label**
 + **Object Detection**
 + **Instance Segmentation**
 
-You'll also learn to upload prepared datasets to [datastore](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture#datasets-and-datastores) and understand inference formats for different tasks.
+You'll also learn to upload prepared datasets to a [datastore](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture#datasets-and-datastores) and understand inference formats for different tasks.
 
-In order to generate models for computer vision, you'll need to bring in labeled image data as input for model training in the form of an AzureML Labeled Dataset. You can either use a Labeled Dataset that you've exported from a Data Labeling project, or create a new AzureML Labeled Dataset with your labeled training data.
+To generate models for computer vision, you'll need to bring in labeled image data as input for model training in the form of an [AzureML Tabular Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py). You can either use a dataset that you've exported from a Data Labeling project, or create a new AzureML Tabular Dataset with your labeled training data via SDK.
 
 
-## Input Data formats/Schema for AutoML vision models
+## Input Data formats/Schema for AutoML Image models
 
-Azure Machine Learning AutoML for Images requires input image data to be prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format. This section describes input data formats/schema for multi-class, multi-label image classification, object detection, and instance segmentation. We'll also provide a sample of final training or validation JSON Lines file.
+Azure Machine Learning AutoML for Images requires input image data to be prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format. This section describes input data formats or schema for image classification multi-class, image classification multi-label, object detection, and instance segmentation. We'll also provide a sample of final training or validation JSON Lines file.
 
 ### Image Classification (binary/multi-class)
 
@@ -35,11 +35,11 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
 | Key       | Description  | Example |
 | -------- |----------|-----|
 | image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| format  | Image type (all the Image formats available in Pillow library are supported)<br>`Optional, String from { "jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | class/label of the image<br>`Required, String` | `"cat"` |
-| label_confidence | confidence score of class/label<br>`Optional, Float in [0,1]` | `1.0` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the available Image formats in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| label | Class/label of the image<br>`Required, String` | `"cat"` |
 
 
 **Input data format/schema in each JSON Line:**
@@ -52,32 +52,31 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
       "height":"image_height"
    },
    "label":"class_name",
-   "label_confidence":"confidence_score"
 }
 ```
 
 Example of a JSONL file for multi-class image classification:
 ```json
-{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details":{"format": "jpg", "width": "400px", "height": "258px"}, "label": "can","label_confidence": 1.0}
-{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "397px", "height": "296px"}, "label": "milk_bottle","label_confidence": 1.0}
+{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details":{"format": "jpg", "width": "400px", "height": "258px"}, "label": "can"}
+{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "397px", "height": "296px"}, "label": "milk_bottle"}
 .
 .
 .
-{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle","label_confidence": 1.0}
+{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
 
-### Multi-label Image Classification
+### Image Classification Multi-label
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_multilabel_predictions_vis.jpg)
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
 | image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| format  | Image type (all the Image formats available in Pillow library are supported)<br>`Optional, String from { "jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | list of classes/labels in the image<br>`Required, List of Strings` | `["cat","dog"]` |
-| label_confidence | confidence score of class/label<br>`Optional, Float in [0,1]` | `1.0` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| label | List of classes/labels in the image<br>`Required, List of Strings` | `["cat","dog"]` |
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -89,20 +88,17 @@ Example of a JSONL file for multi-class image classification:
       "height":"image_height"
    },
    "label":[
-      "class_1",
-      "class_2",
-      "class_3",
-      ...
-   ],
-   "label_confidence":[
-      conf_score_class_1,
-      conf_score_class_2,
-      ...
+      "class_name_1",
+      "class_name_2",
+      "class_name_3",
+      "...",
+      "class_name_n"
+        
    ]
 }
 ```
 
-Example of a JSONL file for multi-label image classification:
+Example of a JSONL file for Image Classification Multi-label:
 
 ```json
 {"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details":{"format": "jpg", "width": "400px", "height": "258px"}, "label": ["can"]}
@@ -119,26 +115,29 @@ Example of a JSONL file for multi-label image classification:
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| image_url | Image location in Aml datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| format  | Image type (all the Image formats available in Pillow library are supported. But for YOLO only image formats allowed by opencv are supported)<br>`Optional, String from { "jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (outer key) | list of bounding boxes, where each box is a dictionary of `label, topX, topY, bottomX, bottomY, isCrowd, isTruncated` their top-left and bottom-right coordinates<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.2605210420841683, "topY": 0.4069069069069069, "bottomX": 0.7354709418837675, "bottomY": 0.7012012012012012, "isCrowd": 0, "isTruncated": "false"}]` |
-| label (inner key)| class/label of the object in the bounding box<br>`Required, String` | `"cat"` |
-| topX | ratio of x coordinate of top-left corner of the bounding box and width of the image<br>`Required, Double in [0,1]` | `0.2605210420841683` |
-| topY | ratio of y coordinate of top-left corner of the bounding box and height of the image<br>`Required, Double in [0,1]` | `0.4069069069069069` |
-| bottomX | ratio of x coordinate of bottom-right corner of the bounding box and width of the image<br>`Required, Double in [0,1]` | `0.7354709418837675` |
-| bottomY | ratio of y coordinate of bottom-right corner of the bounding box and height of the image<br>`Required, Double in [0,1]` | `0.7012012012012012` |
-| isCrowd | indicates whether the bbox is around the crowd of objects<br>`Optional, Bool` | `0` |
-| isTruncated | indicates whether the object extends beyond the boundary of the image<br>`Optional, Bool` | `false` |
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the Image formats available in Pillow library are supported. But for YOLO only image formats allowed by opencv are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| label (outer key) | List of bounding boxes, where each box is a dictionary of `label, topX, topY, bottomX, bottomY, isCrowd` their top-left and bottom-right coordinates<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
+| label (inner key)| Class/label of the object in the bounding box<br>`Required, String` | `"cat"` |
+| topX | Ratio of x coordinate of top-left corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.260` |
+| topY | Ratio of y coordinate of top-left corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.406` |
+| bottomX | Ratio of x coordinate of bottom-right corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.735` |
+| bottomY | Ratio of y coordinate of bottom-right corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.701` |
+| isCrowd | Indicates whether the bounding box is around the crowd of objects. if this special flag is set, we skip this particular  bounding box when calculating the metric.<br>`Optional, Bool` | `0` |
+
 
 **Input data format/schema in each JSON Line:**
 
 Here, 
-- xmin = x_coordinate_of_top-left_corner_of_bbox
-- ymin = y_coordinate_of_top-left_corner_of_bbox
-- xmax = x_coordinate_of_bottom-right_corner_of_bbox
-- ymax = y_coordinate_of_bottom-right_corner_of_bbox
+- xmin = x coordinate of top-left corner of bounding box
+- ymin = y coordinate of top-left corner of bounding box
+- xmax = x coordinate of bottom-right corner of bounding box
+- ymax = y coordinate of bottom-right corner of bounding box
+
+topX, topY, bottomX, bottomY are top-left and bottom-right corners of a bounding box normalized with image width, height, width, height respectively.
 
 ```json
 {
@@ -151,52 +150,52 @@ Here,
    "label":[
       {
          "label":"class_name_1",
-         "topX":xmin/width,
-         "topY":ymin/height,
-         "bottomX":xmax/width,
-         "bottomY":ymax/height,
-         "isCrowd":isCrowd,
-         "isTruncated":isTruncated
+         "topX":"xmin/width",
+         "topY":"ymin/height",
+         "bottomX":"xmax/width",
+         "bottomY":"ymax/height",
+         "isCrowd":"isCrowd"
       },
       {
          "label":"class_name_2",
-         "topX":xmin/width,
-         "topY":ymin/height,
-         "bottomX":xmax/width,
-         "bottomY":ymax/height,
-         "isCrowd":isCrowd,
-         "isTruncated":isTruncated
+         "topX":"xmin/width",
+         "topY":"ymin/height",
+         "bottomX":"xmax/width",
+         "bottomY":"ymax/height",
+         "isCrowd":"isCrowd"
       },
-      ...
+      "..."
    ]
 }
 ```
 
 Example of a JSONL file for Object Detection:
 ```json
-{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "topX": 0.2605210420841683, "topY": 0.4069069069069069, "bottomX": 0.7354709418837675, "bottomY": 0.7012012012012012, "isCrowd": 0, "isTruncated": "false"}]}
-{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.17234468937875752, "topY": 0.15315315315315314, "bottomX": 0.43286573146292584, "bottomY": 0.6591591591591591, "isCrowd": 0, "isTruncated": "false"}, {"label": "milk_bottle", "topX": 0.30060120240480964, "topY": 0.566066066066066, "bottomX": 0.8917835671342685, "bottomY": 0.7357357357357357, "isCrowd": 0, "isTruncated": "false"}]}
+{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]}
+{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.172, "topY": 0.153, "bottomX": 0.432, "bottomY": 0.659, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.300, "topY": 0.566, "bottomX": 0.891, "bottomY": 0.735, "isCrowd": 0}]}
 .
 .
 .
-{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.018036072144288578, "topY": 0.2972972972972973, "bottomX": 0.3807615230460922, "bottomY": 0.8363363363363363, "isCrowd": 0, "isTruncated": "false"}, {"label": "milk_bottle", "topX": 0.45490981963927857, "topY": 0.3483483483483483, "bottomX": 0.6132264529058116, "bottomY": 0.6831831831831832, "isCrowd": 0, "isTruncated": "false"}, {"label": "water_bottle", "topX": 0.6673346693386774, "topY": 0.27927927927927926, "bottomX": 0.8416833667334669, "bottomY": 0.6156156156156156, "isCrowd": 0, "isTruncated": "false"}]}
+{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.0180, "topY": 0.297, "bottomX": 0.380, "bottomY": 0.836, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.454, "topY": 0.348, "bottomX": 0.613, "bottomY": 0.683, "isCrowd": 0}, {"label": "water_bottle", "topX": 0.667, "topY": 0.279, "bottomX": 0.841, "bottomY": 0.615, "isCrowd": 0}]}
   ```
 
 
 ### Instance Segmentation
+For Instance Segmentation, we only support polygon as input and output, no masks.
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_instance_segmentation_predictions_vis.jpg)
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| image_url | Image location in Aml datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| format  | Image type<br>`Optional, String from { "jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (outer key) | list of masks, where each mask is a dictionary of `label, bbox, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "bbox": "null", "isCrowd": 0, "polygon": [[0.5771543086172345, 0.6891891891891891,`<br> ` 0.5671342685370742, 0.6891891891891891,`<br> `0.5591182364729459, 0.6861861861861862]]}]` |
-| label (inner key)| class/label of the object in the mask<br>`Required, String` | `"cat"` |
-| isCrowd | indicates whether the mask is around the crowd of objects<br>`Optional, Bool` | `0` |
-| polygon | polygon coordinates for the mask<br>`Required, List of List of Double values in [0,1]` | ` [[0.5771543086172345, 0.6891891891891891, 0.5671342685370742, 0.6891891891891891, 0.5591182364729459, 0.6861861861861862]]` |
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| label (outer key) | List of masks, where each mask is a dictionary of `label, bbox, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "bbox": "null", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
+| label (inner key)| Class/label of the object in the mask<br>`Required, String` | `"cat"` |
+| isCrowd | Indicates whether the mask is around the crowd of objects<br>`Optional, Bool` | `0` |
+| polygon | Polygon coordinates for the the object<br>`Required, List of List(list of multiple instances) of Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -210,8 +209,8 @@ Example of a JSONL file for Object Detection:
    "label":[
       {
          "label":"class_name",
-         "isCrowd":isCrowd,
-         "polygon":[[x1 y1 x2 y2 x3 y3 ...xn yn]]
+         "isCrowd":"isCrowd",
+         "polygon":[["x1", "y1", "x2", "y2", "x3", "y3", "..." "xn", "yn"]]
       }
    ]
 }
@@ -220,20 +219,20 @@ Example of a JSONL file for Object Detection:
 Example of a JSONL file for Instance Segmentation:
 
 ```python
-{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "bbox": "null", "isCrowd": 0, "polygon": [[0.5771543086172345, 0.6891891891891891, 0.5671342685370742, 0.6891891891891891, 0.5591182364729459, 0.6861861861861862, 0.3807615230460922, 0.5930930930930931, 0.3046092184368738, 0.5555555555555556, 0.29458917835671344, 0.545045045045045, 0.2905811623246493, 0.5345345345345346, 0.2745490981963928, 0.512012012012012, 0.27054108216432865, 0.496996996996997, 0.27054108216432865, 0.47897897897897895, 0.2845691382765531, 0.45345345345345345, 0.30861723446893785, 0.43243243243243246, 0.32665330661322645, 0.42342342342342343, 0.35671342685370744, 0.4159159159159159, 0.4188376753507014, 0.4174174174174174, 0.6352705410821643, 0.493993993993994, 0.6833667334669339, 0.5075075075075075, 0.7014028056112225, 0.5180180180180181, 0.7094188376753507, 0.5285285285285285, 0.7134268537074149, 0.545045045045045, 0.7194388777555111, 0.5540540540540541, 0.7194388777555111, 0.5795795795795796, 0.7134268537074149, 0.5975975975975976, 0.6973947895791583, 0.6216216216216216, 0.6953907815631263, 0.6291291291291291, 0.6312625250501002, 0.6786786786786787, 0.6192384769539078, 0.6831831831831832, 0.5951903807615231, 0.6831831831831832, 0.5771543086172345, 0.6891891891891891]]}]}
-{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "bbox": "null", "isCrowd": 0, "polygon": [[0.24048096192384769, 0.6576576576576577, 0.23446893787575152, 0.6546546546546547, 0.23046092184368738, 0.6471471471471472, 0.21042084168336672, 0.512012012012012, 0.20240480961923848, 0.4039039039039039, 0.18236472945891782, 0.2672672672672673, 0.1843687374749499, 0.24174174174174173, 0.18036072144288579, 0.16666666666666666, 0.18637274549098196, 0.15915915915915915, 0.19839679358717435, 0.15615615615615616, 0.3967935871743487, 0.16216216216216217, 0.4088176352705411, 0.16966966966966968, 0.40681362725450904, 0.21771771771771772, 0.4148296593186373, 0.24924924924924924, 0.4228456913827655, 0.2627627627627628, 0.4228456913827655, 0.5690690690690691, 0.342685370741483, 0.5690690690690691, 0.3346693386773547, 0.5720720720720721, 0.32064128256513025, 0.5855855855855856, 0.30861723446893785, 0.6246246246246246, 0.3066132264529058, 0.6486486486486487, 0.24048096192384769, 0.6576576576576577]]}, {"label": "milk_bottle", "bbox": "null", "isCrowd": 0, "polygon": [[0.6753507014028056, 0.7327327327327328, 0.6352705410821643, 0.7312312312312312, 0.6212424849699398, 0.7252252252252253, 0.5731462925851704, 0.7177177177177178, 0.5190380761523046, 0.7177177177177178, 0.5050100200400801, 0.7207207207207207, 0.46292585170340683, 0.7222222222222222, 0.43887775551102204, 0.7192192192192193, 0.3967935871743487, 0.7192192192192193, 0.3587174348697395, 0.7147147147147147, 0.3346693386773547, 0.7147147147147147, 0.3226452905811623, 0.7117117117117117, 0.312625250501002, 0.7012012012012012, 0.3066132264529058, 0.6876876876876877, 0.3046092184368738, 0.6636636636636637, 0.30861723446893785, 0.6306306306306306, 0.32064128256513025, 0.5960960960960962, 0.32064128256513025, 0.5885885885885885, 0.32665330661322645, 0.5795795795795796, 0.34468937875751504, 0.5690690690690691, 0.3787575150300601, 0.5690690690690691, 0.4969939879759519, 0.575075075075075, 0.5150300601202404, 0.5780780780780781, 0.531062124248497, 0.5840840840840841, 0.561122244488978, 0.5870870870870871, 0.6132264529058116, 0.5870870870870871, 0.6372745490981964, 0.5825825825825826, 0.6653306613226453, 0.5825825825825826, 0.7034068136272545, 0.5900900900900901, 0.7474949899799599, 0.6126126126126126, 0.7595190380761523, 0.6156156156156156, 0.781563126252505, 0.6156156156156156, 0.7995991983967936, 0.6081081081081081, 0.8096192384769539, 0.6066066066066066, 0.8156312625250501, 0.6081081081081081, 0.8296593186372746, 0.6186186186186187, 0.8637274549098196, 0.6201201201201201, 0.875751503006012, 0.6246246246246246, 0.8817635270541082, 0.6321321321321322, 0.8857715430861723, 0.6456456456456456, 0.8877755511022044, 0.6741741741741741, 0.8837675350701403, 0.6936936936936937, 0.8697394789579158, 0.7117117117117117, 0.8316633266533067, 0.7102102102102102, 0.8256513026052105, 0.7132132132132132, 0.8236472945891784, 0.7177177177177178, 0.8156312625250501, 0.7207207207207207, 0.8056112224448898, 0.7207207207207207, 0.7775551102204409, 0.7087087087087087, 0.7535070140280561, 0.7087087087087087, 0.7294589178356713, 0.7162162162162162, 0.7114228456913828, 0.7252252252252253, 0.6753507014028056, 0.7327327327327328]]}]}
+{"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686, 0.380, 0.593, 0.304, 0.555, 0.294, 0.545, 0.290, 0.534, 0.274, 0.512, 0.2705, 0.496, 0.270, 0.478, 0.284, 0.453, 0.308, 0.4326, 0.326, 0.423, 0.356, 0.4159, 0.418, 0.417, 0.635, 0.493, 0.683, 0.507, 0.701, 0.5180, 0.709, 0.528, 0.713, 0.545, 0.719, 0.554, 0.719, 0.579, 0.713, 0.597, 0.697, 0.621, 0.695, 0.629, 0.631, 0.678, 0.619, 0.683, 0.595, 0.683, 0.577, 0.689]]}]}
+{"image_url": "AmlDatastore://image_data/Image_02.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "isCrowd": 0, "polygon": [[0.240, 0.65, 0.234, 0.654, 0.230, 0.647, 0.210, 0.512, 0.202, 0.403, 0.182, 0.267, 0.184, 0.243, 0.180, 0.166, 0.186, 0.159, 0.198, 0.156, 0.396, 0.162, 0.408, 0.169, 0.406, 0.217, 0.414, 0.249, 0.422, 0.262, 0.422, 0.569, 0.342, 0.569, 0.334, 0.572, 0.320, 0.585, 0.308, 0.624, 0.306, 0.648, 0.240, 0.657]]}, {"label": "milk_bottle",  "isCrowd": 0, "polygon": [[0.675, 0.732, 0.635, 0.731, 0.621, 0.725, 0.573, 0.717, 0.516, 0.717, 0.505, 0.720, 0.462, 0.722, 0.438, 0.719, 0.396, 0.719, 0.358, 0.714, 0.334, 0.714, 0.322, 0.711, 0.312, 0.701, 0.306, 0.687, 0.304, 0.663, 0.308, 0.630, 0.320, 0.596, 0.32, 0.588, 0.326, 0.579]]}]}
 .
 .
 .
-{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "bbox": "null", "isCrowd": 0, "polygon": [[0.3346693386773547, 0.6216216216216216, 0.3046092184368738, 0.6216216216216216, 0.2545090180360721, 0.6036036036036037, 0.16432865731462926, 0.6051051051051051, 0.15831663326653306, 0.6021021021021021, 0.1462925851703407, 0.6021021021021021, 0.14228456913827656, 0.6081081081081081, 0.09418837675350701, 0.6126126126126126, 0.0841683366733467, 0.5990990990990991, 0.08016032064128256, 0.5855855855855856, 0.08016032064128256, 0.539039039039039, 0.08216432865731463, 0.536036036036036, 0.09218436873747494, 0.5330330330330331, 0.12625250501002003, 0.53003003003003, 0.13226452905811623, 0.5330330330330331, 0.14428857715430862, 0.5330330330330331, 0.1623246492985972, 0.5255255255255256, 0.17234468937875752, 0.5255255255255256, 0.18637274549098196, 0.521021021021021, 0.1963927855711423, 0.521021021021021, 0.23046092184368738, 0.5135135135135135, 0.24248496993987975, 0.509009009009009, 0.2625250501002004, 0.4924924924924925, 0.2665330661322645, 0.4924924924924925, 0.28256513026052105, 0.481981981981982, 0.32064128256513025, 0.4744744744744745, 0.44889779559118237, 0.46546546546546547, 0.5811623246492986, 0.4519519519519519, 0.5991983967935872, 0.4519519519519519, 0.625250501002004, 0.45645645645645644, 0.6372745490981964, 0.46096096096096095, 0.6452905811623246, 0.46096096096096095, 0.657314629258517, 0.46546546546546547, 0.6673346693386774, 0.47897897897897895, 0.6673346693386774, 0.487987987987988, 0.6593186372745491, 0.4924924924924925, 0.6593186372745491, 0.4954954954954955, 0.6733466933867736, 0.5015015015015015, 0.6813627254509018, 0.5105105105105106, 0.6813627254509018, 0.5225225225225225, 0.6673346693386774, 0.5330330330330331, 0.6693386773547094, 0.5375375375375375, 0.6753507014028056, 0.5375375375375375, 0.6793587174348698, 0.5435435435435435, 0.6793587174348698, 0.551051051051051, 0.6673346693386774, 0.566066066066066, 0.6492985971943888, 0.5735735735735735, 0.6372745490981964, 0.575075075075075, 0.6152304609218436, 0.5840840840840841, 0.6072144288577155, 0.5840840840840841, 0.5951903807615231, 0.5885885885885885, 0.5691382765531062, 0.5855855855855856, 0.49899799599198397, 0.5855855855855856, 0.46693386773547096, 0.5870870870870871, 0.4468937875751503, 0.5915915915915916, 0.38877755511022044, 0.5930930930930931, 0.3627254509018036, 0.5960960960960962, 0.3527054108216433, 0.6066066066066066, 0.3527054108216433, 0.6171171171171171, 0.3346693386773547, 0.6216216216216216]]}, {"label": "milk_bottle", "bbox": "null", "isCrowd": 0, "polygon": [[0.3927855711422846, 0.7732732732732732, 0.3807615230460922, 0.7732732732732732, 0.3727454909819639, 0.7672672672672672, 0.3667334669338677, 0.7552552552552553, 0.3627254509018036, 0.7357357357357357, 0.3627254509018036, 0.7147147147147147, 0.3527054108216433, 0.6441441441441441, 0.3527054108216433, 0.6111111111111112, 0.3627254509018036, 0.5975975975975976, 0.40480961923847697, 0.5930930930930931, 0.44488977955911824, 0.5930930930930931, 0.46693386773547096, 0.5885885885885885, 0.49498997995991983, 0.5885885885885885, 0.5150300601202404, 0.5855855855855856, 0.6292585170340681, 0.5885885885885885, 0.6713426853707415, 0.5825825825825826, 0.7134268537074149, 0.5720720720720721, 0.7595190380761523, 0.5720720720720721, 0.8016032064128257, 0.5825825825825826, 0.8216432865731463, 0.5930930930930931, 0.8476953907815631, 0.5930930930930931, 0.8657314629258517, 0.5825825825825826, 0.875751503006012, 0.5795795795795796, 0.8877755511022044, 0.5795795795795796, 0.905811623246493, 0.5885885885885885, 0.9438877755511023, 0.5885885885885885, 0.9659318637274549, 0.6006006006006006, 0.9779559118236473, 0.6156156156156156, 0.9859719438877755, 0.6366366366366366, 0.9859719438877755, 0.6591591591591591, 0.9799599198396793, 0.6726726726726727, 0.9619238476953907, 0.6831831831831832, 0.9318637274549099, 0.6891891891891891, 0.9318637274549099, 0.6921921921921922, 0.9178356713426854, 0.7012012012012012, 0.8977955911823647, 0.7027027027027027, 0.8837675350701403, 0.6966966966966966, 0.8597194388777555, 0.6951951951951952, 0.8476953907815631, 0.6996996996996997, 0.8396793587174348, 0.7072072072072072, 0.8036072144288577, 0.7282282282282282, 0.7855711422845691, 0.7312312312312312, 0.7835671342685371, 0.7342342342342343, 0.7715430861723447, 0.7372372372372372, 0.6492985971943888, 0.7372372372372372, 0.6132264529058116, 0.7432432432432432, 0.5551102204408818, 0.7582582582582582, 0.49899799599198397, 0.7612612612612613, 0.4749498997995992, 0.7657657657657657, 0.4348697394789579, 0.7672672672672672, 0.3927855711422846, 0.7732732732732732]]}]}
+{"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.0841, 0.599, 0.080, 0.585, 0.080, 0.539, 0.0823, 0.536, 0.0921, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.3802, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
 
 ## Input Data Preparation
 
 There are three ways in which you can prepare the data to train computer vision models on AutoML for images.
-+ **Azure Machine Learning data labeling** (if labeled data is unavailable then use data labeling tool to manually label images, which automatically generates the data required for training in the expected format)
-+ **Use converters** (use the script provided to generate JSONL files for images)
-+ **Custom script** (Use your own script to generate the data in JSON Lines format based on the schema defined below.)
++ **Azure Machine Learning data labeling** (If labeled data is unavailable then use data labeling tool to manually label images, which automatically generates the data required for training in the expected format)
++ **Use converters** (Use the script provided to generate JSONL files for images)
++ **Custom script** (Use your own script to generate the data in JSON Lines format based on the schema defined above)
 
 ### Azure Machine Learning data labeling
 
@@ -242,6 +241,7 @@ For manually labeling image datasets, refer to [Azure Machine Learning data labe
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
+Data Labeling Project should be exported as an Azure ML Dataset, which can then be used to train the AutoML model.
 ### Use Converters
 
 For popular vision data formats, we provide scripts to generate JSONL files for training and validation data. For example, VOC and COCO data formats for Object detection are frequently used in computer vision. We provide scripts to convert data from raw files to JSON Lines text files for training and validation sets.
@@ -303,10 +303,10 @@ with open(train_annotations_file, 'w') as train_f:
                 index += 1
 
 ```
-For more information, see [AutoMLImage_MultiClass_SampleNotebook notebook](https://github.com/swatig007/automlForImages/tree/main/MultiClass).
+For more information, see [AutoMLImage_MultiClass_SampleNotebook notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
-#### Multi-label Image Classification
-We'll use [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) of 128 images and 4 classes/labels {can, carton, milk bottle, water bottle} with a .csv file having image names with their respective labels and a folder containing all the images. It's one of the common data formats used in multi-label image classification.
+#### Image Classification Multi-label
+We'll use [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip). It has 128 images and 4 classes/labels {can, carton, milk bottle, water bottle} with a .csv file having image names with their respective labels and a folder containing all the images. It's one of the common data formats used in multi-label image classification.
 
 Following script generates JSONL files (`train_annotations.jsonl` and `validation_annotations.jsonl`) for this dataset under the parent directory (multilabelFridgeObjects) with 80% of the dataset for training and 20% for validation. For more information on multi-label classification schema for JSONL files, see input data format/schema section.
 
@@ -360,7 +360,7 @@ with open(train_annotations_file, 'w') as train_f:
 
 
 ```
-For more information, see [AutoMLImage_MultiLabel_SampleNotebook](https://github.com/swatig007/automlForImages/tree/main/MultiLabel).
+For more information, see [AutoMLImage_MultiLabel_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 #### Object Detection
 Most Object Detection datasets are available in either Pascal VOC format or COCO format. In this section, you'll use raw input data available in Pascal VOC or COCO format and generate JSONL files.
@@ -445,7 +445,7 @@ with open(train_annotations_file, 'w') as train_f:
 
 ```
 #### COCO format:
-If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/swatig007/automlForImages/tree/main/ObjectDetection) script to generate JSONL files.
+If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection) script to generate JSONL files.
 ```python
 # Generate jsonl file from coco file
 !python coco2jsonl.py \
@@ -454,10 +454,10 @@ If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/sw
 --task_type "ObjectDetection" \
 --base_url "AmlDatastore://workspaceblobstore/odFridgeObjects/images/"
 ```
-For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/swatig007/automlForImages/tree/main/ObjectDetection).
+For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 #### Instance Segmentation
-Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip)in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/swatig007/automlForImages/tree/main/InstanceSegmentation) script.  
+Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script.  
 
 ```python
 from jsonl_converter import convert_mask_in_VOC_to_jsonl
@@ -465,7 +465,7 @@ from jsonl_converter import convert_mask_in_VOC_to_jsonl
 data_path = "./odFridgeObjectsMask/"
 convert_mask_in_VOC_to_jsonl(data_path, ws)
 ```
-For more information, see [AutoMLImage_InstanceSegmentation_SampleNotebook](https://github.com/swatig007/automlForImages/tree/main/InstanceSegmentation).
+For more information, see [AutoMLImage_InstanceSegmentation_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 ### Custom script
 If your dataset doesn't follow any of the previously mentioned raw formats, you can use your own script to generate JSON Lines files based on schema defined in the first section.
@@ -514,22 +514,9 @@ print("Validation dataset name: " + validation_dataset.name)
 In this section, you'll learn the input data format required to make predictions with the endpoint. Use the deployed web service (model endpoint) to make inferences on new images. Any aforementioned image format is accepted with content type **application/octet-stream**
 
 ### Input format
-Following is the input format needed to generate predictions on any task using task-specific model endpoint.
+Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where?tabs=azcli), we can use the following code snippet to get predictions for all tasks.
 
 ```python
-import requests
-from azureml.core.webservice import AksWebservice
-from azureml.core.workspace import Workspace
-
-aks_service_name = 'model-endpoint'
-ws = Workspace.get(name=workspace_name,
-                   subscription_id=subscription_id,
-                   resource_group=resource_group)
-aks_service = AksWebservice(ws, aks_service_name)
-# URL for the web service
-scoring_uri = aks_service.scoring_uri
-# If the service is authenticated, set the key or token
-key, _ = aks_service.get_keys()
 # input image for inference
 sample_image = './test_image.jpg'
 # Load image data
@@ -551,10 +538,10 @@ Endpoint for Image classification returns all the labels in the dataset and thei
 {
    "filename":"/tmp/tmppjr4et28",
    "probs":[
-      2.0982135993108386e-06,
-      4.7837644956416625e-08,
-      0.9999891519546509,
-      8.63725108501967e-06
+      2.098e-06,
+      4.783e-08,
+      0.999,
+      8.637e-06
    ],
    "labels":[
       "can",
@@ -564,9 +551,116 @@ Endpoint for Image classification returns all the labels in the dataset and thei
    ]
 }
 ```
-#### Multi-label Image Classification
-: TODO
+#### Image Classification Multi-label
+For Image Classification Multi-label, model endpoint returns labels and their probabilities.
+```json
+{
+   "filename":"/tmp/tmpsdzxlmlm",
+   "probs":[
+      0.997,
+      0.960,
+      0.982,
+      0.0250
+   ],
+   "labels":[
+      "can",
+      "carton",
+      "milk_bottle",
+      "water_bottle"
+   ]
+}
+```
 #### Object Detection
-: TODO
+Object detection model returns multiple boxes with their scaled top-left and bottom-right coordinates along with box label and confidence score.
+```json
+{
+   "filename":"/tmp/tmpdkg2wkdy",
+   "boxes":[
+      {
+         "box":{
+            "topX":0.224,
+            "topY":0.285,
+            "bottomX":0.399,
+            "bottomY":0.620
+         },
+         "label":"milk_bottle",
+         "score":0.937
+      },
+      {
+         "box":{
+            "topX":0.664,
+            "topY":0.484,
+            "bottomX":0.959,
+            "bottomY":0.812
+         },
+         "label":"can",
+         "score":0.891
+      },
+      {
+         "box":{
+            "topX":0.423,
+            "topY":0.253,
+            "bottomX":0.632,
+            "bottomY":0.725
+         },
+         "label":"water_bottle",
+         "score":0.876
+      }
+   ]
+}
+```
 #### Instance Segmentation
-: TODO
+In Instance Segmentation, output consists of multiple boxes with their scaled top-left and bottom-right coordinates, labels, confidence scores, and polygons (not masks). Here, the polygon values are in the same format that we discussed in the schema section.
+
+```json
+{
+   "filename":"/tmp/tmpi8604s0h",
+   "boxes":[
+      {
+         "box":{
+            "topX":0.679,
+            "topY":0.491,
+            "bottomX":0.926,
+            "bottomY":0.810
+         },
+         "label":"can",
+         "score":0.992,
+         "polygon":[
+            [
+               0.82, 0.81125, 0.771, 0.81, 0.7583, 0.805, 0.741, 0.797, 0.735, 0.791, 0.718, 0.785, 0.715, 0.77875, 0.706, 0.775, 0.696, 0.75875, 0.695, 0.7175, 0.698, 0.5675, 0.705, 0.5525, 0.706, 0.54, 0.725, 0.52, 0.735, 0.505, 0.745, 0.5025, 0.755, 0.49375
+            ]
+         ]
+      },
+      {
+         "box":{
+            "topX":0.220,
+            "topY":0.298,
+            "bottomX":0.397,
+            "bottomY":0.601
+         },
+         "label":"milk_bottle",
+         "score":0.989,
+         "polygon":[
+            [
+               0.365, 0.6025, 0.273, 0.6025, 0.26, 0.595, 0.2633, 0.58875, 0.251, 0.546, 0.248, 0.50125, 0.25, 0.485, 0.246, 0.47875, 0.245, 0.46375, 0.233, 0.4425, 0.231, 0.43, 0.226, 0.42375, 0.226, 0.40875, 0.234, 0.385, 0.2416, 0.37125, 0.238, 0.345, 0.234, 0.335, 0.233, 0.32875, 0.24, 0.305, 0.58625, 0.38, 0.5925, 0.375, 0.59875, 0.365
+            ]
+         ]
+      },
+      {
+         "box":{
+            "topX":0.433,
+            "topY":0.280,
+            "bottomX":0.621,
+            "bottomY":0.679
+         },
+         "label":"water_bottle",
+         "score":0.988,
+         "polygon":[
+            [
+               0.576, 0.68, 0.5017, 0.68, 0.475, 0.6775, 0.46, 0.6625, 0.445, 0.63, 0.443, 0.5725, 0.44, 0.56, 0.435, 0.515, 0.431, 0.50125, 0.431, 0.43375, 0.433, 0.42625, 0.445, 0.4175, 0.456, 0.4075, 0.465, 0.38125, 0.468, 0.3275, 0.471, 0.318
+            ]
+         ]
+      }
+   ]
+}
+```
