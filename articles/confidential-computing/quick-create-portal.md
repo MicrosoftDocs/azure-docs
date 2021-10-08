@@ -68,7 +68,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > You should see sizes **DC(number)s_v2**, **DC(number)s_v3** and **DC(number)ds_v3**. [Learn more](virtual-machine-solutions.md).
+    > You should see sizes **DC(number)s_v2**, **DC(number)s_v3** and **DC(number)ds_v3**. [Learn more](virtual-machine-solutions-sgx.md).
 
 1. Fill in the following information:
 
