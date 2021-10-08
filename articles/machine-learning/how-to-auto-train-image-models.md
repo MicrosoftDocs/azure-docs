@@ -173,7 +173,6 @@ from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 ```
 
-
 ## Compute to run experiment
 
 Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
@@ -195,11 +194,11 @@ The model algorithm is required and is passed in via `model_name` parameter. You
 
 The following table summarizes the supported models for each computer vision task. 
 
-Task |  Model algorithms | String literal syntax
+Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
-Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| <li> `mobilenetv2`   <li>`resnet18` <li>`resnet34` <li> `resnet50`  <li> `resnet101` <li> `resnet152`    <li> `resnest50` <li> `resnest101`  <li> `seresnext`  <li> `vits16r224` (small) <li> `vitb16r224`(base) <li>`vitl16r224`(large)|
-Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes.*| <li>`yolov5` <li> `fasterrcnn_resnet18_fpn` <li> `fasterrcnn_resnet34_fpn` <li> `fasterrcnn_resnet50_fpn` <li> `fasterrcnn_resnet101_fpn` <li> `fasterrcnn_resnet152_fpn` <li> `retinanet_resnet50_fpn` 
-Instance segmentation | **MaskRCNN ResNet FPN**| <li> `maskrcnn_resnet18_fpn` <li> `maskrcnn_resnet34_fpn` <li> `maskrcnn_resnet50_fpn` <li> `maskrcnn_resnet101_fpn` <li> `maskrcnn_resnet152_fpn` <li>`maskrcnn_resnet50_fpn`
+Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
+Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
+Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
 
 
 ### Model agnostic hyperparameters
@@ -260,7 +259,7 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable small object detection logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
 | `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
@@ -287,8 +286,6 @@ In general, deep learning model performance can often improve with more data. Da
 |Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
 |Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
-
-
 
 ## Configure your experiment settings
 
@@ -457,6 +454,37 @@ print(aks_service.state)
 Alternatively, you can deploy the model from the Azure ML Studio UI, by navigating to the model you wish to deploy in the 'Models' tab of the AutoML run, and clicking on the 'Deploy' button. 
     
  You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the 'Deploy a model' pane that follows.
+
+### Update inference configuration
+
+In the previous step, we downloaded the scoring file `outputs/scoring_file_v_1_0_0.py` from the best model into a local `score.py` file and we used it to create an `InferenceConfig` object. This script can be modifed to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
+    
+```
+...
+def init():
+    ...
+    try:
+        logger.info("Loading model from path: {}.".format(model_path))
+        model_settings = {...}
+        model = load_model(TASK_TYPE, model_path, **model_settings)
+        logger.info("Loading successful.")
+    except Exception as e:
+        logging_utilities.log_traceback(e, logger)
+        raise
+...
+```
+
+Each of the tasks (and some models) have a set of parameters in the `model_settings` dictionary. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
+
+| Task | Parameter name | Default  |
+|--------- |------------- | --------- |
+|Image classification (multi-class and multi-label) | `valid_resize_size`<br>`valid_crop_size` | 256<br>224 |
+|Object detection, instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`box_nms_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
+|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`box_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+
+For a detailed description on these parameters, please refer to the above section on [task specific hyperparameters](#task-specific-hyperparameters).
+    
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
 For a detailed code example, see the [object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
