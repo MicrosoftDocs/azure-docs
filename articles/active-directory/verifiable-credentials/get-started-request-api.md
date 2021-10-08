@@ -368,5 +368,5 @@ For the complete code, see the [issuance](https://github.com/Azure-Samples/activ
 
 Check out the following articles:
 
-- [Issuance API specification](issuance-request.md)
-- [Presentation API specification](presentation-request.md)
+- [Issuance API specification](issuance-request-api.md)
+- [Presentation API specification](presentation-request-api.md)
