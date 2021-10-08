@@ -623,9 +623,9 @@ You may use following ways to filter out telemetry before leaving your applicati
 #### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide a filter option. Refer to Readme of individual instrumentation libraries for guidance.
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
-- [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
-- [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
 
 2. Using custom processor:
     
@@ -679,9 +679,9 @@ You may use following ways to filter out telemetry before leaving your applicati
 
 #### [Node.js](#tab/nodejs)
 
-1. Exclude url option provided by many http instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
+1. Exclude url option provided by many http instrumentation libraries.
 
-Below is an example of how to exclude a certain url from being tracked using the [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) instrumentation.
+Below is an example of how to exclude a certain url from being tracked using the [http/https instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http).
 
 ```typescript
 ...
@@ -720,7 +720,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
 #### [Python](#tab/python)
 
-1. Exclude url option provided by many http instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
+1. Exclude url option provided by many http instrumentation libraries.
 
 Below is an example of how to exclude a certain url from being tracked using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation.
 
