@@ -170,7 +170,7 @@ To view the scoring results:
 
 The output in Storage Explorer is similar to the following sample predictions page:
 
-:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
+:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ## Deploy a new model
 
