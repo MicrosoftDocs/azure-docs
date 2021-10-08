@@ -110,6 +110,6 @@ Have questions with your implementation or want to become an enabler? Send an em
 
 [Microsoft Azure Attestation](../attestation/overview.md)
 
-[DCsv2 Virtual Machines](virtual-machine-solutions.md)
+[DCsv2 Virtual Machines](virtual-machine-solutions-sgx.md)
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)

@@ -142,7 +142,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md). 
 
 Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 

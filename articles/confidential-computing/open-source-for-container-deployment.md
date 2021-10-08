@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: deploy confidential containers
+description: deploy confidential containers
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing

@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: Develop enclaves with OSS
+description: Develop enclaves with OSS
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing

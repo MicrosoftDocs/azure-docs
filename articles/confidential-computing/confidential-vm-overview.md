@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: CVM overview
+description: CVM overview
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing

@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: Choose Confidential VM Offerings
+description: Choose Confidential VM Offerings
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing

@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: Build container enclaves with OSS
+description: Build container enclaves with OSS
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing

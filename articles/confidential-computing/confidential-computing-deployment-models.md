@@ -1,6 +1,6 @@
 ---
-title: Placeholder
-description: placeholder
+title: Choose Between Deployment Models
+description: Choose Between Deployment Models
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
