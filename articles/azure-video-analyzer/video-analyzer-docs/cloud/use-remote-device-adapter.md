@@ -97,10 +97,10 @@ If successful, you will receive a response with a status code 201.
 ## Create pipeline topology in the cloud
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
-This pipeline topology can be found (here)[]<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node>.
-The following values are required to enable tunneling:  
-* Device ID
+An example pipeline topology can be found [here]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.
+The following values are required to enable tunneling on the RTSP source node:
 * IoT Hub Name
+* IoT Device ID
 
 ```
             {
