@@ -80,9 +80,9 @@ Customers can now view, restore, and permanently remove deleted app registration
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
- A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Multi-factor Authentication (MFA) policies for Azure AD device registration. 
+ A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Azure Active Directory Multi-factor Authentication (MFA) policies for Azure AD device registration. 
 
-Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+Currently, this user action only allows you to enable Azure AD MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
  
 ---
 
@@ -318,7 +318,7 @@ Users can now create their own groupings of apps on the My Apps app launcher. Th
 **Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
  
-Microsoft Authenticator provides Multi-factor Authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
+Microsoft Authenticator provides multi-factor authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
 
 To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
 
@@ -394,13 +394,13 @@ For more information, read [Automate user provisioning to SaaS applications with
 
 ---
 
-### New Company Branding in MFA/SSPR Combined Registration
+### New Company Branding in multi-factor authentication (MFA)/SSPR Combined Registration
 
 **Type:** Changed feature  
 **Service category:** User Experience and Management  
 **Product capability:** End User Experiences
  
-In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of MFA/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
+In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of multi-factor authentication (MFA)/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
 
 ---
 
@@ -638,8 +638,8 @@ B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and
 **Product capability:** Identity Security & Protection
  
 To protect user accounts, all new tenants created on or after November 12, 2020, will come with Security Defaults enabled. Security Defaults enforces multiple policies including:
-- Requires all users and admins to register for MFA using the Microsoft Authenticator App
-- Requires critical admin roles to use MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
+- Requires all users and admins to register for multi-factor authentication (MFA) using the Microsoft Authenticator App
+- Requires critical admin roles to use multi-factor authentication (MFA) every single time they sign-in. All other users will be prompted for multi-factor authentication (MFA) whenever necessary. 
 - Legacy authentication will be blocked tenant wide. 
 
 For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
@@ -1198,7 +1198,7 @@ MSAL.js version 2.x now includes support for the authorization code flow for sin
 
 We've recently updated the [remember Azure Active Directory Multi-factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
 
-For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to the remember MFA on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to remember multi-factor authentication (MFA) on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ---
 
@@ -1358,7 +1358,7 @@ With this new role, you benefit from the least privileges needed to delegate man
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-Previously, onboarding to Privileged Identity Management (PIM) required user consent and an onboarding flow in PIM's blade that included enrollment in Azure AD MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
+Previously, onboarding to Privileged Identity Management (PIM) required user consent and an onboarding flow in PIM's blade that included enrollment in Azure Active Directory Multi-Factor Authentication (MFA). With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
 
 Onboarding to PIM does not have any direct adverse effect on your tenant. You can expect the following changes:
 - Additional assignment options such as active vs. eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. 
@@ -1391,9 +1391,9 @@ This experience will be changed to display only the resources currently added in
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-Starting 1 October 2020, Azure MFA Server firewall requirements will require additional IP ranges.
+Starting 1 October 2020, Azure AD Multi-Factor Authentication (MFA) Server firewall requirements will require additional IP ranges.
 
-If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Active Directory Multi-factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
+If you have outbound firewall rules in your organization, update the rules so that your multi-factor authentication (MFA) servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Active Directory Multi-factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
 
 ---
 
@@ -1722,7 +1722,7 @@ You can now view role assignments across all scopes for a role in the "Roles and
 The Azure Active Directory Multi-factor Authentication Software Development (Azure MFA SDK) reached the end of life on November 14th, 2018, as first announced in November 2017. Microsoft will be shutting down the SDK service effective on September 30th, 2020. Any calls made to the SDK will fail.
 
 If your organization is using the Azure MFA SDK, you need to migrate by September 30th, 2020:
-- Azure MFA SDK for MIM:  If you use the SDK with MIM, you should migrate to Azure MFA Server and activate Privileged Access Management (PAM) following these [instructions](/microsoft-identity-manager/working-with-mfaserver-for-mim).   
+- Azure MFA SDK for MIM:  If you use the SDK with MIM, you should migrate to Azure AD Multi-Factor Authentication (MFA) Server and activate Privileged Access Management (PAM) following these [instructions](/microsoft-identity-manager/working-with-mfaserver-for-mim).   
 - Azure MFA SDK for customized apps: Consider integrating your app into Azure AD and use Conditional Access to enforce MFA. To get started, review this [page](../manage-apps/plan-an-application-integration.md). 
 
 ---
@@ -1783,7 +1783,7 @@ The externalUserState and externalUserStateChangedDateTime properties can be use
  
 Authentication session management capabilities allow you to configure how often your users need to provide sign-in credentials and whether they need to provide credentials after closing and reopening browsers to offer more security and flexibility in your environment.
  
-Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to MFA as well. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to multi-factor authentication (MFA) as well. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ---
 
@@ -1940,14 +1940,14 @@ We have introduced a new riskEventsTypes_v2 (string) property to the signIns v1.
 
 --- 
 
-### Upcoming changes to MFA email notifications
+### Upcoming changes to multi-factor authentication (MFA) email notifications
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-We are making the following changes to the email notifications for cloud MFA:
+We are making the following changes to the email notifications for cloud multi-factor authentication (MFA):
 
 E-mail notifications will be sent from the following address: azure-noreply@microsoft.com and msonlineservicesteam@microsoftonline.com. We're updating the content of fraud alert emails to better indicate the required steps to unblock uses.
 
@@ -2198,7 +2198,7 @@ For more information, visit [The New app registration experience for Azure AD B2
 
 **Product capability:** Identity Security & Protection
 
-The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for MFA and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
+The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for multi-factor authentication (MFA) and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
 
 ---
 
@@ -2345,7 +2345,7 @@ Delta query for administrative units is available for public preview! You can no
 
 **Product capability:** Developer Experience
 
-These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure AD MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
+These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for multi-factor authentication (MFA) and self-service password reset (SSPR). This has been one of the most-requested features in the Azure AD Multi-Factor Authentication (MFA), SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
 
 - Read, add, update, and remove a user’s authentication phones
 - Reset a user’s password
@@ -2514,7 +2514,7 @@ For more information, see [Validate a dynamic group membership rule (preview)](.
 
 ---
 
-### Identity Secure Score - Security Defaults and MFA improvement action updates
+### Identity Secure Score - Security Defaults and multi-factor authentication (MFA) improvement action updates
 
 **Type:** Changed feature
 
@@ -2525,23 +2525,23 @@ For more information, see [Validate a dynamic group membership rule (preview)](.
 **Supporting security defaults for Azure AD improvement actions:** Microsoft Secure Score will be updating improvement actions to support [security defaults in Azure AD](./concept-fundamentals-security-defaults.md), which make it easier to help protect your organization with pre-configured security settings for common attacks. This will affect the following improvement actions:
 
 - Ensure all users can complete multifactor authentication for secure access
-- Require MFA for administrative roles
+- Require multi-factor authentication (MFA) for administrative roles
 - Enable policy to block legacy authentication
  
-**MFA improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multifactor authentication and added two.
+**multi-factor authentication (MFA) improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multifactor authentication and added two.
 
 Removed improvement actions:
 
 - Register all users for multifactor authentication
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
+- Require multi-factor authentication (MFA) for all users
+- Require multi-factor authentication (MFA) for Azure AD privileged roles
 
 Added improvement actions:
 
 - Ensure all users can complete multifactor authentication for secure access
-- Require MFA for administrative roles
+- Require multi-factor authentication (MFA) for administrative roles
 
-These new improvement actions require registering your users or admins for multifactor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
+These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for multi-factor authentication (MFA). [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
 
 ---
 
@@ -2706,32 +2706,32 @@ To provide a more flexible way for customers to create directory-wide groups tha
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don't serve as MFA for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
+We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner multi-factor authentication (MFA) solutions face the following limitations: they work only after a password has been entered; they don't serve as multi-factor authentication (MFA) for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, multi-factor authentication (MFA) claims, step up authentication, reporting, and logging. 
 
 Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. We are working closely with customers and providers and will communicate the timeline as we get closer. [Learn more](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
 
 ---
 
-### Identity Secure Score - MFA improvement action updates
+### Identity Secure Score - multi-factor authentication (MFA) improvement action updates
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multifactor authentication (MFA), and adding two.
+To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multi-factor authentication (MFA), and adding two.
 
 The following improvement actions will be removed:
 
-- Register all users for MFA
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
+- Register all users for  multi-factor authentication (MFA)
+- Require multi-factor authentication (MFA) for all users
+- Require multi-factor authentication (MFA) for Azure AD privileged roles
 
 The following improvement actions will be added:
 
-- Ensure all users can complete MFA for secure access
-- Require MFA for administrative roles
+- Ensure all users can complete multi-factor authentication (MFA) for secure access
+- Require multi-factor authentication (MFA) for administrative roles
 
-These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
+These new improvement actions will require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for multi-factor authentication (MFA), or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
 
 ---
 
@@ -3196,15 +3196,15 @@ To learn more about the new App registrations experience, see the [App registrat
 
 ---
 
-### Users are no longer required to re-register during migration from per-user MFA to Conditional Access-based MFA
+### Users are no longer required to re-register during migration from per-user multi-factor authentication (MFA) to Conditional Access-based multi-factor authentication (MFA)
 
 **Type:** Fixed
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for MFA through a Conditional Access policy.
+We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for multi-factor authentication (MFA) through a Conditional Access policy.
 
-To require users to re-register, you can select the **Required re-register MFA** option from the user's authentication methods in the Azure AD portal. 
+To require users to re-register, you can select the **Required re-register multi-factor authentication (MFA)** option from the user's authentication methods in the Azure AD portal. 
 
 ---
 
@@ -3323,7 +3323,7 @@ The new **Security** menu includes:
 - Security Center
 - Identity Secure Score
 - Authentication methods
-- MFA
+- multi-factor authentication (MFA)
 - Risk reports - Risky users, Risky sign-ins, Risk detections
 - And more...
 
@@ -3491,7 +3491,7 @@ We've released an updated version of Azure AD Connect for auto-upgrade customers
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-If you're an existing customer, who activated MFA Server prior to July 1, 2019, you can now download the latest version of MFA Server (version 8.0.2). In this new version, we:
+If you're an existing customer, who activated Azure AD Multi-factor Authentication (MFA) Server prior to July 1, 2019, you can now download the latest version of Azure AD Multi-factor Authentication (MFA) Server (version 8.0.2). In this new version, we:
 
 - Fixed an issue so when Azure AD sync changes a user from Disabled to Enabled, an email is sent to the user.
 
@@ -3505,7 +3505,7 @@ If you're an existing customer, who activated MFA Server prior to July 1, 2019, 
 
 - Fixed other minor bugs.
 
-Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments. New customers who require multifactor authentication should use cloud-based Azure AD Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Starting July 1, 2019, Microsoft stopped offering multi-factor authentication (MFA) Server for new deployments. New customers who require multifactor authentication should use cloud-based Azure AD Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -3748,13 +3748,13 @@ New user interface changes are coming to the design of the **Add from the galler
 
 ---
 
-### Plan for change: Removal of the MFA server IP address from the Office 365 IP address
+### Plan for change: Removal of the multi-factor authentication (MFA) server IP address from the Office 365 IP address
 
 **Type:** Plan for change
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-We're removing the MFA server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
+We're removing the multi-factor authentication (MFA) server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
 
 ---
 
@@ -4057,7 +4057,7 @@ For more information about setting up your company branding, see [Add branding t
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
+As of July 1, 2019, Microsoft will no longer offer multi-factor authentication (MFA) Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated multi-factor authentication (MFA) Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
 
 For more information, see [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
@@ -4592,13 +4592,13 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Enhanced combined MFA/SSPR registration
+### Enhanced combined multi-factor authentication (MFA)/SSPR registration
 
 **Type:** Changed feature
 **Service category:** Self Service Password Reset
 **Product capability:** User Authentication
 
-In response to customer feedback, we've enhanced the combined MFA/SSPR registration preview experience, helping your users to more quickly register their security info for both MFA and SSPR.
+In response to customer feedback, we've enhanced the combined multi-factor authentication (MFA)/SSPR registration preview experience, helping your users to more quickly register their security info for both multi-factor authentication (MFA) and SSPR.
 
 **To turn on the enhanced experience for your users' today, follow these steps:**
 
@@ -4606,7 +4606,7 @@ In response to customer feedback, we've enhanced the combined MFA/SSPR registrat
 
 2. In the **Users who can use the preview features for registering and managing security info – refresh** option, choose to turn on the features for a **Selected group of users** or for **All users**.
 
-Over the next few weeks, we'll be removing the ability to turn on the old combined MFA/SSPR registration preview experience for tenants that don't already have it turned on.
+Over the next few weeks, we'll be removing the ability to turn on the old combined multi-factor authentication (MFA)/SSPR registration preview experience for tenants that don't already have it turned on.
 
 **To see if the control will be removed for your tenant, follow these steps:**
 
@@ -4614,7 +4614,7 @@ Over the next few weeks, we'll be removing the ability to turn on the old combin
 
 2. If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
 
-Regardless of whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
+Regardless of whether you previously turned on the old combined multi-factor authentication (MFA)/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
 
 For more information about the enhanced registration experience, see the [Cool enhancements to the Azure AD combined MFA and password reset registration experience](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
 
@@ -5236,15 +5236,15 @@ For this and other protocols-related changes, see [the full list of what's new f
 
 ---
 
-### Converged security info management for self-service password (SSPR) and Multi-Factor Authentication (MFA)
+### Converged security info management for self-service password (SSPR) and multi-factor authentication (MFA)
 
 **Type:** New feature
 **Service category:** SSPR
 **Product capability:** User Authentication
 
-This new feature helps people manage their security info (such as, phone number, mobile app, and so on) for SSPR and MFA in a single location and experience; as compared to previously, where it was done in two different locations.
+This new feature helps people manage their security info (such as, phone number, mobile app, and so on) for SSPR and multi-factor authentication (MFA) in a single location and experience; as compared to previously, where it was done in two different locations.
 
-This converged experience also works for people using either SSPR or MFA. Additionally, if your organization doesn't enforce MFA or SSPR registration, people can still register any MFA or SSPR security info methods allowed by your organization from the My Apps portal.
+This converged experience also works for people using either SSPR or multi-factor authentication (MFA). Additionally, if your organization doesn't enforce multi-factor authentication (MFA) or SSPR registration, people can still register any multi-factor authentication (MFA) or SSPR security info methods allowed by your organization from the My Apps portal.
 
 This is an opt-in public preview. Administrators can turn on the new experience (if desired) for a selected group or for all users in a tenant. For more information about the converged experience, see the [Converged experience blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/08/06/mfa-and-sspr-updates-now-in-public-preview/)
 
@@ -5504,9 +5504,9 @@ Pass-through Authentication now supports legacy protocols and apps. The followin
 **Service category:** SSPR
 **Product capability:** User Authentication
 
-This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and Multi-Factor Authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and MFA in two different experiences. This new experience also applies to users who have either SSPR or MFA.
+This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and multi-factor authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and multi-factor authentication (MFA) in two different experiences. This new experience also applies to users who have either SSPR or multi-factor authentication (MFA).
 
-If an organization isn't enforcing MFA or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for MFA or SSPR.
+If an organization isn't enforcing multi-factor authentication (MFA) or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for multi-factor authentication (MFA) or SSPR.
 
 This is an opt-in public preview. Admins can turn on the new experience (if desired) for a selected group of users or all users in a tenant.
 
@@ -5654,7 +5654,7 @@ For more information, see [Azure Active Directory Terms of use feature](../condi
 
 We've released new step-by-step guidance about how to deploy Azure AD Multi-Factor Authentication (MFA) in your organization.
 
-To view the MFA deployment guide, go to the [Identity Deployment Guides](./active-directory-deployment-plans.md) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+To view the Azure AD Multi-Factor Authentication (MFA) deployment guide, go to the [Identity Deployment Guides](./active-directory-deployment-plans.md) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
@@ -6531,9 +6531,9 @@ As of January 8, 2018, the Azure AD administration experience in the Azure class
 **Service category:** Azure AD
 **Product capability:** Directory
 
-As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com.
+As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of multi-factor authentication (MFA) server, but those functions have been moved into the Azure portal at portal.azure.com.
 
-The MFA configuration is located at: **Azure Active Directory \> MFA Server**
+The multi-factor authentication (MFA) configuration is located at: **Azure Active Directory \> multi-factor authentication (MFA) Server**
 
 ---
 
@@ -6947,12 +6947,12 @@ Due to a service issue, this functionality was temporarily disabled. The issue w
 **Service category:** Multi-factor Authentication
 **Product capability:** Identity security and protection
 
-Azure Active Directory (Azure AD) Multi-factor Authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
+Azure Active Directory Multi-factor Authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
 
-- Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to MFA results.
-- The MFA configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.
+- Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to multi-factor authentication (MFA) results.
+- The multi-factor authentication (MFA) configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.
 
-With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the MFA management portal functionality within the Azure AD experience.
+With this public preview, multi-factor authentication (MFA) management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the multi-factor authentication (MFA) management portal functionality within the Azure AD experience.
 
 For more information, see [Reference for MFA reporting in the Azure portal](../authentication/howto-mfa-reporting.md).
 

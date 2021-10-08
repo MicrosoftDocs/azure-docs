@@ -131,7 +131,7 @@ It's now possible in entitlement management to configure an access package that 
  
 ---
 
-### New provisioning connectors in the Azure AD Application Gallery - September 2020
+### New provisioning connectors in the Azure AD Application Gallery - September 2021
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -151,7 +151,7 @@ For more information about how to better secure your organization by using autom
  
 [1585267](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1585267&triage=true&fullScreen=false&_a=edit)
 
-### New Federated Apps available in Azure AD Application gallery - Aug 2021
+### New Federated Apps available in Azure AD Application gallery - September 2021
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -168,7 +168,7 @@ For listing your application in the Azure AD app gallery, read the details here:
 
 ---
 
-### General availability - Gmail users signing in on Microsoft Teams mobile and desktop clients will sign in with device login flow starting September 30, 2021
+###  Gmail users signing in on Microsoft Teams mobile and desktop clients will sign in with device login flow starting September 30, 2021
 
 **Type:** Changed feature  
 **Service category:** B2B  
@@ -231,7 +231,7 @@ We've released beta MS Graph API for Azure AD access reviews. The API has method
 **Product capability:** Identity Security & Protection
  
 
-The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multifactor authentication (MFA) policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
+The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multi-factor authentication (MFA) policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
 
 ---
 
@@ -296,7 +296,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Identity Security & Protection
  
 
-To help administrators understand that their users are blocked for MFA as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
+To help administrators understand that their users are blocked for multi-factor authentication (MFA) as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
 
 ---
 
@@ -530,9 +530,9 @@ Anomalous token detection is now available in Identity Protection. This feature 
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
-The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control Multi-factor Authentication (MFA) policies for Azure AD device registration. 
+The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control multi-factor authentication (MFA) policies for Azure AD device registration. 
 
-Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
 
 ---
 
