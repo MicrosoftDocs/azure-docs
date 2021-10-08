@@ -294,6 +294,8 @@
               - name: Use Resource Manager template
                 displayName: arm
                 href: how-to-create-workspace-template.md
+              - name: Use Terraform
+                href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
@@ -309,7 +311,7 @@
               - name: Upgrade host OS
                 displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
                 href: how-to-compute-cluster-instance-os-upgrade.md
-              - name: Azure Arc enabled machine learning
+              - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
               - name: Azure Kubernetes Service
