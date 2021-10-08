@@ -164,7 +164,7 @@ In this tutorial, you learn to:
 
 1. Select the **Edit** button to update the file.
 
-1. Change the *openIdIssuer* value to `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>`. Replace `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
+1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
