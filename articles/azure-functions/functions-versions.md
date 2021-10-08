@@ -98,9 +98,11 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps.
 
 - Application Insights is no longer included by default in 4.x. It is now available as a separate extension.
-    - For in-process .NET apps, add the [Application Insights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
-    - The extension no longer supports the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting. You must now supply a [connection string](../azure-monitor/app/sdk-connection-string.md) in an app setting named `APPLICATIONINSIGHTS_CONNECTION_STRING`.
-    - Guidance will be provided soon for isolated .NET and other languages.
+    - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
+    - For isolated .NET apps:
+        - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
+        - Update the [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) packages to the latest versions.
+    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available.
 
 #### Languages
 
