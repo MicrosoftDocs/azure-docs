@@ -288,6 +288,20 @@ Once you have the registration credentials, use the following steps to create a 
 
 ---
 
+## Authentication callbacks
+
+Identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allow list. The following endpoints are available as redirect destinations.
+
+| Type   | URL pattern                                                 |
+| ------ | ----------------------------------------------------------- |
+| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
+| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+
+> [!Note]
+> These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
+
 ## Login, logout, and purging user details
 
 To use a custom identity provider, use the following URL patterns.
@@ -298,21 +312,7 @@ To use a custom identity provider, use the following URL patterns.
 | Logout             | `/.auth/logout`                          |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
-If you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
-
-## Authentication callbacks
-
-Custom identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allow list. The following endpoints are available as redirect destinations.
-
-| Type   | URL pattern                                                 |
-| ------ | ----------------------------------------------------------- |
-| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
-| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
-
-If you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
-
-> [!Note]
-> These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
+If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
 
 ## Next steps
 
