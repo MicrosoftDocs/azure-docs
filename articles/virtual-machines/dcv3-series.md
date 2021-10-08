@@ -13,11 +13,15 @@ ms.author: mmcrey
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel Software Guard Extensions and Intel Multi-Key Total Memory Encryption, customers can ensure their data is always encrypted and protected in use. 
+[!NOTE] DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
+
+The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel Software Guard Extensions and Intel Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
 
 These machines are backed by the latest 3rd Generation Intel Xeon Scalable processors, and leverage Intel Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, Hyper-Threading is disabled for a hardened security posture, CPU Cores now offer up to 48 Physical Cores (vs vCores), Encrypted memory has increased substantially 1500x, Regular memory has increased 12x. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios for processing sensitive data securely. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios for processing sensitive data securely. 
+
+[!NOTE] Hyperthreading is disabled for added security posture. With Hyperthreading turned off, 1 Physical Core will deliver roughly 2 Virtual Cores in performance terms depending on workload; pricing reflects these security and performance enhancements.
 
 We are offering two variants dependent on whether the workload benefits from a local disk or not. Whether you choose a VM with a local disk or not, you can attach remote persistent disk storage to all VMs. Remote disk options (such as for the VM boot disk) are billed separately from the VMs in any case, as always. 
 
