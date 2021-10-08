@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/14/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: document processing
@@ -71,7 +71,7 @@ The Form Recognizer sample labeling tool will call the Analyze Layout API and an
 
 ## Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
 
-Extract text, tables and key value pairs from invoices, sales receipts, identity documents, or business cards using a Form Recognizer Prebuilt model.
+Extract text, tables and key value pairs from invoices, sales receipts, ID documents, or business cards using a Form Recognizer Prebuilt model.
 
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use prebuilt model to get data"
@@ -98,7 +98,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
 8. Click "Run analysis". The Form Recognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
 9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer Prebuilt Invoice":::
+    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
 
 10. Download the JSON output file to view the detailed results.
 
