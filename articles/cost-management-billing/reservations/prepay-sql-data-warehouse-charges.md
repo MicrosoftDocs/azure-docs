@@ -1,5 +1,5 @@
 ---
-title: Save on Azure Synapse Analytics charges with Azure reserved capacity
+title: Save on Azure Synapse Analytics (data warehousing only) charges with Azure reserved capacity
 description: Learn how you save costs for Azure Synapse Analytics charges with reserved capacity to save money.
 author: bandersmsft
 ms.reviewer: primittal
