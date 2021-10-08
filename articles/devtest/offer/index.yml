@@ -113,3 +113,16 @@ conceptualContent:
         - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
           itemType: sample
           text: Python SDK code examples
+
+    # Card
+    - title: Azure Dev/Test Offer for Individuals
+      links:
+        - url: ../../devtest/offer/how-to-individual-credit.md
+          itemType: how-to-guide
+          text: Get started using Azure Credits
+        - url: ../../devtest/offer/add-users-directory.md
+          itemType: how-to-guide
+          text: Add users to your directory
+        - url: ../../devtest/offer/remove-credit-limits.md
+          itemType: how-to-guide
+          text: Remove credit limits        
