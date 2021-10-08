@@ -74,7 +74,24 @@ No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
-Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
+Azure Bastion currently supports the following keyboard layouts inside the VM:
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+The default keyboard layout in the target VM will match your local language, which can be changed in your local computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
