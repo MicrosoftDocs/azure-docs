@@ -100,7 +100,9 @@ At this time, Redis 6 does not support ACL, and geo-replication between a Redis 
 You can upgrade your existing Redis 4 caches to Redis 6, please see [here](#upgrade-an-existing-redis-4-cache-to-redis-6) for details. Please note upgrading your cache instance is permanent and you cannot downgrade your Redis 6 caches to Redis 4 caches.
 
 ## Next Steps
-Learn more about Azure Cache for Redis features.
+
+- To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
+- To learn more about Azure Cache for Redis features:
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
