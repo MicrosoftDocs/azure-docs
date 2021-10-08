@@ -114,44 +114,41 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
    - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   Depending on the size of your account, this process can take some time. Use the `asJob` switch to run command asynchronously so that your client isn't blocked while validation runs. A Task object is returned.
+   Depending on the size of your account, this process can take some time. Use the `asJob` switch to To run the command in a background job so that your client isn't blocked while validation runs. The command runs remotely, but the job exists on your local machine or the VM from which you run the command. The results are transmitted to your local machine or the VM.
 
-7. If you run this command asynchronously by using the `AsJob` switch, a job object is returned. You can check the status of the validation by using the blah property of the object returned by $result object.
+7. To check the status of the job, and display all of the properties of the job in a list, pipe the return variable to the `Format-List` cmdlet. 
 
    ```powershell
-   Command goes here.
+   $result | Format-List -Property *
    ```
 
-   If validation fails, a file named **error.json** will appear in a container named **hnsonerror**. You can open that file to determine why the account did not pass the validation step. 
+   If validation fails, the **State** property will be set to **Failed**, and the **Error** property will show validation errors. 
 
-   The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
+   The following output indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 
-   ```json
-   {
-    "startTime": "2021-08-04T18:40:31.8465320Z",
-    "id": "45c84a6d-6746-4142-8130-5ae9cfe013a0",
-    "incompatibleFeatures": [
-        "Blob Delete Retention Enabled"
-    ],
-    "blobValidationErrors": [],
-    "scannedBlobCount": 0,
-    "invalidBlobCount": 0,
-    "endTime": "2021-08-04T18:40:34.9371480Z"
-   }
-   ```
+   > [!div class="mx-imgBorder"]
+   > ![Validation error](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-error-powershell.png)
+
+   If the validation succeeds, the **State** property will be set to **Completed** and the **Error** property will not show any errors.
 
 8. After your account has been successfully validated, start the upgrade by running the following command.
    
    ```powershell
-   Invoke-AzStorageAccountHierarchicalNamespaceUpgrade -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" -RequestType Upgrade -AsJob
+   $result Invoke-AzStorageAccountHierarchicalNamespaceUpgrade -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" -RequestType Upgrade -AsJob -Force
    ```
+
+   Like the validation example above, this example uses the `asJob` switch to To run the command in a background job. The `Force` switch overrides prompts to confirm the upgrade.  If you don't use the `AsJob` switch, you don't have to use the `Force` switch because you can just respond to the prompts.
 
    > [!IMPORTANT]
    > Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as they might destabilize the upgrade process.
 
-   Something here about checking the task object when you are done to get the status.   
+   To check the status of the job, use the same techniques as described in the previous steps. As the process runs, the **State** property will be set to **Running**.
 
-   When the migration has completed successfully, a message similar to the following appears. 
+   When the migration has completed successfully, the **State** property will be set to **Completed** and the **Error** property will not show any errors.
+   
+   > [!div class="mx-imgBorder"]
+   > ![Successful completion output](./media/upgrade-to-data-lake-storage-gen2-how-to/success-message-powershell.png)
+
 
 ### [Azure CLI](#tab/azure-cli)
 
