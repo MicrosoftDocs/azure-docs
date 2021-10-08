@@ -390,6 +390,8 @@
                   href: open-service-mesh-open-source-observability.md
                 - name: Customize OSM CLI experience
                   href: open-service-mesh-customize-add-on-experience.md
+                - name: IP and Port Range Exclusion
+                  href: open-service-mesh-ip-port-exclusion.md
             - name: Configure Azure Monitor
               href: open-service-mesh-azure-monitor.md
             - name: Troubleshoot OSM
