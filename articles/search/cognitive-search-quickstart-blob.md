@@ -46,8 +46,9 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 1. Upload the sample data to a blob container.
 
    1. Sign in to the [Azure portal](https://portal.azure.com/) and find your storage account.
-   1. Open the Containers page and [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "spanish-museums". You can use the default public access level.
-   1. In the "spanish-museums" container, click **Upload** to upload the files in your local **spanish-museums** folder.
+   1. In the left nave pane, select **Containers**.
+   1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "spanish-museums". Use the default public access level.
+   1. In the "spanish-museums" container, select **Upload** to upload the files from your local **spanish-museums** folder.
 
 You should have 10 files containing French and Spanish descriptions of national museums located in Spain.
 

@@ -15,7 +15,7 @@ ms.date: 10/07/2021
 
 Learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR) and image analysis to create searchable content from image files. 
 
-In this quickstart, you'll run the **Import data** wizard to analyze visual content in JPG files. The content consists of photographs of signs. Output is a searchable index containing captions, tags, and text, all of which is queryable in the portal using [Search explorer](search-explorer.md).  -->
+In this quickstart, you'll run the **Import data** wizard to analyze visual content in JPG files. The content consists of photographs of signs. Output is a searchable index containing captions, tags, and text identified through OCR, all of which is queryable in the portal using [Search explorer](search-explorer.md). 
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
@@ -47,8 +47,9 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 1. Upload the sample data to a blob container.
 
    1. Sign in to the [Azure portal](https://portal.azure.com/) and find your storage account.
-   1. Open the Containers page and [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". You can use the default public access level.
-   1. In the "signs" container, click **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
+   1. In the left nave pane, select **Containers**.
+   1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". Use the default public access level.
+   1. In the "signs" container, select **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
 
 You should have 10 files containing photographs of signs. There is a second subfolder that includes landmark buildings. If your search service is Basic or above, include the second set of files if you want to evaluate image analysis on files that do not include pictures of text.
 
