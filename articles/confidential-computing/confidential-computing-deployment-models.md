@@ -10,7 +10,6 @@ ms.date: 10/7/2021
 ms.author: JenCook
 ---
 
-# How to Choose Between Deployment Models
 
 <!--- Discusses how customers can/should use various deployment models – app, enclave, container, vm, etc. 
 What do our different offerings mean?

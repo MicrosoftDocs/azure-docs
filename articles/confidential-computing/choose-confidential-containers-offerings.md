@@ -10,7 +10,6 @@ ms.date: 10/7/2021
 ms.author: JenCook
 ---
 
-# How to Choose Confidential Container Offerings
 
 <!--- A bit more detail of above, help guide a customer through the decision making of why they should take a certain route.
 Note: this page can describe the partner solutions available (Fortanix, Anjuna, Scone).

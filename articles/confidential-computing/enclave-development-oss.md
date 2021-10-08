@@ -10,7 +10,7 @@ ms.date: 10/7/2021
 ms.author: JenCook
 ---
 
-# Develop enclaves with OSS
+
 
 <!--- article on the OSS solutions that customers can use to develop application enclaves for SGX ---> 
 
