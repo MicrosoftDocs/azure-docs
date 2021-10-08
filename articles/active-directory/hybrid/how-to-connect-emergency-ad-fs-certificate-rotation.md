@@ -22,7 +22,7 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 > For more information, see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Determine your Token Signing Certificate thumbprint
-In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
+In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-signing certificate.  To do this, use the following steps below:
 
  1.    Connect to the Microsoft Online Service
 `PS C:\>Connect-MsolService`
