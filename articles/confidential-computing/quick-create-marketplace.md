@@ -131,7 +131,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-In this quickstart, you deployed and connected to your Intel SGX VM. For more information, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+In this quickstart, you deployed and connected to your Intel SGX VM. For more information, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md). 
 
 Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
