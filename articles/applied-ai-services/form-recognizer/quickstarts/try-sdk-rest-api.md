@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 
@@ -26,7 +26,7 @@ You'll use the following APIs to extract structured data from forms and document
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
-* [Analyze identity documents](#analyze-identity-documents)
+* [Analyze ID documents](#analyze-id-documents)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage custom models](#manage-custom-models)
