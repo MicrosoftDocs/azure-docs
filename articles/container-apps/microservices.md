@@ -11,50 +11,19 @@ ms.author: cshoe
 
 # Microservices with Azure Containers Apps
 
-Into microservices:  https://azure.microsoft.com/en-us/solutions/microservice-applications/#overview
+[Microservice architectures](https://azure.microsoft.com/solutions/microservice-applications/#overview) allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring [service discovery](connect-apps.md) and native [Dapr integration](microservices-dapr.md).
 
-How is Container Apps designed for microservices
+:::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Azure Container Apps: Microservices":::
 
-- Service discovery (link to connect-apps.md)
-- Container app allows you to operate a container as a microservice
-    - each service can independently scale, be upgraded, and versioned
-- Dapr is designed specifically for microservice architectures
+A Container Apps [environment](environment.md) provides an isolation boundary around a group of container apps. A single container app is deployed as a microservice, which is composed of pods made up of one or more [containers](containers.md).
 
-you get the runtime and all the basics, but Dapr provides a richer environment
+## Dapr integration
 
-without Dapr
-    basic building blocks
-        but you might end up reimplementing Dapr
-with Dapr
-    gives additional building blocks for managing distributed apps
-        observability
-        pub/sub
-        service-to-service invocation (mutual TLS, retries, )
+When implementing a system composed of microservices, function calls are spread across the network. To support the distributed nature of microservices, you need to account for failures, retries, and timeouts. While Container Apps features the building blocks for running microservices, use of [Dapr](https://docs.dapr.io/concepts/overview/) provides an even richer microservices programming model. Dapr includes features like observability, pub/sub, and service-to-service invocation with mutual TLS, retries, and more.
 
-before microservices - function calls were local
-    now you are going across the network
-        so now you have to account for failures, retries, timeouts, etc.
-
-
-------------------------------------
-one container app = one microservice
-don't think of multiple containers and multiple services
-an application is made up of a pod and your microservice is the entire container apps application, and not the individual containers in the pod
-
-you have a container app that is a microservice 
-
-an application is a collection of container apps
- if you have multiple microservices
-
-one container app = one microservice
-    within and environment
-        the environment context is the security boundary
-
-mapping of concepts and terms 
-
-
+For more information on using Dapr, see [Build microservices with Dapr](microservices-dapr.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started](get-started.md)
+> [Scaling](scale-app.md)
