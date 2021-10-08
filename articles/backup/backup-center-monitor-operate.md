@@ -84,6 +84,14 @@ Selecting the **Backup Policies** menu item allows you to view all the policies 
 
 ![Backup Center - Policies](./media/backup-center-monitor-operate/backup-center-policies.png)
 
+
+## Resource centric views
+
+If your organization backs up multiple resources to a common vault, and each resource owner only wants to see backup information of the resources that they own, you can use the resource centric view in Backup center. To use the resource centric view, select the checkbox 'Only show information about datasources which I have access to'. This option is currently supported for the following tabs: **Overview**, **Backup Instances**, **Jobs**, **Alerts**. The supported workloads are Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure Blobs, Azure Disks.
+
+> [!NOTE]
+> Users will still need to have the required RBAC permissions to the vault even if they are using resource centric view. The purpose of this view is to enable individual users to avoid viewing information for resources (for example, VMs) that they don't own.
+
 ## Next steps
 
 * [Govern your backup estate](backup-center-govern-environment.md)
