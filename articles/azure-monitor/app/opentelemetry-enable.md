@@ -108,38 +108,28 @@ Follow the five steps in this section and you will be able to instrument OpenTel
 
 ---
 
-### Set up your environment
+### Install the client libraries
 
 #### [.NET](#tab/net)
 
-##### 1. Prepare the C# application
+<!-- #### Install the NuGet library -->
 
-If you already have a C# application to instrument OpenTelemetry, you could skip this section.
-
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet new command to create a new console app with the name `azuremonitor-otel-getting-started`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet package.
 
 ```dotnetcli
-dotnet new console --output azuremonitor-otel-getting-started
-```
-
-##### 2. Install the NuGet libraries
-
-Change your directory to the application folder and install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) nuget package.
-
-```dotnetcli
-# Switch to the app directory
-cd azuremonitor-otel-getting-started 
-
-# Install the latest package
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-> [!NOTE]
-> If you're not able to install the library, please go to [Troubleshooting](#specifying-nuget-source).
+If you get an error like "There are no versions available for the package 'Azure.Monitor.OpenTelemetry.Exporter'.", it's most probably due to missing the setting of NuGet package sources. You could try to specify the source with `-s` option.
+
+```dotnetcli
+# Install the latest package with NuGet package source specified
+dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
+```
 
 #### [Node.js](#tab/nodejs)
 
-##### Install npm packages
+<!-- ##### Install the npm packages -->
 
 ```sh
 npm install @azure/monitor-opentelemetry-exporter
@@ -158,22 +148,25 @@ npm install @opentelemetry/instrumentation-http
 
 #### [Python](#tab/python)
 
-##### 1. Install Pypi Package
+<!-- ##### Install the Pypi Package -->
 
 Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) Pypi package.
 
 ```sh
 pip install azure-monitor-opentelemetry-exporter 
 ```
+
 ---
 
 ### Enable Azure Monitor Application Insights
 
-#### 3. Add OpenTelemetry instrumentation code
+#### Add OpenTelemetry instrumentation code
 
 ##### [.NET](#tab/net)
 
-The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add similar logic to your own application.
+This document shows how to collect traces in Azure Monitor using OpenTelemetry for C# console applications. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://go.microsoft.com/fwlink/?linkid=2174441&clcid=0x409). Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all those application types.
+
+The following code demonstrates enabling OpenTelemetry in a console app.
 
 ```csharp
 using System.Diagnostics;
@@ -208,11 +201,8 @@ public class Program
 }
 ```
 
-> [!TIP]
-> The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
-
 > [!NOTE]
-> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. And that you create ActivitySource directly using its constructor, instead of using TracerProvider (Each [ActivitySource](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) must be explicitly connected to TracerProvider using `AddSource()`). This is because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer` respectively. And you create `ActivitySource` directly using its constructor instead of using `TracerProvider` (each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) must be explicitly connected to `TracerProvider` using `AddSource()`). That is because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### [Node.js](#tab/nodejs)
 
@@ -268,7 +258,7 @@ with tracer.start_as_current_span("hello"):
 ---
 
 
-#### 4. Set Application Insights connection string
+#### Set Application Insights connection string
 
 Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
 
@@ -276,7 +266,7 @@ Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-#### 5. Confirm data is flowing
+#### Confirm data is flowing
 
 Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
@@ -918,34 +908,6 @@ logger.addHandler(stream)
 ...
 
 ```
-
----
-
-### Other steps
-
-#### [.NET](#tab/net)
-
-#### Specifying nuget source
-
-If you try to install the package and get errors like the following, it's mostly due to missing NuGet package sources.
-
-```dotnetcli
-error: There are no versions available for the package 'Azure.Monitor.OpenTelemetry.Exporter'.
-```
-
-You could try to specify the source with `-s` option.
-
-```dotnetcli
-# Install the latest package with NuGet package source specified
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
-```
-#### [Node.js](#tab/nodejs)
-
-No further troubleshooting steps at this time. Open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
-
-#### [Python](#tab/python)
-
-No further troubleshooting steps at this time. Open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ---
 
