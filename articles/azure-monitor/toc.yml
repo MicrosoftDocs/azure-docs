@@ -324,8 +324,6 @@
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-      - name: Send to Power BI
-        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -1347,7 +1345,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: visualize/powerbi.md
+        href: logs/log-powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards

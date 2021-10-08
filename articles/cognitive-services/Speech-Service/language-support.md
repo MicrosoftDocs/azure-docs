@@ -82,6 +82,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |                          |
 | French (Switzerland)               | `fr-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Austria)                   | `de-AT` | Text<br>Pronunciation                  |                           |                          |
+| German (Switzerland)               | `de-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |                          |
 | Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |                          |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |                          |
@@ -498,83 +499,103 @@ Select the right locale that matches the training data you have to train a custo
 
 ## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the  [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
 | Text language           | Language code |
 |:------------------------|:-------------:|
-| Afrikaans               | `af`          |
-| Arabic                  | `ar`          |
-| Bangla                  | `bn`          |
-| Bosnian (Latin)         | `bs`          |
-| Bulgarian               | `bg`          |
-| Cantonese (Traditional) | `yue`         |
-| Catalan                 | `ca`          |
-| Chinese Simplified      | `zh-Hans`     |
-| Chinese Traditional     | `zh-Hant`     |
-| Croatian                | `hr`          |
-| Czech                   | `cs`          |
-| Danish                  | `da`          |
-| Dutch                   | `nl`          |
-| English                 | `en`          |
-| Estonian                | `et`          |
-| Fijian                  | `fj`          |
-| Filipino                | `fil`         |
-| Finnish                 | `fi`          |
-| French                  | `fr`          |
-| German                  | `de`          |
-| Greek                   | `el`          |
-| Gujarati                | `gu`          |
-| Haitian Creole          | `ht`          |
-| Hebrew                  | `he`          |
-| Hindi                   | `hi`          |
-| Hmong Daw               | `mww`         |
-| Hungarian               | `hu`          |
-| Indonesian              | `id`          |
-| Irish                   | `ga`          |
-| Italian                 | `it`          |
-| Japanese                | `ja`          |
-| Kannada                 | `kn`          |
-| Kiswahili               | `sw`          |
-| Klingon                 | `tlh-Latn`    |
-| Klingon (plqaD)         | `tlh-Piqd`    |
-| Korean                  | `ko`          |
-| Latvian                 | `lv`          |
-| Lithuanian              | `lt`          |
-| Malagasy                | `mg`          |
-| Malay                   | `ms`          |
-| Malayalam               | `ml`          |
-| Maltese                 | `mt`          |
-| Maori                   | `mi`          |
-| Marathi                 | `mr`          |
-| Norwegian               | `nb`          |
-| Persian                 | `fa`          |
-| Polish                  | `pl`          |
-| Portuguese (Brazil)     | `pt-br`       |
-| Portuguese (Portugal)   | `pt-pt`       |
-| Punjabi                 | `pa`          |
-| Queretaro Otomi         | `otq`         |
-| Romanian                | `ro`          |
-| Russian                 | `ru`          |
-| Samoan                  | `sm`          |
-| Serbian (Cyrillic)      | `sr-Cyrl`     |
-| Serbian (Latin)         | `sr-Latn`     |
-| Slovak                  | `sk`          |
-| Slovenian               | `sl`          |
-| Spanish                 | `es`          |
-| Swedish                 | `sv`          |
-| Tahitian                | `ty`          |
-| Tamil                   | `ta`          |
-| Telugu                  | `te`          |
-| Thai                    | `th`          |
-| Tongan                  | `to`          |
-| Turkish                 | `tr`          |
-| Ukrainian               | `uk`          |
-| Urdu                    | `ur`          |
-| Vietnamese              | `vi`          |
-| Welsh                   | `cy`          |
-| Yucatec Maya            | `yua`         |
+| Afrikaans | `af` |
+| Albanian | `sq` |
+| Amharic | `am` |
+| Arabic | `ar` |
+| Armenian | `hy` |
+| Assamese | `as` |
+| Azerbaijani | `az` |
+| Bangla | `bn` |
+| Bosnian (Latin) | `bs` |
+| Bulgarian | `bg` |
+| Cantonese (Traditional) | `yue` |
+| Catalan | `ca` |
+| Chinese (Literary) | `lzh` |
+| Chinese Simplified | `zh-Hans` |
+| Chinese Traditional | `zh-Hant` |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dari | `prs` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Fijian | `fj` |
+| Filipino | `fil` |
+| Finnish | `fi` |
+| French | `fr` |
+| French (Canada) | `fr-ca` |
+| German | `de` |
+| Greek | `el` |
+| Gujarati | `gu` |
+| Haitian Creole | `ht` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hmong Daw | `mww` |
+| Hungarian | `hu` |
+| Icelandic | `is` |
+| Indonesian | `id` |
+| Inuktitut | `iu` |
+| Irish | `ga` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Kannada | `kn` |
+| Kazakh | `kk` |
+| Khmer | `km` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Korean | `ko` |
+| Kurdish (Central) | `ku` |
+| Kurdish (Northern) | `kmr` |
+| Lao | `lo` |
+| Latvian | `lv` |
+| Lithuanian | `lt` |
+| Malagasy | `mg` |
+| Malay | `ms` |
+| Malayalam | `ml` |
+| Maltese | `mt` |
+| Maori | `mi` |
+| Marathi | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
+| Norwegian | `nb` |
+| Odia | `or` |
+| Pashto | `ps` |
+| Persian | `fa` |
+| Polish | `pl` |
+| Portuguese (Brazil) | `pt` |
+| Portuguese (Portugal) | `pt-pt` |
+| Punjabi | `pa` |
+| Queretaro Otomi | `otq` |
+| Romanian | `ro` |
+| Russian | `ru` |
+| Samoan | `sm` |
+| Serbian (Cyrillic) | `sr-Cyrl` |
+| Serbian (Latin) | `sr-Latn` |
+| Slovak | `sk` |
+| Slovenian | `sl` |
+| Spanish | `es` |
+| Swahili | `sw` |
+| Swedish | `sv` |
+| Tahitian | `ty` |
+| Tamil | `ta` |
+| Telugu | `te` |
+| Thai | `th` |
+| Tigrinya | `ti` |
+| Tongan | `to` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Urdu | `ur` |
+| Vietnamese | `vi` |
+| Welsh | `cy` |
+| Yucatec Maya | `yua` |
 
 ## Speaker Recognition
 

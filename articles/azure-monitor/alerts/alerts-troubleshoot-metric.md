@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 08/15/2021
+ms.date: 09/30/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -134,6 +134,8 @@ To avoid having the deployment fail when trying to validate the custom metric’
         ]
     }
 ```
+> [!NOTE] 
+> Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
