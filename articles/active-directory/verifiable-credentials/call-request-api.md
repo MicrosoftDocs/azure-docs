@@ -199,7 +199,7 @@ To issue, or verify a verifiable credential, follow these steps:
     Authorization: Bearer <token>
     ```
 
-1. Set the `Content-Type` header to `Application/json`. 
+1. Set the `Content-Type` header to `Application/json`.
 
 1. Prepare and attach the [Issuance](issuance-request.md#issuance-request-payload), or [Presentation](presentation-request.md#presentation-request-payload) request payload to the request body.
 
@@ -242,6 +242,8 @@ Authorization: Bearer  <token>
 }
 ```  
 
+For the complete code, check out one of the following code sample, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
+
 ## Presentation request example
 
 The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request.md)
@@ -279,21 +281,7 @@ Authorization: Bearer  <token>
 }
 ```
 
-Check out the following code sample:
-
-# [HTTP](#tab/http)
-
-Choose one of the programming languages above.
-
-# [C#](#tab/csharp)
-
-For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) code on the GitHub repo.
-
-# [Node.js](#tab/nodejs)
-
-For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js) code on the GitHub repo.
-
----
+For the complete code, check out one of the following code sample, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js).
 
 
 ## Callback events
