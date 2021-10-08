@@ -28,7 +28,7 @@ Fundamentally, think of an enclave as a secured lockbox. You put encrypted code 
 
 Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory that can be held inside. [DCsv2-series](../virtual-machines/dcv2-series.md) offers up to 168MiB, where as [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) offers up to 256GB for more memory intensive workloads.
 
-[Read more](virtual-machine-solutions.md) about deploying Intel SGX VMs with hardware-based trusted enclaves.
+[Read more](virtual-machine-solutions-sgx.md) about deploying Intel SGX VMs with hardware-based trusted enclaves.
 
 ### Developing applications to run inside enclaves
 When developing applications, you can use [software tools](application-development.md) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
