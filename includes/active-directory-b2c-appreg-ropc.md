@@ -12,8 +12,10 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 #### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *ROPC_Auth_app*.
 1. Leave the other values as they are, and then select **Register**.
@@ -32,8 +34,10 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**
 1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *ROPC_Auth_app*.
 1. For **Native client**, select **Yes**.
