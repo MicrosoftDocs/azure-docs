@@ -50,15 +50,22 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
 ## September 2021
 
-[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) are available on your Form Recognizer resource overview page in the Azure portal.
+* [Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) are available on your Form Recognizer resource overview page in the Azure portal.
 
-### Monitoring menu
+    ### Monitoring menu
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
 
-### Charts
+    ### Charts
 
-:::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+
+*  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
+
+    |Input Text | Result with update |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry Caleb </br></br> **LastName**: Ross Sr |
 
 ## July 2021
 
