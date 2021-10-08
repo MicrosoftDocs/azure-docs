@@ -81,7 +81,7 @@ Please consider carefully whether this preview is right for you. It **enables di
 
 ## Get started
 
-Follow the five steps in this section and you will be able to instrument OpenTelemetry with your application.
+Follow the five steps in this section and you will be able to instrument your application with OpenTelemetry.
 
 ### Prerequisites
 
