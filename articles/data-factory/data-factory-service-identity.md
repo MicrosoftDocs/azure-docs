@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, synapse
 
 # Managed identity for Azure Data Factory and Azure Synapse 
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Data Factory and Azure Synapse.
 
