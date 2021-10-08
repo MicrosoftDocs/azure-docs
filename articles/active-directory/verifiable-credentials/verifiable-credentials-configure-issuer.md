@@ -13,7 +13,7 @@ ms.date: 10/08/2021
 
 # Issue Azure AD Verifiable Credentials from an Application (preview)
 
-In this tutorial, you run a sample application from your local machine that connects to your Azure AD tenant. Using the application, you are going to ask yourself to present a Verified Credential Expert Card to verify. 
+In this tutorial, you run a sample application from your local machine that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you are going to issue a Verified Credential Expert Card and verify it.
 
 In this article, you learn how to:
 
@@ -22,7 +22,7 @@ In this article, you learn how to:
 > - Setup an Azure Blob storage for storing your Verifiable Credentials configuration files.
 > - Create and upload your Verifiable Credential configuration files.
 > - Create the Verified Credential Expert Card in Azure.
-> - Gather credentials and environment details to setup your sample application.
+> - Gather credentials and environment details to setup the sample application.
 > - Download the sample application code to your local machine.
 > - Update the sample application with your Verified Credentials Expert Card and environment details.
 > - Run the sample application and issue your first Verified Credentials Expert Card.
@@ -35,7 +35,7 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 ## Prerequisites
 
 - Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](https://tbd-link-to-the-tenant-config-article/).
-- If you want to clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads)
+- To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 - [NGROK](https://ngrok.com/) free.
@@ -64,7 +64,7 @@ Create and configure your Azure Blob Storage by following these steps:
 
 After you create your container, grant the signed-in user the correct role assignment so they can access the files in Storage Blob.
 
-1. Select your vc-container from the list of containers.
+1. Select the *vc-container* from the list of containers.
 
 1. From the menu, select **Access control (IAM)**.
 
@@ -89,7 +89,10 @@ After you create your container, grant the signed-in user the correct role assig
 
 ### Upload the configuration files
 
-Azure AD Verifiable Credentials use two JSON configuration files, the rules and display files. The rules file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. The display file controls the branding of the credential and styling of the claims.
+Azure AD Verifiable Credentials service uses two JSON configuration files, the rules and display files. 
+
+- The rules file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. 
+- The display file controls the branding of the credential and styling of the claims.
 
 In this section, you upload a sample rules and display files to your storage. For more information on how to customize these files, see [How to customize your verifiable credentials](credential-design.md).
 
@@ -157,16 +160,16 @@ To upload the configuration files, follow these steps:
     
 1. In the Azure portal, navigate to the Azure Blob Storage container [you created](#create-a-storage-account).
 
-1. Select the container to show a list of blobs it contains. The select the **vc-container** that you created earlier.
+1. in the left menu, select **Containers** to show a list of blobs it contains. Then select the **vc-container** that you created earlier.
 
 1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload. Then select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
 
 ## Create the verifiable credential expert card in Azure
 
-In this step, you create the Verifiable Credential Expert Card using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to clients that initiate a verifiable credential issuance process.
+In this step, you create the Verifiable Credential Expert Card using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users that initiate a verifiable credential issuance process.
 
 1. Using the [Azure portal](https://portal.azure.com/) main search input, search for **verifiable credentials**. Then, select **Verifiable Credentials (Preview)**.
-1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the option to **Create a new credential** screen should appear. If it’s not opened, or you want to create more credentials, in the let menu, select **Credentials**. Then select **+ Credential**.
+1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the option to **Create a new credential** screen should appear. If it’s not opened, or you want to create more credentials, in the left menu, select **Credentials**. Then select **+ Credential**.
 1. In the create a new credential page, do the following:
 
     1. For the credential **Name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
