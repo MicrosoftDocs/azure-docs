@@ -40,3 +40,9 @@ Containers are named by the Azure Fluid Relay service at container creation time
 ### Container Discovery
 
 Developers are responsible for any experience and business logic related to user discovery of existing containers. This could take the form of a browsable list of containers based on user participation in the Fluid session, direct sharing of containers between users, or programmatic assignment of containers to existing artifacts or processes.
+
+## See also
+
+- [Overview of Azure Fluid Relay architecture](architecture.md)
+- [Distributed data structures](data-structures.md)
+- [Azure Fluid Relay token contract](../how-tos/fluid-json-web-token.md)
