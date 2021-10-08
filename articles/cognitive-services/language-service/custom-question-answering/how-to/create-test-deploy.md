@@ -60,7 +60,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 1. Select the link to your source, this will open the edit knowledge base page.
 
-2. Select **Test** from the menu bar > Enter the question **How do I setup my surface book?**. An answer will be generated automatically based on the question answer pairs that were automatically identified and extracted from your source URL:
+2. Select **Test** from the menu bar > Enter the question **How do I setup my surface book?**. An answer will be generated based on the question answer pairs that were automatically identified and extracted from your source URL:
 
     > [!div class="mx-imgBorder"]
     > ![Test question chat interface](../media/create-test-deploy/test-question.png)
@@ -88,7 +88,7 @@ You can create a question answering project from your own content, such as FAQs 
     > [!div class="mx-imgBorder"]
     > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
-    Your project is now successfully deployed. You can use the endpoint in your own custom application or in a bot.
+    Your project is now successfully deployed. You can use the endpoint to answer questions in your own custom application to answer or in a bot.
 
 ## Clean up resources
 
