@@ -1,1 +1,0 @@
-AMD-specific deployment considerations and limitations (regions, SKU Size, etc.)
