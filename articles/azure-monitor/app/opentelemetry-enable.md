@@ -49,7 +49,6 @@ Please consider carefully whether this preview is right for you. It enables dist
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation through Azure Functions Worker
 
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
