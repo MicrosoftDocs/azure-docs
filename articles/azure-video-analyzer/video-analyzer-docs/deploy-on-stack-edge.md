@@ -1,126 +1,133 @@
 ---
 title: Deploy Azure Video Analyzer on Azure Stack Edge
-description: This article lists the steps that will help you deploy Azure Video Analyzer on your Azure Stack Edge.
+description: This article discusses how to deploy Azure Video Analyzer on Azure Stack Edge.
 ms.topic: how-to
 ms.date: 06/01/2021
 
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
 
-This article lists the steps that will help you deploy Video Analyzer on your Azure Stack Edge. After the device has been set up and activated, it is then ready for Video Analyzer deployment. 
+This article provides full instructions for deploying Azure Video Analyzer on your Azure Stack Edge device. After the device has been set up and activated, it's ready for Video Analyzer deployment. 
 
-For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, which allows the customer to deploy additional non-IoT Hub aware solutions that can interface with Video Analyzer. 
+For Video Analyzer, we'll deploy via IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, with which you can deploy additional non-IoT Hub aware solutions that can interface with Video Analyzer. 
 
 > [!TIP]
-> Using the Kubernetes(K8s) API for custom deployment is an advanced case. It is recommended that the customer create edge modules and deploy via IoT Hub to each Azure Stack Edge resource instead of using the Kubernetes API. In this article, we will show you the steps of deploying the Video Analyzer module using IoT Hub.
+> Using the Kubernetes API for custom deployment is an advanced case. We recommended that you create edge modules and deploy them via IoT Hub to each Azure Stack Edge resource instead of using the Kubernetes API. This article shows you how to deploy the Video Analyzer module by using IoT Hub.
 
 ## Prerequisites
 
-* Video Analyzer account
+* An Azure Video Analyzer account
 
-    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
-* Managed identity
+    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 
-    This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
+* A managed identity
+
+    This is the user-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) that you use to manage access to your storage account.
+
 * An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
-* [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* Storage account
 
-    It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
-    Learn more about a [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
-* [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md)
+
+* A storage account
+
+    We recommend that you use [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
+    
+* [Visual Studio Code](https://code.visualstudio.com/), installed on your development machine
+
+*  The [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools), installed in Visual Studio Code
+
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
-## Configuring Azure Stack Edge for using Video Analyzer
+## Configure Azure Stack Edge for using Video Analyzer
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). To get started, follow the instructions in the links below:
+Azure Stack Edge is a hardware as a service solution and an AI-enabled edge computing device with network data transfer capabilities. For more information, see [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). 
 
-* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
-* [Install and Setup](../../databox-online/azure-stack-edge-gpu-deploy-install.md)
-* Connection and Activation
+To get started, do the following:
 
-    1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
-    2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
-    3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
-    4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
-    5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
-* [Attach an IoT Hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
-### Enable Compute Prerequisites on the Azure Stack Edge Local UI
+1. [Create an Azure Stack Edge or Azure Data Box Gateway resource](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
+1. [Install and set up Azure Stack Edge Pro with GPU](../../databox-online/azure-stack-edge-gpu-deploy-install.md).
+1. Connect and activate the resource by doing the following:
 
-Before you continue, make sure that:
+    a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
+    b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
+    c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md).  
+    d. [Configure the certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
+    e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
+
+1. [Attach an IoT hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute).
+
+### Enable compute prerequisites on the Azure Stack Edge local UI
+
+Before you continue, make sure that you've completed the following:
 
 * You've activated your Azure Stack Edge resource.
-* You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+* You have access to a Windows client system that's running PowerShell 5.0 or later to access the Azure Stack Edge resource.
+* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource on its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
 
-    * Connect and configure:
+    1. Connect and configure the resource by doing the following:
     
-        1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
-        2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
-        3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
-        4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
-        5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
-    * To enable the compute, in the local web UI of your device, go to the Compute page.
+        a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
+        b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
+        c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)  
+        d. [Configure the certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
+        e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
+
+    1. To enable the compute, on the local web UI of your device, go to the **Compute** page.
     
-        * Select a network interface that you want to enable for compute. Select Enable. Enabling compute results in the creation of a virtual switch on your device on that network interface.
-        * Leave the Kubernetes test node IPs and the Kubernetes external services IPs blank.
-        * Select Apply - This operation should take about 2 minutes.
+        a. Select a network interface that you want to enable for compute, and then select **Enable**. Enabling compute creates a virtual switch on your device on that network interface.  
+        b. Leave the Kubernetes test node IPs and the Kubernetes external services IPs blank.  
+        c. Select **Apply**. The operation should take about two minutes.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
+        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Screenshot of compute prerequisites on the Azure Stack Edge local UI.":::
 
-        * If DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Window's host file.
+        If Azure DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Windows host file by doing the following:
         
-            * Open a text editor as Administrator
-            * Open file 'to C:\Windows\System32\drivers\etc\hosts'
-            * Add the Kubernetes API device name's IPv4 and hostname to the file. (This info can be found in the Azure Stack Edge Portal under the Devices section.)
-            * Save and close
+        a. Open a text editor as Administrator.  
+        b. Open the *hosts* file at *C:\Windows\System32\drivers\etc\\*.  
+        c. Add the Kubernetes API device name's IPv4 and hostname to the file. (This information can be found in the Azure Stack Edge portal, under Devices.)  
+        d. Save and close the file.
 
-### Deploy Video Analyzer Edge modules using Azure portal
+### Deploy Video Analyzer Edge modules by using the Azure portal
 
-The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.  
+The Azure portal, you can create a deployment manifest and push the deployment to an IoT Edge device.  
+
 #### Select your device and set modules
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
-1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/), and then go to your IoT hub.
+1. On the left pane, select **IoT Edge**.
+1. In the list of devices, select the ID of the target device.
 1. Select **Set Modules**.
 
 #### Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest. It has three steps organized into tabs: **Modules**, **Routes**, and **Review + Create**.
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and the desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest. Its three steps are organized into **Modules**, **Routes**, and **Review + Create** tabs.
 
 #### Add modules
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
-1. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:   
-    Examples:
-    
-    * **IoT Edge Module Name**: avaedge
-    * **Image URI**: mcr.microsoft.com/media/video-analyzer:1	 
+1. In the **IoT Edge Modules** section, in the **Add** dropdown list, select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. Select the **Module Settings** tab, provide a name for the module, and then specify the container image URI. Example values are shown in the following image:	 
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/add-module.png" alt-text="Screenshot shows the Module Settings tab":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/add-module.png" alt-text="Screenshot of the Module Settings pane on the Add IoT Edge Module page.":::
     
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
-    > [!WARNING]
-    > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.
+    > [!IMPORTANT]
+    > Azure IoT Edge values are case-sensitive when you make calls to modules. Make note of the exact string you're using as the module name.
 
-1. Open the **Environment Variables** tab.
+1. Select the **Environment Variables** tab, and then enter values as shown in the following image:
    
-   Add the following values in the input boxes that you see
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Screenshot of the Environment Variables pane on the Add IoT Edge Module page.":::
+
+1. Select the **Container Create Options** tab.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Environment Variables":::
-
-1. Open the **Container Create Options** tab.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/container-create-options.png" alt-text="Container create options":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/container-create-options.png" alt-text="Screenshot of the Container Create Options pane on the Add IoT Edge Module page.":::
  
-    Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
+    In the box on the **Container Create Options** pane, paste the following JSON code. This action limits the size of the log files produced by the module.
     
     ```    
     {
@@ -142,25 +149,27 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     }
     ````
    
-   The "Binds" section in the JSON has 2 entries:
-   1. "/var/lib/videoanalyzer:/var/lib/videoanalyzer": This is used to bind the persistent application configuration data from the container and store it on the edge device.
-   1. "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a pipelineTopology that supports storing of video clips on the edge device.
+   The "Binds" section in the JSON has two entries:
+   * "/var/lib/videoanalyzer:/var/lib/videoanalyzer" is used to bind the persistent application configuration data from the container and store it on the edge device.
+   * "/var/media:/var/media" binds the media folders between the edge device and the container. It's used to store the video recordings when you run a pipelineTopology that supports storing video clips on the edge device.
    
-1. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
+1. Select the **Module Twin Settings** tab, copy the following JSON and paste it in the box.
  
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Twin settings":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Screenshot of the Module Twin Settings pane on the Add IoT Edge Module page.":::
 
     Azure Video Analyzer requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
 
-    The JSON that you need to enter into Module Twin Settings edit box will look like this:    
+    In the box on the **Module Twin Settings** pane, paste the following JSON code:    
+
     ```
     {
         "applicationDataDirectory": "/var/lib/videoanalyzer",
         "ProvisioningToken": "{provisioning-token}",
     }
     ```
-    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitor-log-edge.md):
+    
+    To help with monitoring the module, you can enter the following additional *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
     
     ```
     "diagnosticsEventsOutputName": "diagnostics",
@@ -170,21 +179,17 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
-1. Select **Add**  
+1. Select **Add**.  
 
-Add the RTSP Simulator edge module
+#### Add the RTSP simulator edge module
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
-1. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:   
-    Examples:
+1. In the **IoT Edge Modules** section, in the **Add** dropdown list, select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. Select the **Module Settings** tab, provide a name for the module, and then specify the container image URI. For example:   
     
-    * **IoT Edge Module Name**: rtspsim
-    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+    * **IoT Edge Module Name**: rtspsim  
+    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2 
 
-
-1. Open the **Container Create Options** tab.
- 
-    Copy and paste the following JSON into the box
+1. Select the **Container Create Options** tab and then, in the box, paste the following JSON code:
     
     ```
     {
@@ -202,166 +207,182 @@ Add the RTSP Simulator edge module
         }
     }
     ```
-1. Select **Add**  
+1. Select **Add**.  
 
-1. Select **Next: Routes** to continue to the routes section. Specify routes.
+1. Select **Next: Routes** to continue to the routes section. 
 
-    Under NAME, enter **AVAToHub**, and under VALUE, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
-1. Select Next: **Review + create** to continue to the review section.
-1. Review your deployment information, then select **Create** to deploy the module.
+1. To specify routes, under **Name**, enter **AVAToHub** and then, under **Value**, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**.
 
-    > [!TIP]
-    > Follow these steps to generate the provisioning token:
-1. Open Azure portal and go to the Video Analyzer
-1. In the left navigation pane, click on **Edge modules**.
-1. Select the edge module and click on the **Generate token** button:
+1. Select **Next: Review + create** to continue to the review section.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/generate-provisioning-token.png" alt-text="Generate token" lightbox="./media/deploy-on-stack-edge/generate-provisioning-token.png":::
-1. Copy the provisioning token:
+1. Review your deployment information, and then select **Create** to deploy the module.
+
+#### Generate the provisioning token
+
+1. In the Azure portal, go to the Video Analyzer.
+1. On the left pane, select **Edge modules**.
+1. Select the edge module, and then select **Generate token**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Copy token":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/generate-provisioning-token.png" alt-text="Screenshot of the 'Add edge modules' pane for generating a token." lightbox="./media/deploy-on-stack-edge/generate-provisioning-token.png":::
+
+1. Copy the provisioning token, as shown in the following image:
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Screenshot of the 'Copy provisioning token' page.":::
 
 
 
-#### (Optional) Setup Docker Volume Mounts
+#### (Optional) Set up Docker volume mounts
 
-If you want to view the data in the working directories, follow these steps to setup Docker Volume Mounts before deploying. 
+If you want to view the data in the working directories, set up Docker volume mounts before you deploy it. 
 
-These steps cover creating a Gateway user and setting up file shares to view the contents of the Video Analyzer working directory and Video Analyzer media folder.
+This section covers how to create a gateway user and set up file shares to view the contents of the Video Analyzer working directory and Video Analyzer media folder.
 
 > [!NOTE]
-> Bind Mounts are supported, but Volume Mounts allow the data to be viewable and if desired remotely copied. It is possible to use both Bind and Volume mounts, but they cannot point to the same container path.
+> Bind mounts are supported, but volume mounts allow the data to be viewable and, if you choose, remotely copied. It's possible to use both bind and volume mounts, but they can't point to the same container path.
 
-1. Open Azure portal and go to the Azure Stack Edge resource.
-1. Create a **Gateway User** that can access shares.
+1. In the Azure portal, go to the Azure Stack Edge resource.
+1. Create a gateway user that can access shares by doing the following:
     
-    1. In the left navigation pane, click on **Cloud storage gateway**.
-    1. Click on **Users** in the left navigation pane.
-    1. Click ion **+ Add User** to the set the username and password. (Recommended: `avauser`).
-    1. Click on **Add**.
+    a. On the left pane, select **Cloud storage gateway**.  
+    b. On the left pane, select **Users**.  
+    c. Select **Add User** to set the username (for example, we recommend *avauser*) and password.  
+    d. Select **Add**.
 
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/add-user.png" alt-text="Add user":::
-1. Create a **Local Share** for Video Analyzer persistence.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/add-user.png" alt-text="Screenshot of the Azure Stack Edge resource 'Add user' page.":::
 
-    1. Click on **Cloud storage gateway->Shares**.
-    1. Click on **+ Add Shares**.
-    1. Set a share name. (Recommended: `ava`).
-    1. Keep the share type as SMB.
-    1. Ensure **Use the share with Edge compute** is checked.
-    1. Ensure **Configure as Edge local share** is checked.
-    1. In User Details, give access to the share to the recently created user.
-    1. Click on **Create**.
+1. Create a *local share* for Video Analyzer persistence by doing the following:
+
+    a. Select **Cloud storage gateway** > **Shares**.  
+    b. Select **Add share**.  
+    c. Set a share name (for example, we recommend *ava*).  
+    d. Keep the share type as **SMB**.  
+    e. Ensure that the **Use the share with Edge compute** checkbox is selected.  
+    f. Ensure that the **Configure as Edge local share** checkbox is selected.  
+    g. Under **User details**, give access to the share to the recently created user by selecting **Use existing**.  
+    h. Select **Create**.
             
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Local share":::  
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Screenshot of the 'Add share' page for creating a local share.":::  
     
-        > [!TIP]
-        > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
-1. Create a Remote Share for file sync storage.
+    > [!TIP]
+    > With your Windows client connected to your Azure Stack Edge device, follow the instructions in the "Connect to an SMB share" section of [Transfer data with Azure Stack Edge Pro FPGA](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
 
-    1. First create a blob storage account in the same region by clicking on **Cloud storage gateway->Storage accounts**.
-    1. Click on **Cloud storage gateway->Shares**.
-    1. Click on **+ Add Shares**.
-    1. Set a share name. (Recommended: media).
-    1. Keep the share type as SMB.
-    1. Ensure **Use the share with Edge compute** is checked.
-    1. Ensure **Configure as Edge local share** is not checked.
-    1. Select the recently created storage account.
-    1. Set the storage type to Block Blob.
-    1. Set a container name.
-    1. In User Details, give access to the share to the recently created user.
-    1. Click on **Create**.    
+1. Create a *remote share* for file sync storage by doing the following:
+
+    a. Create an Azure Blob Storage account in the same region by selecting **Cloud storage gateway** > **Storage accounts**.  
+    b. Select **Cloud storage gateway** > **Shares**.  
+    c. Select **Add Shares**.  
+    d. In the **Name** box, enter a share name (for example, we recommend *media*).  
+    e. For **Type**, keep the share type as **SMB**.  
+    f. Ensure that the **Use the share with Edge compute** checkbox is selected.  
+    g. Ensure that the **Configure as Edge local share** checkbox is cleared.  
+    h. In the **Storage account** dropdown list, select the recently created storage account.  
+    i. In the **Storage service** dropdown list, select **Block Blob**.  
+    j. In the **Select blob container** box, enter the container name.  
+    k. Under **User Details**, select **Use existing** to give access to the share to the recently created user.  
+    l. Select **Create**.    
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Remote share":::
-1. Update the RTSP Simulator module's Container Create Options to use Volume Mounts:
-    1. Click on the **Set modules** button:
+        > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Screenshot of the 'Add share' page for creating a remote share.":::
 
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/set-modules.png" alt-text="Set modules" lightbox="./media/deploy-on-stack-edge/set-modules.png":::
-    1. Click on the **rtspsim** module:
+1. To use volume mounts, update the Real-Time Streaming Protocol (RTSP) simulator module's container create options by doing the following:
 
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/select-module.png" alt-text="Select module":::
-    1. Select the **Container Create Options** tab and add the Mounts as shown below:
+    a. Select the **Set modules** button.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/set-modules.png" alt-text="Screenshot showing the 'Set modules' button on the edge device settings pane." lightbox="./media/deploy-on-stack-edge/set-modules.png":::  
+
+    b. In the **Name** list, select the **rtspsim** module:
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/select-module.png" alt-text="Screenshot of the 'rtspsim' module under 'IoT Edge Modules' on the edge device settings pane.":::  
     
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/update-module.png" alt-text="Update module":::
+    c. On the **Update IoT Edge Module** pane, select the **Container Create Options** tab, and then add the mounts as shown in the following JSON code:
+    
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/update-module.png" alt-text="Screenshot of the JSON mounts code on the 'Container Create Options' pane.":::
 
-        ```json
-            "createOptions": 
+    ```json
+        "createOptions": 
+        {
+            "HostConfig": 
             {
-                "HostConfig": 
-                {
-                    "Mounts": 
-                    [
-                        {
-                            "Target": "/live/mediaServer/media",
-                            "Source": "media",
-                            "Type": "volume"
-                        }
-                    ],
-                    "PortBindings": {
-                        "554/tcp": [
-                            {
-                            "HostPort": "554"
-                            }
-                        ]
+                "Mounts": 
+                [
+                    {
+                        "Target": "/live/mediaServer/media",
+                        "Source": "media",
+                        "Type": "volume"
                     }
+                ],
+                "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
                 }
             }
-        ```
-    1. Click on the **Update** button
-    1. Click on the **Review and create** button and finally on the **Create** button to update the module.
+        }
+    ```  
+    d. Select **Update**.  
+    e. To update the module, select **Review and create**, and then select **Create**.
     
 ### Verify that the module is running
 
-The final step is to ensure that the module is connected and running as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
+The final step is to ensure that your IoT Edge device module is connected and running as expected. To check the module's runtime status, do the following:
 
-To verify that the module is running, do the following:
-
-1. In the Azure portal, return to the Azure Stack Edge resource
-1. Select the Modules tile. This takes you to the Modules blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be running.
+1. In the Azure portal, return to your Azure Stack Edge resource.
+1. On the left pane, select **Modules**. 
+1. On the **Modules** pane, in the **Name** list, select the module you deployed. In the **Runtime status** column, the module's status should be *running*.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/running-module.png" alt-text="Custom module" lightbox="./media/deploy-on-stack-edge/running-module.png":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/running-module.png" alt-text="Screenshot of the 'Module' pane, showing the selected module's runtime status as 'running'." lightbox="./media/deploy-on-stack-edge/running-module.png":::
 
 ### Configure the Azure IoT Tools extension
 
-Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
+To connect to your IoT hub by using the Azure IoT Tools extension, do the following:
 
-1. In Visual Studio Code, select View > Explorer. Or select Ctrl+Shift+E.
-1. In the lower-left corner of the Explorer tab, select Azure IoT Hub.
-1. Select the More Options icon to see the context menu. Then select Set IoT Hub Connection String.
-1. When an input box appears, enter your IoT Hub connection string. 
+1. In Visual Studio Code, select **View** > **Explorer**.
+1. On the **Explorer** pane, at the lower left, select **Azure IoT Hub**.
+1. Select the **More Options** icon to show the context menu, and then select **Set IoT Hub Connection String**.
+1. When an input box appears, enter your IoT hub connection string. 
 
-   * To get the connection string, go to your IoT Hub in Azure portal and click on Shared access policies in the left navigation pane.
-   * Click on iothubowner get the shared access keys.
-   * Copy the Connection String – primary key and paste it in the input box on the VSCode.
+   To get the connection string, do the following: 
 
-   The connection string will look like:<br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
+   a. In the Azure portal, go to your IoT hub.  
+   b. On the left pane, select **Shared access policies**.  
+   c. Select **iothubowner get the shared access keys**.  
+   d. Copy the connection string primary key, and then paste it in the input box in Visual Studio Code.
+
+   The connection string is written in the following format:
+   
+   `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
     
-   If the connection succeeds, the list of edge devices appears. You should see your Azure Stack Edge. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the Modules node.
+   When the connection succeeds, a list of edge devices is displayed, including your Azure Stack Edge device. You can now manage your IoT Edge devices and interact with your Azure IoT hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the **Modules** node.
     
 ## Troubleshooting
 
-* **Kubernetes API Access (kubectl)**
+* **Kubernetes API access (kubectl)**
 
     * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
-    * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.  
-* **Module Logs**
+    * All deployed IoT Edge modules use the `iotedge` namespace. Be sure to include that name when you're using kubectl. 
 
-    The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
-* **Pod and Node Metrics**
+* **Module logs**
 
-    Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics.
+    If the `iotedge` tool is inaccessible for obtaining logs, use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) to view the logs or pipe to a file. For example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
+
+* **Pod and node metrics**
+
+    To view pod and node metrics, use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top). For example:
     <br/>`kubectl top pods -n iotedge` 
-* **Module Networking**   
 
-    For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
+* **Module networking**   
+
+    For module discovery on Azure Stack Edge, the module must have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
     ```json
     "createOptions": {
@@ -373,13 +394,15 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
     }
     ```
     
-* **Volume Mounting**
+* **Volume mounting**
 
     A module will fail to start if the container is trying to mount a volume to an existing and non-empty directory.
-* **Shared Memory when using gRPC**
 
-    Shared memory on Azure Stack Edge resources is supported across pods in any namespace by using Host IPC.
-    Configuring shared memory on an edge module for deployment via IoT Hub.
+* **Shared memory when gRPC is used**
+
+    Shared memory on Azure Stack Edge resources is supported across pods in any namespace when you use Host IPC.
+    
+    Configure shared memory on an edge module for deployment via IoT Hub by using the following code:
     
     ```
     ...
@@ -389,24 +412,24 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
         }
     ...
         
-    //(Advanced) Configuring shared memory on a K8s Pod or Deployment manifest for deployment via K8s API
-    spec:
+    //(Advanced) Configuring shared memory on a Kubernetes pod or deployment manifest for deployment via the Kubernetes API spec:
         ...
         template:
         spec:
             hostIPC: true
         ...
     ```
-* **(Advanced) Pod Co-location**
+* **(Advanced) Pod co-location**
 
-    When using K8s to deploy custom inference solutions that communicate with Video Analyzer via gRPC, you need to ensure the pods are deployed on the same nodes as Video Analyzer modules.
+    When you use Kubernetes to deploy custom inference solutions that communicate with Video Analyzer via gRPC, ensure that the pods are deployed on the same nodes as Video Analyzer modules.
 
-    * **Option 1** - Use Node Affinity and built in Node labels for co-location.
+    * **Option 1**: Use *node affinity* and built in node labels for co-location.
 
-    Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge resources with Video Analyzer can be added to the inference pod manifest to achieve co-location.
-    * **Option 2** - Use Pod Affinity for co-location (recommended).
+    Currently, NodeSelector custom configuration doesn't appear to be an option, because users don't have access to set labels on the nodes. However depending on the users' topology and naming conventions, they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). To achieve co-location, you can add to the inference pod manifest a nodeAffinity section that references Azure Stack Edge resources with Video Analyzer.
+    
+    * **Option 2**: (Recommended) Use *pod affinity* for co-location.
 
-        Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) which can schedule pods on the same node. A podAffinity section referencing the Video Analyzer module can be added to the inference pod manifest to achieve co-location.
+        Kubernetes has support for [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
 
          ```json   
         // Example Video Analyzer module deployment match labels
@@ -415,7 +438,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
             net.azure-devices.edge.deviceid: dev-ase-1-edge
             net.azure-devices.edge.module: mediaedge
         
-        // Example Inference deployment manifest pod affinity
+        // Example inference deployment manifest pod affinity
         spec:
           affinity:
             podAntiAffinity:
@@ -428,25 +451,29 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
                     - mediaedge
                 topologyKey: "kubernetes.io/hostname"
         ```
-* **404 error code when using `rtspsim` module**  
+
+* **You get a 404 error code when you use `rtspsim` module**  
     
-    The container will read videos from exactly one folder within the container. If you map/bind an external folder into the one, which already exists within the container image, docker will hide the files present in the container image.  
+    The container will read videos from exactly one folder within the container. If you map/bind an external folder into a folder that already exists within the container image, Docker will hide the files present in the container image.
  
-    For example, with no bindings the container may have these files:  
+    For example, with no bindings, the container might have these files:  
+
     ```
     root@rtspsim# ls /live/mediaServer/media  
     /live/mediaServer/media/camera-300s.mkv  
     /live/mediaServer/media/win10.mkv  
     ```
      
-    And your host may have these files:
+    And your host might have these files:
+
     ```    
     C:\MyTestVideos> dir
     Test1.mkv
     Test2.mkv
     ```
      
-    But when the following binding is added in the deployment manifest file, docker will overwrite the contents of /live/mediaServer/media to match what is on the host.
+    But when the following binding is added in the deployment manifest file, Docker will overwrite the contents of /live/mediaServer/media to match what is on the host.
+
     `C:\MyTestVideos:/live/mediaServer/media`
     
     ```
