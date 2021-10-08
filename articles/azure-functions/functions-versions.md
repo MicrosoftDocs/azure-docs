@@ -99,7 +99,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Application Insights is no longer included by default in 4.x. It is now available as a separate extension.
     - For in-process .NET apps, add the [Application Insights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
-    - The extension no longer supports the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting. You must now supply a [connection string](../azure-monitor/app/sdk-connection-string) in an app setting named `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+    - The extension no longer supports the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting. You must now supply a [connection string](../azure-monitor/app/sdk-connection-string.md) in an app setting named `APPLICATIONINSIGHTS_CONNECTION_STRING`.
     - Guidance will be provided soon for isolated .NET and other languages.
 
 #### Languages
