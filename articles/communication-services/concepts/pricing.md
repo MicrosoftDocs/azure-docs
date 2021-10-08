@@ -131,8 +131,8 @@ Alice made a group call with her colleagues, Bob and Charlie.
 - Bob stayed in a call for 30 minutes and Alice and Charlie for 60 minutes.
 
 **Cost calculations**
-<br/> You will be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there is no one left in a meeting).
-In this case $0.01 x 60 = $0.6
+- You will be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there is no one left in a meeting).
+- 60 minutes x $0.01 per recording per minute = $0.6
 
 ### Pricing example: Record a call in a mixed audio+only format
 
@@ -141,8 +141,8 @@ Alice starts a call with Jane.
 - The call lasts a total of 60 minutes. The recording lasted for 45 minutes.
 
 **Cost calculations**
-<br/> You will be charged the length of the recording. 
-In this case $0.002 x 45 = $0.09
+- You will be charged the length of the recording. 
+- 45 minutes x $0.002 per recording per minute = $0.09
 
 ## Chat
 
