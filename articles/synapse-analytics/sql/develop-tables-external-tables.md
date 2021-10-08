@@ -350,12 +350,14 @@ FILE_FORMAT = *external_file_format_name*
 
 Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
-
 Reject Options 
+
+> [!NOTE]
+> Rejected rows feature is in Public Preview.
 
 You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if it actual data types don't match the column definitions of the external table.
 
-When you don't specify or change reject values, service uses default values. This information about the reject parameters is stored as additional metadata when you create an external table with CREATE EXTERNAL TABLE statement. When a future SELECT statement or SELECT INTO SELECT statement selects data from the external table, service will use the reject options to determine the number or percentage of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
+When you don't specify or change reject options, service uses default values. This information about the reject parameters is stored as additional metadata when you create an external table with CREATE EXTERNAL TABLE statement. When a future SELECT statement or SELECT INTO SELECT statement selects data from the external table, service will use the reject options to determine the number of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
 
 
 REJECT_TYPE = **value** 
@@ -378,7 +380,19 @@ For REJECT_TYPE = value, *reject_value* must be an integer between 0 and 2,147,4
 
 REJECTED_ROW_LOCATION = *Directory Location*
 
-Specifies the directory within the External Data Source that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, service will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. Within this directory, there's a folder created based on the time of load submission in the format YearMonthDay_HourMinuteSecond_StatementID (Ex. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). In this folder, two types of files are written: the error file and the data file. You can use statement id to correlate folder with query that generated it.
+Specifies the directory within the External Data Source that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, service will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. Within this directory, there's a folder created based on the time of load submission in the format YearMonthDay_HourMinuteSecond_StatementID (Ex. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). You can use statement id to correlate folder with query that generated it. In this folder, two files are written: error.json file and the data file. 
+
+error.json file contains json array with encountered errors related to rejected rows. Each element representing error contains following attributes:
+
+| Attribute      | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Error          | Reason why row is rejected                                   |
+| Row            | Rejected row ordinal number in file                          |
+| Column         | Rejected column ordinal number                               |
+| Value          | Rejected column value                                        |
+| File           | Path to file that row belongs to                             |
+
+
 
 ### Permissions CREATE EXTERNAL TABLE
 
