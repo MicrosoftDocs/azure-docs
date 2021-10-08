@@ -9,8 +9,6 @@ ms.date: 10/08/2021
 ms.author: aahi
 ---
 
-## Diagnostics container
-
 If you're having trouble running a Cognitive Services container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Cognitive Services containers from functioning as expected.
 
 To get the container, use the following Docker `pull` command:
