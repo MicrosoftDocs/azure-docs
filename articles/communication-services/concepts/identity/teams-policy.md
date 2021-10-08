@@ -16,7 +16,7 @@ ms.subservice: teams-interop
 
 Azure Communication Services support Teams identities to manage Teams calling experience from Communication Services SDKs. Capability does not provide full feature and policy parity with Teams client. Before using Communication Services SDKs with the Teams identities, consider lack of policy enforcement and implications for Teams experience. Here is a list of supported Teams policies.
 
-## Meetings
+## Meetings and audioconferencing
 
 |Policy                                   |Supported  |Note     |
 |-----------------------------------------|-----------|---------|
@@ -31,5 +31,11 @@ Azure Communication Services support Teams identities to manage Teams calling ex
 |Port ranges and DSCP markings            |   ❔      |         |
 
 
-## Calling 
-|Emergency calling            |         |         |
+## Voice - Phone system and PSTN connectivity
+|Emergency calling            |     ?    |         |
+
+## Microsoft 365 Business voice
+|            |         |         |
+
+## Security, privacy and compliance 
+|Compliance recording            |     ❔    |         |

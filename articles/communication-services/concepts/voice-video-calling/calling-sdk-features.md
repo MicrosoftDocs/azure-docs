@@ -156,30 +156,34 @@ For example, this iframe allows both camera and microphone access:
 
 Communication Services calling SDKs are not supporting all capabilities available in Teams client. The following table demonstrates capabilities supported with Azure Communication Services calling SDKs.
 
-|Group of features | Teams capability                                |Supported  |Note     |
-|------------------|-------------------------------------------------|-----------|---------|
-|Call forwarding   |Receive forwarded call                           |   ❔      |                                            |
-|                  |Set call forwarding                              |   ❌     | Can be configured in Teams client          |
-|Simultaneous ring |Receive Simultaneous ring                        |   ❔      |                                            |
-|                  |Cancel simultaneous ring if call picked up       |   ❔      |                                            |
-|                  |Set simultaneous ring                            |   ❌     | Can be configured in Teams client          |
-|Music on hold     |Hear music while being on hold                   |   ❌     | In development                             |
-|                  |Set music to be played while on hold             |   ❌     | In development                             |
-|Call parking      |Park ongoing call                                |   ❌     | In development                             |
-|                  |Pick up parked call                              |   ❌     | In development                             |
-|Transfer call     |Blind transfer                                   |   ✔️      |                                            |
-|                  |Safe transfer                                    |   ✔️      |                                            |
-|                  |Consultative transfer                            |   ✔️      |                                            |
-|Merge calls       |Merge ongoing calls int one                      |   ❌      | In development                            |
-|Voicemail         |Configure voicemail                              |   ❌      | Can be configured in Teams client         |
-|                  |Transfer call directly to voicemail              |   ❔      |                                           |
-|                  |Listen to voicemails                             |   ❌      | Can be listened in Teams client           |
-|Call delegation   |Configure call delegation                        |   ❌      | Can be configured in Teams client         |
-|                  |Delegate receives call                           |   ❔      |                                           |
-|                  |User doesn't receive call when delegation enabled|   ❔      |                                           |
-|Recording         |Start, pause, resume or stop call recording      |   ❌      | In development                            |
-|Transcription     |Start, pause, resume or stop call transcription  |   ❌      | In development                            |
-|Live captions     |Start, pause, resume or stop live captions       |   ❌      | In development                            |
+|Group of features        | Teams capability                                |Supported  |Note     |
+|-------------------------|-------------------------------------------------|-----------|---------|
+|Call forwarding          |Receive forwarded call                           |   ❔      |                                            |
+|                         |Set call forwarding                              |   ❌     | Can be configured in Teams client          |
+|Simultaneous ring        |Receive Simultaneous ring                        |   ❔      |                                            |
+|                         |Cancel simultaneous ring if call picked up       |   ❔      |                                            |
+|                         |Set simultaneous ring                            |   ❌     | Can be configured in Teams client          |
+|Music on hold            |Hear music while being on hold                   |   ❌     | In development                             |
+|                         |Set music to be played while on hold             |   ❌     | In development                             |
+|Call parking             |Park ongoing call                                |   ❌     | In development                             |
+|                         |Pick up parked call                              |   ❌     | In development                             |
+|Transfer call            |Blind transfer                                   |   ✔️      |                                            |
+|                         |Safe transfer                                    |   ✔️      |                                            |
+|                         |Consultative transfer                            |   ✔️      |                                            |
+|Merge calls              |Merge ongoing calls int one                      |   ❌      | In development                            |
+|Voicemail                |Configure voicemail                              |   ❌      | Can be configured in Teams client         |
+|                         |Transfer call directly to voicemail              |   ❔      |                                           |
+|                         |Listen to voicemails                             |   ❌      | Can be listened in Teams client           |
+|Call delegation          |Configure call delegation                        |   ❌      | Can be configured in Teams client         |
+|                         |Delegate receives call                           |   ❔      |                                           |
+|                         |User doesn't receive call when delegation enabled|   ❔      |                                           |
+|Recording                |Start, pause, resume or stop call recording      |   ❌      | In development                            |
+|Transcription            |Start, pause, resume or stop call transcription  |   ❌      | In development                            |
+|Live captions            |Start, pause, resume or stop live captions       |   ❌      | In development                            |
+|Public switching network |Basic emergency calling                          |   ❌      | In development                            |
+|                         |Enhanced emergency calling                       |   ❌      | In development                            |
+|                         |Location based routing                           |   ❔      |                                           |
+|                         |Branch office survivability                      |   ❔      |                                           |
 
 
 ## Next steps
