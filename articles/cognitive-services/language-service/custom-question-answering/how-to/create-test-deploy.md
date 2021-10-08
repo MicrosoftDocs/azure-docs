@@ -9,7 +9,7 @@ ms.date: 10/06/2021
 
 # Create, test, and deploy custom question answering
 
-You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a simple FAQ webpage, to answer questions.
+You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a product manual, to answer questions.
 
 ## Prerequisites
 
@@ -67,7 +67,12 @@ You can create a question answering project from your own content, such as FAQs 
 
     If you check the box for **include short answer response** you will also see a precise answer, if available, along with the answer passage in the test pane when you ask a question.
 
-3. Select Inspect to examine the response in more detail. The test window is used to test your changes to your project before deploying your project.
+3. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to your project before deploying your project.
+
+    > [!div class="mx-imgBorder"]
+    > ![See the confidence interval](../media/create-test-deploy/inspect-test.png)
+
+    From the **Inspect** interface you can see the level of confidence that this response will answer the question as well as directly edit a given question and answer response pair.
 
 ## Deploy your project
 
@@ -83,7 +88,7 @@ You can create a question answering project from your own content, such as FAQs 
     > [!div class="mx-imgBorder"]
     > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
-    Your project is now successfully deployed. You can use the endpoint in your application or in a bot.
+    Your project is now successfully deployed. You can use the endpoint in your own custom application or in a bot.
 
 ## Clean up resources
 
