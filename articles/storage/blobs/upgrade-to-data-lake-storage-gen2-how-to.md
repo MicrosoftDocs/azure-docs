@@ -45,7 +45,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
 6. Expand the **Step 2: Validate account before upgrading** section and then click **Start validation**.
 
-   If validation fails, select the **View errors** link
+   If validation fails, an error appears in the page. In some cases, a **View errors** link appears. If that link appears, select it. 
 
    > [!div class="mx-imgBorder"]
    > ![View errors link](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-errors.png)
