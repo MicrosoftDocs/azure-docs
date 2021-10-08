@@ -115,7 +115,7 @@ The below Patch operations are issued concurrently by different clients in diffe
 - `Set` attribute `/level` to platinum  
 - `Remove` 67890 from `/phone`
 
-:::image type="content" source="./media/partial-document-update/patch-multi-region-conflict-resolution.png" alt-text="An image that shows conflict resolution in concurrent multi-region partial update operations" lightbox="./media/partial-document-update/patch-multi-region-conflict-resolution.png":::
+:::image type="content" source="./media/partial-document-update/patch-multi-region-conflict-resolution.png" alt-text="An image that shows conflict resolution in concurrent multi-region partial update operations." border="false" lightbox="./media/partial-document-update/patch-multi-region-conflict-resolution.png":::
 
 Since Patch requests were made to non-conflicting paths within the document, these will be conflict resolved automatically and transparently (as opposed to Last Writer Wins at a document level).    
 

@@ -48,7 +48,7 @@ patchOperations.Add(patchOperation.Set("/existingPath/newproperty",value));
 
 container.PatchItemAsync<item>(
                 id: 5,
-                partitionKey: new PartitionKey(“pkey”),
+                partitionKey: new PartitionKey("task6"),
                 patchOperations: patchOperations );
 ```
 
@@ -104,7 +104,7 @@ You can add the [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) (version `
 ```
 
 > [!NOTE]
-> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/patch/sync) on GitHub
+> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/) on GitHub
 
 **Executing a single patch operation**
 
