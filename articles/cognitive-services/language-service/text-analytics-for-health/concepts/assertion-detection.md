@@ -1,5 +1,5 @@
 ---
-title: Assertion detection in the Health API
+title: Assertion detection in Text Analytics for health
 titleSuffix: Azure Cognitive Services
 description: Learn about assertion detection.
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Assertion detection
 
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The Health API supports three categories of assertion detection for entities in the text: 
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. Text Analytics for health supports three categories of assertion detection for entities in the text: 
 
 * Certainty
 * Conditional
@@ -23,7 +23,7 @@ The meaning of medical content is highly affected by modifiers, such as negative
 
 ## Assertion output
 
-The Health API returns assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect, and containing a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
+Text Analytics for health returns assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect, and containing a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
 
 **CERTAINTY**  – provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
 *	**Positive** [Default]: the concept exists or happened.
@@ -70,4 +70,4 @@ Assertion detection represents negated entities as a negative value for the cert
 
 ## Next steps
 
-[How to call the Health API](../how-to/call-api.md)
+[How to call the Text Analytics for health](../how-to/call-api.md)

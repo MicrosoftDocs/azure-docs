@@ -1,35 +1,23 @@
 ---
-title: Named entities for healthcare
+title: Entity categories recognized by Text Analytics for health
 titleSuffix: Azure Cognitive Services
+description: Learn about categories recognized by Text Analytics for health
 services: cognitive-services
 author: aahill
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: include 
-ms.date: 06/04/2021
+ms.topic: article
+ms.date: 06/08/2021
 ms.author: aahi
 ---
 
-The health feature of Language Services processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
+# Supported Text Analytics for Text Analytics for health entity categories
 
-Health API detects medical concepts in the following categories. Only English text is currently supported.
+Text Analytics for health processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
-| Category  | Description  |
-|---------|---------|
-| [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations, or regions. |
- | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
- | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
- | [EXTERNAL INFLUENCE](#external-influence) | concepts related to medically relevant external factors, such as allergens.|
- | [GENERAL ATTRIBUTES](#general-attributes) | concepts that provide more information about other concepts from the above categories. |
- | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
- | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments, and healthcare professions. |
- | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms, or signs. |
- | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage, and route of administration. |
- | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
- | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
-
-See more information and examples below.
+Text Analytics for health detects medical concepts in the following categories.
 
 ## Anatomy
 
@@ -241,3 +229,8 @@ describes whether the concept is associated with the subject of the text or some
 
 :::image type="content" source="../media/entities/association-entity.png" alt-text="An example of an association entity." lightbox="../media/entities/association-entity.png":::
 
+
+
+## Next steps
+
+* [NER overview](../../named-entity-recognition/overview.md)

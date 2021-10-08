@@ -1,7 +1,7 @@
 ---
-title: Health API language support 
+title: Text Analytics for health language support 
 titleSuffix: Azure Cognitive Services
-description: "This article explains which natural languages are supported by the Health API."
+description: "This article explains which natural languages are supported by the Text Analytics for health."
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 07/06/2021
 ms.author: aahi
 ---
 
-# Language support for the Health API 
+# Language support for Text Analytics for health
 
 > [!NOTE]
 > * The container uses different model versions than the API endpoints and SDK.
-> * Languages are added as new model versions are released for specific Language Services features. The current [model versions](../concepts/specify-model-version.md) for the Health API are:
+> * Languages are added as new model versions are released. The current [model versions](how-to/call-api.md#specify-the-text-analytics-for-health-model) for Text Analytics for health are:
 >    * API and SDK: `2021-05-15`
 >    * Container: `2021-03-01`
 
-Use this article to learn which natural languages are supported by the Health API and its Docker container. 
+Use this article to learn which natural languages are supported by Text Analytics for health and its Docker container. 
 
 ## REST API and client library
 
@@ -36,4 +36,4 @@ Use this article to learn which natural languages are supported by the Health AP
 
 ## See also
 
-[Health API overview](overview.md)
+[Text Analytics for health overview](overview.md)

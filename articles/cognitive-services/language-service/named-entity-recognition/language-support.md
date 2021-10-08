@@ -17,7 +17,7 @@ ms.author: aahi
 Use this article to learn which natural languages are supported by the NER feature of Azure Cognitive Service for Language.
 
 > [!NOTE]
-> * Languages are added as new [model versions](../concepts/specify-model-version.md) are released for these features. 
+> * Languages are added as new [model versions](how-to-call.md#specify-the-ner-model) are released. 
 > * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
 > * The current model version for NER is `2021-06-01`.
 
