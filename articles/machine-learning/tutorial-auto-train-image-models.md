@@ -51,21 +51,24 @@ This tutorial is also available on [GitHub](https://github.com/Azure/MachineLear
 
 You first need to set up a compute target to use for your automated ML model training. Automated ML models for image tasks require GPU SKUs. 
 
-This tutorial uses the NCsv3-series (with v100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
+This tutorial uses the NCsv3-series (with V100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
 
-The following code creates a GPU compute of size Standard _NC6 with four nodes that are attached to the workspace, `ws`. 
+The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`. 
+
+> [! WARNING] 
+> Ensure your subscription has sufficient quota for the compute target you wish to use. 
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
 
-cluster_name = "gpu-cluster-nc6"
+cluster_name = "gpu-cluster-nc24s_v3"
 
 try:
     compute_target = ws.compute_targets[cluster_name]
     print('Found existing compute target.')
 except KeyError:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='Standard_NC6', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='Standard_NC24s_v3', 
                                                            idle_seconds_before_scaledown=1800,
                                                            min_nodes=0, 
                                                            max_nodes=4)
@@ -101,8 +104,8 @@ Once uploaded to the datastore, you can create an Azure Machine Learning dataset
 The following code creates a dataset for training. Since no validation dataset is specified, by default 20% of your training data is used for validation. 
 
 ``` python
-from azureml.contrib.dataset.labeled_dataset import _LabeledDatasetFactory, LabeledDatasetTask
 from azureml.core import Dataset
+from azureml.data import DataType
 
 training_dataset_name = 'odFridgeObjectsTrainingDataset'
 if training_dataset_name in ws.datasets:
@@ -110,8 +113,11 @@ if training_dataset_name in ws.datasets:
     print('Found the training dataset', training_dataset_name)
 else:
     # create training dataset
-    training_dataset = _LabeledDatasetFactory.from_json_lines(
-        task=LabeledDatasetTask.OBJECT_DETECTION, path=ds.path('odFridgeObjects/train_annotations.jsonl'))
+        # create training dataset
+    training_dataset = Dataset.Tabular.from_json_lines_files(
+        path=ds.path('odFridgeObjects/train_annotations.jsonl'),
+        set_column_types={"image_url": DataType.to_stream(ds.workspace)},
+    )
     training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
     
 print("Training dataset name: " + training_dataset.name)
