@@ -31,9 +31,9 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 - A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
 - A Windows domain on Azure virtual machines or an on-premises datacenter extended to Azure with virtual network pairing.
 - An account that has permissions to create objects on Azure virtual machines and in Active Directory.
-- An Azure virtual network and subnet with enough IP address space for these components:
+- An Azure virtual network and one or more subnets with enough IP address space for these components:
    - Both virtual machines
-   - The IP address of the Windows failover cluster
+   - An IP address for the Windows failover cluster
    - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 
