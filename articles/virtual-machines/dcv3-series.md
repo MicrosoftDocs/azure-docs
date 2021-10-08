@@ -15,7 +15,7 @@ ms.author: mmcrey
 
 [!NOTE] DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
 
-The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel Software Guard Extensions and Intel Multi-Key Total Memory Encryption, customers can ensure their data is always encrypted and protected in use. 
+The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel Software Guard Extensions and Intel Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
 
 These machines are backed by the latest 3rd Generation Intel Xeon Scalable processors, and leverage Intel Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
