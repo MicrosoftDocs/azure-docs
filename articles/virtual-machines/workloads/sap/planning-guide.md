@@ -929,7 +929,7 @@ To upload an existing VM or VHD from the on-premises network, in order to use it
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli].
-* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see [az image](/cli/azure/image].
+* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see [az image](/cli/azure/image).
 * Create a new VM specifying the uploaded VHD or Managed Disk Image as OS disk with *az vm create* and parameter *--image*
 
 **Template**
