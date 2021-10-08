@@ -116,7 +116,7 @@ Every event, when observed via IoT Hub, has a set of common properties:
 | `time`        | applicationProperty | string    | Time the event was generated.                                |
 | `category`    | system              | string    | Audit, Operational, Diagnostics                              |
 | `operationName`| applicationProperty| string    | Event type identifier. (See the following section.)          |
-| `level`        | system             | string    | Event level (Informational|Warning|Error|Critical)           |
+| `level`        | system             | string    | Event level (Informational, Warning, Error, Critical)           |
 | `body`        | body                | object    | Particular event data.                                       |
 | `operationVersion` | system         | string    | Event Data version {Major}.{Minor}                           |
 
