@@ -21,9 +21,9 @@ Based on your network, connectivity, and security requirements, you can set up a
 
 This guide covers the following network options: 
 
-- Use [Azure public endpoints](#option-1---use-public-endpoints). 
-- Use [private endpoints](#option-2---use-private-endpoints). 
-- Use [private endpoints and allow public access on the same Azure Purview account](#option-3---use-both-private-and-public-endpoints). 
+- Use [Azure public endpoints](#option-1-use-public-endpoints). 
+- Use [private endpoints](#option-2-use-private-endpoints). 
+- Use [private endpoints and allow public access on the same Azure Purview account](#option-3-use-both-private-and-public-endpoints). 
 
 This guide describes a few of the most common network architecture scenarios for Azure Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Azure Purview accounts. 
 
