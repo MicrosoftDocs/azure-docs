@@ -26,7 +26,7 @@ Azure Virtual Network Manager is a management service that enables you to group,
 
 During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. The scope can be defined at the subscription, [management group](../governance/management-groups/overview.md), or  [tenant](../active-directory/develop/quickstart-create-new-tenant.md) level. After defining the scope, you enable features such as *Connectivity* and *SecurityAdmin* role for your Virtual Network Manager.
 
-After you deploy the Virtual Network Manager instance, you then create a *network group* by selecting specific virtual networks (Static group membership). You can also use conditional statements to select virtual networks by name, tags, or IDs (Dynamic group membership). You then create a connectivity or a security configuration targeting those network groups based on your network and security needs. 
+After you deploy the Virtual Network Manager instance, you then create a *network group* by selecting specific virtual networks (Static membership). You can also use conditional statements to select virtual networks by name, tags, or IDs (Dynamic membership). You then create a connectivity or a security configuration targeting those network groups based on your network and security needs. 
 
 A connectivity configuration enables you to create a mesh or a hub and spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created the network groups and configurations, you can deploy the configurations to any region of your choosing.
 
