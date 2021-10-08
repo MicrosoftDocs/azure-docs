@@ -23,8 +23,8 @@
 #    href: how-to-individual-credit.md
 #  - name: Change directory tenants
 #    href: change-directory-tenants.md
-  - name: Removing credit limits 
-    href: removing-credit-limits.md
+  - name: Remove credit limits 
+    href: remove-credit-limits.md
   - name: Add users to your directory
     href: add-users-directory.md
 #  - name: Sign into Azure with GitHub

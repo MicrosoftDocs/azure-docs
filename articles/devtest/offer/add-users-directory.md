@@ -11,7 +11,7 @@ ms.custom: devtestoffer
 
 # Add users to your Azure credit subscription  
 
-To manage and access subscription resources, you must be a user within the directory. In the subscriptions themselves, the hierarchy is controlled by the Azure Active Directory (AAD) tenancies. AAD is a lightweight directory protocol (LDAP) that stores account names and passwords.  
+To manage and access subscription resources, you must be a user within the directory. In the subscriptions themselves, the hierarchy is controlled by the Azure Active Directory (Azure AD) tenancies. Azure AD is a lightweight directory protocol (LDAP) that stores account names and passwords.  
 
 Before adding users, you need to determine your business hierarchy and what level of access they need within your subscription.  
 
@@ -29,19 +29,19 @@ Step 1 is determining whether you need to add a new user to your subscription. H
 
 ## Where do I add users and their roles within my subscription?
 
-Within AAD access management is a critical function. [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
+Within Azure AD access management is a critical function. [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
 
 Once you’ve determined you need to add a user, you must understand where you're adding them and what resources they need access to. The set of resources that a user can access is referred to as scope.  
 
 If the project and tasks you're working on need to be monitored by IT to enable security protocols, you'll need that user to have an Admin role within the Management group to have full access and permissions within the subscription.  
 
-![A screenshot of the access levels in Azure.](media/add-users-to-your-directory/access-management.png "Managing roles with management groups in Azure.")
+![A screenshot of the access levels in Azure.](media/add-users-directory/access-management.png "Managing roles with management groups in Azure.")
 
 However, if you're collaborating with another developer or a colleague, they may only need access at the resource or resource group level.  
 
 Read through the [Azure RBAC overview](../../role-based-access-control/overview.md) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
 
-## How to Add Users or delete users using Azure Active Directory  
+How to Add Users or delete users using Azure Active Directory  
 
 - [Add or delete users - Azure Active Directory | Microsoft Docs](../../active-directory/fundamentals/add-users-azure-active-directory.md)  
 
