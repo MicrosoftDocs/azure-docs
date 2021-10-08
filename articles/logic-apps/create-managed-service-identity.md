@@ -421,7 +421,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
         ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Consumption.](./media/create-managed-service-identity/built-in-managed-identity-consumption.png)
 
-     For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity-consumption).
+     For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
    * **Managed connector operations that support managed identity authentication** (preview)
 
@@ -489,7 +489,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
 ---
 
-<a name="authenticate-built-in-managed-identity-consumption"></a>
+<a name="authenticate-built-in-managed-identity"></a>
 
 ## Example: Authenticate built-in trigger or action with a managed identity
 
@@ -570,7 +570,7 @@ Here is the example HTTP action that shows all these property values:
 
 1. Continue building the logic app the way that you want.
 
-<a name="authenticate-managed-connector-managed-identity-consumption"></a>
+<a name="authenticate-managed-connector-managed-identity"></a>
 
 ## Example: Authenticate managed connector trigger or action with a managed identity
 
@@ -595,10 +595,6 @@ The Azure Resource Manager action, **Read a resource**, can use the managed iden
 1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
 1. Continue building the logic app the way that you want.
-
-### [Standard](#tab/standard)
-
----
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
 
@@ -655,7 +651,7 @@ During runtime, the Logic Apps service checks whether any managed connector trig
 
 ## ARM template for managed connections and managed identities (Consumption)
 
-If you automate deployment with an ARM template, and your logic app includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueType` property with `Alternative` as the property value. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#managed-connectors-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity-consumption).
+If you automate deployment with an ARM template, and your logic app includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueType` property with `Alternative` as the property value. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#managed-connectors-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
 For example, here's the underlying connection resource definition for an Azure Automation action that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative` as the property value:
 
@@ -712,7 +708,7 @@ To remove access for the managed identity, remove the identity's role assignment
 
 <a name="disable-identity-target-resource"></a>
 
-### Remove role assignment
+#### Remove role assignment
 
 The following steps remove access to the target resource from the managed identity:
 
@@ -729,7 +725,7 @@ The following steps remove access to the target resource from the managed identi
 
 <a name="disable-identity-logic-app"></a>
 
-### Disable managed identity on logic app resource
+#### Disable managed identity on logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
@@ -741,7 +737,7 @@ The following steps remove access to the target resource from the managed identi
 
 <a name="template-disable"></a>
 
-## Disable managed identity in an ARM template
+### Disable managed identity in an ARM template
 
 If you created the logic app's managed identity by using an ARM template, set the `identity` object's `type` child property to `None`.
 
