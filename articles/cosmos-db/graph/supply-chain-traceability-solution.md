@@ -72,13 +72,13 @@ The above diagram shows a high level and simplified view of a complex supply cha
 
 1. The warehouse could be of company’s owned or 3PL (third-party Logistic Providers). The pallets are then shipped to various other warehouses as per customer orders. As per the customer demands, child pallets or child-of-child pallets are created to accommodate the ordered quantity. Sometimes, a whole new item is made by mixing multiple items. For example, in a copack scenario that produces a variety pack, sometimes same item gets repacked to smaller or larger quantities to a different pallet as part of a customer order.
 
-  :::image type="content" source="./media/supply-chain-traceability-solution/pallet-relationship.png" alt-text="Pallet relationship in supply chain traceability solution" lightbox="./media/supply-chain-traceability-solution/pallet-relationship.png" border="true":::
+   :::image type="content" source="./media/supply-chain-traceability-solution/pallet-relationship.png" alt-text="Pallet relationship in supply chain traceability solution" lightbox="./media/supply-chain-traceability-solution/pallet-relationship.png" border="true":::
 
 1. Pallets then travel through the supply chain network and eventually reach the customer warehouse. During that process, the pallets can be further broken down or combine with other pallets to produce new pallets to fulfill customer orders.
 
 1. Eventually, the system creates a complex graph that holds vital relationship information for quality incident management, which we will discuss shortly.
 
-  :::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" alt-text="Supply chain object relationship complete architecture" lightbox="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" border="true":::
+   :::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" alt-text="Supply chain object relationship complete architecture" lightbox="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" border="true":::
 
 1. These intricate relationships are vital in a quality incident where the system can track and trace pallets across the supply chain. Graph and its traversals provide the required information for this. For example, if there is an issue with one raw material, the graph can show the impacted pallets, current location.
 
