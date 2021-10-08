@@ -53,7 +53,10 @@ You first need to set up a compute target to use for your automated ML model tra
 
 This tutorial uses the NCsv3-series (with V100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
 
-The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`. NOTE: You will need to ensure that your subscription has sufficient quota for the compute target you wish to use. 
+The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`. 
+
+> [! WARNING] 
+> Ensure your subscription has sufficient quota for the compute target you wish to use. 
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
