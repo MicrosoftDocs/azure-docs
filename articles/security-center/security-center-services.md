@@ -18,7 +18,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Windows machines**](#tab/features-windows)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc-enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
@@ -32,9 +32,9 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |[Docker host hardening](./harden-docker-hosts.md)|-|-|-|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Azure Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Azure Arc-enabled: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Azure Arc-enabled: Yes|
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Third-party vulnerability assessment|✔|-|✔|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
@@ -42,7 +42,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Linux machines**](#tab/features-linux)
 
-| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc enabled machines** | **Azure Defender required**       |
+| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Azure Defender required**       |
 |---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------:|
 | [Microsoft Defender for Endpoint integration](security-center-wdatp.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
@@ -56,8 +56,8 @@ The two tabs below show the features of Azure Security Center that are available
 | [Adaptive network hardening](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | Yes                               |
 | [Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
 | [Docker host hardening](./harden-docker-hosts.md)                                                                         | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
-| Missing OS patches assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
-| Security misconfigurations assessment                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
+| Missing OS patches assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
+| Security misconfigurations assessment                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | [Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)                    | -                                                                                                               | -                                    | -                              | No                                |
 | Disk encryption assessment                                                                                                | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                |
 | Third-party vulnerability assessment                                                                                      | ✔                                                                                                              | -                                    | ✔                             | No                                |
@@ -142,7 +142,7 @@ For information about when recommendations are generated for each of these prote
 
 <sup><a name="footnote3" /></a>3</sup> Requires Azure Defender for container registries.
 
-<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Arc enabled clusters is in public preview and not available on Azure Government.
+<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
 <sup><a name="footnote5" /></a>5</sup> Requires Azure Defender for Kubernetes.
 
