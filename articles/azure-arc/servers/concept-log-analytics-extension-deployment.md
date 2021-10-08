@@ -1,11 +1,11 @@
 ---
-title: Deploy the Log Analytics agent on Azure Arc-enabled servers
-description: This article tells how to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
+title: Deploy Log Analytics agent on Arc-enabled servers
+description: This article reviews the different methods to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
 ms.date: 10/08/2021
 ms.topic: conceptual 
 ---
 
-# Deploy the Log Analytics agent on Azure Arc-enabled servers
+# Understand deployment options for the Log Analytics agent on Azure Arc-enabled servers
 
 Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers support the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
 
