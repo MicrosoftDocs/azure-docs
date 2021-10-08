@@ -136,7 +136,8 @@ To iterate over the above steps, [reset the indexer](search-howto-reindex.md) be
 
 ## Next steps
 
-+ [Quickstart: Try AI enrichment in a portal walk-through](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create an OCR image skillset](cognitive-search-quickstart-ocr.md)
 + [Tutorial: Learn about the AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Skillset concepts](cognitive-search-working-with-skillsets.md)
 + [Knowledge store concepts](knowledge-store-concept-intro.md)
