@@ -8,14 +8,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/08/2021
 ---
 
 # Knowledge store "projections" in Azure Cognitive Search
 
-Projections, an element of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
+Projections are the element of a [knowledge store](knowledge-store-concept-intro.md) definition that specifies the physical expression of your data in Azure Storage. Through the projections that you define, you will determine:
 
-Projections can be tabular, where data articulation is in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage, or binary images also stored in Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
++ Number and type of data substructures in Azure Storage
++ Data isolation among groups of objects
++ Data relationships among objects within the same group
+
+## Types of data structures
+
+A knowledge store is a logical construction that's physically expressed in Azure Storage. Projections can be tabular, stored in Azure Table Storage, or JSON objects stored in Azure Blob Storage, or binary images also stored in Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
 The knowledge store supports three types of projections:
 
@@ -27,7 +33,7 @@ The knowledge store supports three types of projections:
 
 To see projections defined in context, step through [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
-## Basic pattern
+## Basic definition
 
 Projections are an array of complex collections under a `knowledgeStore` definition in a skillset object. Each set of tables, objects, and files is a *project group*, and you can have multiple groups if storage requirements include supporting different tools and scenarios. Within a single group, you can have multiple tables, objects, and files. 
 
@@ -51,7 +57,7 @@ Typically only one group is used, but the following example shows two to illustr
 }
 ```
 
-### Projection groups
+## Projection groups for isolation and relatedness
 
 Having multiple sets of table-object-file combinations is useful for supporting different scenarios. You might use one set for design and debug of a skillset, capturing output for further examination, while a second set collects output used for an online app, with a third for data science workloads.
 
