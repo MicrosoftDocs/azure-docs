@@ -2,7 +2,7 @@
 title: Manage Azure file share backups
 description: This article describes common tasks for managing and monitoring the Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/08/2021
 ---
 
 # Manage Azure file share backups
@@ -35,7 +35,7 @@ To create a new backup policy, follow these steps:
 
 1. In the **Backup policies** pane of the Recovery Services vault, select **+ Add**.
 
-   ![New backup policy](./media/manage-afs-backup/new-backup-policy.png)
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="Screenshot showing the option to start creating a new backup policy.":::
 
 1. In the **Add** pane, select **Azure File Share** as the **Policy Type**.
 
@@ -62,7 +62,7 @@ To create a new backup policy, follow these steps:
      For example, you’ve the RPO (recovery point objective) requirement of 4 hours and your working hours are 9 AM to 9 PM. To meet these requirements, the configuration for backup schedule would be:
     
      - Schedule: Every 4 hours
-     - Start time: 9 am 
+     - Start time: 9 AM 
      - Duration: 12 hours 
      
      :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="Screenshot showing an example of hourly backup frequency values.":::
