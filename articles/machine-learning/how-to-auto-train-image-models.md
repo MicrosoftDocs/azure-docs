@@ -325,17 +325,6 @@ Using other primary metric values is curently not supported.
 
 You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days).
 
-<!---
-### Early stopping
-You can optionally enable early stopping for your computer vision experiment using `enable_early_stopping` parameter.
-| Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
-| early_stopping | Enable early stopping logic during training | 1 |
-| early_stopping_patience | Minimum number of epochs/validation evaluations<br> with no primary metric score improvement before the run is stopped | 5 |
-| early_stopping_delay | Minimum number of epochs/validation evaluations<br> to wait before primary metric score improvement is tracked for early stopping | 5 |
-<br>
--->
-
 ## Sweeping hyperparameters for your model
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
