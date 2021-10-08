@@ -1033,6 +1033,15 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
+### Unsupported compression causes files to be corrupted
+
+**Symptoms**: You try to unzip a file that is stored in a blob container. A single copy activity in a pipeline has a source with the compression type set to "deflate64" (or any unsupported type). This activity runs successfully and produces the text file contained in the zip file. However, there is a problem with the text in the file, and this file appears corrupted. When this file is unzipped locally, it is fine.
+
+**Cause**: Your zip file is compressed by the algorithm of "deflate64", while the internal zip library of Azure Data Factory only supports "deflate". If the zip file is compressed by the Windows system and the overall file size exceeds a certain number, Windows will use "deflate64" by default, which is not supported in Azure Data Factory. On the other hand, if the file size is smaller or you use some third party zip tools that support specifying the compress algorithm, Windows will use "deflate" by default.
+
+> [!TIP]
+> Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
+
 ## Next steps
 
 For more troubleshooting help, try these resources:

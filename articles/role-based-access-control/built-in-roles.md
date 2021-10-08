@@ -17,7 +17,7 @@ ms.custom: generated
 
 This article lists the Azure built-in roles. If you are looking for administrator roles for Azure Active Directory (Azure AD), see [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand Azure role definitions](role-definitions.md).
+The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the control and data planes, see [Understand Azure role definitions](role-definitions.md).
 
 ## All
 
@@ -603,6 +603,7 @@ Create and manage virtual machines, manage disks and disk snapshots, install and
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Create and manage compute availability sets |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/cloudServices/* | Create and manage Cloud Services (extended support) |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Create and manage compute locations |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Perform all virtual machine actions including create, update, delete, start, restart, and power off virtual machines. Execute scripts on virtual machines. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |

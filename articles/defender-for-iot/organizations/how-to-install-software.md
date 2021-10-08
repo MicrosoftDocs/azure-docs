@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 09/23/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ---
 
@@ -1356,7 +1356,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 ## Configure a SPAN port
 
-A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. You can implement the workaround with either ESXi, or Hyper-V.
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
@@ -1392,7 +1392,7 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 Prior to starting you will need to:
 
-- Ensure that there is no instance of ClearPass VA running.
+- Ensure that there is no instance of a virtual appliance running.
 
 - Enable Ensure SPAN on the data port, and not the management port.
 
@@ -1416,11 +1416,11 @@ Prior to starting you will need to:
 
 1. Select **OK**.
 
-#### Attach a ClearPass SPAN Virtual Interface to the virtual switch
+#### Attach a SPAN Virtual Interface to the virtual switch
 
-You are able to attach a ClearPass SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
+You are able to attach a SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
 
-**To attach a ClearPass SPAN Virtual Interface to the virtual switch with PowerShell**:
+**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
 
 1. Select the newly added SPAN virtual switch, and add a new network adapter with the following command:
 
@@ -1444,7 +1444,7 @@ You are able to attach a ClearPass SPAN Virtual Interface to the Virtual Switch 
 
 These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
-**To attach a ClearPass SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
+**To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
 
 1. Under the Hardware list, select **Network Adapter**.
 

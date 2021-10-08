@@ -17,17 +17,19 @@ ms.date: 07/08/2021
 This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> This list is updated as of September 2021. Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the most updated list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
 
+## Training curated environments
 
-## PyTorch
+### PyTorch
 
 **Name**: AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.9
 
@@ -70,14 +72,19 @@ RUN HOROVOD_WITH_PYTORCH=1 \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## LightGBM
+Other available PyTorch environments:
+* AzureML-pytorch-1.8-ubuntu18.04-py37-cuda11-gpu
+* AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
+
+### LightGBM
 
 **Name**: AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu  
 **Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and additional packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -113,13 +120,14 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## Sklearn
+### Sklearn
 **Name**: AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
 
@@ -148,14 +156,15 @@ RUN pip install 'matplotlib>=3.3,<3.4' \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## TensorFlow
+### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows:
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -202,46 +211,10 @@ Azure ML pipeline training workflows that use AutoML automatically selects a cur
 
 For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
 
-## Inference only curated environments and prebuilt docker images
+## Inference curated environments and prebuilt docker images
 
-* All the docker images run as non-root user.
-* We recommend using `latest` tag for docker images. Prebuilt docker images for inference are published to Microsoft container registry (MCR), to query list of tags available, follow [instructions on their GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
+[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
-### TensorFlow
+## Security
+Version updates for supported environments are released every two weeks to address vulnerabilities no older than 30 days. 
 
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
- 1.15 | CPU | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
-2.4 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
-2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
-
-### PyTorch
-
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
- 1.6 | CPU | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
-1.7 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
-
-### SciKit-Learn
-
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
-0.24.1  | CPU | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest` | AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference |
-
-### ONNX Runtime
-
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
-1.6 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/onnxruntime-1.6-ubuntu18.04-py37-cpu-inference:latest` |AzureML-onnxruntime-1.6-ubuntu18.04-py37-cpu-inference |
-
-### XGBoost
-
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
-0.9 | CPU | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference | 
-
-### No framework
-
-Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
- --- | --- | --- | --- | --- |
-NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |

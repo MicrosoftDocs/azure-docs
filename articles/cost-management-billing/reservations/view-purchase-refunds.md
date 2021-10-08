@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -48,7 +48,7 @@ An Enterprise enrollment administrator can view reservation transactions with th
 
 [![Example showing reservation transactions.](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-To learn more, see [Azure Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+To learn more, see [Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## Use APIs to get reservation transactions
 
