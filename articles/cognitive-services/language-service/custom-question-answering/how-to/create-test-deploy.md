@@ -81,7 +81,7 @@ You can create a question answering project from your own content, such as FAQs 
 2. Select **Deploy** > and then when prompted select **Deploy** again.
 
     > [!div class="mx-imgBorder"]
-    > ![Successful deployment](../media/create-test-deploy/succesfful-deployment.png)
+    > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
     Your project is now successfully deployed. You can use the endpoint in your application or in a bot.
 
@@ -92,9 +92,4 @@ If you will not continue to test custom question answering you can delete the as
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add questions with metadata](add-question-metadata-portal.md)
-
-For more information:
-
-* [Markdown format in answers](../reference-markdown-format.md)
-* QnA Maker [data sources](../Concepts/data-sources-and-content.md).
+> [Add questions with metadata](../../../qnamaker/quickstarts/add-question-metadata-portal.md)
