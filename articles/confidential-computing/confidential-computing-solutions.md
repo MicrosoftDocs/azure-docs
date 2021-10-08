@@ -11,3 +11,5 @@ ms.author: JenCook
 ---
 
 # ACC Solutions
+
+<!--- Should include information for developers/operations/CTO on the building blocks of ACC – Trusted Execution Environments, Attestation, Key Management, Trusted Launch/Secure Boot ---> 

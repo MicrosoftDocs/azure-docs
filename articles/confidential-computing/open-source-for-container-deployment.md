@@ -11,3 +11,8 @@ ms.author: JenCook
 ---
 
 # deploy confidential containers
+
+<!--- This page is specific to OSS container projects and PArtner. It can showcase the projects that Microsoft has, as well as the projects that other OSS companies have.
+Mystikos, Graphene, Occlum, Marblerun.
+This is specify to deployment tools (aka lift and shift)
+ ---> 

@@ -11,3 +11,5 @@ ms.author: JenCook
 ---
 
 # Confidential VMs overview
+
+<!--- Overview of confidential VM and the offerings that exist. Security posture, encryption etc.  ---> 
