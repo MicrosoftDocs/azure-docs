@@ -252,8 +252,10 @@ Reject Options
 
 > [!NOTE]
 > Rejected rows feature is in Public Preview.
+> Please note that rejected rows feature is supported only for delimited text files and PARSER_VERSION 1.0.
 
-You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if it actual data types don't match the column definitions of the external table.
+
+You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if actual data types don't match the column definitions of the external table.
 
 When you don't specify or change reject options, service uses default values. Service will use the reject options to determine the number of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
 
@@ -279,8 +281,6 @@ error.json file contains json array with encountered errors related to rejected 
 | Column    | Rejected column ordinal number      |
 | Value     | Rejected column value               |
 | File      | Path to file that row belongs to    |
-
-
 
 ## Fast delimited text parsing
 
