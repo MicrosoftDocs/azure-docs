@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Text translation and entity recognition"
+title: "Quickstart: OCR and image analysis"
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard and AI cognitive skills to detect language, translate text, and recognize entities. The new fields created through AI become searchable text in an Azure Cognitive Search index. 
+description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to identify and extract searchable text from image files. 
 
 manager: nitinme
 author: HeidiSteen
@@ -10,11 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
 ---
-# Quickstart: Translate text and recognize entities using the Import data wizard
 
-Learn how AI enrichment in Azure Cognitive Search adds language detection, text translation, and entity recognition to create searchable content in a search index. 
+# Quickstart: Apply OCR and image analysis using the Import data wizard
 
-In this quickstart, you'll run the **Import data** wizard to analyze French and Spanish descriptions of several national museums located in Spain. Output is a searchable index containing translated text and entities, queryable in the portal using [Search explorer](search-explorer.md). 
+Learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR) and image analysis to create searchable content from image files. 
+
+In this quickstart, you'll run the **Import data** wizard to analyze visual content in JPG files. The content consists of photographs of signs. Output is a searchable index containing captions, tags, and text identified through OCR, all of which is queryable in the portal using [Search explorer](search-explorer.md). 
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
@@ -41,18 +42,16 @@ Before you begin, have the following prerequisites in place:
 
 In the following steps, set up a blob container in Azure Storage to store heterogeneous content files.
 
-1. [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data) from GitHub. There are multiple data sets. Use the files in the **spanish-museums** folder for this quickstart.
+1. [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data) from GitHub. There are multiple data sets. Use the files in the **unsplash-images\jpg-signs** folder for this quickstart.
 
 1. Upload the sample data to a blob container.
 
    1. Sign in to the [Azure portal](https://portal.azure.com/) and find your storage account.
    1. In the left nave pane, select **Containers**.
-   1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "spanish-museums". Use the default public access level.
-   1. In the "spanish-museums" container, select **Upload** to upload the files from your local **spanish-museums** folder.
+   1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". Use the default public access level.
+   1. In the "signs" container, select **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
 
-You should have 10 files containing French and Spanish descriptions of national museums located in Spain.
-
-   :::image type="content" source="media/cognitive-search-quickstart-blob/museums-container.png" alt-text="List of docx files in a blob container" border="true":::
+You should have 10 files containing photographs of signs. There is a second subfolder that includes landmark buildings. If your search service is Basic or above, include the second set of files if you want to evaluate image analysis on files that do not include pictures of text.
 
 You are now ready to move on the Import data wizard.
 
@@ -68,25 +67,25 @@ You are now ready to move on the Import data wizard.
 
 1. In **Connect to your data**, choose **Azure Blob Storage**. Choose an existing connection to the storage account and container you created. Give the data source a name, and use default values for the rest. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/connect-to-spanish-museums.png" alt-text="Azure blob configuration" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/connect-to-signs.png" alt-text="Azure blob configuration" border="true":::
 
 ### Step 2 - Add cognitive skills
 
-Next, configure AI enrichment to invoke language detection, text translation, and entity recognition. 
+Next, configure AI enrichment to invoke OCR and image analysis. 
 
-1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 10 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 19 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach free Cognitive Services processing" border="true":::
 
-1. In the same page, expand **Add enrichments** and make five selections:
+1. In the same page, expand **Add enrichments** and make tree selections:
 
-   Choose entity recognition (people, organizations, locations)
+   Enable OCR and merge all text into merged_content field.
 
-   Choose language detection and text translation
+   Choose "Generate tags from images" and "Generate captions from images".
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/select-entity-lang-enrichments.png" alt-text="Attach Cognitive Services select services for skillset" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/select-ocr-image-enrichments.png" alt-text="Attach Cognitive Services select services for skillset" border="true":::
 
-   In blobs, the "Content" field contains the content of the file. In the sample data, the content is multiple paragraphs about a given museum, in either French or Spanish. The "Granularity" is the field itself. Some skills work better on smaller chunks of text, but for the skills in this quickstart, field granularity is sufficient.
+   For image analysis, images are split from text during document cracking. The "merged_content" field re-associates text and images in the AI enrichment pipeline.
 
 ### Step 3 - Configure the index
 
@@ -94,15 +93,13 @@ An index contains your searchable content and the **Import data** wizard can usu
 
 For this quickstart, the wizard does a good job setting reasonable defaults:  
 
-+ Default fields are based on properties for existing blobs plus new fields to contain enrichment output (for example, `people`, `organizations`, `locations`). Data types are inferred from metadata and by data sampling.
++ Default fields are based on properties for existing blobs plus new fields to contain enrichment output (for example, `text`, `layoutText`, `imageCaption`). Data types are inferred from metadata and by data sampling.
 
 + Default document key is *metadata_storage_path* (selected because the field contains unique values).
 
 + Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
 
-+ Select the filterable checkbox for "Language". The wizard won't set the folder for you, but the ability to filter by language is useful in this demo given that there are multiple languages.
-
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-lang-entities.png" alt-text="Index fields" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-ocr-images.png" alt-text="Index fields" border="true":::
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
 
@@ -112,7 +109,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 1. In the **Indexer** page, you can accept the default name and click the **Once** schedule option to run it immediately. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-spanish-museum.png" alt-text="Indexer definition" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-signs.png" alt-text="Indexer definition" border="true":::
 
 1. Click **Submit** to create and simultaneously run the indexer.
 
@@ -120,7 +117,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 Cognitive skills indexing takes longer to complete than typical text-based indexing. To monitor progress, go to the Overview page and select the **Indexers** tab in the middle of page.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-status-spanish-museums.png" alt-text="Indexer status" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-status-signs.png" alt-text="Indexer status" border="true":::
 
 To check details about execution status, select an indexer from the list.
 
@@ -132,16 +129,17 @@ After an index is created, you can run queries to return results. In the portal,
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. In Query string, enter a search string to query the index, such as `search="picasso museum" &$select=people,organizations,locations,language,translated_text &$count=true &$filter=language eq 'fr'`, and then select **Search**.
+1. In Query string, enter a search string to query the index, such as `search=sign&searchFields=imageTags&$select=text,imageCaption,imageTags&$count=true`, and then select **Search**.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-spanish-museums.png" alt-text="Query string in search explorer" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-signs.png" alt-text="Query string in search explorer" border="true":::
 
 Results are returned as JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. Some tips for searching in this tool include the following techniques:
 
-+ Append `$select` to specify which fields to include in results. 
++ Append `$select` to specify which fields to include in results.
++ Append `searchField` to scope full text search to specific fields.
 + Use CTRL-F to search within the JSON for specific properties or terms.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-results-spanish-museums.png" alt-text="Search explorer example" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-results-signs.png" alt-text="Search explorer example" border="true":::
 
 Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case. 
 
@@ -155,7 +153,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-Cognitive Search has other built-in skills that can be exercised in the Import data wizard. As a next step, try the OCR and image analysis skills to create text-searchable content from image files.
+Cognitive Search has other built-in skills that can be exercised in the Import data wizard. The next quickstart uses entity recognition, language detection, and text translation. 
 
 > [!div class="nextstepaction"]
-> [Quickstart: Use OCR and image analysis to create searchable content](cognitive-search-quickstart-ocr.md)
+> [Quickstart: Translate text and recognize entities using the Import data wizard](cognitive-search-quickstart-blob.md)
