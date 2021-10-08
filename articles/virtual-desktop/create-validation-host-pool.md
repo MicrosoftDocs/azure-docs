@@ -27,7 +27,7 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 
 ## Create your host pool
 
-You can create a host pool by following the instructions in any of these articles:
+You can configure any existing pooled or personal host pool to be a validation host pool. You can also create a new host pool to use for validation by following the instructions in any of these articles:
 - [Tutorial: Create a host pool with Azure Marketplace or the Azure CLI](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 
