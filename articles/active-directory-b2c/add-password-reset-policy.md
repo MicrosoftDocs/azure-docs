@@ -335,6 +335,9 @@ Custom policies are a set of XML files that you upload to your Azure AD B2C tena
 
 ::: zone-end
 
+## Troubleshoot Azure AD B2C user flows and custom policies
+Your application needs to handle certain errors coming from Azure B2C service. Learn [how to troubleshoot Azure AD B2C's user flows and custom policies](troubleshoot.md).
+
 ## Next steps
 
 Set up a [force password reset](force-password-reset.md).
