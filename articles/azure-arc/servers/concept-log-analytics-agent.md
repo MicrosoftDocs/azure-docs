@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Deploy the Log Analytics agent on Azure Arc-enabled servers
 
-Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers supports the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
+Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers support the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
 
 The Log Analytics agent is required if you want to:
 
@@ -15,7 +15,7 @@ The Log Analytics agent is required if you want to:
 * Perform security monitoring in Azure by using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Sentinel](../../sentinel/overview.md).
 * Manage operating system updates by using [Azure Automation Update Management](../../automation/update-management/overview.md).
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md).
-* Run Automation runbooks directly on the machine and against resources in the environment to manage them by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
+* Run Automation runbooks directly on the machine and against resources in the environment by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
 This article reviews the deployment methods for the Log Analytics agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization.
 
@@ -30,14 +30,14 @@ This method supports managing the installation, management, and removal of VM ex
 #### Advantages
 
 * Can be useful for testing purposes.
-* Useful if you have a small number of machines to manage.
+* Useful if you have a few machines to manage.
 
 #### Disadvantages
 
 * Limited automation when using an Azure Resource Manager template, otherwise it is time consuming.
 * Can only focus on a single Arc-enabled server, and not multiple instances.
 * Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to four workspaces.
-* Doesn't support deploying the Dependency agent from the portal. You have to use PowerShell, the Azure CLI, or ARM template.
+* Doesn't support deploying the Dependency agent from the portal. You can only use PowerShell, the Azure CLI, or ARM template.
 
 ### Using Azure Policy
 
@@ -74,7 +74,7 @@ The process automation operating environment in Azure Automation and its support
 
 ## Next steps
 
-* To manage operating system updates using Azure Automation Update Management, review [Enable from an Automation account](../../update-management/enable-from-automation-account.md) and then follow the steps to enable machines reporting to the workspace.
+* To manage operating system updates using Azure Automation Update Management, review [Enable from an Automation account](../../automation/update-management/enable-from-automation-account.md) and then follow the steps to enable machines reporting to the workspace.
 
 * To track changes using Azure Automation Change Tracking and Inventory, review [Enable from an Automation account](../../automation/change-tracking/enable-from-automation-account.md) and then follow the steps to enable machines reporting to the workspace.
 
@@ -82,4 +82,4 @@ The process automation operating environment in Azure Automation and its support
 
 * To start collecting security-related events with Azure Sentinel, see [onboard to Azure Sentinel](scenario-onboard-azure-sentinel.md), or to collect with Azure Security Center, see [onboard to Azure Security Center](../../security-center/quickstart-onboard-machines.md).
 
-* See the VM insights [Monitor performance](../../azure-monitor/vm/vminsights-performance.md) and [Map depencencies](../../azure/azure-monitor/vm/vminsights-maps.md) articles to see how well your machine is performing and view discovered application components.
+* See the VM insights [Monitor performance](../../azure-monitor/vm/vminsights-performance.md) and [Map dependencies](../../azure-monitor/vm/vminsights-maps.md) articles to see how well your machine is performing and view discovered application components.
