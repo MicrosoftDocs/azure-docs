@@ -23,7 +23,7 @@ items:
   - name: Data, privacy, and security  
     href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
     displayName: Data privacy, logging, data retention
-- name: Custom text classification
+- name: Custom text classification (preview)
   items:
   - name: Overview
     href: custom-classification/overview.md
@@ -57,7 +57,7 @@ items:
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
-- name: Custom Named Entity Recognition (NER)
+- name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
     href: custom-named-entity-recognition/overview.md
@@ -93,7 +93,7 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Data limits
         href: custom-named-entity-recognition/concepts/limits.md
-- name: Custom Language Understanding
+- name: Custom Language Understanding (preview)
   items:
   - name: Overview
     href: custom-language-understanding/overview.md
@@ -399,7 +399,7 @@ items:
       href: text-analytics-for-health/concepts/relation-extraction.md
     - name: Assertion detection
       href: text-analytics-for-health/concepts/assertion-detection.md
-- name: Text summarization
+- name: Text summarization (preview)
   items:
   - name: Overview
     href: text-summarization/overview.md

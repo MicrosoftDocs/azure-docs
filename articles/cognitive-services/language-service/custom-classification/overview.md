@@ -1,5 +1,5 @@
 ---
-title: What is custom classification in Language Services - Azure Cognitive Services
+title: What is custom classification (preview) in Azure Cognitive Services for Language?
 titleSuffix: Azure Cognitive Services
 description: Learn how use custom text classification with the Language Services API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 09/20/2021
 ms.author: aahi
 ---
 
-# What is custom text classification?
+# What is custom text classification (preview)?
 
 Custom text classification is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence on top of [Microsoft Turing](https://msturing.org/about) to enable you to build custom models for text classification tasks. 
 

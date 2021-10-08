@@ -13,7 +13,7 @@ ms.author: aahi
 zone_pivot_groups: usage-custom-language-features     
 ---
 
-# Quickstart: Custom text classification
+# Quickstart: Custom text classification (preview)
 
 Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example for creating a model for classifying support tickets.
 

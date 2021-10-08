@@ -1,5 +1,5 @@
 ---
-title: What is Custom Named Entity Recognition (NER) in Language Services - Azure Cognitive Services
+title: What is Custom Named Entity Recognition (NER) in Azure Cognitive Service for Language (preview)
 titleSuffix: Azure Cognitive Services
 description: Learn how use Custom Named Entity Recognition (NER) with the Language Services API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 09/20/2021
 ms.author: aahi
 ---
 
-# What is Custom Named Entity Recognition (NER)?
+# What is Custom Named Entity Recognition (NER) (preview)?
 
 Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
 

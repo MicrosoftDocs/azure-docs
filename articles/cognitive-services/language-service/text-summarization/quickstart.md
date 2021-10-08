@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Text Summarization"
+title: "Quickstart: Use Text Summarization (preview)"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Text Summarization.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 
-# Quickstart: using the Text Summarization client library and REST API
+# Quickstart: using the Text Summarization client library and REST API (preview)
 
 Use this article to get started with Text Summarization using the Language Services client library and REST API. Follow these steps to try out examples code for mining text:
 

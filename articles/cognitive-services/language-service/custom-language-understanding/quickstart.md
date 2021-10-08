@@ -12,7 +12,7 @@ ms.date: 08/31/2021
 ms.author: aahi
 ---
 
-# Quickstart: Build a conversations project in Language Studio
+# Quickstart: Build a conversations project in Language Studio (preview)
 
 In this quickstart, create a conversations project in Conversational Language Understanding (CLU), using Language Studio. Use this article to learn how to:
 * Create a project
