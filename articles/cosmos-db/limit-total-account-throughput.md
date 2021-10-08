@@ -20,6 +20,9 @@ When using an Azure Cosmos DB account in [provisioned throughput](./set-throughp
 
 It can be challenging to keep track of the total amount of throughput that you have provisioned across your account, especially when you're getting started with Azure Cosmos DB. This can lead to unexpected charges when this amount ends up going over a certain budget that you didn't expect to exceed. To help you better control your costs, Azure Cosmos DB lets you limit the total throughput provisioned on your account.
 
+> [!NOTE]
+> This feature is not available on [serverless](./serverless.md) accounts.
+
 After you've set a limit to your account's total throughput, any of the following operations that would result in exceeding this limit is blocked and will explicitly fail:
 
 - Creating a new database with shared throughput.
