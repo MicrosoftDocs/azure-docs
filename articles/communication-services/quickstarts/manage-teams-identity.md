@@ -67,21 +67,12 @@ On the **Branding** pane, you can update your publisher domain for the applicati
 
 ### Step 4: Add the Communication Services permissions in the application
 
-#### 1 Navigate to your AAD app in the Azure portal and select **API permissions**
+- Navigate to your AAD app in the Azure portal and select **API permissions**
+- Select **Add Permissions**
+- In the **Add Permissions** menu select **Azure Communication Services**
+- Select the desired permissions **Voip** and/or **Teams.ManageCalls** and click **Add permissions**
 
 ![Permissions part1.](./media/AadPermissions.png)
-
-#### 2 Select **Add Permissions**
-
-![Permissions part2.](./media/AadPermissions2.PNG)
-
-#### 3. In the **Add Permissions** menu select **Azure Communication Services**
-
-![Permissions part3.](./media/AadPermissions3.PNG)
-
-#### 4 Select the desired permissions **Voip** and/or **Teams.ManageCalls** and click **Add permissions**
-
-![Permissions part4.](./media/AadPermissions4.PNG)
 
 ### Step 5: Enable a custom Teams endpoint experience for the application
 
