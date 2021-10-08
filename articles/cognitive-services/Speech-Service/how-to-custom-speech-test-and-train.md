@@ -80,7 +80,7 @@ After your dataset is uploaded, you have a few options:
 
 You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) for automation of any operations related to your Custom models. In particular, you can use it for a dataset upload. This may be especially useful, when your dataset file exceeds 128 MB and because of this cannot be uploaded using *Local file* option in Speech Studio.
 
-Use the following requests to create and upload a dataset:
+Use any of the following requests to create and upload a dataset:
 * [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
 * [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
 
@@ -104,7 +104,7 @@ To associate the new dataset with an existing project in the Speech Studio durin
 }
 ```
 
-Project GUID in 'project' element can be obtained via [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
+Project GUID in `project` element can be obtained via [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training/testing
 
