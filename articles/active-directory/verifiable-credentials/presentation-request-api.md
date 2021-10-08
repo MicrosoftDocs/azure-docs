@@ -119,7 +119,7 @@ The RequestRegistration type provides information registration for the issuer. T
 
 The following screenshot shows the `clientName` property and the display name of the `authority` (the verifier) in the presentation request.
 
-![Screenshot showing how to approve the presentation request.](media/presentation-request/approve-presentation-request.jpg)
+![Screenshot showing how to approve the presentation request.](media/presentation-request-api/approve-presentation-request.jpg)
 
 ### RequestPresentation type
 
