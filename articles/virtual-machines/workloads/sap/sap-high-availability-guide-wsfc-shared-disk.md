@@ -125,11 +125,11 @@ There are two options for shared disk in a windows failover cluster in Azure:
 When selecting the technology for for shared disk, keep in mind the following considerations:
 
 **Azure shared disk for SAP workloads**
-- Allows you to attach Azure managed disk to multiple VMs simultaneously without the need for additional software to maintain and operate 
-- You will be operating with a single Azure shared disk on one storage cluster. That has an impacts on the reliability of your SAP solution.
-- Currently the only supported deployment is with Azure shared Premium disk in Availability set. Azure Shared Disk is not supported in zonal deployment.     
-- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ). 
-- Azure shared Ultra disk is not supported for SAP workloads, as it doesn't support deployment in Availability set or zonal deployment.  
+
+- Allows you to attach Azure managed disk to multiple VMs simultaneously without the need for additional software to maintain and operate.
+- [Azure shared disk](../../disks-shared.md) with [Premium SSD](../../disks-types.md#premium-ssd) disks is supported for SAP deployment in availability set and availability zones.
+- [Azure Ultra disk](../../disks-types.md#ultra-disk) and [Azure Standard disks](../../disks-types.md#standard-ssd) is not supported as Azure shared disk for SAP workloads.
+- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ).
  
 **SIOS**
 - The SIOS solution provides real-time synchronous data replication between two disks
@@ -143,19 +143,30 @@ Microsoft is offering [Azure shared disks](../../disks-shared.md), which can be 
 
 #### Prerequisites and limitations
 
-Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. 
-The following limitations are currently in place:
+Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
--  [Azure Shared disk](../../disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) and [Standard SSD disks](../../disks-types.md#standard-ssd) is not supported as Azure Shared Disk for SAP workloads.
+-  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types#premium-ssd) is supported for SAP deployment in availability set and availability zones.
+-  Azure shared disk with Premium SSD disks comes with two storage SKUs.
+   - Locally-redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in Azure availability set.
+   - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in Azure availability zones.
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](../../windows/proximity-placement-groups.md).   
-   Although, you can deploy Windows cluster  VMs in Availability Set with Azure shared disk without PPG, PPG will ensure close physical proximity of Azure shared disks and the cluster VMs, therefore achieving lower latency between the VMs and the storage layer.    
+-  When using [Azure proximity placement group](../../windows/proximity-placement-groups.md) for SAP system, all virtual machines sharing a disk must be part of the same PPG.
 
-For further details on limitations for Azure shared disk, please review very carefully the [Limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
+For further details on limitations for Azure shared disk, please review very carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
-> [!IMPORTANT]
-> When deploying SAP ASCS/SCS Windows Failover cluster with Azure shared disk, be aware that your deployment will be operating with a single shared disk in one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.    
+#### Important consideration for Premium shared disk
+
+Following are some of the important points to consider with respect to Azure Premium shared disk:
+
+- LRS for Premium shared disk
+  - SAP deployment with LRS for Premium shared disk will be operating with a single Azure shared disk on one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.
+
+- ZRS for Premium shared disk
+  - Write latency for ZRS is higher than that of LRS due to cross zonal copy of data.
+  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-benchmarks) to identify the latency of ZRS disk in your region.
+  - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage cluster, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
+  - Review the the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
 
 > [!TIP]
 > Review the [SAP Netweaver on Azure planning guide](./planning-guide.md) and the [Azure Storage guide for SAP workloads](./planning-guide-storage.md) for important considerations, when planning your SAP deployment.
