@@ -137,7 +137,7 @@
     - name: Assign API permissions
       items:
       - name: Cost Management API permissions
-        href: automation/cost-management-api-permissions.md
+        href: automate/cost-management-api-permissions.md
       - name: Assign roles to EA SPNs
         href: manage/assign-roles-azure-service-principals.md
     - name: API latency and rate limits
@@ -145,25 +145,25 @@
     - name: Ingest usage details
       items:
       - name: Usage details overview
-        href: automation/automation-ingest-usage-details-overview.md
+        href: automate/automation-ingest-usage-details-overview.md
       - name: Usage details best practices
-        href: automation/usage-details-best-practices.md
+        href: automate/usage-details-best-practices.md
       - name: Understand usage details data fields
-        href: automation/understand-usage-details-fields.md
+        href: automate/understand-usage-details-fields.md
       - name: Retrieve large datasets with exports
         href: costs/ingest-azure-usage-at-scale.md
       - name: Get small usage datasets on demand
-        href: automation/get-small-usage-datasets-on-demand.md
+        href: automate/get-small-usage-datasets-on-demand.md
       - name: Get usage details as a legacy customer
-        href: automation/get-usage-details-legacy-customer.md
+        href: automate/get-usage-details-legacy-customer.md
       - name: Get usage data with Azure CLI
-        href: automation/get-usage-data-azure-cli.md
+        href: automate/get-usage-data-azure-cli.md
       - name: Migrate from EA to MCA usage fields
-        href: automation/migrate-ea-mca-usage-fields.md
+        href: automate/migrate-ea-mca-usage-fields.md
     - name: Budget automation
       items:
       - name: Automate budget creation
-        href: automation/automate-budget-creation.md
+        href: automate/automate-budget-creation.md
       - name: Configure budget-based actions
         href: manage/cost-management-budget-scenario.md
     - name: Reservation automation
@@ -173,31 +173,31 @@
     - name: Migrate from Enterprise Reporting APIs
       items:
       - name: Migrate from EA Reporting APIs to ARM
-        href: automation/migrate-ea-reporting-arm-apis-overview.md
+        href: automate/migrate-ea-reporting-arm-apis-overview.md
       - name: EA Usage Details APIs - NO DRAFT
-        href: automation/migrate-ea-reporting-arm-apis-overview.md
+        href: automate/migrate-ea-reporting-arm-apis-overview.md
       - name: EA Balance Summary API
-        href: automation/migrate-ea-balance-summary-api.md
+        href: automate/migrate-ea-balance-summary-api.md
       - name: EA Price Sheet API
-        href: automation/migrate-ea-price-sheet-api.md
+        href: automate/migrate-ea-price-sheet-api.md
       - name: EA Reserved Instance Usage Details API
-        href: automation/migrate-ea-reserved-instance-usage-details-api.md
+        href: automate/migrate-ea-reserved-instance-usage-details-api.md
       - name: EA Reserved Instance Usage Summary API
-        href: automation/migrate-ea-reserved-instance-usage-summary-api.md
+        href: automate/migrate-ea-reserved-instance-usage-summary-api.md
       - name: EA Reserved Instance Recommendations API
-        href: automation/migrate-ea-reserved-instance-recommendations-api.md
+        href: automate/migrate-ea-reserved-instance-recommendations-api.md
       - name: EA Reserved Instance Charges API
-        href: automation/migrate-ea-reserved-instance-charges-api.md
+        href: automate/migrate-ea-reserved-instance-charges-api.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
     - name: Migrate from Consumption APIs
       items:
       - name: Usage Details API
-        href: automation/migrate-consumption-usage-details-api.md
+        href: automate/migrate-consumption-usage-details-api.md
       - name: Forecasts API
-        href: automation/migrate-consumption-forecasts-api.md
+        href: automate/migrate-consumption-forecasts-api.md
       - name: Marketplaces API
-        href: automation/migrate-consumption-marketplaces-api.md
+        href: automate/migrate-consumption-marketplaces-api.md
   - name: Security
     items:
     - name: Security baseline
