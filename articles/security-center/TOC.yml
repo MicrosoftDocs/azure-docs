@@ -71,6 +71,10 @@
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
 
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 
 - name: Concepts
   items:
@@ -128,19 +132,28 @@
     - name: Overview of Azure Defender for servers
       displayName: VM
       href: defender-for-servers-introduction.md
-    - name: Vulnerability scanning
+    - name: Apply Azure security baselines
+      displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
+      href: apply-security-baseline.md
+    - name: Vulnerability assessments
       items:
-      - name: Scan your machines with the integrated VA scanner
-        displayName: qualys, vulnerability, arc, hybrid
+      - name: Find vulnerabilities with threat and vulnerability management
+        displayName: mde, tvm, vulnerability, va, arc, hybrid
+        href: deploy-vulnerability-assessment-tvm.md
+      - name: Find vulnerabilities with the integrated Qualys scanner
+        displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
-      - name: Scan your VMs with a BYOL VA solution
+      - name: Find vulnerabilities with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
+      - name: Automatically enable a vulnerability assessment solution
+        displayName: qualys, rapid7, vulnerability, auto provision
+        href: auto-deploy-vulnerability-assessment.md
       - name: Review and remediate vulnerabilities
-        displayName: qualys, rapid7, vulnerability
+        displayName: qualys, va, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
-        displayName: qualys, rapid7
+        displayName: qualys, rapid7, va
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
@@ -156,6 +169,9 @@
     - name: Define lists of safe applications for machines
       displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
       href: security-center-adaptive-application.md
+    - name: Review applications and software installed on your machines
+      displayName: inventory, apps, software inventory, mde, tvm
+      href: asset-inventory.md#access-a-software-inventory
     - name: Track changes to files and registries
       items:
       - name: Overview of file integrity monitoring
@@ -179,8 +195,11 @@
       href: defender-for-sql-usage.md
       displayName: hybrid, arc, Azure Defender
     - name: Overview of Azure Defender for open-source relational databases
-      displayName: PG, PostgreSQL, MySQL, MariaDB
+      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
       href: defender-for-databases-introduction.md
+    - name: Enable Defender for OS RDBs and respond to alerts
+      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-usage.md
     - name: Scan your SQL resources for vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md
       displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
@@ -208,7 +227,7 @@
     - name: Disable specific image vulnerability findings
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md#disable-specific-findings-preview
-    - name: Defend Azure Arc enabled Kubernetes clusters
+    - name: Defend Azure Arc-enabled Kubernetes clusters
       displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
       href: defender-for-kubernetes-azure-arc.md
     - name: Protect your Kubernetes workloads
@@ -220,7 +239,7 @@
   - name: Protect your Azure Storage accounts
     displayName: blob, adls, files, Azure Defender for Storage, Defender for Storage
     href: defender-for-storage-introduction.md
-  - name: Protect your Key Vault keys and secrets 
+  - name: Protect your Key Vault keys and secrets
     items:
     - name: Overview of Azure Defender for Key Vault
       displayName: KV, akv
@@ -310,15 +329,15 @@
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
-      href: faq-general.md
+      href: faq-general.yml
     - name: Permissions questions
-      href: faq-permissions.md
+      href: faq-permissions.yml
     - name: Data collection and agent questions
-      href: faq-data-collection-agents.md
+      href: faq-data-collection-agents.yml
     - name: Virtual Machines questions
-      href: faq-vms.md
+      href: faq-vms.yml
     - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.md
+      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
@@ -328,6 +347,8 @@
     href: security-center-endpoint-protection.md
   - name: Azure CLI
     href: /cli/azure/security
+  - name: Azure PowerShell
+    href: /powershell/module/az.security/
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

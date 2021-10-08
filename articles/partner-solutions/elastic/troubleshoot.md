@@ -3,7 +3,7 @@ title: Troubleshooting Elastic - Azure partner solutions
 description: This article provides information about troubleshooting Elastic integration with Azure
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 09/02/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -18,7 +18,7 @@ Elastic integration with Azure can only be set up by users who have *Owner* acce
 
 ## Logs not being emitted to Elastic
 
-Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/platform/resource-logs-categories.md) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic, navigate to [Azure diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md) for the resource. Verify that there's a diagnostic setting option available.
+Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic, navigate to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the resource. Verify that there's a diagnostic setting option available.
 
 :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Verify diagnostic setting":::
 

@@ -13,7 +13,7 @@ ms.date: 05/12/2021
 ms.author: lajanuar
 ---
 
-# Container: Translator translate method
+# Container: Translator translate method (preview)
 
 Translate text.
 
@@ -50,7 +50,7 @@ Request headers include:
 
 | Headers | Description |
 | --- | --- |
-| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](../reference/v3-0-reference.md#authentication). |
 | Content-Type | _Required request header_.  <br>Specifies the content type of the payload.  <br>Accepted value is `application/json; charset=UTF-8`. |
 | Content-Length | _Required request header_.  <br>The length of the request body. |
 | X-ClientTraceId | _Optional_.  <br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
@@ -240,4 +240,3 @@ The following table lists array element and character limits for the Translator 
 | Operation | Maximum size of array element | Maximum number of array elements | Maximum request size (characters) |
 |:----|:----|:----|:----|
 | translate | 10,000 | 100 | 10,000 |
-

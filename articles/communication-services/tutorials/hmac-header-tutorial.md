@@ -7,9 +7,10 @@ manager: soricos
 services: azure-communication-services
 
 ms.author: apistrak
-ms.date: 03/10/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: identity
 ---
 
 # Sign an HTTP request

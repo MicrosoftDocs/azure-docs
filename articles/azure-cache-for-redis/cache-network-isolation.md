@@ -26,7 +26,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 ### Limitations
 
 * Network security groups (NSG) are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
-* Not supported yet: Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall, and VNet injected caches.
+* Currently, portal console support, and persistence to firewall storage accounts are not supported. 
 * To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.
 
 > [!NOTE]

@@ -43,7 +43,7 @@ The following terminology is used throughout these NIST articles.
 
 Trusted Platform Module technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure cryptographic processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
 
-Microsoft provides significant information on how TPMs work with Windows. For more information, see [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
+Microsoft provides significant information on how TPMs work with Windows. For more information, see [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
 
 A software TPM is an emulator that mimics hardware TPM functionality. 
 
@@ -61,13 +61,13 @@ NIST provides limited guidance about the relative strength of authentication fac
 
 * [Password complexity requirements](https://www.microsoft.com/research/wp-content/uploads/2016/06/Microsoft_Password_Guidance-1.pdf)
 
-* [Banned passwords](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-configure-custom-password-protection)
+* [Banned passwords](../authentication/tutorial-configure-custom-password-protection.md)
 
-* [Leaked credentials identification](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+* [Leaked credentials identification](../identity-protection/overview-identity-protection.md)
 
 * [Secure hashed storage](https://aka.ms/AADDataWhitepaper)
 
-* [Account lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Account lockout](../authentication/howto-password-smart-lockout.md)
 
 **Something you have**. The strength of *something you have* is based on how likely the subscriber is to keep it in possession and the difficulty for an attacker to gain access to it. For example, when you're trying to protect against internal threats, a personal mobile device or hardware key will have a higher affinity. So it will be more secure than a desktop computer in an office.
 
@@ -124,4 +124,4 @@ One example is the Microsoft Authenticator app used in passwordless mode. With t
 
 [Achieving NIST AAL2 by using Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 by using Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieving NIST AAL3 by using Azure AD](nist-authenticator-assurance-level-3.md)

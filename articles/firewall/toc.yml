@@ -39,6 +39,8 @@
       href: premium-portal.md
     - name: Azure Firewall Premium certificates
       href: premium-certificates.md
+    - name: Azure Firewall web categories
+      href: web-categories.md   
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -67,8 +69,8 @@
       href: dns-details.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: Active FTP support
-      href: active-ftp-support.md
+    - name: FTP support
+      href: ftp-support.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
@@ -98,7 +100,7 @@
     - name: Create IP Groups
       href: create-ip-group.md
     - name: Protect Windows Virtual Desktop
-      href: protect-windows-virtual-desktop.md
+      href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
     - name: DNS settings
@@ -114,6 +116,8 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
+    - name: Migrate to Premium using Terraform
+      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Scale Outbound SNAT Ports
       href: integrate-with-nat-gateway.md
 - name: Reference
@@ -139,7 +143,7 @@
   - name: FAQ
     href: firewall-faq.yml
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

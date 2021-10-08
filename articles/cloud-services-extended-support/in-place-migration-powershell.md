@@ -1,13 +1,13 @@
 ---
 title: Migrate to Azure Cloud Services (extended support) using PowerShell 
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore  
+author: hirenshah1
+ms.author: hirshah
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -15,10 +15,6 @@ ms.custom: devx-track-azurepowershell
 # Migrate to Azure Cloud Services (extended support) using PowerShell
 
 These steps show you how to use Azure PowerShell commands to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
-
-> [!IMPORTANT]
-> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## 1) Plan for migration
 Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md) prior to beginning any migration steps. 
@@ -84,7 +80,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 Check the status of registration using the following:  
 ```powershell
-Get-AzProviderFeature -FeatureName CloudServices
+Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 
 Make sure that RegistrationState is `Registered` for both before you proceed.
@@ -117,6 +113,8 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ## 5) Migrate your Cloud Services 
+Before starting the migration, understand how the [migration steps](./in-place-migration-overview.md#migration-steps) works and what each step does. 
+
 * [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
 * [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
 
@@ -139,17 +137,27 @@ $deployment = Get-AzureDeployment -ServiceName $serviceName
 $deploymentName = $deployment.DeploymentName
 ```
 
-First, validate that you can migrate the Cloud Service by using the following commands:
+First, validate that you can migrate the Cloud Service by using the following commands. The command displays any errors that block migration. 
 
 ```powershell
 $validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 $validate.ValidationMessages
  ```
 
-The following command displays any warnings and errors that block migration. If validation is successful, you can move on to the Prepare step.
+If validation is successful or has just warnings, you can move on to the Prepare step. 
 
 ```powershell
 Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+
+Check the configuration for the prepared Cloud Service (extended support) by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, abort the migration.
+```powershell
+Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+If you're ready to complete the migration, commit the migration
+
+```powershell
+Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 ```
 
 ### 5.1) Option 2 - Migrate a Cloud Service in a virtual network
@@ -177,7 +185,7 @@ The following command displays any warnings and errors that block migration. If 
 Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Check the configuration for the prepared Cloud Service by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
+Check the configuration for the prepared Cloud Service (extended support) by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
 
 ```powershell
 Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
@@ -191,4 +199,5 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## Next steps
-Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.
+
+Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.

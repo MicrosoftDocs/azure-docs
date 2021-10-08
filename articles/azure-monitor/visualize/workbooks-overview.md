@@ -16,6 +16,9 @@ Here is a video walkthrough on creating workbooks.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
+> [!NOTE]
+> Legacy and private workbooks have been removed. Use the the [workbook retrieval tool](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/LegacyAI/DeprecatedWorkbookRetrievalTool.md) to retrieve the contents of your old workbook.
+
 ## Data sources
 
 Workbooks can query data from multiple sources within Azure. Authors of workbooks can transform this data to provide insights into the availability, performance, usage, and overall health of the underlying components. For instance, analyzing performance logs from virtual machines to identify high CPU or low memory instances and displaying the results as a grid in an interactive report.
@@ -43,6 +46,8 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 * [Trees](../visualize/workbooks-tree-visualizations.md)
 * [Graphs](../visualize/workbooks-graph-visualizations.md)
 * [Composite bar](../visualize/workbooks-composite-bar.md)
+* [Honey comb](workbooks-honey-comb.md)
+* [Map](workbooks-map-visualizations.md)
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Example of workbook visualizations." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
@@ -50,7 +55,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 
 Text, query, and metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
 
-To access pin mode, click **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
+To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
 
 :::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot of the pin experience." border="false":::
 
@@ -142,6 +147,7 @@ If a pinned step has an explicitly set time range (does not use a time range par
 ## Sharing workbook templates
 
 Once you start creating your own workbook templates you might want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery view visit our [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
+
 
 ## Next step
 

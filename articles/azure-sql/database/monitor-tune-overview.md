@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
 ---
 # Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance

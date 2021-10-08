@@ -1,8 +1,8 @@
 ---
 title: Azure Batch runs large parallel jobs in the cloud
-description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
+description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads.
 ms.topic: overview
-ms.date: 07/30/2020
+ms.date: 06/11/2021
 ---
 
 # What is Azure Batch?
@@ -17,7 +17,7 @@ For a comparison between Batch and other HPC solution options in Azure, see [Hig
 
 ## Run parallel workloads
 
-Batch works well with intrinsically parallel (also known as "embarrassingly parallel") workloads. Intrinsically parallel workloads have applications which can run independently, with each instance completing part of the work. When the applications are executing, they might access some common data, but they don't communicate with other instances of the application. Intrinsically parallel workloads can therefore run at a large scale, determined by the amount of compute resources available to run applications simultaneously.
+Batch works well with intrinsically parallel (also known as "embarrassingly parallel") workloads. These workloads have applications which can run independently, with each instance completing part of the work. When the applications are executing, they might access some common data, but they don't communicate with other instances of the application. Intrinsically parallel workloads can therefore run at a large scale, determined by the amount of compute resources available to run applications simultaneously.
 
 Some examples of intrinsically parallel workloads you can bring to Batch:
 
@@ -38,14 +38,11 @@ Some examples of tightly coupled workloads:
 - Fluid dynamics
 - Multi-node AI training
 
-Many tightly coupled jobs can be run in parallel using Batch. For example, perform multiple simulations of a liquid flowing through a pipe with varying pipe widths.
+Many tightly coupled jobs can be run in parallel using Batch. For example, you can perform multiple simulations of a liquid flowing through a pipe with varying pipe widths.
 
 ## Additional Batch capabilities
 
-Higher-level, workload-specific capabilities are also available for Azure Batch:
-
-- Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
-- R users can install the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms on Batch pools.
+Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
 
 You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
@@ -71,12 +68,15 @@ Keep in mind that the workflow described above is just one way to use Batch, and
 See [Batch service workflow and resources](batch-service-workflow-features.md) for an overview of features such as pools, nodes, jobs, and tasks. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## In-region data residency
+
 Azure Batch does not move or store customer data out of the region in which it is deployed. 
 
 ## Next steps
 
 Get started with Azure Batch with one of these quickstarts:
+
 - [Run your first Batch job with the Azure CLI](quick-create-cli.md)
 - [Run your first Batch job with the Azure portal](quick-create-portal.md)
 - [Run your first Batch job using the .NET API](quick-run-dotnet.md)
 - [Run your first Batch job using the Python API](quick-run-python.md)
+- [Create a Batch account using ARM templates](quick-create-template.md)

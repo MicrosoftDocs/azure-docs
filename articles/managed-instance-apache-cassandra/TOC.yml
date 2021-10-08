@@ -4,9 +4,11 @@
   items:
     - name: What is Azure Managed Instance for Apache Cassandra?
       href: introduction.md
+    - name: Compare to Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
 - name: Quickstarts
   items:
-    - name: Create a cluster - Portal
+    - name: Create a cluster - portal
       href: create-cluster-portal.md
     - name: Create a cluster - CLI
       displayName: az managed-cassandra, cluster, datacenter, connect
@@ -17,15 +19,21 @@
       href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
       href: deploy-cluster-databricks.md
+- name: Tutorials
+  items:
+    - name: Migration
+      items:
+      - name: Use dual-write proxy - live
+        href: dual-write-proxy-migration.md  
+      - name: Use Apache Spark - offline 
+        href: spark-migration.md  
 - name: Concepts
   items:
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  
-    - name: Managed instance Vs Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md                
 - name: How-to guides
-  items:
+  items:   
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
@@ -38,8 +46,8 @@
     - name: REST API
       items:
       - name: Cassandra clusters
-        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandraclusters
+        href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-clusters
       - name: Cassandra data centers
-        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
+        href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-data-centers
     - name: Azure CLI
       href: /cli/azure/managed-cassandra

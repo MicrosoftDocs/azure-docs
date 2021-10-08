@@ -90,8 +90,6 @@ When you're publishing an offer to the commercial marketplace with Partner Cente
 
 ## Legal contracts
 
-<strike>To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.</strike>
-
 You'll need terms and conditions customers must accept before they can try your offer, or a link to where they can be found.
 
 ## Offer listing details
@@ -123,7 +121,7 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
-- **Co-sell with Microsoft** – Let Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For details about co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies). For details on preparing your offer for evaluation, see [Co-sell option in Partner Center](commercial-marketplace-co-sell.md).
+- **Co-sell with Microsoft** – Let Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For details about co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies). For details on preparing your offer for evaluation, see [Co-sell option in Partner Center](./co-sell-configure.md).
 
 ## Next steps
 

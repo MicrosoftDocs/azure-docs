@@ -8,7 +8,8 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
 # Quickstart: Create a Synapse workspace
@@ -43,9 +44,17 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to an existing ADLSGEN2 storage account
-1. Select **Access control (IAM)** on the left pane. Then assign the following roles or make sure they're already assigned:
-    * Assign yourself to the **Owner** role.
-    * Assign yourself to the **Storage Blob Data Owner** role.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Owner and Storage Blob Data Owner |
+    | Assign access to | [USER |
+    | Members | your user name |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. On the left pane, select **Containers** and create a container.
 1. You can give the container any name. In this document, we'll name the container **users**.
 1. Accept the default setting **Public access level**, and then select **Create**.
@@ -55,11 +64,20 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 Managed identities for your Azure Synapse workspace might already have access to the storage account. Follow these steps to make sure:
 
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
-1. Select **Access control (IAM)** from the left pane.
-1. Assign the following roles or make sure they're already assigned. We use the same name for the workspace identity and the workspace name.
-    * For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity.
-    * Assign **myworkspace** as the workspace name.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | MANAGEDIDENTITY |
+    | Members | myworkspace  |
 
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. Select **Save**.
 
 ## Next steps

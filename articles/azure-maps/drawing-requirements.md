@@ -3,11 +3,11 @@ title: Drawing package requirements in Microsoft Azure Maps Creator
 description: Learn about the Drawing package requirements to convert your facility design files to map data
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/27/2021
+ms.date: 07/02/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
+
 ---
 
 # Drawing package requirements
@@ -50,7 +50,7 @@ The Drawing package must be zipped into a single archive file, with the .zip ext
 
 ## DWG file conversion process
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) performs the following on each DWG file:
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) does the following on each DWG file:
 
 - Extracts feature classes:
     - Levels
@@ -75,8 +75,8 @@ A single DWG file is required for each level of the facility. All data of a sing
 Each DWG file must adhere to the following requirements:
 
 - The DWG file must define the _Exterior_ and _Unit_ layers. It can optionally define the following layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
-- The DWG file cannot contain features from multiple levels.
-- The DWG file cannot contain features from multiple facilities.
+- The DWG file can't contain features from multiple levels.
+- The DWG file can't contain features from multiple facilities.
 - The DWG must reference the same measurement system and unit of measurement as other DWG files in the Drawing package.
 
 ## DWG layer requirements
@@ -85,18 +85,18 @@ Each DWG layer must adhere to the following rules:
 
 - A layer must exclusively contain features of a single class. For example, units and walls can’t be in the same layer.
 - A single class of features can be represented by multiple layers.
-- Self-intersecting polygons are permitted, but are automatically repaired. When this occurs, the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
-- Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities are not supported on the wall layer.
+- Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
+- Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities aren't supported on the wall layer.
 
 The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) ignores those entities.  
 
 | Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
 | [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Levels
-| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) |  Unit and Vertical penetrations
-| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed) |
+| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) |  Units and Vertical penetrations
+| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed), Structures |
 | [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
-| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zone
+| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zones
 | [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer).
 
@@ -113,7 +113,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 - Resulting level feature must be at least 4 square meters.
 - Resulting level feature must not be greater 400,000 square meters.
 
-If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Alternatively, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
+If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
 You can see an example of the Exterior layer as the outline layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -212,7 +212,7 @@ The next sections detail the requirements for each object.
 | `name`      | string | true   |  Name of building. |
 | `streetAddress`|    string |    false    | Address of building. |
 |`unit`     | string    |  false    |  Unit in building. |
-| `locality` |    string |    false |    Name of an city, town, area, neighborhood, or region.|
+| `locality` |    string |    false |    Name of a city, town, area, neighborhood, or region.|
 | `adminDivisions` |    JSON array of strings |    false     | An array containing address designations. For example: (Country, State) Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
 | `postalCode` |    string    | false    | The mail sorting code. |
 | `hoursOfOperation` |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format. |
@@ -269,7 +269,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |`nameSubtitle`|    string    |false|    Subtitle of the unit. |
 |`addressRoomNumber`|    string|    false|    Room, unit, apartment, or suite number of the unit.|
 |`verticalPenetrationCategory`|    string|    false| When this property is defined, the resulting feature is a vertical penetration (VRT) rather than a unit. You can use vertical penetrations to go to other vertical penetration features in the levels above or below it. Vertical penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) name. If this property is defined, the `categoryName` property is overridden with `verticalPenetrationCategory`. |
-|`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`.|
+|`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`. The value is case-sensitive.|
 | `nonPublic` | bool | false | Indicates if the unit is open to the public. |
 | `isRoutable` | bool | false | When this property is set to `false`, you can't go to or through the unit. The default value is `true`. |
 | `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit won't be reachable by a navigating agent.|
@@ -281,7 +281,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer of the zone.  |
-|categoryName|    string|    false    |Purpose of the unit. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
+|categoryName|    string|    false    |Purpose of the zone. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
 |zoneNameAlt|    string|    false    |Alternate name of the zone.  |
 |zoneNameSubtitle|    string |    false    |Subtitle of the zone. |
 |zoneSetId|    string |    false    | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |

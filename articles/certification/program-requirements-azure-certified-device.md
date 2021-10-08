@@ -1,6 +1,6 @@
 ---
-title: Azure Certified Device Requirements
-description: Azure Certified Device program requirements
+title: Azure Certified Device Certification Requirements
+description: Azure Certified Device Certification Requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
@@ -9,7 +9,7 @@ ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
 ---
 
-# Azure Certified Device Requirements 
+# Azure Certified Device Certification Requirements 
 (previously known as IoT Hub)
 
 This document outlines the device specific capabilities that will be represented in the Azure Certified Device catalog. A capability is singular device attribute that may be software implementation or combination of software and hardware implementations. 

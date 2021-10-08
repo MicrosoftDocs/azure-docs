@@ -30,7 +30,7 @@ If the resource group's region is temporarily unavailable, you can't update reso
 
 ## Parameters
 
-The information in this section can be helpful when you work with [parameters](template-parameters.md).
+The information in this section can be helpful when you work with [parameters](./parameters.md).
 
 ### General recommendations for parameters
 
@@ -130,7 +130,7 @@ The information in this section can be helpful when you work with [parameters](t
 
 ## Variables
 
-The following information can be helpful when you work with [variables](template-variables.md):
+The following information can be helpful when you work with [variables](./variables.md):
 
 * Use camel case for variable names.
 
@@ -158,9 +158,9 @@ Don't use variables for the API version.
 
 ## Resource dependencies
 
-When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
+When deciding what [dependencies](./resource-dependency.md) to set, use the following guidelines:
 
-* Use the `reference` function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [reference and list functions](define-resource-dependency.md#reference-and-list-functions).
+* Use the `reference` function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [reference and list functions](./resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 
@@ -172,7 +172,7 @@ When deciding what [dependencies](define-resource-dependency.md) to set, use the
 
 ## Resources
 
-The following information can be helpful when you work with [resources](template-syntax.md#resources):
+The following information can be helpful when you work with [resources](./syntax.md#resources):
 
 * To help other contributors understand the purpose of the resource, specify `comments` for each resource in the template.
 
@@ -281,5 +281,5 @@ After you've completed your template, run the test toolkit to see if there are w
 
 ## Next steps
 
-* For information about the structure of the template file, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop ARM templates for cloud consistency](templates-cloud-consistency.md).
+* For information about the structure of the template file, see [Understand the structure and syntax of ARM templates](./syntax.md).
+* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop ARM templates for cloud consistency](./template-cloud-consistency.md).

@@ -12,6 +12,10 @@
   items:
   - name: Restrict network access
     href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   expanded: true
   items:
@@ -56,7 +60,7 @@
     - name: Extend on-premises to Azure - private connection
       href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
     - name: Outbound-only internet connectivity
-      href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json    
+      href: ../../virtual-network/nat-gateway/nat-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
   - name: Network security
     items:
     - name: Network security groups
@@ -101,7 +105,7 @@
     - name: Optimize routing costs 
       href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create an Azure DNS zone and record
       href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route traffic using route tables

@@ -47,7 +47,7 @@ The following Azure components are used when backing up to Azure Blob storage.
 
 | Component | Description |
 | --- | --- |
-| **Storage account** |The storage account is the starting point for all storage services. To access Azure Blob storage, first create an Azure Storage account. For more information about Azure Blob storage, see [How to use Azure Blob storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
+| **Storage account** |The storage account is the starting point for all storage services. To access Azure Blob storage, first create an Azure Storage account. SQL Server is agnostic to the type of storage redundancy used. Backup to Page blobs and block blobs is supported for every storage redundancy (LRS\ZRS\GRS\RA-GRS\RA-GZRS\etc.). For more information about Azure Blob storage, see [How to use Azure Blob storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Container** |A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to Azure Blob storage, you must have at least the root container created. |
 | **Blob** |A file of any type and size. Blobs are addressable using the following URL format: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>`. For more information about page Blobs, see [Understanding Block and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 

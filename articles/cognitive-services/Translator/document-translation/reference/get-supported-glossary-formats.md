@@ -15,7 +15,7 @@ ms.author: v-jansk
 
 # Get supported glossary formats
 
-The Get supported glossary formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
+The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
 ## Request URL
 
@@ -86,38 +86,44 @@ The following is an example of a successful response.
 
 ```JSON
 {
-  "value": [
-    {
-      "format": "XLIFF",
-      "fileExtensions": [
-        ".xlf"
-      ],
-      "contentTypes": [
-        "application/xliff+xml"
-      ],
-      "defaultVersion": "1.2",
-      "versions": [
-        "1.0",
-        "1.1",
-        "1.2"
-      ]
-    },
-    {
-      "format": "TMX",
-      "fileExtensions": [
-        ".tmx"
-      ],
-      "contentTypes": [],
-      "versions": [
-        "1.0",
-        "1.1",
-        "1.2",
-        "1.3",
-        "1.4"
-      ]
-    }
-  ]
+    "value": [
+        {
+            "format": "XLIFF",
+            "fileExtensions": [
+                ".xlf"
+            ],
+            "contentTypes": [
+                "application/xliff+xml"
+            ],
+            "defaultVersion": "1.2",
+            "versions": [
+                "1.0",
+                "1.1",
+                "1.2"
+            ]
+        },
+        {
+            "format": "TSV",
+            "fileExtensions": [
+                ".tsv",
+                ".tab"
+            ],
+            "contentTypes": [
+                "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
+            ],
+            "contentTypes": [
+                "text/csv"
+            ]
+        }
+    ]
 }
+
 ```
 
 ### Example error response

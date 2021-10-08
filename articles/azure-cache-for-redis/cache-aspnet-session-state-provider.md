@@ -1,8 +1,8 @@
 ---
 title: Cache ASP.NET Session State Provider
 description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis. 
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
@@ -16,10 +16,9 @@ It's often not practical in a real-world cloud app to avoid storing some form of
 
 ## Store ASP.NET session state in the cache
 
-To configure a client application in Visual Studio using the Azure Cache for Redis Session State NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+To configure a client application in Visual Studio using the Azure Cache for Redis Session State NuGet package, select **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
 
 Run the following command from the `Package Manager Console` window.
-    
 
 ```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
@@ -27,15 +26,10 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 
 > [!IMPORTANT]
 > If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. Moving to 2.0.1 or higher is a breaking change; for more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). At the time of this article update, the current version of this package is 2.2.3.
-> 
-> 
-
-The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed.
-
->[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
+
+The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis package. If the StackExchange.Redis package is not present in your project, it is installed.
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Azure Cache for Redis Session State Provider.
 
@@ -74,7 +68,7 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-azure-cache-for-redis-settings).
+Configure the attributes with the values on the left from your cache in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** – specify your cache endpoint.
 * **port** – use either your non-TLS/SSL port or your TLS/SSL port, depending on the TLS settings.
@@ -110,8 +104,8 @@ Once these steps are performed, your application is configured to use the Azure 
 
 > [!IMPORTANT]
 > Data stored in the cache must be serializable, unlike the data that can be stored in the default in-memory ASP.NET Session State Provider. When the Session State Provider for Redis is used, be sure that the data types that are being stored in session state are serializable.
-> 
-> 
+>
+>
 
 ## ASP.NET Session State options
 

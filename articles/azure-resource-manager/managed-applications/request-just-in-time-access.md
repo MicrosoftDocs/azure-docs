@@ -66,7 +66,7 @@ When creating your offer in Partner Center, make sure you enable JIT access.
 
 1. Sign in to the Commercial Marketplace portal in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. For guidance creating a new managed application, follow the steps in [Create an Azure application offer](../../marketplace/create-new-azure-apps-offer.md).
+1. For guidance creating a new managed application, follow the steps in [Create an Azure application offer](../../marketplace/azure-app-offer-setup.md).
 
 1. On the **Technical configuration** page, select the **Enable just-in-time (JIT) access** checkbox.
 

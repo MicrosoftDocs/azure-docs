@@ -15,7 +15,7 @@ ms.date: 08/25/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
+This guide teaches you [to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
 
 For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
@@ -27,7 +27,7 @@ Before you begin migrating your Oracle schema to SQL Database:
 - Download [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - Have a target [SQL Database](../../database/single-database-create-quickstart.md) instance.
 - Obtain the [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
- 
+
 ## Pre-migration
 
 After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration). This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
@@ -50,7 +50,7 @@ To create an assessment:
 
    ![Screenshot that shows selecting Oracle schema.](./media/oracle-to-sql-database-guide/select-schema.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Alternatively, you can select a database and then select the **Create Report** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Instead, you can select a database and then select the **Create Report** tab.
 
    ![Screenshot that shows Create Report.](./media/oracle-to-sql-database-guide/create-report.png)
 
@@ -83,7 +83,7 @@ To convert the schema:
 
     ![Screenshot that shows Connect to Azure SQL Database.](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Alternatively, you can select your schema and then select the **Convert Schema** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Or, you can select your schema and then select the **Convert Schema** tab.
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-sql-database-guide/convert-schema.png)
 
@@ -112,7 +112,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Alternatively, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Or, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the checkboxes next to the tables. To omit data from individual tables, clear the checkboxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-sql-database-guide/migrate-data.png)
 
@@ -125,7 +125,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows validation in SQL Server Management Studio.](./media/oracle-to-sql-database-guide/validate-data.png)
 
-Alternatively, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
+Or, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
 - [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -149,6 +149,94 @@ The test approach to database migration consists of the following activities:
 1. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
 
+### Validate migrated objects
+
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
+
+#### Create test case
+
+1. Open SSMA for Oracle, select **Tester**  followed by **New Test Case**.
+   ![Screenshot that shows to create new test case.](./media/oracle-to-sql-database-guide/ssma-tester-new.png)
+
+1. Provide the following information for the new test case:
+
+   **Name:** Enter the name to identify the test case.
+
+   **Creation date:** Today's current date, defined automatically.
+
+   **Last Modified date:** Filled in automatically, should not be changed.
+
+   **Description:** Enter any additional information to identify the purpose of the test case.
+
+   ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
+
+1. Select the objects that are part of the test case from the Oracle object tree located in the left side.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
+
+   In this example, stored procedure `ADD_REGION` and table `REGION` is selected.
+
+     To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
+
+1. Next, select the tables, foreign keys, and other dependent objects from the Oracle object tree in the left window.
+
+   :::image type="content" source="./media//oracle-to-sql-database-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
+
+   To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
+
+1. Review the evaluation sequence of objects. Change the order by clicking the buttons in the grid.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
+
+1. Finalize the test case by reviewing the information provided in the previous steps. Configure the test execution options based on the test scenario.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
+
+   For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+
+1. Click on finish to create the test case.
+
+   :::image type="content" source="./media//oracle-to-sql-database-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
+
+#### Run test case
+
+When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
+
+1. Select the test case from test repository and then click run.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
+
+1. Review the launch test case  and click run.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to run test case":::
+
+1. Next, provide  Oracle  source credentials. Click connect after entering the credentials.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source":::
+
+1. Provide target SQL Server credentials and click connect.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-sql-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
+
+   On success, the test case moves to initialization stage.
+
+1. A real-time progress bar shows the execution status of the test run.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
+
+1. Review the report after the test is completed. The report provides the statistics, any errors during the test run and a detail report.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
+
+1. Click details to get more information.
+
+   Example of positive data validation.
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
+
+   Example of failed data validation.
+
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
+
 ### Optimize
 
 The post-migration phase is crucial for reconciling any data accuracy issues, verifying completeness, and addressing performance issues with the workload.
@@ -162,11 +250,10 @@ For more assistance with completing this migration scenario, see the following r
 
 | **Title/link**                                                                                                                                          | **Description**                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested "best fit" target platforms, cloud readiness, and application or database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target platform decision process.                                                          |
-| [Oracle Inventory Script Artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | This asset includes a PL/SQL query that hits Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
-| [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the xml files that are needed to run an SSMA assessment in console mode. The source.csv is provided by the customer based on an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
-| [SSMA for Oracle Common Errors and How to Fix Them](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a nonscalar condition in the WHERE clause. However, SQL Server doesn't support this type of condition. As a result, SSMA for Oracle doesn't convert queries with a nonscalar condition in the WHERE clause. Instead, it generates the error O2SS0001. This white paper provides more details on the issue and ways to resolve it.          |
-| [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server Database. If the migration requires changes to features or functionality, the possible impact of each change on the applications that use the database must be considered carefully.                                                     |
+| [Data Workload Assessment Model and Tool](https://www.microsoft.com/download/details.aspx?id=103130) | This tool provides suggested "best fit" target platforms, cloud readiness, and application or database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target platform decision process.                                                          |
+| [Oracle Inventory Script Artifacts](https://www.microsoft.com/download/details.aspx?id=103121)                 | This asset includes a PL/SQL query that hits Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
+| [Automate SSMA Oracle Assessment Collection & Consolidation](https://www.microsoft.com/download/details.aspx?id=103120)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the xml files that are needed to run an SSMA assessment in console mode. The source.csv is provided by the customer based on an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
+| [Oracle to SQL DB - Database Compare utility](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA for Oracle Tester is the recommended tool to automatically validate the database object conversion and data migration, and it's a superset of Database Compare functionality.<br /><br />If you're looking for an alternative data validation option, you can use the Database Compare utility to compare data down to the row or column level in all or selected tables, rows, and columns.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

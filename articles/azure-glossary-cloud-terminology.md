@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 09/17/2021
 ms.author: monicar
 
 ---
@@ -24,6 +24,7 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 
 * [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
+* [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) - Microsoft Cloud Adoption Framework for Azure.
 
 ## account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
@@ -100,7 +101,7 @@ See [Azure Resource Manager overview](azure-resource-manager/management/overview
 
 ## <a name="arm-template"></a>Resource Manager template
 A JSON file that declaratively defines one or more Azure resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.  
-See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/template-syntax.md)
+See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/syntax.md)
 
 ## resource provider
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  
@@ -111,7 +112,7 @@ A means for controlling access that can be assigned to users, groups, and servic
 See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
-The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
+The agreement that describes Microsoft's commitments for uptime and connectivity. Each Azure service has a specific SLA.  
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
@@ -128,6 +129,9 @@ See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/suppor
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
+
+## Tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  

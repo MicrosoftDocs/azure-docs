@@ -36,7 +36,7 @@ You can no longer create a QnA Maker managed resource from the QnA Maker create 
 
 - All existing QnA Maker managed (preview) resources continue to work as before. There is no action required for these resources at this time.
 - The creation flow for Custom question answering (preview) is the primary change. The service, portal, endpoints, SDK, etc. remain as before.
-- Custom question answering (preview) continues to be offered as a free public preview.
+- Custom question answering (preview) continues to be offered as a free public preview. This feature is only available as part of Text Analytics Standard resources. Do not change your pricing tier for Text Analytics resources to free.
 - Custom question answering (preview) is available in the following regions:
     - South Central US
 	- North Europe
@@ -46,5 +46,4 @@ You can no longer create a QnA Maker managed resource from the QnA Maker create 
 
 * [Get started with QnA Maker client library](./quickstarts/quickstart-sdk.md)
 * [Get started with QnA Maker portal](./quickstarts/create-publish-knowledge-base.md)
-
 

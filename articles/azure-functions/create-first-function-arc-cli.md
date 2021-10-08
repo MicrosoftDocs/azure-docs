@@ -10,7 +10,7 @@ ms.date: 05/10/2021
 In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
-> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+> Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
@@ -21,19 +21,19 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 ---
@@ -91,7 +91,7 @@ In Azure Functions, a function project is the unit of deployment and execution f
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). By default, the *local.settings.json* file is excluded from source control in the *.gitignore* file. This exclusion is because the file can contain secrets that are downloaded from Azure.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). By default, the *local.settings.json* file is excluded from source control in the *.gitignore* file. This exclusion is because the file can contain secrets that are downloaded from Azure.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -159,7 +159,7 @@ func azure functionapp list-functions
 
 ## Next steps
 
-Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Azure Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 

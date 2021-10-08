@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Global Relay Identity Sync for automatic user provis
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Global Relay Identity Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 0c4a3bf0-d0a6-4eab-909b-6cf9f9234e4c
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Global Relay Identity Sync for automatic user provisioning

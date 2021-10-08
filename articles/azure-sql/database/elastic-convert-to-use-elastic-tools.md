@@ -155,7 +155,7 @@ Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scrip
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-get-started.md).
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Additional resources
 

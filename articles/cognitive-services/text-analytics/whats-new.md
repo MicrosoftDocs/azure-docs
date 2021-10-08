@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 09/30/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -17,6 +17,53 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## October 2021
+
+* Quality improvements for the [Extractive Summarization](how-tos/extractive-summarization.md) feature in model-version `2021-08-01`.
+
+## September 2021
+
+* Starting with version `3.0.017010001-onprem-amd64` The Text Analytics for health container can now be called using the client library. See [How to install and run Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) for more information.
+
+
+## August 2021
+
+* Version `3.2-preview.1` which includes a public preview for [extractive summarization](how-tos/extractive-summarization.md).
+* [Asynchronous operation](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) is now available in the Azure Government and Azure China regions.
+* New preview versions of the client library, with support for extractive summarization. [See the quickstart](quickstarts/client-libraries-rest-api.md) for more information.
+
+## July 2021
+
+### GA release updates
+
+* General availability for [Text Analytics for health](how-tos/text-analytics-for-health.md?tabs=ner) for both containers and hosted API (/health).
+* General availability for [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* General availability for [PII extraction and redaction](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* General availability for [Asynchronous (`/analyze`) endpoint](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples with new SDK. 
+
+## June 2021
+
+### General API updates
+
+* New model-version `2021-06-01` for key phrase extraction based on transformers. It provides:
+  * Support for 10 languages (Latin and CJK). 
+  * Improved key phrase extraction.
+* The `2021-06-01` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
+  * Improved AI quality and expanded language support for the *Skill* entity category. 
+  * Added Spanish, French, German, Italian and Portuguese language support for the *Skill* entity category
+* Asynchronous (/analyze) operation and Text Analytics for health (ungated preview) is available in all regions. 
+
+### Text Analytics for health updates
+
+* You no longer need to apply for access to preview Text Analytics for health.
+* A new model version `2021-05-15` for the `/health` endpoint and on-premise container which provides
+    * 5 new entity types: `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` and `MUTATION_TYPE`,
+    * 14 new relation types,
+    * Assertion detection expanded for new entity types and
+    * Linking support for ALLERGEN entity type
+* A new image for the Text Analytics for health container with tag `3.0.016230002-onprem-amd64` and model version `2021-05-15`. This container is available for download from Microsoft Container Registry.
+ 
 ## May 2021
 
 * [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 

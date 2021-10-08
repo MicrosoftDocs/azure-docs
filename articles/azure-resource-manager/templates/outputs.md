@@ -144,4 +144,4 @@ az deployment group show \
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](./syntax.md).

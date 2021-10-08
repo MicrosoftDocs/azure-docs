@@ -1,14 +1,15 @@
 ---
-title: Azure CLI Script Example - Create Batch account - user subscription
-description: This script creates an Azure Batch account in user subscription mode. This account allocates compute nodes into your subscription.
+title: Azure CLI Script Example - Create Batch account - user subscription | Microsoft Docs
+description: Learn how to create an Azure Batch account in user subscription mode. This account allocates compute nodes into your subscription.
 ms.topic: sample
-ms.date: 01/29/2018 
-ms.custom: devx-track-azurecli
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, azure cli samples, azure cli examples, azure cli code samples
 ---
 
 # CLI example: Create a Batch account in user subscription mode
 
-This script creates an Azure Batch account in user subscription mode. An account that allocates compute nodes into your subscription must be authenticated via an Azure Active Directory token. The compute nodes allocated count toward your subscription's vCPU (core) quota. 
+This script creates an Azure Batch account in user subscription mode. An account that allocates compute nodes into your subscription must be authenticated via an Azure Active Directory token. The compute nodes allocated count toward your subscription's vCPU (core) quota.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -20,8 +21,7 @@ This script creates an Azure Batch account in user subscription mode. An account
 
 ## Clean up deployment
 
-Run the following command to remove the
-resource group and all resources associated with it.
+Run the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

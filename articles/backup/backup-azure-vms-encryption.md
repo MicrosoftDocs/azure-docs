@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/27/2021
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -38,9 +38,9 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 
 ### Limitations
 
-- You can back up and restore ADE encrypted VMs within the same subscription and region.
+- You can back up and restore ADE encrypted VMs within the same subscription.
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
-- You can back up and restore ADE encrypted VMs within the same subscription and region as the Recovery Services Backup vault.
+- Azure Backup supports Cross Region Restore of encrypted Azure VMs to the Azure paired regions. For more information, see [support matrix](./backup-support-matrix.md#cross-region-restore).
 - ADE encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for ADE encrypted VMs. This option is only supported for unencrypted managed disks.
 
@@ -113,7 +113,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
-- If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault.
+- If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault. You need to have access to key vaults to configure Backup for encrypted VMs.
 
 To set permissions:
 

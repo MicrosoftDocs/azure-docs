@@ -11,6 +11,8 @@ ms.date: 05/19/2020
 
 # Quickstart: Use an ARM template to create an Azure Database for MySQL server
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -41,7 +43,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 You create an Azure Database for MySQL server with a defined set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mysql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json":::
 
@@ -180,7 +182,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 You can [export an ARM template](../azure-resource-manager/templates/export-template-portal.md) from the Azure portal. There are two ways to export a template:
 
 - [Export from resource group or resource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
-- [Export before deployment or from history](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). This option retrieves an exact copy of a template used for deployment.
+- [Export before deployment or from history](../azure-resource-manager/templates/export-template-portal.md#download-template-before-deployment). This option retrieves an exact copy of a template used for deployment.
 
 When exporting the template, in the ```"properties":{ }``` section of the MySQL server resource you will notice that ```administratorLogin``` and ```administratorLoginPassword``` will not be included for security reasons. You **MUST** add these parameters to your template before deploying the template or the template will fail.
 

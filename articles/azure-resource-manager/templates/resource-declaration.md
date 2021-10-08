@@ -124,4 +124,4 @@ Use intellisense or [template reference](/azure/templates/) to determine which p
 ## Next steps
 
 * To conditionally deploy a resource, see [Conditional deployment in ARM templates](conditional-resource-deployment.md).
-* To set resource dependencies, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To set resource dependencies, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).

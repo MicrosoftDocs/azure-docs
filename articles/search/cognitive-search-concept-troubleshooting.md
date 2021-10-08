@@ -3,18 +3,17 @@ title: Tips for AI enrichment design
 titleSuffix: Azure Cognitive Search
 description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 09/16/2021
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 
 This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 
-If you have not done so already, step through the [Tutorial: Learn how to call AI enrichment APIs](cognitive-search-quickstart-blob.md) for practice in applying AI enrichments to a blob data source.
+If you haven't already, step through either the [Create a text translation and entity skillset](cognitive-search-quickstart-blob.md) or [Create an OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts for an introduction to enrichment of blob data.
 
 ## Tip 1: Start with a small dataset
 The best way to find issues quickly is to increase the speed at which you can fix issues. The best way to reduce the indexing time is by reducing the number of documents to be indexed. 
@@ -25,8 +24,7 @@ Run your document sample through the end-to-end pipeline and check that the resu
 
 ## Tip 2: Make sure your data source credentials are correct
 The data source connection is not validated until you define an indexer that uses it. If you see any errors mentioning that the indexer cannot get to the data, make sure that:
-- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](
-https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) to learn about the different formats supported.
+- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](search-howto-indexing-azure-blob-storage.md#credentials) to learn about the different formats supported.
 - Your container name in the indexer is correct.
 
 ## Tip 3: See what works even if there are some failures

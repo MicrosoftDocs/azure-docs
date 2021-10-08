@@ -9,13 +9,13 @@ ms.date: 11/17/2020
 ---
 
 # Resource Manager template samples for agents in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure the [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## Azure Monitor agent (preview)
-The samples in this section in the Azure Monitor agent (preview) on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc enabled servers. 
+The samples in this section in the Azure Monitor agent (preview) on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc-enabled servers. 
 
 ### Windows Azure virtual machine
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.
@@ -119,8 +119,8 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
 }
 ```
 
-### Windows Azure Arc enabled server
-The following sample installs the Azure Monitor agent on a Windows Azure Arc enabled server.
+### Windows Azure Arc-enabled server
+The following sample installs the Azure Monitor agent on a Windows Azure Arc-enabled server.
 
 #### Template file
 
@@ -169,8 +169,8 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc ena
 }
 ```
 
-### Linux Azure Arc enabled server
-The following sample installs the Azure Monitor agent on a Linux Azure Arc enabled server.
+### Linux Azure Arc-enabled server
+The following sample installs the Azure Monitor agent on a Linux Azure Arc-enabled server.
 
 #### Template file
 

@@ -3,10 +3,10 @@ title: Import a WebSocket API using the Azure portal | Microsoft Docs
 titleSuffix: 
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/25/2021
 ms.custom: template-how-to 
 ---
 
@@ -24,12 +24,14 @@ In this article, you will:
 > [!div class="checklist"]
 > * Understand Websocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
+> * Test your WebSocket API.
+> * View the metrics and logs for your WebSocket API.
 > * Learn the limitations of WebSocket API.
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A [WebSocket API](https://www.websocket.org/echo.html).
+- A WebSocket API. 
 
 ## WebSocket passthrough
 
@@ -70,11 +72,41 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
     |----------------|-------|
     | Display name | The name by which your WebSocket API will be displayed. |
     | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
-    | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
+    | WebSocket URL | The base URL with your websocket name. For example: *ws://example.com/your-socket-name* |
+    | URL scheme | Accept the default |
+    | API URL suffix| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this APIM instance. |
     | Products | Associate your WebSocket API with a product to publish it. |
     | Gateways | Associate your WebSocket API with existing gateways. |
  
 1. Click **Create**.
+
+## Test your WebSocket API
+
+1. Navigate to your WebSocket API.
+1. Within your WebSocket API, select the onHandshake operation.
+1. Select the **Test** tab to access the Test console. 
+1. Optionally, provide query string parameters required for the WebSocket handshake.
+
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="test API example":::
+
+1. Click **Connect**.
+1. View connection status in **Output**.
+1. Enter value in **Payload**. 
+1. Click **Send**.
+1. View received messages in **Output**.
+1. Repeat preceding steps to test different payloads.
+1. When testing is complete, select **Disconnect**.
+
+## View metrics and logs
+
+Use standard API Management and Azure Monitor features to [monitor](api-management-howto-use-azure-monitor.md) WebSocket APIs:
+
+* View API metrics in Azure Monitor
+* Optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations
+
+For example, the following screenshot shows  recent WebSocket API responses with code `101` from the **ApiManagementGatewayLogs** table. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
+
+:::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="Query logs for WebSocket API requests":::
 
 ## Limitations
 

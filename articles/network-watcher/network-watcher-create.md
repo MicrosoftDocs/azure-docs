@@ -99,7 +99,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## Create a Network Watcher using Azure Quickstart Template
 
-To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
 
 ## Delete a Network Watcher in the portal
 

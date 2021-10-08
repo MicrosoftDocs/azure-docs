@@ -2,7 +2,7 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 09/10/2021
 ms.author: juliako
 ---
 
@@ -14,8 +14,7 @@ ms.author: juliako
     * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
         * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-        > [!TIP]
-        > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
+        [!INCLUDE [install-docker-prompt](../../common-includes/install-docker-prompt.md)]
         * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     * [Python 3](https://www.python.org/downloads/) (3.6.9 or later), [Pip 3](https://pip.pypa.io/en/stable/installing/) and optionally [venv](https://docs.python.org/3/library/venv.html).
 * Read [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart
@@ -40,4 +39,4 @@ In this quickstart, you will:
 * Interpret the results.
 * Clean up resources.
 ## Set up your development environment
-[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
