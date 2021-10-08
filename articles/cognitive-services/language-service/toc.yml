@@ -140,43 +140,6 @@ items:
     items:
       - name: How to call the API
         href: entity-linking/how-to/call-api.md
-- name: Text Analytics for health
-  items:
-  - name: Overview
-    href: text-analytics-for-health/overview.md
-  - name: Quickstart
-    href: text-analytics-for-health/quickstart.md 
-  - name: Language support
-    href: text-analytics-for-health/language-support.md
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for Text Analytics for health`
-      href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
-    items:
-    - name: How to call the API
-      href: text-analytics-for-health/how-to/call-api.md
-    - name: Use containers
-      items:
-      - name: Use Docker containers
-        href: text-analytics-for-health/how-to/use-containers.md
-      - name: Configure Docker containers
-        href: text-analytics-for-health/how-to/configure-containers.md
-  - name: Concepts
-    items:
-    - name: Recognized entity categories 
-      href: text-analytics-for-health/concepts/health-entity-categories.md
-    - name: Relation extraction
-      href: text-analytics-for-health/concepts/relation-extraction.md
-    - name: Assertion detection
-      href: text-analytics-for-health/concepts/assertion-detection.md
 - name: Language Detection
   items:
   - name: Overview
@@ -399,6 +362,43 @@ items:
       href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+- name: Text Analytics for health
+  items:
+  - name: Overview
+    href: text-analytics-for-health/overview.md
+  - name: Quickstart
+    href: text-analytics-for-health/quickstart.md 
+  - name: Language support
+    href: text-analytics-for-health/language-support.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for Text Analytics for health`
+      href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
+  - name: How-to guides
+    items:
+    - name: How to call the API
+      href: text-analytics-for-health/how-to/call-api.md
+    - name: Use containers
+      items:
+      - name: Use Docker containers
+        href: text-analytics-for-health/how-to/use-containers.md
+      - name: Configure Docker containers
+        href: text-analytics-for-health/how-to/configure-containers.md
+  - name: Concepts
+    items:
+    - name: Recognized entity categories 
+      href: text-analytics-for-health/concepts/health-entity-categories.md
+    - name: Relation extraction
+      href: text-analytics-for-health/concepts/relation-extraction.md
+    - name: Assertion detection
+      href: text-analytics-for-health/concepts/assertion-detection.md
 - name: Text summarization
   items:
   - name: Overview
