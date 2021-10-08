@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Prepare your single-page app (SPA) for auth"
+title: "Tutorial: Get user profile from a web API"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you will learn about the authorization code flow in a React single-page application
+description: In this tutorial, you will use a React single-page application to call a web API and get user data
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -16,4 +16,4 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Learn about the authorization code flow in a React single-page application
+# Tutorial: Get user data from a web API

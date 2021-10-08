@@ -88,16 +88,18 @@
       href: tutorial-v2-react.md
     - name: React
       items: 
-      - name: 1 - Prepare your React SPA
-        href: tutorial-react-spa-auth-intro.md
-      - name: 2 - Prepare Azure AD for your app
-        href: tutorial-react-spa-register-project.md
-      - name: 3 - Sign in user
-        href: tutorial-react-spa-sign-in-users.md
-      - name: 4 - Get user data from a web API
-        href: tutorial-react-spa-get-user-data.md
-      - name: 5 - Sign out user
-        href: tutorial-react-spa-sign-out-users.md
+      - name: Prepare your app for auth
+        href: tutorial-single-page-app-01-prepare-app.md
+      - name: Prepare Azure AD for your app
+        href: tutorial-single-page-app-02-prepare-azure-ad.md
+      - name: Sign in user
+        href: tutorial-single-page-app-03-sign-in-users.md
+      - name: Call the Microsoft Graph API
+        href: tutorial-single-page-app-04-call-graph-api.md
+      - name: Get user data from a web API
+        href: tutorial-single-page-app-05-call-web-api.md
+      - name: Sign out user
+        href: tutorial-single-page-app-06-sign-out-users.md
   - name: Web app
     items:
     - name: ASP.NET

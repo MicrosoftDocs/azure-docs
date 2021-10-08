@@ -18,13 +18,3 @@ ms.custom: include
 
 # Tutorial: Create and register a React single-page application project
 
-
-
-
-## Get the completed code sample
-
-
-Clone the [dependent repo](https://github.com/Azure-Samples/ms-identity-javascript-react-docs):
-
-`git clone https://github.com/Azure-Samples/ms-identity-javascript-react-docs`
-
