@@ -61,10 +61,10 @@ az redis create --resource-group resourceGroupName --name cacheName --location w
 For more information on how to manage Azure Cache for Redis with Azure CLI, see [here](cli-samples.md)
 
 ## Upgrade an existing Redis 4 cache to Redis 6
-Azure Cache for Redis supports upgrading your Redis cache server major version from Redis 4 to Redis 6. Please note that upgrading is permanent and it may cause a brief connection blip. As a precautionary step, we recommend exporting the data from your cache and testing Redis 6 in a lower environment. Please see [here](cache-how-to-import-export-data.md) for details on how to export.
+Azure Cache for Redis supports upgrading your Redis cache server major version from Redis 4 to Redis 6. Please note that upgrading is permanent and it may cause a brief connection blip. As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading. Please see [here](cache-how-to-import-export-data.md) for details on how to export.
 
 > [!NOTE]
-> Please note, geo-replication between a Redis 4 and 6 cache is not supported, so you will have to manually unlink your cache instances before upgrading. 
+> Please note, upgrading is not supported on a cache with a geo-replication link, so you will have to manually unlink your cache instances before upgrading. 
 >
 
 To upgrade your cache, follow these steps:
