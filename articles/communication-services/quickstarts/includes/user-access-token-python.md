@@ -2,148 +2,137 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: tomaschladek
-manager: nmurav
+author: gistefan
+manager: soricos
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/13/2021
+ms.date: 10/08/2021
 ms.topic: include
 ms.custom: include file
-ms.author: tchladek
+ms.author: gistefan
 ---
-
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart)
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
 
-### Create a new Python application
+### Create a new C# application
 
-1. Open your terminal or command window create a new directory for your app, and navigate to it.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `TeamsAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
-   ```console
-   mkdir access-tokens-quickstart && cd access-tokens-quickstart
-   ```
+```console
+dotnet new console -o TeamsAccessTokensQuickstart
+```
 
-1. Use a text editor to create a file called **issue-access-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
+Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
-   ```python
-   import os
-   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
-
-   try:
-      print("Azure Communication Services - Access Tokens Quickstart")
-      # Quickstart code goes here
-   except Exception as ex:
-      print("Exception:")
-      print(ex)
-   ```
+```console
+cd TeamsAccessTokensQuickstart
+dotnet build
+```
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-pip install azure-communication-identity
+dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Microsoft.Identity.Client -Version 4.36.2
 ```
 
-## Authenticate the client
+### Set up the app framework
 
-Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
+From the project directory:
 
-Add this code inside the `try` block:
+1. Open **Program.cs** file in a text editor
+1. Add a `using` directive to include the `Azure.Communication.Identity` namespace
+1. Update the `Main` method declaration to support async code
 
-```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
+Use the following code to begin:
 
-# Instantiate the identity client
-client = CommunicationIdentityClient.from_connection_string(connection_string)
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Core;
+using Azure.Communication.Identity;
+
+namespace TeamsAccessTokensQuickstart
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Azure Communication Services - Teams Access Tokens Quickstart");
+
+            // Quickstart code goes here
+        }
+    }
+}
 ```
 
-Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
-```python
-endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
-client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
+### Step 1: Receive the Azure AD user token via the MSAL library
+
+First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
+
+```csharp
+string appId = "Contoso's_Application_ID";
+string authority = "https://login.microsoftonline.com/common";
+string redirectUri = "http://localhost";
+
+var aadClient = PublicClientApplicationBuilder
+                .Create(appId)
+                .WithAuthority(authority)
+                .WithRedirectUri(redirectUri)
+                .Build();
+
+string scope = "https://auth.msft.communication.azure.com/VoIP";
+
+var teamsUserAadToken = await aadClient
+                        .AcquireTokenInteractive(new List<string> { scope })
+                        .ExecuteAsync();
 ```
 
-## Create an identity
+### Step 2: Initialize the CommunicationIdentityClient
 
-Azure Communication Services maintains a lightweight identity directory. Use the `create_user` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
+Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
-```python
-identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.properties['id'])
+Add the following code to the `Main` method:
+
+```csharp
+// This code demonstrates how to fetch your connection string
+// from an environment variable.
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+var client = new CommunicationIdentityClient(connectionString);
 ```
 
-## Issue access tokens
-
-Use the `get_token` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `CommunicationUserIdentifier` can be constructed based on string representation of Azure Communication Service identity.
-
-```python
-# Issue an access token with the "voip" scope for an identity
-token_result = client.get_token(identity, ["voip"])
-expires_on = token_result.expires_on.strftime("%d/%m/%y %I:%M %S %p")
-print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
-print(token_result.token)
+Alternatively, you can separate endpoint and access key.
+```csharp
+// This code demonstrates how to fetch your endpoint and access key
+// from an environment variable.
+string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
+string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
+var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expires_on` response property indicates the lifetime of the access token.
-
-## Create an identity and issue an access token within the same request
-
-Use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
-
-```python
-# Issue an identity and an access token with the "voip" scope for the new identity
-identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0]
-token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-print("\nCreated an identity with ID: " + identity.properties['id'])
-print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
-print(token)
+If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
+```csharp
+TokenCredential tokenCredential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
 ```
 
-## Refresh access tokens
+### Step 3: Exchange the Azure AD user token for the Teams access token
 
-To refresh an access token, use the `CommunicationUserIdentifier` object to reissue:
+Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
-```python
-# Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token(identity, ["voip"])
-```
-
-## Revoke access tokens
-
-In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revoke_tokens` invalidates all active access tokens, that were issued to the identity.
-
-```python
-client.revoke_tokens(identity)
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
-```
-
-## Delete an identity
-
-Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
-
-```python
-client.delete_user(identity)
-print("\nDeleted the identity with ID: " + identity.properties['id'])
+```csharp
+var accessToken = await client.ExchangeTeamsTokenAsync(tokenResult.AccessToken);
+Console.WriteLine($"Token:{accessToken.Value.Token}");
 ```
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-access-tokens.py* file, then execute the following `python` command to run the app.
+Run the application from your application directory with the `dotnet run` command.
 
 ```console
-python ./issue-access-tokens.py
+dotnet run
 ```
