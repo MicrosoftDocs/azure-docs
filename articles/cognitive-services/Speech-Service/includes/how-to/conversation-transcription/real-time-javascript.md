@@ -72,7 +72,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
-* If you want to differentiate speakers but no voice samples input, please enables `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
