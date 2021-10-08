@@ -144,6 +144,10 @@ The main differences between versions when running .NET class library functions 
 >[!NOTE]
 >Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-considerations).
 
+# [Java](#tab/java)
+
+None.
+
 # [JavaScript](#tab/javascript)
 
 * Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
