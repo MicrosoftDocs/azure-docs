@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.custom: subject-cost-optimization, devx-track-azurecli
 ms.reviewer: nigup
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.date: 06/08/2021
 ---

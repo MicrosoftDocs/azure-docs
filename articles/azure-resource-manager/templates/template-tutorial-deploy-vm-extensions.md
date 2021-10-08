@@ -27,11 +27,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
+* To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    To learn more, run `man openssl rand` to open the manual page.
 
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in your ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
 
