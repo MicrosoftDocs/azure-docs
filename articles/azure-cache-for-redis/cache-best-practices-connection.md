@@ -32,7 +32,7 @@ We recommend these TCP settings:
 | *TCP_KEEPINTVL*  | 5 |
 | *TCP_KEEPCNT* | 3 |
 
-Consider using the *ForceReconnect* pattern. For an implementation of the pattern, see the code in [Reconnecting with Lazy<T> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+Consider using the *ForceReconnect* pattern. For an implementation of the pattern, see the code in [Reconnecting with Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
 
 For more information about the scenario can be found here, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 <!--  add clarification about other libraries -->
