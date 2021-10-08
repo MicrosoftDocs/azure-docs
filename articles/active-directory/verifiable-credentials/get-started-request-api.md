@@ -34,7 +34,7 @@ To get an access token, your app must be registered with the Microsoft identity 
 
 Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token using the of the Microsoft identity platform. To get a token by using the client credentials grant, send a POST request to the `/token` endpoint of the Microsoft identity platform.
 
-To acquire an access token, we recommend that you use a trusted oauth library. In this tutorial we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL is a Microsoft provided library that simplifies adding authentication and authorization to your app that can call a secure web API.
+To acquire an access token, we recommend that you use a trusted oauth library. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL is a Microsoft provided library that simplifies adding authentication and authorization to your app that can call a secure web API.
 
 # [HTTP](#tab/http)
 
@@ -242,7 +242,7 @@ Authorization: Bearer  <token>
 }
 ```  
 
-For the complete code, check out one of the following code sample, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
+For the complete code, check out one of the following code samples, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
 
 ## Presentation request example
 
@@ -281,8 +281,10 @@ Authorization: Bearer  <token>
 }
 ```
 
-For the complete code, check out one of the following code sample, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js).
+For the complete code, check out one of the following code samples:
 
+- [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) 
+- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js).
 
 ## Callback events
 

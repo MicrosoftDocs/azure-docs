@@ -31,7 +31,7 @@
     - name: Plan your verification solution
       href: plan-verification-solution.md
   - name: Using the Request Service REST API
-    href: call-request-api.md
+    href: get-started-request-api.md
   - name: How to customize your credentials
     href: credential-design.md
   - name: Manage credential revocation
@@ -55,9 +55,9 @@
   - name: What's new
     href: whats-new.md
   - name: Issuance API specification
-    href: issuance-request.md
+    href: issuance-request-api.md
   - name: Presentation API specification
-    href: presentation-request.md
+    href: presentation-request-api.md
 - name: Resources
   expanded: true
   items:
