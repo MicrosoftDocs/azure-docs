@@ -296,6 +296,12 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
+## Automation using Microsoft Graph API
+
+Use MS graph API to manage your Azure AD B2C directory. You can also create the Azure AD B2C directory itself. You can manage users, identity providers, user flows, custom policies and many more. 
+
+Learn more about how to [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md). 
+
 ## Azure AD B2C service limits and restrictions
 Learn more about [Azure AD B2C service limits and restrictions](service-limits.md)
 
