@@ -290,7 +290,7 @@ Once you have the registration credentials, use the following steps to create a 
 
 ## Authentication callbacks
 
-Identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allow list. The following endpoints are available as redirect destinations.
+Identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allowlist. The following endpoints are available as redirect destinations.
 
 | Type   | URL pattern                                                 |
 | ------ | ----------------------------------------------------------- |
