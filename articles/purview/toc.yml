@@ -257,6 +257,12 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
+  - name: Data Policies
+    items:
+    - name: How to create data access policies for Azure Storage
+      href: policy/how-to-storage-access-policies.md
+    - name: How to create data access policies for Azure SQL DB
+      href: policy/how-to-sql-access-policies.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
