@@ -149,7 +149,7 @@ this message is displayed, it suggests that Application Gateway couldn't success
 
 Application Gateway must be restarted after DNS servers are changed on the Virtual Network to begin to use the new servers. This operation can be completed via Azure PowerShell or Azure CLI.
 
-#### Azure CLI
+#### Azure PowerShell
 ```
 # Get Azure Application Gateway
 $appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
@@ -157,11 +157,11 @@ $appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
 # Stop the Azure Application Gateway
 Stop-AzApplicationGateway -ApplicationGateway $appgw
  
-# Start the Azure Application Gateway (optional)
+# Start the Azure Application Gateway
 Start-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-#### Azure PowerShell
+#### Azure CLI
 ```
 # Stop the Azure Application Gateway
 az network application-gateway stop -n <appgw_name> -g <rg_name>
