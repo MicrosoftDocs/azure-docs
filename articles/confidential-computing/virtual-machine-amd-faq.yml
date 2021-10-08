@@ -24,7 +24,7 @@ sections:
           CVMs are designed as IaaS virtual machines for tenants with especially high security and confidentiality requirements. Confidential VMs offer access to the following technologies and benefits: 
             1.	Encryption for “data in use” such that no component outside the processor, and no process outside the VM, can access a Confidential VM’s state. 
             2.	Host attestation to attest the full health and compliance of the server prior to initializing a Confidential VM.
-            3.	Encryption of “data at rest” such that keys are guarded by an HSM (Hardware Security Module) and can be exclusively owned by the tenant. 
+            3.	Encryption of “data at rest” so that keys are guarded by an HSM (Hardware Security Module) and are exclusively owned by the tenant. 
             4.	New UEFI boot architecture supporting the Guest OS for enhanced security settings and capabilities.
             5.	A dedicated virtual instance of a TPM (Confidential Platform Module) to attest the health of the VM and provide hardened key management functions (supporting use cases such as BitLocker)
           
@@ -32,15 +32,15 @@ sections:
           Why should I consider CVMs?
         answer: |
           CVMs are Azure’s response to customers’ growing desire to do more on the cloud, and as a result, place greater trust in the cloud. If you ever felt uneasy about moving sensitive workloads off-premises to run on the cloud, CVMs are designed to address this.
-          As such, these VMs are architected, deployed, and operated such that underlying infrastructure and cloud operators are prevented from accessing customer workloads and data. Unlike other approaches and solutions, there is no expectation that you adapt your existing workloads to fit the platform’s technical needs.
+          As such, these VMs are architected, deployed, and operated so that underlying infrastructure and cloud operators are prevented from accessing customer data. Unlike other approaches and solutions, there is no expectation that you adapt your existing workloads to fit the platform’s technical needs.
 
       - question: |
-          What are AMD SEV technologies and how does this relate to Azure confidential VMs?
+          What are AMD SEV technologies and how do they relate to Azure confidential VMs?
         answer: |
           AMD SEV technologies, and particularly SEV-SNP (Secure Encrypted Virtualization-Secure Nested Paging) offer memory encryption using unique CPU keys, encryption for the processor register state, strong integrity protection, firmware rollback prevention, side channel hardening, restrictions on interrupt and exceptions behavior, and more. 
-          Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. Combined with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview), customer code and data are encrypted in use, 
-          in transit, and at rest using keys which can be end-to-end protected and exclusively controlled by the customer. By utilizing built-in [Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) capabilities, VM administrators can independently establish trust in the healthy posture and underlying infrastructure of these virtual machines.
-          Please note that during the preview phase not all of these capabilities may be available.
+          Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. Combined with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview), customer data is encrypted in use, 
+          in transit, and at rest using keys that can be end-to-end protected and exclusively controlled by the customer. By utilizing built-in [Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) capabilities, VM administrators can independently establish trust in the healthy posture and underlying infrastructure of these virtual machines.
+          During the preview phase not all of these capabilities may be available.
 
       - question: |
           How can I deploy Azure confidential VMs?
@@ -52,9 +52,9 @@ sections:
       - question: |
           Will all OS images work with Azure confidential VMs?
         answer: |
-          At this time OS images must meet certain security and compatibility requirements to run on a confidential VM. These requirements ensure that VMs are securely mounted, attested, and isolated from the underlying cloud infrastructure. Microsoft is working to bring this compatibility into additional OS versions across Linux and Windows. 
+          To run on a CVM, OS images must meet certain security and compatibility requirements. These requirements ensure that VMs are securely mounted, attested, and isolated from the underlying cloud infrastructure. Microsoft is working to bring this compatibility to more OS versions across Linux and Windows. 
 
-          Using [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) it is possible to modify one of these confidential VM images (e.g. by installing certain applications) and using it as a baseline for deploying other confidential VMs.
+          Using [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) it is possible to modify one of these confidential VM images (for example, by installing certain applications) and using it as a baseline for deploying other confidential VMs.
 
       - question: |
           Can I convert a non-confidential VM into a confidential VM?
@@ -78,7 +78,7 @@ sections:
       - question: |
           What’s the difference between DCasv5-Series and ECasv5-series VMs?
         answer: |
-          ECasv5-series are memory optimized VM sizes which offer a higher memory-to-CPU ratio. This is great for relational database servers, medium to large caches, and in-memory analytics. There are no material differences otherwise.
+          ECasv5-series are memory optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are great for relational database servers, medium to large caches, and in-memory analytics. There are no material differences otherwise.
           
       - question: |
           Are DCasv5/ECasv5 virtual machines available globally?
@@ -88,7 +88,7 @@ sections:
       - question: |
           What happens if I need Microsoft to help me service or access data on my confidential VM?
         answer: |
-          Confidential VMs are designed, deployed, and operated such that Microsoft is precluded from accessing, using or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to its employees, even if authorized by a customer. This means that various recovery and support scenarios are not possible when using Azure confidential VMs.
+          Confidential VMs are designed, deployed, and operated such that Microsoft is precluded from accessing, using, or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to its employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
 
       - question: |
           Do confidential VMs support virtualization and solutions such as Azure VMware?
@@ -97,7 +97,7 @@ sections:
 
 
       - question: |
-          Is there be an additional cost to using CVMs?
+          Is there an additional cost to using CVMs?
         answer: |
-          CVMs are billed based on virtual machine usage according to the size and region. Note that CVMs are offered through dedicated sizes, so prices are not the same as general-purpose VMs. For some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
+          CVMs are billed based on virtual machine usage according to the size and region. CVMs are offered through dedicated sizes, so prices are not the same as general-purpose VMs. For some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
 
