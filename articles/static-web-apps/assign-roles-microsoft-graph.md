@@ -202,7 +202,9 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
     };
     ```
 
-    The *GetRoles* function is called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object , they are granted the corresponding custom role.
+    The *GetRoles* function is called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object , the corresponding custom roles are returned by the function.
+    
+    In the above example, if a user is a member of the Active Directory group with ID `b6059db5-9cef-4b27-9434-bb793aa31805`, they are granted the `reader` role.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
@@ -212,7 +214,7 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
 
 1. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, you'll see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object. Depending on the custom roles that you are assigned, you are permitted or prohibited to access some of the routes in the static web app.
+1. When you are logged in, the sample app displays the list of roles that you are assigned. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
 
 ## Clean up resources
 
