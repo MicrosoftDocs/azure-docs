@@ -14,38 +14,24 @@ ms.date: 10/06/2021
 ## Supported capabilities
 
 The Purview policy authoring supports following capabilities:
--   Data policy for Azure Storage to control access to data stored
-    in Blob or ADLS Gen2 files
+-   Data policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
 
-\[**IMPORTANT**\] These capabilities are currently in private preview.
-This preview version is provided without a service level agreement, and
-it's not recommended for production workloads. Certain features might
-not be supported or might have constrained capabilities. For more
-information, see [Supplemental Terms of Use for Microsoft Azure
+\[**IMPORTANT**\] These capabilities are currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might
+not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Pre-requisites
 
-### Enable Azure subscriptions for Purview policy private preview
-
-Azure Purview’s Data Policies is a private preview feature. That means it’s not generally available to all customers. It’s enabled case by case
-for a customer subscription. If this feature is not enabled in your subscription, contact your Microsoft account team. They will
-help you get in touch with product team to initiate the process.
-
 ### Using isolated subscription for preview
 
-\[**IMPORTANT**\] Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be
-evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure
-Purview and Azure Storage accounts.
+\[**IMPORTANT**\] Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure Purview and Azure Storage accounts.
 
 ### Provision new accounts in the isolated subscriptions
 
 #### Create Azure Purview account
 
-Provision a new Purview account and Storage account in the isolated subscription. The new functionality will be enabled in these new
-accounts. To create a new Purview account, refer to the quick-start guide [Quickstart: Create an Azure Purview account in the
-Azure
-portal.](../create-catalog-portal.md)
+Provision a new Purview account and Storage account in the isolated subscription. The new functionality will be enabled in these new accounts. To create a new Purview account, refer to the quick-start guide [Quickstart: Create an Azure Purview account in the
+Azure portal.](../create-catalog-portal.md)
 
 #### Create Azure Storage account
 
@@ -126,7 +112,7 @@ register your storage account:
 -   A user needs to be part of Purview data curator role to perform policy authoring/management actions.
 -   A user needs to be part of Purview data source admin role to publish the policy.
 
-## Policy Authoring
+## Policy authoring
 
 This section describes the steps for creating, updating, and publishing Purview data policies.
 
@@ -141,8 +127,7 @@ Steps to create a new policy in Purview
 3.  Select the **New Policy** button in the policy page.
     :::image type="content" source="./media/how-to-storage-access-policies/policy-onboard-guide-1.png" alt-text="Image shows how a Data Owner can access the Policy functionality in Azure Purview when it wants to create policies.":::
 
-4.  The new policy page will appear. Enter the policy **Name** and
-    **Description**.
+4.  The new policy page will appear. Enter the policy **Name** and **Description**.
 
 5.  To add policy statements to the new policy, select the **New policy
     statement** button. This will bring up the policy statement builder.
@@ -181,9 +166,7 @@ Steps to create a new policy in Purview are as follows.
 
 3.  The Policy portal will present the list of existing policies in Purview. Select the policy that needs to be updated.
 
-4.  The policy details page will appear, including Edit and Delete options. Select the **Edit** button which brings up the policy
-    statement builder for the statements in this policy. Now, any parts of the statements in this policy can be updated. To delete the
-    policy, use the **Delete** button.
+4.  The policy details page will appear, including Edit and Delete options. Select the **Edit** button which brings up the policy statement builder for the statements in this policy. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
     :::image type="content" source="./media/how-to-storage-access-policies/edit-policy-storage.png" alt-text="Image shows how a Data Owner can edit or delete a policy statement.":::
 
 ## Policy publishing
