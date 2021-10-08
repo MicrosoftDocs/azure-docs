@@ -471,8 +471,7 @@ Alternatively, you can deploy the model from the Azure ML Studio UI, by navigati
 ### Update inference configuration
 
 In the previous step, we downloaded the scoring file `outputs/scoring_file_v_1_0_0.py` from the best model into a local `score.py` file and we used it to create an `InferenceConfig` object. This script can be modifed to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
-
- You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the 'Deploy a model' pane that follows.
+    
 ```
 ...
 def init():
