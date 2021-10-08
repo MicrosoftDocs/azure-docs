@@ -69,16 +69,14 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
 
-To migrate an app from 3.x to 4.x:
+To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
-- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    
-    # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### Breaking changes between 3.x and 4.x
 
