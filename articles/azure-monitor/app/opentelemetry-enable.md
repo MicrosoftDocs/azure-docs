@@ -168,7 +168,7 @@ pip install azure-monitor-opentelemetry-exporter
 ```
 ---
 
-### Enable OpenTelemetry
+### Enable Azure Monitor Application Insights
 
 #### 3. Add OpenTelemetry instrumentation code
 
@@ -430,7 +430,7 @@ Activity/span attributes can be added using either of the following two options.
 1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 2. Adding a custom processor.
 
-These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
+These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
 
 #### Add custom property
 
@@ -942,11 +942,11 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 ```
 #### [Node.js](#tab/nodejs)
 
-Placeholder
+No further troubleshooting steps at this time. Open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 
 #### [Python](#tab/python)
 
-Placeholder
+No further troubleshooting steps at this time. Open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ---
 
@@ -981,7 +981,7 @@ For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://g
 
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
-- Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
+- Engage with other Azure Monitor users at [Microsoft's Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
 
 ## Next steps
 
