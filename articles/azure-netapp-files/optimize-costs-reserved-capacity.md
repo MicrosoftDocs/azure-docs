@@ -20,7 +20,7 @@ ms.author: b-juche
 
 You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one year. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure file shares. How much you save will depend on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) that you've chosen for your Azure NetApp Files. 
+Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save will depend on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) that you've chosen for your Azure NetApp Files. 
 
 For pricing information about reservation capacity for Azure NetApp Files, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
@@ -33,17 +33,15 @@ This section describes the terms of an Azure NetApp Files capacity reservation.
 You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 PiB per month for a one-year term for a particular service level within a region.
 
 ### Reservation scope
-Azure NetApp Files reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups.  
-
-When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to a management group, the reservation discount is applied to subscriptions that are a part of both the management group and billing scope. A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
+Azure NetApp Files reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups. When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to a management group, the reservation discount is applied to subscriptions that are a part of both the management group and billing scope. A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
 
 Any capacity reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features like cross-region network transfer, backup, and so on are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
 
-For more information on Azure reservations, see [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md).
+For more information on Azure reservations, see [What are Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### Supported service level options
 
-Azure NetApp Files reserved capacity is available for standard, premium, and ultra-service levels in units of 100 TiB and 1 PiB.
+Azure NetApp Files reserved capacity is available for Standard, Premium, and Ultra service levels in units of 100 TiB and 1 PiB.
 
 ### Security requirements for purchase
 
