@@ -37,6 +37,8 @@
     href: how-to-block-network-traffic-portal.md
   - name: Create a hub and spoke topology
     href: how-to-create-hub-and-spoke.md
+  - name: View applied configurations
+    href: how-to-view-applied-configurations.md
   - name: Exclude elements from dynamic membership
     href: how-to-exclude-elements.md
 - name: Resources
