@@ -15,14 +15,6 @@ ms.custom:
 
 
 
-### [PowerShell](#tab/powershell)
-### [CLI](#tab/cli)
-### [Portal](#tab/portal)
-### [REST](#tab/rest)
-
----
-
-
 > [!IMPORTANT]
 > **VM application packages in Azure Compute Gallery** are currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -44,11 +36,11 @@ Before you get started, make sure you have the following:
 
     if ($remainder -ne 0){
 
-    $difference = 512 - $remainder
+       $difference = 512 - $remainder
 
-    $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
+       $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
 
-    Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+       Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
         }
     ```
 
@@ -66,13 +58,17 @@ For the public preview, you first need to register the feature:
 
 
 ```azurecli-interactive
-az feature register --namespace <!-- feature namespace --> --name <!-- feature name-->
+az feature register \
+   --namespace <!-- feature namespace --> \
+   --name <!-- feature name-->
 ```
 
 Check the status of the feature registration.
 
 ```azurecli-interactive
-az feature show --namespace <!-- feature namespace --> --name <!-- feature name--> | grep state
+az feature show \
+   --namespace <!-- feature namespace --> \
+   --name <!-- feature name--> | grep state
 ```
 
 Check your provider registration.
@@ -93,13 +89,17 @@ az provider register -n <!-- feature -->
 Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName <!-- feature name--> -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature `
+   -FeatureName <!-- feature name--> `
+   -ProviderNamespace Microsoft.Compute
 ```
 
 It takes a few minutes for the registration to finish. Use `Get-AzProviderFeature` to check the status of the feature registration:
 
 ```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName <!-- feature name--> -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature `
+   -FeatureName <!-- feature name--> `
+   -ProviderNamespace Microsoft.Compute
 ```
 
 When `RegistrationState` returns `Registered`, you can move on to the next step.
@@ -115,15 +115,6 @@ If it doesn't return `Registered`, use the following code to register the provid
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
-
----
-
-
-### [CLI](#tab/cli)
-### [Portal](#tab/portal)
-### [REST](#tab/rest)
-
----
 
 ## Sample app
 
@@ -149,7 +140,7 @@ Hello world!
 ### Byte align the files
 
 ```azurepowershell-interactive
-$inputFile = ./MyAppInstaller.ps1
+$inputFile = "./MyAppInstaller.ps1"
 
 $fileInfo = Get-Item -Path $inputFile
 
@@ -163,7 +154,7 @@ if ($remainder -ne 0){
 
     Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
     }
-    ```
+```
 
 ### Create the package blobs
 All VM Applications must have a package. Fill in the blanks for the following script to upload the byte aligned package to two storage blobs.
@@ -171,22 +162,20 @@ All VM Applications must have a package. Fill in the blanks for the following sc
 ```azurepowershell-interactive
 Login-AzureRMAccount
 
-$subid = {your subscription id}
-Set-AzureRmContext -SubscriptionId $subid
+$subid = ""
+Set-AzContext -SubscriptionId $subid
 
-$rg = {your resource group}
-$saName = {your storage account name}
-$containerName = {container name where your blobs will be stored}
+$rg = ""
+$saName = ""
+$containerName = ""
+$location = ""
 
-# Uncomment to create a new storage account if you don't already have one
-#New-AzureRmStorageAccount -name $saName -ResourceGroupName $rg -SkuName "Standard_LRS" -Location $location
-
-$sa = Get-AzureRMStorageAccount -Name $saName -ResourceGroupName $rg
-New-AzureStorageContainer -Name $containerName -Context $sa.Context -Permission Blob
+$sa = New-AzStorageAccount -name $saName -ResourceGroupName $rg -SkuName "Standard_LRS" -Location $location
+New-AzStorageContainer -Name $containerName -Context $sa.Context -Permission Blob
 
 $packageFile = ".\MyAppInstaller.ps1"
 $packageBlob = "MyAppPackage"
-Set-AzureStorageBlobContent -BlobType Page -File $packageFile -Container $containerName -Blob $packageBlob -Context $sa.Context
+Set-AzStorageBlobContent -BlobType Page -File $packageFile -Container $containerName -Blob $packageBlob -Context $sa.Context
 ```
 
 ## Create the default config blob
