@@ -26,7 +26,7 @@ Log Analytics allows users to create log queries to interactively work with log 
 
 
 ## Workbooks
-[Workbooks](./visualize/workbooks-overview.md) are the visualization platform of choice for Azure providing a flexible canvas for data analysis and creation of rich visual reports. Workbooks enable you to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They are especially useful to prepare E2E monitoring views across multiple resources 
+[Workbooks](./visualize/workbooks-overview.md) are the visualization platform of choice for Azure providing a flexible canvas for data analysis and creation of rich visual reports. Workbooks enable you to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They are especially useful to prepare E2E monitoring views across multiple Azure resources.
 
 Insights use prebuilt workbooks to present users with critical health and performance information for a particular service. You can access a gallery of additional workbooks in the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet requirements of your different users.
 
@@ -75,17 +75,22 @@ Common scenarios for Power BI include the following:
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents. You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents, combining visualizations of Azure and non-Azure data sources including on-premises, third party tools, and data stores in other clouds. Grafana has popular plugins and dashboard templates for APM tools such as Dynatrace, New Relic, and App Dynamics which enables users to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS Cloudwatch and GCP BigQuery plugins for multi-cloud monitoring in a single pane of glass.
+
+
+
+
+You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
 
 ![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
 
 
 Common scenarios for Grafana include the following:
 
-- Rich visualizations.
-- A rich ecosystem of data sources.
-- Data interactivity, including zoom-in.
-- Support for parameters.
+- Combine time-series and event data in a single visualization panel.
+- Create a dynamic dashboard based on user selection of dynamic variables.
+- Create a dashboard from a community created and supported template.
+- Create a vendor agnostic BCDR scenario that runs on any cloud provider or on-premises.
 
 ## Azure Monitor partners
 Some Azure Monitor partners provide visualization functionality. For a list of partners that Microsoft has evaluated, see [Azure Monitor partner integrations](./partners.md). An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions may have an additional cost.
