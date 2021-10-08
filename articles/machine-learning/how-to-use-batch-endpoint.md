@@ -71,7 +71,10 @@ After a batch endpoint is created, you can use `show` to check the details. Use 
 
 ## Create a batch deployment
 
-Create a batch deployment under the batch endpoint and set it as the default deployment.
+Create a batch deployment under the batch endpoint and set it as the default deployment with `--set-default`. 
+
+> [!TIP]
+> One batch endpoint can have multiple deployments. There's only one default deployment under each batch endpoint. The default endpoint is used when you start a batch scoring job. You can also create a new deployment without setting it as default, and update the default deployment later. For more information, see the [Deploy a new model](#deploy-a-new-model) section.
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
 
@@ -161,7 +164,6 @@ To view the scoring results:
     az ml job show -n $JOB_NAME --web
     ```
 
-1. From studio, select **Experiments**. 
 1. In the graph of the run, select the `batchscoring` step.
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
 1. From __Data outputs__, select the icon to open __Storage Explorer__.
@@ -188,12 +190,9 @@ Below is the YAML file defining the MLFlow batch deployment:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
 
-> [Note]
-> One batch endpoint can have multiple deployments. Each deployment hosts one model for batch scoring. 
-
 ### Test the new batch deployment
 
-Before switching the default deployment, you can run the following commands to test it:
+To test a new deployment _without making it the default deployment_, use `--deployment-name` and specify the deployment name. This parameter overrides the default endpoint when submitting the job, and does not update the default deployment for the batch endpoint:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="test_new_deployment" :::
 
@@ -207,7 +206,7 @@ If you re-examine the details of your deployment, you will see your changes:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
-Now, you can invoke a batch scoring job with this new default deployment:
+Now, you can invoke a batch scoring job with this new default deployment. There is no need for the `--deployment-name` parameter this time, as the new deployment is now set as the default deployment for the batch endpoint:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="test_new_default_deployment" :::
 
