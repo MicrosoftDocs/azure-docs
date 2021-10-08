@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 10/01/2021
+ms.date: 10/08/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -40,7 +40,7 @@ Construct an HTTP POST request to the Request Service REST API. Replace the `{te
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
 ```
 
-The following HTTP request demonstrates an HTTP request to the Request Service REST API:
+The following HTTP request demonstrates a presentation request to the Request Service REST API:
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -68,7 +68,7 @@ The following permission is required to call the Request Service REST API. For m
 
 ## Presentation request payload
 
-The presentation request payload contains information about your verifiable credentials presentation request. The following example demonstrates a presentation request from a specific issuer. The result of this request returns a QR code a link to start the presentation process.
+The presentation request payload contains information about your verifiable credentials presentation request. The following example demonstrates a presentation request from a specific issuer. The result of this request returns a QR code with a link to start the presentation process.
 
 ```json
 {
@@ -103,11 +103,11 @@ The payload contains the following properties.
 
 |Parameter |Type  | Description |
 |---------|---------|---------|
-| `includeQRCode` |  boolean |   Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values `true` (default), or `false`. When set to `false`, use the return `url` property to render a hyperlink.  |
+| `includeQRCode` |  boolean |   Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values `true` (default), or `false`. When set to `false`, use the return `url` property to render a deep link.  |
 | `authority` | string|  Your Decentralized Identifier of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
-| `registration` | [RequestRegistration](#requestregistration-type)|  Provides detailed information about the verifier. |
-| `presentation` | [RequestPresentation](#requestpresentation-type)| Information about the verifiable credentials presentation request.  |
-|`callback`|  [Callback](#callback-type)| Allows the developer to update the UI during the verifiable credential presentation process. The when the user completes the process, continue the process once the results are returned to the application.|
+| `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
+| `presentation` | [RequestPresentation](#requestpresentation-type)| Provides information about the verifiable credentials presentation request.  |
+|`callback`|  [Callback](#callback-type)| Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process once the results are returned to the application.|
 
 ### RequestRegistration type
 
@@ -115,7 +115,7 @@ The RequestRegistration type provides information registration for the issuer. T
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `clientName` | string|  A display name of the issuer of the verifiably credential. This name will be presented to the user in the authenticator app. |
+| `clientName` | string|  A display name of the issuer of the verifiable credential. This name will be presented to the user in the authenticator app. |
 
 The following screenshot shows the `clientName` property and the display name of the `authority` (the verifier) in the presentation request.
 
@@ -173,11 +173,11 @@ The response contains the following properties:
 | `expiry`| integer| Indicates when the response will be expired. |
 | `qrCode`| string | A QR code that user can scan to start the presentation flow. |
 
-When your app receives the response the app needs to present the QR code to the user. The user scans the QR code, which opens the authenticator app starting the presentation process.
+When your app receives the response, the app needs to present the QR code to the user. The user scans the QR code, which opens the authenticator app starting the presentation process.
 
 ## Error response
 
-Error responses also can be return so that the app can handle them appropriately. The following JSON shows an unauthorized error message.
+Error responses also can be returned so that the app can handle them appropriately. The following JSON shows an unauthorized error message.
 
 
 ```json
