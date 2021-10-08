@@ -681,114 +681,115 @@ You may use following ways to filter out telemetry before leaving your applicati
 
 1. Exclude url option provided by many http instrumentation libraries.
 
-Below is an example of how to exclude a certain url from being tracked using the [http/https instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http).
-
-```typescript
-...
-import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
-
-...
-const httpInstrumentationConfig: HttpInstrumentationConfig = {
-    ignoreIncomingPaths: [new RegExp(/dc.services.visualstudio.com/i)]
-};
-const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
-provider.register();
-registerInstrumentations({
-    instrumentations: [
-        httpInstrumentation,
-    ]
-});
-```
+    Below is an example of how to exclude a certain url from being tracked using the [http/https instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http).
+    
+    ```typescript
+    ...
+    import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
+    
+    ...
+    const httpInstrumentationConfig: HttpInstrumentationConfig = {
+        ignoreIncomingPaths: [new RegExp(/dc.services.visualstudio.com/i)]
+    };
+    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+    provider.register();
+    registerInstrumentations({
+        instrumentations: [
+            httpInstrumentation,
+        ]
+    });
+    
+    ```
 
 2. Using custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set their `TraceFlag` to `DEFAULT`.
 Use the add [custom property example](#add-custom-property), except change out the following lines of code:
 
-```typescript
-...
-import { SpanKind, TraceFlags } from "@opentelemetry/api";
-
-class SpanEnrichingProcessor implements SpanProcessor{
+    ```typescript
     ...
-
-    onEnd(span: ReadableSpan) {
-        if(span.kind == SpanKind.INTERNAL){
-            span.spanContext().traceFlags = TraceFlags.NONE;
+    import { SpanKind, TraceFlags } from "@opentelemetry/api";
+    
+    class SpanEnrichingProcessor implements SpanProcessor{
+        ...
+    
+        onEnd(span: ReadableSpan) {
+            if(span.kind == SpanKind.INTERNAL){
+                span.spanContext().traceFlags = TraceFlags.NONE;
+            }
         }
     }
-}
-```
+    ```
 
 #### [Python](#tab/python)
 
 1. Exclude url option provided by many http instrumentation libraries.
 
-Below is an example of how to exclude a certain url from being tracked using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation.
-
-```python
-...
-import flask
-
-from opentelemetry.instrumentation.flask import FlaskInstrumentor
-
-# You may also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
-# List will consist of comma delimited regexes representing which URLs to exclude
-excluded_urls = "client/.*/info,healthcheck"
-
-FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
-app = flask.Flask(__name__)
-...
-```
+    Below is an example of how to exclude a certain url from being tracked using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation.
+    
+    ```python
+    ...
+    import flask
+    
+    from opentelemetry.instrumentation.flask import FlaskInstrumentor
+    
+    # You may also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
+    # List will consist of comma delimited regexes representing which URLs to exclude
+    excluded_urls = "client/.*/info,healthcheck"
+    
+    FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
+    app = flask.Flask(__name__)
+    ...
+    ```
 
 2. Using custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set their `TraceFlag` to `DEFAULT`.
     
-```python
-...
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
-trace.set_tracer_provider(TracerProvider())
-span_processor = BatchSpanProcessor(exporter)
-span_filter_processor = SpanFilteringProcessor()
-trace.get_tracer_provider().add_span_processor(span_filter_processor)
-trace.get_tracer_provider().add_span_processor(span_processor)
-...
-```
-
-Add `SpanFilteringProcessor.py` to your project with the code below.
-
-```python
-from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
-from opentelemetry.sdk.trace import SpanProcessor
-
-class SpanFilteringProcessor(SpanProcessor):
-
-    # prevents exporting spans from internal activities
-    def on_start(self, span):
-        if span._kind is SpanKind.INTERNAL:
-            span._context = SpanContext(
-                span.context.trace_id,
-                span.context.span_id,
-                span.context.is_remote,
-                TraceFlags.DEFAULT,
-                span.context.trace_state,
-            )
-
-```
-
-<!-- For more information, see [GitHub Repo](link). -->
-<!---
-### Get Trace ID or Span ID
-You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
-
-> [!NOTE]
-> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
-
-```python
-Placeholder
-```
-
-For more information, see [GitHub Repo](link).
---->
+    ```python
+    ...
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import BatchSpanProcessor
+    
+    trace.set_tracer_provider(TracerProvider())
+    span_processor = BatchSpanProcessor(exporter)
+    span_filter_processor = SpanFilteringProcessor()
+    trace.get_tracer_provider().add_span_processor(span_filter_processor)
+    trace.get_tracer_provider().add_span_processor(span_processor)
+    ...
+    ```
+    
+    Add `SpanFilteringProcessor.py` to your project with the code below.
+    
+    ```python
+    from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
+    from opentelemetry.sdk.trace import SpanProcessor
+    
+    class SpanFilteringProcessor(SpanProcessor):
+    
+        # prevents exporting spans from internal activities
+        def on_start(self, span):
+            if span._kind is SpanKind.INTERNAL:
+                span._context = SpanContext(
+                    span.context.trace_id,
+                    span.context.span_id,
+                    span.context.is_remote,
+                    TraceFlags.DEFAULT,
+                    span.context.trace_state,
+                )
+    
+    ```
+    
+    <!-- For more information, see [GitHub Repo](link). -->
+    <!---
+    ### Get Trace ID or Span ID
+    You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
+    
+    > [!NOTE]
+    > If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
+    
+    ```python
+    Placeholder
+    ```
+    
+    For more information, see [GitHub Repo](link).
+    --->
 
 ---
 
