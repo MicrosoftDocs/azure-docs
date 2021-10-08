@@ -56,8 +56,8 @@ landingContent:
             url: confidential-computing-enclaves.md
       - linkListType: concept
         links:
-          - text: Solutions on virtual machines
-            url: virtual-machine-solutions.md
+          - text: Solutions on SGX virtual machines
+            url: virtual-machine-solutions-sgx.md
       - linkListType: quickstart
         links:
           - text: Create Intel SGX VM in the Azure Portal
@@ -66,8 +66,8 @@ landingContent:
             url: quick-create-marketplace.md
       - linkListType: reference
         links:
-          - text: Confidential computing virtual machines FAQ 
-            url: faq.yml
+          - text: Confidential computing enclaves FAQ 
+            url: faq-application-enclaves.yml
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
           - text: Availability

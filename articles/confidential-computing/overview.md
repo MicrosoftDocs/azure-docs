@@ -59,7 +59,7 @@ The trusted computing base (TCB) refers to all of a system's hardware, firmware,
 A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. TEEs reduce your TCB to trusted runtime binaries, code, and libraries. When you use Azure infrastructure and services for confidential computing, you can remove all of Microsoft from your TCB.
 
 
-## Using Azure for cloud-based confidential computing <a id="cc-on-azure"></a>
+## Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
 
 Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware.  
 

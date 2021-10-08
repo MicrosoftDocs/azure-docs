@@ -26,7 +26,7 @@ Azure confidential computing infrastructure is currently comprised of a specialt
 
 Today, Azure offers the [DCsv2-Series](../virtual-machines/dcv2-series.md) built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
 
-[Read more](virtual-machine-solutions.md) about deploying Azure confidential computing virtual machines with hardware-based trusted enclaves.
+[Read more](virtual-machine-solutions-sgx.md) about deploying Azure confidential computing virtual machines with hardware-based trusted enclaves.
 
 ## Enclaves
 
@@ -42,6 +42,6 @@ Each enclave has a set size of encrypted page cache (EPC) that determines the am
 When developing applications, you can use [software tools](application-development.md) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
 
 ## Next Steps
-- [Read best practices](virtual-machine-solutions.md) for deploying solutions on Azure confidential computing virtual machines.
+- [Read best practices](virtual-machine-solutions-sgx.md) for deploying solutions on Azure confidential computing virtual machines.
 - [Deploy a DCsv2-Series virtual machine](quick-create-portal.md)
 - [Develop an enclave-aware application](application-development.md) using the OE SDK

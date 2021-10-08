@@ -20,11 +20,11 @@ Features of confidential computing nodes include:
 
 - Linux worker nodes supporting Linux containers.
 - Generation 2 virtual machine (VM) with Ubuntu 18.04 VM nodes.
-- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
-- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
+- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq-application-enclaves.yml).
+- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq-application-enclaves.yml).
 
 > [!NOTE]
-> DCsv2 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions.md).
+> DCsv2 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ az aks enable-addons --addons confcom --name MyManagedCluster --resource-group M
 ### Add a DCsv2 user node pool to the cluster
 
 > [!NOTE]
-> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2 VM SKU. To learn more about DCs-v2 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions.md).
+> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2 VM SKU. To learn more about DCs-v2 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 Run the following command to create a node pool:
 
