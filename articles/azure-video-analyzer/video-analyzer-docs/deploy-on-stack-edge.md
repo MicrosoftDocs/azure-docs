@@ -7,12 +7,12 @@ ms.date: 06/01/2021
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
 
-This article provides full instructions for deploying Azure Video Analyzer on your Azure Stack Edge device. After the device has been set up and activated, it's ready for Video Analyzer deployment. 
+This article provides full instructions for deploying Azure Video Analyzer on your Azure Stack Edge device. After you've set up and activated the device, it's ready for Video Analyzer deployment. 
 
-For Video Analyzer, we'll deploy via IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, with which you can deploy additional non-IoT Hub aware solutions that can interface with Video Analyzer. 
+In the article, we'll deploy Video Analyzer by using IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, with which you can deploy additional non-IoT Hub-aware solutions that can interface with Video Analyzer. 
 
 > [!TIP]
-> Using the Kubernetes API for custom deployment is an advanced case. We recommended that you create edge modules and deploy them via IoT Hub to each Azure Stack Edge resource instead of using the Kubernetes API. This article shows you how to deploy the Video Analyzer module by using IoT Hub.
+> Using the Kubernetes API for custom deployment is an advanced case. We recommend that you create edge modules and deploy them via IoT Hub to each Azure Stack Edge resource instead of using the Kubernetes API. This article shows you how to deploy the Video Analyzer module by using IoT Hub.
 
 ## Prerequisites
 
@@ -30,39 +30,39 @@ For Video Analyzer, we'll deploy via IoT Hub, but the Azure Stack Edge resources
 
 * A storage account
 
-    We recommend that you use [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
+    We recommend that you use a [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
     
 * [Visual Studio Code](https://code.visualstudio.com/), installed on your development machine
 
 *  The [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools), installed in Visual Studio Code
 
-* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
+* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with your Azure IoT hub.
 
-## Configure Azure Stack Edge for using Video Analyzer
+## Configure Azure Stack Edge to use Video Analyzer
 
-Azure Stack Edge is a hardware as a service solution and an AI-enabled edge computing device with network data transfer capabilities. For more information, see [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). 
+Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge computing device with network data transfer capabilities. For more information, see [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). 
 
 To get started, do the following:
 
-1. [Create an Azure Stack Edge or Azure Data Box Gateway resource](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
-1. [Install and set up Azure Stack Edge Pro with GPU](../../databox-online/azure-stack-edge-gpu-deploy-install.md).
+1. [Create an Azure Stack Edge or Azure Data Box Gateway resource](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).  
+1. [Install and set up Azure Stack Edge Pro with GPU](../../databox-online/azure-stack-edge-gpu-deploy-install.md).  
 1. Connect and activate the resource by doing the following:
 
     a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
     b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
     c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md).  
     d. [Configure the certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
-    e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
+    e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).  
 
 1. [Attach an IoT hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute).
 
-### Enable compute prerequisites on the Azure Stack Edge local UI
+### Meet the compute prerequisites on the Azure Stack Edge local UI
 
 Before you continue, make sure that you've completed the following:
 
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system that's running PowerShell 5.0 or later to access the Azure Stack Edge resource.
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource on its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+* To deploy Kubernetes clusters, you've configured your Azure Stack Edge resource on its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
 
     1. Connect and configure the resource by doing the following:
     
@@ -81,11 +81,11 @@ Before you continue, make sure that you've completed the following:
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Screenshot of compute prerequisites on the Azure Stack Edge local UI.":::
 
-        If Azure DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Windows host file by doing the following:
+        If Azure DNS isn't configured for the Kubernetes API and Azure Stack Edge resource, you can update your Windows host file by doing the following:
         
         a. Open a text editor as Administrator.  
         b. Open the *hosts* file at *C:\Windows\System32\drivers\etc\\*.  
-        c. Add the Kubernetes API device name's IPv4 and hostname to the file. (This information can be found in the Azure Stack Edge portal, under Devices.)  
+        c. Add the Kubernetes API device name's IPv4 and hostname to the file. You can find this information in the Azure Stack Edge portal, under **Devices**.  
         d. Save and close the file.
 
 ### Deploy Video Analyzer Edge modules by using the Azure portal
@@ -117,7 +117,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!IMPORTANT]
     > Azure IoT Edge values are case-sensitive when you make calls to modules. Make note of the exact string you're using as the module name.
 
-1. Select the **Environment Variables** tab, and then enter values as shown in the following image:
+1. Select the **Environment Variables** tab, and then enter the values as shown in the following image:
    
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Screenshot of the Environment Variables pane on the Add IoT Edge Module page.":::
@@ -158,7 +158,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Screenshot of the Module Twin Settings pane on the Add IoT Edge Module page.":::
 
-    Azure Video Analyzer requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
+    To run, Azure Video Analyzer requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
 
     In the box on the **Module Twin Settings** pane, paste the following JSON code:    
 
@@ -169,7 +169,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     }
     ```
     
-    To help with monitoring the module, you can enter the following additional *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
+    To help with monitoring the module, you can add the following *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
     
     ```
     "diagnosticsEventsOutputName": "diagnostics",
@@ -285,8 +285,8 @@ This section covers how to create a gateway user and set up file shares to view 
     k. Under **User Details**, select **Use existing** to give access to the share to the recently created user.  
     l. Select **Create**.    
         
-        > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Screenshot of the 'Add share' page for creating a remote share.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Screenshot of the 'Add share' page for creating a remote share.":::
 
 1. To use volume mounts, update the Real-Time Streaming Protocol (RTSP) simulator module's container create options by doing the following:
 
