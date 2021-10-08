@@ -8,9 +8,9 @@
 /includes/policy/ @DCtheGeek
 
 # Azure Monitor
-/articles/azure-monitor/* @bwren
-/articles/azure-monitor/agents @bwren
-/articles/azure-monitor/alerts @rboucher
+/articles/azure-monitor/* @bwren @jasonwhowell
+/articles/azure-monitor/agents @bwren @jasonwhowell
+/articles/azure-monitor/alerts @rboucher @jasonwhowell
 /articles/azure-monitor/app @bwren @lgayhardt
 /articles/azure-monitor/autoscale @rboucher
 /articles/azure-monitor/containers @bwren
