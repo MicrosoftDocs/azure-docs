@@ -18,7 +18,7 @@ A Container is the atomic unit of storage in the Azure Fluid Relay service and r
 
 When building an application with the Fluid Framework, there are several things you need to account for regarding container creation and management, as summarized in this diagram.
 
-:::image type="content" source="images/fluid-service-architecture-ownership.jpg" alt-text="Illustration of the architecture of a Fluid service and what parts are owned by developers vs Microsoft.":::
+:::image type="content" source="../images/fluid-service-architecture-ownership.jpg" alt-text="Illustration of the architecture of a Fluid service and what parts are owned by developers vs Microsoft.":::
 
 ## Key Concepts
 
