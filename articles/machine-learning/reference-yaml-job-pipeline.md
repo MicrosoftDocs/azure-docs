@@ -68,10 +68,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 The `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
 
-## Remarks
-
-The `az ml job` command can be used for managing Azure Machine Learning jobs.
-
 ## Examples
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
