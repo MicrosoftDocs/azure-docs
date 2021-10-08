@@ -6,7 +6,7 @@ author: aaronpowell
 ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/08/2021
 ---
 
 # Custom authentication in Azure Static Web Apps

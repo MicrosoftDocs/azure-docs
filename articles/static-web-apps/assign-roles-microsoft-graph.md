@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 10/05/2021
+ms.date: 10/08/2021
 ms.author: cshoe
 keywords: "static web apps authorization, assign user roles, custom roles"
 ---
 
 # Tutorial: Assign custom roles with a function and Microsoft Graph
 
-This article demonstrates how to use a function to query Microsoft Graph and assign custom roles to a user based on their Active Directory group membership.
+This article demonstrates how to use a function to query [Microsoft Graph](https://developer.microsoft.com/graph) and assign custom roles to a user based on their Active Directory group membership.
 
 In this tutorial, you learn to:
 

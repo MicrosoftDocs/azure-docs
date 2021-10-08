@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/08/2021
 ms.author: cshoe
 ---
 
@@ -112,7 +112,7 @@ To assign custom roles in a function, you can define an API function that is aut
 Example uses of this function include:
 
 - Query a database to determine which roles a user should be assigned
-- Call the [Microsoft Graph API](../../graph/overview) to determine a user's roles based on their Active Directory group membership
+- Call the [Microsoft Graph API](https://developer.microsoft.com/graph) to determine a user's roles based on their Active Directory group membership
 - Determine a user's roles based on claims returned by the identity provider
 
 > [!NOTE]
