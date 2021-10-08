@@ -174,7 +174,7 @@ Jobs typically have inputs and outputs. Inputs can be model parameters, which mi
 
 ### Literal inputs
 
-Literal inputs are directly substituted in the command. You can modify our "hello world" job to use literal inputs:
+Literal inputs are directly resolved the command. You can modify our "hello world" job to use literal inputs:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
 
@@ -195,7 +195,7 @@ For a sweep job, you can specify a search space for literal inputs to be chosen 
 > [!WARNING]
 > Sweep jobs are not currently supported in pipeline jobs. This limitation will be removed in a future release.
 
-Let's demonstrate the concept with a simple Python script which takes in arguments and logs a random metric:
+Let's demonstrate the concept with a simple Python script that takes in arguments and logs a random metric:
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-sweep.py":::
 
@@ -207,31 +207,15 @@ And run it:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_sweep":::
 
-### Default outputs
-
-The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once it is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
-
-You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
-
-You can run this job:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output":::
-
-And download the logs, where `helloworld.txt` will be present in the `<RUN_ID>/outputs/` directory:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output_download":::
-
 ### Data inputs
 
-Data inputs are substituted as a path on the job compute's local filesystem. Let's demonstrate with the classic Iris dataset, which is hosted publicly in a blob container at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`.
+Data inputs are resolved to a path on the job compute's local filesystem. Let's demonstrate with the classic Iris dataset, which is hosted publicly in a blob container at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`.
 
-You can author a Python script which takes the path to the Iris CSV file as an argument, reads it into a dataframe, prints the first 5 lines, and saves it to the `outputs` directory.
+You can author a Python script that takes the path to the Iris CSV file as an argument, reads it into a dataframe, prints the first 5 lines, and saves it to the `outputs` directory.
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-iris.py":::
 
-Azure storage URI inputs can be specified which will mount or download data to the local filesystem. You can specify a single file:
+Azure storage URI inputs can be specified, which will mount or download data to the local filesystem. You can specify a single file:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
 
@@ -260,6 +244,22 @@ Or the entire directory:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
 
+### Default outputs
+
+The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once it is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
+
+You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
+
+You can run this job:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output":::
+
+And download the logs, where `helloworld.txt` will be present in the `<RUN_ID>/outputs/` directory:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output_download":::
+
 ### Data outputs
 
 You can specify named data outputs. This will create a directory in the default datastore which will be read/write mounted by default.
@@ -273,7 +273,7 @@ You can modify the earlier "hello world" job to write to a named data output:
 
 ## Hello pipelines
 
-Pipeline jobs can run multiple jobs in parallel. If there are input/output dependencies between steps in a pipeline, the dependent step will run after the other completes.
+Pipeline jobs can run multiple jobs in parallel or in sequence. If there are input/output dependencies between steps in a pipeline, the dependent step will run after the other completes.
 
 You can split a "hello world" job into two jobs:
 
@@ -303,7 +303,7 @@ You can run this:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline_settings":::
 
-The corresponding setting on an individual job will override the common settings for a pipeline job. The concepts so far can be combined into a three-step pipeline job with jobs "A", "B", and "C". The "C" job has a data dependency on the "B" job, while the "A" job can run independently. The "A" job will also use an individually set environment and bind one of its inputs to a top-level input:
+The corresponding setting on an individual job will override the common settings for a pipeline job. The concepts so far can be combined into a three-step pipeline job with jobs "A", "B", and "C". The "C" job has a data dependency on the "B" job, while the "A" job can run independently. The "A" job will also use an individually set environment and bind one of its inputs to a top-level pipeline job input:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
 
