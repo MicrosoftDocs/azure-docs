@@ -20,10 +20,10 @@ ms.author: Thwimmer
 
 # Tutorial: Configure directprint.io for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both directprint.io and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [directprint.io](https://directprint.io) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both directprint.io and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [directprint.io](https://directprint.io) using the Azure AD provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in directprint.io.
 > * Remove users in directprint.io when they do not require access anymore.
@@ -36,8 +36,8 @@ This tutorial describes the steps you need to perform in both directprint.io and
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* Single Sign-on with Azure AD is completed.
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application administrator, Cloud Application administrator, Application Owner, or Global administrator). 
+* Single sign-on with Azure AD is completed.
 * A licensed or 30 days free trial account with directprint.io.
 
 ## Step 1. Plan your provisioning deployment
