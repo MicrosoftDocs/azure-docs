@@ -79,11 +79,13 @@ items:
     - name: Azure SignalR Service
       href: overview.md
     - name: Azure App Configuration
-      href: overview.md
+      href: how-to-integrate-app-config.md
     - name: Azure Web Pub/Sub Service
       href: overview.md
+    - name: Azure Cache for Redis
+      href: how-to-integrate-redis-cache.md
     - name: Apache Kafka on Confluent Cloud
-      href: overview.md
+      href: how-to-integrate-confluent-kafka.md
   - name: Monitor
     items:
     - name: Check connection status

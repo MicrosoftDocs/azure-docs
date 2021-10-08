@@ -19,15 +19,15 @@ ms.date: 10/29/2021
 
 | Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
 | --- | --- | --- | --- | --- |
-| .Net (ADO.NET) | | | ![yes icon](./media/green-check.png) | |
+| .Net (sqlClient) | | | ![yes icon](./media/green-check.png) | |
 | Java (JDBC) | | | ![yes icon](./media/green-check.png) | |
-| Java - Spring Boot (JDBC) | | | ![yes icon](./media/green-check.png) | |
-| Node.js (pg) | | | ![yes icon](./media/green-check.png) | |
-| Python (psycopg2) | | | ![yes icon](./media/green-check.png) | |
-| Python-Django | | | ![yes icon](./media/green-check.png) | |
-| Go (pg) | | | ![yes icon](./media/green-check.png) | |
-| PHP (native) | | | ![yes icon](./media/green-check.png) | |
-| Ruby (ruby-pg) | | | ![yes icon](./media/green-check.png) | |
+| Java - Spring Boot (spring-boot-starter-jdbc) | | | ![yes icon](./media/green-check.png) | |
+| Node.js | | | ![yes icon](./media/green-check.png) | |
+| Python (pyodbc) | | | ![yes icon](./media/green-check.png) | |
+| Python-Django (mssql-django) | | | ![yes icon](./media/green-check.png) | |
+| Go (go-mssqldb) | | | ![yes icon](./media/green-check.png) | |
+| PHP | | | ![yes icon](./media/green-check.png) | |
+| Ruby | | | ![yes icon](./media/green-check.png) | |
 
 ## Default environment variable names or application properties
 
