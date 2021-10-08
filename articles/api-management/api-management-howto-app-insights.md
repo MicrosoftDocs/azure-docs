@@ -8,34 +8,37 @@ author: dlepow
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/04/2021
+ms.date: 10/08/2021
 ms.author: danlep
 
 ---
 
 # How to integrate Azure API Management with Azure Application Insights
 
-Azure API Management allows for easy integration with Azure Application Insights - an extensible service for web developers building and managing apps on multiple platforms. This guide walks through every step of such integration and describes strategies for reducing performance impact on your API Management service instance.
+You can easily integrate Azure Application Insights with Azure API Management. Azure Application Insights is an extensible service for web developers building and managing apps on multiple platforms. In this guide, you will:
+* Walk through every step of the Application Insights integration into API Management.
+* Learn strategies for reducing performance impact on your API Management service instance.
 
 ## Prerequisites
 
-To follow this guide, you need to have an Azure API Management instance. If you don't have one, complete the [tutorial](get-started-create-service-instance.md) first.
+You need an Azure API Management instance. [Create one](get-started-create-service-instance.md) first.
 
 ## Create an Application Insights instance
 
-Before you can use Application Insights, you first need to create an instance of the service. For steps to create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
+To use Application Insights, [create an instance of the Application Insights service](../azure-monitor/app/create-new-resource.md). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
+
 ## Create a connection between Application Insights and API Management
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
 1. Select **Application Insights** from the menu on the left.
 1. Select **+ Add**.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Screenshot that shows where to add a new connection":::
-1. Select the previously created **Application Insights** instance and provide a short description.
+1. Select the **Application Insights** instance you created earlier and provide a short description.
 1. To enable [availability monitoring](../azure-monitor/app/monitor-web-app-availability.md) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
 
     This setting regularly validates whether the API Management service endpoint is responding. Results appear in the **Availability** pane of the Application Insights instance.
 1. Select **Create**.
-1. You have just created an Application Insights logger with an instrumentation key. It should now appear in the list.  
+1. Check that the new Application Insights logger with an instrumentation key now appears in the list.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
 
 > [!NOTE]
@@ -52,10 +55,11 @@ Before you can use Application Insights, you first need to create an instance of
 1. Check the **Enable** box.
 1. Select your attached logger in the **Destination** dropdown.
 1. Input **100** as **Sampling (%)** and select the **Always log errors** checkbox.
+1. Leave the rest of the settings as is.
 1. Select **Save**.
 
 > [!WARNING]
-> Overriding the default value **0** in the **Number of payload bytes to log** setting may significantly decrease the performance of your APIs.
+> Overriding the default **Number of payload bytes to log** value **0** may significantly decrease the performance of your APIs.
 
 > [!NOTE]
 > Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named 'applicationinsights' is created at the API level.
@@ -63,7 +67,7 @@ Before you can use Application Insights, you first need to create an instance of
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Enable                              | boolean                           | Specifies whether logging of this API is enabled.                                                                                                                                                                                                                                                                                                |
-| Destination                         | Azure Application Insights logger | Specifies Azure Application Insights logger to be used                                                                                                                                                                                                                                                                                           |
+| Destination                         | Azure Application Insights logger | Specifies Azure Application Insights logger to be used.                                                                                                                                                                                                                                                                                           |
 | Sampling (%)                        | decimal                           | Values from 0 to 100 (percent). <br/> Specifies the percentage of requests that will be logged to Application Insights. 0% sampling means zero requests logged, while 100% sampling means all requests logged. <br/> Use this setting to reduce effect on performance when logging requests to Application Insights. See [Performance implications and log sampling](#performance-implications-and-log-sampling). |
 | Always log errors                   | boolean                           | If this setting is selected, all failures will be logged to Application Insights, regardless of the **Sampling** setting.   
 | Log client IP address | |  If this setting is selected, the client IP address for API requests will be logged to Application Insights.                                         |
@@ -77,11 +81,13 @@ Before you can use Application Insights, you first need to create an instance of
 | Advanced Options: Backend Response  |                                   | Specifies whether and how *backend responses* will be logged to Application Insights. *Backend response* is a response incoming to the Azure API Management service.                                                                                                                                                                       |
 
 > [!NOTE]
-> You can specify loggers on different levels - single API logger or a logger for all APIs.
+> You can specify loggers on different levels: 
+> + Single API logger.
+> + A logger for all APIs.
 >  
-> If you specify both:
-> + if they are different loggers, then both of them will be used (multiplexing logs),
-> + if they are the same loggers but have different settings, then the one for single API (more granular level) will override the one for all APIs.
+> Specifying *both*:
+> + if they are different loggers, both of them will be used (multiplexing logs).
+> + if they are the same loggers with different settings, the single API logger (more granular level) will override the one for all APIs.
 
 ## What data is added to Application Insights
 
@@ -108,11 +114,15 @@ You can also emit custom metrics by configuring the [`emit-metric`](api-manageme
 > [!WARNING]
 > Logging all events may have serious performance implications, depending on incoming requests rate.
 
-Based on internal load tests, enabling this feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Application Insights is designed to use statistical analysis for assessing application performances. It is not intended to be an audit system and is not suited for logging each individual request for high-volume APIs.
+Based on internal load tests, enabling the logging feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Application Insights is designed to assess application performances using statistical analysis. It is not:
+* Intended to be an audit system.
+* Suited for logging each individual request for high-volume APIs.
 
-You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the preceding steps). A value of 100% means all requests are logged, while 0% reflects no logging. **Sampling** helps to reduce volume of telemetry, effectively preventing significant performance degradation, while still carrying the benefits of logging.
+You can manipulate the number of logged requests by [adjusting the **Sampling** setting](#enable-application-insights-logging-for-your-api). A value of 100% means all requests are logged, while 0% reflects no logging. 
 
-Skipping logging of headers and body of requests and responses will also have positive impact on alleviating performance issues.
+**Sampling** helps to reduce telemetry volume, effectively preventing significant performance degradation while still carrying the benefits of logging.
+
+Skip request and responses headers and body logging to positively alleviate performance issues.
 
 ## Video
 
