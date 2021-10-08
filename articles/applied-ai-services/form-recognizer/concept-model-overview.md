@@ -37,6 +37,10 @@ recommendations: false
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
 
+##### Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
+
+:::image type="content" source="media/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
 

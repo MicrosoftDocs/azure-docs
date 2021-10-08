@@ -149,7 +149,6 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
   ]
 }
 
-
 ```
 
 ## Changes to copy model
