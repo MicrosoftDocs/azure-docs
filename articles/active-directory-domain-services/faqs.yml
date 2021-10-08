@@ -88,7 +88,7 @@ sections:
       - question: |
           Can I move a managed domain?
         answer: |
-          No. After you create an Azure AD Domain Services managed domain, you can't move the managed domain it to a different subscription, resource group, region, virtual network, or subnet. As a workaround, No. After you create an Azure AD Domain Services managed domain, you can't move it to a different subscription, resource group, region, virtual network, or subnet. As a workaround, you can [delete the managed domain](#delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
+          No. After you create an Azure AD Domain Services managed domain, you can't move the managed domain it to a different subscription, resource group, region, virtual network, or subnet. As a workaround, you can [delete the managed domain](delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
 
       - question: |
           Can I rename an existing Azure AD Domain Services domain name?
