@@ -12,7 +12,7 @@ ms.date: 10/07/2021
 In this article, you'll learn how to configure the Redis software version to be used with your cache instance. Azure Cache for Redis offers the latest major version of Redis and at least one previous version. It will update these versions regularly as newer Redis software is released. You can choose between the two available versions. Keep in mind that your cache will be upgraded to the next version automatically if the  version it's using currently is no longer supported.
 
 > [!NOTE]
-> At this time, Redis 6 does not support ACL.
+> At this time, Redis 6 does not support ACL, and geo-replication between a Redis 4 and 6 cache.
 >
 
 ## Prerequisites
@@ -61,7 +61,13 @@ az redis create --resource-group resourceGroupName --name cacheName --location w
 For more information on how to manage Azure Cache for Redis with Azure CLI, see [here](cli-samples.md)
 
 ## Upgrade an existing Redis 4 cache to Redis 6
-Azure Cache for Redis supports upgrading your Redis cache server major version from Redis 4 to Redis 6. Please note that upgrading is permanent and it may cause a brief connection blip. To upgrade your cache, follow these steps:
+Azure Cache for Redis supports upgrading your Redis cache server major version from Redis 4 to Redis 6. Please note that upgrading is permanent and it may cause a brief connection blip. As a precautionary step, we recommend exporting the data from your cache and testing Redis 6 in a lower environment. Please see [here](cache-how-to-import-export-data.md) for details on how to export.
+
+> [!NOTE]
+> Please note, geo-replication between a Redis 4 and 6 cache is not supported, so you will have to manually unlink your cache instances before upgrading. 
+>
+
+To upgrade your cache, follow these steps:
 
 1. In the Azure portal, search for **Azure Cache for Redis**. Then, press enter or select it from the search suggestions.
 
@@ -87,7 +93,7 @@ Azure Cache for Redis supports upgrading your Redis cache server major version f
 
 ### What features aren't supported with Redis 6?
 
-At this time, Redis 6 does not support ACL.
+At this time, Redis 6 does not support ACL, and geo-replication between a Redis 4 and 6 cache.
 
 ### Can I change the version of my cache after it's created?
 
