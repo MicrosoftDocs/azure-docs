@@ -13,7 +13,7 @@ ms.topic: reference
 > [!NOTE]
 > This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
-Microsoft Azure Fluid Relay Server leverages the encryption-at-rest capability of [Azure Kubernetes](https://docs.microsoft.com/en-us/azure/aks/enable-host-encryption), [Microsoft Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest) and [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption). The service-to-service communication between AFRS and these resources is TLS encrypted and is enclosed in with the Azure Virtual Network Boundary, protected from external interference by Network Security Rules.
+Microsoft Azure Fluid Relay Server leverages the encryption-at-rest capability of [Azure Kubernetes](/azure/aks/enable-host-encryption), [Microsoft Azure Cosmos DB]/azure/cosmos-db/database-encryption-at-rest) and [Azure Blob Storage](/azure/storage/common/storage-service-encryption). The service-to-service communication between AFRS and these resources is TLS encrypted and is enclosed in with the Azure Virtual Network Boundary, protected from external interference by Network Security Rules.
 
 The diagram below shows at a high level how Azure Fluid Relay Server is implemented and how it handles data storage.
 
