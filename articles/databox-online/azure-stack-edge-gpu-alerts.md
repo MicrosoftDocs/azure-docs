@@ -1,6 +1,6 @@
 ---
-title: Review alerts on Azure Stack Edge Pro GPU 
-description: Describes alerts that can occur on Azure Stack Edge Pro GPU device.
+title: Review alerts on Azure Stack Edge 
+description: Describes alerts that occur on Azure Stack Edge devices.
 services: databox
 author: v-dalc
 
@@ -10,15 +10,19 @@ ms.topic: how-to
 ms.date: 10/08/2021
 ms.author: alkohli
 ---
-# Review alerts on an Azure Stack Edge Pro GPU device
+# Review alerts on Azure Stack Edge
 
-This article describes alerts that occur on an Azure Stack Edge Pro GPU device and steps to take when you receive the alert. The alerts generate notifications in the Azure portal.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-> [!NOTE]
-> For information about managing alerts in the Azure portal, see [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+This article describes alerts that occur on an Azure Stack Edge devices and steps to take when you receive the alerts. The alerts generate notifications in the Azure portal.
+
+Alerts for a specific feature are raised only if feature exists in that Azure Stack Edge product. For example, on an Azure Stack Edge Pro GPU FPGA device, you won't see alerts for virtual machines and Local Azure Resource Manager.
+
+<!--> [!NOTE]
+> For information about managing alerts in the Azure portal, see [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). - Convert note to regular text in new "Alerts overview" section.-->
 
 
-## Alerts overview
+## Alerts quick-reference
 
 The following tables list some of the Microsoft Azure Stack Edge alerts that you might encounter, as well as additional information and recommendations where available. Azure Stack Edge device alerts fall into one of the following categories:
 
@@ -36,10 +40,10 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Virtual machine alerts](#virtual-machine-alerts)
 
 > [!NOTE]
-> Some alerts are triggered by more than one event type. If the events have a different cause and recommended actions, the table has an alert entry for each event.
+> Some alerts are triggered by more than one event type. If the events have different recommended actions, the table has an alert entry for each of the events.
 
 
-## Cloud connectivity alerts
+### Cloud connectivity alerts
 
 | Alert text                       | Severity | Description / Recommended action |
 |----------------------------------|----------|----------------------------------|
@@ -47,7 +51,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | Lost heartbeat from your device. | Critical | If your device is offline, then the device is not able to communicate with the Azure service. This could be due to one of the following reasons:<ul><li>The Internet connectivity is broken.<br>Check your internet connection. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**. Run the diagnostic tests. Resolve the reported issues.</li><li>The device is turned off or paused on the hypervisor. Turn on your device! For more information, go to [Manage power](..\databox-gateway\data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).</li><li>Your device could have rebooted due to an update. Wait a few minutes and try to reconnect.</li></ul>|
 
 
-## Edge compute alerts
+### Edge compute alerts
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
@@ -72,7 +76,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Your Edge compute module(s) may be using a local mount point {15} that is different than the local mountpoint used by a share. |Warning |Ensure that the local mountpoint {15} used is the one that is mapped to the share.<ul><li>In the Azure portal, go to **Shares** in your Data Box Edge resource.</li><li>Select a share to view the local mount point for Edge compute module.</li><li>Ensure that this path is used in the module and deploy the module again.</li></ol>Restart the device. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**. <br> If the alert persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-## Edge compute alerts for FPGA
+### Edge compute alerts for FPGA
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
@@ -86,7 +90,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Shutting down the FPGA card as the card temperature has exceeded the operating limit! |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 
 
-## Local Azure Resource Manager alerts
+### Local Azure Resource Manager alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -101,7 +105,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |VM service is not running on the device. |Critical |If you see this alert, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-## Performance alerts
+### Performance alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -117,18 +121,17 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |The CPUs reserved for the virtual machines on node {0} of your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce CPU reservation for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The memory used by the virtual machines on your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce memory allocated for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |Too many virtual machines are active on node {0} of your device. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|The virtual hard disk {0} is nearing its capacity. |Warning |Delete some data to free capacity. |
 
-| The virtual hard disk {0} is nearing its capacity. |Warning | Delete some data to free capacity.  |
 
-
-## Storage alerts
+### Storage alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Could not access volume {0}. |Critical |This could happen when the volume is offline, or too many drives or servers have failed or are disconnected. Take the following steps:<ol><li>Reconnect missing drives and bring up servers that are down.</li><li>Allow the sync to complete.</li><li>Replace any failed drives and restore lost data from backup.</li></ol> |
 |Could not find volume {0}. |Critical |If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 | Could not access volume {0}. |Critical |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**, and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Could not find volume {0}. |Critical/Warning |Expand the volume or migrate workloads to other volumes. |
+|Could not find volume {0}. |Critical<br>Warning |Expand the volume or migrate workloads to other volumes. |
 |Some data on this volume {0} is not fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
 |Could not upload {0} files(s) from share {1}. |Critical |This could be due to one of the following reasons:<ol><li>Due to violations of Azure Storage naming and sizing conventions. For more information, go to [Naming conventions](../azure-resource-manager/management/resource-name-rules.md).</li><li>Because the uploaded files were modified in the cloud by other applications outside of the device.<ul><li>{2} inside the {1} share, or</li><li>{3} inside the {4} account.</li></ol></ul> |
 |Could not connect to the storage account '{0}'. |Critical |This may be because the storage account access keys have been regenerated. If the keys have been regenerated, you will need to synchronize the new keys.<br>To fix the issue, in the Azure portal go to **Shares**, select the share, and refresh the storage keys. |
@@ -137,37 +140,37 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-## Security alerts
+### Security alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|{0} from {1} expires in {2} days. |Critical/Warning |Check your certificate and upload a new certificate before the expiration date. |
+|{0} from {1} expires in {2} days. |Critical<br>Warning |Check your certificate and upload a new certificate before the expiration date. |
 |{0} of type {1} is not valid. |Critical |Check your certificate. If the certificate is not valid, upload a new certificate. |
 |Internal certificate rotation failure |Critical |Couldn't rotate the internal certificates. If services are impaired, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Could not login '{0}'. Number of failed attempts : '{1}'. |Critical/Informational/Warning |Make sure that you have entered the correct password.<br>An authorized user may be attempting to connect to your device with an incorrect password. Verify that these attempts were from a legitimate source.<br>If you continue to see failed login attempts, contact your network administrator. |
+|Could not login '{0}'. Number of failed attempts : '{1}'. |Critical<br>Warning<br>Informational |Make sure that you have entered the correct password.<br>An authorized user may be attempting to connect to your device with an incorrect password. Verify that these attempts were from a legitimate source.<br>If you continue to see failed login attempts, contact your network administrator. |
 |Rotate SED key protector on node {0}, did not complete in time. |Warning |The attempt to rotate SED key protector to the new default has not completed in time. Please check if node and physical disks are in healthy state. System will retry again. |
 |Device password has changed |Informational |The device administrator password has changed. This is a required action as part of the first-time device setup or regular password reset. No further action is required. |
 |A support session is enabled. |Informational |This is an information alert to ensure that administrators can ensure that the enabling the support session is legitimate. No action is needed. |
 |A support session has started. |Informational |This is an information alert to ensure that administrators can ensure that the support session is legitimate. No action is needed. |
 
 
-## Key Vault alerts
+### Key Vault alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|Key Vault is not configured |Critical/Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>If secrets are soft deleted, follow the steps [here](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
+|Key Vault is not configured |Critical<br>Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>If secrets are soft deleted, follow the steps [here](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 |Key Vault is not configured |Warning |Configure the Key Vault for your Azure Stack Edge resource. For detailed steps, see [Create a key vault](../key-vault/general/quick-create-portal.md). |
 |Key Vault is deleted |Critical |If the key vault is deleted and the purge protection duration of 90 days hasn't elapsed, follow the steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-a-soft-deleted-key-vault).<!--Verify link target.-->|
 |Couldn’t retrieve secret(s) from the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. The required permissions are are present [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 |Couldn’t access the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, click [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 
 
-## Hardware alerts
+### Hardware alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
-|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to *TO COME*.<!--GET CORRECT LINK TARGET: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to BROKEN LINK.<!--GET CORRECT LINK TARGET: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Started the replacement of {0}. |Informational |No action is required from you. |
 |Successfully replaced {0} |Informational |No action is required from you. |
@@ -201,7 +204,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 | {0} has failed. |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
 
 
-## Update alerts
+### Update alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -219,7 +222,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
 
 
-## Cluster alerts
+### Cluster alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -235,16 +238,16 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |The temperature sensor on the motherboard of server {0} has raised a warning.<!--Move to Hardware?--> |Warning |Check the node temperature. |
 
 
-## Virtual machine alerts
+### Virtual machine alerts
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see TO COME.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
-| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see TO COME.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
-| Your virtual machine {0} is not running.                            |Warning  |If the issue persists, delete and redeploy the virtual machine.|
-|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see TO COME. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+| Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
+|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
 |Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
-|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see TO COME. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
 
 
 ## Next steps
