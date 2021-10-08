@@ -140,14 +140,14 @@
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid
         href: deploy-vulnerability-assessment-tvm.md
-      - name: Scan your machines with the integrated Qualys scanner
+      - name: Find vulnerabilities with the integrated Qualys scanner
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
-      - name: Scan your machines with a BYOL VA solution
+      - name: Find vulnerabilities with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
-      - name: Automatically enable vulnerability assessment
-        displayName: qualys, rapid7, vulnerability
+      - name: Automatically enable a vulnerability assessment solution
+        displayName: qualys, rapid7, vulnerability, auto provision
         href: auto-deploy-vulnerability-assessment.md
       - name: Review and remediate vulnerabilities
         displayName: qualys, va, rapid7, vulnerability
