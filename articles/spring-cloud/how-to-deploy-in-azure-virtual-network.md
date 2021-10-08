@@ -84,38 +84,50 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 #### [CLI](#tab/azure-CLI)
 If you already have a virtual network to host an Azure Spring Cloud instance, skip steps 1, 2, 3 and 4. You can start from step 5 to prepare subnets for the virtual network.
 
-1. Login to your Azure account.
+1. Define variables for your subscription, resource group, and Azure Spring Cloud instance. Customize the values based on your real environment.
+
+```azurecli
+SUBSCRIPTION='subscription-id'
+RESOURCE_GROUP='my-resource-group'
+LOCATION='eastus'
+SPRING_CLOUD_NAME='spring-cloud-name'
+VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+```
+
+1. Sign in to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
-```
-
-1. Set default values. Update these values to the values you want to use and to make your Azure Spring Cloud name unique. 
-
-```azurecli
-AZ_RESOURCE_GROUP=spring-cloud-vnet
-AZ_SPRING_CLOUD_NAME=azure-spring-cloud-vnet
-LOCATION=westeurope
-VNET_NAME=ascvnet
+az account set --subscription ${SUBSCRIPTION}
 ```
 
 1. Create a resource group for your resources.
 
 ```azurecli
-az group create -n $AZ_RESOURCE_GROUP -l $LOCATION
+az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
 1. Create the virtual network.
 
 ```azurecli
-az network vnet create -g $AZ_RESOURCE_GROUP -n $VNET_NAME -l $LOCATION --address-prefix 10.1.0.0/16
+az network vnet create --resource-group $RESOURCE_GROUP \
+    --name $VIRTUAL_NETWORK_NAME \
+    --location $LOCATION \
+    --address-prefix 10.1.0.0/16
 ```
 
 1. Create 2 subnets in this virtual network. 
 
 ```azurecli
-az network vnet subnet create -g $AZ_RESOURCE_GROUP --vnet-name $VNET_NAME --address-prefixes 10.1.0.0/28 -n service-runtime-subnet 
-az network vnet subnet create -g $AZ_RESOURCE_GROUP --vnet-name $VNET_NAME --address-prefixes 10.1.1.0/28 -n apps-subnet 
+az network vnet subnet create --resource-group $RESOURCE_GROUP \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
+    --address-prefixes 10.1.0.0/28 \
+    --name service-runtime-subnet 
+
+az network vnet subnet create --resource-group $RESOURCE_GROUP \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
+    --address-prefixes 10.1.1.0/28 \
+    --name apps-subnet 
 ```
 
 ---
@@ -155,8 +167,8 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name $VNET_NAME \
-    --resource-group $AZ_RESOURCE_GROUP \
+    --name $VIRTUAL_NETWORK_NAME \
+    --resource-group $RESOURCE_GROUP \
     --query "id" \
     --output tsv`
 
@@ -209,9 +221,9 @@ To deploy an Azure Spring Cloud instance in the virtual network:
 
 ```azurecli
 az spring-cloud create  \
-    --resource-group "$AZ_RESOURCE_GROUP" \
-    --name "$AZ_SPRING_CLOUD_NAME" \
-    --vnet $VNET_NAME \
+    --resource-group "$RESOURCE_GROUP" \
+    --name "$SPRING_CLOUD_NAME" \
+    --vnet $VIRTUAL_NETWORK_NAME \
     --service-runtime-subnet service-runtime-subnet \
     --app-subnet apps-subnet \
     --enable-java-agent \
