@@ -4,7 +4,7 @@ description: In this quickstart, we deploy a Spring Cloud application to the Azu
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/05/2021
+ms.date: 10/08/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
