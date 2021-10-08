@@ -18,7 +18,7 @@ ms.date: 10/06/2021
 # Set up AutoML to train computer vision models with Python (preview)
 
 > [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to train computer vision models on image data with automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -62,12 +62,17 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 ## Training and validation data
 
-In order to generate computer vision models, you need to bring in labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
+In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
-> [!NOTE]
-> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this point.
+If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. 
 
-The structure of the tabular dataset depends upon the task at hand. For computer vision task types,  consists of the following fields:
+> [!Warning]
+> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
+
+
+### JSONL schema samples
+
+The structure of the TabularDataset depends upon the task at hand. For computer vision task types, it consists of the following fields:
 
 Field| Description
 ---|---
@@ -75,10 +80,8 @@ Field| Description
 `image_details`|Image metadata information consists of height, width, and format. This field is optional and hence may or may not exist.
 `label`| A json representation of the image label, based on the task type.
 
+The following is a sample JSONL file for image classification:
 
-#### JSONL sample schema for each task type
-
-Here is a sample JSONL file for image classification:
 ```python
 {
       "image_url": "AmlDatastore://image_data/Image_01.png",
@@ -103,6 +106,7 @@ Here is a sample JSONL file for image classification:
   ```
 
   The following code is a sample JSONL file for object detection:
+
   ```python
   {
       "image_url": "AmlDatastore://image_data/Image_01.png",
@@ -143,7 +147,7 @@ Here is a sample JSONL file for image classification:
   ```
 
 
-If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. 
+### Consume data
 
 Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
@@ -156,9 +160,11 @@ training_dataset = Dataset.Tabular.from_json_lines_files(
 training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
 ```
 
-You can optionally specify another TabularDataset as a validation dataset to be used for your model. If no validation dataset is specified, 20% of your training data will be used for validation by default, unless you pass `split_ratio` argument with a different value.
+Automated ML does not impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend to start with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
-Training data is a required and is passed in using the `training_data` parameter. Validation data is optional and is passed in using the `validation_data` parameter of the AutoMLImageConfig. 
+
+
+Training data is a required and is passed in using the `training_data` parameter. You can optionally specify another TabularDataset as a validation dataset to be used for your model with the `validation_data` parameter of the AutoMLImageConfig. If no validation dataset is specified, 20% of your training data will be used for validation by default, unless you pass `split_ratio` argument with a different value.
 
 For example:
 
@@ -166,10 +172,6 @@ For example:
 from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 ```
-
-### Dataset size constraints
-
-AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size is only  limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend to start with a minimum of 10-15 samples per label. The higher the total number of labels/classes, the more samples you need per label.
 
 ## Compute to run experiment
 
@@ -206,9 +208,9 @@ The following table describes the hyperparameters that are model agnostic.
 | Parameter name | Description | Default|
 | ------------ | ------------- | ------------ |
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  15 <br> (except `yolov5`: 30) |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`: 10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`: 10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps,and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
 | `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
 | `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
 | `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
@@ -259,7 +261,7 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
 | `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
-| `tile_predictions_nms_thresh` | The iou threshold to use to perform nms while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
+| `tile_predictions_nms_thresh` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 ### Model-specific hyperparameters
 
@@ -275,19 +277,15 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
-### Data Augmentation 
+### Data augmentation 
 
 In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
-|-------|------|-----------|
-|Image classification (multi-class and multi-label) | Training | Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation |
-|Image classification (multi-class and multi-label) | Validation & Test | Resize, center crop, normalization
-|Object detection, instance segmentation| Training |Random crop around bounding boxes, expand, horizontal flip, normalization, resize|
-|Object detection, instance segmentation| Validation & Test |Normalization, resize|
-|Object detection using yolov5| Training |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip|
-|Object detection using yolov5| Validation & Test |Letterbox resizing|
-
+|-------|----------|---------|
+|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
+|Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
+|Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
 ## Configure your experiment settings
 
@@ -321,17 +319,6 @@ This is an optional parameter to specify the metric to be used for model optimiz
 ### Experiment budget
 
 You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days).
-
-<!---
-### Early stopping
-You can optionally enable early stopping for your computer vision experiment using `enable_early_stopping` parameter.
-| Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
-| early_stopping | Enable early stopping logic during training | 1 |
-| early_stopping_patience | Minimum number of epochs/validation evaluations<br> with no primary metric score improvement before the run is stopped | 5 |
-| early_stopping_delay | Minimum number of epochs/validation evaluations<br> to wait before primary metric score improvement is tracked for early stopping | 5 |
-<br>
--->
 
 ## Sweeping hyperparameters for your model
 
@@ -473,7 +460,7 @@ You can configure the model deployment endpoint name and the inferencing cluster
 
 ### Update inference configuration
 
-In the previous step, we downloaded the scoring file `outputs/scoring_file_v_1_0_0.py` from the best model into a local `score.py` file and we used it to create an `InferenceConfig` object. This script can be modifed to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
+In the previous step, we downloaded the scoring file `outputs/scoring_file_v_1_0_0.py` from the best model into a local `score.py` file and we used it to create an `InferenceConfig` object. This script can be modified to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
     
 ```
 ...
