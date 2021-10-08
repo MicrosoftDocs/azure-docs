@@ -19,6 +19,8 @@ In this article, you learn how to create and manage an Azure Machine Learning wo
 
 A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment variables. Variables are used to provide input values when using the configuration.
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 * An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
