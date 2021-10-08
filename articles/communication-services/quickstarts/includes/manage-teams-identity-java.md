@@ -1,0 +1,173 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: gistefan
+manager: soricos
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 10/08/2021
+ms.topic: include
+ms.custom: include file
+ms.author: gistefan
+---
+
+## Prerequisites
+
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+
+## Setting Up
+
+### Create a new Java application
+
+Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
+
+```console
+mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
+
+### Install the package
+
+Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
+
+```xml
+<dependencies>
+...
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-communication-identity</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+    </dependency>
+...
+</dependencies>
+```
+
+### Set up the app framework
+
+From the project directory:
+
+1. Navigate to the */src/main/java/com/communication/quickstart* directory
+1. Open the *App.java* file in your editor
+1. Replace the `System.out.println("Hello world!");` statement
+1. Add `import` directives
+
+Use the following code to begin:
+
+```java
+package com.communication.quickstart;
+
+import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.core.credential.*;
+
+import java.io.IOException;
+import java.time.*;
+import java.util.*;
+
+public class App
+{
+    public static void main( String[] args ) throws IOException
+    {
+        System.out.println("Azure Communication Services - Teams Access Tokens Quickstart");
+        // Quickstart code goes here
+    }
+}
+```
+
+### Step 1: Receive the Azure AD user token via the MSAL library
+
+First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
+
+```java
+String appId = "Contoso's_Application_ID";
+String authority = "https://login.microsoftonline.com/common";
+
+PublicClientApplication pca = PublicClientApplication.builder(appId)
+        .authority(authority)
+        .setTokenCacheAccessAspect(tokenCacheAspect)
+        .build();
+
+String redirectUri = "http://localhost";
+String scope = "https://auth.msft.communication.azure.com/VoIP";
+InteractiveRequestParameters parameters = InteractiveRequestParameters
+                    .builder(new URI(redirectUri))
+                    .scopes(scope)
+                    .build();
+
+IAuthenticationResult result = pca.acquireToken(parameters);
+```
+
+### Step 2: Initialize the CommunicationIdentityClient
+
+Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string). In addition, you can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface.
+
+Add the following code to the `main` method:
+
+```java
+// Your can find your endpoint and access key from your resource in the Azure portal
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+String accessKey = "SECRET";
+
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accessKey))
+        .buildClient();
+```
+
+You can also provide the entire connection string using the `connectionString()` function instead of providing the endpoint and access key.
+```java
+// Your can find your connection string from your resource in the Azure portal
+String connectionString = "<connection_string>";
+
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .connectionString(connectionString)
+    .buildClient();
+```
+
+If you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+```java
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
+```
+
+### Step 3: Exchange the Azure AD user token for the Teams access token
+
+Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+
+```java
+var accessToken = communicationIdentityClient.exchangeTeamsToken(result.getAccessToken());
+System.out.println("Token: " + accessToken.getAccessToken());
+```
+
+## Run the code
+
+Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+
+```console
+mvn compile
+```
+
+Then, build the package.
+
+```console
+mvn package
+```
+
+Run the following `mvn` command to execute the app.
+
+```console
+mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+```

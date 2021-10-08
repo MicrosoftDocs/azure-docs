@@ -13,126 +13,94 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
+## Prerequisites
+
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
+
 ## Setting Up
 
-### Create a new C# application
+### Create a new Python application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `TeamsAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+1. Open your terminal or command window create a new directory for your app, and navigate to it.
 
-```console
-dotnet new console -o TeamsAccessTokensQuickstart
-```
+   ```console
+   mkdir teams-access-tokens-quickstart && cd teams-access-tokens-quickstart
+   ```
 
-Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+1. Use a text editor to create a file called **exchange-teams-access-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
 
-```console
-cd TeamsAccessTokensQuickstart
-dotnet build
-```
+   ```python
+   import os
+   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
+
+   try:
+      print("Azure Communication Services - Access Tokens Quickstart")
+      # Quickstart code goes here
+   except Exception as ex:
+      print("Exception:")
+      print(ex)
+   ```
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
-dotnet add package Microsoft.Identity.Client -Version 4.36.2
-```
-
-### Set up the app framework
-
-From the project directory:
-
-1. Open **Program.cs** file in a text editor
-1. Add a `using` directive to include the `Azure.Communication.Identity` namespace
-1. Update the `Main` method declaration to support async code
-
-Use the following code to begin:
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Core;
-using Azure.Communication.Identity;
-
-namespace TeamsAccessTokensQuickstart
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Azure Communication Services - Teams Access Tokens Quickstart");
-
-            // Quickstart code goes here
-        }
-    }
-}
+pip install azure-communication-identity
+pip install msal
 ```
 
 ### Step 1: Receive the Azure AD user token via the MSAL library
 
 First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
 
-```csharp
-string appId = "Contoso's_Application_ID";
-string authority = "https://login.microsoftonline.com/common";
-string redirectUri = "http://localhost";
+```python
+from msal import PublicClientApplication
 
-var aadClient = PublicClientApplicationBuilder
-                .Create(appId)
-                .WithAuthority(authority)
-                .WithRedirectUri(redirectUri)
-                .Build();
+client_id = "Contoso's_Application_ID"
+authority = "https://login.microsoftonline.com/common"
 
-string scope = "https://auth.msft.communication.azure.com/VoIP";
+app = PublicClientApplication(client_id, authority=authority)
 
-var teamsUserAadToken = await aadClient
-                        .AcquireTokenInteractive(new List<string> { scope })
-                        .ExecuteAsync();
+scope = "https://auth.msft.communication.azure.com/VoIP"
+teams_token_result = app.acquire_token_interactive(scope)
+
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
 
-Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
-Add the following code to the `Main` method:
+Add this code inside the `try` block:
 
-```csharp
-// This code demonstrates how to fetch your connection string
-// from an environment variable.
-string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-var client = new CommunicationIdentityClient(connectionString);
+```python
+# This code demonstrates how to fetch your connection string
+# from an environment variable.
+connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
+
+# Instantiate the identity client
+client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, you can separate endpoint and access key.
-```csharp
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
-string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
-var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
-```
-
-If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
-```csharp
-TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
+Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+```python
+endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
+client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 ```
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
 Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
-```csharp
-var accessToken = await client.ExchangeTeamsTokenAsync(tokenResult.AccessToken);
-Console.WriteLine($"Token:{accessToken.Value.Token}");
+```python
+token_result = client.exchange_user_token(teams_token_result.access_token);
+print("Token: " + token_result.token)
 ```
 
 ## Run the code
 
-Run the application from your application directory with the `dotnet run` command.
+From a console prompt, navigate to the directory containing the *exchange-teams-access-tokens.py* file, then execute the following `python` command to run the app.
 
 ```console
-dotnet run
+python ./exchange-teams-access-tokens.py
 ```

@@ -2,137 +2,176 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: gistefan
-manager: soricos
-
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 10/08/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: gistefan
+ms.author: tchladek
 ---
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
 ## Setting Up
 
-### Create a new C# application
+### Create a new Node.js Application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `TeamsAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-dotnet new console -o TeamsAccessTokensQuickstart
+mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
-Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+Run `npm init -y` to create a **package.json** file with default settings.
 
 ```console
-cd TeamsAccessTokensQuickstart
-dotnet build
+npm init -y
 ```
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
+Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
-dotnet add package Microsoft.Identity.Client -Version 4.36.2
+
+npm install @azure/communication-identity --save
+
 ```
 
-### Set up the app framework
+The `--save` option lists the library as a dependency in your **package.json** file.
+
+## Set up the app framework
 
 From the project directory:
 
-1. Open **Program.cs** file in a text editor
-1. Add a `using` directive to include the `Azure.Communication.Identity` namespace
-1. Update the `Main` method declaration to support async code
+1. Open a new text file in your code editor
+1. Add a `require` call to load the `CommunicationIdentityClient`
+1. Create the structure for the program, including basic exception handling
 
 Use the following code to begin:
 
-```csharp
-using System;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Core;
-using Azure.Communication.Identity;
+```javascript
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 
-namespace TeamsAccessTokensQuickstart
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Azure Communication Services - Teams Access Tokens Quickstart");
+const main = async () => {
+  console.log("Azure Communication Services - Access Tokens Quickstart")
 
-            // Quickstart code goes here
-        }
-    }
-}
+  // Quickstart code goes here
+};
+
+main().catch((error) => {
+  console.log("Encountered an error");
+  console.log(error);
+})
 ```
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+1. Save the new file as **issue-access-token.js** in the *access-tokens-quickstart* directory.
 
-First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
+## Authenticate the client
 
-```csharp
-string appId = "Contoso's_Application_ID";
-string authority = "https://login.microsoftonline.com/common";
-string redirectUri = "http://localhost";
+Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
-var aadClient = PublicClientApplicationBuilder
-                .Create(appId)
-                .WithAuthority(authority)
-                .WithRedirectUri(redirectUri)
-                .Build();
+Add the following code to the `main` method:
 
-string scope = "https://auth.msft.communication.azure.com/VoIP";
-
-var teamsUserAadToken = await aadClient
-                        .AcquireTokenInteractive(new List<string> { scope })
-                        .ExecuteAsync();
-```
-
-### Step 2: Initialize the CommunicationIdentityClient
-
-Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
-
-Add the following code to the `Main` method:
-
-```csharp
+```javascript
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
-string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-var client = new CommunicationIdentityClient(connectionString);
+const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
+
+// Instantiate the identity client
+const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
 Alternatively, you can separate endpoint and access key.
-```csharp
+```javascript
 // This code demonstrates how to fetch your endpoint and access key
 // from an environment variable.
-string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
-string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
-var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
+const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
+const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
+const tokenCredential = new AzureKeyCredential(accessKey);
+// Instantiate the identity client
+const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
-```csharp
-TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
+If you have an Azure Active Directory Application setup, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+```javascript
+const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
+const tokenCredential = new DefaultAzureCredential();
+const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential);
 ```
 
-### Step 3: Exchange the Azure AD user token for the Teams access token
+## Create an identity
 
-Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
-```csharp
-var accessToken = await client.ExchangeTeamsTokenAsync(tokenResult.AccessToken);
-Console.WriteLine($"Token:{accessToken.Value.Token}");
+```javascript
+let identityResponse = await identityClient.createUser();
+console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
+```
+
+## Issue access tokens
+
+Use the `getToken` method to issue an access token for an already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+
+```javascript
+// Issue an access token with the "voip" scope for an identity
+let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
+const { token, expiresOn } = tokenResponse;
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(token);
+```
+
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token.
+
+## Create an identity and issue an access token within the same request
+
+Use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+
+```javascript
+// Issue an identity and an access token with the "voip" scope for the new identity
+let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
+const { token, expiresOn, user } = identityTokenResponse;
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(token);
+```
+
+## Refresh access tokens
+
+Refreshing access tokens is as easy as calling `getToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
+
+```javascript
+// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
+```
+
+
+## Revoke access tokens
+
+In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidate all active access tokens, that were issued to the identity.
+
+```javascript
+await identityClient.revokeTokens(identityResponse);
+console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
+```
+
+## Delete an identity
+
+Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
+
+```javascript
+await identityClient.deleteUser(identityResponse);
+console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Run the code
 
-Run the application from your application directory with the `dotnet run` command.
+From a console prompt, navigate to the directory containing the *issue-access-token.js* file, then execute the following `node` command to run the app.
 
 ```console
-dotnet run
+node ./issue-access-token.js
 ```

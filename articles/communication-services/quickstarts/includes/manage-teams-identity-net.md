@@ -13,6 +13,10 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
+## Prerequisites
+
+- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+
 ## Setting Up
 
 ### Create a new C# application
