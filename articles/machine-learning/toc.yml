@@ -57,15 +57,13 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Deploy a model
               href: tutorial-deploy-models-with-aml.md
-        - name: Regression with Automated ML (NYC Taxi data)
-          items:
-            - name: Auto-train an ML model
+        - name: Automated ML
+          items: 
+            - name: Regression (NYC Taxi data)
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
-        - name: Object detection with Automated ML
-          items: 
-            - name: Auto-train an object detection model
-              displayName: automl, automated, auto ml,
+            - name: Object detection with AutoML 
+              displayName: automl, automated, auto ml, computer vision, images
               href: tutorial-auto-train-image-models.md
         - name: Batch score models with pipelines
           displayName: pipelines
