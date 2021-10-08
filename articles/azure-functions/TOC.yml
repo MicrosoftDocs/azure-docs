@@ -93,16 +93,8 @@
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
           href: functions-how-to-use-nat-gateway.md
-    - name: Identity Based Connections
-      items:
-        - name: Creating a secretless function app
-          href: functions-managed-identity-tutorial.md
-        - name: Application Insights with managed identity
-          href: functions-managed-identity-key-vault.md
-        - name: Storage Queue with identity-based connections
-          href: functions-managed-identity-storage-queue.md
-        - name: Service Bus with identity-based connections
-          href: functions-managed-identity-servicebus-queue.md
+    - name: Use identity-based connections
+      href: functions-managed-identity-tutorial.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app

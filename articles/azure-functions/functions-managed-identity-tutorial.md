@@ -218,11 +218,5 @@ Congratulations! You've successfully removed all secrets in your function app by
 ## Next steps 
 
 This tutorial showed how to create and deploy a basic function app with a simple timer trigger using identity-based connections.  
-Consider completing one of the following tutorials that extend this basic scenario:
 
-| Use managed identities... | Description |
-| --- | --- |
-| to access Azure Key Vault. | While the Application Insights instrumentation key isn't technically a secret, you can configure this setting using Key Vault and use your managed identity to access it. To learn how, see [Tutorial: Access Application Insights Secrets Using Key Vault](functions-managed-identity-key-vault.md).|
-| with triggers and bindings | Most triggers and bindings require your function app to connect to another service. See the following trigger-specific tutorials:<br/>•  [Queue Storage trigger tutorial](./functions-managed-identity-storage-queue.md)<br/>•  [Service Bus trigger tutorial](./functions-managed-identity-servicebus-queue.md)|   
-| during local development. | The Service Bus queue trigger tutorial also details [how to use managed identities with local development](./functions-managed-identity-servicebus-queue.md#use-managed-identity-for-local-development). |
-| with Event Hubs and Blob Storage. | Event Hubs follows the same patterns as Service Bus, so you can follow the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md). For Blob Storage, the Functions host uses queues internally to run the blob trigger. This means that your function app must have both blob and queue role assignments. These assignments are required both for the account that is configured in `AzureWebJobsStorage` and for the account that contains the blob container watched by your trigger. To learn more, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection). |
+To learn more, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
