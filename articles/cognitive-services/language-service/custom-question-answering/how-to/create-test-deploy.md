@@ -54,7 +54,7 @@ You can create a question answering project from your own content, such as FAQs 
 
     The extraction process takes a few moments to read the document and identify questions and answers.
 
-    After successfully adding the source, you can then edit the source contents to add additional custom question answer sets.
+    After successfully adding the source, you can then edit the source contents to add more custom question answer sets.
 
 ## Test your project
 
@@ -72,7 +72,7 @@ You can create a question answering project from your own content, such as FAQs 
     > [!div class="mx-imgBorder"]
     > ![See the confidence interval](../media/create-test-deploy/inspect-test.png)
 
-    From the **Inspect** interface you can see the level of confidence that this response will answer the question as well as directly edit a given question and answer response pair.
+    From the **Inspect** interface, you can see the level of confidence that this response will answer the question and directly edit a given question and answer response pair.
 
 ## Deploy your project
 
@@ -92,7 +92,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 ## Clean up resources
 
-If you will not continue to test custom question answering you can delete the associated resource.
+If you will not continue to test custom question answering, you can delete the associated resource.
 
 ## Next steps
 
