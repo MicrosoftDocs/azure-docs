@@ -114,13 +114,15 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
    - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   Depending on the size of your account, this process can take some time. Use the `asJob` switch to To run the command in a background job so that your client isn't blocked while validation runs. The command runs remotely, but the job exists on your local machine or the VM from which you run the command. The results are transmitted to your local machine or the VM.
+   Depending on the size of your account, this process can take some time. You can use the `asJob` switch to run the command in a background job so that your client isn't blocked. The command runs remotely, but the job exists on your local machine or the VM from which you run the command. The results are transmitted to your local machine or the VM.
 
 7. To check the status of the job, and display all of the properties of the job in a list, pipe the return variable to the `Format-List` cmdlet. 
 
    ```powershell
    $result | Format-List -Property *
    ```
+
+   If the validation succeeds, the **State** property will be set to **Completed**.
 
    If validation fails, the **State** property will be set to **Failed**, and the **Error** property will show validation errors. 
 
@@ -129,7 +131,23 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Validation error](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-error-powershell.png)
 
-   If the validation succeeds, the **State** property will be set to **Completed** and the **Error** property will not show any errors.
+   In some cases, the **Error** property provides you with a path to a file named **error.json**. You can open that file to determine why the account did not pass the validation step. 
+
+   The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
+
+   ```json
+   {
+    "startTime": "2021-08-04T18:40:31.8465320Z",
+    "id": "45c84a6d-6746-4142-8130-5ae9cfe013a0",
+    "incompatibleFeatures": [
+        "Blob Delete Retention Enabled"
+    ],
+    "blobValidationErrors": [],
+    "scannedBlobCount": 0,
+    "invalidBlobCount": 0,
+    "endTime": "2021-08-04T18:40:34.9371480Z"
+   }
+   ```
 
 8. After your account has been successfully validated, start the upgrade by running the following command.
    
@@ -137,7 +155,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    $result Invoke-AzStorageAccountHierarchicalNamespaceUpgrade -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" -RequestType Upgrade -AsJob -Force
    ```
 
-   Like the validation example above, this example uses the `asJob` switch to To run the command in a background job. The `Force` switch overrides prompts to confirm the upgrade.  If you don't use the `AsJob` switch, you don't have to use the `Force` switch because you can just respond to the prompts.
+   Like the validation example above, this example uses the `asJob` switch to run the command in a background job. The `Force` switch overrides prompts to confirm the upgrade.  If you don't use the `AsJob` switch, you don't have to use the `Force` switch because you can just respond to the prompts.
 
    > [!IMPORTANT]
    > Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as they might destabilize the upgrade process.
