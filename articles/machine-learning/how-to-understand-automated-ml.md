@@ -279,7 +279,7 @@ The primary metric for the evaluation of image object detection and instance seg
 > The image object detection model evaluation can use coco metrics if the 'validation_metric_type' hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
 
 #### Epoch-level metrics for object detection and instance segmentation
-The mAP, precision and recall values are logged at an epoch-level for image object detection/instance segmentation models. The mAP, precision and recall metrics are also logged at a class level with the name 'per_label_metrics'.
+The mAP, precision and recall values are logged at an epoch-level for image object detection/instance segmentation models. The mAP, precision and recall metrics are also logged at a class level with the name 'per_label_metrics'. The 'per_label_metrics' should be viewed as a table. 
 
 > [!NOTE]
 > Epoch-level metrics for precision, recall and per_label_metrics are not available when using the 'coco' method.
