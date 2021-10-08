@@ -7,21 +7,18 @@ ms.subservice: develop
 ms.topic: include
 ---
 
-The following API and HTTP scheme-based application ID URI formats are supported. Replace each placeholder value as described in [Placeholder value descriptions](#placeholder-value-descriptions).
+The following API and HTTP scheme-based application ID URI formats are supported. Replace the placeholder values as described in the list following the table.
 
-|                 | Format                                                   | Example(s)         |
-|-----------------|----------------------------------------------------------|--------------------|
-| **API scheme**  |                                                          |                    |
-|                 | _api://\<appId\>_                                        | SARAUBH :warning:    |
-|                 | _api://\<tenantId\>/\<appId\>_                           | SARAUBH :warning:    |
-|                 | _api://\<tenantId\>/\<string\>_                          | SARAUBH :warning:    |
-| **HTTP scheme** |                                                          |    |
-|                 | _https://\<tenantId\>.onmicrosoft.com/\<string\>_        | * _https://contoso.onmicrosoft.com/productsapi_ <br/> * _https://123e4567-e89b-12d3-a456-426614174000.onmicrosoft.com/productsapi_ <br/>  |
-|                 | _https://\<verifiedCustomDomain\>/\<string\>_            | SARAUBH :warning:    |
-|                 | _https://\<string\>.\<verifiedCustomDomain\>_            | SARAUBH :warning:    |
-|                 | _https://\<string\>.\<verifiedCustomDomain\>/\<string\>_ | SARAUBH :warning:    |
+| Supported application ID <br/> URI formats | Example app ID URIs |
+|--|--|
+| _api://\<appId\>_ | SARAUBH :warning: |
+| _api://\<tenantId\>/\<appId\>_ | SARAUBH :warning: |
+| _api://\<tenantId\>/\<string\>_ | SARAUBH :warning: |
+| _https://\<tenantId\>.onmicrosoft.com/\<string\>_ | * _https://contoso.onmicrosoft.com/productsapi_ <br/> * _https://123e4567-e89b-12d3-a456-426614174000.onmicrosoft.com/productsapi_ <br/> |
+| _https://\<verifiedCustomDomain\>/\<string\>_ | SARAUBH :warning: |
+| _https://\<string\>.\<verifiedCustomDomain\>_ | SARAUBH :warning: |
+| _https://\<string\>.\<verifiedCustomDomain\>/\<string\>_ | SARAUBH :warning: |
 
-### Placeholder value descriptions
 
 - _\<appId\>_ - SARAUBH :warning:
 - _\<string\>_ - SARAUBH :warning:
