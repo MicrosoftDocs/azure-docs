@@ -31,55 +31,80 @@ You can also [use a managed identity with an HTTP trigger or action to do blob o
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
 - An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
+
 - A logic app workflow from which you want to access your Blob Storage account. If you want to start your logic app with a Blob Storage trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Limits
 
 - By default, Blob Storage actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The [**Get blob content** action](/connectors/azureblobconnector/#get-blob-content) implicitly uses chunking.
+
 - The Blob Storage triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
+
   - Use a Blob Storage trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
+
   - Follow the trigger with the Blob Storage [**Get blob content** action](/connectors/azureblobconnector/#get-blob-content), which reads the complete file and implicitly uses chunking.
 
 ## Add Blob Storage trigger
 
-In Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. 
+Every logic app workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. 
 
 This connector has one available trigger, called either [**When a blob is Added or Modified in Azure Storage** or **When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). The trigger fires when a blob's properties are added or updated in your storage container. Each time, the Logic Apps engine creates a logic app instance and starts running your workflow.
 
-### [Single-tenant](#tab/single-tenant)
+### [Consumption](#tab/consumption)
 
-To add a Blob Storage action in a single-tenant logic app that uses a Standard plan:
+To add a Blob Storage action in a multi-tenant logic app that uses the Consumption plan:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open your workflow in the designer.
-1. In the search box, enter `Azure blob` as your filter. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot of Standard logic app in designer, showing selection of trigger named When a blob is Added or Modified in Azure Storage.":::
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. In the designer search box, enter `Azure blob` as your filter. From the triggers list, select the trigger **When a blob is added or modified (properties only)**.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Consumption logic app with the trigger named "When a blob is Added or Modified in Azure Storage" selected".":::
+
 1. If you're prompted for connection details, [create your blob storage connection now](#connect-to-storage-account).
+
 1. Provide the necessary information for the trigger.
-    1. Under the **Parameters** tab, add the **Blob Path** to the blob you want to monitor.
-        To find your blob path, open your storage account in the Azure portal. In the navigation menu, under **Data Storage**, select **Containers**. Select your blob container. On the container navigation menu, under **Settings**, select **Properties**. Copy the **URL** value, which is the path to the blob. The path resembles `https://{your-storage-account}.blob.core.windows.net/{your-blob}`.
-        :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot of Standard logic app in designer, showing parameters configuration for blob storage trigger.":::
-    1. Configure other trigger settings as needed.
-    1. Select **Done**.
+
+   1. For **Container**, select the folder icon to choose your blob storage container. Or, enter the path manually.
+
+   1. Configure other trigger settings as needed.
+
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing parameters configuration for blob storage trigger.":::
+
 1. Add one or more actions to your workflow.
-1. In the designer toolbar, select **Save** to save your changes.
 
-### [Multi-tenant](#tab/multi-tenant)
+1. On the designer toolbar, select **Save** to save your changes.
 
-To add a Blob Storage action in a multi-tenant logic app that uses a Consumption plan:
+### [Standard](#tab/standard)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open your workflow in the Logic Apps Designer.
-1. In the search box, enter "Azure blob" as your filter. From the triggers list, select the trigger **When a blob is added or modified (properties only)**.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot of Consumption logic app in designer, showing selection of blob storage trigger.":::
+To add a Blob Storage action in a single-tenant logic app that uses the Standard plan:
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. On the designer, select **Choose operation**. In the search box on the pane that opens, enter `Azure blob`. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app with the trigger named "When a blob is Added or Modified in Azure Storage" selected".":::
+
 1. If you're prompted for connection details, [create your blob storage connection now](#connect-to-storage-account).
-1. Provide the necessary information for the trigger.
-    1. For **Container**, select the folder icon to choose your blob storage container. Or, enter the path manually.
-    1. Configure other trigger settings as needed.
-        :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot of Consumption logic app in designer, showing parameters configuration for blob storage trigger.":::
+
+1. Provide the necessary information for the trigger. On the **Parameters** tab, add the **Blob Path** for the blob that you want to monitor.
+
+   1. To find your blob path, open your storage account in the Azure portal.
+
+   1. In the navigation menu, under **Data Storage**, select **Containers**.
+
+   1. Select your blob container. On the container navigation menu, under **Settings**, select **Properties**.
+
+   1. Copy the **URL** value, which is the path to the blob. The path resembles `https://<storage-container-name>/<folder-name>/{name}}` but with your container name and folder name instead.
+
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot of Standard logic app in designer, showing parameters configuration for blob storage trigger.":::
+
+1. When you're finished, select **Done**.
+
 1. Add one or more actions to your workflow.
-1. In the designer toolbar, select **Save** to save your changes.
+
+1. On the designer toolbar, select **Save** to save your changes.
 
 ---
 
@@ -87,9 +112,24 @@ To add a Blob Storage action in a multi-tenant logic app that uses a Consumption
 
 ## Add Blob Storage action
 
-In Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action.
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action.
 
-### [Single-tenant](#tab/single-tenant)
+### [Consumption](#tab/consumption)
+
+For logic apps in a multi-tenant environment:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open your workflow in the Logic Apps Designer.
+1. Add a trigger. This example starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+1. Add a new step to your workflow. In the search box, enter "Azure blob" as your filter. Then, select the Blob Storage action that you want to use. This example uses **Get blob content**.
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-add.png" alt-text="Screenshot of Consumption logic app in designer, showing list of available Blob Storage actions.":::
+1. If you're prompted for connection details, [create a connection to your Blob Storage account](#connect-to-storage-account).
+1. Provide the necessary information for the action.
+    1. For **Blob**, select the folder icon to choose your blob storage container. Or, enter the path manually.
+        :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-configure.png" alt-text="Screenshot of Consumption logic app in designer, showing configuration of Blob Storage action.":::
+    1. Configure other action settings as needed.
+
+### [Standard](#tab/standard)
 
 For logic apps in a single-tenant environment:
 
@@ -110,21 +150,6 @@ For logic apps in a single-tenant environment:
 > [!TIP]
 > This example only reads the contents of a blob. To view the contents, add another action that creates a file with the blob by using another connector. For example, add a OneDrive action that creates a file based on the blob contents.
 
-### [Multi-tenant](#tab/multi-tenant)
-
-For logic apps in a multi-tenant environment:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open your workflow in the Logic Apps Designer.
-1. Add a trigger. This example starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
-1. Add a new step to your workflow. In the search box, enter "Azure blob" as your filter. Then, select the Blob Storage action that you want to use. This example uses **Get blob content**.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-add.png" alt-text="Screenshot of Consumption logic app in designer, showing list of available Blob Storage actions.":::
-1. If you're prompted for connection details, [create a connection to your Blob Storage account](#connect-to-storage-account).
-1. Provide the necessary information for the action.
-    1. For **Blob**, select the folder icon to choose your blob storage container. Or, enter the path manually.
-        :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-configure.png" alt-text="Screenshot of Consumption logic app in designer, showing configuration of Blob Storage action.":::
-    1. Configure other action settings as needed.
-
 ---
 
 ## Connect to storage account
@@ -141,7 +166,16 @@ Before you can configure your [blob storage trigger](#add-blob-storage-trigger) 
 > [!TIP]
 > To find a connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys**. Select **Show keys**. Copy one of the two available connection string values.
 
-### [Single-tenant](#tab/single-tenant)
+### [Consumptiont](#tab/consumption)
+
+For logic apps in a multi-tenant environment:
+
+1. For **Connection name**, enter a name for your connection.
+1. For **Storage Account**, select the storage account that your blob container is in. Or, select **Manually enter connection information** to provide the path yourself.
+1. Select **Create** to establish your connection.
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-connection-create.png" alt-text="Screenshot of Consumption logic app in designer, showing prompt to add a new connection to a blob storage step.":::
+
+### [Standard](#tab/standard)
 
 For logic apps in a single-tenant environment:
 
@@ -153,15 +187,6 @@ For logic apps in a single-tenant environment:
 If you already have an existing connection, but you want to choose a different one, select **Change connection** in the step's editor.
 
 If you have problems connecting to your storage account, see [how to access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
-
-### [Multi-tenant](#tab/multi-tenant)
-
-For logic apps in a multi-tenant environment:
-
-1. For **Connection name**, enter a name for your connection.
-1. For **Storage Account**, select the storage account that your blob container is in. Or, select **Manually enter connection information** to provide the path yourself.
-1. Select **Create** to establish your connection.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-connection-create.png" alt-text="Screenshot of Consumption logic app in designer, showing prompt to add a new connection to a blob storage step.":::
 
 ---
 
