@@ -21,8 +21,8 @@
   items:
   - name: Get started with an individual Azure Dev/Test credit
     href: how-to-individual-credit.md
-  - name: Change directory tenants
-    href: change-directory-tenants.md
+#  - name: Change directory tenants
+#    href: change-directory-tenants.md
   - name: Remove credit limits 
     href: remove-credit-limits.md
   - name: Add users to your directory
