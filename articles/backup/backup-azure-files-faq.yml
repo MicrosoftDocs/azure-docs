@@ -225,7 +225,7 @@ sections:
       - question: |
           Why am I getting the error “The selected configuration extends backup window to next day”?
         answer: |
-          This error occurs if the backup window's **start time** and **end time**, determined based on the backup **schedule** and **duration** configuration, falls on two different days.
+          This error occurs if the backup window's **start time** and **end time**, determined based on the backup **schedule** and **duration**, falls on two different days.
 
           For example, you configured a policy with the following parameters:
 
