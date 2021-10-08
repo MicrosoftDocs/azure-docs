@@ -33,13 +33,15 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 1. Create a 'Credential' in data factory user interface interactively. You can select the user-assigned managed identity associated with the data factory in Step 1. 
 
-   :::image type="content" source="media/credentials/credential-ui-create-new-1.png" alt-text="Screenshot showing the first step of creating new credentials." lightbox="media/credentials/credential-ui-create-new-1.png":::
+   :::image type="content" source="media/credentials/create-new-credential.png" alt-text="Screenshot showing the creation of new credentials.":::
 
-   :::image type="content" source="media/credentials/credential-ui-create-new-2.png" alt-text="Screenshot showing the second step of creating new credentials." lightbox="media/credentials/credential-ui-create-new-2.png":::
+   :::image type="content" source="media/credentials/user-assigned-credential-configuration.png" alt-text="Screenshot showing the configuration of new credentials.":::
 
 1. Create a new linked service and select 'user-assigned managed identity' under authentication
 
-   :::image type="content" source="media/credentials/credential-ui-create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication." lightbox="media/credentials/credential-ui-create-new-linked-service.png":::
+   :::image type="content" source="media/credentials/create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication.":::
+
+   :::image type="content" source="media/credentials/linked-service-credential-configuration.png" alt-text="Screenshot showing the new linked service configuration with User-Assigned Managed Identity and credentials selected.":::
 
 # [Azure Synapse](#tab/synapse-analytics)
 
@@ -51,13 +53,15 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 1. Create a 'Credential' in data factory user interface interactively. You can select the user-assigned managed identity associated with the data factory in Step 1. 
 
-   :::image type="content" source="media/credentials/synapse-credential-ui-create-new-1.png" alt-text="Screenshot showing the first step of creating new credentials.":::
+   :::image type="content" source="media/credentials/synapse-create-new-credential.png" alt-text="Screenshot showing the creation of new credentials.":::
 
-   :::image type="content" source="media/credentials/credential-ui-create-new-2.png" alt-text="Screenshot showing the second step of creating new credentials." lightbox="media/credentials/credential-ui-create-new-2.png":::
+   :::image type="content" source="media/credentials/user-assigned-credential-configuration.png" alt-text="Screenshot showing the configuration of new credentials.":::
 
 1. Create a new linked service and select 'user-assigned managed identity' under authentication
 
-   :::image type="content" source="media/credentials/credential-ui-create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication." lightbox="media/credentials/credential-ui-create-new-linked-service.png":::
+   :::image type="content" source="media/credentials/synapse-create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication.":::
+
+   :::image type="content" source="media/credentials/linked-service-credential-configuration.png" alt-text="Screenshot showing the new linked service configuration with User-Assigned Managed Identity and credentials selected.":::
 
 ---
 
