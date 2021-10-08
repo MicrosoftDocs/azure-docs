@@ -155,16 +155,22 @@ Stream the job logs using `job stream`.
 
 To view the scoring results:
 
-1. Go to studio
-1. Navigate to **Experiments**
-1. Navigate to your endpoint's run (the value of `interactionEndpoints.Studio.endpoint` in the response to `endpoint invoke`)
-1. In the graph of the run, click inside the `batchscoring` step
-1. Choose the Outputs + logs tab and choose **Show data outputs** 
-1. Choose the **View output** icon
+1. To open Azure Machine Learning studio and view the results, use the following command. Replace `$JOB_NAME` with the name of the job:
+
+    ```azurecli
+    az ml job show -n $JOB_NAME --web
+    ```
+
+1. From studio, select **Experiments**. 
+1. In the graph of the run, select the `batchscoring` step.
+1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
+1. From __Data outputs__, select the icon to open __Storage Explorer__.
+
 :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location" lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png" :::
-1. On the popup panel, copy the path and choose the "Open Datastore" link.
-1. On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
-:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
+
+The output in Storage Explorer is similar to the following sample predictions page:
+
+:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
 
 ## Deploy a new model
 
