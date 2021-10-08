@@ -106,12 +106,15 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 # [C\#](#tab/csharp)
 
 - `InvalidHostServicesException` is now a fatal error. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
+
 - `EnableEnhancedScopes` is enabled by default. ([#1954](https://github.com/Azure/Azure-Functions/issues/1954))
+
 - Remove `HttpClient` as a registered service. ([#1911](https://github.com/Azure/Azure-Functions/issues/1911))
 
 # [Java](#tab/java)
 
 - Use single class loader in Java 11. ([#1997](https://github.com/Azure/Azure-Functions/issues/1997))
+
 - Stop loading worker jars in Java 8. ([#1991](https://github.com/Azure/Azure-Functions/issues/1991))
 
 # [JavaScript](#tab/javascript)
@@ -121,6 +124,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 # [Python](#tab/python)
 
 - Shared memory transfer is enabled by default. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
+
 - Default thread count has been updated. Functions that are not thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 
 ---
