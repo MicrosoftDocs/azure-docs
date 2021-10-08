@@ -2,11 +2,11 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: curib
-
+ms.author: cauribeg
 ms.service: cache
 ms.topic: reference
 ms.date: 09/28/2020
-ms.author: cauribeg
+
 
 #Customer intent: As a user of Azure Cache for Redis, I want to find out what're the latest changes in the service.
 
@@ -14,7 +14,22 @@ ms.author: cauribeg
 
 # What's New in Azure Cache for Redis
 
-## Azure TLS Certificate Change
+## October 2021
+
+### Diagnostics
+
+Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users will be able to route these logs to a destination of their choice, such as a storage account or event hub.
+
+### Redis update
+Azure Cache for Redis Enterprise now supports active geo-replication.
+
+- Redis Search Module: Deploy RediSearch with Active-Active
+- Now support five databases in a replication group. Previously, supported two.
+- OSS clustering policy - suitable for high performance workloads and provides better scalability.
+
+## October 2020
+
+### Azure TLS Certificate Change
 
 Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because [the current CA certificates don't  one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
 
@@ -23,7 +38,7 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 >
 >
 
-### Does this change affect me?
+#### Does this change affect me?
 
 We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
 
@@ -34,9 +49,9 @@ The following table provides information about the certificates that are being r
 | Root | Thumbprint: d4de20d05e66fc53fe1a50882c78db2852cae474<br><br> Expiration: Monday, May 12, 2025, 4:59:00 PM<br><br> Subject Name:<br> CN = Baltimore CyberTrust Root<br> OU = CyberTrust<br> O = Baltimore<br> C = IE | Not changing | None |
 | Intermediates | Thumbprints:<br> CN = Microsoft IT TLS CA 1<br> Thumbprint: 417e225037fbfaa4f95761d5ae729e1aea7e3a42<br><br> CN = Microsoft IT TLS CA 2<br> Thumbprint: 54d9d20239080c32316ed9ff980a48988f4adf2d<br><br> CN = Microsoft IT TLS CA 4<br> Thumbprint: 8a38755d0996823fe8fa3116a277ce446eac4e99<br><br> CN = Microsoft IT TLS CA 5<br> Thumbprint: Ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7<br><br> Expiration: ‎Friday, ‎May ‎20, ‎2024 5:52:38 AM<br><br> Subject Name:<br> OU = Microsoft IT<br> O = Microsoft Corporation<br> L = Redmond<br> S = Washington<br> C = US<br> | Thumbprints:<br> CN = Microsoft RSA TLS CA 01<br> Thumbprint: 703d7a8f0ebf55aaa59f98eaf4a206004eb2516a<br><br> CN = Microsoft RSA TLS CA 02<br> Thumbprint: b0c2d2d13cdd56cdaa6ab6e2c04440be4a429c75<br><br> Expiration: ‎Tuesday, ‎October ‎8, ‎2024 12:00:00 AM;<br><br> Subject Name:<br> O = Microsoft Corporation<br> C = US<br> | Required |
 
-### What actions should I take?
+#### What actions should I take?
 
-If your application uses the operating system certificate store or pins the Baltimore root among others, no action is needed. 
+If your application uses the operating system certificate store or pins the Baltimore root among others, no action is needed.
 
 If your application pins any intermediate or leaf TLS certificate, we recommend you pin the following roots:
 
