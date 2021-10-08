@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 10/08/2021
 ms.author: alkohli
 ---
 # Review alerts on an Azure Stack Edge Pro GPU device
@@ -34,6 +34,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Hardware alerts](#hardware-alerts)
 * [Update alerts](#update-alerts)
 * [Cluster alerts](#cluster-alerts)
+* [Virtual machine alerts](#virtual-machine-alerts)
 
 
 ## Cloud connectivity alerts
@@ -174,7 +175,7 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
-|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to TO COME.<!--GET CORRECT LINK TARGET: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to *TO COME*.<!--GET CORRECT LINK TARGET: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Started the replacement of {0}. |Informational |No action is required from you. |
 |Successfully replaced {0} |Informational |No action is required from you. |
@@ -240,6 +241,18 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Node {0} is quarantined by the cluster. |Critical |Try troubleshooting the server and potential network issues. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |
 |The temperature sensor on the motherboard of server {0} has raised a warning.<!--Move to Hardware?--> |Warning |Check the node temperature. |
+
+## Virtual machine alerts
+
+|Alert text |Severity |Description / Recommended action |
+|-----------|---------|---------------------------------|
+|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see TO COME. <!--GET CORRECT LINK TARGET: http://aka.ms/vmtroubleshoot.--> |
+| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see TO COME. <!--GET CORRECT LINK TARGET: http://aka.ms/vmtroubleshoot.--> |
+| Your virtual machine {0} is not running.                            |Warning  |If the issue persists, delete and redeploy the virtual machine.|
+|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see TO COME. <!--GET CORRECT LINK TARGET: http://aka.ms/vmtroubleshoot.--> |
+|Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
+|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see TO COME. <!--GET CORRECT LINK TARGET: http://aka.ms/vmtroubleshoot.--> |
+
 
 
 ## Next steps
