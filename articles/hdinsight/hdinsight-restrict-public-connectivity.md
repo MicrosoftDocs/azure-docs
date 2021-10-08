@@ -117,7 +117,7 @@ foreach($label in $endpointMapping.Keys)
 ## Adding private link connectivity (Private Endpoints) to cluster dependent resources (optional)
 
 Configuring `resourceProviderConnection` to *outbound* also allows you to access cluster-specific resources, such as Storage (Azure Data Lake Storage Gen2 and Windows Azure Storage Blob), SQL meta stores (Apache Ranger, Ambari, Oozie, and Hive), and Azure Key Vault using private endpoints. It is not mandatory to use private endpoints for these resources, but if you plan to use private endpoints for these resources, you must create these resources, configure the private endpoints and DNS entries before you create the HDInsight cluster. All these resources should be accessible from inside the cluster subnet, either through a private endpoint or otherwise.
-When connecting to Azure Data Lake Storage Gen2 over Private Endpoint, make sure the Gen2 storage account has an endpoint set for both ‘blob’ and ‘dfs’. For more information please see [creating a private endpoint](../private-link/create-private-endpoint-portal).
+When connecting to Azure Data Lake Storage Gen2 over Private Endpoint, make sure the Gen2 storage account has an endpoint set for both ‘blob’ and ‘dfs’. For more information please see [creating a private endpoint](../private-link/create-private-endpoint-portal.md).
 
 ## Using Firewall (optional)
 HDInsight clusters are still able to connect to the public internet to get outbound dependencies. If you want to restrict even further, you can [configure a firewall](./hdinsight-restrict-outbound-traffic.md), but it's not a requirement.

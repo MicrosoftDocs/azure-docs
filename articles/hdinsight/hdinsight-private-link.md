@@ -48,7 +48,7 @@ The following diagram shows an example of the networking configuration required 
 
 ## Manage private endpoints for Azure HDInsight
 
-You can use [private endpoints](../private-link/private-endpoint-overview) for your Azure HDInsight clusters to allow clients on a virtual network (VNet) to securely access your cluster over [private link](../private-link/private-link-overview). Network traffic between the clients on the VNet and the HDInsight cluster traverses over Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure HDInsight clusters to allow clients on a virtual network (VNet) to securely access your cluster over [private link](../private-link/private-link-overview.md). Network traffic between the clients on the VNet and the HDInsight cluster traverses over Microsoft backbone network, eliminating exposure from the public internet.
 
 :::image type="content" source="media/hdinsight-private-link/private-endpoint-experience.png" alt-text="Diagram of private endpoint management experience":::
 
