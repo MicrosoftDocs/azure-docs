@@ -198,7 +198,7 @@ sections:
         answer: |
           The **duration** attribute helps to determine the timestamp for last backup of the day. 
 
-          For example, if the **start time** is “x AM” and **duration** is “y hours”, the backups will be scheduled between “x AM” and based on the **schedule** attribute (x AM + y hours) defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there're frequent update operations on file share contents; therefore, taking multiple snapshots will safeguard data from any accidental changes.
+          For example, if the **start time** is “x AM” and **duration** is “y hours”, the backups will be scheduled between “x AM” and **schedule** attribute (x AM + y hours) as defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there're frequent update operations on file share contents; therefore, taking multiple snapshots will safeguard data from any accidental changes.
 
       - question: |
           How are the backups scheduled based on the attributes - start time, schedule, and duration?
@@ -211,21 +211,21 @@ sections:
 
           Based on these values, the backup window is calculated as 9 AM – 9 AM + 12 hours, that is, 9 AM – 9 PM. Therefore, all backups will be scheduled within this window.
 
-          The first backup of the day is triggered at the start time mentioned in the policy, that is, 9 AM, and the schedule determines the time difference between consecutive backups, that is, 6 hours. With this calculation, your backup schedule would be: 9 AM, 1 PM (9 AM + 6 hours), 5 PM (1 PM + 6 hours), and 9 PM (5 PM + 6 hours).
+          The first backup of the day is triggered at the start time mentioned in the policy, that is, 9 AM, and the **schedule** determines the time difference between consecutive backups, that is, 6 hours. With this calculation, your backup schedule would be: 9 AM, 1 PM (9 AM + 6 hours), 5 PM (1 PM + 6 hours), and 9 PM (5 PM + 6 hours).
 
-          Since, the end time of backup window we calculated was 9 PM, no backup would be triggered after this time.
+          Since the end time of the backup window we calculated was 9 PM, no backup would be triggered after this time.
 
       - question: |
           Why am I getting the error “The selected configuration will trigger only 1 backup per day”?
         answer: |
-          This error would occur if you specified a **schedule** that's greater than the **duration**. For example, you've configured **start time** as 9 AM, **schedule** as 6 hours, and **duration** as 4 hours. In this scenario, the only time when backup job can trigger is 9 AM, since the next backup time of 3 PM (9 AM + 6 hours) is outside the backup window: 9 AM – 1 PM (9 AM + 4 hours).
+          This error occurs if you specified a **schedule** that's greater than the **duration**. For example, you've configured **start time** as 9 AM, **schedule** as 6 hours, and **duration** as 4 hours. In this scenario, the only time when backup job can trigger is 9 AM, since the next backup time of 3 PM (9 AM + 6 hours) is outside the backup window: 9 AM – 1 PM (9 AM + 4 hours).
 
           To fix this, we recommend you adjust your schedule or duration, or select **Daily** frequency instead of **Hourly**.
 
       - question: |
           Why am I getting the error “The selected configuration extends backup window to next day”?
         answer: |
-          This error occurs if the backup window's **start time** and **end time**, determined based on the backup schedule and duration configuration, falls on two different days.
+          This error occurs if the backup window's **start time** and **end time**, determined based on the backup **schedule** and **duration** configuration, falls on two different days.
 
           For example, you configured a policy with the following parameters:
 
@@ -233,7 +233,7 @@ sections:
           - **Start time**: 12 PM
           - **Duration**: 15 hours
 
-          Based on this configuration, the backup window will be: 12 PM – 3 AM (12 PM + 15 hours). Since, the start and end time are falling on two different days, we recommend you adjust the **start time** or **duration** to ensure they are on the same day.
+          Based on this configuration, the backup window will be: 12 PM – 3 AM (12 PM + 15 hours). Since the start and end times are falling on two different days, we recommend you adjust the **start time** or **duration** to ensure they are on the same day.
 
       - question: |
           What’s the impact on the existing recovery points when I switch from “Daily” to “Hourly” frequency?
