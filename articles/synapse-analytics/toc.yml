@@ -159,9 +159,9 @@ items:
         - name: Synapse workspace managed identity
           href: ./security/synapse-workspace-managed-identity.md
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md
+          href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
         - name: Credentials for user-assigned managed identity
-          href: ../data-factory/credentials.md
+          href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
   - name: How-to guides
     items:
     - name: Manage and Monitor
