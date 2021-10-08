@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # What is Azure Virtual Network Manager (Preview)?
 
-Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual network configurations globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and segment your virtual networks. Then you can determine the connectivity and security configuration you want and apply them across all the selected virtual networks at once. 
+Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. 
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -24,25 +24,25 @@ Azure Virtual Network Manager is a management service that enables you to group,
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagram of management group in Virtual Network Manager.":::
 
-During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. The scope can be defined at the subscription, [management group](../governance/management-groups/overview.md), or  [tenant](../active-directory/develop/quickstart-create-new-tenant.md) level. After defining the scope, you enable features such as *Connectivity* and *SecurityAdmin* role for your Virtual Network Manager.
+During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. The scope can be defined at the subscription, [management group](../governance/management-groups/overview.md), or  [tenant](../active-directory/develop/quickstart-create-new-tenant.md) level. After defining the scope, you enable features such as *Connectivity* and the *SecurityAdmin* role for your Virtual Network Manager.
 
-After you deploy the Virtual Network Manager instance, you then create a *network group* by selecting specific virtual networks (Static membership). You can also use conditional statements to select virtual networks by name, tags, or IDs (Dynamic membership). You then create a connectivity or a security configuration targeting those network groups based on your network and security needs. 
+After you deploy the Virtual Network Manager instance, you then create a *network group* by using conditional statements to select virtual networks by name, tags, or IDs (dynamic membership). You can also select specific virtual networks (static membership). You then create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. 
 
-A connectivity configuration enables you to create a mesh or a hub and spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created the network groups and configurations, you can deploy the configurations to any region of your choosing.
+A connectivity configuration enables you to create a mesh or a hub-and-spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
 
 ## Key benefits
 
 * Centrally manage connectivity and security policies globally across regions and subscriptions.
 
-* Enables transitive communication between spokes in a hub and spoke configuration without complexity of managing a mesh network.
+* Enable transitive communication between spokes in a hub-and-spoke configuration without the complexity of managing a mesh network.
 
 * Highly scalable and highly available service with redundancy and replication across the globe.
 
-* Ability to enable global network security rules that overrides network security groups.
+* Ability to create global network security rules that override network security group rules.
 
-* Low-latency and high bandwidth between resources in different virtual networks using virtual network peering.
+* Low latency and high bandwidth between resources in different virtual networks using virtual network peering.
 
-* Ability to roll out network changes through specific region sequence or frequency of your choosing.
+* Roll out network changes through a specific region sequence and frequency of your choosing.
 
 ## Public preview regions
 
@@ -62,7 +62,7 @@ A connectivity configuration enables you to create a mesh or a hub and spoke net
 
 * France Central
 
-## Next step
+## Next steps
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
 - Learn more about [security admin configurations](concept-security-admins.md).
