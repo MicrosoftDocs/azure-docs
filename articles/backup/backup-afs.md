@@ -2,7 +2,7 @@
 title: Back up Azure file shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 10/08/2021
 ---
 
 # Back up Azure file shares
@@ -80,9 +80,9 @@ The following steps explain how you can configure backup for multiple file share
 
          ![Create new policy](./media/backup-afs/create-new-policy.png)
 
-      1. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
+      1. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-      1. After specifying the retention values and a valid policy name, select **OK**.<br>
+      1. After defining all attributes of the policy, click **OK**.
 
          ![Give policy name and retention values](./media/backup-afs/policy-name.png)
 
@@ -142,9 +142,9 @@ The following steps explain how you can configure backup for individual file sha
 
          1. Select the **Create a new policy** link text.
 
-         2. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
+         2. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-         3. After specifying the retention values and a valid policy name, select **OK**.
+         3. After defining all attributes of the policy, click **OK**.
 
             ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
 
