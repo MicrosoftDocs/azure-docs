@@ -103,18 +103,18 @@ The load test results are available in the pipeline logs once the test run is co
 
 ## Define test criteria for your load test
 
-Now that you have your CI/CD pipeline configured to run load tests, the next step is to add test criteria for your load test to determine the success of the test.
+Now that you have your CI/CD pipeline configured to run load tests, the next step is to add test criteria for your load test to determine the success of the test. These are failure criteria and the test will fail if the criteria evaluate to true.
 
 Test criteria can be defined using the below syntax
 
-`[Aggregation_function] ([client_metric]) [condition] [value]`
+`[Aggregate_function] ([client_metric]) [condition] [value]`
 
 It includes the following inputs
 
 |Parameter  |Description  |
 |---------|---------|
 |Client metric     | (Required) The client metric on which the criteria should be applied.        |
-|Aggregate function     |  (Required) The aggregation function to be applied on the client metric.       |
+|Aggregate function     |  (Required) The aggregate function to be applied on the client metric.       |
 |Condition     | (Required) The comparison operator. Supported types >.        |
 |Value     |  (Required) The threshold value to compare with the client metric.        |
 |Action     |   (Optional) Either ‘continue’ or 'stop' after the threshold is met.</br> Default: ‘continue’      |
@@ -236,7 +236,7 @@ This task creates and runs an Azure load test from an Azure Pipeline. The task w
                   "value": "$(mySecret2)" 
               } 
           ], 
-          "non-secrets": [ 
+          "non_secrets": [ 
               { 
                   "name": "param1", 
                   "value": "paramValue1" 

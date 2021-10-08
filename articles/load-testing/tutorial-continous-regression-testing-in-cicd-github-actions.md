@@ -111,14 +111,14 @@ Now that you have your CI/CD workflow configured to run load tests, the next ste
 
 Test criteria can be defined using the below syntax
 
-`[Aggregation_function] ([client_metric]) [condition] [value]`
+`[Aggregate_function] ([client_metric]) [condition] [value]`
 
 It includes the following inputs
 
 |Parameter  |Description  |
 |---------|---------|
 |Client metric     | (Required) The client metric on which the criteria should be applied.        |
-|Aggregate function     |  (Required) The aggregation function to be applied on the client metric.       |
+|Aggregate function     |  (Required) The aggregate function to be applied on the client metric.       |
 |Condition     | (Required) The comparison operator. Supported types >.        |
 |Value     |  (Required) The threshold value to compare with the client metric.        |
 |Action     |   (Optional) Either ‘continue’ or 'stop' after the threshold is met.</br> Default: ‘continue’      |
@@ -199,7 +199,7 @@ To add parameters to your load test from the workflow
 
 1. Save and run the pipeline.
 
-The Azure Load Testing task, passes the secret from the workflow to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded.
+The Azure Load Testing task, passes the secret from the workflow to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded. These are failure criteria and the test will fail if the criteria evaluate to true.
 
 Take a look at the overview of the Azure Load Testing action in the next section.
 
@@ -233,7 +233,7 @@ This action creates and runs an Azure load test from a GitHub Workflow. The acti
                   "value": "$(mySecret2)" 
               } 
           ], 
-          "non-secrets": [ 
+          "non_secrets": [ 
               { 
                   "name": "param1", 
                   "value": "paramValue1" 
