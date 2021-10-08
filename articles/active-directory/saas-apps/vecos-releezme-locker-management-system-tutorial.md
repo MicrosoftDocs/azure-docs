@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/07/2021
+ms.date: 10/08/2021
 ms.author: jeedes
 
 ---
@@ -72,9 +72,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following step: 
+1. On the **Basic SAML Configuration** section, perform the following steps: 
 
-	a. In the **Sign on URL** text box, type the URL:
+	a. In the **Identifier(Entity ID)** text box, type the URL: 
+    `https://au.releezme.net/`
+
+    b. In the **Reply URL** textbox, type the URL:
+    `https://au.releezme.net/Saml2/Acs`
+    
+    c. In the **Sign on URL** text box, type the URL:  
     `https://sso-na.releezme.net`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
