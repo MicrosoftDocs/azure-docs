@@ -64,7 +64,6 @@ app = PublicClientApplication(client_id, authority=authority)
 
 scope = "https://auth.msft.communication.azure.com/VoIP"
 teams_token_result = app.acquire_token_interactive(scope)
-
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient

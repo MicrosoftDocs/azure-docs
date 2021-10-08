@@ -2,14 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: tomaschladek
-manager: nmurav
+author: gistefan
+manager: soricos
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 10/08/2021
 ms.topic: include
 ms.custom: include file
-ms.author: tchladek
+ms.author: gistefan
 ---
 
 ## Prerequisites
@@ -23,7 +24,7 @@ ms.author: tchladek
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir access-tokens-quickstart && cd access-tokens-quickstart
+mkdir teams-access-tokens-quickstart && cd teams-access-tokens-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
@@ -39,6 +40,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 ```console
 
 npm install @azure/communication-identity --save
+npm install @azure/msal-node --save
 
 ```
 
@@ -69,9 +71,56 @@ main().catch((error) => {
 })
 ```
 
-1. Save the new file as **issue-access-token.js** in the *access-tokens-quickstart* directory.
+1. Save the new file as **issue-teams-access-token.js** in the *access-tokens-quickstart* directory.
 
-## Authenticate the client
+### Step 1: Receive the Azure AD user token via the MSAL library
+
+First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
+
+```javascript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "Contoso's_Application_ID",
+        authority: "https://login.microsoftonline.com/common",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+const scope = "https://auth.msft.communication.azure.com/VoIP";
+const redirectUri = "http://localhost";
+
+const authCodeUrlParameters = {
+    scopes: [scope],
+    redirectUri: redirectUri,
+    codeChallenge: challenge, // PKCE Code Challenge
+    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+};
+
+// get url to sign user in and consent to scopes needed for application
+pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+    console.log(response);
+
+    const tokenRequest = {
+        code: response["authorization_code"],
+        codeVerifier: verifier // PKCE Code Verifier 
+        redirectUri: redirectUri,
+        scopes: [scope],
+    };
+
+    // acquire a token by exchanging the code
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+    }).catch((error) => {
+        console.log(error);
+    });
+}).catch((error) => console.log(JSON.stringify(error)));
+```
+
+### Step 2: Initialize the CommunicationIdentityClient
 
 Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
@@ -102,75 +151,19 @@ If you have an Azure Active Directory Application setup, see [Use service princi
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential);
-```
 
-## Create an identity
+### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
-
-```javascript
-let identityResponse = await identityClient.createUser();
-console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
-```
-
-## Issue access tokens
-
-Use the `getToken` method to issue an access token for an already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```javascript
-// Issue an access token with the "voip" scope for an identity
-let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
-const { token, expiresOn } = tokenResponse;
-console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
-console.log(token);
-```
-
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token.
-
-## Create an identity and issue an access token within the same request
-
-Use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
-
-```javascript
-// Issue an identity and an access token with the "voip" scope for the new identity
-let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
-const { token, expiresOn, user } = identityTokenResponse;
-console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
-console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
-console.log(token);
-```
-
-## Refresh access tokens
-
-Refreshing access tokens is as easy as calling `getToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
-
-```javascript
-// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
-let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
-```
-
-
-## Revoke access tokens
-
-In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidate all active access tokens, that were issued to the identity.
-
-```javascript
-await identityClient.revokeTokens(identityResponse);
-console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
-```
-
-## Delete an identity
-
-Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
-
-```javascript
-await identityClient.deleteUser(identityResponse);
-console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
+let response = await identityClient.exchangeTeamsToken(teamsToken);
+console.log(`Token: ${response}`);
 ```
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-access-token.js* file, then execute the following `node` command to run the app.
+From a console prompt, navigate to the directory containing the *issue-teams-access-token.js* file, then execute the following `node` command to run the app.
 
 ```console
 node ./issue-access-token.js
