@@ -78,7 +78,7 @@ ProvisioningState : Succeeded
 
 ##### Generate system-assigned managed identity using REST API
 
-Call below API with "identity" section in the request body:
+Call the API below with the "identity" section in the request body:
 
 ```
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
