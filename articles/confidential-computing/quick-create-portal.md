@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create Intel SGX VM in the Azure Portal 
+title: Quickstart - Create Intel SGX VM in the Azure portal 
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure portal 
 author: JBCook
 ms.service: virtual-machines
@@ -11,9 +11,9 @@ ms.author: JenCook
 ---
 
 
-# Quickstart: Create Intel SGX VM in the Azure Portal
+# Quickstart: Create Intel SGX VM in the Azure portal
 
-This tutorial guides you through the process of deploying Intel SGX VMs using Azure Portal. Otherwise, we recommend following [Azure Marketplace](quick-create-marketplace.md) templates.
+This tutorial guides you through the process of deploying Intel SGX VMs using Azure portal. Otherwise, we recommend following [Azure Marketplace](quick-create-marketplace.md) templates.
 
 ## Prerequisites
 
