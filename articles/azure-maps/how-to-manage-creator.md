@@ -28,7 +28,7 @@ This article takes you through the steps to create and delete a Creator resource
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Create Azure Maps Creator page":::
 
-4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is supported only in the United States. Select **Review + create**.
+4. Enter the name, location, and map provisioning storage units for your Creator resource, then select **Review + create**.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Enter Creator account information page":::
 
