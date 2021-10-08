@@ -214,7 +214,7 @@ Interpret the resulting values as follows:
 | **Health status** |Only OK if return status shows **OK**. |
 | **Diagnostics** |Detailed information about health status. |
 
-If the **Health status** value is not **OK**, follow the instructions in [healthcheck].
+If the **Health status** value is not **OK**, follow the instructions in [Health check for the Azure Extension for SAP configuration][healthcheck].
  
 ##### Run the readiness check on a Linux VM
 

@@ -103,7 +103,7 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
 
 1. Ensure that you use SAP Host Agent 7.21 PL 47 or later.
 1. Ensure that you uninstall the current version of the VM Extension for SAP. You can't install both versions of the VM Extension for SAP on the same VM. 
-1. Install the lastest version of [Azure CLI 2.0][azure-cli-2] (version 2.19.1 or later).
+1. Install the latest version of [Azure CLI 2.0][azure-cli-2] (version 2.19.1 or later).
 1. Sign in with your Azure account:
 
    ```azurecli
