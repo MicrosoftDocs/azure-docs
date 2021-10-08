@@ -49,7 +49,7 @@ WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>'
 -- AND ... 
 ```
 
-You can also have multiple [chained](#combining-match-operations) relationship conditions, or no relationship condition at all:
+You change the number of relationship conditions, to have multiple [chained](#combining-match-operations) relationship conditions or no relationship condition at all:
 
 ```sql
 --Chained relationship conditions
@@ -62,6 +62,15 @@ WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>'
 -- No relationship condition
 -- SELECT ... FROM ... 
 MATCH <twin-1>
+WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
+```
+
+You can also leave out the name of a twin, in order to allow any twin name to work in that spot.
+
+```sql
+-- Anonymous twin
+-- SELECT ... FROM ... 
+MATCH ()<relationship-condition><twin-2>
 WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
 ```
 
