@@ -14,6 +14,8 @@ ms.date: 03/11/2021
 
 # Ev5 and Esv5-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The Ev5 and Esv5-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
 > [!NOTE]
@@ -37,15 +39,15 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v5  2 | 16   | Remote Storage Only | 4 | 2|1000  |
-| Standard_E4_v5  4 | 32  | Remote Storage Only | 8 | 2|2000  |
-| Standard_E8_v5 | 8 | 64 | Remote Storage Only | 16 | 4|4000 |
-| Standard_E16_v5 | 16 | 128 | Remote Storage Only | 32 | 8|8000 |
-| Standard_E20_v5 | 20 | 160 | Remote Storage Only | 32 | 8|10000 |
-| Standard_E32_v5 | 32 | 256 | Remote Storage Only | 32 | 8|16000 |
-| Standard_E48_v5 | 48 | 384 | Remote Storage Only | 32 | 8|24000 |
-| Standard_E64_v5 | 64 | 512 | Remote Storage Only | 32| 8|30000 |
-| Standard_E96_v5 | 96 | 5768 | Remote Storage Only | 32| 8|30000 |
+| Standard_E2_v5  | 2  | 16  | Remote Storage Only | 4  | 2 | 1000  |
+| Standard_E4_v5  | 4  | 32  | Remote Storage Only | 8  | 2 | 2000  |
+| Standard_E8_v5  | 8  | 64  | Remote Storage Only | 16 | 4 | 4000  |
+| Standard_E16_v5 | 16 | 128 | Remote Storage Only | 32 | 8 | 8000  |
+| Standard_E20_v5 | 20 | 160 | Remote Storage Only | 32 | 8 | 10000 |
+| Standard_E32_v5 | 32 | 256 | Remote Storage Only | 32 | 8 | 16000 |
+| Standard_E48_v5 | 48 | 384 | Remote Storage Only | 32 | 8 | 24000 |
+| Standard_E64_v5 | 64 | 512 | Remote Storage Only | 32 | 8 | 30000 |
+| Standard_E96_v5 | 96 | 768 | Remote Storage Only | 32 | 8 | 30000 |
 
 
 ## Esv5-series
@@ -64,15 +66,15 @@ Esv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake). Th
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2s_v5  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 2|1000  |
-| Standard_E4s_v5  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 2|2000  |
-| Standard_E8s_v5  | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 4|4000 |
-| Standard_E16s_v5 | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 8|8000 |
-| Standard_E20s_v5 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 8|10000 |
-| Standard_E32s_v5 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8|16000 |
-| Standard_E48s_v5 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8|24000 |
-| Standard_E64s_v5 | 64 | 512| Remote Storage Only | 32 | 80000/1200 | 8|30000 |
-| Standard_E96s_v5 | 96 | 768 | Remote Storage Only | 32 | 80000/1200 | 8|30000 |
+| Standard_E2s_v5  | 2  | 16  | Remote Storage Only | 4  | 3200/48    | 2 | 1000  |
+| Standard_E4s_v5  | 4  | 32  | Remote Storage Only | 8  | 6400/96    | 2 | 2000  |
+| Standard_E8s_v5  | 8  | 64  | Remote Storage Only | 16 | 12800/192  | 4 | 4000  |
+| Standard_E16s_v5 | 16 | 128 | Remote Storage Only | 32 | 25600/384  | 8 | 8000  |
+| Standard_E20s_v5 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 8 | 10000 |
+| Standard_E32s_v5 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8 | 16000 |
+| Standard_E48s_v5 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8 | 24000 |
+| Standard_E64s_v5 | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
+| Standard_E96s_v5 | 96 | 768 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
