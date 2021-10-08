@@ -14,7 +14,8 @@ The following API and HTTP scheme-based application ID URI formats are supported
 | _api://\<appId\>_ | _api://fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed_ |
 | _api://\<tenantId\>/\<appId\>_ | _api://a8573488-ff46-450a-b09a-6eca0c6a02dc/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed_ |
 | _api://\<tenantId\>/\<string\>_ | _api://a8573488-ff46-450a-b09a-6eca0c6a02dc/api_ |
-| _https://\<tenantId\>.onmicrosoft.com/\<string\>_ | * _https://contoso.onmicrosoft.com/productsapi_ <br/> * _https://123e4567-e89b-12d3-a456-426614174000.onmicrosoft.com/productsapi_ <br/> |
+| _https://\<tenantIdGuid\>.onmicrosoft.com/\<string\>_ | _https://123e4567-e89b-12d3-a456-426614174000.onmicrosoft.com/productsapi_ |
+| _https://\<tenantIdDomain\>.onmicrosoft.com/\<string\>_ | _https://contoso.onmicrosoft.com/productsapi_  |
 | _https://\<verifiedCustomDomain\>/\<string\>_ |  _https://contoso.onmicrosoft.com/productsapi_ |
 | _https://\<string\>.\<verifiedCustomDomain\>_ |  _https://product.contoso.onmicrosoft.com_ |
 | _https://\<string\>.\<verifiedCustomDomain\>/\<string\>_ | _https://product.onmicrosoft.com/productsapi_   |
