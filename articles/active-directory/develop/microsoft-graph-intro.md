@@ -7,9 +7,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 10/08/2021
 ms.author: davidmu
 ms.custom: aaddev
 ---
@@ -19,6 +19,7 @@ ms.custom: aaddev
 The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources. After you register your app and get authentication tokens for a user or service, you can make requests to the Microsoft Graph API. For more information, see [Overview of Microsoft Graph](/graph/overview).
 
 Microsoft Graph exposes REST APIs and client libraries to access data on the following Microsoft 365 services:
+
 - Microsoft 365 services: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner, and SharePoint
 - Enterprise Mobility and Security services: Advanced Threat Analytics, Advanced Threat Protection, Azure Active Directory, Identity Manager, and Intune
 - Windows 10 services: activities, devices, notifications
@@ -26,8 +27,8 @@ Microsoft Graph exposes REST APIs and client libraries to access data on the fol
 
 ## Versions
 
-Microsoft Graph currently supports two versions: v1.0 and beta. The v1.0 version includes generally available APIs. Use the v1.0 version for all production apps. The 
-beta includes APIs that are currently in preview. Because we might introduce breaking changes to our beta APIs, we recommend that you use the beta version only to test apps that are in development; do not use beta APIs in your production apps. For more information, see [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
+Microsoft Graph currently supports two versions: v1.0 and beta. The v1.0 version includes generally available APIs. Use the v1.0 version for all production apps. The
+beta includes APIs that are currently in preview. Because we might introduce breaking changes to our beta APIs, we recommend you use the beta version only to test apps that are in development; do not use beta APIs in your production apps. For more information, see [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
 
 To start using the beta APIs, see [Microsoft Graph beta endpoint reference](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
@@ -35,7 +36,7 @@ To start using the v1.0 APIs, see [Microsoft Graph REST API v1.0 reference](/gra
 
 ## Get started
 
-To read from or write to a resource such as a user or an email message, you construct a request that looks like the following:
+To read from or write to a resource such as a user or an email message, you construct a request that looks like the following endpoint:
 
 `{HTTP method} https://graph.microsoft.com/{version}/{resource}?{query-parameters}`
 
@@ -43,6 +44,7 @@ For more information about the elements of the constructed request, see [Use the
 
 Quickstart samples are available to show you how to access the power of the Microsoft Graph API. The samples that are available access two services with one authentication: Microsoft account and Outlook. Each quickstart accesses information from Microsoft account users' profiles and displays events from their calendar.
 The quickstarts involve four steps:
+
 - Select your platform
 - Get your app ID (client ID)
 - Build the sample
