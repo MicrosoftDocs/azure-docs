@@ -177,7 +177,7 @@ For SAP ASCS / SCS cluster deploy two VMs in Azure availability set or Azure ava
 - Create Azure Internal Load Balancer for SAP ASCS /SCS instance.
 - Add Windows VMs to the AD domain.
 
-Based on the your deployment type, the host names and the IP addresses of the scenario would be like:
+Based on your deployment type, the host names and the IP addresses of the scenario would be like:
 
 **SAP deployment in Azure availability set**
 
@@ -199,7 +199,7 @@ Based on the your deployment type, the host names and the IP addresses of the sc
 | ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a               |              |
 | ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a               |              |
 
-The steps mentioned in the document remains same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if it is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
+The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if the cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
 
 > [!Note]
 > When using [Azure proximity placement group](../../windows/proximity-placement-groups.md) for SAP system, all virtual machines sharing a disk must be part of the same PPG.
@@ -224,7 +224,7 @@ The following list shows the configuration of the (A)SCS/ERS load balancer. The 
 	Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
 - Load-balancing rules
 	- If using Standard Load Balancer, select HA ports
-	- If using Basic Load Balancer, create Load balancing rules for the following ports
+	- If using Basic Load Balancer, create Load-balancing rules for the following ports
       	- 32**nr** TCP
 		- 36**nr** TCP
 		- 39**nr** TCP
@@ -250,7 +250,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 
 - 2nd Load-balancing rules
 	- If using Standard Load Balancer, select HA ports
-	- If using Basic Load Balancer, create Load balancing rules for the following ports
+	- If using Basic Load Balancer, create Load-balancing rules for the following ports
 		- 32**nr** TCP
 		- 33**nr** TCP
 		- 5**nr**13 TCP
@@ -307,7 +307,7 @@ Once the feature installation has completed, reboot both cluster nodes.
 
 On Windows 2019, the cluster will automatically recognize that it is running in Azure, and as a default option for cluster management IP, it will use Distributed Network name. Therefore, it will use any of the cluster nodes local IP addresses. As a result, there is no need for a dedicated (virtual) network name for the cluster, and there is no need to configure this IP address on Azure Internal Load Balancer.
 
-For more information see, [Windows Server 2019 Failover Clustering New features](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029)
+For more information, see, [Windows Server 2019 Failover Clustering New features](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029)
 Run this command on one of the cluster nodes:
 
 ```powershell

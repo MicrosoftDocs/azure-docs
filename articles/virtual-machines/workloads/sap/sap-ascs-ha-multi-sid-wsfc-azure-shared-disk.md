@@ -29,14 +29,14 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disk) and [Standard SSD disks](../../disks-types.md#standard-ssd) are not supported as Azure Shared Disk for SAP workloads.
--  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types#premium-ssd) is supported for SAP deployment in availability set and availability zones.
+-  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types.md#premium-ssd) is supported for SAP deployment in availability set and availability zones.
 -  Azure shared disk with Premium SSD disks comes with two storage SKUs.
-   - Locally-redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
+   - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
    - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in availability zones.
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
 -  When using [Azure proximity placement group](../../windows/proximity-placement-groups.md) for SAP system, all virtual machines sharing a disk must be part of the same PPG.
 
-For further details on limitations for Azure shared disk, please review very carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
+For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 #### Important consideration for Premium shared disk
 
@@ -46,10 +46,10 @@ Following are some of the important points to consider with respect to Azure Pre
   - SAP deployment with LRS for premium shared disk will be operating with a single Azure shared disk on one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.
 
 - ZRS for Premium shared disk
-  - Write latency for ZRS is higher than that of LRS due to cross zonal copy of data.
-  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-benchmarks) to identify the latency of ZRS disk in your region.
-  - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage cluster, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
-  - Review the the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
+  - Write latency for ZRS is higher than that of LRS due to cross-zonal copy of data.
+  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](../../disks-benchmarks.md) to identify the latency of ZRS disk in your region.
+  - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage clusters, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
+  - Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
@@ -105,7 +105,7 @@ We'll install a new SAP SID **PR2**, in addition to the **existing clustered** S
 
 ### Host names and IP addresses
 
-Based on the your deployment type, the host names and the IP addresses of the scenario would be like:
+Based on your deployment type, the host names and the IP addresses of the scenario would be like:
 
 **SAP deployment in Azure availability set**
 
@@ -131,7 +131,7 @@ Based on the your deployment type, the host names and the IP addresses of the sc
 | **SID2** ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | n/a               |              |
 | **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.46                                | n/a               |              |
 
-The steps mentioned in the document remains same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if it is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS). 
+The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS). 
 
 ### Create Azure internal load balancer
 
@@ -150,7 +150,7 @@ You will need to add configuration to the existing load balancer for the second 
     Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
 - Load-balancing rules
     - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load balancing rules for the following ports
+    - If using Basic Load Balancer, create Load-balancing rules for the following ports
         - 32**nr** TCP [**3202**]
         - 36**nr** TCP [**3602**]
         - 39**nr** TCP [**3902**]
@@ -177,7 +177,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 
 - New Load-balancing rules
     - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load balancing rules for the following ports
+    - If using Basic Load Balancer, create Load-balancing rules for the following ports
         - 32**nr** TCP [**3212**]
         - 33**nr** TCP [**3312**]
         - 5**nr**13 TCP [**51212**]
@@ -185,7 +185,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
         - 5**nr**16 TCP [**51212**]
         - Associate with the **PR2** ERS2 Frontend IP, health probe and the existing backend pool.  
 
-    - Make sure that Idle timeout (minutes) is set to max value e.g. 30, and that Floating IP (direct server return) is Enabled.
+    - Make sure that Idle timeout (minutes) is set to max value, e.g.,  30, and that Floating IP (direct server return) is Enabled.
 
 
 ### Create and attach second Azure shared disk
@@ -240,7 +240,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     # 3      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. Format the disk. In this example it is disk number 3. 
+2. Format the disk. In this example, it is disk number 3. 
 
    ```powershell
     # Format SAP ASCS Disk number '3', with drive letter 'S'
@@ -326,13 +326,13 @@ If you are running Enqueue Replication Server 1, add  SAP profile parameter `enq
 
 Use the internal load balancer's probe functionality to make the entire cluster configuration work with Azure Load Balancer. The Azure internal load balancer usually distributes the incoming workload equally between participating virtual machines.
 
-However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer detect which instance is active, and only target the active instance.  
+However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer detects which instance is active, and only target the active instance.  
 
 > [!IMPORTANT]
 > In this example configuration, the **ProbePort** is set to 620**Nr**. For SAP ASCS instance with number **02** it is 620**02**.
 > You will need to adjust the configuration to match your SAP instance numbers and your SAP SID.
 
-To add a probe port run this PowerShell Module on one of the cluster VMs:
+To add a probe port, run this PowerShell Module on one of the cluster VMs:
 
 - In the case of SAP ASC/SCS Instance with instance number **02** 
    ```powershell
@@ -497,7 +497,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 ## Test the SAP ASCS/SCS instance failover
 For the outlined failover tests, we assume that SAP ASCS is active on node A.  
 
-1. Verify that the SAP system can successfully failover from node A to node B. In this example, the test is done for SAPSID **PR2**.  
+1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is done for SAPSID **PR2**.  
    Make sure that each of SAPSID can successfully move to the other cluster node.   
    Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
     - Failover Cluster Manager  
