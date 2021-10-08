@@ -197,7 +197,7 @@ With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api
 recognizer.startContinuousRecognitionAsync();
 
 // make the following call at some point to stop recognition.
-// recognizer.StopContinuousRecognitionAsync();
+// recognizer.stopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode
@@ -233,7 +233,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 >
 > The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
-> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
+> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar#addphrase-string-).
 

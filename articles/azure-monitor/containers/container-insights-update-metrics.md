@@ -19,10 +19,10 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | As *node* metrics, they include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, **cpuUsageAllocatablePercentage**, **memoryWorkingSetAllocatablePercentage**, **memoryRssAllocatablePercentage**, nodesCount, diskUsedPercentage, | As *node* metrics, they include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
 | Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | As *pod* metrics, they include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
-| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
-| Insights.container/persistentvolumes | pvUsageExceededPercentage | |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage, **cpuThresholdViolated**, **memoryRssThresholdViolated**, **memoryWorkingSetThresholdViolated** | |
+| Insights.container/persistentvolumes | pvUsageExceededPercentage, **pvUsageThresholdViolated** | |
 
 To support these new capabilities, a new containerized agent is included in the release, version **microsoft/oms:ciprod05262020** for AKS and version **microsoft/oms:ciprod09252020** for Azure Arc-enabled Kubernetes clusters. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
 
@@ -74,6 +74,7 @@ Perform the following steps to update a specific cluster in your subscription us
 
 1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
 
+
     ```azurecli
     az login
     az account set --subscription "<subscriptionName>"
@@ -81,7 +82,9 @@ Perform the following steps to update a specific cluster in your subscription us
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
+
     To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value, you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
+
 
     ```azurecli
     az login
@@ -89,6 +92,11 @@ Perform the following steps to update a specific cluster in your subscription us
     az aks show -g <resourceGroupName> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
     ```
+
+
+
+>[!NOTE]
+>If you use your user account and wanted to perform the role assignment then use --assignee parameter as shown in below example. Else if you login with SPN and wanted to perform the role assignment then use --assignee-object-id --assignee-principal-type parameters instead of --assignee parameter.
 
 ## Upgrade all clusters using Azure PowerShell
 

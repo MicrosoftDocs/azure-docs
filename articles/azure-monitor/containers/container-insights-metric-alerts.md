@@ -14,6 +14,9 @@ This article reviews the experience and provides guidance on configuring and man
 
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
+> [!NOTE]
+> Beginning October 8, 2021, three alerts have been updated to correctly calculate the alert condition: **Container CPU %**, **Container working set memory %**, and **Persistent Volume Usage %**. These new alerts have the same names as their corresponding previously available alerts, but they use new, updated metrics. We recommend that you disable the alerts that use the "Old" metrics, described in this article, and enable the "New" metrics. The "Old" metrics will no longer be available in recommended alerts after they are disabled, but you can manually re-enable them.
+
 ## Prerequisites
 
 Before you start, confirm the following:
@@ -37,11 +40,11 @@ To alert on what matters, Container insights includes the following metric alert
 
 |Name| Description |Default threshold |
 |----|-------------|------------------|
-|Average container CPU % |Calculates average CPU used per container.|When average CPU usage per container is greater than 95%.| 
-|Average container working set memory % |Calculates average working set memory used per container.|When average working set memory usage per container is greater than 95%. |
+|**(New)Average container CPU %** |Calculates average CPU used per container.|When average CPU usage per container is greater than 95%.| 
+|**(New)Average container working set memory %** |Calculates average working set memory used per container.|When average working set memory usage per container is greater than 95%. |
 |Average CPU % |Calculates average CPU used per node. |When average node CPU utilization is greater than 80% |
 |Average Disk Usage % |Calculates average disk usage for a node.|When disk usage for a node is greater than 80%. |
-|Average Persistent Volume Usage % |Calculates average PV usage per pod. |When average PV usage per pod is greater than 80%.|
+|**(New)Average Persistent Volume Usage %** |Calculates average PV usage per pod. |When average PV usage per pod is greater than 80%.|
 |Average Working set memory % |Calculates average Working set memory for a node. |When average Working set memory for a node is greater than 80%. |
 |Restarting container count |Calculates number of restarting containers. | When container restarts are greater than 0. |
 |Failed Pod Counts |Calculates if any pod in failed state.|When a number of pods in failed state are greater than 0. |
@@ -76,7 +79,7 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 ## Metrics collected
 
-The following metrics are enabled and collected, unless otherwise specified, as part of this feature:
+The following metrics are enabled and collected, unless otherwise specified, as part of this feature. The metrics in **bold** with label "Old" are the ones replaced by "New" metrics collected for correct alert evaluation.
 
 |Metric namespace |Metric |Description |
 |---------|----|------------|
@@ -93,10 +96,14 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 |Insights.container/pods |restartingContainerCount |Count of container restarts by controller, Kubernetes namespace.|
 |Insights.container/pods |oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
 |Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
-|Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.<br> Collected  |
-|Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
-|Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
-|Insights.container/persistentvolumes |pvUsageExceededPercentage |PV utilization percentage for persistent volumes exceeding user configurable threshold (default is 60.0) by claim name, Kubernetes namespace, volume name, pod name, and node name.
+|Insights.container/containers |**(Old)cpuExceededPercentage** |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.<br> Collected  |
+|Insights.container/containers |**(New)cpuThresholdViolated** |Metric triggered when CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.<br> Collected  |
+|Insights.container/containers |**(Old)memoryRssExceededPercentage** |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/containers |**(New)memoryRssThresholdViolated** |Metric triggered when Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/containers |**(Old)memoryWorkingSetExceededPercentage** |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/containers |**(New)memoryWorkingSetThresholdViolated** |Metric triggered when Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/persistentvolumes |**(Old)pvUsageExceededPercentage** |PV utilization percentage for persistent volumes exceeding user configurable threshold (default is 60.0) by claim name, Kubernetes namespace, volume name, pod name, and node name.|
+|Insights.container/persistentvolumes |**(New)pvUsageThresholdViolated** |Metric triggered when PV utilization percentage for persistent volumes exceeding user configurable threshold (default is 60.0) by claim name, Kubernetes namespace, volume name, pod name, and node name.
 
 ## Enable alert rules
 

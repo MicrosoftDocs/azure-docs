@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 10/05/2021
 ms.author: alkohli
 ---
 
@@ -136,20 +136,31 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 1. Type:
 
-    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
+    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
+    
+    When this command is run, there is a followup prompt to enter the `ClientSecret`. Provide the service principal password.
 
-    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`,       `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
+    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
     > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). 
     > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-    > - `ClientId` and `ClientSecret` are required parameters. `ClientSecret` is a secure string.
+    > - `ClientId` and `ClientSecret` are required. 
     
     Here is an example:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
-    [10.128.44.240]: PS>
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    
+    WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
+    enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
+    application or script that is requesting the data.
+
+    cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
+
+    Supply values for the following parameters:
+    ClientSecret: **********************************
+    [10.100.10.10]: PS>
     ```
     
     In the Azure portal, a resource should be created with the name you provided in the preceding command.

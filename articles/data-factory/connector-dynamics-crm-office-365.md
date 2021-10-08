@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM
 
@@ -83,11 +83,11 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
 2. Search for Dynamics and select the Dynamics 365 connector.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Screenshot of linked service configuration for Dynamics 365.":::
+    :::image type="content" source="media/connector-dynamics-crm-office-365/configure-dynamics-crm-office-365-linked-service.png" alt-text="Screenshot of linked service configuration for Dynamics 365.":::
 
 ## Connector configuration details
 
@@ -472,11 +472,11 @@ In copy-activity column mapping, map the two columns as follows:
 - **CustomerField** to **CustomerField**. This mapping is the normal field mapping.
 - **Target** to **CustomerField\@EntityReference**. The sink column is a virtual column representing the entity reference. Input such field names in a mapping, as they won't show up by importing schemas.
 
-![Dynamics lookup-field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Dynamics lookup-field column mapping":::
 
 If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here is a shortcut: in the copy activity source, add an additional column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
-![Dynamics lookup-field adding an entity-reference column](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
 
 ## Lookup activity properties
 

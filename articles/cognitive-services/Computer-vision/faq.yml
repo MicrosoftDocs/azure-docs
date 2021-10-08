@@ -27,7 +27,7 @@ sections:
       - question: |
           How can I increase the transactions-per-second (TPS) allowed by the service?
         answer: |
-          The free (S0) tier only allows 20 transaction per minute. Upgrade to the S1 tier to get up to 10 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+          The free (S0) tier only allows 20 transaction per minute. Upgrade to the S1 tier to get up to 30 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
 
       - question: |
           The service is throwing an error because my image file is too large. How can I work around this? 
@@ -51,7 +51,7 @@ sections:
       - question: |
           Can I train Computer Vision API to use custom tags?  For example, I would like to feed in pictures of cat breeds to 'train' the AI, then receive the breed value on an AI request.
         answer: |
-          This function is currently not available. You can use [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview) to train a model to detect user-defined visual features.
+          This function is currently not available. You can use [Custom Vision](../custom-vision-service/overview.md) to train a model to detect user-defined visual features.
 
       - question: |
           Can I deploy the OCR (Read) capability on-premise?
@@ -62,4 +62,3 @@ sections:
           Can Computer Vision be used to read license plates?
         answer: |
           The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. We are constantly trying to improve our services to work across all scenarios.
-

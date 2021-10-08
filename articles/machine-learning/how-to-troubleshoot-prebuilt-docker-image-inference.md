@@ -4,17 +4,20 @@ titleSuffix: Azure Machine Learning
 description: 'Troubleshooting steps for using prebuilt Docker images for inference.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
 ---
-# Troubleshooting prebuilt docker images for inference (preview)
+# Troubleshooting prebuilt docker images for inference
 
-Learn how to troubleshoot problems you may see when using prebuilt docker images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) with Azure Machine Learning.
+Learn how to troubleshoot problems you may see when using prebuilt docker images for inference with Azure Machine Learning.
+
+> [!IMPORTANT]
+> Using [Python package extensibility for prebuilt Docker images](how-to-prebuilt-docker-images-inference-python-extensibility.md) with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Model deployment failed
 

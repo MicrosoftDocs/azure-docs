@@ -4,35 +4,20 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/07/2021
+ms.date: 09/30/2021
 
 ---
 # Array functions for Bicep
 
-Resource Manager provides several functions for working with arrays in Bicep:
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
+This article describes the Bicep functions for working with arrays.
 
 ## array
 
 `array(convertToArray)`
 
 Converts the value to an array.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -74,6 +59,8 @@ The output from the preceding example with the default values is:
 `concat(arg1, arg2, arg3, ...)`
 
 Combines multiple arrays and returns the concatenated array.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -118,6 +105,8 @@ The output from the preceding example with the default values is:
 `contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -172,6 +161,8 @@ The output from the preceding example with the default values is:
 
 Determines if an array, object, or string is empty.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -210,6 +201,8 @@ The output from the preceding example with the default values is:
 
 Returns the first element of the array, or first character of the string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -247,6 +240,8 @@ The output from the preceding example with the default values is:
 `intersection(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with the common elements from the parameters.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -339,6 +334,8 @@ The output from the preceding example is:
 
 Returns the last element of the array, or last character of the string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -376,6 +373,8 @@ The output from the preceding example with the default values is:
 `length(arg1)`
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -427,6 +426,8 @@ The output from the preceding example with the default values is:
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -466,6 +467,8 @@ The output from the preceding example with the default values is:
 `min(arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -507,6 +510,8 @@ The output from the preceding example with the default values is:
 
 Creates an array of integers from a starting integer and containing the number of items.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -540,6 +545,8 @@ The output from the preceding example with the default values is:
 `skip(originalValue, numberToSkip)`
 
 Returns an array with all the elements after the specified number in the array, or returns a string with all the characters after the specified number in the string.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -583,6 +590,8 @@ The output from the preceding example with the default values is:
 
 Returns an array with the specified number of elements from the start of the array, or a string with the specified number of characters from the start of the string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -624,6 +633,8 @@ The output from the preceding example with the default values is:
 `union(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -678,4 +689,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).

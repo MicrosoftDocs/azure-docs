@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 10/04/2021
 ---
 
 # Move operation support for resources
@@ -826,7 +826,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | No | No | No |
+> | backupvaults | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
@@ -1178,7 +1178,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | connectedclusters | Yes | Yes | No |
+> | connectedclusters | No | No | No |
 > | registeredsubscriptions | No | No | No |
 
 ## Microsoft.KubernetesConfiguration

@@ -24,11 +24,6 @@ A Capacity Reservation creation succeeds or fails in its entirety. For a request
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-
 ## Considerations
 
 The Capacity Reservation must meet the following rules: 
@@ -153,12 +148,12 @@ The Capacity Reservation must meet the following rules:
     -CapacityToReserve 5
     ```
 
-To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), and [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell/module/az.Resources/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), and [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
 
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 

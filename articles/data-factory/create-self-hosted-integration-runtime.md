@@ -7,7 +7,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -40,7 +40,7 @@ When you move data between on-premises and the cloud, the activity uses a self-h
 
 Here is a high-level summary of the data-flow steps for copying with a self-hosted IR:
 
-![The high-level overview of data flow](media/create-self-hosted-integration-runtime/high-level-overview.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="The high-level overview of data flow":::
 
 1. A data developer first creates a self-hosted integration runtime within an Azure data factory or Synapse workspace by using the Azure portal or the PowerShell cmdlet.  Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 
@@ -221,19 +221,19 @@ Here are details of the application's actions and arguments:
 
 The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
-![Service account for Self-hosted integration runtime](media/create-self-hosted-integration-runtime/shir-service-account.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for Self-hosted integration runtime":::
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
-![Screenshot of Local Security Policy - User Rights Assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Screenshot of Local Security Policy - User Rights Assignment":::
 
-![Screenshot of Log on as a service user rights assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Screenshot of Log on as a service user rights assignment":::
 
 ## Notification area icons and notifications
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-![Notifications in the notification area](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ## High availability and scalability
 

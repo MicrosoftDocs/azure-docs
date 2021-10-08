@@ -31,14 +31,14 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 
 ### New articles
 
-- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](../applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### Updated articles
 
-- [Form Recognizer prebuilt business cards model](./form-recognizer/concept-business-cards.md)
-- [Quickstart: Get started with the client library SDKs or REST API](./form-recognizer/quickstarts/client-library.md)
-- [What's new in Form Recognizer](./form-recognizer/whats-new.md)
-- [Form Recognizer landing page](./form-recognizer/index.yml)
+- [Form Recognizer prebuilt business cards model](../applied-ai-services/form-recognizer/concept-business-cards.md)
+- [Quickstart: Get started with the client library SDKs or REST API](../applied-ai-services/form-recognizer/quickstarts/client-library.md)
+- [What's new in Form Recognizer](../applied-ai-services/form-recognizer/whats-new.md)
+- [Form Recognizer landing page](../applied-ai-services/form-recognizer/index.yml)
 
 ## Translator
 

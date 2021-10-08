@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -162,7 +162,7 @@ The below table lists the properties supported by a delimited text source. You c
 
 The below image is an example of a delimited text source configuration in mapping data flows.
 
-![DelimitedText source](media/data-flow/delimited-text-source.png)
+:::image type="content" source="media/data-flow/delimited-text-source.png" alt-text="DelimitedText source":::
 
 The associated data flow script is:
 
@@ -192,7 +192,7 @@ The below table lists the properties supported by a delimited text sink. You can
 
 The below image is an example of a delimited text sink configuration in mapping data flows.
 
-![DelimitedText sink](media/data-flow/delimited-text-sink.png)
+:::image type="content" source="media/data-flow/delimited-text-sink.png" alt-text="DelimitedText sink":::
 
 The associated data flow script is:
 

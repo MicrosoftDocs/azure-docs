@@ -25,11 +25,6 @@ There are two ways to change an association:
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-
 ## Deallocate the VM
 
 The first option is to deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the VM. 
@@ -47,7 +42,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
     ```
-    In the request body, set the `capacityReservationGroup` property to empty to remove the VM association to the group:
+    In the request body, set the `capacityReservationGroup` property to null to remove the VM association to the group:
 
     ```json
      {
@@ -55,7 +50,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -87,7 +82,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 
     Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -98,7 +93,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [Stop-AzVM](/powershell/module/az.compute/stop-azvm), [Get-AzVM](/powershell/module/az.compute/get-azvm), and [Update-AzVM](/powershell/module/az.compute/update-azvm).
@@ -140,7 +135,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
-    In the request body, set the `capacityReservationGroup` property to empty to remove the association:
+    In the request body, set the `capacityReservationGroup` property to null to remove the association:
     
     ```json
     {
@@ -148,7 +143,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -172,23 +167,17 @@ This option works well when the virtual machine can’t be deallocated and when 
 
 ### [PowerShell](#tab/powershell2)
 
->[!NOTE]
-> The `Update-AzCapacityReservation` command is not available during the Preview. Use `New-AzCapacityReservation` to modify an existing capacity reservation.
-
 1. Update reserved quantity to zero
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -199,7 +188,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVM](/powershell/module/az.compute/get-azvm), and [Update-AzVM](/powershell/module/az.compute/update-azvm).

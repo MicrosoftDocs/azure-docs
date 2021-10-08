@@ -30,7 +30,10 @@ To complete this tutorial, you need:
 - An Azure free account. If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
 
-## Create an instance of Azure Database for MySQL - Flexible Server
+## Create an Azure Database for MySQL - Flexible Server
+
+In this article, you'll use the Azure portal to create a Flexible Server with public access connectivity method. Alternatively, refer the respective quickstarts to create a Flexible Server using [Azure CLI](./quickstart-create-server-cli.md) or [ARM template](./quickstart-create-arm-template.md), or [within a VNET](./quickstart-create-connect-server-vnet.md).
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account. 
     

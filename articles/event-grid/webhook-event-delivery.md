@@ -2,7 +2,7 @@
 title: WebHook event delivery
 description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 09/29/2021
 ---
 
 
@@ -78,6 +78,25 @@ For an example of handling the subscription validation handshake, see a [C# samp
 
 ## Endpoint validation with CloudEvents v1.0
 CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
+
+## Event subscriptions considerations
+
+To prevent issues during the creation of the subscription use this reference to validate the compatibility between topic and subscription schemas. When a topic is created an incoming event schema is defined, as well as an outgoing event schema is defined when subscription is created.
+
+> [!NOTE]
+> This compatibility table reference applies for: Custom Topics and Event Domains.
+
+| Incoming event schema | Outgoing event schema | Supported |
+| ---- | ---- | ---- |
+| Event Grid schema | Event Grid schema | Yes |
+| | Cloud Events v1.0 schema | Yes |
+| | Custom input schema | No |
+| Cloud Events v1.0 schema | Event Grid schema | No |
+| | Cloud Events v1.0 schema | Yes |
+| | Custom input schema | No |
+| Custom input schema | Event Grid schema | Yes |
+| | Cloud Events v1.0 schema | Yes |
+| | Custom input schema | Yes |
 
 ## Next steps
 See the following article to learn how to troubleshoot event subscription validations: 
