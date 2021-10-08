@@ -93,50 +93,45 @@ If your Grafana instance is hosted on an Azure VM or Azure App Service with mana
     
    ![Grafana data source app registration config approved](./media/grafana-plugin/app-registration.png)
 
+## Use Azure Monitor data source dashboards
+
+The Azure Monitor plugin includes several out of the box dashboards that you may import to get started.
+
+1. Click on the **Dashboards** tab to see a list of available dashboards.
+
+2. Click on **Import** to download a dashboard.
+
+3. Click on the name of the imported dashboard to open it.
+
+4. Use the drop-down selectors at the top of the dashboard to choose the subscription, resource group and resource of interest.
+
+   ![Storage Insights Dashboards](./media/grafana-plugin/storage-insights-dashboard.png)
+
 ## Build Grafana dashboards
 
-1. Go to the Grafana Home page, and select **New Dashboard**.
+1. Go to the Grafana Home page, and select **Create your first dashboard**.
 
-2. In the new dashboard, select the **Graph**. You can try other charting options but this article uses *Graph* as an example.
+2. In the new dashboard, select the **Add an empty panel**.
 
-3. A blank graph shows up on your dashboard. Click on the panel title and select **Edit** to enter the details of the data you want to plot in this graph chart.
-    ![Grafana new graph](./media/grafana-plugin/grafana-new-graph-dark.png)
-
-4. Select the Azure Monitor data source you've configured.
-   * Collecting Azure Monitor metrics - select **Azure Monitor** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
-     ![Grafana graph config for Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Collecting Azure Monitor log data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any log query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
+3. An empty *Time series* panel appears on your dashboard with a query editor shown below. Select the Azure Monitor data source you've configured.
+   * Collecting Azure Monitor metrics - select **Metrics** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
+     ![Grafana graph config for Azure Monitor metrics](./media/grafana-plugin/metrics-config.png)
+   * Collecting Azure Monitor log data - select **Logs** in the service dropdown. Select the resource or Log Analytics workspace you'd like to query and set the query text. Note that The Azure Monitor plugin allows you to query the logs for specific resources or from a Log Analytics workspace. In the query editor below, you can copy any log query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Finally, select the visualization type, **Time series**, and run the query.
     
      > [!NOTE]
      >
      > The default query provided with the plugin uses two macros: "$__timeFilter() and $__interval. 
      > These macros allow Grafana to dynamically calculate the time range and time grain, when you zoom in on part of a chart. You can remove these macros and use a standard time filter, such as *TimeGenerated > ago(1h)*, but that means the graph would not support the zoom in feature.
     
-     ![Grafana graph config for Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+   The following example shows a query being run on an Application Insights resource for the average response time for all requests.
 
-5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
-    ![Grafana Two Charts Example](media/grafana-plugin/grafana6.png)
-
-
-## Optional: Monitor your custom metrics in the same Grafana server
-
-You can also install Telegraf and InfluxDB to collect and plot both custom and agent-based metrics same Grafana instance. There are many data source plugins that you can use to bring these metrics together in a dashboard.
-
-You can also reuse this set up to include metrics from your Prometheus server. Use the Prometheus data source plugin in Grafana's plugin gallery.
-
-Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, and Docker
- - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
-
-Here is an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
-![Grafana Example Metrics](media/grafana-plugin/grafana8.png)
+     ![Grafana graph config for Azure Log Analytics](./media/grafana-plugin/logs-config.png)
 
 ## Advanced Grafana features
 
 ### Variables
-Some query values can be selected through UI dropdowns, and updated in the query. 
-Consider the following query as an example:
+Some resource and query values can be selected through UI dropdowns, and updated in the in the resource or the query.
+Consider the following query that shows the usage of a Log Analytics workspace as an example:
 ```
 Usage 
 | where $__timeFilter(TimeGenerated) 
@@ -144,26 +139,22 @@ Usage
 | sort by TimeGenerated
 ```
 
-You can configure a variable that will list all available **Solution** values, and then update your query to use it.
+You can configure a variable that will list all available **workspaces**, and then update the resource that is queried based on a user selection.
 To create a new variable, click the dashboard's Settings button in the top right area, select **Variables**, and then **New**.
 On the variable page, define the data source and query to run in order to get the list of values.
-![Grafana configure variable](./media/grafana-plugin/grafana-configure-variable-dark.png)
+![Grafana define variable](./media/grafana-plugin/define-variable.png)
 
-Once created, adjust the query to use the selected value(s) and your charts will respond accordingly:
-```
-Usage 
-| where $__timeFilter(TimeGenerated) and Solution in ($Solutions)
-| summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
-| sort by TimeGenerated
-```
-    
-![Grafana use variables](./media/grafana-plugin/grafana-use-variables-dark.png)
+Once created, change the resource for your query to use the selected value(s) and your charts will respond accordingly:
+
+![Query with variable](./media/grafana-plugin/query-with-variable.png)
+
+See the full list of the [template variables](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/template-variables/) available in the Azure Monitor plugin.
 
 ### Create dashboard playlists
 
-One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Select **Play** to see the dashboards cycle through. You may want to display them on a large wall monitor to provide a status board for your group.
+One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Navigate to the Dashboards menu item and select **Playlists** to create a playlist of existing dashboards cycle through. You may want to display them on a large wall monitor to provide a status board for your group.
 
-![Grafana Playlist Example](./media/grafana-plugin/grafana7.png)
+![Grafana Playlist Example](./media/grafana-plugin/playlist.png)
 
 ## Clean up resources
 
