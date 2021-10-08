@@ -146,7 +146,7 @@ Learn more in [Protect your endpoints with Security Center's integrated EDR solu
 
 ### Two new recommendations for managing endpoint protection solutions (in preview)
 
-We've added two **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. Both recommendations include support for Azure virtual machines and machines connected to Azure Arc enabled servers.
+We've added two **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. Both recommendations include support for Azure virtual machines and machines connected to Azure Arc-enabled servers.
 
 |Recommendation |Description |Severity |
 |---|---|---|
