@@ -281,6 +281,8 @@ items:
     items:
     - name: Migrate from QnA Maker
       href: custom-question-answering/how-to/migrate-qnamaker.md
+    - name: Getting started with question answering
+      href: custom-question-answering/how-to/create-test-deploy.md
     - name: Query with REST APIs
       href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
