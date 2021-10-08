@@ -31,7 +31,7 @@ In this tutorial, you learn to:
 ## Create a GitHub repository
 
 1. Navigate to the following location to create a new repository:
-    - [https://github.com/anthonychu/20210928-swa-roles-function/generate](https://github.com/login?return_to=/anthonychu/20210928-swa-roles-function/generate)
+    - [https://github.com/staticwebdev/roles-function/generate](https://github.com/login?return_to=/staticwebdev/roles-function/generate)
 
 1. Name your repository **my-custom-roles-app**.
 
