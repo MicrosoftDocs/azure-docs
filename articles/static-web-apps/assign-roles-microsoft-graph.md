@@ -148,7 +148,7 @@ In this tutorial, you learn to:
         "azureActiveDirectory": {
           "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
           "registration": {
-            "openIdIssuer": "https://login.microsoftonline.com/<YOUR_AAD_TENANT>",
+            "openIdIssuer": "https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>",
             "clientIdSettingName": "AAD_CLIENT_ID",
             "clientSecretSettingName": "AAD_CLIENT_SECRET"
           },
@@ -164,7 +164,7 @@ In this tutorial, you learn to:
 
 1. Select the **Edit** button to update the file.
 
-1. Change the *openIdIssuer* value to `https://login.microsoftonline.com/<YOUR_AAD_TENANT>`. Replace `<YOUR_AAD_TENANT>` with the directory (tenant) ID of your Azure Active Directory.
+1. Change the *openIdIssuer* value to `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>`. Replace `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
