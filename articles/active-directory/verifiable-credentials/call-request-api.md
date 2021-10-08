@@ -26,7 +26,7 @@ Azure Active Directory verifiable credentials Request Service REST API allows yo
 
 ## API access token
 
-For your application to access the Request Service REST API, you need to include a valid access token with the required permissions. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API use to validate the caller. Ensuring that the caller has the proper permissions to perform the operation they're requesting.
+For your application to access the Request Service REST API, you need to include a valid access token with the required permissions. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API uses to validate the caller. Ensuring that the caller has the proper permissions to perform the operation they're requesting.
 
 To get an access token, your app must be registered with the Microsoft identity platform and be authorized by an administrator for access to the Request Service API. If you haven't register the *verifiable-credentials-app* application, follow the steps [how to register the app](verifiable-credentials-configure-tenant.md#step-3-register-an-application-in-azure-ad) and then [generate an application secret](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
 
@@ -38,7 +38,16 @@ To acquire an access token, we recommend that you use a trusted oauth library. I
 
 # [HTTP](#tab/http)
 
-Choose one of the programming languages above.
+```http
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1   //Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=12345678-0000-0000-00000000000000000
+&scope=bbb94529-53a3-4be5-a069-7eaf2712b826/.default
+&client_secret=sampleCredentia1s
+&grant_type=client_credentials
+```
 
 # [C#](#tab/csharp)
 
@@ -96,8 +105,8 @@ In the code above provide the following parameters.
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | Authority | Required | The directory tenant the application plans to operate against. For example, `https://login.microsoftonline.com/{your-tenant}`, replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md). |
-| Client ID | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
-| Client secret | Required | The client secret that you generated for your app in the app registration portal.|
+| Client ID | Required | The application ID that's assigned to your app. You can find this information in Azure portal where you registered your app. |
+| Client secret | Required | The client secret that you generated for your app.|
 | Scopes | Required | Must be set to `bbb94529-53a3-4be5-a069-7eaf2712b826/.default`. |
 
 
@@ -176,7 +185,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 ## Call the API
 
-To issue a verifiable credential, follow these steps:
+To issue, or verify a verifiable credential, follow these steps:
 
 1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](https://TBD), or your tenant name.
 
@@ -196,11 +205,9 @@ To issue a verifiable credential, follow these steps:
 
 1. Submit the request to the Request Service REST API.
 
-Check out the following code sample:
+## Issuance request example
 
- # [HTTP](#tab/http)
-
-This example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request.md)
+The following example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request.md)
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -235,8 +242,9 @@ Authorization: Bearer  <token>
 }
 ```  
 
+## Presentation request example
 
-This example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request.md)
+The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request.md)
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -271,12 +279,17 @@ Authorization: Bearer  <token>
 }
 ```
 
+Check out the following code sample:
+
+# [HTTP](#tab/http)
+
+Choose one of the programming languages above.
+
 # [C#](#tab/csharp)
 
 For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) code on the GitHub repo.
 
 # [Node.js](#tab/nodejs)
-
 
 For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js) code on the GitHub repo.
 
