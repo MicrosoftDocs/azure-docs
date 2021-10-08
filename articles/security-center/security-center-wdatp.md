@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using the Microsoft Defender for Endpoint license included with Azure Security Center
 description: Learn about Microsoft Defender for Endpoint and deploying it from Azure Security Center.
 author: memildin
@@ -73,7 +73,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - **Azure virtual machines (Windows or Linux)** - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration).
 
-    - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+    - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
