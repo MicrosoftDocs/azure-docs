@@ -294,6 +294,8 @@
               - name: Use Resource Manager template
                 displayName: arm
                 href: how-to-create-workspace-template.md
+              - name: Use Terraform
+                href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
