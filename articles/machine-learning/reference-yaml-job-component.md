@@ -38,8 +38,8 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**   | | |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**   | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount, the data will be consumed as a mount path. For download mode, the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
