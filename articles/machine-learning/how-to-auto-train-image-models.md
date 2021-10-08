@@ -309,14 +309,12 @@ Once you've built a baseline model, you might want to optimize model performance
 
 ### Primary metric
 
-This is an optional parameter to specify the metric to be used for model optimization and hyperparameter tuning. Default values depend on the task type.
+This is an optional parameter to specify the metric to be used for model optimization and hyperparameter tuning. Using other primary metric values is currently not supported. Default values depend on the task type.
 
 * `accuracy` for IMAGE_CLASSIFICATION
 * `iou` for IMAGE_CLASSIFICATION_MULTILABEL
 * `mean_average_precision` for IMAGE_OBJECT_DETECTION
 * `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
-
-Using other primary metric values is currently not supported.    
     
 ### Experiment budget
 
@@ -451,9 +449,14 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-Alternatively, you can deploy the model from the Azure ML Studio UI, by navigating to the model you wish to deploy in the 'Models' tab of the AutoML run, and clicking on the 'Deploy' button. 
-    
- You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the 'Deploy a model' pane that follows.
+Alternatively, you can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
+Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select the **Deploy**.  
+
+![Select model from the automl runs in studio UI  ](./media/how-to-auto-train-image-models/select-model.png)
+
+You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the **Deploy a model** pane.
+
+![Deploy configuration](./media/how-to-auto-train-image-models/deploy-image-model.png)
 
 ### Update inference configuration
 
