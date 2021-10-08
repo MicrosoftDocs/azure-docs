@@ -25,7 +25,7 @@ To create datastores that use credential-based authentication, like access keys 
 
 ## Identity-based data access in Azure Machine Learning
 
-There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for without credentials when you're working with confidential data and need more granular data access management:
+There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
 
 - Accessing storage services
 - Training machine learning models with private data
