@@ -26,7 +26,7 @@ You can create a question answering project from your own content, such as FAQs 
     > [!div class="mx-imgBorder"]
     > ![Open custom question answering](../media/create-test-deploy/open-custom-question-answering.png)
 
-3. If you resource is not yet connected to Azure Search select **Connect to Azure Search**. This will open a new browser tab to **Features** pane of your resource in the Azure portal.
+3. If your resource is not yet connected to Azure Search select **Connect to Azure Search**. This will open a new browser tab to **Features** pane of your resource in the Azure portal.
 
     > [!div class="mx-imgBorder"]
     > ![Connect to Azure Search](../media/create-test-deploy/connect-to-azure-search.png)
