@@ -19,7 +19,7 @@ The Edv5 and Edsv5-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice 
 
 ## Edv5-series
 
-Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edv5 virtual machine sizes feature up to 504 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to the Edv4 VMs. 
+Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edv5 virtual machine sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to the Edv4 VMs. 
 
 [ACU](acu.md): 195 - 210<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
@@ -48,7 +48,7 @@ Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) pro
 
 ## Edsv5-series
 
-Edsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edsv5 virtual machine sizes feature up to 504 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edsv5 virtual machine sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
