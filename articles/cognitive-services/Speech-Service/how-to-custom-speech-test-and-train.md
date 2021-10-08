@@ -78,7 +78,7 @@ After your dataset is uploaded, you have a few options:
 
 ### Upload data using Speech-to-text REST API v3.0
 
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) for automation of any operations related to your Custom models. In particular, you can use it for a dataset upload. This may be especially useful, when your dataset file exceeds 128 MB and because of this can not be uploaded using *Local file* option in Speech Studio.
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) for automation of any operations related to your Custom models. In particular, you can use it for a dataset upload. This may be especially useful, when your dataset file exceeds 128 MB and because of this cannot be uploaded using *Local file* option in Speech Studio.
 
 Use the following requests to create and upload a dataset:
 * [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
@@ -86,7 +86,7 @@ Use the following requests to create and upload a dataset:
 
 **REST API created datasets and Speech Studio projects**
 
-Please, note, that a dataset created via Speech-to-text REST API v3.0 will *not* be associated with any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Association with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
+A dataset created via Speech-to-text REST API v3.0 will *not* be associated with any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Association with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
 
 When you log on to the Speech Studio, its user interface will notify you in case any unassociated object is found (like datasets uploaded via REST API without any project association). 
 
