@@ -1,6 +1,6 @@
 ---
-title: ASP.NET app containerization and migration to Azure App Service
-description: Tutorial:Containerize & migrate ASP.NET applications to Azure App Service.
+title: ASP.NET app containerization and migration to App Service
+description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
 services:
 author: rahug1190
 manager: bsiva
@@ -10,23 +10,23 @@ ms.author: rahugup
 ---
 # ASP.NET app containerization and migration to Azure App Service
 
-In this article, you'll learn how to containerize ASP.NET applications and migrate them to [Azure App Service](https://azure.microsoft.com/services/app-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure App Service.
+In this article, you'll learn how to containerize ASP.NET applications and migrate them to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using the Azure Migrate App Containerization tool. The containerization process doesn't require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components. It them helps you package them in a container image. You can then deploy the containerized application on Azure App Service.
 
-The Azure Migrate: App Containerization tool currently supports -
+The Azure Migrate App Containerization tool currently supports:
 
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
-- Containerizing ASP.NET apps and deploying them on Windows containers on Azure Kubernetes Service. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
-- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS. [Learn more](./tutorial-app-containerization-java-kubernetes.md)
-- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on Azure Kubernetes Service (AKS). [Learn more about this containerization scenario.](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS. [Learn more about this containerization scenario.](./tutorial-app-containerization-java-kubernetes.md)
+- Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more about this containerization scenario.](./tutorial-app-containerization-java-app-service.md)
 
-The Azure Migrate: App Containerization tool helps you to -
+The App Containerization tool helps you:
 
-- **Discover your application**: The tool remotely connects to the application servers running your ASP.NET application and discovers the application components. The tool creates a Dockerfile that can be used to create a container image for the application.
-- **Build the container image**: You can inspect and further customize the Dockerfile as per your application requirements and use that to build your application container image. The application container image is pushed to an Azure Container Registry you specify.
-- **Deploy to Azure App Service**:  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
+- **Discover your application components.** The tool remotely connects to the application servers that run your ASP.NET application and discovers the application components. It creates a Dockerfile that you can use to create a container image for the application.
+- **Build the container image.** You can inspect and further customize the Dockerfile based on your application requirements and use it to build your application container image. The application container image is pushed to an Azure container registry that you specify.
+- **Deploy to Azure App Service.**  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
+> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
