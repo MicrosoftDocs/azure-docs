@@ -123,9 +123,11 @@ See examples of regression and automated machine learning for predictions in the
 
 ### Computer vision (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Automated ML for images (preview) adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
+
 With this capability you can: 
  
 * Seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) capability
@@ -134,11 +136,12 @@ With this capability you can:
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 
 * Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
-Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure Machine Learning studio UI.
+Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
-<!--Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).-->
+Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).
 
 ![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
+Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
 
 Automated ML for images supports the following computer vision tasks: 
 
