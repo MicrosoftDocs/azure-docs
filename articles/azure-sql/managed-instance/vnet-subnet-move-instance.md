@@ -18,7 +18,7 @@ ms.date: 09/30/2021
 
 Azure SQL Managed Instance must be deployed inside a dedicated subnet within an Azure [virtual network](../../virtual-network/virtual-networks-overview.md). The number of managed instances that can be deployed within the subnet depends on the size of the subnet (subnet range).
 
-This article teaches you to move your managed instance from one subnet to another, similar to scaling vCores or changing the instance service tier. SQL Managed Instance is available during the move, except during a short downtime caused by a failover at the end of the update - typically lasing up to 10 seconds, even if long-running transactions are interrupted. 
+This article teaches you to move your managed instance from one subnet to another, similar to scaling vCores or changing the instance service tier. SQL Managed Instance is available during the move, except during a short downtime caused by a failover at the end of the update - typically lasting up to 10 seconds, even if long-running transactions are interrupted. 
 
 Moving the instance to another subnet triggers the following virtual cluster operations:
 - The destination subnet builds out or resizes the virtual cluster.
@@ -37,7 +37,7 @@ To deploy a managed instance, or move it to another subnet, the destination subn
 
 ### Subnet readiness 
 
-Before you move your managed instance, confirm the subnet is **Ready for Managed Instance**. 
+Before you move your managed instance, confirm the subnet is marked as **Ready for Managed Instance** or **other** as both designations indicate the subnet can support a managed instance. 
 
 In the **Virtual network** UI of the Azure portal, virtual networks that meet the prerequisites for a managed instance are categorized as **Ready for Managed Instance**. Virtual networks that have subnets with managed instances already deployed to them display an icon before the virtual network name. Empty subnets that are ready for a managed instance do not have an icon. 
 
@@ -52,20 +52,15 @@ Subnets marked as **Invalid** cannot be used for new or existing managed instanc
 Depending on the subnet state and designation, the following adjustments may be made to the destination subnet: 
 
 - **Ready for Managed Instance (contains existing SQL Managed Instance)**: No adjustments are made. These subnets already contain managed instances, and making any change to the subnet could impact existing instances. 
-- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and adds any rules that are necessary but missing. Depending on the instance configuration (public endpoint, connection type for private endpoint), extra rules may be deployed.
+- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and adds any rules that are necessary but missing. 
 - **Other**: The subnet is prepared and all relevant rules are created according to the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration).
 
+> [!Note]
+> Azure portal only: in case of subnets categorized as **Other** and **Ready for Managed Instance (empty)** destination subnet is additionaly adjusted in order to match source subnet configuration:
+> - Depending on the instance configuration (public endpoint, connection type for private endpoint), extra rules may be deployed.
+> - Custom rules added to the source subnet configuration are copied to the destination subnet.
 
-((((the following is the previous text for comparison - should delete if above is an adequate rewrite)))) 
 
-Depending on the configuration of the subnet and resources deployed inside it, subnets are divided into the three groups:
-- Ready for Managed Instance - these subnets fullfil all network requirements. There are two subtypes of ready subnets:
-  - With SQL Managed Instance inside - these subnets have SQL Managed Instance icon in front.
-  - Empty subnet - without icon in front.
-- Other - These subnets are empty and can be used, but as a part of instance deployment process they will be adjusted. This adjustment applies for both scenarios, new instance creation or moving the existing instance.
-- Invalid - These subnets don't fullfil the requirements. Prefixes that explain which requirement is missing are added in front of the subnet name:
-  - In use - subnet has some other resource deployed. Instances used for instance deployments cannot contain other resources.
-  - DNS - subnet has different DNS zone (cross-subnet instance move limitation).
 
 
 ### Destination subnet limitations 
@@ -91,7 +86,7 @@ The following table details the operation steps that occur during the instance m
 |Seeding database files / attaching database files |Depending on the service tier, either the database is seeded or the database files are attached. |
 |Preparing failover and failover |After data has been seeded or database files reattached, the system prepares for failover. When everything is ready, the system performs a failover **with a short downtime**, usually less than 10 seconds.  |
 |Old SQL instance cleanup |Removes the old SQL process from the source virtual cluster.  |
-|Virtual cluster deletion |The final step deletes the virtual cluster synchronously from the source subnet, if it's the last instance within the subnet. |
+|Virtual cluster deletion |If it's the last instance within the source subnet, the final step deletes the virtual cluster synchronously. Otherwise, asynchronous defragmentation of the virtual cluster will be triggered. |
 
 A detailed explanation of the operation steps can be found in the [overview of Azure SQL Managed Instance management operations](management-operations-overview.md#management-operations-steps)
 
@@ -122,7 +117,7 @@ Monitor instance move operations from the **Overview** blade of the Azure portal
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the Azure PowerShell command [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) to move an instance after you create your subnet in the same virtual network as your destination subnet.  If you want to use an existing subnet, provide that subnet name in the PowerShell command.
+Use the Azure PowerShell command [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) to move an instance after you create your subnet in the same virtual network as your destination subnet. If you want to use an existing subnet, provide that subnet name in the PowerShell command.
 
 The example PowerShell commands in this section prepare the destination subnet for instance deployment and move the managed instance. 
 
@@ -131,6 +126,7 @@ Use the following PowerShell command to specify your parameters:
 
 ```powershell-interactive
 ### PART 1 - DEFINE PARAMETERS
+
 #Generating basic parameters
 $currentSubscriptionID = 'subscription-id'
 $sqlMIResourceGroupName = 'resource-group-name-of-sql-mi'
@@ -143,8 +139,10 @@ Skip this command if your subnet already has instances deployed to it. If you ar
 
 ```powershell-interactive
 ### PART 2 - PREPARE DESTINATION SUBNET
+
 #Loading the url of script used for preparing the subnet for SQL MI deployment
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
+
 #Generating destination subnet parameters
 $parameters = @{
     subscriptionId = $currentSubscriptionID
@@ -152,6 +150,7 @@ $parameters = @{
     virtualNetworkName = $sqlMIResourceVnetName
     subnetName = $destinationSubnetName
 }
+
 #Initiating subnet prepartion script
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
@@ -163,6 +162,7 @@ The following PowerShell command moves the instance to the source subnet:
 
 ```powershell-interactive
 ### PART 3 - MOVE INSTANCE TO THE NEW SUBNET
+
 Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
 -SubnetId "/subscriptions/$currentSubscriptionID/resourceGroups/$sqlMIResourceGroupName/providers/Microsoft.Network/virtualNetworks/$sqlMIResourceVnetName/subnets/$destinationSubnetName"
 ```
@@ -171,9 +171,11 @@ The following PowerShell command moves the instance, and also provides a way to 
 
 ```powershell-interactive
 ###PART 3 EXTENDED - MOVE INSTANCE AND MONITOR PROGRESS
+
 # Extend the Set-AzSqlInstance command with -AsJob -Force parameters to be able to monitor the progress or proceed with script execution as moving the instance to another subnet is long running operation 
 Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
 -SubnetId "/subscriptions/$currentSubscriptionID/resourceGroups/$sqlMIResourceGroupName/providers/Microsoft.Network/virtualNetworks/$sqlMIResourceVnetName/subnets/$destinationSubnetName" -AsJob -Force
+
 $operationProgress = Get-AzSqlInstanceOperation -ManagedInstanceName $sqlMIName -ResourceGroupName $sqlMIResourceGroupName
 #checking the operation step status
 Write-Host "Checking the ongoing step" -ForegroundColor Yellow
