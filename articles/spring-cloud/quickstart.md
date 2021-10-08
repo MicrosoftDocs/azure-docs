@@ -372,9 +372,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/).
 
-2. From the top search box, search for *Azure Spring Cloud*.
+2. From the top search box, search for **Azure Spring Cloud**.
 
-3. Select *Azure Spring Cloud* from the results.
+3. Select **Azure Spring Cloud** from the results.
 
     ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
