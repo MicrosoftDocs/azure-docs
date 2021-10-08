@@ -30,7 +30,7 @@ Keep in mind the following points when considering regions:
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Speech-to-text, text-to-speech, and translation
+### Speech-to-text, text-to-speech, translation and speaker recognition
 
 The speech customization portal is available here: https://speech.microsoft.com
 
@@ -76,7 +76,7 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in the
 | Southeast Asia | `southeastasia`      |
 
 ### Speaker Recognition
-Available regions for **Speaker Recognition** via the Speech SDK are the following:
+Available regions for **Speaker Recognition** are the following:
 | Geography | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Americas     | Central US   | `centralus` |
@@ -95,7 +95,7 @@ Available regions for **Speaker Recognition** via the Speech SDK are the followi
 
 ## REST APIs
 
-The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
+The Speech service also exposes REST endpoints for speech-to-text, text-to-speech and speaker recognition requests.
 
 ### Speech-to-text
 
@@ -119,3 +119,6 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+### Speaker Recognition
+For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
