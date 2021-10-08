@@ -57,6 +57,12 @@ sections:
           Using [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) it is possible to modify one of these confidential VM images (for example, by installing certain applications) and using it as a baseline for deploying other confidential VMs.
 
       - question: |
+          Do I have to use the new full-disk encryption scheme with CVMs? Can I use one of the standard schemes?
+        answer: |
+          The new full-disk encryption scheme is optional. You can also use any other disk encryption scheme (instead or in addition).
+          If you use multiple disk encryption schemes this may result in double encryption, and negatively impact performance.
+          
+      - question: |
           Can I convert a non-confidential VM into a confidential VM?
         answer: |
           No. For security reasons, Confidential VMs need to be created as such from the start.

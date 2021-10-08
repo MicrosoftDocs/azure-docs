@@ -110,10 +110,11 @@ You can also replace "*DC*" with "*EC*" for memory-optimized  (double the memory
 You will also have to reference an image under **osImageName**. 
 
 ```json
+  [
         "Windows Server 2022 Gen 2",
         "Windows Server 2019 Gen 2",
         "Ubuntu 20.04 LTS Gen 2"
-      }
+      ],
 ```
 
 ### Security type
@@ -121,9 +122,10 @@ You will also have to reference an image under **osImageName**.
 Also, make sure to select your preferred disk encryption option under **securityType**. The second option performs full OS disk pre-encryption and may result in longer VM provisioning times.
 
 ```json
+  [
         "VMGuestStateOnly",
         "DiskWithVMGuestState"
-      }
+      ],
 ```
 
 ## Next steps 
