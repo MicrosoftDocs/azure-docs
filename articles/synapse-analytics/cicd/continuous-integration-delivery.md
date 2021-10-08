@@ -56,7 +56,7 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
   1. Grant the VM agent and the service principal Contributor permission to the resource group in which the new workspace is hosted.
   1. In the workspace, don't configure the Git repository connection.
   1. In the Azure portal, find the new Azure Synapse workspace, and then grant Owner permission to yourself and to the user that will run the Azure DevOps pipeline Azure Synapse workspace. 
-  1. Add the Azure DevOps VM agent and the service principal to the Contributor role for the workspace (the role should have been inherited, but verify that it is).
+  1. Add the Azure DevOps VM agent and the service principal to the Contributor role for the workspace. (The role should have been inherited, but verify that it is.)
   1. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. Add the Azure DevOps VM agent and the service principal to the workspace admin group.
   1. Open the storage account that's used for the workspace. On the **Identity and access management** pane, add the VM agent and the service principal to the Storage Blob Data Contributor role.
   1. Create a key vault in the support subscription, and ensure that both the existing workspace and the new workspace have at least GET and LIST permissions to the vault.
@@ -77,9 +77,9 @@ In this section, you'll learn how to deploy an Azure Synapse workspace in Azure 
 
 1. In [Azure DevOps](https://dev.azure.com/), open the project you created for the release.
 
-1. In the left menu, select **Pipelines** > **Releases**.
+1. On the left menu, select **Pipelines** > **Releases**.
 
-    :::image type="content" source="media/create-release-pipeline.png" alt-text="Screenshot that shows selecting Pipelines and then Releases in the Azure DevOps menu.":::        
+    :::image type="content" source="media/create-release-pipeline.png" alt-text="Screenshot that shows selecting Pipelines and then Releases on the Azure DevOps menu.":::        
  
 1. Select **New pipeline**. If you have existing pipelines, select **New** > **New release pipeline**.
 
@@ -101,7 +101,7 @@ In this section, you'll learn how to deploy an Azure Synapse workspace in Azure 
 
     :::image type="content" source="media/release-creation-publish-branch.png" alt-text="Screenshot that shows setting the artifacts branch.":::
 
-### Set up a stage task for an ARM template to create and update resource 
+### Set up a stage task for an ARM template to create and update a resource 
 
 If you have an ARM template that deploys a resource, such as an Azure Synapse workspace, a Spark and SQL pool, or a key vault, add an Azure Resource Manager deployment task to create or update those resources:
 
@@ -412,7 +412,7 @@ If you're using Git integration with your Azure Synapse workspace and you have a
 
 ### Use the Synapse workspace deployment task
 
-In Azure Synapse, unlike in Data Factory, some artifacts aren't Resource Manager resources. You can't use the ARM template deployment task to deploy Azure Synapse artifacts. Instead, use the Synapse workspace deployment task
+In Azure Synapse, unlike in Data Factory, some artifacts aren't Resource Manager resources. You can't use the ARM template deployment task to deploy Azure Synapse artifacts. Instead, use the Synapse workspace deployment task.
  
 ### Unexpected token error in release
 
