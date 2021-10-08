@@ -100,7 +100,7 @@ In the Form Recognizer UI:
 
     ### ID document preview key-value pair extraction
 
-    |Name| Type | Description | Standardized output <img width=500>|
+    |Name| Type | Description | Standardized output|
     |:-----|:----|:----|:----|
     | 🆕 Endorsements | string | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
     | 🆕 Restrictions | string | Restricted driving privileges applicable to suspended or revoked licenses.| |

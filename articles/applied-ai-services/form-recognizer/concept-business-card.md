@@ -19,7 +19,7 @@ recommendations: false
 
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
-##### Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):***
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 

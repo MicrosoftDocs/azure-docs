@@ -109,7 +109,6 @@ Analyze response has been refactored to the following top-level results to suppo
 > [!NOTE]
 >
 > The analyzeResult response changes includes a number of changes like moving up from a property of pages to a top lever property within analyzeResult.
-For more information see [analyze document](link to ref).
 
 
 ## Build or Train model
