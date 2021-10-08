@@ -62,8 +62,9 @@ Choosing the proper access mode has detrimental effects on your network traffic.
 ![Diagram of AMPLS Open access mode](./media/private-link-security/ampls-open-access-mode.png)
 Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
-
 Apply caution when selecting your access mode. Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant (with the exception of Log Analytics ingestion requests, as explained below). If you can't add all Azure Monitor resources to the AMPLS, start with by adding select resources and applying the Open access mode. Only after adding *all* Azure Monitor resources to your AMPLS, switch to the 'Private Only' mode for maximum security.
+
+See [Use APIs and command line](./private-link-configure.md#use-apis-and-command-line) for configuration details and examples.
 
 > [!NOTE]
 > Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
@@ -99,6 +100,8 @@ Your Log Analytics workspaces or Application Insights components can be set to:
 That granularity allows you to set access according to your needs, per workspace. For example, you may accept ingestion only through Private Link connected networks (meaning specific VNets), but still choose to accept queries from all networks, public and private. 
 
 Blocking queries from public networks means clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes logs, metrics, and the live metrics stream. Blocking queries from public networks affects all experiences that run these queries, such as workbooks, dashboards, Insights in the Azure portal, and queries run from outside the Azure portal.
+
+See [Set resource access flags](./private-link-configure.md#set-resource-access-flags) for configuration details.
 
 ### Exceptions
 

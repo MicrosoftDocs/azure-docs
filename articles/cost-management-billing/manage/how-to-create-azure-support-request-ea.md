@@ -2,7 +2,7 @@
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: troubleshooting
-ms.date: 10/06/2021
+ms.date: 10/07/2021
 ms.author: banders
 author: bandersmsft
 ms.reviewer: sapnakeshari
@@ -60,7 +60,7 @@ We'll walk you through some steps to gather information about your problem and h
 ### Problem description
 
 1. Type a summary of your issue and then select **Issue type**. 
-1. In the **Issue type** list, select **Enrollment administration**.  
+1. In the **Issue type** list, select **Enrollment administration** for EA portal related issues.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" alt-text="Screenshot showing Select Enrollment administration." lightbox="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" :::
 1. For **Enrollment number**, select the enrollment number. 
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="Screenshot showing Select Enrollment number." :::
@@ -103,7 +103,7 @@ A support engineer will contact you using the method you indicated. For informat
 
 If you have a Microsoft Account (MSA), you can't create an Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
 
-To create an Azure support ticket, an *organizational account* must have the EA administrator role.
+To create an Azure support ticket, an *organizational account* must have the EA administrator role or Partner administrator role.
 
 If you have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
 
