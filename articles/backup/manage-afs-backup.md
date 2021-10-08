@@ -41,7 +41,7 @@ To create a new backup policy, follow these steps:
 
    :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Screenshot showing to select Azure File Share as the policy type.":::
 
-1. As the **Backup policy** pane for **Azure File Share** opens, specify the policy name, backup frequency, and retention range for the recovery points to define the policy, and then select **OK**.
+1. As the **Backup policy** pane for **Azure File Share** opens, specify the policy name.
 
 1. In **Backup schedule**,  select an appropriate frequency for the backups - **Daily** or **Hourly**.
 
