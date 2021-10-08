@@ -25,7 +25,7 @@ To create datastores that use credential-based authentication, like access keys 
 
 ## Identity-based data access in Azure Machine Learning
 
-There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
+There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for without credentials when you're working with confidential data and need more granular data access management:
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -104,7 +104,7 @@ To register an Azure blob container as a datastore, use [`register_azure_blob_co
 The following code creates the `credentialless_blob` datastore, registers it to the `ws` workspace, and assigns it to the `blob_datastore` variable. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
 
 ```Python
-# Create blob datastore identity-based access.
+# Create blob datastore without credentials.
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                       datastore_name='credentialless_blob',
                                                       container_name='my_container_name',
@@ -118,7 +118,7 @@ Use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore
 The following code creates the `credentialless_adls1` datastore, registers it to the `workspace` workspace, and assigns it to the `adls_dstore` variable. This datastore accesses the `adls_storage` Azure Data Lake Storage account.
 
 ```Python
-# Create Azure Data Lake Storage Gen1 datastore identity-based access.
+# Create Azure Data Lake Storage Gen1 datastore without credentials.
 adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
                                                  datastore_name='credentialless_adls1',
                                                  store_name='adls_storage')
@@ -132,7 +132,7 @@ Use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.data
 The following code creates the `credentialless_adls2` datastore, registers it to the `ws` workspace, and assigns it to the `adls2_dstore` variable. This datastore accesses the file system `tabular` in the `myadls2` storage account.  
 
 ```python
-# Create Azure Data Lake Storage Gen2 datastore identity-based access.
+# Create Azure Data Lake Storage Gen2 datastore without credentials.
 adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws, 
                                                        datastore_name='credentialless_adls2', 
                                                        filesystem='tabular', 
