@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.custom: has-adal-ref, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
 

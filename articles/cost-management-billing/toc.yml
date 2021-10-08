@@ -1,4 +1,4 @@
-- name: Azure Cost Management + Billing documentation
+- name: Cost Management + Billing documentation
   href: index.yml
 - name: Overview
   items:
@@ -36,7 +36,7 @@
   items:
   - name: Cost Management
     items:
-    - name: Azure Cost Management best practices
+    - name: Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
       href: costs/understand-cost-mgt-data.md
@@ -116,8 +116,6 @@
       href: understand/mca-understand-your-invoice.md
     - name: Microsoft Customer Agreement price sheet terms
       href: manage/mca-understand-pricesheet.md
-    - name: Microsoft Customer Agreement FAQ
-      href: understand/mca-faq.md
     - name: Microsoft Partner Agreement invoice terms
       href: understand/mpa-invoice-terms.md
     - name: Changes to your updated pay-as-you-go billing account
@@ -398,11 +396,13 @@
       href: manage/ea-portal-troubleshoot.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Create EA support request
+      href: manage/how-to-create-azure-support-request-ea.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/billing
-  - name: Azure Cost Management REST API
+  - name: Cost Management REST API
     href: /rest/api/cost-management
   - name: Azure Consumption REST API
     href: /rest/api/consumption

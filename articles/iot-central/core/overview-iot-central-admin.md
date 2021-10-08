@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: iot-central
@@ -19,6 +19,7 @@ An IoT Central application lets you monitor and manage millions of devices throu
 In IoT Central, an administrator:
 
 - Manages users and roles in the application.
+- Creates and manages organizations.
 - Manages security such as device authentication.
 - Configures application settings.
 - Upgrades applications.
@@ -30,6 +31,12 @@ In IoT Central, an administrator:
 IoT Central uses a role-based access control system to manage user permissions within an application. IoT Central has three built-in roles for administrators, solution builders, and operators. An administrator can create custom roles with specific sets of permissions. An administrator is responsible for adding users to an application and assigning them to roles.
 
 To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
+
+## Organizations
+
+Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
+
+To learn more, see [Create an IoT Central organization](howto-create-organizations.md).
 
 ## Application security
 
@@ -70,6 +77,10 @@ An administrator can use IoT Central metrics to assess the health of connected d
 To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
 To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+
+## Monitor connected IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## Tools
 

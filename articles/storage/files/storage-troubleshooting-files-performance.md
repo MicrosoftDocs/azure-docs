@@ -1,11 +1,11 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/06/2021
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -77,6 +77,8 @@ To determine whether most of your requests are metadata-centric, start by follow
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
 - Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) Powershell cmdlet.
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
 
 ### Cause 3: Single-threaded application
 
@@ -113,7 +115,7 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 
 ### Workaround
 
-- For premium file shares, [Enable SMB Multichannel on a FileStorage account](storage-files-enable-smb-multichannel.md).
+- For premium file shares, [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 - Obtaining a VM with a bigger core might help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
@@ -196,17 +198,6 @@ Higher than expected latency accessing Azure file shares for I/O-intensive workl
 ### Workaround
 
 - Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
-
-## SMB Multichannel option not visible under File share settings. 
-
-### Cause
-
-Either the subscription is not registered for the feature, or the region and account type is not supported.
-
-### Solution
-
-Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
-Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
 
 ## SMB Multichannel is not being triggered.
 

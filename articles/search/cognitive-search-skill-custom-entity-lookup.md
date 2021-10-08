@@ -7,25 +7,15 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ---
 
 # Custom Entity Lookup cognitive skill
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
-This skill is not bound to a Cognitive Services API. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
-
-## Pricing details
-
-Text Records correspond to the number of 1,000-character units within a document that is provided as input to the skill.
-
-|  Pricing tier  |        Price  |
-|--------------|----------------------|
-| 0-500,000 text records | $1 per 1,000 text records |
-| 0.5M-2.5M text records | $0.75 per 1,000 text records |
-| 2.5M-10.0M text records | $0.30 per 1,000 text records |
-| 10M+ text records | $0.25 per 1,000 text records |
+> [!NOTE]
+> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -170,13 +160,12 @@ The tables below describe in more details the different configuration parameters
 | `accentSensitive` | (Optional) Acts the same as root entity "accentSensitive" parameter above, but applies to only this one alias. |
 | `fuzzyEditDistance` | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
 
-
 ### Inline format
 
 In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-##    Sample definition
+## Sample definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -216,6 +205,7 @@ A sample skill definition using an inline format is shown below:
     ]
   }
 ```
+
 Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the `entitiesDefinitionUri` format is shown below:
 
 ```json
@@ -239,7 +229,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 
 ```
 
-##    Sample input
+## Sample input
 
 ```json
 {
@@ -256,7 +246,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 }
 ```
 
-##    Sample output
+## Sample output
 
 ```json
   { 

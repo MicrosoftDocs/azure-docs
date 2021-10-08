@@ -4,7 +4,7 @@ metadata:
   description: Answers to common questions customers ask about Hyperscale named replicas
   services: sql-database
   ms.service: sql-database
-  ms.subservice: 
+  ms.subservice: service-overview
   ms.custom: 
   ms.devlang: 
   ms.topic: conceptual

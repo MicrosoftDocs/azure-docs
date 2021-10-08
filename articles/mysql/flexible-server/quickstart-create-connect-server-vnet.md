@@ -16,7 +16,9 @@ Azure Database for MySQL Flexible Server is a managed service that you can use t
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -39,7 +41,7 @@ Complete these steps to create a flexible server:
 
 4. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **administrator password**.  With the default values, this will provision a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2GiB Memory and 32GiB storage. The backup retention is 7 days. You can change the configuration.
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
 
    > [!TIP]
    > For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost.
@@ -128,7 +130,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 You need to install mysql-client tool to be able to connect to the server.
 
 ```bash
-sude apt-getupdate
+sudo apt-getupdate
 sudo apt-get install mysql-client
 ```
 

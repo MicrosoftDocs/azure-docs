@@ -5,7 +5,7 @@ description: This article provides an overview of Web Application Firewall (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 12/04/2020
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
-WAF on Application Gateway is based on [Core Rule Set (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
+WAF on Application Gateway is based on [Core Rule Set (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). 
 
 All of the WAF features listed below exist inside of a WAF Policy. You can create multiple policies, and they can be associated with an Application Gateway, to individual listeners, or to path-based routing rules on an Application Gateway. This way, you can have separate policies for each site behind your Application Gateway if needed. For more information on WAF Policies, see [Create a WAF Policy](create-waf-policy-ag.md).
 
@@ -36,7 +36,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Create custom WAF policies for different sites behind the same WAF 
 
-* Protect your web applications from malicious bots with the IP Reputation ruleset (preview)
+* Protect your web applications from malicious bots with the IP Reputation ruleset
 
 ### Monitoring
 
@@ -65,8 +65,8 @@ and remote file inclusion.
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
-- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
-- Protect your applications from bots with the bot mitigation ruleset. (preview)
+- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications.
+- Protect your applications from bots with the bot mitigation ruleset.
 - Inspect JSON and XML in the request body
 
 ## WAF policy and rules
@@ -95,19 +95,13 @@ For more information, see [Web application firewall CRS rule groups and rules](a
 
 Application Gateway also supports custom rules. With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a set of conditions is met, an action is taken to allow or block. 
 
-The geomatch operator is now available in public preview for custom rules. Please see [geomatch custom rules](custom-waf-rules-overview.md#geomatch-custom-rules-preview) for more information.
-
-> [!NOTE]
-> The geomatch operator for custom rules is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+The geomatch operator is now available for custom rules. See [geomatch custom rules](custom-waf-rules-overview.md#geomatch-custom-rules) for more information.
 
 For more information on custom rules, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
-### Bot Mitigation (preview)
+### Bot Mitigation
 
 A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses, alongside the managed ruleset. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
-
-> [!NOTE]
-> Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If Bot Protection is enabled, incoming requests that match Malicious Bot's client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
 

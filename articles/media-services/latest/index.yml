@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
-title: Azure Media Services v3 cloud-based platform documentation
-summary: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
+title: Azure Media Services (v3) documentation
+summary: Learn how to broadcast live events, encode, package, and stream videos on-demand videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
  
 metadata:
-  title: Azure Media Services v3 cloud-based platform documentation
-  description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3.
+  title: Azure Media Services (v3) documentation
+  description: Learn how to broadcast live events, encode, package, and stream videos on-demand videos with Media Services.
   services: media-services
   ms.service: media-services
   ms.subservice:
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IngridAtMicrosoft
   ms.author: inhenkel
-  ms.date: 03/25/2021 #Required; mm/dd/yyyy format.
+  ms.date: 08/18/2021 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -29,6 +29,8 @@ landingContent:
             url: media-services-overview.md
           - text: "What's new in Media Services?"
             url: release-notes.md
+          - text: "FAQ"
+            url: frequently-asked-questions.yml
       - linkListType: concept
         links:
           - text: Media Services accounts
@@ -43,7 +45,8 @@ landingContent:
             url: player-use-azure-media-player-how-to.md  
           - text: Developing with v3 API guidance
             url: media-services-apis-overview.md            
-
+          - text: Migrating from v2
+            url: migrate-v-2-v-3-migration-introduction.md      
   # Card (optional)
   - title: Get started
     linkLists:
@@ -55,6 +58,8 @@ landingContent:
             url: ./access-api-howto.md
       - linkListType: download
         links:
+          - text: All GitHub code samples
+            url: samples-overview.md
           - text: .NET SDK samples
             url: https://github.com/Azure-Samples/media-services-v3-dotnet
           - text: Java SDK samples
@@ -81,7 +86,7 @@ landingContent:
             url: stream-live-streaming-concept.md           
       - linkListType: tutorial
         links:
-          - text: Stream live
+          - text: Stream live 
             url: stream-live-tutorial-with-api.md
 
 # Card
@@ -123,6 +128,8 @@ landingContent:
             url: analyze-video-audio-files-concept.md
           - text: Compliance, Privacy and Security
             url: analyze-video-audio-files-concept.md#compliance-privacy-and-security
+          - text: Azure Video Analyzer (preview) documentation
+            url: ../../azure-video-analyzer/video-analyzer-docs/overview.md
       - linkListType: tutorial
         links:
           - text: Analyze videos

@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot issues with artifacts in Azure DevTest Labs | Microsoft Docs
+title: Troubleshoot issues with artifacts
 description: Learn how to troubleshoot issues that occur when applying artifacts in an Azure DevTest Labs virtual machine. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020 
 ms.custom: devx-track-azurepowershell
 ---
@@ -48,7 +48,7 @@ You can troubleshoot VMs created using DevTest Labs and the Resource Manager dep
 
 An artifact appears to stop responding until a pre-defined timeout period expires, and the artifact is marked as **Failed**.
 
-When an artifact appears to hang, first determine where it's stuck. An artifact can be blocked at any of the following steps during execution:
+When an artifact appears to stop responding, first determine where it's stuck. An artifact can be blocked at any of the following steps during execution:
 
 - **During the initial request**. DevTest Labs creates an Azure Resource Manager template to request the use of the Custom Script Extension (CSE). Therefore, behind the scenes, a resource group deployment is triggered. When an error at this level happens, you get details in the **Activity Logs** of the resource group for the VM in question.  
     - You can access the activity log from the lab VM page navigation bar. When you select it, you see an entry for either **applying artifacts to virtual machine** (if the apply artifacts operation was triggered directly) or **Add or modify virtual machines** (if the applying artifacts operation was part of the VM creation process).

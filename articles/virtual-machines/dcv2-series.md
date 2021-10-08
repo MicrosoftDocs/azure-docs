@@ -11,6 +11,7 @@ ms.author: jushiman
 
 # DCsv2-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The DCsv2-series virtual machines help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. DCsv2-series leverage Intel® Software Guard Extensions, which enable customers to use secure enclaves for protection.
 
@@ -27,12 +28,12 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli): Not Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 
 ## Technical specifications
 
-| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
+| Size             | Physical Cores | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
@@ -57,5 +58,7 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 - [More On Disk Types](./disks-types.md#ultra-disk)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

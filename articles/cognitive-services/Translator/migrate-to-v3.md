@@ -15,7 +15,7 @@ ms.author: lajanuar
 # Translator V2 to V3 Migration
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3. V2 will be retired on May 24, 2021. 
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3. V2 was retired on May 24, 2021. 
 
 The Microsoft Translator team has released Version 3 (V3) of the Translator. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/16/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Data ingress and egress for Azure Digital Twins
 
-Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in a variety of ways.
+Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways.
 
 Using [event routes](concepts-route-events.md), Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
@@ -25,9 +25,9 @@ Azure Digital Twins can also route data to downstream services, such as [Azure M
 
 ## Data ingress
 
-Azure Digital Twins can be driven with data and events from any service—[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), your own custom service, and more. This allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.
+Azure Digital Twins can be driven with data and events from any service—[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), your own custom service, and more. This kind of data flow allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.
 
-Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service. You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose. This gives you full access to all of the device management capabilities of IoT Hub.
+Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service. You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose. This functionality gives you full access to all of the device management capabilities of IoT Hub.
 
 To ingest data from any source into Azure Digital Twins, use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). 
 
@@ -44,7 +44,7 @@ Endpoints are attached to Azure Digital Twins using management APIs or the Azure
 
 There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md), [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). To send your data to services like these, attach the destination service to an endpoint.
 
-For example, if you are also using Azure Maps and want to correlate location with your Azure Digital Twins [twin graph](concepts-twins-graph.md), you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. Learn more about this in [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md)
+For example, if you're also using Azure Maps and want to correlate location with your Azure Digital Twins [twin graph](concepts-twins-graph.md), you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. For more information on integrating Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md)
 
 You can also learn how to route data in a similar way to Time Series Insights, in [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 

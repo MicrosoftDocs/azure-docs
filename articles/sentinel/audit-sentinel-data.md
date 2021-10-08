@@ -43,7 +43,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](connect-azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -253,4 +253,4 @@ Use Azure Sentinel's own features to monitor events and actions that occur withi
 
 In Azure Sentinel, use the **Workspace audit** workbook to audit the activities in your SOC environment.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md).

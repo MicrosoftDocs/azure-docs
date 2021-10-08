@@ -2,7 +2,7 @@
 title: Attach disk pools to Azure VMware Solution hosts (Preview)
 description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and attach them to your VMware instance.
 ms.topic: how-to 
-ms.date: 07/13/2021
+ms.date: 08/20/2021
 
 #Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.  
 
@@ -34,7 +34,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - Scalability and performance requirements of your workloads are identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
    - If you select ultra disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
@@ -51,83 +51,83 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 >[!IMPORTANT]
 >While in **Public Preview**, only attach a disk pool to a test or non-production cluster.
 
-1. Check if the subscription is registered to `Microsoft.AVS`:
+1. Check if the subscription is registered to `Microsoft.AVS`.
 
    ```azurecli
    az provider show -n "Microsoft.AVS" --query registrationState
    ```
 
-   If it's not already registered, then register it:
+   If it's not already registered, then register it.
 
    ```azurecli
    az provider register -n "Microsoft.AVS"
    ```
 
-1. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS:
+2. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS.
 
    ```azurecli
    az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
    ```
 
-   - If it's not already registered, then register it:
+   - If it's not already registered, then register it.
 
       ```azurecli
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-      The registration may take approximately 15 minutes to complete and you can check the current status it:
+      The registration may take approximately 15 minutes to complete and you can check the current status it.
       
       ```azurecli
       az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
       ```
 
       >[!TIP]
-      >If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag:
+      >If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag.
       >
       >```azurecli
       >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >```
 
-1. Check if the `vmware `extension is installed: 
+3. Check if the `vmware `extension is installed. 
 
    ```azurecli
    az extension show --name vmware
    ```
 
-   - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension:
+   - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension.
 
       ```azurecli
       az extension update --name vmware
       ```
 
-   - If it's not already installed, install it:
+   - If it's not already installed, install it.
 
       ```azurecli
       az extension add --name vmware
       ```
 
-3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
+4. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a vNet through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
-   ```azurecli
+   ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
    >[!TIP]
-   >You can display the help on the datastores:
+   >You can display the help on the datastores.
    >
    >   ```azurecli
    >   az vmware datastore -h
    >   ```
    
 
-4. Show the details of an iSCSI datastore in a private cloud cluster:
+5. Show the details of an iSCSI datastore in a private cloud cluster.
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-5. List all the datastores in a private cloud cluster:
+6. List all the datastores in a private cloud cluster.
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -145,7 +145,7 @@ When you delete a private cloud datastore, the disk pool resources don't get del
 
    - Snapshots
 
-2. Delete the private cloud datastore:
+2. Delete the private cloud datastore.
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -155,7 +155,7 @@ When you delete a private cloud datastore, the disk pool resources don't get del
 
 Now that you've attached a disk pool to your Azure VMware Solution hosts, you may want to learn about:
 
-- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
+- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
 
 - [Deleting a disk pool](../virtual-machines/disks-pools-deprovision.md#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
 

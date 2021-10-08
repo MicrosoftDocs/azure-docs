@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 09/21/2021
 
 ---
 
@@ -16,6 +16,25 @@ This page provides latest news and updates regarding feature additions, engine v
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Release: September 2021
+
+* Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
+* Support for [new regions](overview.md#azure-regions) Central India and Japan West.
+* Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
+* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
+* Several bug fixes, stability, and performance improvements.
+
+## Release: July 2021
+
+* Support for [new regions](overview.md#azure-regions) East Asia, Germany West Central, Korea South, South Central US, UK West.
+* Support for [pglogical extension](concepts-logical.md) v2.3.2 with PostgreSQL 11,12, and 13.<sup>$</sup>
+* PgBouncer now includes `ignore_startup_parameters` to ignore certain client-side driver's parameters including `extra_float_digits`, and `pgbouncer.query_wait_timeout` parameters.  <sup>$</sup>.
+* Support for `pg_stat_reset_shared('bgwriter');` and `pg_stat_reset_shared('archiver');` to reset the counters shown in the `pg_stat_bgwriter` and `pg_stat_archiver` views <sup>$</sup>.
+* Several bug fixes, stability, and performance improvements<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
 ## Release: June 2021
 
@@ -27,7 +46,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for lo extension. See the [extensions page](./concepts-extensions.md) for versions supported with each major version <sup>$</sup>.
 * Several bug fixes, stability, and performance improvements<sup>$</sup>.
   
-<sup>**$**</sup> Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
+<sup>**$**</sup> New servers get these features automatically. Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
 
 ## Release: May 2021
 

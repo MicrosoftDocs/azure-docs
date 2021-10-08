@@ -226,7 +226,7 @@ When you use this quickstart, events will be sent to IoT Hub. To see these event
 
 ## Use direct method calls
 
-You can now analyze live video streams by invoking direct methods that the Video Analyzer edge module exposes. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods that the module provides.
+You can now analyze live video streams by invoking direct methods that the Video Analyzer edge module exposes. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods that the module provides. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### Enumerate pipeline topologies
 

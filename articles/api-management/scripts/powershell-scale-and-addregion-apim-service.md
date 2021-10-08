@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Scale the service instance | Microsoft D
 description: Learn how to scale and add regions to the API Management service instance. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

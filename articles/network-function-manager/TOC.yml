@@ -19,8 +19,15 @@
     href: partners.md
   - name: FAQ
     href: faq.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/hybridnetwork
+  - name: SDK for Java
+    href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork
+  - name: SDK for Python
+    href: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
 - name: Resources
-  expanded: true
   items:
   - name: Network Function Manager product page
     href: https://go.microsoft.com/fwlink/?linkid=2166098

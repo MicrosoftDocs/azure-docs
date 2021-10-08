@@ -1,5 +1,6 @@
 ---
-title: Debug SAML-based single sign-on - Azure Active Directory
+title: Debug SAML-based single sign-on
+titleSuffix: Azure AD
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
 ms.author: davidmu
@@ -10,7 +11,7 @@ ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: luleon, hirsin, paulgarn
+ms.reviewer: ergreenl
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
@@ -19,13 +20,12 @@ Learn how to find and fix [single sign-on](what-is-single-sign-on.md) issues for
 
 ## Before you begin
 
-We recommend installing the [My Apps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
+We recommend installing the [My Apps Secure Sign-in Extension](https://support.microsoft.com/account-billing/troubleshoot-problems-with-the-my-apps-portal-d228da80-fcb7-479c-b960-a1e2535cbdff#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
 
 To download and install the My Apps Secure Sign-in Extension, use one of the following links.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+- [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl)
 
 ## Test SAML-based single sign-on
 

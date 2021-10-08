@@ -72,7 +72,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
 “A ***credential*** is a set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified. The claims in a credential can be about different subjects.”
 
- “A ***decentralized identifier*** is a  portable URL-based identifier, also known as a DID, associated with an entity. These identifiers are often used in a verifiable credential and are associated with subjects, issuers, and verifiers.”.
+ “A ***decentralized identifier*** is a  portable URI-based identifier, also known as a DID, associated with an entity. These identifiers are often used in a verifiable credential and are associated with subjects, issuers, and verifiers.”.
 
 * In the preceding diagram, the public keys of the actor’s DIDs are shown stored in the decentralized ledger (ION).- in the decentralized identifier document.
 
