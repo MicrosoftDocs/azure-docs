@@ -307,7 +307,7 @@ column_name <data_type>
 
 <reject_options> ::=  
 {  
-    | REJECT_TYPE = value | percentage,  
+    | REJECT_TYPE = value,  
     | REJECT_VALUE = reject_value,  
     | REJECT_SAMPLE_VALUE = reject_sample_value,
     | REJECTED_ROW_LOCATION = '/REJECT_Directory'
@@ -329,6 +329,7 @@ CREATE EXTERNAL TABLE supports the ability to configure column name, data type, 
 
 When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
 
+
 LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure Blob Storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
@@ -339,53 +340,45 @@ Unlike Hadoop external tables, native external tables don't return subfolders un
 
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
-DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-FILE_FORMAT = *external_file_format_name* - Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+DATA_SOURCE = *external_data_source_name*
 
-Reject Options You can specify reject parameters that determine how PolyBase will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if it actual data types or the number of columns don't match the column definitions of the external table.
+Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-When you don't specify or change reject values, PolyBase uses default values. This information about the reject parameters is stored as additional metadata when you create an external table with CREATE EXTERNAL TABLE statement. When a future SELECT statement or SELECT INTO SELECT statement selects data from the external table, PolyBase will use the reject options to determine the number or percentage of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
 
-REJECT_TYPE = **value** | percentage Clarifies whether the REJECT_VALUE option is specified as a literal value or a percentage.
+FILE_FORMAT = *external_file_format_name*
 
-value REJECT_VALUE is a literal value, not a percentage. The PolyBase query will fail when the number of rejected rows exceeds *reject_value*.
+Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
-For example, if REJECT_VALUE = 5 and REJECT_TYPE = value, the PolyBase SELECT query will fail after five rows have been rejected.
 
-percentage REJECT_VALUE is a percentage, not a literal value. A PolyBase query will fail when the *percentage* of failed rows exceeds *reject_value*. The percentage of failed rows is calculated at intervals.
+Reject Options 
 
-REJECT_VALUE = *reject_value* Specifies the value or the percentage of rows that can be rejected before the query fails.
+You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if it actual data types don't match the column definitions of the external table.
+
+When you don't specify or change reject values, service uses default values. This information about the reject parameters is stored as additional metadata when you create an external table with CREATE EXTERNAL TABLE statement. When a future SELECT statement or SELECT INTO SELECT statement selects data from the external table, service will use the reject options to determine the number or percentage of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
+
+
+REJECT_TYPE = **value** 
+
+This is the only supported value at the moment. Clarifies that the REJECT_VALUE option is specified as a literal value.
+
+value 
+
+REJECT_VALUE is a literal value. The query will fail when the number of rejected rows exceeds *reject_value*.
+
+For example, if REJECT_VALUE = 5 and REJECT_TYPE = value, the SELECT query will fail after five rows have been rejected.
+
+
+REJECT_VALUE = *reject_value* 
+
+Specifies the number of rows that can be rejected before the query fails.
 
 For REJECT_TYPE = value, *reject_value* must be an integer between 0 and 2,147,483,647.
 
-For REJECT_TYPE = percentage, *reject_value* must be a float between 0 and 100.
-
-REJECT_SAMPLE_VALUE = *reject_sample_value* This attribute is required when you specify REJECT_TYPE = percentage. It determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows.
-
-The *reject_sample_value* parameter must be an integer between 0 and 2,147,483,647.
-
-For example, if REJECT_SAMPLE_VALUE = 1000, PolyBase will calculate the percentage of failed rows after it has attempted to import 1000 rows from the external data file. If the percentage of failed rows is less than *reject_value*, PolyBase will attempt to retrieve another 1000 rows. It continues to recalculate the percentage of failed rows after it attempts to import each additional 1000 rows.
-
- Note
-
-Since PolyBase computes the percentage of failed rows at intervals, the actual percentage of failed rows can exceed *reject_value*.
-
-Example:
-
-This example shows how the three REJECT options interact with each other. For example, if REJECT_TYPE = percentage, REJECT_VALUE = 30, and REJECT_SAMPLE_VALUE = 100, the following scenario could occur:
-
-- PolyBase attempts to retrieve the first 100 rows; 25 fail and 75 succeed.
-- Percent of failed rows is calculated as 25%, which is less than the reject value of 30%. As a result, PolyBase will continue retrieving data from the external data source.
-- PolyBase attempts to load the next 100 rows; this time 25 rows succeed and 75 rows fail.
-- Percent of failed rows is recalculated as 50%. The percentage of failed rows has exceeded the 30% reject value.
-- The PolyBase query fails with 50% rejected rows after attempting to return the first 200 rows. Notice that matching rows have been returned before the PolyBase query detects the reject threshold has been exceeded.
 
 REJECTED_ROW_LOCATION = *Directory Location*
 
-Specifies the directory within the External Data Source that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, PolyBase will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. In dedicated SQL pool, within this directory, there's a folder created based on the time of load submission in the format YearMonthDay-HourMinuteSecond (Ex. 20180330-173205). In this folder, two types of files are written, the _reason file and the data file. The reason files and the data files both have the queryID associated with the CTAS statement. Because the data and the reason are in separate files, corresponding files have a matching suffix.
-
-In serverless SQL pool, folder name is in the format YearMonthDay_HourMinuteSecond_DistributedStatementId (Ex. 20210521_062454_F441B1CE-B321-4D9D-9FC2-D5154B61DD29). In this folder, two types of files are written, error and the error file and the data file. You can use distributed statement id to correlate folder with query that generated it.
+Specifies the directory within the External Data Source that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, service will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. Within this directory, there's a folder created based on the time of load submission in the format YearMonthDay_HourMinuteSecond_StatementID (Ex. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). In this folder, two types of files are written: the error file and the data file. You can use statement id to correlate folder with query that generated it.
 
 ### Permissions CREATE EXTERNAL TABLE
 
