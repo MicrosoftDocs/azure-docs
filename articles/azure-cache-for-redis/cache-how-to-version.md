@@ -45,9 +45,6 @@ To create a cache, follow these steps:
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
-    > [!NOTE]
-    > At this time, the Redis version can't be changed once a cache is created.
-    >
 
 ## Create a cache using Azure PowerShell
 
