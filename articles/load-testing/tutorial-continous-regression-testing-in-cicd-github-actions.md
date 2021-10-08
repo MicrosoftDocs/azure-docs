@@ -181,20 +181,18 @@ To add parameters to your load test from the workflow
 
     `{{get_param(APIKey)}}`
 
-1. Go your GitHub Repository > Settings > Secrets > New repository secret > "mySecret". Add "" as the value and select Add secret.
+1. Go your GitHub Repository > Settings > Secrets > New repository secret > "APIKeySecret". Add "" as the value and select Add secret.
 
 1. In the workflow.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition
 
     ```yml
-    parameters: |
-      { 
-          "secrets": [ 
-              { 
-                  "name": "secret", 
-                  "value": "$(mySecret)" 
-              }
-          ]
-      }
+    secrets: |
+      [
+          {
+          "name": "APIKey",
+          "value": "${{ secrets.APIKeySecret }}",
+          }
+      ]
     ```
 
 1. Save and run the pipeline.

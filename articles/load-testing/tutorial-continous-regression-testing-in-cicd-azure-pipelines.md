@@ -188,16 +188,15 @@ To add parameters to your load test from pipeline
 1. In the azure-pipeline.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition
 
     ```yml
-    parameters: |
-      { 
-          "secrets": [ 
-              { 
-                  "name": "APIKey", 
-                  "value": "$(APIKey)" 
-              }
-          ]
-      }
+    secrets: |
+      [
+          {
+          "name": "APIKey",
+          "value": "$(APIKey)",
+          }
+      ]
     ```
+
 
 1. Save and run the pipeline.
 
