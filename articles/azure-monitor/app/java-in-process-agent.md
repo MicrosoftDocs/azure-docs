@@ -10,12 +10,11 @@ ms.custom: devx-track-java
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
-Java auto-instrumentation can be enabled without any code changes, and it works in any environment.
-
 > [!NOTE]
 > For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to use the `opentelemetry-api`. For versions older than 3.2.0 you'll need the the [Java 2.x SDK](./java-2x-get-started.md) for the same.
 
 ## Get started
+Java auto-instrumentation can be enabled without any code changes.
 
 ### Prerequisites
 - Java Application using version 8+
@@ -25,9 +24,9 @@ Java auto-instrumentation can be enabled without any code changes, and it works 
 ### Enable Azure Monitor Application Insights
 **1. Download the auto-instrumentation jar file**
 
-### Step 1: Download the agent
+#### 1. Download jar file
 
-Review the following configuration points before you download the jar file.
+Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
 
 > [!WARNING]
 > 
@@ -47,17 +46,14 @@ Review the following configuration points before you download the jar file.
 >    This can affect custom dashboards or alerts if they relied on the previous values.
 >    See the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) for more details.
 
-Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
-
-### Step 2: Point the JVM to the jar file
+#### 2. Point the JVM to the jar file
 
 Add `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` to your application's JVM args. 
 
-For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
+> [!TIP]
+> For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
-### Step 3: Set Application Insights connection string
-
-If you don't already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
+#### 3. Set Application Insights connection string
 
 Point the jar file to your Application Insights resource, either by setting an environment variable:
 
@@ -73,11 +69,11 @@ Or by creating a configuration file named `applicationinsights.json`, and placin
 }
 ```
 
-You can find your connection string in your Application Insights resource:
+Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
-### Step 4: Confirm data is flowing
+#### 4. Confirm data is flowing
 
 Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
@@ -208,9 +204,7 @@ Telemetry emitted by these Azure SDKs is auto-collected by default:
 ## Modify telemetry
 
 ### Add span attributes
-You may use `opentelemetry-api` to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
-
-For more information, see [GitHub Repo](link).
+You may use `opentelemetry-api` to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
 
 #### Add custom dimension
 Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
@@ -455,13 +449,13 @@ See [Troubleshooting](java-standalone-troubleshoot.md).
 
 ## Support
 - Review [Troubleshooting steps](java-standalone-troubleshoot.md).
-- For Azure support issues, file an Azure SDK GitHub issue or open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
+- For Azure support issues, open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
 ## OpenTelemetry Feedback
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
-- Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
+- Engage with other Azure Monitor users at [Microsoft's Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
 
 ## Next Steps
 
