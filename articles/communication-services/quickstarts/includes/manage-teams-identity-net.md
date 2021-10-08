@@ -13,18 +13,6 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart)
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- A valid teams license. [How to get a teams license](https://support.microsoft.com/office/how-do-i-get-microsoft-teams-fc7f1634-abd3-4f26-a597-9df16e4ca65b)
-- An AAD application that is part of the tenant with Teams license. [Create an AAD applicaiton](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-- AAD application permissions configured 
-
 ## Setting Up
 
 ### Create a new C# application
@@ -82,26 +70,29 @@ namespace TeamsAccessTokensQuickstart
 }
 ```
 
-## Getting a token for your teams user
+### Step 1: Receive the Azure AD user token via the MSAL library
 
 First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
 
 ```csharp
-string appId = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_APP_ID");
-string tenantId = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_TENANT_ID");
+string appId = "Contoso's_Application_ID";
+string authority = "https://login.microsoftonline.com/common";
+string redirectUri = "http://localhost";
 
 var aadClient = PublicClientApplicationBuilder
                 .Create(appId)
-                .WithAuthority($"https://login.microsoftonline.com/{tenantId}")
-                .WithRedirectUri("http://localhost")
+                .WithAuthority(authority)
+                .WithRedirectUri(redirectUri)
                 .Build();
 
+string scope = "https://auth.msft.communication.azure.com/VoIP";
+
 var teamsUserAadToken = await aadClient
-                        .AcquireTokenInteractive(new List<string> { "https://auth.msft.communication.azure.com/VoIP" })
+                        .AcquireTokenInteractive(new List<string> { scope })
                         .ExecuteAsync();
 ```
 
-## Authenticate the client
+### Step 2: Initialize the CommunicationIdentityClient
 
 Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
@@ -129,7 +120,7 @@ TokenCredential tokenCredential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
 ```
 
-## Exchange the token
+### Step 3: Exchange the Azure AD user token for the Teams access token
 
 Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
