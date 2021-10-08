@@ -15,7 +15,7 @@ ms.author: alkohli
 This article describes alerts that occur on an Azure Stack Edge Pro GPU device and steps to take when you receive the alert. The alerts generate notifications in the Azure portal.
 
 > [!NOTE]
-> You can also monitor activity logs for virtual machines in the Azure portal. For more information, see [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+> For information about managing alerts in the Azure portal, see [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
 
 
 ## Alerts overview
@@ -26,7 +26,6 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 * [Edge compute alerts](#edge-compute-alerts)
 * [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga)
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
-* [Minimum configuration alerts](#minimum-configuration-alerts)
 * [Performance alerts](#performance-alerts)
 * [Storage alerts](#storage-alerts)
 * [Security alerts](#security-alerts)
@@ -100,16 +99,6 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 |Unknown error occurred. ErrorCode:'{0}'. Details: '{1}' | Critical |If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Could not start the VM service on the device. |Critical | If you see this alert, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |VM service is not running on the device. |Critical |If you see this alert, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-
-
-## Minimum configuration alerts
-
-|Alert text |Severity |Description / Recommended action |
-|-----------|---------|---------------------------------|
-|The virtual device doesn't meet the minimum configuration requirements. The minimum virtual processor requirement is {0}, but the device has only {1}. |Critical |Increase the number of virtual processors on the virtual device to meet the minimum requirement. |
-|The virtual device doesn't meet the minimum configuration requirements. The minimum data disk size is {0} GB, but the device has only {1} GB. |Critical |Provision a data disk on the virtual device that meets the minimum requirement. |
-|The virtual device doesn't meet the minimum configuration requirements. The minimum memory requirement is {0} GB, but the device has only {1} GB. |Critical |Increase the amount of memory for the virtual device to meet the minimum requirement. If using Hyper-V, ensure that the dynamic memory option is disabled. |
-|The virtual device doesn't meet the minimum configuration requirements. The minimum network interface requirement is {0}, but the device has only {1}. |Critical |Increase the number of network interfaces on the virtual device to meet the minimum requirement. |
 
 
 ## Performance alerts
@@ -260,5 +249,6 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 ## Next steps
 
-- [Monitor the VM activity log](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
-- [Troubleshoot VM provisioning on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).
+- [Manage device event alerts](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+- [View metrics for your Azure Stack Edge device](databox-online/azure-stack-edge-monitor.md#view-metrics).
+- [Use Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor).
