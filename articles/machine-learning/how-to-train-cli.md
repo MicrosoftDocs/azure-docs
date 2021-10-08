@@ -27,7 +27,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 
 > [!TIP]
-> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
+> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vs-code.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ### Clone examples repository
 
