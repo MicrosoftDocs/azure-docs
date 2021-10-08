@@ -1,7 +1,7 @@
 ---
 title: Deploy the Log Analytics agent on Azure Arc-enabled servers
 description: This article tells how to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 10/07/2021
+ms.date: 10/08/2021
 ms.topic: conceptual 
 ---
 
@@ -78,7 +78,7 @@ The process automation operating environment in Azure Automation and its support
 
 * To track changes using Azure Automation Change Tracking and Inventory, review [Enable from an Automation account](../../automation/change-tracking/enable-from-automation-account.md) and then follow the steps to enable machines reporting to the workspace.
 
-* You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on servers or machines registered with Arc-enabled servers. See, the [Deploy Hybrid Runbook Worker VM extension](../../automation/extension-based-hybrid-runbook-worker-install.md) article.
+* You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on servers or machines registered with Arc-enabled servers. See the [Deploy Hybrid Runbook Worker VM extension](../../automation/extension-based-hybrid-runbook-worker-install.md) article.
 
 * To start collecting security-related events with Azure Sentinel, see [onboard to Azure Sentinel](scenario-onboard-azure-sentinel.md), or to collect with Azure Security Center, see [onboard to Azure Security Center](../../security-center/quickstart-onboard-machines.md).
 
