@@ -52,7 +52,7 @@ Create and configure your Azure Blob Storage by following these steps:
 1. If you don't have Azure Blob Storage account, [Create a storage account](/azure/storage/common/storage-account-create).
 1. After you created the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
 1. Select the **+ Container** button.
-1. Type a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, vc-container.
+1. Type a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
 1. Set the **Public access level** to **Private** (no anonymous access).
 1. Select **Create**.  
 
@@ -160,9 +160,9 @@ To upload the configuration files, follow these steps:
     
 1. In the Azure portal, navigate to the Azure Blob Storage container [you created](#create-a-storage-account).
 
-1. in the left menu, select **Containers** to show a list of blobs it contains. Then select the **vc-container** that you created earlier.
+1. In the left menu, select **Containers** to show a list of blobs it contains. Then select the **vc-container** that you created earlier.
 
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload. Then select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload. Select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
 
 ## Create the verifiable credential expert card in Azure
 
@@ -176,9 +176,9 @@ In this step, you create the Verifiable Credential Expert Card using Azure AD Ve
 
     1. Select your Azure AD **Subscription** where you created the Azure Blob Storage.
 
-    1. Under the **Display file**, **Select display file**. In the Storage accounts section, select the **vc-storage** container. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
+    1. Under the **Display file**, **Select display file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
 
-    1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-storage** container. Then select the         **VerifiedCredentialExpertRules.json** file, and click **Select**.
+    1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertRules.json** file, and click **Select**.
 
     The following screenshot demonstrates how to create a new credential:
 
@@ -241,9 +241,9 @@ At this point, you should have all the required information that you need to set
 
 Now you'll make modifications to the sample app's issuer code to update it with your verifiable credential URL. This step allows you to issue verifiable credentials by using your own tenant.
 
-1. Under the *active-directory-verifiable-credentials-dotnet-main* folder, open Visual Studio Code and open the project inside **1.asp-net-core-api-idtokenhint** folder.
+1. Under the *active-directory-verifiable-credentials-dotnet-main* folder, open Visual Studio Code and select the project inside **1.asp-net-core-api-idtokenhint** folder.
 
-1.  Under the project root folder, open the appsettings.json file. This file contains information about your Azure AD verifiable credentials. Update the following properties with the information that you have previously recorded during in the steps above
+1. Under the project root folder, open the appsettings.json file. This file contains information about your Azure AD verifiable credentials. Update the following properties with the information that you have previously recorded during in the steps above
 
     1. **Tenant ID:** your tenant ID
     1. **Client ID:** your Client ID
@@ -301,11 +301,11 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 
      ![Screenshot showing how to choose get credential from the sample app.](media/verifiable-credentials-configure-issuer/get-credentials.png)
 
-1. Using your mobile device, scan the QR code with the Authenticator app. You can scan the QR code from the Authenticator app, or directly from your camera, which will open the Authenticator app for you.
+1. Using your mobile device, scan the QR code with the Authenticator app. You can also scan the QR code directly from your camera, which will open the Authenticator app for you.
 
     ![Screenshot showing how to scan QR code.](media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png)
 
-1. At this time, you will see a warning message about this app or website may be risky, **Select Advanced**.
+1. At this time, you will see a warning message about this app or website may be risky, select **Advanced**.
 
      ![Screenshot showing how to choose advance on the risky authenticator app warning.](media/verifiable-credentials-configure-issuer/at-risk.png)
 
@@ -313,45 +313,43 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 
      ![Screenshot showing how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
 
-1. You will be prompted to enter a PIN code that is displayed in the screen when you scan your QR code. The PIN is use add an extra layer of protection to the issuance payload, the PIN code is randomly generated every time an issuance QR code is displayed.
+1. You will be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN is use add an extra layer of protection to the issuance payload. The PIN code is randomly generated every time an issuance QR code is displayed.
 
      ![Screenshot showing how to type the pin code.](media/verifiable-credentials-configure-issuer/enter-verification-code.png)
 
-1. After entering the PIN number the **Add a credential** screen is displayed, notice at the top of the screen, you can see a red **Not verified** message. This warning is related to the domain validation mentioned above.
+1. After entering the PIN number, the **Add a credential** screen is displayed. Notice at the top of the screen, you can see a red **Not verified** message. This warning is related to the domain validation mentioned above.
 
 1. Select **Add** to accept your new verifiable credential.
 
     ![Screenshot showing how to add your new credential.](media/verifiable-credentials-configure-issuer/new-verifiable-credential.png)
 
-1. Congratulations! You now have a verified credential expert verifiable
-    credential.
+1. Congratulations! You now have a verified credential expert verifiable credential.
 
     ![Screenshot showing how to newly added verifiable credential.](media/verifiable-credentials-configure-issuer/verifiable-credential-has-been-added.png)
 
-Go back to the sample, app. It shows you that a credential successfully issued.
+Go back to the sample app. It shows you that a credential successfully issued.
 
   ![Screenshot demonstrating a successfully issued verifiable credential.](media/verifiable-credentials-configure-issuer/credentials-issued.png)
 
 ## Verifying the Verified Expert Card
 
-Now you are ready to issue your Verified Expert Card by running the sample application.
+Now you are ready to verify your Verified Expert Card by running the sample application again.
 
-1. Hit the back button in your browser to return to the first page of the sample.
+1. Hit the back button in your browser to return to the sample app home page.
 
 1. Select **Verify credentials**.  
 
    ![Screenshot showing showing how to select the verify credential button.](media/verifiable-credentials-configure-issuer/verify-credential.png)
 
-1. In Authenticator scan the QR code, or scan it directly from your mobile
-    camera.
+1. Using the authenticator app, scan the QR code, or scan it directly from your mobile camera.
 
-1. At this time, you will see a warning message about this app or website may be risky, **Select Advanced**.
+1. When you see the warning message about this app or website may be risky, select **Advanced**. Then select **Proceed anyways (unsafe)**.
 
-1. Approve the request by selecting **Allow**
+1. Approve the presentation request by selecting **Allow**.
 
     ![Screenshot showing how to approve the verifiable credentials new presentation request.](media/verifiable-credentials-configure-issuer/approve-presentation-request.jpg)
 
-1. After you approve the request, you can see that the request has been approved. You can also check the log. So see the log, select the verifiable credential:  
+1. After you approve the presentation request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential:  
 
     ![Screenshot showing a verifiable credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
 
@@ -363,14 +361,14 @@ Now you are ready to issue your Verified Expert Card by running the sample appli
 
     ![Screenshot showing the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
 
-1. The sample app shows you that the presentation of the verifiable credentials received.  
+1. Got back to the sample app. It shows you that the presentation of the verifiable credentials received.  
     ![page showing that a presentation was received](media/verifiable-credentials-configure-issuer/verifiable-credential-expert-verification.png)
 
 ## Verifiable Credential names 
 
 Your verifiable credential contains **Megan Bowen** for the first name and last name values in the credential. These values were hardcoded in the sample application and were added to the verifiable credential at the time of issuance in the payload. 
 
-Under real case scenarios, your application will pull user details from an identity provider; the following code snippet shows where the name is set in the sample application. In a follow-up example, we will show you how to inject the values directly from your identity provider into the verifiable credential.
+Under real case scenarios, your application will pull the user details from an identity provider. The following code snippet shows where the name is set in the sample application. In a follow-up example, we will show you how to inject the values directly from your identity provider into the verifiable credential.
 
 ```csharp
 //file: IssuerController.cs
@@ -388,4 +386,10 @@ public async Task<ActionResult> issuanceRequest()
 
 ## Next steps
 
-In this tutorial, you learn how to issue and verify credentials using the same tenant. In the next step you learn how third parties application, also known as relying party application can verify your credentials with their own Azure AD tenant verifiable credentials API service.
+In this article, you learned how to:
+
+> [!div class="checklist"]
+> * Configure your Azure AD verifiable credentials service
+> * Issue and verify credentials using the same Azure AD tenant
+
+In the [next step](verifiable-credentials-configure-verifier.md) you learn how third parties application, also known as relying party application can verify your credentials with their own Azure AD tenant verifiable credentials API service.
