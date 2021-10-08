@@ -572,6 +572,8 @@
               href: how-to-use-batch-endpoint.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
+            - name: Use REST to deploy a model as a batch endpoint
+              href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
