@@ -27,7 +27,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 
 > [!TIP]
-> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vs-code.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
+> For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 ### Clone examples repository
 
@@ -63,7 +63,7 @@ The "hello world" job has all three:
 > Python must be installed in the environment used for jobs. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed, or derive from a base image with Python installed already. This limitation will be removed in a future release.
 
 > [!TIP]
-> The `$schema:` throughout examples allows for schema validation and autocompletion if authoring YAML files in [VSCode with the Azure Machine Learning extension](how-to-setup-vscode).
+> The `$schema:` throughout examples allows for schema validation and autocompletion if authoring YAML files in [VSCode with the Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 Which you can run:
 
