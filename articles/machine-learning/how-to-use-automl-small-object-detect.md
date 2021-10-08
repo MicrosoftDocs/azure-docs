@@ -13,7 +13,7 @@ ms.date: 10/13/2021
 # Train a small object detection model with AutoML (preview)
 
 > [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
 
@@ -46,11 +46,11 @@ Small object detection using tiling is currently supported for the following mod
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the width and 2 is the height. When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to (3, 2), each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data. 
 
-During training, the generated tiles and the entire image are passed through the model. For example, when the tile_grid_size parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
+For example, when the `tile_grid_size` parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
 
 You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
 
@@ -73,6 +73,20 @@ parameter_space = {
 	...
 }
 ```
+## Tiling during inference
+
+When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
+
+![Object proposals merge](./media/how-to-use-automl-small-object-detect/tiles-merge.png)
+
+> [!NOTE] 
+> It's possible that the same object is detected from multiple tiles, duplication detection is done to remove such duplicates.
+>
+> Duplicate detection is done by running NMS on the proposals from the tiles and the image. When multiple proposals overlap, the one with the highest score is picked and others are discarded as duplicates.Two proposals are considered to be overlapping when the iou between them is greater than the `tile_predictions_nms_thresh`.
+
+You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training. 
+
+Doing so, may improve performance for some datasets, and won't incur the extra cost that comes with tiling at training time. 
 
 ## Tiling hyperparameters 
 
@@ -82,19 +96,8 @@ The following are the parameters you can use to control the tiling feature.
 | --------------- |-------------| -------|
 | `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br>Tuple of two integers passed as a string, e.g `'(3, 2)'`<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
 | `tile_overlap_ratio` | Controls the overlap ratio between adjacent tiles in each dimension. When the objects that fall on the tile boundary are too large to fit completely in one of the tiles, increase the value of this parameter so that the objects fit in at least one of the tiles completely.<br> <br>  Must be a float in [0, 1).| 0.25 |
-| `tile_predictions_nms_thresh` | The intersection over union (iou) threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1].<br><br> *Note: It's possible that the same object is detected from multiple tiles, duplication detection is done to remove such duplicates.** | 0.25 |
+| `tile_predictions_nms_thresh` | The intersection over union (iou) threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1]. | 0.25 |
 
-**Duplicate detection* is done by running NMS on the proposals from the tiles and the image. When multiple proposals overlap, the one with the highest score is picked and others are discarded as duplicates.Two proposals are considered to be overlapping when the iou between them is greater than the `tile_predictions_nms_thresh`.
-
-## Tiling during inference
-
-When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
-
-![Object proposals merge](./media/how-to-use-automl-small-object-detect/tiles-merge.png)
-
-You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training. 
-
-Doing so, may improve performance times for some datasets, and won't incur the extra cost that comes with tiling at training time. 
 
 ## Example notebooks
 
