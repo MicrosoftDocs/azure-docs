@@ -60,7 +60,7 @@ You can use the following example values when creating this configuration, or yo
 | --- | --- |
 | Name | VNet1-bastion |
 | + Subnet Name | AzureBastionSubnet |
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /27 or larger.<br> For example, 10.1.1.0/26.  |
+| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
 | Tier/SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
@@ -86,7 +86,7 @@ There are a few different ways to configure a bastion host. In the following ste
 
    :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="Screenshot of step 1 prepopulated settings." lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-1. On the **Connect using Azure Bastion** page, **Step 2**, configure the subnet values. The AzureBastionSubnet address space is pre-populated with a suggested address space. The AzureBastionSubnet must have an address space of /27 or larger (/26, /25, etc.). We recommend using a /26 so that host scaling is not limited. When you finish configuring this setting, click **Create Subnet** to create the AzureBastionSubnet.
+1. On the **Connect using Azure Bastion** page, **Step 2**, configure the subnet values. The AzureBastionSubnet address space is pre-populated with a suggested address space. The AzureBastionSubnet must have an address space of /26 or larger (/25, /24, etc.). We recommend using a /26 so that host scaling is not limited. When you finish configuring this setting, click **Create Subnet** to create the AzureBastionSubnet.
 
      :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Screenshot of create the Bastion subnet.":::
 
