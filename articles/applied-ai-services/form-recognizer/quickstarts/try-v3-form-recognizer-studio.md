@@ -37,19 +37,19 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
 
-   :::image type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
+   :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
 
 1. Select a **container** from the list.
 
 1. Select **Upload** from the menu at the top of the page.
 
-    :::image type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
+    :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
 
 1. The **Upload blob** window will appear.
 
 1. Select your file(s) to upload.
 
-    :::image type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
+    :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
 > By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
@@ -64,7 +64,7 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. Review and confirm your selections.
 
-![Form Recognizer Studio Getting Started example](../media/quickstarts/form-recognizer-studio-get-started.gif)
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-get-started.gif" alt-text="Form Recognizer Studio Getting Started example":::
 
 ## Layout
 
@@ -80,7 +80,7 @@ In the Layout view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Layout example](../media/quickstarts/layout-get-started-fixed.gif)
+:::image border="true" type="content" source="../media/quickstarts/layout-get-started-fixed.gif" alt-text="Form Recognizer Layout example":::
 
 ## Prebuilt models
 
@@ -96,9 +96,11 @@ In the Prebuilt view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-![Form Recognizer Prebuilt example](../media/quickstarts/prebuilt-get-started-fixed.gif)
+:::image border="true" type="content" source="../media/quickstarts/prebuilt-get-started-fixed.gif" alt-text="Form Recognizer Prebuilt example":::
 
 ## Custom models
+
+### Getting started
 
 To create custom models, you start with configuring your project:
 
@@ -110,8 +112,9 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
+:::image border="true" type="content" source="../media/quickstarts/1-custom-model-get-started.gif" alt-text="Form Recognizer Custom project Getting Started example":::
 
-![Form Recognizer Custom project Getting Started example](../media/quickstarts/1-custom-model-get-started.gif)
+### Basic flow
 
 After the project creation step, in the custom model phase:
 
@@ -127,7 +130,9 @@ After the project creation step, in the custom model phase:
 
 1. Iterate on the steps to improve your model.
 
-![Form Recognizer Custom project basic workflow](../media/quickstarts/2-custom-model-basic-steps.gif)
+:::image border="true" type="content" source="../media/quickstarts/2-custom-model-basic-steps.gif" alt-text="Form Recognizer Custom project basic workflow":::
+
+### Other features
 
 In addition, view all your models using the Models tab on the left. From the list view, select model(s) to perform the following actions:
 
