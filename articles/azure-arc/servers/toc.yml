@@ -24,7 +24,7 @@
     href: ./resource-graph-samples.md
 - name: Concepts
   items:
-  - name: Log Analytics extension deployment options
+  - name: Log Analytics agent deployment options
     href: concept-log-analytics-extension-deployment.md
   - name: Security
     items:
