@@ -61,7 +61,6 @@ If your cluster is located in a region listed in this table, you only need to ad
 | &nbsp; | Brazil Southeast | HDInsight.BrazilSoutheast |
 | China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-<!--- Here's my comment --->| &nbsp; | China East | HDInsight.ChinaEast |
 | Japan | Japan East | HDInsight.JapanEast |
 | &nbsp; | Japan West | HDInsight.JapanWest |
 | Korea | Korea Central | HDInsight.KoreaCentral |
@@ -85,9 +84,6 @@ If your cluster is located in a region listed in this table, you only need to ad
 | &nbsp; | UK West | HDInsight.UKWest |
 | United States | North Central US | HDInsight.NorthCentralUS |
 | &nbsp; | Central US | HDInsight.CentralUS |
-<!--- Here's my comment --->| &nbsp; | East US | HDInsight.EastUS |
-<!--- Here's my comment --->| &nbsp; | East US 2 | HDInsight.EastUS2 |
-<!--- Here's my comment --->| &nbsp; | West US | HDInsight.WestUS |
 | &nbsp; | West US 2 | HDInsight.WestUS2 |
 | &nbsp; | West US 3 | HDInsight.WestUS3 |
 | &nbsp; | West Central US | HDInsight.WestCentralUS |
