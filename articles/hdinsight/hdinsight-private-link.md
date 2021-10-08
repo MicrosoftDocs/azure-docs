@@ -16,7 +16,7 @@ Private Link can be leveraged in cross VNet scenarios where VNet peering is not 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
 
-Private Link, which is an optional feature and is disabled by default. The feature is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
+Private Link is an optional feature and is disabled by default. The feature is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
