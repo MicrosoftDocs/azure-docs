@@ -22,7 +22,7 @@ Automatic OS upgrade has the following characteristics:
 - Once configured, the latest OS image published by image publishers is automatically applied to the scale set without user intervention.
 - Upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
 - Integrates with application health probes and [Application Health extension](virtual-machine-scale-sets-health-extension.md).
-- Works for all VM sizes, and for both Windows and Linux images including custom images through [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+- Works for all VM sizes, and for both Windows and Linux images including custom images through [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 - You can opt out of automatic upgrades at any time (OS Upgrades can be initiated manually as well).
 - The OS Disk of a VM is replaced with the new OS Disk created with latest image version. Configured extensions and custom data scripts are run, while persisted data disks are retained.
 - [Extension sequencing](virtual-machine-scale-sets-extension-sequencing.md) is supported.
@@ -50,7 +50,7 @@ The availability-first model for platform orchestrated updates described below e
 - All VMs in a common scale set are not updated concurrently.  
 - VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries as described below.
 
-The platform orchestrated updates process is followed for rolling out supported OS platform image upgrades every month. For custom images through Shared Image Gallery, an image upgrade is only kicked off for a particular Azure region when the new image is published and [replicated](../virtual-machines/shared-image-galleries.md#replication) to the region of that scale set.
+The platform orchestrated updates process is followed for rolling out supported OS platform image upgrades every month. For custom images through Azure Compute Gallery, an image upgrade is only kicked off for a particular Azure region when the new image is published and [replicated](../virtual-machines/shared-image-galleries.md#replication) to the region of that scale set.
 
 ### Upgrading VMs in a scale set
 
@@ -68,7 +68,7 @@ The scale set OS upgrade orchestrator checks for the overall scale set health be
 >Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 16.04-LTS to 18.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 
 The following platform SKUs are currently supported (and more are added periodically):
 
@@ -111,11 +111,11 @@ Ensure that durability settings are not mismatched on the Service Fabric cluster
 
 ## Automatic OS image upgrade for custom images
 
-Automatic OS image upgrade is supported for custom images deployed through [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
+Automatic OS image upgrade is supported for custom images deployed through [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
 
 ### Additional requirements for custom images
 - The setup and configuration process for automatic OS image upgrade is the same for all scale sets as detailed in the [configuration section](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) of this page.
-- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Shared Image Gallery image when a new version of the image is published and [replicated](../virtual-machines/shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
+- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Azure Compute Gallery image when a new version of the image is published and [replicated](../virtual-machines/shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
