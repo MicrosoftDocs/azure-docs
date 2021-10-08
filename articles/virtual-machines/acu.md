@@ -50,6 +50,12 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Ddv4](ddv4-ddsv4-series.md) | 195 -210* | 2:1\*\*\* |
 | [Ddsv4](ddv4-ddsv4-series.md) | 195 - 210* | 2:1\*\*\* |
+| [Dv5](dv5-dsv5-series.md) | | | 
+| [Dsv5](dv5-dsv5-series.md) | | | 
+| [Ddv5](ddv5-ddsv5-series.md) | | | 
+| [Ddsv5](ddv5-ddsv5-series.md) | | | 
+| [Dasv5](dasv5-dadsv5-series.md) | | | 
+| [Dadsv5](dasv5-dadsv5-series.md) | | | 
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1\*\*\*\* |
@@ -58,6 +64,12 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Edv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [Edsv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
+| [Ev5](ev5-esv5-series.md) | | | 
+| [Esv5](ev5-esv5-series.md) | | | 
+| [Edv5](edv5-edsv5-series.md) | | | 
+| [Edsv5](edv5-edsv5-series.md) | | | 
+| [Ebsv5](ebsv5-ebdsv5-series.md) | | | 
+| [Ebdsv5](ebsv5-ebdsv5-series.md) | | | 
 | [F2s_v2 - F72s_v2](fsv2-series.md) |195 - 210* | 2:1\*\*\* |
 | [F1 - F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
