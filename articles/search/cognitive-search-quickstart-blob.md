@@ -18,7 +18,7 @@ In this quickstart, you'll run the **Import data** wizard to analyze French and 
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
-Prefer to start with code? See [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md) or an [Tutorial: Use .NET and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-dotnet.md) instead.
+Prefer to start with code? Try the [.NET tutorial](cognitive-search-tutorial-blob-dotnet.md), [Python tutorial](cognitive-search-tutorial-blob-python.md), or [REST tutorial](cognitive-search-tutorial-blob-dotnet.md) instead.
 
 ## Prerequisites
 
@@ -31,9 +31,7 @@ Before you begin, have the following prerequisites in place:
 + Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
   + Choose the same subscription if you want the wizard to find your storage account and set up the connection.
-
-  + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
-
+  + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
   + Choose the StorageV2 (general purpose V2).
 
 > [!NOTE]
@@ -48,8 +46,8 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 1. Upload the sample data to a blob container.
 
    1. Sign in to the [Azure portal](https://portal.azure.com/) and find your storage account.
-   1. Open the Blob services pages and [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "spanish-museums". You can use the default public access level.
-   1. In Container, click **Upload** to upload the files in your local **spanish-museums** folder.
+   1. Open the Containers page and [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "spanish-museums". You can use the default public access level.
+   1. In the "spanish-museums" container, click **Upload** to upload the files in your local **spanish-museums** folder.
 
 You should have 10 files containing French and Spanish descriptions of national museums located in Spain.
 
@@ -77,7 +75,7 @@ Next, configure AI enrichment to invoke language detection, text translation, an
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 10 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach Cognitive Services attach base service" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach free Cognitive Services processing" border="true":::
 
 1. In the same page, expand **Add enrichments** and make five selections:
 
@@ -142,7 +140,7 @@ Results are returned as JSON, which can be verbose and hard to read, especially 
 + Append `$select` to specify which fields to include in results. 
 + Use CTRL-F to search within the JSON for specific properties or terms.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-results-spanish-museums.png" alt-text="Search explorer example" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-results-spanish-museums.png" alt-text="Search explorer example" border="true":::
 
 Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case. 
 
@@ -156,7 +154,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-Cognitive Search includes other built-in skills that can be exercised in the Import data wizard. As a next step, try the OCR and image analysis skills to create text-searchable content from image files.
+Cognitive Search has other built-in skills that can be exercised in the Import data wizard. As a next step, try the OCR and image analysis skills to create text-searchable content from image files.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Use OCR and image analysis to create searchable content](cognitive-search-quickstart-ocr.md)
