@@ -162,8 +162,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-[Install the Azure PowerShell module](/powershell/azure/install-az-ps)
-[Install the Azure CLI](/cli/azure/install-azure-cli)
+[azure-cli-install]:/cli/azure/install-azure-cli.md
  
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -722,8 +721,7 @@ Windows PowerShell is a powerful and extensible framework that has been widely a
 
 The process to enable a local desktop/laptop for the usage of Azure PowerShell cmdlets and how to configure those for the usage with the Azure subscription(s) is described in [this article][powershell-install-configure].
 
-More detailed steps on how to install, update, and configure the Azure PowerShell cmdlets can also be found in [this chapter of the Deployment Guide][Install the Azure PowerShell module].
-[Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+More detailed steps on how to install, update, and configure the Azure PowerShell cmdlets can also be found in [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 Customer experience so far has been that PowerShell (PS) is certainly the more powerful tool to deploy VMs and to create custom steps in the deployment of VMs. All of the customers running SAP instances in Azure are using PS cmdlets to supplement management tasks they do in the Azure portal or are even using PS cmdlets exclusively to manage their deployments in Azure. Since the Azure-specific cmdlets share the same naming convention as the more than 2000 Windows-related cmdlets, it is an easy task for Windows administrators to leverage those cmdlets.
 
 See example here:
@@ -745,10 +743,9 @@ the same functionality found in the Azure portal.
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
 * [Install the Azure classic CLI][xplat-cli]
+* [Install the Azure CLI 2.0][azure-cli-install]
 * [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/azure/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
-
-Also read chapter [Azure CLI for Linux VMs][Install the Azure CLI] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Extension for SAP.
 
 
 ## First steps planning a deployment
@@ -903,7 +900,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli].
-* (Optional) Create a Managed Disk from the VHD with *az disk create* - see [az disk](/cli/azure/disk).
+* (Optional) Create a Managed Disk from the VHD with *az disk create* - see [az disk](/cli/azure/disk.md).
 * Create a new VM specifying the uploaded VHD or Managed Disk as OS disk with *az vm create* and parameter *--attach-os-disk*
 * Add a data disk to a new VM with *az vm disk attach* and parameter *--new*
 
@@ -1711,7 +1708,7 @@ How to:
 
 In site-to-site connected cross-premises scenarios, the latency between on-premises and Azure still can be substantial. If we follow the sequence of transporting objects through development and test systems to production or think about applying transports or support packages to the different systems, you realize that, dependent on the location of the central transport directory, some of the systems will encounter high latency reading or writing data in the central transport directory. The situation is similar to SAP landscape configurations where the different systems are spread through different data centers with substantial distance between the data centers.
 
-In order to work around such latency and have the systems work fast in reading or writing to or from the transport directory, you can set up two STMS transport domains (one for on-premises and one with the systems in Azure and link the transport domains. Check this [documentation](<https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm), which explains the principles behind this concept in the SAP TMS.
+In order to work around such latency and have the systems work fast in reading or writing to or from the transport directory, you can set up two STMS transport domains (one for on-premises and one with the systems in Azure and link the transport domains. Check this [documentation](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm), which explains the principles behind this concept in the SAP TMS.
 
 
 How to:
