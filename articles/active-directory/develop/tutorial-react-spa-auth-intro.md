@@ -16,4 +16,10 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Learn about the authorization code flow in a React single-page application
+# Tutorial: Prepare your single-page app (SPA) for auth
+
+## section 1
+
+## section 2
+
+## section 3
