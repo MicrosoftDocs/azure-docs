@@ -13,8 +13,6 @@ To begin using video with Calling, you will need to know how to manage devices. 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
 
 You can access `deviceManager` by calling `callClient.getDeviceManager()` method.
-> [!WARNING]
-> Currently a `callAgent` object must be instantiated first in order to gain access to DeviceManager
 
 ```java
 Context appContext = this.getApplicationContext();
@@ -35,15 +33,20 @@ List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDevice
 You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```java
-VideoDeviceInfo videoDevice = <get-video-device>;
+VideoDeviceInfo videoDevice = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
-currentVideoStream = new LocalVideoStream(videoDevice, appContext);
+
+LocalVideoStream currentVideoStream = new LocalVideoStream(videoDevice, appContext);
+
 LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
 localVideoStreams[0] = currentVideoStream;
-videoOptions = new VideoOptions(localVideoStreams);
 
+VideoOptions videoOptions = new VideoOptions(localVideoStreams);
+
+RenderingOptions renderingOptions = new RenderingOptions(ScalingMode.Fit);
 VideoStreamRenderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
-VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+
+VideoStreamRendererView uiView = previewRenderer.createView(renderingOptions);
 
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
@@ -55,28 +58,35 @@ layout.addView(uiView);
 To place a call with video you have to enumerate local cameras using the `deviceManager` `getCameras` API.
 Once you select a desired camera, use it to construct a `LocalVideoStream` instance and pass it into `videoOptions`
 as an item in the `localVideoStream` array to a `call` method.
-Once the call connects it'll automatically start sending a video stream from the selected camera to other participant(s).
+Once the call connects it will automatically start sending a video stream from the selected camera to other participant(s).
 
 > [!NOTE]
 > Due to privacy concerns, video will not be shared to the call if it is not being previewed locally.
 See [Local camera preview](#local-camera-preview) for more details.
+
 ```java
+VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
-VideoDeviceInfo desiredCamera = callClient.getDeviceManager(appContext).get().getCameras().get(0);
+
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
+
 LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
 localVideoStreams[0] = currentVideoStream;
+
 VideoOptions videoOptions = new VideoOptions(localVideoStreams);
 
 // Render a local preview of video so the user knows that their video is being shared
 Renderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
 View uiView = previewRenderer.createView(new CreateViewOptions(ScalingMode.FIT));
+
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 
 CommunicationUserIdentifier[] participants = new CommunicationUserIdentifier[]{ new CommunicationUserIdentifier("<acs user id>") };
+
 StartCallOptions startCallOptions = new StartCallOptions();
 startCallOptions.setVideoOptions(videoOptions);
+
 Call call = callAgent.startCall(context, participants, startCallOptions);
 ```
 
@@ -85,10 +95,13 @@ Call call = callAgent.startCall(context, participants, startCallOptions);
 To start a video, you have to enumerate cameras using the `getCameraList` API on `deviceManager` object. Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument:
 
 ```java
-VideoDeviceInfo desiredCamera = <get-video-device>;
+VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
+
 LocalVideoStream currentLocalVideoStream = new LocalVideoStream(desiredCamera, appContext);
+
 VideoOptions videoOptions = new VideoOptions(currentLocalVideoStream);
+
 Future startVideoFuture = call.startVideo(appContext, currentLocalVideoStream);
 startVideoFuture.get();
 ```
@@ -96,7 +109,8 @@ startVideoFuture.get();
 Once you successfully start sending video, a `LocalVideoStream` instance will be added to the `localVideoStreams` collection on the call instance.
 
 ```java
-currentLocalVideoStream == call.getLocalVideoStreams().get(0);
+List<LocalVideoStream> videoStreams = call.getLocalVideoStreams();
+LocalVideoStream currentLocalVideoStream = videoStreams.get(0); // Please make sure there are VideoStreams in the list before calling get(0).
 ```
 
 To stop local video, pass the `LocalVideoStream` instance available in `localVideoStreams` collection:
@@ -111,10 +125,16 @@ currentLocalVideoStream.switchSource(source).get();
 ```
 
 ## Render remote participant video streams
+
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
+
 ```java
-RemoteParticipant remoteParticipant = call.getRemoteParticipants().get(0);
-RemoteVideoStream remoteParticipantStream = remoteParticipant.getVideoStreams().get(0);
+List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
+RemoteParticipant remoteParticipant = remoteParticipants.get(0); // Please make sure there are remote participants in the list before calling get(0).
+
+List<RemoteVideoStream> remoteStreams = remoteParticipant.getVideoStreams();
+RemoteVideoStream remoteParticipantStream = remoteStreams.get(0); // Please make sure there are video streams in the list before calling get(0).
+
 MediaStreamType streamType = remoteParticipantStream.getType(); // of type MediaStreamType.Video or MediaStreamType.ScreenSharing
 ```
  

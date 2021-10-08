@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/23/2021
 ---
 
 # Manage Azure Managed Disks
@@ -86,6 +86,24 @@ Use the following steps:
 
    :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume disk backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
 
+## Delete Backup Instance
+
+If you choose to stop all scheduled backup jobs and delete all existing backups, use **Delete Backup Instance**.
+
+>[!Note]
+>Deleting a backup instance will fail if the Snapshot Resource Group is deleted manually or permission to the Backup vault’s managed identity is revoked. In such failure cases, create the Snapshot Resource Group (with the same name) temporarily and provide Backup vault’s managed identity with required role permissions as documented [here](/azure/backup/backup-managed-disks-ps#assign-permissions). You can find the name of Snapshot Resource Group on the **Essentials** tab of **Backup instance** screen. 
+
+To delete a disk backup instance, follow these steps:
+
+1. Click **Delete** on the backup instance screen.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-inline.png" alt-text="Screenshot showing the process to delete a backup instance." lightbox="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-expanded.png":::
+
+1. Provide confirmation details including name of the Backup instance, reason for deletion, and additional comments.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-inline.png" alt-text="Screenshot showing to confirm the deletion of backup instances." lightbox="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-expanded.png":::
+
+1. Click **Delete** to confirm and proceed with deleting backup instance.
 
 ## Next steps
 

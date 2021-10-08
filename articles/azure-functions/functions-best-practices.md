@@ -18,7 +18,7 @@ When you create a function app in Azure, you must choose a hosting plan for your
 
 + [Consumption plan](consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
-+ [Dedicated (App Service) plan](dedicated-plan.md).
++ [Dedicated (App Service) plan](dedicated-plan.md)
 
 All hosting plans are generally available (GA) when running either Linux or Windows.
 
@@ -74,7 +74,7 @@ Keep in mind the following considerations when creating this storage account:
 
 ### Handling large data sets
 
-When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way to a function process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
+When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way for a function to process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
 ## Organize your functions 
 

@@ -14,7 +14,7 @@ ms.date: 08/24/2021
 
 Create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a cognitive skillset](cognitive-search-quickstart-blob.md).
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [text translation and entity skillset](cognitive-search-quickstart-blob.md) or [OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts.
 
 ## Prerequisites
 
@@ -195,7 +195,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-+ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-query"></a> Highlight search results
 
