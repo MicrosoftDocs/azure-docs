@@ -22,7 +22,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 ## Configuring Application Gateway for Azure Spring Cloud
 
-In order to enjoy the best experience using Application Gateway to expose Azure Spring Cloud hosted applications residing in a virtual network, it is recommended to ensure that the domain name as seen by the browser is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud backend.  If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect url's can be broken for example.
+In order to get the best experience using Application Gateway to expose Azure Spring Cloud hosted applications residing in a virtual network, it is recommended that the domain name as seen by the browser is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud backend. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect url's can be broken for example.
 
 To configure Application Gateway in front of Azure Spring Cloud:
 
