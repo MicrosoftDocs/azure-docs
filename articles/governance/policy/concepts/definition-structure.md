@@ -951,6 +951,8 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
+Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
+
 All [Resource Manager template
 functions](../../../azure-resource-manager/templates/template-functions.md) are available to use
 within a policy rule, except the following functions and user-defined functions:

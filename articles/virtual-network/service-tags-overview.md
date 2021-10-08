@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/20/2021
+ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -51,7 +51,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
-| **AzureArcInfrastructure** | Azure Arc enabled servers, Azure Arc enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
+| **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
 | **AzureAttestation** | Azure Attestation.<br/><br/>*Note: This tag is not currently configurable via Azure Portal* | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
@@ -63,6 +63,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDatabricks** | Azure Databricks. | Both | No | No |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
+| **AzureDeviceUpdate** | Device Update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Note: This tag is not currently configurable via Azure Portal*| Inbound | No | Yes |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Note:* This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. *This tag is not currently configurable via Azure Portal* | Inbound | No | Yes |

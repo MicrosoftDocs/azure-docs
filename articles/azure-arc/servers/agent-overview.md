@@ -15,7 +15,7 @@ The Azure Arc-enabled servers Connected Machine agent enables you to manage your
 
 ## Agent component details
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc–enabled servers agent overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -92,9 +92,8 @@ The following versions of the Windows and Linux operating system are officially 
 
 > [!NOTE]
 > While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
-> * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
+> * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
-> * VM insights
 
 ### Software requirements
 
