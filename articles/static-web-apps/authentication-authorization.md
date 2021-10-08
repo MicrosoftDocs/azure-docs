@@ -107,7 +107,7 @@ As you remove a user, keep in mind the following items:
 
 Instead of using the built-in invitations system, you can use a serverless function to programmatically assign roles to users when they log in.
 
-To assign custom roles in a function, you can define an API function that is automatically called each time after a user successfully authenticates with an identity provider. The function is passed the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+To assign custom roles in a function, you can define an API function that is automatically called after each time a user successfully authenticates with an identity provider. The function is passed the user's information from the provider. It must return a list of custom roles that are assigned to the user.
 
 Example uses of this function include:
 
