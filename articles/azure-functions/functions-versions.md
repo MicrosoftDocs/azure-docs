@@ -75,11 +75,8 @@ To migrate an app from 3.x to 4.x:
 
     ```bash
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- For Windows function apps, the runtime requires .NET 6.0 to be enabled with the following Azure CLI command:
-
-    ```bash
+    
+    # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
     az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
