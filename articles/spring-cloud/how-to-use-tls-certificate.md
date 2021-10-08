@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: jieshe
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 10/08/2021
 ms.custom: devx-track-java
 ---
 # Use a TLS/SSL certificate in your Azure Spring Cloud application
