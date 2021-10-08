@@ -61,16 +61,16 @@ The new Ddsv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v5  | 2  | 8   | 75   | 4  | 38500/242(100)    | 6400/96    | 8000/200   | 2 | 2000  |
-| Standard_D4ds_v5  | 4  | 16  | 150  | 8  | 38500/242(100)    | 6400/96    | 8000/200   | 2 | 2000  |
-| Standard_D8ds_v5  | 8  | 32  | 300  | 16 | 77000/485(200)    | 12800/192  | 16000/400  | 4 | 4000  |
-| Standard_D16ds_v5 | 16 | 64  | 600  | 32 | 154000/968(400)   | 25600/384  | 32000/800  | 8 | 8000  |
-| Standard_D32ds_v5 | 32 | 128 | 1200 | 32 | 154000/968(400)   | 25600/384  | 32000/800  | 8 | 8000  |
-| Standard_D48ds_v5 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 80000/2000 | 8 | 24000 |
-| Standard_D64ds_v5 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 80000/2000 | 8 | 30000 |
-| Standard_D96ds_v5 | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 80000/2000 | 8 | 30000 |
+| Standard_D2ds_v5  | 2  | 8   | 75   | 4  | 38500/242(100)    | 8000/200   | 2 | 2000  |
+| Standard_D4ds_v5  | 4  | 16  | 150  | 8  | 38500/242(100)    | 8000/200   | 2 | 2000  |
+| Standard_D8ds_v5  | 8  | 32  | 300  | 16 | 77000/485(200)    | 16000/400  | 4 | 4000  |
+| Standard_D16ds_v5 | 16 | 64  | 600  | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
+| Standard_D32ds_v5 | 32 | 128 | 1200 | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
+| Standard_D48ds_v5 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 80000/2000 | 8 | 24000 |
+| Standard_D64ds_v5 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
+| Standard_D96ds_v5 | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
