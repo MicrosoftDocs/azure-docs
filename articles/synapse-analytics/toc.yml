@@ -156,8 +156,12 @@ items:
           href: ./security/synapse-workspace-synapse-rbac-roles.md
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
-        - name: Synapse workspace managed Identity
+        - name: Synapse workspace managed identity
           href: ./security/synapse-workspace-managed-identity.md
+        - name: System and user-assigned managed identity 
+          href: ../data-factory/data-factory-service-identity.md
+        - name: Credentials for user-assigned managed identity
+          href: ../data-factory/credentials.md
   - name: How-to guides
     items:
     - name: Manage and Monitor
@@ -174,7 +178,7 @@ items:
           href: ./security/how-to-review-synapse-rbac-role-assignments.md
         - name: Manage Synapse role assignments
           href: ./security/how-to-manage-synapse-rbac-role-assignments.md
-        - name: Set up permissions for Azure Synapse workspace managed Identity
+        - name: Set up permissions for Azure Synapse workspace managed identity
           href: security/how-to-grant-workspace-managed-identity-permissions.md
           displayname: grant
       - name: Data exfiltration protection
