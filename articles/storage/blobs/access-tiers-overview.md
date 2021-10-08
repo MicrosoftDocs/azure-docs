@@ -77,7 +77,7 @@ The following operations are supported for blobs in the archive tier:
 
 Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
 
-The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it is created. If you do not change this setting, then blobs are uploaded to the hot tier by default.
+The default access tier for a new storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it is created. If you do not change this setting on the storage account or explicitly set the tier when uploading a blob, then a new blob is uploaded to the hot tier by default.
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
