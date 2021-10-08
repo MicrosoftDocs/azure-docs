@@ -144,60 +144,60 @@
       href: automate/api-latency-rate-limits.md
     - name: Ingest usage details
       items:
-      - name: Usage details overview - do
-        href: automation/usage-details-overview.md
-      - name: Usage details best practices - do
+      - name: Usage details overview
+        href: automation/automation-ingest-usage-details-overview.md
+      - name: Usage details best practices
         href: automation/usage-details-best-practices.md
-      - name: Usage details data fields - do
-        href: automation/usage-details-overview.md
-      - name: Retrieve large datasets with exports - done
+      - name: Understand usage details data fields
+        href: automation/understand-usage-details-fields.md
+      - name: Retrieve large datasets with exports
         href: costs/ingest-azure-usage-at-scale.md
-      - name: Get small usage datasets on demand - do
-        href: automation/usage-details-overview.md
-      - name: Get usage details as a legacy customer - do
-        href: automation/usage-details-overview.md
-      - name: Get usage data with Azure CLI - do
-        href: automation/usage-details-overview.md
-      - name: Migrate from EA to MCA usage fields - do
-        href: automation/usage-details-overview.md
+      - name: Get small usage datasets on demand
+        href: automation/get-small-usage-datasets-on-demand.md
+      - name: Get usage details as a legacy customer
+        href: automation/get-usage-details-legacy-customer.md
+      - name: Get usage data with Azure CLI
+        href: automation/get-usage-data-azure-cli.md
+      - name: Migrate from EA to MCA usage fields
+        href: automation/migrate-ea-mca-usage-fields.md
     - name: Budget automation
       items:
-      - name: Automate budget creation - do
-        href: automation/usage-details-overview.md
-      - name: Configure budget-based actions - done
+      - name: Automate budget creation
+        href: automation/automate-budget-creation.md
+      - name: Configure budget-based actions
         href: manage/cost-management-budget-scenario.md
-    - name: Reservation automation - done
+    - name: Reservation automation
       href: reservations/reservation-apis.md
-    - name: Automation for partners - do
-      href: reservations/reservation-apis.md
+    - name: Automation for partners
+      href: reservations/partner-automation.md
     - name: Migrate from Enterprise Reporting APIs
       items:
-      - name: API migration overview - do
-        href: automation/usage-details-overview.md
-      - name: EA Usage Details APIs - do
-        href: automation/usage-details-overview.md
-      - name: EA Balance Summary API - do
-        href: automation/usage-details-overview.md
-      - name: EA Price Sheet API - do
-        href: automation/usage-details-overview.md
-      - name: EA Reserved Instance Usage Details API - do
-        href: automation/usage-details-overview.md
-      - name: EA Reserved Instance Usage Summary API - do
-        href: automation/usage-details-overview.md
-      - name: EA Reserved Instance Recommendations API - do
-        href: automation/usage-details-overview.md
-      - name: EA Reserved Instance Charges API - do
-        href: automation/usage-details-overview.md
-    - name: Migrate from EA to MCA APIs - done
+      - name: Migrate from EA Reporting APIs to ARM
+        href: automation/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Usage Details APIs - NO DRAFT
+        href: automation/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Balance Summary API
+        href: automation/migrate-ea-balance-summary-api.md
+      - name: EA Price Sheet API
+        href: automation/migrate-ea-price-sheet-api.md
+      - name: EA Reserved Instance Usage Details API
+        href: automation/migrate-ea-reserved-instance-usage-details-api.md
+      - name: EA Reserved Instance Usage Summary API
+        href: automation/migrate-ea-reserved-instance-usage-summary-api.md
+      - name: EA Reserved Instance Recommendations API
+        href: automation/migrate-ea-reserved-instance-recommendations-api.md
+      - name: EA Reserved Instance Charges API
+        href: automation/migrate-ea-reserved-instance-charges-api.md
+    - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
     - name: Migrate from Consumption APIs
       items:
-      - name: Usage Details API - do
-        href: automation/usage-details-overview.md
-      - name: Forecast API - do
-        href: automation/usage-details-overview.md
-      - name: Marketplaces API - do
-        href: automation/usage-details-overview.md
+      - name: Usage Details API
+        href: automation/migrate-consumption-usage-details-api.md
+      - name: Forecasts API
+        href: automation/migrate-consumption-forecasts-api.md
+      - name: Marketplaces API
+        href: automation/migrate-consumption-marketplaces-api.md
   - name: Security
     items:
     - name: Security baseline
