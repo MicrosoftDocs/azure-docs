@@ -11,35 +11,7 @@ ms.custom: template-how-to
 
 # View configurations applied by Azure Virtual Network Manager (Preview)
 
-Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we'll cover operations you'll see in the activity log. We'll also look at how you can verify configurations applied both at virtual network and virtual machine level. 
-
-## Activity Log
-
-You can view the activity log for your Azure Virtual Network Manager resource to see the changes that you or your network administrator have made. To view the activity log, go to your Network Manager resource in the Azure portal. Select **Activity log** in the left pane menu. If necessary, adjust the *Timespan* and add more filters to narrow the list of operations. You can also view the *Activity Log* by searching for the service at the top of the Azure portal.
-
-:::image type="content" source="./media/how-to-view-applied-configurations/activity-log.png" alt-text="Screenshot of activity log page for Network Manager.":::
-
-### List of operations
-
-The following list contains operations you'll see in the activity log:
-
-| Name | Description |
-| ---- | ----------- |
-| Commit | Deployment of a configuration has been committed to a region(s). |
-| Delete ConnectivityConfiguration | Deleting a connectivity configuration from Network Manager. |
-| Delete NetworkGroups | Deleting a network group from Network Manager.|
-| Delete Rules | Deleting a rule from a rule collection. |
-| Delete RuleCollections | Deleting a rule collection from a security admin configuration. |
-| Delete SecurityAdminConfigurations | Deleting a security admin configuration from Network Manager. |
-| ListDeploymentStatus | Viewing the deployment status of a connectivity or security admin configuration. |
-| ListActiveConnectivityConfiguration | Viewing the list of connectivity configurations applied to the virtual network.|
-| ListActiveSecurityAdminRules | Viewing the list of security admin configurations applied to the virtual network. |
-| Write ConnectivityConfiguration. | Creating a new connectivity configuration. |
-| Write NetworkGroups | Creating a new network group. |
-| Write NetworkManager | Creating a new Azure Virtual Network Manager instance. |
-| Write Rules | Creating a new security rule to add to a rule collection. |
-| Write RuleCollections | Creating a new rule collection to add to a security admin configuration. |
-| Write SecurityAdminConfiguration | Creating a new security admin configuration. |
+Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we'll look at how you can verify configurations applied both at virtual network and virtual machine level. We'll also go over operations you'll see in the activity log.
 
 ## Virtual network visibility
 
@@ -85,7 +57,35 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-rules.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes.":::
 
+## Activity Log
+
+You can view the activity log for your Azure Virtual Network Manager resource to see the changes that you or your network administrator have made. To view the activity log, go to your Network Manager resource in the Azure portal. Select **Activity log** in the left pane menu. If necessary, adjust the *Timespan* and add more filters to narrow the list of operations. You can also view the *Activity Log* by searching for the service at the top of the Azure portal.
+
+:::image type="content" source="./media/how-to-view-applied-configurations/activity-log.png" alt-text="Screenshot of activity log page for Network Manager.":::
+
+### List of operations
+
+The following list contains operations you'll see in the activity log:
+
+| Name | Description |
+| ---- | ----------- |
+| Commit | Deployment of a configuration has been committed to a region(s). |
+| Delete ConnectivityConfiguration | Deleting a connectivity configuration from Network Manager. |
+| Delete NetworkGroups | Deleting a network group from Network Manager.|
+| Delete Rules | Deleting a rule from a rule collection. |
+| Delete RuleCollections | Deleting a rule collection from a security admin configuration. |
+| Delete SecurityAdminConfigurations | Deleting a security admin configuration from Network Manager. |
+| ListDeploymentStatus | Viewing the deployment status of a connectivity or security admin configuration. |
+| ListActiveConnectivityConfiguration | Viewing the list of connectivity configurations applied to the virtual network.|
+| ListActiveSecurityAdminRules | Viewing the list of security admin configurations applied to the virtual network. |
+| Write ConnectivityConfiguration. | Creating a new connectivity configuration. |
+| Write NetworkGroups | Creating a new network group. |
+| Write NetworkManager | Creating a new Azure Virtual Network Manager instance. |
+| Write Rules | Creating a new security rule to add to a rule collection. |
+| Write RuleCollections | Creating a new rule collection to add to a security admin configuration. |
+| Write SecurityAdminConfiguration | Creating a new security admin configuration. |
+
 ## Next steps
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
-- See [Network Manager FAQ][faq.md] for frequently asked questions.
+- See [Network Manager FAQ](faq.md) for frequently asked questions.
