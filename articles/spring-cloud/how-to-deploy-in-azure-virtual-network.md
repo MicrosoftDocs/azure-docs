@@ -57,6 +57,7 @@ The following procedures describe setup of the virtual network to contain the in
 
 ## Create a virtual network
 
+#### [Portal](#tab/azure-portal)
 If you already have a virtual network to host an Azure Spring Cloud instance, skip steps 1, 2, and 3. You can start from step 4 to prepare subnets for the virtual network.
 
 1. On the Azure portal menu, select **Create a resource**. From Azure Marketplace, select **Networking** > **Virtual network**.
@@ -80,8 +81,50 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
+#### [CLI](#tab/azure-CLI)
+If you already have a virtual network to host an Azure Spring Cloud instance, skip steps 1, 2, 3 and 4. You can start from step 5 to prepare subnets for the virtual network.
+
+1. Login to your Azure account.
+
+```azurecli
+az login
+```
+
+1. Set default values. Update these values to the values you want to use and to make your Azure Spring Cloud name unique. 
+
+```azurecli
+AZ_RESOURCE_GROUP=spring-cloud-vnet
+AZ_SPRING_CLOUD_NAME=azure-spring-cloud-vnet
+LOCATION=westeurope
+VNET_NAME=ascvnet
+```
+
+1. Create a resource group for your resources.
+
+```azurecli
+az group create -n $AZ_RESOURCE_GROUP -l $LOCATION
+```
+
+1. Create the virtual network.
+
+```azurecli
+az network vnet create -g $AZ_RESOURCE_GROUP -n $VNET_NAME -l $LOCATION --address-prefix 10.1.0.0/16
+```
+
+1. Create 2 subnets in this virtual network. 
+
+```azurecli
+az network vnet subnet create -g $AZ_RESOURCE_GROUP --vnet-name $VNET_NAME --address-prefixes 10.1.0.0/28 -n service-runtime-subnet 
+az network vnet subnet create -g $AZ_RESOURCE_GROUP --vnet-name $VNET_NAME --address-prefixes 10.1.1.0/28 -n apps-subnet 
+```
+
+---
+
 ## Grant service permission to the virtual network
+
 Azure Spring Cloud requires **Owner** permission to your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+
+#### [Portal](#tab/azure-portal)
 
 Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
@@ -108,8 +151,26 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
         --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
     ```
 
+#### [CLI](#tab/azure-CLI)
+
+```azurecli
+VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+    --name $VNET_NAME \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --query "id" \
+    --output tsv`
+
+az role assignment create \
+    --role "Owner" \
+    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+```
+
+---
+
 ## Deploy an Azure Spring Cloud instance
 
+#### [Portal](#tab/azure-portal)
 To deploy an Azure Spring Cloud instance in the virtual network:
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -141,6 +202,25 @@ To deploy an Azure Spring Cloud instance in the virtual network:
 
     ![Screenshot that shows verifying specifications.](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
+#### [CLI](#tab/azure-CLI)
+To deploy an Azure Spring Cloud instance in the virtual network:
+
+1. Create your Azure Spring Cloud instance by specifying the virtual network and subnets you just created,
+
+```azurecli
+az spring-cloud create  \
+    --resource-group "$AZ_RESOURCE_GROUP" \
+    --name "$AZ_SPRING_CLOUD_NAME" \
+    --vnet $VNET_NAME \
+    --service-runtime-subnet service-runtime-subnet \
+    --app-subnet apps-subnet \
+    --enable-java-agent \
+    --sku standard \
+    --location $LOCATION
+```
+
+---
+
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud instance. Go to **Home**, and then select **Resource groups** from the top menu items to find the following new resource groups.
 
 The resource group named as **ap-svc-rt_{service instance name}_{service instance region}** contains network resources for the service runtime of the service instance.
@@ -157,6 +237,7 @@ Those network resources are connected to your virtual network created in the pre
 
    > [!Important]
    > The resource groups are fully managed by the Azure Spring Cloud service. Do *not* manually delete or modify any resource inside.
+
 
 ## Using smaller subnet ranges
 
