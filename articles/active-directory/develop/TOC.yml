@@ -156,6 +156,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identity federation
+    href: workload-identity-federation.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
   - name: App security
