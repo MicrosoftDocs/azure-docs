@@ -17,7 +17,7 @@ ms.date: 10/13/2021
 
 In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
 
-Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under perform when tasked to detect small objects in high-resolution images. Because high resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
+Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under-perform when tasked to detect small objects in high-resolution images. Because high-resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
 To help with this problem, automated ML supports tiling as part of the public preview computer vision capabilities. The tiling capability in automated ML is based on the concepts in [The Power of Tiling for Small Object Detection](https://openaccess.thecvf.com/content_CVPRW_2019/papers/UAVision/Unel_The_Power_of_Tiling_for_Small_Object_Detection_CVPRW_2019_paper.pdf).
 
@@ -82,7 +82,7 @@ When a model trained with tiling is deployed, tiling also occurs during inferenc
 > [!NOTE] 
 > It's possible that the same object is detected from multiple tiles, duplication detection is done to remove such duplicates.
 >
-> Duplicate detection is done by running NMS on the proposals from the tiles and the image. When multiple proposals overlap, the one with the highest score is picked and others are discarded as duplicates.Two proposals are considered to be overlapping when the iou between them is greater than the `tile_predictions_nms_thresh`.
+> Duplicate detection is done by running NMS on the proposals from the tiles and the image. When multiple proposals overlap, the one with the highest score is picked and others are discarded as duplicates.Two proposals are considered to be overlapping when the intersection over union (iou) between them is greater than the `tile_predictions_nms_thresh` parameter.
 
 You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training. 
 
@@ -96,7 +96,7 @@ The following are the parameters you can use to control the tiling feature.
 | --------------- |-------------| -------|
 | `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br>Tuple of two integers passed as a string, e.g `'(3, 2)'`<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
 | `tile_overlap_ratio` | Controls the overlap ratio between adjacent tiles in each dimension. When the objects that fall on the tile boundary are too large to fit completely in one of the tiles, increase the value of this parameter so that the objects fit in at least one of the tiles completely.<br> <br>  Must be a float in [0, 1).| 0.25 |
-| `tile_predictions_nms_thresh` | The intersection over union (iou) threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1]. | 0.25 |
+| `tile_predictions_nms_thresh` | The intersection over union  threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1]. | 0.25 |
 
 
 ## Example notebooks
