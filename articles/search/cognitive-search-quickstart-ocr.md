@@ -13,9 +13,9 @@ ms.date: 10/07/2021
 
 # Quickstart: Apply OCR and image analysis using the Import data wizard
 
-<!-- Learn how AI enrichment in Azure Cognitive Search adds language detection, text translation, and entity recognition to create searchable content in a search index. 
+Learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR) and image analysis to create searchable content from image files. 
 
-In this quickstart, you'll run the **Import data** wizard to analyze French and Spanish descriptions of several national museums located in Spain. Output is a searchable index containing translated text and entities, queryable in the portal using [Search explorer](search-explorer.md).  -->
+In this quickstart, you'll run the **Import data** wizard to analyze visual content in JPG files. The content consists of photographs of signs. Output is a searchable index containing captions, tags, and text, all of which is queryable in the portal using [Search explorer](search-explorer.md).  -->
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
@@ -50,7 +50,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
    1. Open the Containers page and [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". You can use the default public access level.
    1. In the "signs" container, click **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
 
-You should have 10 files containing photographs of signs.
+You should have 10 files containing photographs of signs. There is a second subfolder that includes landmark buildings. If your search service is Basic or above, include the second set of files if you want to evaluate image analysis on files that do not include pictures of text.
 
 You are now ready to move on the Import data wizard.
 
