@@ -1,7 +1,7 @@
 ---
-title: Configure Health API containers
+title: Configure Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
-description: Health API containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+description: Text Analytics for health containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 04/01/2020
 ms.author: aahi
 ---
 
-# Configure Health API docker containers
+# Configure Text Analytics for health docker containers
 
-The Health API provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
+Text Analytics for health provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
 
 ## Configuration settings
 
@@ -68,13 +68,13 @@ This setting can be found in the following place:
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Health API containers don't use input or output mounts to store training or service data. 
+Text Analytics for health containers don't use input or output mounts to store training or service data. 
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](use-containers.md#host-computer-requirements-and-recommendations)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | the Health API containers do not use this.|
+|Not allowed| `Input` | String | Text Analytics for health containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Next steps

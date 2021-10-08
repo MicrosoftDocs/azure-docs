@@ -45,7 +45,7 @@ using Azure.AI.TextAnalytics;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LanguageDetectionExample
+namespace Example
 {
     class Program
     {
