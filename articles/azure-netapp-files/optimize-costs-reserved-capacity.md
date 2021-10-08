@@ -43,7 +43,7 @@ For more information on Azure reservations, see [What are Azure Reservations?](.
 
 ### Supported service level options
 
-Azure NetApp Files reserved capacity is available for standard, premium and ultra-service levels in in units of 100 TiB and 1 PiB.
+Azure NetApp Files reserved capacity is available for standard, premium, and ultra-service levels in units of 100 TiB and 1 PiB.
 
 ### Security requirements for purchase
 
