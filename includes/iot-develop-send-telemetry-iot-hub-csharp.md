@@ -25,7 +25,10 @@ Install the following prerequisites on your development machine except where not
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [.NET SDK](/dotnet/core/install/) version 3.1. Be sure to install the .NET SDK, not just the .NET runtime. To check the version of the .NET SDK and .NET runtime installed on your machine, run `dotnet --info`.
+- [.NET Core SDK 3.1](/dotnet/core/install/). Be sure to install the .NET SDK, not just runtime. For Raspberry PI, you'll need to follow the instructions to [manually install the SDK](dotnet/core/install/linux-scripted-manual#manual-install). This is because for Debian, package manager installs of the .NET SDK are only supported on the x64 architecture.
+
+  To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
+
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
