@@ -145,7 +145,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
+When no longer needed, you can delete the resource group, virtual machine, and all its related resources. 
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
