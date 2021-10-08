@@ -61,7 +61,7 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
 1. Instead of creating your function app here, choose **Download a template for automation**, which is to the right of the **Next** button.
 
 1. In the template page, select **Deploy**, then in the Custom deployment page, select **Edit template**.
-    :::image type="content" source="./media/functions-secretless-tutorial/1-function-create-deploy.png" alt-text="Screenshot of where to find the deploy button for creating a Function.":::
+    :::image type="content" source="./media/managed-identity-tutorial/1-function-create-deploy.png" alt-text="Screenshot of where to find the deploy button for creating a Function.":::
 
 1. In the editor, search for and remove the JSON objects that define the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings, which looks like the following example:
 
@@ -98,7 +98,7 @@ Next, you'll enable managed identities so that your function app works without h
 
 1. In your new function app, under **Settings**, select **Identity** > **System assigned**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
+    :::image type="content" source="./media/managed-identity-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
 
 1. Switch the **Status** to **On**, and select **Save**. If promp                                                                                                                                ted to **enable system assigned managed identity**, select **Yes**.
 
@@ -106,7 +106,7 @@ Next, you'll enable managed identities so that your function app works without h
 
 1. In the to open the **Add role assignment** page and use options as shown in the table below.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/5-role-assignment.png" alt-text="Screenshot of how to role assignments for storage":::
+    :::image type="content" source="./media/managed-identity-tutorial/5-role-assignment.png" alt-text="Screenshot of how to role assignments for storage":::
 
     | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
@@ -152,7 +152,7 @@ To deploy a zipped package without a connected storage account, you must manuall
  
 1. In the storage account, select **Containers** under **Data storage**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/7-new-store-container.png" alt-text="Screenshot of how to create a new storage container.":::
+    :::image type="content" source="./media/managed-identity-tutorial/7-new-store-container.png" alt-text="Screenshot of how to create a new storage container.":::
 
 1. Select **+ Container** to create a new Blob Storage container in your account.
 
@@ -160,17 +160,17 @@ To deploy a zipped package without a connected storage account, you must manuall
 
 1. Select the container you created, select **Upload**, browse to the location of the .zip file you created with your project, and select **Upload**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
+    :::image type="content" source="./media/managed-identity-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
 
 1. After the upload completes, choose your uploaded blob file, and copy the URL.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/9-copy-url.png" alt-text="Screenshot of how to get the zipped blob url.":::
+    :::image type="content" source="./media/managed-identity-tutorial/9-copy-url.png" alt-text="Screenshot of how to get the zipped blob url.":::
 
 1. Search for your new function app or browse for it in the **Function App** page. 
 
 1. In your function app, select **Configurations** under **Settings**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/10-web-run-from-package.png" alt-text="Screenshot of how to add the run from package app setting.":::
+    :::image type="content" source="./media/managed-identity-tutorial/10-web-run-from-package.png" alt-text="Screenshot of how to add the run from package app setting.":::
 
 1. In the **Application Settings** tab, select **New application setting**
 
@@ -184,11 +184,11 @@ Now you can run your timer trigger in Azure to verify that deployment has succee
 
 1. In your function app, select **Functions** under **Functions**, and then select **TimerTrigger**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/11-timer-test.png" alt-text="Screenshot of how to open the test a timer trigger view.":::
+    :::image type="content" source="./media/managed-identity-tutorial/11-timer-test.png" alt-text="Screenshot of how to open the test a timer trigger view.":::
 
 1. Under **Developer**, select **Code+Test** > **Test/Run**, and select **Run** to start the timer trigger.
  
-    :::image type="content" source="./media/functions-secretless-tutorial/12-test-run.png" alt-text="Screenshot of how to test the timer trigger.":::
+    :::image type="content" source="./media/managed-identity-tutorial/12-test-run.png" alt-text="Screenshot of how to test the timer trigger.":::
 
     You should see a success message in the output. 
 
@@ -198,7 +198,7 @@ Congratulations! You've successfully run your timer trigger in Azure. Now, you c
 
 1. In your function app under **Settings**, select **Configuration**.
 
-    :::image type="content" source="./media/functions-secretless-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
+    :::image type="content" source="./media/managed-identity-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
 
 1. Select the **Edit** button next to the **AzureWebJobsStorage** application setting, and change it based on the following values.
 
