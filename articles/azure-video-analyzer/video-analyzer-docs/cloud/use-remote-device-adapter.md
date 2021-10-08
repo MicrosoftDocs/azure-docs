@@ -22,8 +22,8 @@ Connecting cameras to the cloud using a remote device adapter allows cameras to 
 > :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connecting cameras to the cloud using a transparent gateway":::
 
 ## Pre-reading
-[Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
-[Connect camera to the cloud](connect-cameras-to-cloud.md#connecting-via-a-remote-device-adapter)
+* [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)  
+* [Connect camera to the cloud](connect-cameras-to-cloud.md#connecting-via-a-remote-device-adapter)
 
 ## Prerequisites
 The following are required for this how-to guide:
@@ -56,7 +56,7 @@ In Azure Portal:
 1. Select **Save** to create the IoT device
 1. Select the IoT device, and record the **Primary key**, as it will be needed
 
-## Enable Video Analyzer edge module to act as transparent gateway
+## Create Remote Device Adapter to enable transparent gateway
 To enable the edge module to act as a transparent gateway for video between the camera and Video Analyzer, you must create a remote device adapter for each camera by invoking the **RemoteDeviceAdapterSet** direct method that requires the following values:  
 * Device ID for the IoT device
 * Primary key for the IoT device
@@ -94,36 +94,39 @@ If successful, you will receive a response with a status code 201.
 > [!NOTE]
 > IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
-## Create cloud topology and pipeline
-When creating a cloud pipeline to ingest from camera behind a firewall, tunneling must be enabled on the RTSP source node of the topology.
+## Create pipeline topology in the cloud
+When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
+
+This pipeline topology can be found (here)[]<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node>.
 The following values are required to enable tunneling:  
 * Device ID
-* IoT Hub ARM ID
-* IoT Hub User-Assigned Managed Identity ARM ID
+* IoT Hub Name
 
 ```
-{
-        "@type": "#Microsoft.VideoAnalyzer.RtspSource",
-        "name": "rtspSource",
-        "transport": "tcp",
-        "endpoint": {
-            "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
-            "url": "${rtspUrlParameter}",
-            "credentials": {
-                "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
-                "username": "${rtspUsernameParameter}",
-                "password": "${rtspPasswordParameter}"
-            },
-            "tunnel": { 
-               "@type": "#Microsoft.VideoAnalyzer.IotSecureDeviceRemoteTunnel",
-               "deviceId": "<Device ID>",
-               "iotHubArmId": "<IoT Hub ARM ID>",
-               "userAssignedManagedIdentityArmId": "<IoT Hub User-Assigned Managed Identity ARM ID>"
+            {
+                "@type": "#Microsoft.VideoAnalyzer.RtspSource",
+                "name": "rtspSource",
+                "transport": "tcp",
+                "endpoint": {
+                    "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+                    "url": "${rtspUrlParameter}",
+                    "credentials": {
+                        "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+                        "username": "${rtspUsernameParameter}",
+                        "password": "${rtspPasswordParameter}"
+                    },
+                    "tunnel": { 
+                        "@type": "#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel",
+                        "iotHubName" : "{{ioTHubName}}",
+                        "deviceId": "${ioTHubDeviceIdParameter}"
+                    }
+                }
             }
-        }
-    }
-
 ``` 
+
+## Create and activate live pipeline in the cloud
+
+
 
 <!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
 
