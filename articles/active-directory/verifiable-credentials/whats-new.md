@@ -5,7 +5,7 @@ author: barclayn
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 10/07/2021
+ms.date: 10/08/2021
 ms.author: barclayn
 
 #Customer intent: As an Azure AD Verifiable Credentials issuer, verifier or developer, I want to know what's new in the product so that I can leverage all the great features that are being rolled out.
@@ -19,13 +19,15 @@ In this document you can find the latest features, improvements and changes in t
 ## October 2021
 
 **Public Preview of the Request Service API.**
-Developers can start using the new Request Service API to easily build applications that can issue, verify credentials or do both from any programming language of choice. This new REST API provides an improved abstraction layer and integration to the Azure AD Verifiable Credentials Service.
-With the release of the Request Service API, we are moving away from our initial NodeJS-based SDK, and we highly recommend you to start using the API as we’ll be deprecating the the NodeJS SDK in the following months. Our documentation and samples have been refreshed to use the Request Service API. To learn more about the API go here:  http://aka.ms/vcapifordevs 
+
+Developers can start using the new [Request Service API](call-request-api.md) to easily build applications that can issue, verify credentials or do both from any programming language of choice. This new REST API provides an improved abstraction layer and integration to the Azure AD Verifiable Credentials Service.
+With the release of the Request Service API, we are moving away from our initial NodeJS-based SDK, and we highly recommend you to start using the API as we’ll be deprecating the the NodeJS SDK in the following months. Our documentation and samples have been refreshed to use the Request Service API. To learn more about the API go here:  <https://aka.ms/vcapifordevs>
 
 ## April 2021
 
 **Azure Active Directory Verifiable Credentials is in Public Preview.**
-Azure AD customers can now easily issue verifiable credentials to represent proof of employment, education, or any other claim so that the holder of such a credential can decide when, and with whom, to share their credentials. Each credential is signed using cryptographic keys associated with the DID that the user owns and controls. Learn more here: http://aka.ms/didfordevs
+
+Azure AD customers can now easily issue verifiable credentials to represent proof of employment, education, or any other claim so that the holder of such a credential can decide when, and with whom, to share their credentials. Each credential is signed using cryptographic keys associated with the DID that the user owns and controls. Learn more here: <https://aka.ms/didfordevs>
 
 ## Next steps
 
