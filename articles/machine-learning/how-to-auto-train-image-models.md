@@ -169,7 +169,7 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 ### Dataset size constraints
 
-AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size is only  limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
+AutoML for images does not impose any constraints on training or validation data size. Maximum dataset size is only  limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend to start with a minimum of 10-15 samples per label. The higher the total number of labels/classes, the more samples you need per label.
 
 ## Compute to run experiment
 
@@ -281,8 +281,8 @@ In general, deep learning model performance can often improve with more data. Da
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|------|-----------|
-|Image (multi-class and multi-label) classification | Training | Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation |
-|Image (multi-class and multi-label) classification | Validation & Test | Resize, center crop, normalization
+|Image classification (multi-class and multi-label) | Training | Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation |
+|Image classification (multi-class and multi-label) | Validation & Test | Resize, center crop, normalization
 |Object detection, instance segmentation| Training |Random crop around bounding boxes, expand, horizontal flip, normalization, resize|
 |Object detection, instance segmentation| Validation & Test |Normalization, resize|
 |Object detection using yolov5| Training |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip|
@@ -467,6 +467,37 @@ print(aks_service.state)
 Alternatively, you can deploy the model from the Azure ML Studio UI, by navigating to the model you wish to deploy in the 'Models' tab of the AutoML run, and clicking on the 'Deploy' button. 
     
  You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the 'Deploy a model' pane that follows.
+
+### Update inference configuration
+
+In the previous step, we downloaded the scoring file `outputs/scoring_file_v_1_0_0.py` from the best model into a local `score.py` file and we used it to create an `InferenceConfig` object. This script can be modifed to change the model specific inference settings if needed after it has been downloaded and before creating the `InferenceConfig`. For instance, this is the code section that initializes the model in the scoring file:
+    
+```
+...
+def init():
+    ...
+    try:
+        logger.info("Loading model from path: {}.".format(model_path))
+        model_settings = {...}
+        model = load_model(TASK_TYPE, model_path, **model_settings)
+        logger.info("Loading successful.")
+    except Exception as e:
+        logging_utilities.log_traceback(e, logger)
+        raise
+...
+```
+
+Each of the tasks (and some models) have a set of parameters in the `model_settings` dictionary. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
+
+| Task | Parameter name | Default  |
+|--------- |------------- | --------- |
+|Image classification (multi-class and multi-label) | `valid_resize_size`<br>`valid_crop_size` | 256<br>224 |
+|Object detection, instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`box_nms_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
+|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`box_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+
+For a detailed description on these parameters, please refer to the above section on [task specific hyperparameters](#task-specific-hyperparameters).
+    
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
 For a detailed code example, see the [object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
