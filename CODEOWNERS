@@ -31,7 +31,7 @@ articles/active-directory/develop/ @mmacy
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Azure Synapse Analytics
-articles/synapse-analytics/ @julieMSFT synapsecontent@microsoft.com @ryanmajidi @saveenr 
+articles/synapse-analytics/ @julieMSFT @ryanmajidi @saveenr 
 articles/synapse-analytics/backuprestore/ @joannapea @julieMSFT
 articles/synapse-analytics/catalog-governance/@djpmsft @chanuengg 
 articles/synapse-analytics/ccid/ @liudan66 @julieMSFT
