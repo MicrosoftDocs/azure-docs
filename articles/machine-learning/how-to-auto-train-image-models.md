@@ -415,7 +415,7 @@ The automl training runs generates an output model file, evaluation metrics, out
 ![Classification report for image classification](./media/how-to-auto-train-image-models/training-outputs.png)
 
 > [!TIP]
-> Check how to navigate to the run results from the  [View run results](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
+> Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
 
 For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 
