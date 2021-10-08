@@ -29,7 +29,7 @@ This clause is optional while querying.
 
 The **relationship condition** can include one or more of the following details:
 * [Relationship direction](#specify-relationship-direction) (left-to-right, right-to-left, or non-directional)
-* [Relationship name](#specify-relationship-name) (single name or a list of possibilities)
+* [Relationship name](#specify-number-of-hops) (single name or a list of possibilities)
 * [Number of "hops"](#specify-number-of-hops) from one twin to another (exact number or range)
 * [A query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties) to represent the relationship within the query text. This will also allow you to filter on relationship properties.
 
@@ -40,38 +40,33 @@ A query with a `MATCH` clause must also use the [WHERE clause](reference-que
 
 ### Syntax
 
-Here is the basic `MATCH` syntax: 
+Here's the basic `MATCH` syntax. 
+
+The placeholder values shown in the `MATCH` clause that should be replaced with your values are `twin_1`, `relationship_condition`, and `twin_2`. The placeholder values in the `WHERE` clause that should be replaced with your values are `twin_or_twin_collection` and `twin_ID`.
 
 ```sql
 --SELECT ... FROM ...  
-MATCH <twin-1><relationship-condition><twin-2>
-WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
+MATCH (twin_1)-[relationship_condition]-(twin_2)
+WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
 -- AND ... 
 ```
 
-You change the number of relationship conditions, to have multiple [chained](#combining-match-operations) relationship conditions or no relationship condition at all:
+You can leave out the name of one of the twins in order to allow any twin name to work in that spot.
+
+You can also change the number of relationship conditions, to have multiple [chained](#combining-match-operations) relationship conditions or no relationship condition at all:
 
 ```sql
 --Chained relationship conditions
 -- SELECT ... FROM ... 
-MATCH <twin-1><relationship-condition><twin-2><relationship-condition><twin-3>...
-WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
+MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
+WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
 ```
 
 ```sql
 -- No relationship condition
 -- SELECT ... FROM ... 
-MATCH <twin-1>
-WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
-```
-
-You can also leave out the name of a twin, in order to allow any twin name to work in that spot.
-
-```sql
--- Anonymous twin
--- SELECT ... FROM ... 
-MATCH ()<relationship-condition><twin-2>
-WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
+MATCH (twin_1)
+WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
 ```
 
 For more detail about each type of relationship condition and how to combine them, see the other sections of this document.
@@ -87,50 +82,49 @@ The building and sensor are both included in the query result.
 
 ```sql
 SELECT building, sensor FROM DIGITALTWINS 
-MATCH (building-[]-> sensor) 
+MATCH (building)-[]->(sensor) 
 WHERE building.$dtId= 'Building21' AND sensor.temp > 50  
 ```
 
 ## Specify relationship direction
 
-Use the relationship condition in the `MATCH` clause to specify a relationship direction between the twins. Possible directions include left-to-right, right-to-left, or non-directional. Cyclic relationships are automatically detected, so that a single twin is only traced one time.
+Use the relationship condition in the `MATCH` clause to specify a relationship direction between the twins. Possible directions include left-to-right, right-to-left, or non-directional. Cyclic relationships are automatically detected, so that a relationship is traversed only once.
 
 > [!NOTE]
 > It's possible to represent bi-directional relationships by using [chaining](#combining-match-operations).
 
 ### Syntax
 
-Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship name](#specify-relationship-name). 
-
-Here is what the syntax looks like for different directions of relationships.
-
 >[!NOTE]
-> The examples in this section focus on relationship direction. They don't specify relationship names, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship name](#specify-relationship-name), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+> The examples in this section focus on relationship direction. They don't specify relationship names, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship name](#specify-number-of-hops), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
 
-For a **left-to-right** relationship, use this syntax:
+
+Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship name](#specify-number-of-hops). 
+
+This section shows the syntax for different directions of relationships. The placeholder values that should be replaced with your values are `source_twin` and `target_twin`.
+
+For a **left-to-right** relationship, use the following syntax.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <source-twin> -[]-> <target-twin>
+MATCH (source_twin)-[]->(target_twin)
 -- WHERE ...
 ```
 
-For a **right-to-left** relationship, use this syntax:
+For a **right-to-left** relationship, use the following syntax.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <target-twin> <-[]- <source-twin>
+MATCH (target_twin)<-[]-(source_twin)
 -- WHERE ...
 ```
 
 For a **non-directional** relationship, use the following syntax. This will not specify a direction for the relationship, so relationships of any direction will be included in the result.
 
 ```sql
--- <MatchDirectionNDSyntax>
 -- SELECT ... FROM ...
-MATCH <source-twin> -[]- <target-twin>
+MATCH (source_twin)-[]-(target_twin)
 -- WHERE ...
--- </MatchDirectionNDSyntax>
 ```
 
 >[!TIP]
@@ -144,7 +138,7 @@ The first example shows a **left-to-right** directional traversal. This query fi
 * C's `$dtId` is 'ABC'
 
 ```sql
-SELECT T, C FROM DIGITALTWINS MATCH (T-[]-> (C) 
+SELECT T, C FROM DIGITALTWINS MATCH (T)-[]->(C) 
 WHERE T.temp > 50 AND C.$dtId = 'ABC' 
 ```
 
@@ -154,7 +148,7 @@ The following example shows a **right-to-left** directional traversal. This quer
 * T's 'temp' value is greater than 50
 
 ```sql
-SELECT T, C FROM DIGITALTWINS MATCH (T<-[]- (C) 
+SELECT T, C FROM DIGITALTWINS MATCH (T)<-[]-(C) 
 WHERE C.$dtId = 'ABC' AND T.temp > 50  
 ```
 
@@ -179,24 +173,24 @@ If you don't provide a relationship name, the query will include all relationshi
 
 ### Syntax
 
-Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`).
-
 >[!NOTE]
 > The examples in this section focus on relationship name. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
 
-For a **single name**, use this syntax:
+Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying named relationships.
+
+For a **single name**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name`, and `twin_2`.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> -[:<relationship-name>]- <twin-2>
+MATCH (twin_1)-[:relationship_name]-(twin_2)
 -- WHERE ...
 ```
 
-For **multiple possible names**, use this syntax:
+For **multiple possible names**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> -[:<relationship-name-option-1>|<relationship-name-option-2>...]- <twin-2>
+MATCH (twin_1)-[:relationship_name_option_1|relationship_name_option_2|continue pattern as needed...]-(twin_2)
 -- WHERE ...
 ```
 
@@ -204,7 +198,7 @@ MATCH <twin-1> -[:<relationship-name-option-1>|<relationship-name-option-2>...]-
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> -[]- <twin-2>
+MATCH (twin_1)-[]-(twin_2)
 -- WHERE ...
 ```
 
@@ -251,34 +245,40 @@ If you don't provide a number of hops, the query will default to one hop.
 
 ### Syntax
 
+>[!NOTE]
+>The examples in this section focus on number of hops. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+
 Specify the number of hops to traverse in the `MATCH` clause within the square brackets (`[]`).
 
->[!NOTE]
->The examples in this section focus on number of hops. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-relationship-name). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
-
-To specify an **exact number of hops**, use this syntax:
+To specify an **exact number of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
 
 ```sql
 -- SELECT ... FROM ... 
-MATCH <twin-1> -[*<number-of-hops>]- <twin-2> 
+MATCH (twin_1)-[*number_of_hops]-(twin_2)
 -- WHERE ...
 ```
 
-To specify a **range of hops**, use this syntax. The starting limit **is not** included in the range, while the ending limit **is** included.
+To specify a **range of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `starting_limit`,  `ending_limit` and `twin_2`. The starting limit **is not** included in the range, while the ending limit **is** included.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> -[*<starting-limit>..<ending-limit>]- <twin-2> 
+MATCH (twin_1)-[*starting_limit..ending_limit]-(twin_2)
 -- WHERE ...
 ```
 
-You can also leave out the starting limit or ending limit to indicate "more than" or "at least," respectively.
+You can also leave out the starting limit to indicate "anything up to" (and including) the ending limit. An ending limit must always be provided.
+
+```sql
+-- SELECT ... FROM ...
+MATCH (twin_1)-[*..ending_limit]-(twin_2)
+-- WHERE ...
+```
 
 (Default) To default to **one hop**, leave the brackets empty of hop information, like this:
 
 ```sql
 -- SELECT ... FROM ... 
-MATCH <twin-1> -[]- <twin-2> 
+MATCH (twin_1)-[]-(twin_2)
 -- WHERE ...
 ```
 
@@ -288,7 +288,7 @@ The following example specifies an **exact number of hops**. The query will only
 
 ```sql
 SELECT * FROM DIGITALTWINS 
-MATCH r -[*3]- c
+MATCH (r)-[*3]-(c)
 WHERE r.$dtId = '0'
 ```
 
@@ -296,7 +296,7 @@ The following example specifies a **range of hops**. The query will return relat
 
 ```sql
 SELECT * FROM DIGITALTWINS 
-MATCH r -[*1..3]- c
+MATCH (r)-[*1..3]-(c)
 WHERE r.$dtId = '0'
 ```
 
@@ -304,7 +304,7 @@ You can also show a range by providing only one boundary. In the following examp
 
 ```sql
 SELECT * FROM DIGITALTWINS 
-MATCH r -[*..2]- c
+MATCH (r)-[*..2]-(c)
 WHERE r.$dtId = '0'
 ```
 
@@ -312,7 +312,7 @@ The following example has no specified number of hops, so will default to **one 
 
 ```sql
 SELECT * FROM DIGITALTWINS  
-MATCH r -[]- c
+MATCH (r)-[]-(c)
 WHERE r.$dtId = '0'
 ```
 
@@ -323,18 +323,18 @@ Optionally, you can assign a query variable to the relationship referenced in th
 A useful result of doing this is the ability to filter on relationship properties in your `WHERE` clause.
 
 >[!IMPORTANT]
-> Assigning a query variable to the relationship is only supported when the query specifies a single hop. Within a single query, you must choose between specifying a relationship name and [specifying a greater number of hops](#specify-number-of-hops).
+> Assigning a query variable to the relationship is only supported when the query specifies a single hop. Within a query, you must choose between specifying a relationship name and [specifying a greater number of hops](#specify-number-of-hops).
 
 ### Syntax
 
-To assign a query variable to the relationship, put the name in the square brackets (`[]`).
-
 >[!NOTE]
->The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-relationship-name). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+>The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+
+To assign a query variable to the relationship, put the name in the square brackets (`[]`). The placeholder values that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
 
 ```sql
 -- SELECT ... FROM ...   
-MATCH <twin-1> -[<relationship-variable>:]- <twin-2>  
+MATCH (twin_1)-[relationship_variable]-(twin_2>) 
 -- WHERE ... 
 ```
 
@@ -344,7 +344,7 @@ The following example assigns a query variable 'r' to the relationship. Later, i
 
 ```sql
 SELECT t, c, r FROM DIGITALTWINS   
-MATCH (t)-[r:]-(c)  
+MATCH (t)-[r]-(c)  
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10 
 ```
 
@@ -354,36 +354,36 @@ You can combine multiple relationship conditions in the same query. You can also
 
 ### Syntax
 
-In a single query, you can combine [relationship direction](#specify-relationship-direction), [relationship name](#specify-relationship-name), and **one** of either [number of hops](#specify-number-of-hops) or [a query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties).
+In a single query, you can combine [relationship direction](#specify-relationship-direction), [relationship name](#specify-number-of-hops), and **one** of either [number of hops](#specify-number-of-hops) or [a query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties).
 
 These syntax examples show how these attributes can be combined. You can also leave out any of the optional details shown in placeholders to omit that part of the condition.
 
-To specify **relationship direction, relationship name, and number of hops** within a single query, use this syntax within the relationship condition:
+To specify **relationship direction, relationship name, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> <optional-left-angle-bracket>-[<relationship-name(s)>*<number-of-hops>]-<optional-right-angle-bracket> <twin-2>
+MATCH (twin_1)optional_left_angle_bracket-[:relationship_name(s)*number_of_hops]-optional_right_angle_bracket(twin_2)
 -- WHERE
 ```
 
-To specify **relationship direction, relationship name, and a query variable for the relationship** within a single query, use this syntax within the relationship condition:
+To specify **relationship direction, relationship name, and a query variable for the relationship** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_name(s)`.
 
 ```sql
 -- SELECT ... FROM ...
-MATCH <twin-1> <optional-left-angle-bracket>-[<relationship-variable>:<relationship-name(s)>]-<optional-right-angle-bracket> <twin-2>
+MATCH (twin_1)optional_left_angle_bracket-[relationship_variable:relationship_name(s)]-optional_right_angle_bracket(twin_2)
 -- WHERE
 ```
 
 >[!NOTE]
 >As per the options for [specifying relationship direction](#specify-relationship-direction), you must pick between a left angle bracket for a left-to-right relationship or a right angle bracket for a right-to-left relationship. You can't include both on the same arrow, but can represent bi-directional relationships by chaining.
 
-You can **chain** multiple relationship conditions together, like this:
+You can **chain** multiple relationship conditions together, like this. The placeholder values that should be replaced with your values are `twin_1`, all instances of `relationship_condition`, and `twin_2`.
 
 ```sql
 -- Chained relationship conditions
 -- SELECT ... FROM ... 
-MATCH <twin-1><relationship-condition><twin-2><relationship-condition><twin-3>...
-WHERE <twin-or-twin-collection>.$dtId = '<twin-ID>' 
+MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
+WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
 ```
 
 ### Examples
@@ -397,7 +397,7 @@ The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
-MATCH (t) -[contains|isAssociatedWith*3..5]-> (c) 
+MATCH (t)-[:contains|isAssociatedWith*3..5]->(c) 
 WHERE t.$dtId = 'thermostat-15'
 ```
 
@@ -410,7 +410,7 @@ The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
-MATCH (t) -[r:contains|isAssociatedWith]-> (c) 
+MATCH (t)-[r:contains|isAssociatedWith]->(c) 
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10
 ```
 
@@ -422,17 +422,17 @@ The following example illustrates **chained** relationship conditions. The query
 * the relationship between c and t2 meets these conditions:
     - the relationship is right-to-left, with t2 as the source and c as the target
     - the relationship has a name of either 'has' or 'includes'
-    - the relationship has more than 1 (so 2 or more) hops
+    - the relationship has up to 3 (so 1, 2, or 3) hops
 
 The query also specifies that twin t1 has a `$dtId` of 'thermostat-15' and twin t2 has a temperature of 55.
 
 ```sql
 SELECT t1, t2, c FROM DIGITALTWINS    
-MATCH (t1)-[r:contains|isAssociatedWith]->(c)<-[has|includes*1..]-(t2)  
+MATCH (t1)-[r:contains|isAssociatedWith]->(c)<-[has|includes*..3]-(t2)  
 WHERE t1.$dtId = 'thermostat-15'  AND r.length = 10 AND t2.temp = 55  
 ```
 
-You can also use chained relationship conditions to express a **bi-directional relationship**. The following query finds twins t and c, where the relationship between t and c is assigned to a query variable r and meets these conditions:
+You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins t and c, where the relationship between t and c is assigned to a query variable r and meets these conditions:
 * the relationship is bi-directional, so it goes from t to c and also from c to t
 * the relationship has a name of 'isAssociatedWith'
 * the relationship, given a variable name of r, has a length property of 10
@@ -441,7 +441,7 @@ The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
-MATCH (t) -[r:isAssociatedWith]-> (c) <-[r:isAssociatedWith]- (t)
+MATCH (t)-[r:isAssociatedWith]->(c)<-[r:isAssociatedWith]-(t)
 WHERE t.$dtId = 'thermostat-15'  AND r.length = 10
 ```
 
@@ -451,4 +451,4 @@ The following limits apply to queries using `MATCH`:
 * Only one `MATCH` expression is supported per query statement
 * `$dtId` is required in the `WHERE` clause
 * Assigning a query variable to the relationship is only supported when the query specifies a single hop
-* The depth level that's currently supported is 10
+* The maximum hops supported in a query is 10
