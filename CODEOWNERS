@@ -8,9 +8,9 @@
 /includes/policy/ @DCtheGeek
 
 # Azure Monitor
-/articles/azure-monitor/* @bwren @jasonwhowell
-/articles/azure-monitor/agents @bwren @jasonwhowell
-/articles/azure-monitor/alerts @rboucher @jasonwhowell
+/articles/azure-monitor/* @bwren
+/articles/azure-monitor/agents @bwren
+/articles/azure-monitor/alerts @rboucher
 /articles/azure-monitor/app @bwren @lgayhardt
 /articles/azure-monitor/autoscale @rboucher
 /articles/azure-monitor/containers @bwren
@@ -83,6 +83,6 @@
 /articles/healthcare-apis/ @ginalee-dotcom
 
 # Configuration
-*.json @SyntaxC4 @snoviking @martinekuan
-.acrolinx-config.edn @MonicaRush @martinekuan
-articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @martinekuan
+*.json @SyntaxC4 @snoviking
+.acrolinx-config.edn @MonicaRush 
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking
