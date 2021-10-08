@@ -3,7 +3,7 @@ title: Overview of Azure Defender and the available plans
 description: Learn about Azure Defender's plans, protections, and alerts. Then enable Azure Defender on your subscriptions for advanced security. 
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -80,13 +80,18 @@ Use the advanced protection tiles in the Azure Defender dashboard to monitor and
 
 ## Vulnerability assessment and management
 
-Azure Defender includes vulnerability scanning for your virtual machines and container registries at no extra cost. The scanners are powered by Qualys but you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. 
+Azure Defender includes vulnerability assessment for your virtual machines and container registries at no extra cost. Some of the scanners are powered by Qualys but you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. 
+
+If you've enabled the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
 Review the findings from these vulnerability scanners and respond to them all from within Security Center. This brings Security Center closer to being the single pane of glass for all of your cloud security efforts.
 
+> [!IMPORTANT]
+> Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+
 Learn more on the following pages:
 
-- [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
