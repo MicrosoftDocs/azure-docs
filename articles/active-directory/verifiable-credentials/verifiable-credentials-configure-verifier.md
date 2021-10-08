@@ -6,18 +6,16 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 09/26/2021
+ms.date: 10/08/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
 
 # Configure Azure AD Verifiable credentials verifier (preview)
 
-In the [previous tutorial](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials using the same Azure AD tenant. In this tutorial, you go over the steps needed to verify your first verifiable credential: a Verified Credential expert card.
+In the [previous tutorial](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a Verified Credential expert card.
 
-As a verifier, you unlock privileges to subjects that possess Verified Credential Expert cards.
-
-In this tutorial, you run a sample application from your local machine that will connect to your Azure AD tenant to verify a Verified Credential Expert Card.
+As a verifier, you unlock privileges to subjects that possess Verified Credential Expert cards. In this tutorial, you run a sample application from your local machine that asks you to present a Verified Credential Expert Card, and then verifies it.
 
 In this article, you learn how to:
 
@@ -35,11 +33,13 @@ In this article, you learn how to:
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 - [NGROK](https://ngrok.com/) free.
-- A mobile device with Microsoft Authenticator version 6.2005.3599 or higher installed
+- A mobile device with Microsoft Authenticator
+  - Android version 6.2108.5654 or higher installed.
+  - iOS version 6.5.82 or higher installed.
 
 ## Gather tenant details to set up your sample application
 
-Now that you set up your Azure AD tenant, you are going to gather some information about your environment and the verifiable credentials you set. You use these pieces of information when you set up your sample application.
+Now that you set up your Azure AD verifiable credentials service, you are going to gather some information about your environment and the verifiable credentials you set. You use these pieces of information when you set up your sample application.
 
 1. From the verifiable credentials, select **Organization settings**.
 1. Copy the **Tenant identifier** and record it for later.
@@ -87,7 +87,7 @@ At this point, you should have all the required information that you need to set
 
 Now you'll make modifications to the sample app's issuer code to update it with your verifiable credential URL. This step allows you to issue verifiable credentials by using your own tenant.
 
-1. In the *active-directory-verifiable-credentials-dotnet-main* directory, open Visual Studio Code and open the project inside the *1. asp-net-core-api-idtokenhint* directory.
+1. In the *active-directory-verifiable-credentials-dotnet-main* directory, open Visual Studio Code and select the project inside the *1. asp-net-core-api-idtokenhint* directory.
 
 1. Under the project root folder, open the appsettings.json file. This file contains information about your Azure AD verifiable credentials. Update the following properties with the information that you have previously recorded during in the steps above
 
@@ -119,7 +119,7 @@ The following JSON demonstrates a complete appsettings.json file:
 
 ## Run and test the sample app
 
-Now you are ready to issue your first Verified Expert Card by running the sample application.
+Now you are ready to present and verify your first Verified Expert Card by running the sample application.
 
 1. From Visual Studio Code, run the Verifiable_credentials_DotNet project. Or from the command shell, run the following commands:
 
@@ -145,9 +145,9 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 
     ![Screenshot showing how to verify credential from the sample app.](media/verifiable-credentials-configure-verifier/verify-credential.png)
 
-1. In Authenticator scan the QR code, or scan it directly from your mobile camera.
+1. Using the Authenticator app, scan the QR code, or scan it directly from your mobile camera.
 
-1. At the **This app or website may be risky** warning message, choose **Advanced**. You are seeing this warning because your domain is not verified. To verify your domain, follow the guidance in Link your domain to your Decentralized Identifier (DID) article. For this tutorial, you can skip the domain registration, and select Proceed anyways (unsafe).  
+1. At the **This app or website may be risky** warning message, select **Advanced**. You are seeing this warning because your domain is not verified. To verify your domain, follow the guidance in Link your domain to your Decentralized Identifier (DID) article. For this tutorial, you can skip the domain registration.  
 
     ![Screenshot showing how to choose advance on the risky authenticator app warning.](media/verifiable-credentials-configure-verifier/at-risk.png)
     
@@ -156,7 +156,7 @@ Now you are ready to issue your first Verified Expert Card by running the sample
  
     ![Screenshot showing how to proceed with the risky warning.](media/verifiable-credentials-configure-verifier/proceed-anyway.png)
 
-1. Approve the request by selecting **Allow**
+1. Approve the request by selecting **Allow**.
 
     ![Screenshot showing how to approve the presentation request.](media/verifiable-credentials-configure-verifier/approve-presentation-request.jpg)
 
@@ -164,7 +164,7 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 
     ![Screenshot showing a verifiable credential expert card.](media/verifiable-credentials-configure-verifier/verifable-credential-info.png)
 
-1. Then select **Recent history**.  
+1. Then select **Recent Activity**.  
 
     ![Screenshot showing the recent activity button that takes you to the credential history.](media/verifiable-credentials-configure-verifier/verifable-credential-history.jpg)
 
@@ -172,7 +172,7 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 
     ![Screenshot showing the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
 
-1. The sample app shows you that the presentation of the verifiable credentials received.
+1. Go back to the sample app. It shows you that the presentation of the verifiable credentials received.
 
     ![Screenshot showing that the presentation of the verifiable credentials received](media/verifiable-credentials-configure-verifier/presentation-received.png)
 
