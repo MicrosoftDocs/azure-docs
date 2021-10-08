@@ -60,5 +60,5 @@ The open source [EGo SDK](https://www.ego.dev) brings support for the Go program
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine](./virtual-machine-solutions.md)
+[DC Virtual Machine](./virtual-machine-solutions-sgx.md)
 [Confidential Containers](./confidential-containers.md)

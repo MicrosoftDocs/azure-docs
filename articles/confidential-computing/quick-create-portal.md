@@ -73,7 +73,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions.md).
+    > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions-sgx.md).
 
 1. Fill in the following information:
 
@@ -162,7 +162,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md). 
 
 Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
