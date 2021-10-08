@@ -1,5 +1,5 @@
 ---
-title: What is text summarization in Azure Cognitive Service for Language?
+title: What is text summarization in Azure Cognitive Service for Language (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text with Language Services.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is text summarization in Azure Cognitive Service for Language?
+# What is text summarization (preview) in Azure Cognitive Service for Language?
 
 Text summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. This extractive summarization feature can produce a summary by extracting sentences that collectively represent the most important or relevant information within a document. It condenses articles, papers, or documents to key sentences.
 
