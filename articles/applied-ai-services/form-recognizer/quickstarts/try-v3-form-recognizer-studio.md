@@ -66,6 +66,8 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 ![Form Recognizer Studio Getting Started example](../media/quickstarts/form-recognizer-studio-get-started.gif)
 
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-get-started.gif" alt-text="Form Recognizer Studio Getting Started example":::
+
 ## Layout
 
 In the Layout view:
