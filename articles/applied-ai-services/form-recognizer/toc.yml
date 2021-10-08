@@ -133,6 +133,8 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
+  - name: Error codes and messages v3.0 (preview) 
+    href: preview-errors.md 
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

@@ -110,6 +110,137 @@ Analyze response has been refactored to the following top-level results to suppo
 >
 > The analyzeResult response changes includes a number of changes like moving up from a property of pages to a top lever property within analyzeResult.
 
+```json
+
+{
+// Basic analyze result metadata
+"apiVersion": "2021-07-30-preview", // REST API version used
+"modelId": "prebuilt-invoice", // ModelId used
+"stringIndexType": "textElements", // Character unit used for string offsets and lengths:
+// textElements, unicodeCodePoint, utf16CodeUnit // Concatenated content in global reading order across pages.
+// Words are generally delimited by space, except CJK (Chinese, Japanese, Korean) characters.
+// Lines and selection marks are generally delimited by newline character.
+// Selection marks are represented in Markdown emoji syntax (:selected:, :unselected:).
+"content": "CONTOSO LTD.\nINVOICE\nContoso Headquarters...", "pages": [ // List of pages analyzed
+{
+// Basic page metadata
+"pageNumber": 1, // 1-indexed page number
+"angle": 0, // Orientation of content in clockwise direction (degree)
+"width": 0, // Page width
+"height": 0, // Page height
+"unit": "pixel", // Unit for width, height, and bounding box coordinates
+"spans": [ // Parts of top-level content covered by page
+{
+"offset": 0, // Offset in content
+"length": 7 // Length in content
+}
+], // List of words in page
+"words": [
+{
+"text": "CONTOSO", // Equivalent to $.content.Substring(span.offset, span.length)
+"boundingBox": [ ... ], // Position in page
+"confidence": 0.99, // Extraction confidence
+"span": { ... } // Part of top-level content covered by word
+}, ...
+], // List of selectionMarks in page
+"selectionMarks": [
+{
+"state": "selected", // Selection state: selected, unselected
+"boundingBox": [ ... ], // Position in page
+"confidence": 0.95, // Extraction confidence
+"span": { ... } // Part of top-level content covered by selection mark
+}, ...
+], // List of lines in page
+"lines": [
+{
+"content": "CONTOSO LTD.", // Concatenated content of line (may contain both words and selectionMarks)
+"boundingBox": [ ... ], // Position in page
+"spans": [ ... ], // Parts of top-level content covered by line
+}, ...
+]
+}, ...
+], // List of extracted tables
+"tables": [
+{
+"rowCount": 1, // Number of rows in table
+"columnCount": 1, // Number of columns in table
+"boundingRegions": [ // Bounding boxes potentially across pages covered by table
+{
+"pageNumber": 1, // 1-indexed page number
+"boundingBox": [ ... ], // Bounding box
+}
+],
+"spans": [ ... ], // Parts of top-level content covered by table // List of cells in table
+"cells": [
+{
+"kind": "stub", // Cell kind: content (default), rowHeader, columnHeader, stub, description
+"rowIndex": 0, // 0-indexed row position of cell
+"columnIndex": 0, // 0-indexed column position of cell
+"rowSpan": 1, // Number of rows spanned by cell (default=1)
+"columnSpan": 1, // Number of columns spanned by cell (default=1)
+"content": "SALESPERSON", // Concatenated content of cell
+"boundingRegions": [ ... ], // Bounding regions covered by cell
+"spans": [ ... ] // Parts of top-level content covered by cell
+}, ...
+]
+}, ...
+], // List of extracted key-value pairs
+"keyValuePairs": [
+{
+"key": { // Extracted key
+"content": "INVOICE:", // Key content
+"boundingRegions": [ ... ], // Key bounding regions
+"spans": [ ... ] // Key spans
+},
+"value": { // Extracted value corresponding to key, if any
+"content": "INV-100", // Value content
+"boundingRegions": [ ... ], // Value bounding regions
+"spans": [ ... ] // Value spans
+},
+"confidence": 0.95 // Extraction confidence
+}, ...
+], // List of extracted entities
+"entities": [
+{
+"category": "DateTime", // Primary entity category
+"subCategory": "Date", // Secondary entity category
+"content": "11/15/2019", // Entity content
+"boundingRegions": [ ... ], // Entity bounding regions
+"spans": [ ... ], // Entity spans
+"confidence": 0.99 // Extraction confidence
+}, ...
+], // List of extracted styles
+"styles": [
+{
+"isHandwritten": true, // Is content in this style handwritten?
+"spans": [ ... ], // Spans covered by this style
+"confidence": 0.95 // Detection confidence
+}, ...
+], // List of extracted documents
+"documents": [
+{
+"docType": "prebuilt-invoice", // Classified document type (model dependent)
+"boundingRegions": [ ... ], // Document bounding regions
+"spans": [ ... ], // Document spans
+"confidence": 0.99, // Document splitting/classification confidence // List of extracted fields
+"fields": {
+"VendorName": { // Field name (docType dependent)
+"type": "string", // Field value type: string, number, array, object, ...
+"valueString": "CONTOSO LTD.",// Normalized field value
+"content": "CONTOSO LTD.", // Raw extracted field content
+"boundingRegions": [ ... ], // Field bounding regions
+"spans": [ ... ], // Field spans
+"confidence": 0.99 // Extraction confidence
+}, ...
+}
+}, ...
+]
+}
+
+
+
+```
+
 
 ## Build or Train model
 
