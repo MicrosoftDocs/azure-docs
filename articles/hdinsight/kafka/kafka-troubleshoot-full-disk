@@ -28,9 +28,8 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 
 1. Check the `server.properties` files to find the retention time for every topic. Sometimes the log retention policy is set at topic level. To find retention time configured at topic level, run the following command:
 
-```
+```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --describe --zookeeper <zookeeper-list> 
-```
 
 
 2. Once we have that information, we need to check for heavy partitions which occupy the maximum space.
