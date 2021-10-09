@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ---
 
@@ -38,7 +38,7 @@ The following rack mount appliances are available:
 | **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | up to 4 RJ45 | Up to 5 RJ45 |
 | **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec | 100 Mb/Sec |
-| **Max Protected Devices** | 30,000 | 15,000 | 1,000 | 800 |
+| **Max Protected Devices** | 10,000 | 15,000 | 1,000 | 800 |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -50,7 +50,7 @@ The following virtual appliances are available:
 |--|--|--|--|
 | **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments |
 | **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec |
-| **Max protected devices** | 30,000 | 10,000 | 800 |
+| **Max protected devices** | 10,000 | 10,000 | 800 |
 | **Deployment Type** | Corporate | Enterprise | SMB |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
@@ -1356,7 +1356,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 ## Configure a SPAN port
 
-A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. You can implement the workaround with either ESXi, or Hyper-V.
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 

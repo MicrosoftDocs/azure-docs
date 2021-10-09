@@ -90,7 +90,7 @@ Security Center includes vulnerability scanners for your machines, containers in
 
 Learn more about using these scanners:
 
-- [Scan your machines with the integrated VA scanner](deploy-vulnerability-assessment-vm.md)
+- [Scan your machines with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
