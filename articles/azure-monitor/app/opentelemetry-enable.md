@@ -228,6 +228,29 @@ provider.addSpanProcessor(
     bufferSize: 1000
   })
 );
+// Create a span. A span must be closed.
+const parentSpan = tracer.startSpan("main");
+for (let i = 0; i < 10; i += 1) {
+   doWork(parentSpan);
+}
+// Be sure to end the span.
+parentSpan.end();
+
+function doWork(parent: opentelemetry.Span) {
+  // Start another span. In this example, the main method already started a
+  // span, so that'll be the parent span, and this will be a child span.
+  const ctx = opentelemetry.trace.setSpan(opentelemetry.context.active(), parent);
+  const span = tracer.startSpan("doWork", undefined, ctx);
+  // simulate some random work.
+  for (let i = 0; i <= Math.floor(Math.random() * 40000000); i += 1) {
+    // empty
+  }
+  // Set attributes to the span.
+  span.setAttribute("key", "value");
+  // Annotate our span to capture metadata about our operation
+  span.addEvent("invoking doWork");
+  span.end();
+}
 ```
 
 ##### [Python](#tab/python)
