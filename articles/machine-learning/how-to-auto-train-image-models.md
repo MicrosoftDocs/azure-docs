@@ -346,7 +346,7 @@ Parameter | Detail
 
 
 > [!NOTE]
-> Sample parameter sweep configuration is available in this [tutorial](tutorial-auto-train-image-models#hyperparameter-sweeping-for-image-tasks).
+> For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models#hyperparameter-sweeping-for-image-tasks).
 
 ### Arguments
 
