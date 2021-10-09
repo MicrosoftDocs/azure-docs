@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 04/28/2021
+ ms.date: 10/08/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -84,11 +84,13 @@ In this section, you configure your local environment, install the Azure IoT C# 
 1. Navigate to the sample directory.
 
     **Windows**
+
     ```console
     cd azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController
     ```
 
     **Linux or Raspberry Pi OS**
+
     ```console
     cd azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController
     ```
@@ -109,31 +111,31 @@ In this section, you configure your local environment, install the Azure IoT C# 
     dotnet run
     ```
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
+    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console:
 
     ```output
-        [05/04/2021 11:53:50]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Press Control+C to quit the sample.
-        [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set up the device client.
-        [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Initializing via DPS
-        [05/04/2021 11:53:56]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler for 'reboot' command.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Connection status change registered - status=Connected, reason=Connection_Ok.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler for "getMaxMinReport" command.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler to receive 'targetTemperature' updates.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - component = 'deviceInformation', properties update is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - { "serialNumber": "SR-123456" } is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Telemetry: Sent - component="thermostat1", { "temperature": 44.9 } in °C.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - component="thermostat1", { "maxTempSinceLastReboot": 44.9 } in °C is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Telemetry: Sent - component="thermostat2", { "temperature": 40.8 } in °C.
+    [10/09/2021 00:29:18]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Press Control+C to quit the sample.
+    [10/09/2021 00:29:18]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set up the device client.
+    [10/09/2021 00:29:18]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Initializing via DPS
+    [10/09/2021 00:29:38]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler for 'reboot' command.
+    [10/09/2021 00:29:39]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Connection status change registered - status=Connected, reason=Connection_Ok.
+    [10/09/2021 00:29:39]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler for "getMaxMinReport" command.
+    [10/09/2021 00:29:39]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Set handler to receive 'targetTemperature' updates.
+    [10/09/2021 00:29:39]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - component = 'deviceInformation', properties update is complete.
+    [10/09/2021 00:29:39]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - { "serialNumber": "SR-123456" } is complete.
+    [10/09/2021 00:29:40]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Telemetry: Sent - component="thermostat1", { "temperature": 23.7 } in °C.
+    [10/09/2021 00:29:40]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Property: Update - component="thermostat1", { "maxTempSinceLastReboot": 23.7 } in °C is complete.
+    [10/09/2021 00:29:40]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+          Telemetry: Sent - component="thermostat2", { "temperature": 25.8 } in °C.
     ```
