@@ -18,7 +18,7 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 
 - You cannot increase the number of disks or increase the disk size once we have created the Kafka cluster.
 - Usually, disk alerts are configured in the Apache Ambari UI. Whenever the usage of disk increases from 60%, it gives an alert that we need to either scale out or reduce the amount of logs present in Kafka cluster.
-- This issue will happen only if you ignore the disk alerts and didn't scale out properly. 
+- This issue will happen only if you ignore the disk alerts. You could scale out the cluster to make more space available to respond to the disk space alerts.
 - Messages are not immediately deleted even though the retention time passes. Messages to be deleted will have a mark of deletion. Then later background cleanup process will delete messages. Also messages in only passive segments are deleted.
 
 > [!IMPORTANT]
