@@ -325,28 +325,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
-#### Filter all users who have Operations/State as Washington
+#### Filter all users with an attribute that equals a value
 
-You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with a `State` attribute in the `Marketing` attribute set that equals `Washington`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Operations/State%20eq%20'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/State%20eq%20'Washington'
 ```
 
-#### Filter all users whose Operations/employeeId starts with 111
+#### Filter all users with an attribute that starts with a value
 
-You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with an `EmployeeId` attribute in the `Marketing` attribute set that starts with `111`.You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Employee/Id,'111')
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'111')
 ```
 
-#### Filter all users with Operations/State not in Washington
+#### Filter all users with an attribute that does not equal a value
 
-You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly. This query will also retrieve users that do not have the attribute Operations/State defined.
+The following example, retrieves users with a `State` attribute in the `Marketing` attribute set that does not equal `Washington`. This query will also retrieve users that do not have the `State` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Operations/State%20ne%20'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/State%20ne%20'Washington'
 ```
 
 ## Frequently asked questions
