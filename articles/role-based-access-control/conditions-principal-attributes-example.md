@@ -1,6 +1,6 @@
 ---
-title: Reduce Azure role assignments by using conditions and principal attributes (Preview) - Azure ABAC
-description: Reduce the number of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
+title: Simplify the management of Azure role assignments by using conditions and principal attributes (Preview) - Azure ABAC
+description: Simplify the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
 ms.service: role-based-access-control
@@ -13,7 +13,7 @@ ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Reduce Azure role assignments by using conditions and principal attributes (Preview)
+# Simplify the management of Azure role assignments by using conditions and principal attributes (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -21,7 +21,7 @@ ms.author: rolyon
 
 Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access.
 
-This article describes a solution to reduce the number of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
+This article describes a solution to simplify the management of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
 
 ## Example scenario
 
@@ -34,15 +34,15 @@ Consider a company named Contoso with thousands of customers that want to set up
 
 This configuration could potentially require 256,000 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role assignments in a subscription, which is well beyond the 2,000 role assignments limit. Having this many role assignments would be difficult, if not impossible, to maintain.
 
-![Diagram showing thousands for role assignments.](./media/conditions-role-assignments-reduce-example/role-assignments-multiple.png)
+![Diagram showing thousands for role assignments.](./media/conditions-principal-attributes-example/role-assignments-multiple.png)
 
 ## Example solution
 
 A way to handle this scenario in a maintainable manner is to use role assignment conditions. The following diagram shows a solution to reduce the 256,000 role assignments to just one role assignment by using a condition. The role assignment is at a higher resource group scope and a condition helps controls access to the containers. The condition checks whether the container name matches the custom security attribute on the service principal for the customer.
 
-![Diagram showing one role assignment and a condition.](./media/conditions-role-assignments-reduce-example/role-assignment-condition.png)
+![Diagram showing one role assignment and a condition.](./media/conditions-principal-attributes-example/role-assignment-condition.png)
 
-Here is the expression in the condition that makes the solution work:
+Here is the expression in the condition that makes this solution work:
 
 ```
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]
@@ -93,6 +93,7 @@ This type of solution has multiple benefits. For example, access control is cent
 - Centralized access control
 - Easier to maintain
 - Does not rely on SAS tokens and access keys
+- Can potentially improve your security posture
 
 ## Can you use this solution?
 
@@ -117,7 +118,7 @@ There are several attributes you could use in your condition, such as the follow
 - Blob index tags [Keys]
 - Blob index tags [Values in key]
 
-You can also add your own custom security attributes for users, enterprise applications, and managed identities.
+You can also define your own custom security attributes for users, enterprise applications, and managed identities.
 
 For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes) and [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md).
 
@@ -126,3 +127,7 @@ For more information, see [Azure role assignment condition format and syntax](co
 Create one or more role assignments that use a condition at a higher scope to manage access. For more information, see [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md).
 
 ## Next steps
+
+- [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
+- [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md)
+- [Tutorial: Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)

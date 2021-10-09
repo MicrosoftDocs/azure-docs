@@ -48,8 +48,8 @@
       href: conditions-prerequisites.md
     - name: Conditions FAQ
       href: conditions-faq.md
-    - name: Reduce role assignments example
-      href: conditions-role-assignments-reduce-example.md
+    - name: Principal attributes example
+      href: conditions-principal-attributes-example.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
