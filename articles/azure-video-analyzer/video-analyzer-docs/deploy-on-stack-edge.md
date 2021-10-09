@@ -85,7 +85,7 @@ Before you continue, make sure that you've completed the following:
         
         a. Open a text editor as Administrator.  
         b. Open the *hosts* file at *C:\Windows\System32\drivers\etc\\*.  
-        c. Add the Kubernetes API device name's IPv4 and hostname to the file. You can find this information in the Azure Stack Edge portal, under **Devices**.  
+        c. Add the Kubernetes API device name's Internet Protocol version 4 (IPv4) and hostname to the file. You can find this information in the Azure Stack Edge portal, under **Devices**.  
         d. Save and close the file.
 
 ### Deploy Video Analyzer Edge modules by using the Azure portal
@@ -112,22 +112,22 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > :::image type="content" source="./media/deploy-on-stack-edge/add-module.png" alt-text="Screenshot of the Module Settings pane on the Add IoT Edge Module page.":::
     
     > [!TIP]
-    > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
+    > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs, as described in this procedure.
     
     > [!IMPORTANT]
     > Azure IoT Edge values are case-sensitive when you make calls to modules. Make note of the exact string you're using as the module name.
 
-1. Select the **Environment Variables** tab, and then enter the values as shown in the following image:
+1. Select the **Environment Variables** tab, and then enter the values, as shown in the following image:
    
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Screenshot of the Environment Variables pane on the Add IoT Edge Module page.":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Screenshot of the 'Environment Variables' pane on the 'Add IoT Edge Module' page.":::
 
 1. Select the **Container Create Options** tab.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/container-create-options.png" alt-text="Screenshot of the Container Create Options pane on the Add IoT Edge Module page.":::
  
-    In the box on the **Container Create Options** pane, paste the following JSON code. This action limits the size of the log files produced by the module.
+    In the box on the **Container Create Options** pane, paste the following JSON code. This action limits the size of the log files that are produced by the module.
     
     ```    
     {
@@ -150,17 +150,14 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ````
    
    The "Binds" section in the JSON has two entries:
-   * "/var/lib/videoanalyzer:/var/lib/videoanalyzer" is used to bind the persistent application configuration data from the container and store it on the edge device.
-   * "/var/media:/var/media" binds the media folders between the edge device and the container. It's used to store the video recordings when you run a pipelineTopology that supports storing video clips on the edge device.
+   * **"/var/lib/videoanalyzer:/var/lib/videoanalyzer"** is used to bind the persistent application configuration data from the container and store it on the edge device.
+   * **"/var/media:/var/media"** binds the media folders between the edge device and the container. It's used to store the video recordings when you run a pipelineTopology that supports storing video clips on the edge device.
    
-1. Select the **Module Twin Settings** tab, copy the following JSON and paste it in the box.
+1. Select the **Module Twin Settings** tab.
  
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Screenshot of the Module Twin Settings pane on the Add IoT Edge Module page.":::
+   To run, Azure Video Analyzer requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
 
-    To run, Azure Video Analyzer requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
-
-    In the box on the **Module Twin Settings** pane, paste the following JSON code:    
+1. In the box on the **Module Twin Settings** pane, paste the following JSON code:    
 
     ```
     {
@@ -168,8 +165,11 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         "ProvisioningToken": "{provisioning-token}",
     }
     ```
-    
-    To help with monitoring the module, you can add the following *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
+   
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Screenshot of the 'Module Twin Settings' pane on the 'Add IoT Edge Module' page.":::   
+
+To help with monitoring the module, you can add the following *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
     
     ```
     "diagnosticsEventsOutputName": "diagnostics",
@@ -181,7 +181,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```
 1. Select **Add**.  
 
-#### Add the RTSP simulator edge module
+#### Add the Real-Time Streaming Protocol (RTSP) simulator edge module
 
 1. In the **IoT Edge Modules** section, in the **Add** dropdown list, select **IoT Edge Module** to display the **Add IoT Edge Module** page.
 1. Select the **Module Settings** tab, provide a name for the module, and then specify the container image URI. For example:   
@@ -288,7 +288,7 @@ This section covers how to create a gateway user and set up file shares to view 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Screenshot of the 'Add share' page for creating a remote share.":::
 
-1. To use volume mounts, update the settings on the **Container Create Options** pane for the Real-Time Streaming Protocol (RTSP) simulator module by doing the following:
+1. To use volume mounts, update the settings on the **Container Create Options** pane for the RTSP simulator module by doing the following:
 
     a. Select the **Set modules** button.
 
