@@ -32,7 +32,7 @@ Install the following prerequisites on your development machine:
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you configure your local environment, install the Azure IoT C# device SDK, and run a sample that creates a simulated temperature controller.
+In this section, you configure your local environment, install the Azure IoT C# samples, and run a sample that creates a simulated temperature controller.
 
 ### Configure your environment
 
