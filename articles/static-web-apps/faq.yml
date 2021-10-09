@@ -1,0 +1,78 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Static Web Apps Frequently Asked Questions
+  description: Find answers to the frequently asked questions about Azure Static Web Apps.
+  keywords: azure static web apps, frequently asked questions
+  author: craigshoemaker
+  ms.topic: article
+  ms.service: static-web-apps
+  ms.date: 10/10/2021
+  ms.author: cshoe
+    
+title: Azure App Service on Linux Frequently Asked Questions
+  
+sections:
+  - name: Builds and deployments
+    questions:
+      - question: |
+          What happens when my app is built?
+        answer: |
+          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It is used to build your app's frontend and API.
+
+          When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it will install packages using npm or Yarn. Then it will run the `build` or `build:azure` script provided in your app's _package.json_ file.
+
+      - question: |
+          What frontend frameworks can be automatically built by Static Web Apps?
+        answer: |
+          Oryx detects the platform and framework used by your app and builds it automatically. It supports most popular frontend frameworks, including:
+            - Node.js-based frameworks such as React, Angular, Vue.js, Next.js, and Gatsby.
+            - ASP.NET Blazor WebAssembly
+            - Hugo
+            - Jekyll
+          
+          To learn more, see [Configure frontend frameworks](front-end-frameworks.md).
+
+      - question: |
+          How do I customize how my app is built?
+        answer: |
+          If you want complete control over how your app is built, you can configure your own steps in your app's GitHub workflow or Azure DevOps pipeline to build your app. Then you can use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
+
+          `skip_app_build` is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
+
+      - question: |
+          Can I deploy my app without using GitHub Actions or Azure DevOps?
+        answer: |
+          Currently, Azure Static Web Apps supports deploying your app using GitHub Actions or Azure DevOps. More deployment options will be added in the future.
+      
+      - question: |
+          My React application works locally but fails during the Static Web Apps build process with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this?
+        answer: |
+          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build process will treat warnings as errors when running in a continuous integration (CI) environment. Azure Static Web Apps builds run in GitHub Actions and Azure Pipelines which are CI environments. If you have warnings in your app, it will fail during the build process. To fix this, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
+
+          ```json
+          "scripts": {
+            "build": "CI= react-scripts build"
+          }
+          ```
+      
+      - question: |
+          How do I change the branch or repo in GitHub?
+        answer: |
+          ?
+      
+      - question: |
+          Can I run the Static Web Apps action/task on a Windows/macOS GitHub Actions or Azure Pipelines build agent?
+        answer: |
+          Azure Static Web Apps' build engine runs in a Linux Docker container, so it can only be run on a Linux build agent.
+
+      - question: |
+          How do I deploy an app that uses Git Large File Storage (LFS)?
+        answer: |
+          In your GitHub workflow, configure the `actions/checkout` Action to enable LFS:
+
+          ```yaml
+          - uses: actions/checkout@v2
+            with:
+              submodules: true
+              lfs: true
+          ```
