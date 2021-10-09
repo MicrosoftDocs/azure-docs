@@ -39,19 +39,6 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 du -hs * | sort -rh | head -5 
  
 3. Backup the files which are older than the new retention time.
-
-```
-# Command to find files older than 4 days:
-find . -maxdepth 1 -mtime +4 -type f -exec ls -l "{}"  \; 
-```
-
-> [!WARNING] 
-> Make sure **NOT** to remove/move `_meta.properties_` file in "/data_disk_*/kafka-logs" directory. Deleting `_meta.properties_` file causes broker ids to get updated when Kafka restarts. Topics which were created with old broker ids become under replicated or offline so the cluster falls in a bad state.
-
-```
-# Command to move files older than 4 days:
-find . -maxdepth 1 -mtime +4 -type f -exec mv "{}" /destination/directory/ \;
-```
 4. When there is some free space available, you can restart the brokers with new retention time. This will clean the older logs and free up some space on disk.
  
 > [!IMPORTANT]
