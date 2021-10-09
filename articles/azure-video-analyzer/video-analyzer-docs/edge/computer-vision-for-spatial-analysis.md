@@ -98,6 +98,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 1. [Set up the edge device](../../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
 
+    > [!Important]
+    > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#set-up-deployment-template)** file to deploy the required containers.
+
 1. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
@@ -297,7 +300,7 @@ In operations.json:
       "opParams": {
           "name": "Sample-Pipeline-1",
           "properties": {
-              "topologyName": "InferencingWithCVExtension",
+              "topologyName": "PersonZoneCrossingTopology",
               "description": "Sample pipeline description",
               "parameters": [
                   {
