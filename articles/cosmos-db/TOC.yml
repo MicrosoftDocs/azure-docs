@@ -1303,6 +1303,8 @@
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
+        - name: Supply chain traceability solution
+          href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers
