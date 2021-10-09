@@ -71,6 +71,12 @@ The following table shows environment variables prefixes that App Service uses f
 | `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `AZUREFILESSTORAGE_` | A connection string to a custom Azure file share for a container app. |
 | `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
+| `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a Notification Hub. |
+| `SERVICEBUSCONNSTR_` | Signifies a connection string to a Service Bus. |
+| `EVENTHUBCONNSTR_` | Signifies a connection string to an Azure Event Hub. |
+| `DOCDBCONNSTR_` | Signifies a connection string to an Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Signifies a connection string to an Azure for Redis instance. |
+| `FILESHARESTORAGE_` | Signifies a connection string to a custom file share. |
 
 ## Deployment
 
