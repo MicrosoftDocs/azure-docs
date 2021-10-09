@@ -22,15 +22,15 @@ In this tutorial, you learn how to:
 
 ## Create and publish a knowledge base
 
-Follow the [create knowledge base article](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md). Once the knowledge base has been successfully deployed, you will reach the below page.
+Follow the [getting started article](../how-to/create-test-deploy.md). Once the knowledge base has been successfully deployed, you will be ready to start this article.
 
 ## Create a bot
 
-After publishing, you can create a bot from the **Deploy knowledge base** page:
+After deploying your project/knowledge base, you can create a bot from the **Deploy knowledge base** page:
 
 * You can create several bots quickly, all pointing to the same knowledge base for different regions or pricing plans for the individual bots.
 
-When you make changes to the knowledge base and republish, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
+When you make changes to the knowledge base and redeploy, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
 
 1. In the Language Studio portal, on the question answering **Deploy knowledge base** page, select **Create bot**. This button appears only after you've published the knowledge base.
 
@@ -72,4 +72,3 @@ Select **Channels** in the Bot service resource that you have created. You can a
 
    >[!div class="mx-imgBorder"]
    >![Screenshot of integration with teams](../media/bot-service/channels.png)
-
