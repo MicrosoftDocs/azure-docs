@@ -14,36 +14,103 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
 
 ## Prerequisites
-- [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
-- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository. Download a copy of the repository and extract it: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip).
+
+This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
+
+- Windows 10
+- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
+- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+
+Install the following prerequisites on your development machine:
+
+- If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [Git](https://git-scm.com/downloads).
+- [.NET Core SDK 3.1](/dotnet/core/install/). Be sure to install the .NET SDK, not just runtime. For Raspberry PI, you'll need to follow the instructions to [manually install the SDK](/dotnet/core/install/linux-scripted-manual#manual-install). This is because for Debian, package manager installs of the .NET SDK are only supported on the x64 architecture.
+
+  To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
-In this section, you configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you configure your local environment, install the Azure IoT C# device SDK, and run a sample that creates a simulated temperature controller.
 
-To run the sample application in Visual Studio:
+### Configure your environment
 
-1. In the folder where you unzipped the Azure IoT Samples for C#, open the *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* solution file in Visual Studio. 
+1. Open a console such as Windows CMD, PowerShell, or Bash.
 
-1. In **Solution Explorer**, select the **PnpDeviceSamples > TemperatureController** project file, right-click it, and select **Set as Startup Project**.
+1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
-1. Right-click the **TemperatureController** project, select **Properties**, select the **Debug** tab, and add the following environment variables to the project:
+    **CMD (Windows)**
 
-    | Name | Value |
-    | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
-    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
-    | IOTHUB_DEVICE_DPS_ID_SCOPE | The ID scope value you made a note of previously. |
-    | IOTHUB_DEVICE_DPS_DEVICE_ID | sample-device-01 |
-    | IOTHUB_DEVICE_DPS_DEVICE_KEY | The generated device key value you made a note of previously. |
+    ```console
+    set IOTHUB_DEVICE_SECURITY_TYPE=DPS
+    set IOTHUB_DEVICE_DPS_ID_SCOPE=<application ID scope>
+    set IOTHUB_DEVICE_DPS_DEVICE_KEY=<device primary key>
+    set IOTHUB_DEVICE_DPS_DEVICE_ID=<your device ID>
+    set IOTHUB_DEVICE_DPS_ENDPOINT=global.azure-devices-provisioning.net
+    ```
 
-1. Save the updated **TemperatureController** project file.
+    > [!NOTE]
+    > For Windows CMD there are no quotation marks surrounding the variable values.
 
-1. Press CTRL + F5 to run the sample.
+    **PowerShell**
 
-    After your simulated device connects to your IoT Central application, it begins to send telemetry. The connection details and telemetry output appear in the console: 
-    
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    $env:IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
+    $env:IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
+    $env:IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
+    $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
+    ```
+
+    **Bash**
+
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    export IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
+    export IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
+    export IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net' 
+    ```
+
+### Install the SDK and samples
+
+1. Clone the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) to your local machine.
+
+    ```console
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    ```
+
+1. Navigate to the sample directory.
+
+    **Windows**
+    ```console
+    cd azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController
+    ```
+
+    **Linux or Raspberry Pi OS**
+    ```console
+    cd azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController
+    ```
+
+1. Install the Azure IoT C# SDK and necessary dependencies:
+
+    ```console
+    dotnet restore
+    ```
+
+    This command installs the proper dependencies as specified in the *TemperatureController.csproj* file.
+
+### Run the code
+
+1. In your console, run the code sample. The sample creates a simulated temperature controller with thermostat sensors.
+
+    ```console
+    dotnet run
+    ```
+
+    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
+
     ```output
         [05/04/2021 11:53:50]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
               Press Control+C to quit the sample.

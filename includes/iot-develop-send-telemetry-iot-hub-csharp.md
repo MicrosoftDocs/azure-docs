@@ -25,7 +25,7 @@ Install the following prerequisites on your development machine except where not
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [.NET Core SDK 3.1](/dotnet/core/install/). Be sure to install the .NET SDK, not just runtime. For Raspberry PI, you'll need to follow the instructions to [manually install the SDK](dotnet/core/install/linux-scripted-manual#manual-install). This is because for Debian, package manager installs of the .NET SDK are only supported on the x64 architecture.
+- [.NET Core SDK 3.1](/dotnet/core/install/). Be sure to install the .NET SDK, not just runtime. For Raspberry PI, you'll need to follow the instructions to [manually install the SDK](/dotnet/core/install/linux-scripted-manual#manual-install). This is because for Debian, package manager installs of the .NET SDK are only supported on the x64 architecture.
 
   To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
 
