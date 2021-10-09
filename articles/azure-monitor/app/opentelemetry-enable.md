@@ -138,7 +138,10 @@ npm install @opentelemetry/sdk-trace-node
 ```
 
 Following packages are also used for some specific scenarios described later in this article.
-
+(@opentelemetry/api)[https://www.npmjs.com/package/@opentelemetry/api]
+(@opentelemetry/resources)[https://www.npmjs.com/package/@opentelemetry/resources]
+(@opentelemetry/semantic-conventions)[https://www.npmjs.com/package/@opentelemetry/semantic-conventions]
+(@opentelemetry/instrumentation-http)[https://www.npmjs.com/package/@opentelemetry/instrumentation-http]
 ```sh
 npm install @opentelemetry/api
 npm install @opentelemetry/resources
