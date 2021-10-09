@@ -1,7 +1,7 @@
 ---
-title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0 ."
+title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0."
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll learn about the differences between the v2.1 and v3.0 of the Form Recognizer API and the changes you need to make, to move to the newer version of the API.
+description: In this how-to guide, you'll learn the differences between Form Recognizer API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
 author: vkurpad
 manager: nitinme
 ms.service: applied-ai-services
@@ -50,7 +50,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status is set to failed and error is returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to failed and an error will be returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
@@ -75,7 +75,7 @@ The content to be analyzed is provided via the request body. Either the URL or b
   }
   ```
 
-Base64 encoding is also supported in Form Recognzer v3.0:
+Base64 encoding is also supported in Form Recognizer v3.0:
 
 ```json
 {
@@ -241,7 +241,6 @@ Analyze response has been refactored to the following top-level results to suppo
 
 ```
 
-
 ## Build or Train model
 
 The model object has two updates in the new API
@@ -250,7 +249,7 @@ The model object has two updates in the new API
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL is not the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
 
-Sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
+The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
 POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2021-09-30-preview
@@ -318,9 +317,10 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
 
 ## Changes to List models
 
-List models has been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
+List models have been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
 Sample list models request
+
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
 ```
@@ -351,7 +351,7 @@ Sample response
 
 ## Next steps
 
-In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API when using any of the preview features.
+In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API for any of the preview features.
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
