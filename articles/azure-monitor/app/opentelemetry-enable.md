@@ -32,7 +32,6 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Propagating Operation Name to Dependency Telemetry
  - Distributed Tracing context propagation through Azure Functions Worker
  
-
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
 ### [Node.js](#tab/nodejs)
@@ -50,7 +49,6 @@ Please consider carefully whether this preview is right for you. It enables dist
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
 
- 
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
 > [!WARNING] 
@@ -73,11 +71,9 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Propagating Operation Name to Dependency Telemetry
  - Distributed Tracing context propagation through Azure Functions Worker
 
-
  Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
 ---
-
 
 ## Get started
 
@@ -87,24 +83,24 @@ Follow the five steps in this section and you will be able to instrument your ap
 
 ### [.NET](#tab/net)
 
-- Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for versions lower than `.NET Framework 4.6.1`.
+- Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) >= `.NET Framework 4.6.1`.
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
+- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
 
 
 ### [Node.js](#tab/nodejs)
 
-- Application using officially supported version of Node.js environment. 
-    - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
-    - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
+- Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime.
+  - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
+  - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
 
 ### [Python](#tab/python)
 
 - Python Application using version 3.6+
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
 
 ---
 
@@ -112,15 +108,13 @@ Follow the five steps in this section and you will be able to instrument your ap
 
 #### [.NET](#tab/net)
 
-<!-- #### Install the NuGet library -->
-
-Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet package.
+Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet package:
 
 ```dotnetcli
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-If you get an error like "There are no versions available for the package 'Azure.Monitor.OpenTelemetry.Exporter'.", it's most probably due to missing the setting of NuGet package sources. You could try to specify the source with `-s` option.
+If you get an error like "There are no versions available for the package 'Azure.Monitor.OpenTelemetry.Exporter'.", it's most probably due to missing the setting of NuGet package sources. You could try to specify the source with `-s` option:
 
 ```dotnetcli
 # Install the latest package with NuGet package source specified
@@ -129,12 +123,16 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Node.js](#tab/nodejs)
 
-<!-- ##### Install the npm packages -->
+Install these packages:
+
+- [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
+- [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
+- [@azure/monitor-opentelemetry-exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
 
 ```sh
-npm install @azure/monitor-opentelemetry-exporter
 npm install @opentelemetry/sdk-trace-base
 npm install @opentelemetry/sdk-trace-node
+npm install @azure/monitor-opentelemetry-exporter
 ```
 
 Following packages are also used for some specific scenarios described later in this article.
@@ -153,8 +151,6 @@ npm install @opentelemetry/instrumentation-http
 
 #### [Python](#tab/python)
 
-<!-- ##### Install the Pypi Package -->
-
 Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) Pypi package.
 
 ```sh
@@ -169,9 +165,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-This document shows how to collect traces in Azure Monitor using OpenTelemetry for C# console applications. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://go.microsoft.com/fwlink/?linkid=2174441&clcid=0x409). Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all those application types.
-
-The following code demonstrates enabling OpenTelemetry in a console app.
+This document shows how to collect traces in Azure Monitor using OpenTelemetry for C# console applications. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all those application types.
 
 ```csharp
 using System.Diagnostics;
@@ -283,14 +277,12 @@ with tracer.start_as_current_span("hello"):
     print("Hello, World!")
 
 ```
----
 
+---
 
 #### Set Application Insights connection string
 
-Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
-
-Find the connection string on your Application Insights Resource.
+Replace placeholder `<Your Connection String>` in the above code with the connection string from YOUR Application Insights resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
