@@ -27,6 +27,7 @@ In this tutorial, you learn to:
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- You must have sufficient permissions to create an Azure Active Directory application.
 
 ## Create a GitHub repository
 
@@ -84,9 +85,6 @@ In this tutorial, you learn to:
 1. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need this URL to set up Active Directory authentication and test the app.
 
 ## Create an Azure Active Directory application
-
-  > [!NOTE]
-  > You must have sufficient permissions to create an Azure Active Directory application.
 
 1. In the Azure portal, search for and navigate to *Azure Active Directory*.
 
@@ -161,6 +159,9 @@ In this tutorial, you learn to:
       }
     },
     ```
+
+    > [!NOTE]
+    > To obtain an access token for the Microsoft Graph API, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`.
 
 1. Select the **Edit** button to update the file.
 
