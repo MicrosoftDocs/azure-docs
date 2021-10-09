@@ -4,7 +4,7 @@ description: Learn how to create and manage a SaaS offer on Microsoft AppSource 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/08/2021
 author: saasguide
 ms.author: souchak
 ---
@@ -757,8 +757,6 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 
 Get list of the pending operations for the specified SaaS subscription.  The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
 
-Currently only **Reinstate operations** are returned as response for this API call.
-
 ##### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Query parameters:*
@@ -779,8 +777,8 @@ Currently only **Reinstate operations** are returned as response for this API ca
 
 *Response codes:*
 
-Code: 200 
-Returns pending Reinstate operation on the specified SaaS subscription.
+Code: 200
+Returns pending operations on the specified SaaS subscription.
 
 *Response payload example:*
 
@@ -803,7 +801,7 @@ Returns pending Reinstate operation on the specified SaaS subscription.
 }
 ```
 
-Returns empty json if no Reinstate operations are pending.
+Returns empty json if no operations are pending.
 
 Code: 400
 Bad request: validation failures.
@@ -846,7 +844,7 @@ The `operationId` for this API call can be retrieved from the value returned by 
 
 *Response codes:*
 
-Code: 200 
+Code: 200
 Gets details for the specified SaaS operation. 
 
 *Response payload example:*
