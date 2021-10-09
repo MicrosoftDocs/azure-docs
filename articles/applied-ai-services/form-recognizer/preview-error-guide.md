@@ -15,7 +15,7 @@ keywords: document processing
 
 # Form Recognizer error guide v3.0 (preview)
 
-Form Recognizer uses an unified design to represent all errors encountered in the REST APIs.  Whenever an API operations returns a 4xx or 5xx status code, additional information about the error are returned in the response JSON body as follows:
+Form Recognizer uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
 
 ```json
 {
@@ -55,7 +55,7 @@ For long-running operations where multiple errors may be encountered, the top-le
 }
 ```
 
-The top-level *error.code* property can be one of the following:
+The top-level *error.code* property can be one of the following error code messages:
 
 | Error Code           | Message                                                | Http Status |
 | -------------------- | ------------------------------------------------------ | ----------- |
@@ -67,9 +67,9 @@ The top-level *error.code* property can be one of the following:
 | Conflict             | The request could not be completed due to a conflict.  | 409         |
 | UnsupportedMediaType | Request content type is not supported.                 | 415         |
 | InternalServerError  | An unexpected error occurred.                          | 500         |
-| ServiceUnavailable   | A transient error has occurred. Please try again.      | 503         |
+| ServiceUnavailable   | A transient error has occurred. Try again.      | 503         |
 
-When possible, additional details are specified in the *innererror* property.
+When possible, more details are specified in the *inner error* property.
 
 | Top Error Code | Inner Error Code | Message |
 | -------------- | ---------------- | ------- |
@@ -99,7 +99,7 @@ When possible, additional details are specified in the *innererror* property.
 | InvalidRequest | ModelNotReady | Model is not ready for the requested operation. Wait for training to complete or check for operation errors. |
 | InvalidRequest | ModelReadOnly | The requested model is read-only. |
 | InvalidRequest | NotSupportedApiVersion | The requested operation requires {minimumApiVersion} or later. |
-| InvalidRequest | OperationNotCancellable | The operation can no longer be cancelled. |
+| InvalidRequest | OperationNotCancellable | The operation can no longer be canceled. |
 | InvalidRequest | TrainingContentMissing | Training data is missing: {details} |
 | InvalidRequest | UnsupportedContent | Content is not supported: {details} |
 | NotFound | ModelNotFound | The requested model was not found. It may have been deleted or is still building. |
