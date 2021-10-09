@@ -379,11 +379,11 @@ The following libraries are validated to work with the Preview Release:
 
 #### [Python](#tab/python)
 
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) Version:
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django/README.md) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) Version:
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask/README.md) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) Version:
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests/README.md) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
 
 ---
