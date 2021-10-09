@@ -39,7 +39,7 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 du -hs * | sort -rh | head -5 
  
 3. Backup the files which are older than the new retention time.
-4. When there is some free space available, you can restart the brokers with new retention time. This will clean the older logs and free up some space on disk.
+4. When there is some free space available, you can restart the brokers with the new retention time configuration. This will clean the older logs and free up some space on disk.
  
 > [!IMPORTANT]
 > Sometimes taking a backup might not be an option because either OS disk might get full or just overload other kafka disks, in that case we might have to delete the files older than the retention time.
