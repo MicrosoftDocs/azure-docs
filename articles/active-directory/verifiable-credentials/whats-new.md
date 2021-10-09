@@ -27,7 +27,7 @@ With the release of the Request Service API, we are moving away from our initial
 
 **Azure Active Directory Verifiable Credentials is in Public Preview.**
 
-Azure AD customers can now easily issue [verifiable credentials](../verifiable-credentials/) to represent proof of employment, education, or any other claim so that the holder of such a credential can decide when, and with whom, to share their credentials. Each credential is signed using cryptographic keys associated with the DID that the user owns and controls.
+Azure AD customers can now easily issue [verifiable credentials](decentralized-identifier-overview.md) to represent proof of employment, education, or any other claim so that the holder of such a credential can decide when, and with whom, to share their credentials. Each credential is signed using cryptographic keys associated with the DID that the user owns and controls.
 
 ## Next steps
 
