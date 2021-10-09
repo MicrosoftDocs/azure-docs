@@ -284,10 +284,6 @@ run_config = ScriptRunConfig(
 run = Experiment(ws, 'experiment_name').submit(run_config)
 ```
 
-### PyTorch Lightning example
-
-* [azureml-examples: Multi-node training with PyTorch Lightning](https://github.com/Azure/azureml-examples/blob/main/python-sdk/experimental/using-pytorch-lightning/4.train-multi-node-ddp.ipynb)
-
 ### Hugging Face Transformers
 
 Hugging Face provides many [examples](https://github.com/huggingface/transformers/tree/master/examples) for using its Transformers library with `torch.distributed.launch` to run distributed training. To run these examples and your own custom training scripts using the Transformers Trainer API, follow the [Using `torch.distributed.launch`](#per-node-launch) section.
