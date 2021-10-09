@@ -160,6 +160,9 @@ In this tutorial, you learn to:
     },
     ```
 
+    > [!NOTE]
+    > To obtain an access token for the Microsoft Graph API, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`.
+
 1. Select the **Edit** button to update the file.
 
 1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
