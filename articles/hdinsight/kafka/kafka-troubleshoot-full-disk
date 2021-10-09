@@ -34,10 +34,9 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 
 2. Once we have that information, we need to check for heavy partitions which occupy the maximum space.
 
-```
+```bash
 # Command to sort the directories based on size:
 du -hs * | sort -rh | head -5 
-```
  
 3. Backup the files which are older than the new retention time.
 
