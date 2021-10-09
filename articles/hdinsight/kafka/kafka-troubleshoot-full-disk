@@ -51,8 +51,8 @@ To avoid the above the scenario these are the following options:
 
 - If the partitions are too big, increase the number of partitions for the heaviest topics.
 
-> [!NOTE] 
-> But increasing the partitions in an existing topic doesn't reorganize the data in the topic. You have to manually copy data from a old low partition topic to a new higher partition topic in the first. 
+   > [!NOTE] 
+   > But increasing the partitions in an existing topic doesn't reorganize the data in the topic. You have to manually copy data from a old low partition topic to a new higher partition topic in the first. 
 - Scale out the cluster and re-balance all the partitions across multiple disks.
 
 - Create a cluster with bigger sku and more no. of disks attached.
