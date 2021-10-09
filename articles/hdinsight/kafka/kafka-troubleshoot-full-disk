@@ -32,7 +32,7 @@ Few of the data disks which are used by kafka brokers is full. Kafka broker proc
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --describe --zookeeper <zookeeper-list> 
 
 
-2. Once we have that information, we need to check for heavy partitions which occupy the maximum space.
+2. Once you have that information, check which heavy partitions occupy the maximum disk space.
 
 ```bash
 # Command to sort the directories based on size:
