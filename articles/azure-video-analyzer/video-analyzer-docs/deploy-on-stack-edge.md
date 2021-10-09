@@ -288,7 +288,7 @@ This section covers how to create a gateway user and set up file shares to view 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Screenshot of the 'Add share' page for creating a remote share.":::
 
-1. To use volume mounts, update the Real-Time Streaming Protocol (RTSP) simulator module's container create options by doing the following:
+1. To use volume mounts, update the settings on the **Container Create Options** pane for the Real-Time Streaming Protocol (RTSP) simulator module by doing the following:
 
     a. Select the **Set modules** button.
 
@@ -333,7 +333,7 @@ This section covers how to create a gateway user and set up file shares to view 
     
 ### Verify that the module is running
 
-The final step is to ensure that your IoT Edge device module is connected and running as expected. To check the module's runtime status, do the following:
+Finally, ensure that your IoT Edge device module is connected and running as expected. To check the module's runtime status, do the following:
 
 1. In the Azure portal, return to your Azure Stack Edge resource.
 1. On the left pane, select **Modules**. 
@@ -349,31 +349,33 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 1. In Visual Studio Code, select **View** > **Explorer**.
 1. On the **Explorer** pane, at the lower left, select **Azure IoT Hub**.
 1. Select the **More Options** icon to show the context menu, and then select **Set IoT Hub Connection String**.
-1. When an input box appears, enter your IoT hub connection string. 
 
-   To get the connection string, do the following: 
+   An input box appears, into which you'll enter your IoT hub connection string. To get the connection string, do the following: 
 
    a. In the Azure portal, go to your IoT hub.  
    b. On the left pane, select **Shared access policies**.  
    c. Select **iothubowner get the shared access keys**.  
-   d. Copy the connection string primary key, and then paste it in the input box in Visual Studio Code.
+   d. Copy the connection string primary key, and then paste it in the input box.
 
-   The connection string is written in the following format:
-   
-   `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
+   > [!NOTE]
+   > The connection string is written in the following format:
+   >
+   > `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
     
-   When the connection succeeds, a list of edge devices is displayed, including your Azure Stack Edge device. You can now manage your IoT Edge devices and interact with your Azure IoT hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the **Modules** node.
+   When the connection succeeds, a list of edge devices is displayed, including your Azure Stack Edge device. You can now manage your IoT Edge devices and interact with your Azure IoT hub through the context menu. 
+   
+   To view the modules that are deployed on the edge device, under the Azure Stack device, expand the **Modules** node.
     
 ## Troubleshooting
 
 * **Kubernetes API access (kubectl)**
 
-    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
-    * All deployed IoT Edge modules use the `iotedge` namespace. Be sure to include that name when you're using kubectl. 
+    * Configure your machine for access to the Kubernetes cluster by following the instructions in [Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
+    * All deployed IoT Edge modules use the *iotedge* namespace. Be sure to include that name when you're using kubectl. 
 
 * **Module logs**
 
-    If the `iotedge` tool is inaccessible for obtaining logs, use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) to view the logs or pipe to a file. For example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
+    If the *iotedge* tool is inaccessible for obtaining logs, use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) to view the logs or pipe to a file. For example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
 
 * **Pod and node metrics**
 
@@ -423,13 +425,13 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
     When you use Kubernetes to deploy custom inference solutions that communicate with Video Analyzer via gRPC, ensure that the pods are deployed on the same nodes as Video Analyzer modules.
 
-    * **Option 1**: Use *node affinity* and built in node labels for co-location.
+    * **Option 1**: Use *node affinity* and built-in node labels for co-location.  
 
     Currently, NodeSelector custom configuration doesn't appear to be an option, because users don't have access to set labels on the nodes. However depending on the users' topology and naming conventions, they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). To achieve co-location, you can add to the inference pod manifest a nodeAffinity section that references Azure Stack Edge resources with Video Analyzer.
     
-    * **Option 2**: (Recommended) Use *pod affinity* for co-location.
+    * **Option 2**: (Recommended) Use *pod affinity* for co-location.  
 
-        Kubernetes has support for [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
+        Kubernetes supports [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
 
          ```json   
         // Example Video Analyzer module deployment match labels
@@ -452,9 +454,9 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
                 topologyKey: "kubernetes.io/hostname"
         ```
 
-* **You get a 404 error code when you use `rtspsim` module**  
+* **You get a 404 error code when you use the *rtspsim* module**  
     
-    The container will read videos from exactly one folder within the container. If you map/bind an external folder into a folder that already exists within the container image, Docker will hide the files present in the container image.
+    The container reads videos from exactly one folder within the container. If you map/bind an external folder into a folder that already exists within the container image, Docker hides the files present in the container image.
  
     For example, with no bindings, the container might have these files:  
 
@@ -472,7 +474,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
     Test2.mkv
     ```
      
-    But when the following binding is added in the deployment manifest file, Docker will overwrite the contents of /live/mediaServer/media to match what is on the host.
+    But when the following binding is added in the deployment manifest file, Docker overwrites the contents of /live/mediaServer/media to match what's on the host.
 
     `C:\MyTestVideos:/live/mediaServer/media`
     
