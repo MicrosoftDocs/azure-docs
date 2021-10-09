@@ -49,7 +49,7 @@ du -hs * | sort -rh | head -5
 Even though you can decrease the retention time, it will not be scalable if you want to add more topics in the cluster or if the load or amount of data ingested increases.
 To avoid the above the scenario these are the following options:
 
-- If the partitions is too big, increase the number of partitions for heavy topics
+- If the partitions are too big, increase the number of partitions for the heaviest topics.
 
 > [!NOTE] 
 > But increasing the partitions in an existing topic doesn't reorganize the data in the topic. You have to manually copy data from a old low partition topic to a new higher partition topic in the first. 
