@@ -76,3 +76,10 @@ sections:
               submodules: true
               lfs: true
           ```
+
+  - name: Hosting
+    questions:
+      - question: |
+          ?
+        answer: |
+          ?
