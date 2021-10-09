@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/10/2021
+ms.date: 10/07/2021
 ms.service: security-center
 ms.topic: how-to
 ---
@@ -35,7 +35,7 @@ The asset management possibilities for this tool are substantial and continue to
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Free|
+|Pricing:|Free*<br>* Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
@@ -130,7 +130,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
 If you've enabled the integration with Microsoft Defender for Endpoint and enabled Azure Defender for servers, you'll have access to the software inventory.
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
+:::image type="content" source="media/asset-inventory/software-inventory-filters.gif" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
 
 > [!NOTE]
 > The "Blank" option shows machines without Microsoft Defender for Endpoint (or without Azure Defender for servers).

@@ -206,4 +206,4 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 
 ## Next steps
 
-For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
+For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).

@@ -12,7 +12,7 @@ ms.date: 09/02/2021
 
 # Knowledge store in Azure Cognitive Search
 
-Knowledge store is a feature of Azure Cognitive Search that sends output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to tables and blobs in Azure Storage for independent analysis or downstream processing.
+Knowledge store is a data sink created by a Cognitive Search [AI enrichment pipeline](cognitive-search-concept-intro.md) that stores enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios, like knowledge mining.
 
 If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. The outcome can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in different applications.
 
