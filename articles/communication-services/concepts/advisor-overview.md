@@ -11,7 +11,7 @@ ms.author: rifox
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: identity
+ms.subservice: data
 ---
 
 # Azure Advisor for Azure Communication Services
