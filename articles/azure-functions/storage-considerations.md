@@ -67,14 +67,16 @@ Other platform-managed customer data is only stored within the region when hosti
 
 Azure Files is set up by default for Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system, so Azure Files can be omitted if desired. In such cases, a writeable file system is provided, but it is not guaranteed to be shared with all function app instances.
 
-If Azure Files is not used, you must account for the following:
+When Azure Files isn't used, you must account for the following:
 
-* You must deploy from an external package URL
-* Your app cannot rely on a shared writeable file system
-* The app cannot use Functions runtime v1
+* You must deploy from an external package URL.
+* Your app can't rely on a shared writeable file system.
+* The app can't use Functions runtime v1.
 * Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
 If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings.
+
+Because Functions use Azure Files during parts of the the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Premium plans.
 
 ## Mount file shares
 
