@@ -23,7 +23,7 @@ Once your configuration has been deployed by Virtual Network Manager, you can vi
 
 2. Select the **SecurityAdmin** tab to see all the security rules currently applied to your virtual network.
 
-    :::image type="content" source="./media/how-to-view-applied-configurations/vnet-connectivity.png" alt-text="Screenshot of security rules associated to a virtual network.":::
+    :::image type="content" source="./media/how-to-view-applied-configurations/vnet-security.png" alt-text="Screenshot of security rules associated to a virtual network.":::
 
 ## Virtual machine visibility
 
@@ -31,7 +31,7 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 ### Applied security rules
 
-1. Go to a virtual machine in a virtual network that has a configuration applied by Virtual Network Manager. Then select **Networking** under *Settings* on the left menu pane for the virtual machine.
+1. Go to a virtual machine in a virtual network that has a configuration applied by Virtual Network Manager. Then select **Networking** under *Settings* on the left menu pane.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/virtual-machine.png" alt-text="Screenshot of virtual machine overview page.":::
 
