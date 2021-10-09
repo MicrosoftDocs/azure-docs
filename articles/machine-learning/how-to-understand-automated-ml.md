@@ -263,7 +263,7 @@ The predictions with confidence score greater than score threshold are output as
 
 The metric computation of an image object detection and instance segmentation model is based on an overlap measurement defined by a metric called **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) which is computed by dividing the area of overlap between the ground-truth and predicted bounding boxes by the area of union of the bounding boxes. The IoU computed from every prediction is compared with an **overlap threshold** called an IoU threshold which determines how much a predicted bounding box should overlap with the user annotated ground-truth bounding box in-order to be considered as a positive prediction. If the  IoU  computed from the prediction is less than the overlap threshold the prediction would not be considered as a positive prediction for the associated class.
 
-The primary metric for the evaluation of image object detection and instance segmentation models is the **mean average precision(mAP)**. The mAP is the average value of the average precision(AP) across all the classes. Automated ML object detection models support the computation of mAP using the below two popular methods.
+The primary metric for the evaluation of image object detection and instance segmentation models is the **mean average precision (mAP)**. The mAP is the average value of the average precision(AP) across all the classes. Automated ML object detection models support the computation of mAP using the below two popular methods.
 
 **Pascal VOC metrics**: 
 
