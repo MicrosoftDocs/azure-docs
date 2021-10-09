@@ -396,7 +396,7 @@ The following libraries are validated to work with the Preview Release:
 
 #### [Node.js](#tab/nodejs)
 
-- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) Version:
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) Version:
   [0.26.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.26.0)
 
 
