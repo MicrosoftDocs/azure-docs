@@ -9,14 +9,14 @@ ms.date: 10/08/2021
 
 # Tutorial: Create a FAQ bot
 
-Create an FAQ Bot with question answering and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
+Create a FAQ Bot with question answering and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
 
 In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Link a question answering project/knowledge base to an Azure Bot Service
-> * Deploy the Bot
+> * Deploy a Bot
 > * Chat with the Bot in web chat
 > * Enable the Bot in supported channels
 
@@ -30,9 +30,9 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
 
 * You can create several bots quickly, all pointing to the same knowledge base for different regions or pricing plans for the individual bots.
 
-When you make changes to the knowledge base and redeploy, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
+* When you make changes to the knowledge base and redeploy, you don't need to take further action with the bot. It's already configured to work with the knowledge base, and works with all future changes to the knowledge base. Every time you publish a knowledge base, all the bots connected to it are automatically updated.
 
-1. In the Language Studio portal, on the question answering **Deploy knowledge base** page, select **Create bot**. This button appears only after you've published the knowledge base.
+1. In the Language Studio portal, on the question answering **Deploy knowledge base** page, select **Create bot**. 
 
     > [!div class="mx-imgBorder"]
     > ![Create bot in Azure](../media/bot-service/create-bot-in-azure.png)
@@ -55,7 +55,7 @@ When you make changes to the knowledge base and redeploy, you don't need to take
 1. Under **Settings**, select **Test in Web Chat**.
 
     > [!div class="mx-imgBorder"]
-    > ![Test web chat](../media/bot-service/test-web-chat.png)
+    > ![Test web chat](../media/bot-service/test-in-web-chat.png)
 
 1. At the chat prompt of **Type your message**, enter:
 
@@ -72,3 +72,13 @@ Select **Channels** in the Bot service resource that you have created. You can a
 
    >[!div class="mx-imgBorder"]
    >![Screenshot of integration with teams](../media/bot-service/channels.png)
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete the associate question answering and bot service resources.
+
+## Next steps
+
+Advance to the next article to learn how to customize your FAQ bot with multi-turn prompts.
+> [!div class="nextstepaction"]
+> [Next steps button](guided-conversations.md)
