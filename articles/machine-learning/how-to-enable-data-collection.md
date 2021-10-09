@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
@@ -95,7 +95,7 @@ To enable data collection, you need to:
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. Data collection is *not* automatically set to **true** when you deploy a service in AKS. Update your configuration file, as in the following example:

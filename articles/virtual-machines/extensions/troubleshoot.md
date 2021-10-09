@@ -58,12 +58,12 @@ Extensions:  {
 The VM Agent is required to manage, install and execute extensions. If the VM Agent is not running or is failing to report a Ready status to the Azure platform, then the extensions will not work correctly.
 
 Please refer to the following pages to troubleshoot the VM Agent:
-- [Troubleshooting Windows Azure Guest Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent) for a Windows VM
-- [Troubleshoot the Azure Linux Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) for a Linux VM
+- [Troubleshooting Windows Azure Guest Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent) for a Windows VM
+- [Troubleshoot the Azure Linux Agent](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) for a Linux VM
 
 ### Check for your specific extension troubleshooting guide
 Some extensions have a specific page describing how to troubleshoot them. You can find the list of these extensions and pages on [Troubleshoot extensions
-](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions).
+](./overview.md#troubleshoot-extensions).
 
 ### View the extension's status
 As explained above, the extension's status can be found by running the PowerShell cmdlet:
@@ -160,6 +160,3 @@ They also write detailed logs of their execution (eg. _"/var/log/azure/custom-sc
 
 It could happen that you're creating an Azure VM based on a specialized Disk coming from another Azure VM. In that case, it's possible that the old VM contained  extensions, and so will have binaries, logs and status files left over. The new VM model will not be aware of the previous VM's extensions states, and it might report an incorrect status for these extensions. We strongly recommend to remove the extensions from the old VM before creating the new one, and then reinstall these extensions once the new VM is created.
 The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
-
-
-

@@ -34,7 +34,7 @@ Encryption is the secure encoding of data used to protect confidentiality of dat
 - A symmetric encryption key is used to encrypt data as it is written to storage.
 - The same encryption key is used to decrypt that data as it is readied for use in memory.
 - Data may be partitioned, and different keys may be used for each partition.
-- Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
+- Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys which are stored outside of secure locations are encrypted with a key encryption key kept in a secure location.
 
 In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
@@ -71,7 +71,7 @@ More than one encryption key is used in an encryption at rest implementation. St
 - **Data Encryption Key (DEK)** – A symmetric AES256 key used to encrypt a partition or block of data.  A single resource may have many partitions and many Data Encryption Keys. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Access to DEKs is needed by the resource provider or application instance that is encrypting and decrypting a specific block. When a DEK is replaced with a new key only the data in its associated block must be re-encrypted with the new key.
 - **Key Encryption Key (KEK)** – An encryption key used to encrypt the Data Encryption Keys. Use of a Key Encryption Key that never leaves Key Vault allows the data encryption keys themselves to be encrypted and controlled. The entity that has access to the KEK may be different than the entity that requires the DEK. An entity may broker access to the DEK to limit the access of each DEK to a specific partition. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK.
 
-The Data Encryption Keys, encrypted with the Key Encryption Keys are stored separately and only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. Different models of key storage are supported. See [data encryption models](encryption-models.md) for more information.
+Resource providers and application instances store the Data Encryption Keys encrypted with the Key Encryption Keys, often as metadata about the data protected by the Data Encryption Keys. Only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. Different models of key storage are supported. See [data encryption models](encryption-models.md) for more information.
 
 ## Encryption at rest in Microsoft cloud services
 

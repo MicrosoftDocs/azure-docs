@@ -4,9 +4,9 @@ description: Learn how to create and manage a SaaS offer on Microsoft AppSource 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/10/2020
-author: mingshen-ms
-ms.author: mingshen
+ms.date: 10/08/2021
+author: saasguide
+ms.author: souchak
 ---
 
 # SaaS fulfillment APIs version 2 in the commercial marketplace
@@ -25,11 +25,11 @@ The following diagram shows the states of a SaaS subscription and the applicable
 
 #### Purchased but not yet activated (*PendingFulfillmentStart*)
 
-After an end user (or CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end user.
+After an end user or cloud solution provider (CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end user.
 
 For account creation to happen:
 
-1. The customer selects the **Configure** button that's available for a SaaS offer after its successful purchase in Microsoft AppSource or the Azure portal. Alternatively the customer can use the **Configure** button in the email that they will receive shortly after the purchase.
+1. The customer selects the **Configure account now** button that's available for a SaaS offer after its successful purchase in Microsoft AppSource or the Azure portal. Alternatively the customer can use the **Configure now** button in the email that they will receive shortly after the purchase.
 2. Microsoft then notifies the partner about the purchase by opening in the new browser tab the landing page URL with the token parameter (the purchase identification token from the commercial marketplace).
 
 An example of such call is `https://contoso.com/signup?token=<blob>`, whereas the landing page URL for this SaaS offer in Partner Center is configured as `https://contoso.com/signup`. This token provides the publisher with an ID that uniquely identifies the SaaS purchase and the customer.
@@ -79,7 +79,7 @@ Only an active subscription can be updated. While the subscription is being upda
 
 In this flow, the customer changes the subscription plan or quantity of seats from the Azure portal or Microsoft 365 Admin Center.
 
-1. After an update is entered, Microsoft will call the publisher's webhook URL, configured in the **Connection Webhook** field in Partner Center, with an appropriate value for *action* and other relevant parameters. 
+1. After an update is entered, Microsoft will call the publisher's webhook URL, configured in the **Connection webhook** field on the _Technical configuration_ page in Partner Center, with an appropriate value for *action* and other relevant parameters.
 1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when finished by calling the [Update Status of Operation API](#update-the-status-of-an-operation).
 1. If the patch is sent with *fail* status, the update process won't finish on the Microsoft side. The SaaS subscription will keep the existing plan and quantity of seats.
 
@@ -96,7 +96,7 @@ In this flow, the customer changes the subscription plan or quantity of seats pu
 
 1. The publisher code must call the [Change Plan API](#change-the-plan-on-the-subscription) and/or the [Change Quantity API](#change-the-quantity-of-seats-on-the-saas-subscription) before making the requested change on the publisher side. 
 
-1. Microsoft will apply the change to the subscription, and then notify the publisher via **Connection Webhook** to apply the same change.
+1. Microsoft will apply the change to the subscription, and then notify the publisher via **Connection webhook** to apply the same change.
 
 1. Only then should the publisher make the required change to the SaaS subscription, and notify Microsoft when the change is done by calling [Update Status of Operation API](#update-the-status-of-an-operation).
 
@@ -757,8 +757,6 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 
 Get list of the pending operations for the specified SaaS subscription.  The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
 
-Currently only **Reinstate operations** are returned as response for this API call.
-
 ##### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Query parameters:*
@@ -779,8 +777,8 @@ Currently only **Reinstate operations** are returned as response for this API ca
 
 *Response codes:*
 
-Code: 200 
-Returns pending Reinstate operation on the specified SaaS subscription.
+Code: 200
+Returns pending operations on the specified SaaS subscription.
 
 *Response payload example:*
 
@@ -803,7 +801,7 @@ Returns pending Reinstate operation on the specified SaaS subscription.
 }
 ```
 
-Returns empty json if no Reinstate operations are pending.
+Returns empty json if no operations are pending.
 
 Code: 400
 Bad request: validation failures.
@@ -846,7 +844,7 @@ The `operationId` for this API call can be retrieved from the value returned by 
 
 *Response codes:*
 
-Code: 200 
+Code: 200
 Gets details for the specified SaaS operation. 
 
 *Response payload example:*
@@ -941,10 +939,10 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 
 ## Implementing a webhook on the SaaS service
 
-When creating a transactable SaaS offer in Partner Center, the partner provides the **Connection Webhook** URL to be used as an HTTP endpoint.  This webhook is called by Microsoft by using the POST HTTP call to notify the publisher side of following events that happen on the Microsoft side:
+When creating a transactable SaaS offer in Partner Center, the partner provides the **Connection webhook** URL to be used as an HTTP endpoint.  This webhook is called by Microsoft by using the POST HTTP call to notify the publisher side of following events that happen on the Microsoft side:
 
 * When the SaaS subscription is in *Subscribed* status:
-    * ChangePlan 
+    * ChangePlan
     * ChangeQuantity
     * Suspend
     * Unsubscribe

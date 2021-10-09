@@ -36,6 +36,9 @@ The container also has the following container-specific configuration settings:
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
 |No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days (48 hours), which means any result live for longer than that period is not guaranteed to be successfully retrieved. |
 |No|Task:MaxRunningTimeSpanInMinutes| v3.x containers only. Maximum running time for a single request. The default is 60 minutes. |
+|No|EnableSyncNTPServer| v3.x containers only. Enables the NTP server synchronization mechanism, which ensures synchronization between the system time and expected task runtime. Note that this requires external network traffic. The default is `true`. |
+|No|NTPServerAddress| v3.x containers only. NTP server for the time sync-up. The default is `time.windows.com`. |
+|No|Mounts::Shared| v3.x containers only. Local folder for storing recognition result. The default is `/share`. For running container without using Azure blob storage, we recommend mounting a volume to this folder to ensure you have enough space for the recognition results. |
 
 ## ApiKey configuration setting
 

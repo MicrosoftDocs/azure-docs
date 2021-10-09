@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Swagger documentation
 
-Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through [the Custom Speech area of the Speech Studio](https://aka.ms/customspeech) can be completed programmatically using these APIs.
+Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through [the Custom Speech area of the Speech Studio](./custom-speech-overview.md) can be completed programmatically using these APIs.
 
 > [!NOTE]
 > Speech service has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
+ms.date: 07/05/2021
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -37,7 +37,7 @@ Plans are not supported for the following offer types:
 
 - Consulting service
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Power BI app
 
@@ -63,7 +63,7 @@ The plan name and description appear on the offer listing page in the commercial
 Once you create your plans, the **Plan overview** page shows a list of your plans’ name, ID, other details, current publishing status, and any available actions. The available actions will depend on the status of your plan and might include:
 
 - If the plan status is **Draft** – Delete draft.
-- If the plan status is **Live** – Stop selling plan or Sync private audience.
+- If the plan status is **Live** – Stop distribution of the plan or Sync private audience.
 
 The following screenshot shows two draft offers.
 
@@ -141,7 +141,7 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > - Azure virtual machine 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement & PowerApps
+> - Dynamics 365 for Customer Engagement & Power Apps
 > - Dynamics 365 for Operations
 >
 > For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).

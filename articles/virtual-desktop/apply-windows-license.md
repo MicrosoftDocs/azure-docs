@@ -29,7 +29,7 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
 ## Verify your session host VM is utilizing the licensing benefit
-After deploying your VM, run this cmdlet ot verify the license type:
+After deploying your VM, run this cmdlet to verify the license type:
 ```powershell
 Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```

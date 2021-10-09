@@ -2,7 +2,7 @@
 title: Register a new device - Azure IoT Edge | Microsoft Docs
 description: Register a single IoT Edge device in IoT Hub for manual provisioning with either symmetric keys or X.509 certificates
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -34,9 +34,9 @@ This article covers both authentication methods.
 
 If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 
-* [Create and provision IoT Edge devices using X.509 certificates](how-to-auto-provision-x509-certs.md)
-* [Create and provision IoT Edge devices with a TPM](how-to-auto-provision-simulated-device-linux.md)
-* [Create and provision IoT Edge devices using symmetric keys](how-to-auto-provision-symmetric-keys.md)
+* [Create and provision IoT Edge devices using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+* [Create and provision IoT Edge devices with a TPM](how-to-provision-devices-at-scale-linux-tpm.md)
+* [Create and provision IoT Edge devices using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 

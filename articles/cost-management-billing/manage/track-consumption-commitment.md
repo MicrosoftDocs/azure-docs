@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/06/2021
 ms.author: banders
 ---
 
@@ -30,7 +30,7 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
     :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Screenshot that shows selecting the MACC tab." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
 5. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections.
 
-#### Remaining Commitment 
+#### Remaining commitment 
 
 The remaining commitment displays the remaining commitment amount since your last invoice.
 
@@ -105,7 +105,7 @@ The API response returns a list of billing accounts.
       "name": "9a12f056-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx",
       "type": "Microsoft.Billing/billingAccounts",
       "properties": {
-        "displayName": "Connie Wilson",
+        "displayName": "Kayla Lewis",
         "agreementType": "MicrosoftCustomerAgreement",
         "accountStatus": "Active",
         "accountType": "Individual",
@@ -118,7 +118,7 @@ The API response returns a list of billing accounts.
 
 Use the `displayName` property of the billing account to identify the billing account for which you want to track MACC. Copy the `name` of the billing account. For example, if you want to track MACC for **Contoso** billing account, you'd copy `9a157b81-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`. Paste this value somewhere so that you can use it in the next step.
 
-### Get list of Microsoft Azure Consumption Commitments
+### Get a list of Microsoft Azure Consumption Commitments
 
 Make the following request, replacing `<billingAccountName>` with the `name` copied in the first step (`9a157b81-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`).
 
@@ -273,11 +273,11 @@ The API response returns all events that affected your MACC commitment.
 
 ---
 
-## Azure Services and Marketplace Offers that are eligible for MACC
+## Azure Services and Marketplace offers that are eligible for MACC
 
 You can determine which Azure services and Marketplace offers are eligible for MACC decrement in the Azure portal. For more information, see [Determine which offers are eligible for Azure consumption commitments (MACC/CtC)](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc).
 
-## Azure Credits and MACC
+## Azure credits and MACC
 
 If your organization received Azure credits from Microsoft, the consumption or purchases that are covered by credits won't contribute towards your MACC commitment.
 

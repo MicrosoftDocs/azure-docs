@@ -1,10 +1,10 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure API Management
 description: Lists Azure Policy Regulatory Compliance controls available for Azure API Management. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 06/11/2021
+ms.date: 09/17/2021
 ms.topic: sample
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.service: api-management
 ms.custom: subject-policy-compliancecontrols
 ---

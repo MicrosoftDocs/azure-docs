@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -23,7 +23,13 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
-The use of Azure Bastion with Private endpoint integrated Azure Private DNS Zones is not supported at this time. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a Private endpoint integrated private DNS zone.
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select does not overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following in the name:
+* core.windows.net
+* azure.com
+
+Note that if you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion is *not* supported with these setups.
+
+The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
@@ -32,12 +38,6 @@ No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virt
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
 No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
-
-### <a name="limits"></a>How many concurrent RDP and SSH sessions does each Azure Bastion support?
-
-Both RDP and SSH are a usage-based protocol. High usage of sessions will cause the bastion host to support a lower total number of sessions. The numbers below assume normal day-to-day workflows.
-
-[!INCLUDE [limits](../../includes/bastion-limits.md)]
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
@@ -50,6 +50,10 @@ This feature doesn't work with AADJ VM extension-joined machines using Azure AD 
 ### <a name="browsers"></a>Which browsers are supported?
 
 The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
+
+### <a name="pricingpage"></a>What is the pricing?
+
+For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
 
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 
@@ -64,17 +68,30 @@ In order to make a connection, the following roles are required:
 * Reader role on the Azure Bastion resource.
 * Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
 
-### <a name="pricingpage"></a>What is the pricing?
-
-For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
-
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
 No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
-Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
+Azure Bastion currently supports the following keyboard layouts inside the VM:
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+The default keyboard layout in the target VM will match your local language, which can be changed in your local computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
@@ -85,6 +102,14 @@ Azure Bastion currently does not support timezone redirection and is not timezon
 No. UDR is not supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+
+Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+
+No. Downgrading from a Standard SKU to a Basic SKU is not supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 ### <a name="subnet"></a> Can I deploy multiple Azure resources in my Azure Bastion subnet?
 
@@ -113,6 +138,9 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
+
+### Does Bastion support connectivity to Azure Virtual Desktop?
+No, Bastion connectivity to Azure Virtual Desktop is not supported.
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 

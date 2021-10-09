@@ -2,7 +2,7 @@
 title: Deploy Azure Video Analyzer on Azure Stack Edge
 description: This article lists the steps that will help you deploy Azure Video Analyzer on your Azure Stack Edge.
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 06/01/2021
 
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
@@ -18,10 +18,10 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 
 * Video Analyzer account
 
-    This [cloud service](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/overview) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
+    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
 * Managed identity
 
-    This is the user assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) used to manage access to the above storage account.
+    This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 * An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
 * [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * Storage account
@@ -170,6 +170,40 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
+1. Select **Add**  
+
+Add the RTSP Simulator edge module
+
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:   
+    Examples:
+    
+    * **IoT Edge Module Name**: rtspsim
+    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+
+
+1. Open the **Container Create Options** tab.
+ 
+    Copy and paste the following JSON into the box
+    
+    ```
+    {
+        "HostConfig": {
+            "Binds": [
+               "/home/localedgeuser/samples/input/:/live/mediaServer/media/"
+            ],
+            "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
+            }
+        }
+    }
+    ```
+1. Select **Add**  
+
 1. Select **Next: Routes** to continue to the routes section. Specify routes.
 
     Under NAME, enter **AVAToHub**, and under VALUE, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
@@ -188,6 +222,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Copy token":::
+
+
 
 #### (Optional) Setup Docker Volume Mounts
 
@@ -263,7 +299,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }
@@ -422,4 +458,3 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 ## Next steps
 
 [Detect motion and emit events](detect-motion-emit-events-quickstart.md)
-

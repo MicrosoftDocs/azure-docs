@@ -1,9 +1,9 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/ to ease future central update.

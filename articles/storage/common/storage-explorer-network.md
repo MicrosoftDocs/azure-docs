@@ -15,31 +15,32 @@ When not connecting to a local emulator, Storage Explorer uses your network to m
 
 ## Hostnames accessed by Storage Explorer
 
-Storage Explorer makes requests to various endpoints while in use. The following list details common hostnames Storage Explorer will make requests to:
+Storage Explorer makes requests to various endpoints while in use. The following list details common hostnames that Storage Explorer makes requests to:
+
 - ARM endpoints:
-    - `management.azure.com` (global Azure)
-    - `management.chinacloudapi.cn` (Azure China)
-    - `management.microsoftazure.de` (Azure Germany)
-    - `management.usgovcloudapi.net` (Azure US Government)
+  - `management.azure.com` (global Azure)
+  - `management.chinacloudapi.cn` (Azure China)
+  - `management.microsoftazure.de` (Azure Germany)
+  - `management.usgovcloudapi.net` (Azure US Government)
 - Login endpoints:
-    - `login.microsoftonline.com` (global Azure)
-    - `login.chinacloudapi.cn` (Azure China)
-    - `login.microsoftonline.de` (Azure Germany)
-    - `login.microsoftonline.us` (Azure US Government)
+  - `login.microsoftonline.com` (global Azure)
+  - `login.chinacloudapi.cn` (Azure China)
+  - `login.microsoftonline.de` (Azure Germany)
+  - `login.microsoftonline.us` (Azure US Government)
 - Graph endpoints:
-    - `graph.windows.net` (global Azure)
-    - `graph.chinacloudapi.cn` (Azure China)
-    - `graph.cloudapi.de` (Azure Germany)
-    - `graph.windows.net` (Azure US Government)
+  - `graph.windows.net` (global Azure)
+  - `graph.chinacloudapi.cn` (Azure China)
+  - `graph.cloudapi.de` (Azure Germany)
+  - `graph.windows.net` (Azure US Government)
 - Azure Storage endpoints:
-    - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
-    - `(blob|file|queue|table|dfs).core.chinacloudapi.net` (Azure China)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure Germany)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure US Government)
-- Storage Explorer updating: `storageexplorerpublish.blob.core.windows.net` 
+  - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Azure China)
+  - `(blob|file|queue|table|dfs).core.cloudapi.de` (Azure Germany)
+  - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure US Government)
+- Storage Explorer updating: `storageexplorerpublish.blob.core.windows.net`
 - Microsoft link forwarding:
-    - `aka.ms`
-    - `go.microsoft.com`
+  - `aka.ms`
+  - `go.microsoft.com`
 - Any custom domains, private links, or Azure Stack instance-specific endpoints, that your resources are behind
 - Remote emulator hostnames
 
@@ -146,55 +147,55 @@ The following is a list of features that support **system proxy**:
 - Checking for and downloading updates
 - Listing subscriptions
 - Storage Account Features
-    - Listing
+  - Listing
 - Blob Features
-    - Containers
-        - Create
-        - Listing
-        - Managing stored access policies
-        - Changing public access level
-        - Leasing
-        - Properties
-        - Delete
-    - Blobs
-        - Listing
-        - Statistics
-        - Undelete
-    - ADLS Gen2 Blobs
-        - Listing
-        - Statistics
-        - ManagingACLS
-        - PropagateACLs
-        - Move
-        - Rename
-        - Create folder
+  - Containers
+    - Create
+    - Listing
+    - Managing stored access policies
+    - Changing public access level
+    - Leasing
+    - Properties
+    - Delete
+  - Blobs
+    - Listing
+    - Statistics
+    - Undelete
+  - ADLS Gen2 Blobs
+    - Listing
+    - Statistics
+    - Managing ACLs (only viewing and modifying existing entities)
+    - Propagate ACLs
+    - Move
+    - Rename
+    - Create folder
 - Queue Features
-    - Queues
-        - Create
-        - Listing
-        - Managing access policies
-        - Properties
-        - Delete
-        - Clear
-    - Queue Messages
-        - Listing
-        - Move
-        - Add
-        - Dequeue
+  - Queues
+    - Create
+    - Listing
+    - Managing access policies
+    - Properties
+    - Delete
+    - Clear
+  - Queue Messages
+    - Listing
+    - Move
+    - Add
+    - Dequeue
 - File Share Features
-    - Files & Folders
-        - New folder
-        - Properties
+  - Files & Folders
+    - New folder
+    - Properties
 - Disk Features
-    - Listing resource groups
-    - Listing disks
-    - Uploading disks
-    - Downloading disks
-    - Copying disks
-    - Creating snapshots
-    - Deleting disks
+  - Listing resource groups
+  - Listing disks
+  - Uploading disks
+  - Downloading disks
+  - Copying disks
+  - Creating snapshots
+  - Deleting disks
 
 ## Next steps
 
-* [Troubleshoot proxy issues](./storage-explorer-troubleshooting.md#proxy-issues)
-* [Troubleshoot certificate issues](./storage-explorer-troubleshooting.md#ssl-certificate-issues)
+- [Troubleshoot proxy issues](./storage-explorer-troubleshooting.md#proxy-issues)
+- [Troubleshoot certificate issues](./storage-explorer-troubleshooting.md#ssl-certificate-issues)

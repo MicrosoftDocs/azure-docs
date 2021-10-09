@@ -2,16 +2,17 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 07/27/2021
 ---
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+Example connection string values are truncated for readability.
 
 > [!NOTE]
 > You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
@@ -22,7 +23,7 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 
 |Key|Sample value|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -35,7 +36,7 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 
 |Key|Sample value|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -43,8 +44,8 @@ By default, [Functions proxies](functions-proxies.md) use a shortcut to send API
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend URL pointing to a function in the local function app won't be sent directly to the function. Instead, the requests are directed back to the HTTP frontend for the function app.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. This is the default value. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|Calls with a backend URL pointing to a function in the local function app won't be sent directly to the function. Instead, the requests are directed back to the HTTP frontend for the function app.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. This is the default value. |
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -52,8 +53,8 @@ This setting controls whether the characters `%2F` are decoded as slashes in rou
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route parameters with encoded slashes are decoded. |
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|All route parameters are passed along unchanged, which is the default behavior. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`true`|Route parameters with encoded slashes are decoded. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`false`|All route parameters are passed along unchanged, which is the default behavior. |
 
 For example, consider the proxies.json file for a function app at the `myfunction.com` domain.
 
@@ -87,7 +88,7 @@ Optional storage account connection string for storing logs and displaying them 
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
+|AzureWebJobsDashboard|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 > [!NOTE]
 > For better performance and experience, runtime version 2.x and later versions use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of `AzureWebJobsDashboard`.
@@ -98,7 +99,7 @@ Optional storage account connection string for storing logs and displaying them 
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|`true`|
 
 When this app setting is omitted or set to `false`, a page similar to the following example is displayed in response to the URL `<functionappname>.azurewebsites.net`.
 
@@ -110,7 +111,7 @@ When this app setting is omitted or set to `false`, a page similar to the follow
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|`true`|
 
 ## AzureWebJobsFeatureFlags
 
@@ -118,7 +119,7 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsFeatureFlags|feature1,feature2|
+|AzureWebJobsFeatureFlags|`feature1,feature2`|
 
 ## AzureWebJobsSecretStorageType
 
@@ -134,7 +135,7 @@ The Azure Functions runtime uses this storage account connection string for norm
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 ## AzureWebJobs_TypeScriptPath
 
@@ -142,7 +143,7 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobs_TypeScriptPath|%HOME%\typescript|
+|AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
@@ -150,7 +151,7 @@ Dictates whether editing in the Azure portal is enabled. Valid values are "readw
 
 |Key|Sample value|
 |---|------------|
-|FUNCTION\_APP\_EDIT\_MODE|readonly|
+|FUNCTION\_APP\_EDIT\_MODE|`readonly`|
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
@@ -158,7 +159,7 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~3|
+|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -171,7 +172,7 @@ Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#function
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -179,7 +180,7 @@ Specifies the maximum number of language worker processes, with a default value 
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|`2`|
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
@@ -187,7 +188,7 @@ The language worker runtime to load in the function app.  This corresponds to th
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|node|
+|FUNCTIONS\_WORKER\_RUNTIME|`node`|
 
 Valid values:
 
@@ -208,7 +209,7 @@ Each PowerShell worker process initiates checking for module upgrades on the Pow
 
 |Key|Sample value|
 |---|------------|
-|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+|MDMaxBackgroundUpgradePeriod|`7.00:00:00`|
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
@@ -222,7 +223,7 @@ Within every `MDNewSnapshotCheckPeriod`, the PowerShell worker checks whether or
 
 |Key|Sample value|
 |---|------------|
-|MDNewSnapshotCheckPeriod|01:00:00|
+|MDNewSnapshotCheckPeriod|`01:00:00`|
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
@@ -235,7 +236,7 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 |Key|Sample value|
 |---|------------|
-|MDMinBackgroundUpgradePeriod|1.00:00:00|
+|MDMinBackgroundUpgradePeriod|`1.00:00:00`|
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
@@ -245,18 +246,18 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 |Key|Sample value|
 |---|------------|
-|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
+|PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 
-The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`.
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`. This flag is currently in Preview.
 
 |Key|Value|Description|
 |---|-----|-----------|
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
@@ -264,8 +265,8 @@ The configuration is specific to Python function apps. Setting this to `1` allow
 
 |Key|Value|Description|
 |---|-----|-----------|
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|0| Disable any Python worker extension. |
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|1| Allow Python worker to load extensions from requirements.txt. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`0`| Disable any Python worker extension. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`1`| Allow Python worker to load extensions from requirements.txt. |
 
 ## PYTHON\_THREADPOOL\_THREAD\_COUNT
 
@@ -283,11 +284,21 @@ This setting controls logging from the Azure Functions scale controller. For mor
 
 |Key|Sample value|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|`AppInsights:Verbose`|
 
 The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+## SCM\_LOGSTREAM\_TIMEOUT
+
+Controls the timeout, in seconds, when connected to streaming logs. The default value is 7200 (2 hours). 
+
+|Key|Sample value|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|`1800`|
+
+The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -295,17 +306,19 @@ Connection string for storage account where the function app code and configurat
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
-For Premium plans only. A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE_CONTENTOVERVNET|1|
+|WEBSITE_CONTENTOVERVNET|`1`|
+
+Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
 
 ## WEBSITE\_CONTENTSHARE
 
@@ -313,11 +326,11 @@ The file path to the function app code and configuration in an event-driven scal
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE_CONTENTSHARE|functionapp091999e2|
+|WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This application setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -325,7 +338,7 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_DNS\_SERVER|168.63.129.16|
+|WEBSITE\_DNS\_SERVER|`168.63.129.16`|
 
 ## WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
@@ -340,7 +353,7 @@ The maximum number of instances that the app can scale out to. Default is no lim
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|`5`|
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
@@ -349,7 +362,7 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|`~10`|
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
@@ -357,7 +370,7 @@ Enables your function app to run from a mounted package file.
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_PACKAGE|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
 Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
@@ -367,8 +380,8 @@ Allows you to set the timezone for your function app.
 
 |Key|OS|Sample value|
 |---|--|------------|
-|WEBSITE\_TIME\_ZONE|Windows|Eastern Standard Time|
-|WEBSITE\_TIME\_ZONE|Linux|America/New_York|
+|WEBSITE\_TIME\_ZONE|Windows|`Eastern Standard Time`|
+|WEBSITE\_TIME\_ZONE|Linux|`America/New_York`|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
@@ -378,12 +391,12 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_VNET\_ROUTE\_ALL|1|
+|WEBSITE\_VNET\_ROUTE\_ALL|`1`|
 
 ## Next steps
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[See global settings in the host.json file](functions-host-json.md)
+[See configuration settings in the host.json file](functions-host-json.md)
 
 [See other app settings for App Service apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

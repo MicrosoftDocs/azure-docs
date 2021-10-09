@@ -2,7 +2,7 @@
 title: Enable end-to-end encryption using encryption at host - Azure CLI - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
 ms.date: 07/01/2021
 ms.author: rogarana
@@ -11,6 +11,8 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

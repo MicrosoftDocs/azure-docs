@@ -2,14 +2,14 @@
 title: Azure Key Vault Managed HSM - Third-party solutions | Microsoft Docs
 description: Learn about third-party solutions integrated with Managed HSM.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 editor: ''
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 06/23/2021
-ms.author: ambapat
+ms.author: mbaldwin
 
 ---
 

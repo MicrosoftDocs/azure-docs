@@ -18,7 +18,7 @@ Let's assume you want to protect a VM "testVM" under a resource group "testRG" t
 
 ### Discover unprotected Azure VMs
 
-First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/2021-02-10/protection-containers/refresh). It's an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
+First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protection-containers/refresh). It's an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -87,7 +87,7 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
- You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/2021-02-10/backup-protected-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+ You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backup-protectable-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
 
 This operation is a *GET* operation.
 
@@ -101,7 +101,7 @@ The *GET* URI has all the required parameters. No additional request body is nee
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/2021-02-10/backup-protected-items/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backup-protectable-items/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### Example responses to get operation
 
@@ -157,7 +157,7 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/2021-02-10/backup-policies/list). Then select the [relevant policy](/rest/api/backup/2021-02-10/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
 
 Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 
@@ -179,7 +179,7 @@ To create a protected item, following are the components of the request body.
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem Resource properties         |
 
-For the complete list of definitions of the request body and other details, refer to [create protected item REST API document](/rest/api/backup/2021-02-10/protected-items/create-or-update#request-body).
+For the complete list of definitions of the request body and other details, refer to [create protected item REST API document](/rest/api/backup/protected-items/create-or-update#request-body).
 
 ##### Example request body
 
@@ -205,7 +205,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](/rest/api/backup/2021-02-10/protected-item-operation-results/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protected-item-operation-results/get#protecteditemresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
 ##### Example responses to create protected item operation
@@ -320,9 +320,9 @@ To trigger an on-demand backup, following are the components of the request body
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](/rest/api/backup/2021-02-10/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource properties         |
+|properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource properties         |
 
-For the complete list of definitions of the request body and other details, refer to [trigger backups for protected items REST API document](/rest/api/backup/2021-02-10/backups/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to [trigger backups for protected items REST API document](/rest/api/backup/backups/trigger#request-body).
 
 #### Example request body for on-demand backup
 
@@ -432,7 +432,7 @@ If the Azure VM is already backed up, you can specify the list of disks to be ba
 > [!IMPORTANT]
 > The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For example: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
 
-To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/2021-02-10/protected-items/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
+To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/protected-items/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
 
 ### Stop protection but retain existing data
 
@@ -452,7 +452,7 @@ The response will follow the same format as mentioned [for triggering an on-dema
 
 ### Stop protection and delete data
 
-To remove the protection on a protected VM and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/2021-02-10/protected-items/delete).
+To remove the protection on a protected VM and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
 
 Stopping protection and deleting data is a *DELETE* operation.
 

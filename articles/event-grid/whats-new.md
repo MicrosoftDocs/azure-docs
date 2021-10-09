@@ -80,14 +80,14 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
 	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
 
 ## 4.1.0-preview (2019-03)
 - This release corresponds to the 2019-02-01-preview API version.
 - It adds support to the following new functionalities:
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
 	* [Manual create/delete of domain topics](how-to-event-domains.md)
 	* [Service Bus Queue as destination](handler-service-bus.md)
 

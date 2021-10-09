@@ -180,10 +180,10 @@ Using tunneling allows you to connect to the on-premises management console from
 2. Sign in to each sensor and run the following commands:
 
    ```bash
-   sudo cyberx-xsense-management-connect -ip <centralmanagerIPAddress>
+   sudo cyberx-xsense-management-connect -ip <on-premises management console IP Address> -token < Copy the string that appears after the IP colon (:) from the Connection String field, Management Console Connection dialog box>
    sudo cyberx-xsense-management-tunnel
    sudo vi /var/cyberx/properties/network.properties
-   opened_tcp_incoming_ports=22,80,443,102,9000
+   opened_tcp_incoming_ports=22,80,443,9000
    sudo cyberx-xsense-network-validation
    sudo /etc/network/if-up.d/iptables-recover
    sudo iptables -nvL

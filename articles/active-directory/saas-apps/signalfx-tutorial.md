@@ -141,7 +141,7 @@ Review the following information regarding how to test SSO, as well as expectati
 
 * When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the MyApps and try again.
     * When you click the SignalFx tile in the MyApps, you should be automatically logged into the SignalFx. 
-        * For more information about the MyApps, see [Introduction to the MyApps](../user-help/my-apps-portal-end-user-access.md).
+        * For more information about the MyApps, see [Introduction to the MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 * SignalFx application can be accessed from the MyApps or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
     * The test user can use the credentials created earlier in this process for **b.simon\@contoso.com**.

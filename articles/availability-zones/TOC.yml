@@ -3,17 +3,21 @@
   - name: Azure Resiliency feature page
     href: https://azure.microsoft.com/features/resiliency
   - name: Design resilient applications for Azure
-    href: /azure/architecture/resiliency/
+    href: /azure/architecture/framework/resiliency/app-design
+- name: Availability Zones fundamentals
+  items:
+  - name: Regions and Availability Zones in Azure
+    href: az-overview.md
+  - name: Azure Services
+    href: region-types-service-categories-azure.md
+  - name: Azure Services that support Availability Zones
+    href: az-region.md
+  - name: Terminology
+    href: glossary.md
 - name: High Availability
   items:
-  - name: High availability for Azure applications
-    href: /azure/architecture/resiliency/high-availability-azure-applications
-  - name: Regions and Availability Zones
-    href: az-overview.md
-  - name: Availability Zones Documentation
+  - name: Quickstart guides
     items:
-    - name: Azure Services that support Availability Zones
-      href: az-region.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
@@ -53,7 +57,7 @@
         - name: Create a zonal redundant public Standard Load Balancer (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
       - name: Load balance VMs across availability zones
-        href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
         items:
         - name: Load balance VMs across availability zones with Azure (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md

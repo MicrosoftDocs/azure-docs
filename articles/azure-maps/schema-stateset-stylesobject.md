@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # StylesObject Schema reference guide for dynamic Maps

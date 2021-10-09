@@ -1,20 +1,21 @@
 ---
-title: Configure how end-users consent to applications using Azure AD
+title: Configure how end-users consent to applications
+titleSuffix: Azure AD
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ---
 
-# Configure how end-users consent to applications
+# Configure how end-users consent to applications using Azure Active Directory
 
 You can integrate your applications with the Microsoft identity platform to allow users to sign in with their work or school account and access your organization's data to deliver rich data-driven experiences.
 
@@ -180,4 +181,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
+
 * [Azure AD on Microsoft Q&A.](/answers/topics/azure-active-directory.html)

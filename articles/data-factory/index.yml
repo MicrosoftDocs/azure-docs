@@ -19,8 +19,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Data Factory?
+          - text: Introduction to Azure Data Factory
             url: ./introduction.md
+          - text: What's New in Azure Data Factory
+            url: ./whats-new.md
       - linkListType: reference
         links:
           - text: Whitepapers
@@ -34,7 +36,7 @@ landingContent:
           - text: ADF Blog
             url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
           - text: Request a feature
-            url: https://feedback.azure.com/forums/270578-azure-data-factory
+            url: /answers/topics/azure-data-factory.html
   - title: Get started
     linkLists:
       - linkListType: concept
@@ -150,6 +152,6 @@ landingContent:
           - text: Source Control
             url: ./source-control.md
           - text: Continuous integration and delivery
-            url: ./continuous-integration-deployment.md
+            url: ./continuous-integration-delivery.md
           - text: Monitor with Azure Monitor
             url: ./monitor-using-azure-monitor.md

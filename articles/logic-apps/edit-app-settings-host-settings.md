@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/18/2021
+ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -18,7 +19,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -40,7 +41,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 In Visual Studio Code, at your logic app project's root level, the **local.settings.json** file contain global configuration options that affect *all workflows* in that logic app while running in your local development environment. When your workflows run locally, these settings are accessed as local environment variables, and their values can often change between the various environments where you run your workflows. To view and manage these settings, review [Manage app settings - local.settings.json](#manage-app-settings).
 
-App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-run-local.md#local-settings-file).
+App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
@@ -229,7 +230,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100K array items) | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters <p><p>Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
 ||||
 
 <a name="http-webhook"></a>
@@ -290,6 +292,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
 ||||
 

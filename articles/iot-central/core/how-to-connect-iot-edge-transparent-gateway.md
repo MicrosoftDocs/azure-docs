@@ -65,7 +65,7 @@ The following screenshot shows the **Relationships** page for an IoT Edge gatewa
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Screenshot showing IoT Edge gateway device template relationship with a thermostat downstream device template.":::
 
-The previous screenshot shows an IoT Edge gateway device template with no modules defined. A transparent gateway doesn't require any modules because the IoT Edge runtime forwards messages from the downstream devices to IoT Central. If the gateway itself needs to send telemetry, synchronize properties, or handle commands, you can define these capabilities in the default component or in a module.
+The previous screenshot shows an IoT Edge gateway device template with no modules defined. A transparent gateway doesn't require any modules because the IoT Edge runtime forwards messages from the downstream devices to IoT Central. If the gateway itself needs to send telemetry, synchronize properties, or handle commands, you can define these capabilities in the root component or in a module.
 
 Add any required cloud properties and views before you publish the gateway and downstream device templates.
 
