@@ -17,7 +17,7 @@ sections:
       - question: |
           What happens when my app is built?
         answer: |
-          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It is used to build your app's frontend and API.
+          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It builds your app's frontend and API.
 
           When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it will install packages using npm or Yarn. Then it will run the `build` or `build:azure` script provided in your app's _package.json_ file.
 
@@ -35,7 +35,7 @@ sections:
       - question: |
           How do I customize how my app is built?
         answer: |
-          If you want complete control over how your app is built, you can configure your own steps in your app's GitHub workflow or Azure DevOps pipeline to build your app. Then you can use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
+          If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. Then you can use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
           `skip_app_build` is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
 
@@ -45,9 +45,9 @@ sections:
           Currently, Azure Static Web Apps supports deploying your app using GitHub Actions or Azure DevOps. More deployment options will be added in the future.
       
       - question: |
-          My React application works locally but fails during the Static Web Apps build process with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this?
+          My React application works locally but fails during the Static Web Apps build process with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
         answer: |
-          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build process will treat warnings as errors when running in a continuous integration (CI) environment. Azure Static Web Apps builds run in GitHub Actions and Azure Pipelines which are CI environments. If you have warnings in your app, it will fail during the build process. To fix this, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
+          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build process will treat warnings as errors when running in a continuous integration (CI) environment. Azure Static Web Apps builds run in GitHub Actions and Azure Pipelines, which are CI environments. If you have warnings in your app, it will fail during the build process. To fix these issues, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
 
           ```json
           "scripts": {
