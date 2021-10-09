@@ -42,7 +42,25 @@ You can log a single text string or line of serialized JSON data. Information is
 
 Data logged via a container app are stored in the `WorkerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
 
-### Portal
+# [Azure CLI](#tab/azure-cli)
+
+Use the following CLI command to view logs on the command line.
+
+```azurecli
+$ az monitor log-analytics query -w <workspace-d> --analytics-query "WorkerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
+```
+
+The following output demonstrates the type of response to expect from the CLI command.
+
+```console
+AppName_s      Log_s                                                       TableName      TimeGenerated
+-------------  ----------------------------------------------------------  -------------  ------------------------
+myapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
+myapp-ad07o77  INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
+myapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
+```
+
+# [Portal](#tab/portal)
 
 To view logs in the Azure portal:
 
@@ -59,23 +77,7 @@ To view logs in the Azure portal:
     | where TimeGenerated > ago(5m)
     ```
 
-### Azure CLI
-
-Use the following CLI command to view logs on the command line.
-
-```console
-$ az monitor log-analytics query -w <workspace-d> --analytics-query "WorkerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
-```
-
-The following output demonstrates the type of response to expect from the CLI command.
-
-```console
-AppName_s      Log_s                                                       TableName      TimeGenerated
--------------  ----------------------------------------------------------  -------------  ------------------------
-myapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
-myapp-ad07o77  INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
-myapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
-```
+---
 
 ## Next steps
 
