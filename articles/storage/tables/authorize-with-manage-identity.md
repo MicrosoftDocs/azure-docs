@@ -122,7 +122,9 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The following code example shows how to get the authenticated token credential and use it to create a service client object, then use the service client to upload a new blob:
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+
+The following code example shows how to get the authenticated token credential and use it to create a service client object, then use the service client to upload a new blob:
 
 ```csharp
 async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)

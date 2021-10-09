@@ -31,7 +31,7 @@ To learn more about how to authenticate with the Azure Identity client library f
 
 ## Get an authenticated token credential
 
-To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 
