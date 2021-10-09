@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Before you start, it's important to [Setup a tenant for Azure AD Verifiable credentials](https://tbd-link-to-the-tenant-config-article/)
+- Before you start, it's important to [Setup a tenant for Azure AD Verifiable credentials](verifiable-credentials-configure-tenant.md)
 - You need [GIT](https://git-scm.com/downloads) installed If you want to clone the repository that hosts the sample app,
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)

@@ -8,9 +8,9 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Setup the Verifiable Credential Service
+  - name: Set up the Verifiable Credentials service
     href: verifiable-credentials-configure-tenant.md
-  - name: Issue a Verifiable Credential
+  - name: Issue a verifiable credential
     href: verifiable-credentials-configure-issuer.md
   - name: Verify a Verifiable Credential
     href: verifiable-credentials-configure-verifier.md
