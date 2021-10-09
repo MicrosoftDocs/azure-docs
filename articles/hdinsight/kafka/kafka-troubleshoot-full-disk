@@ -12,7 +12,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-Few of the data disks which are used by kafka brokers is full. Kafka broker process cannot start since it fails due to disk full error. Any config change will not take into effect since broker process is not starting.
+The data disks used by Apache Kafka brokers in Azure HDInsight clusters can fill up. When that happens, the Apache Kafka broker process cannot start since it fails due to the disk full error. If you have made any recent configuration changes, those changes do not take into effect since the Kafka broker process doesn't start.
 
 ## Cause
 
