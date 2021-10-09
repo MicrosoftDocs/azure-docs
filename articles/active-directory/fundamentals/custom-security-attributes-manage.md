@@ -74,7 +74,6 @@ An administrator that has been assigned the Attribute Definition Administrator a
 
 1. The administrator adds attribute sets and defines attributes.
 1. The administrator assigns attributes to Azure AD objects.
-1. The administrator updates and maintains attributes.
 
 > [!div class="mx-tableFixed"]
 > | Advantages | Disadvantages |
@@ -90,7 +89,6 @@ An administrator may not know all the situations of how custom security attribut
 1. The administrator adds attribute sets. The administrator delegates who can read, define, or assign custom security attributes for each attribute set.
 1. The delegated Attribute Definition Administrators (Alice and Chandra) define attributes in the attribute sets they have been granted access to.
 1. The delegated Attribute Assignment Administrators (Bob and Chandra) assign attributes from their attribute sets to Azure AD objects.
-1. The delegated Attribute Definition Administrators and Attribute Assignment Administrators (Alice, Bob, and Chandra) update and maintain their attributes.
 
 > [!div class="mx-tableFixed"]
 > | Advantages | Disadvantages |
