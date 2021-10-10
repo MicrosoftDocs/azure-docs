@@ -188,7 +188,7 @@ Customers who use Azure Hybrid Benefit need to move the Cloud Update Infrastruct
 - SUSE Manager
 - SUSE Repository Mirroring Tool (RMT) 
 
-To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
+To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://aka.ms/suse-ahb). 
 
 ## Azure Hybrid Benefit on Reserved Instances 
 
