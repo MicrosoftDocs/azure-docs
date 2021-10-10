@@ -132,11 +132,11 @@ landingContent:
           - text: Try Form Recognizer (analyze invoice)
             url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 
-  - title: Extract data from identity documents
+  - title: Extract data from ID documents
     linkLists:
         - linkListType: concept
           links:
-            - text: Identity documents
+            - text: ID documents
               url: concept-identification-cards.md
         - linkListType: quickstart
           links:

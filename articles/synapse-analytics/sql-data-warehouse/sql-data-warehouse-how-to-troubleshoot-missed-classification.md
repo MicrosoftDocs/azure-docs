@@ -97,7 +97,7 @@ The first step in troubleshooting a misclassified workload problem is to identif
 SELECT * FROM sys.dm_pdw_exec_requests;
 ```
 
-For more information, see [sys.dm_pdw_exec_requests](/sql/relational-databases/system-catalog-views/sys-dm-pdw-exec-requests-transact-sql).
+For more information, see [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql).
 
 ## Common scenarios of misclassified workloads
 

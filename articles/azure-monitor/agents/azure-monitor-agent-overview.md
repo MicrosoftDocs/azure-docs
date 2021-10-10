@@ -59,7 +59,7 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
   A deprecation date will be published for the Log Analytics agents in August 2021. The current agents will be supported for several years after deprecation begins.
 
 ## Supported resource types
-Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
+Azure virtual machines, virtual machine scale sets, and Azure Arc-enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
 
 ## Supported regions
 Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.

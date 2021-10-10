@@ -10,7 +10,8 @@ ms.topic: tutorial
 ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
-ms.reviewer: 
+ms.reviewer:
+ROBOTS: NOINDEX 
 
 # Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure Active Directory.
 
