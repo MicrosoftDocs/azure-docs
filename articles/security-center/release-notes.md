@@ -42,6 +42,7 @@ Use the security recommendation "[A vulnerability assessment solution should be 
 
 To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
+Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
 ### Vulnerability assessment solutions can now be auto enabled (in preview)
 
@@ -63,6 +64,8 @@ Learn more in [Automatically configure vulnerability assessment for your machine
 The [asset inventory](asset-inventory.md) page now includes a filter to select machines running specific software - and even specify the versions of interest. 
 
 Additionally, you can query the software inventory data in **Azure Resource Graph Explorer**.
+
+To use these new features, you'll need to enable the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md). 
 
 For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
 
