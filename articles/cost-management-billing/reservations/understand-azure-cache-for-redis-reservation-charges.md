@@ -5,7 +5,7 @@ author: yegu-ms
 manager: maiye
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 09/15/2021
 ms.author: yegu
 ---
 # How the reservation discount is applied to Azure Cache for Redis

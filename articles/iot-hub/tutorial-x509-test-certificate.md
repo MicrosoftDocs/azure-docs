@@ -22,6 +22,9 @@ You can use the following C# code example to test that your certificate can auth
 * Add a device to your IoT Hub.
 * Create a device certificate with the same device ID as your your device.
 
+>[!IMPORTANT]
+>The authentication process checks that your device is associated with the correct IoT Hub name. 
+
 ## Code Example
 
 The following code example shows how to create a C# application to simulate the X.509 device registered for your IoT hub. The example sends temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send responses to the events sent by this simulated device.

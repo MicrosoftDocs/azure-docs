@@ -51,7 +51,7 @@ For more information about incident integration and advanced hunting event colle
 
 1. In Azure Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
 
-1. Under **Configuration** in the **Connect incidents & alerts** section, click the **Connect incidents & alerts** button.
+1. Under **Configuration** in the **Connect incidents & alerts** section, select the **Connect incidents & alerts** button.
 
 1. To avoid duplication of incidents, it is recommended to mark the check box labeled **Turn off all Microsoft incident creation rules for these products.**
 

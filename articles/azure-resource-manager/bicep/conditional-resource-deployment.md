@@ -15,6 +15,10 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
+### Microsoft Learn
+
+To learn more about conditions, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+
 ## Deploy condition
 
 You can pass in a parameter value that indicates whether a resource is deployed. The following example conditionally deploys a DNS zone.

@@ -2,7 +2,8 @@
 metadata:
   title: Azure Live Video Analytics on IoT Edge FAQ  
   description: This article answers commonly asked questions about Azure Live Video Analytics on IoT Edge.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: media-services
   ms.date: 12/01/2020
     
 title: Azure Live Video Analytics on IoT Edge FAQ

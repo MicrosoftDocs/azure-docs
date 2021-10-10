@@ -20,15 +20,26 @@
           href: get-started-cli.md
 - name: Concepts
   items:
-    - name: API support with Azure Functions
-      href: apis.md
+    - name: APIs
+      items:
+        - name: API support with Azure Functions
+          href: apis.md
+        - name: Add an API
+          href: add-api.md
+        - name: Bring your own functions
+          href: functions-bring-your-own.md
     - name: Configuration
       items:
+        - name: Configuration overview
+          href: configuration-overview.md
         - name: Application configuration
           href: configuration.md
           displayName: routing, routes
-        - name: Build and workflow configuration
-          href: github-actions-workflow.md
+        - name: Build configuration
+          href: build-configuration.md
+        - name: App settings
+          href: application-settings.md
+          displayName: environment variables
     - name: Security
       items:
         - name: Authentication and authorization
@@ -43,14 +54,22 @@
       href: custom-domain.md
 - name: How-to guides
   items:
+    - name: APIs
+      items:
+        - name: Add an API
+          href: add-api.md
+        - name: Bring your own functions
+          href: functions-bring-your-own.md
+    - name: Security
+      items:
+        - name: Set up a private endpoint
+          href: private-endpoint.md
+        - name: Secure authentication secrets
+          href: key-vault-secrets.md
     - name: Set up local development
       href: local-development.md
-    - name: Add an API
-      href: add-api.md
     - name: Configure app settings
       href: application-settings.md
-    - name: Publish with Azure DevOps
-      href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
     - name: Enable monitoring
@@ -61,12 +80,6 @@
     - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
-    - name: Bring your own functions
-      href: functions-bring-your-own.md
-    - name: Secure authentication secrets
-      href: key-vault-secrets.md
-    - name: Set up a private endpoint
-      href: private-endpoint.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -93,6 +106,10 @@
       href: publish-devops.md
     - name: Publish with an ARM template
       href: publish-azure-resource-manager.md
+    - name: Add Azure Front Door
+      href: front-door-manual.md
+    - name: Set user roles programmatically
+      href: assign-roles-microsoft-graph.md
 - name: Reference
   items:
     - name: Azure CLI

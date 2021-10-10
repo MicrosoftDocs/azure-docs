@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 10/05/2021
 ms.author: kgremban
 ---
 
@@ -211,36 +211,21 @@ After entering the provisioning information in the configuration file, restart t
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   sudo iotedge config mp --connection-string 'PASTE_CONNECTION_STRING_HERE'
    ```
 
-On the IoT Edge device, open the configuration file.
+The `iotedge config mp` command creates a configuration file on the device, provides your connection string, and applies the configuration changes.
+
+If you want to see the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
 
-Find the **Provisioning** section of the file and uncomment the manual provisioning with connection string lines.
-
-   ```toml
-   # Manual provisioning with connection string
-   [provisioning]
-   source = "manual"
-   connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
-   ```
-
-Update the value of **connection_string** with the connection string from your IoT Edge device.
-
-To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
-
-Save and close the file.
-
-   `CTRL + X`, `Y`, `Enter`
-
-After entering the provisioning information in the configuration file, apply your changes:
+If you make any changes to the configuration file, use the `iotedge config apply` command apply your changes:
 
    ```bash
    sudo iotedge config apply
@@ -413,6 +398,8 @@ View all the modules running on your IoT Edge device. When the service starts fo
    ```bash
    sudo iotedge list
    ```
+
+When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Offline or specific version installation (optional)
 

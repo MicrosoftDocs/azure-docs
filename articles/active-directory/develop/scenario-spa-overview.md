@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Scenario: Single-page application
 
-Learn all you need to build a single-page application (SPA).
+Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](../../static-web-apps/authentication-authorization.md) instead.
 
 ## Getting started
 
@@ -32,7 +32,7 @@ Many modern web applications are built as client-side single-page applications. 
 
 The Microsoft identity platform provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
-- [OAuth 2.0 Authorization code flow (with PKCE)](./v2-oauth2-auth-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. This is the **recommended** approach.
+- [OAuth 2.0 Authorization code flow (with PKCE)](./v2-oauth2-auth-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. PKCE is Proof Key for Code Exchange and is designed to prevent several attacks and to be able to securely perform the OAuth exchange from public clients. PKCE is an IETF standard documented in RFC 7636. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. This is the **recommended** approach.
 
 ![Single-page applications-auth](./media/scenarios/spa-app-auth.svg)
 

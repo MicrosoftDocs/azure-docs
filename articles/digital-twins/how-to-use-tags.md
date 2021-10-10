@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to implement tags on digital twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/22/2020
+ms.date: 8/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 

@@ -3,13 +3,13 @@ title: "Create a Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training."
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 # Create and use your voice model
@@ -86,7 +86,7 @@ On the **Data details**, you can check the data details of the training set. If 
 
 The issues are divided into three types. Referring to the following three tables to check the respective types of errors.
 
-The first type of errors listed in the table below must be fixed manually, otherwise the data with these errors will be excluded during training.
+Manually fix the first type of errors listed in the table below, otherwise the data with these errors will be excluded during training.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -136,26 +136,43 @@ If the third type of errors listed in the table below aren't fixed, although the
 
 After your data files have been validated, you can use them to build your custom neural voice model.
 
-1. On the **Train model** tab, select **Train model** to create a voice model with the data you have uploaded.
+1. On the **Train model** tab, select **Train model** to create a voice model with the data you've uploaded.
 
 2. Select the neural training method for your model and target language.
 
 By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for customization](language-support.md#customization).
+
+Training of custom neural voices isn't free. Check the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details. However, if you have statistical parametric or concatenative voice models deployed before 3/31/2021 with S0 Speech resources, free neural training credits are offered to your Azure subscription, and you can train 5 different versions of neural voices for free.
 
 3. Next, choose the data you want to use for training, and specify a speaker file.
 
 >[!NOTE]
 >- You need to select at least 300 utterances to create a custom neural voice.
 >- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
->- On this page you can also select to upload your script for testing. The testing script must be a txt file, less than 1 Mb. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph.
 
-4. Then, enter a **Name** and **Description** to help you identify this model.
+4. Then, choose your test script.
+
+Each training will generate 100 sample audio files automatically to help you test the model with a default script. You can also provide your own test script as optional. The test script must exclude the filenames (the ID of each utterance), otherwise, these IDs will be spoken. Below is an example of how the utterances are organized in one .txt file:
+
+```
+This is the waistline, and it's falling.
+We have trouble scoring.
+It was Janet Maslin.
+```
+
+Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph.
+
+>[!NOTE]
+>- The test script must be a txt file, less than 1 MB. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE.  
+>- The generated audios are a combination of the uploaded test script and the default test script.
+
+5. Enter a **Name** and **Description** to help you identify this model.
 
 Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as -, _, and (', ') are allowed. Use different names for different neural voice models.
 
 A common use of the **Description** field is to record the names of the data that were used to create the model.
 
-5. Review the settings, then select **Submit** to start training the model.
+6. Review the settings, then select **Submit** to start training the model.
 
 > [!NOTE]
 > Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
@@ -168,22 +185,22 @@ The status that's shown reflects the process of converting your data to a voice 
 | ----- | ------- |
 | Processing | Your voice model is being created. |
 | Succeeded	| Your voice model has been created and can be deployed. |
-| Failed | Your voice model has been failed in training due to many reasons, for example, unseen data problems or network issues. |
+| Failed | Your voice model has been failed in training because of many reasons, for example, unseen data problems or network issues. |
 
 Training duration varies depending on how much data you're training. It takes about 40 compute hours on average to train a custom neural voice. 
 
 > [!NOTE]
-> Training of custom neural voices isn't free. Check the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) here. Standard subscription (S0) users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, and then try again. 
+> Standard subscription (S0) users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again. 
 
-6. After you finish training the model successfully, you can review the model details.
+7. After you finish training the model successfully, you can review the model details.
 
-Each training will generate 100 sample audio files automatically to help you test the model. After your voice model is successfully built, you can test it before deploying it for use.
+After your voice model is successfully built, you can use the generated sample audio files to test it before deploying it for use.
 
 The quality of the voice depends on many factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## Create and use a custom neural voice endpoint
 
-After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the font.
+After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the model.
 
 You can do the following to create a custom neural voice endpoint.
 

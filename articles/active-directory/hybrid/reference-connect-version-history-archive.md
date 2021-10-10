@@ -12,6 +12,7 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Azure AD Connect: Version release history archive
 
@@ -41,7 +42,7 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 - Upgrade to ADAL 3.19.8 to pick up a WS-Trust fix for Ping and add support for new Azure instances 
 - Modify Group Sync Rules to flow samAccountName, DomainNetbios and DomainFQDN to cloud - needed for claims 
 - Modified Default Sync Rule Handling – read more [here](how-to-connect-fix-default-rules.md).
-- Added a new agent running as a windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. This agent is not installed and enabled by default.  For more information on how to install and enable the agent see [What is the Azure AD Connect Admin Agent?](whatis-aadc-admin-agent.md). 
+- Added a new agent running as a Windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. This agent is not installed and enabled by default.  For more information on how to install and enable the agent see [What is the Azure AD Connect Admin Agent?](whatis-aadc-admin-agent.md). 
 - Updated the End User License Agreement (EULA) 
 - Added auto upgrade support for deployments that use AD FS as their login type.  This also removed the requirement of updating the AD FS Azure AD Relying Party Trust as part of the upgrade process. 
 - Added an Azure AD trust management task that provides two options: analyze/update trust and reset trust. 
@@ -1063,7 +1064,7 @@ Released: November 2015
 **New preview features:**
 
 * [Azure AD Connect Health for sync](how-to-connect-health-sync.md).
-* Support for [Azure AD Domain Services](../user-help/active-directory-passwords-update-your-own-password.md) password synchronization.
+* Support for [Azure AD Domain Services](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e) password synchronization.
 
 **New supported scenario:**
 

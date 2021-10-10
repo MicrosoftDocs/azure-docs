@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 10/07/2021
 ---
 
 # Resource declaration in Bicep
@@ -23,7 +23,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
+You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`.  The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file. Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
 
 Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
@@ -99,6 +99,40 @@ az provider show \
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
 
+## Set managed identities for Azure resources
+
+Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
+
+You can use either system-assigned or user-assigned identities.
+
+The following example shows how to configure a system-assigned identity for an Azure Kubernetes Service cluster.
+
+```bicep
+resource aks 'Microsoft.ContainerService/managedClusters@2020-09-01' = {
+  name: clusterName
+  location: location
+  tags: tags
+  identity: {
+    type: 'SystemAssigned'
+  }
+```
+
+The next example shows how to configure a user-assigned identity for a virtual machine.
+
+```bicep
+param userAssignedIdentity string
+
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentity}': {}
+    }
+  }
+```
+
 ## Set resource-specific properties
 
 The preceding properties are generic to most resource types. After setting those values, you need to set the properties that are specific to the resource type you're deploying.
@@ -165,7 +199,7 @@ For more information about nested resources, see [Set name and type for child re
 
 ### Explicit dependency
 
-An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency. 
+An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency.
 
 The following example shows a DNS zone named `otherZone` that depends on a DNS zone named `dnsZone`:
 

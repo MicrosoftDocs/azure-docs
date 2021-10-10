@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment runs with the Azure Machine Learning Python SDK. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
@@ -20,6 +20,7 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 This article shows how to do the following tasks:
 
 * Monitor run performance.
+* Add run display name. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -179,6 +180,17 @@ You'll need the following items:
     
     ---    
    
+## Run Display Name 
+The run display name is an optional and customizable name that you can provide for your run. To edit the run display name:
+
+1. Navigate to the runs list. 
+
+2. Select the run to edit the display name in the run details page.
+
+3. Select the **Edit** button to edit the run display name. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+
 ## Custom View 
     
 To view your runs in the studio: 
