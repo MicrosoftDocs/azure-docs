@@ -67,7 +67,7 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 To upload your data, navigate to [Speech Studio](https://aka.ms/speechstudio/customspeech). After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. Select a speech data type for your dataset, and upload your data.
 
 > [!NOTE]
-> If your dataset file size exceeds 128 MB, you can only upload it using *Azure Blob or shared location* option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [this section](#upload-data-using-speech-to-text-rest-api-v30) for the details.
+> If your dataset file size exceeds 128 MB, you can only upload it using *Azure Blob or shared location* option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-using-speech-to-text-rest-api-v30) for details.
 
 First, you need to specify whether the dataset is to be used for **Training** or **Testing**. There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset you upload must be correctly formatted before uploading, and must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
 
