@@ -123,5 +123,5 @@ sections:
     
       - question: |
             Can I change the hosting plan after I create my app?
-          answer: |
+        answer: |
             You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
