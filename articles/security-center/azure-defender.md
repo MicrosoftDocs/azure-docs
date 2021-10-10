@@ -12,7 +12,7 @@ manager: rkarlin
 
 # Introduction to Azure Defender
 
-Azure Security Center's features cover the two broad pillars of cloud security:
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security:
 
 - **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.
 
@@ -26,7 +26,7 @@ The Azure Defender dashboard in Security Center provides visibility and control 
 
 Azure Defender provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more.
 
-When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
+When you enable Azure Defender from the **Pricing and settings** area of Microsoft Defender for Cloud, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
 - [Azure Defender for servers](defender-for-servers-introduction.md)
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
@@ -56,7 +56,7 @@ You'll get customized threat intelligence and prioritized alerts according to yo
 To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Azure Arc-enabled servers, for example Azure Defender, will be charged as per the pricing for that service. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
-> The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+> The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
 
 
 

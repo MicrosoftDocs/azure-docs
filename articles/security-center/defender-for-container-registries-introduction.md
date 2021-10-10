@@ -44,7 +44,7 @@ By only notifying when there are problems, Security Center reduces the potential
 > [!TIP]
 > To learn more about Security Center's container security features, see:
 >
-> - [Azure Security Center and container security](container-security.md)
+> - [Microsoft Defender for Cloud and container security](container-security.md)
 > - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## When are images scanned?
@@ -59,14 +59,14 @@ There are three triggers for an image scan:
  
 The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as Security Center recommendations such as this one:
 
-[![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## How does Security Center work with Azure Container Registry
 
 Below is a high-level diagram of the components and benefits of protecting your registries with Security Center.
 
-![Azure Security Center and Azure Container Registry (ACR) high-level overview.](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Microsoft Defender for Cloud and Azure Container Registry (ACR) high-level overview.](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
 

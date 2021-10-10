@@ -40,22 +40,22 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 - **Just-in-time (JIT) virtual machine (VM) access** - Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
-    When you enable Azure Defender for servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. For more information, see [Understanding JIT VM access](just-in-time-explained.md).
+    When you enable Azure Defender for servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. For more information, see [Understanding JIT VM access](just-in-time-access-overview.md).
 
 - **File integrity monitoring (FIM)** - File integrity monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can use this comparison to determine if valid or suspicious modifications have been made to your files.
 
-    When you enable Azure Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
+    When you enable Azure Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
 
 - **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines.
 
-    When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. For more information, see [Use adaptive application controls to reduce your machines' attack surfaces](security-center-adaptive-application.md).
+    When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. For more information, see [Use adaptive application controls to reduce your machines' attack surfaces](adaptive-application-controls.md).
 
 - **Adaptive network hardening (ANH)** - Applying network security groups (NSG) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
     Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples. For more information, see [Improve your network security posture with adaptive network hardening](security-center-adaptive-network-hardening.md).
 
 
-- **Docker host hardening** -  Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. For more information, see [Harden your Docker hosts](harden-docker-hosts.md).
+- **Docker host hardening** -  Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. For more information, see [Harden your Docker hosts](harden-docker-hosts.md).
 
 - **Fileless attack detection** - Fileless attacks inject malicious payloads into memory to avoid detection by disk-based scanning techniques. The attacker’s payload then persists within the memory of compromised processes and performs a wide range of malicious activities.
 
@@ -82,9 +82,9 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 You can simulate alerts by downloading one of the following playbooks:
 
-- For Windows: [Azure Security Center Playbook: Security Alerts](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
+- For Windows: [Microsoft Defender for Cloud Playbook: Security Alerts](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- For Linux: [Azure Security Center Playbook: Linux Detections](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
+- For Linux: [Microsoft Defender for Cloud Playbook: Linux Detections](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Connect your non-Azure machines to Azure Security Center
+title: Connect your non-Azure machines to Microsoft Defender for Cloud
 description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
@@ -24,7 +24,7 @@ Each of these is described on this page.
 
 ## Add non-Azure machines with Azure Arc
 
-The preferred way of adding your non-Azure machines to Azure Security Center is with [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
+The preferred way of adding your non-Azure machines to Microsoft Defender for Cloud is with [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 A machine with Azure Arc-enabled servers becomes an Azure resource and - when you've installed the Log Analytics agent on it - appears in Security Center with recommendations like your other Azure resources.
 
@@ -44,7 +44,7 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 - To connect multiple machines at scale to Azure Arc-enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> If you're onboarding machines running on Amazon Web Services (AWS), Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+> If you're onboarding machines running on Amazon Web Services (AWS), Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
 
 ::: zone-end
 
@@ -138,6 +138,6 @@ Congratulations! Now you can see your Azure and non-Azure machines together in o
 
 ## Next steps
 
-This page showed you how to add your non-Azure machines to Azure Security Center. To monitor their status, use the inventory tools as explained in the following page:
+This page showed you how to add your non-Azure machines to Microsoft Defender for Cloud. To monitor their status, use the inventory tools as explained in the following page:
 
 - [Explore and manage your resources with asset inventory](asset-inventory.md)

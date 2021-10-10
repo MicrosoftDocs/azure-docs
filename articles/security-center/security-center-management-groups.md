@@ -1,6 +1,6 @@
 ---
-title: Organize subscriptions into management groups and assign roles to users for Azure Security Center
-description: Learn how to organize your Azure subscriptions into management groups in Azure Security Center and assign roles to users in your organization
+title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
+description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
 services: security-center
 author: memildin
 manager: rkarlin
@@ -139,4 +139,4 @@ Once the Azure roles have been assigned to the users, the tenant administrator s
 
 On this page, you learned how to organize subscriptions into management groups and assign roles to users. For related information, see:
 
-- [Permissions in Azure Security Center](security-center-permissions.md)
+- [Permissions in Microsoft Defender for Cloud](security-center-permissions.md)

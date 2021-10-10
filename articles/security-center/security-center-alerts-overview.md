@@ -1,6 +1,6 @@
 ---
-title: Security alerts and incidents in Azure Security Center
-description: Learn how Azure Security Center generates security alerts and correlates them into incidents.
+title: Security alerts and incidents in Microsoft Defender for Cloud
+description: Learn how Microsoft Defender for Cloud generates security alerts and correlates them into incidents.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
 ---
-# Security alerts and incidents in Azure Security Center
+# Security alerts and incidents in Microsoft Defender for Cloud
 
 Security Center generates alerts for resources deployed on your Azure, on-premises, and hybrid cloud environments.
 
@@ -35,7 +35,7 @@ In addition, attackers have evolved their methods to subvert many signature-base
 
 ## Continuous monitoring and assessments
 
-Azure Security Center benefits from having security research and data science teams throughout Microsoft who continuously monitor for changes in the threat landscape. This includes the following initiatives:
+Microsoft Defender for Cloud benefits from having security research and data science teams throughout Microsoft who continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
 * **Threat intelligence monitoring**: Threat intelligence includes mechanisms, indicators, implications, and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 * **Signal sharing**: Insights from security teams across Microsoft's broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
@@ -54,11 +54,11 @@ To detect real threats and reduce false positives, Security Center collects, ana
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include:
 
-- **Integrated threat intelligence**: Microsoft has an immense amount of global threat intelligence. Telemetry flows in from multiple sources, such as Azure, Microsoft 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, the Microsoft Digital Crimes Unit (DCU), and Microsoft Security Response Center (MSRC). Researchers also receive threat intelligence information that is shared among major cloud service providers and feeds from other third parties. Azure Security Center can use this information to alert you to threats from known bad actors.
+- **Integrated threat intelligence**: Microsoft has an immense amount of global threat intelligence. Telemetry flows in from multiple sources, such as Azure, Microsoft 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, the Microsoft Digital Crimes Unit (DCU), and Microsoft Security Response Center (MSRC). Researchers also receive threat intelligence information that is shared among major cloud service providers and feeds from other third parties. Microsoft Defender for Cloud can use this information to alert you to threats from known bad actors.
 
-- **Behavioral analytics**: Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets. They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, and other sources.
+- **Behavioral analytics**: Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets. They are also determined through careful analysis of malicious behaviors by expert analysts. Microsoft Defender for Cloud can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, and other sources.
 
-- **Anomaly detection**: Azure Security Center also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more "personalized" and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments and then rules are generated to define outlier conditions that could represent a security event.
+- **Anomaly detection**: Microsoft Defender for Cloud also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more "personalized" and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments and then rules are generated to define outlier conditions that could represent a security event.
 
 ## How are alerts classified?
 
@@ -82,13 +82,13 @@ You have a range of options for viewing your alerts outside of Security Center, 
 
 - **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
 - **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md).
-- **Azure Sentinel connector** streams security alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Azure Sentinel](../sentinel/connect-azure-security-center.md).
+- **Azure Sentinel connector** streams security alerts from Microsoft Defender for Cloud into Azure Sentinel. [Learn more about connecting Microsoft Defender for Cloud with Azure Sentinel](../sentinel/connect-azure-security-center.md).
 
 Learn about all of the export options in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md) and [Continuously export Security Center data](continuous-export.md).
 
-## Cloud smart alert correlation in Azure Security Center (incidents)
+## Cloud smart alert correlation in Microsoft Defender for Cloud (incidents)
 
-Azure Security Center continuously analyzes hybrid cloud workloads by using advanced analytics and threat intelligence to alert you about malicious activity.
+Microsoft Defender for Cloud continuously analyzes hybrid cloud workloads by using advanced analytics and threat intelligence to alert you about malicious activity.
 
 The breadth of threat coverage is growing. The need to detect even the slightest compromise is important, and it can be challenging for security analysts to triage the different alerts and identify an actual attack. Security Center helps analysts cope with this alert fatigue. It helps diagnose attacks as they occur, by correlating different alerts and low fidelity signals into security incidents.
 
@@ -107,7 +107,7 @@ During an investigation of an incident, analysts often need extra context to rea
 
 :::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report.":::
 
-To manage your security incidents, see [How to manage security incidents in Azure Security Center](security-center-incident.md).
+To manage your security incidents, see [How to manage security incidents in Microsoft Defender for Cloud](security-center-incident.md).
 
 ## Next steps
 

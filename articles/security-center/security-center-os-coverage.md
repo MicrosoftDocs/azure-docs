@@ -1,6 +1,6 @@
 ---
-title: Platforms supported by Azure Security Center | Microsoft Docs
-description: This document provides a list of platforms supported by Azure Security Center.
+title: Platforms supported by Microsoft Defender for Cloud | Microsoft Docs
+description: This document provides a list of platforms supported by Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,18 +10,18 @@ ms.author: memildin
 ---
 # Supported platforms 
 
-This page shows the platforms and environments supported by Azure Security Center.
+This page shows the platforms and environments supported by Microsoft Defender for Cloud.
 
 ## Combinations of environments <a name="vm-server"></a>
 
-Azure Security Center supports virtual machines and servers on different types of hybrid environments:
+Microsoft Defender for Cloud supports virtual machines and servers on different types of hybrid environments:
 
 * Only Azure
 * Azure and on-premises
 * Azure and other clouds
 * Azure, other clouds, and on-premises
 
-For an Azure environment activated on an Azure subscription, Azure Security Center will automatically discover IaaS resources that are deployed within the subscription.
+For an Azure environment activated on an Azure subscription, Microsoft Defender for Cloud will automatically discover IaaS resources that are deployed within the subscription.
 
 ## Supported operating systems
 
@@ -51,4 +51,4 @@ Protection for VMs residing in Azure Stack Hub is also supported. For more infor
 
 - Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
-- Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
+- Learn how to [plan and understand the design considerations to adopt Microsoft Defender for Cloud](security-center-planning-and-operations-guide.md).

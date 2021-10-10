@@ -1,6 +1,6 @@
 ---
-title: Harden your Windows and Linux OS with Azure security baseline and Azure Security Center
-description: Learn how Azure Security Center uses the guest configuration to compare your OS hardening with the guidance from Azure Security Benchmark
+title: Harden your Windows and Linux OS with Azure security baseline and Microsoft Defender for Cloud
+description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Azure Security Benchmark
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -32,7 +32,7 @@ Use the security recommendations described in this article to assess the machine
 
 ## What are the hardening recommendations?
 
-Azure Security Center includes two recommendations that check whether the configuration of Windows and Linux machines in your environment meet the Azure security baseline configurations:
+Microsoft Defender for Cloud includes two recommendations that check whether the configuration of Windows and Linux machines in your environment meet the Azure security baseline configurations:
 
 - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) compares the configuration with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md).
 - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) compares the configuration with the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
@@ -43,7 +43,7 @@ These recommendations use the guest configuration feature of Azure Policy to com
 
 To compare machines with the OS security baselines:
  
-1. From Security Center's portal pages, open the **Recommendations** page. 
+1. From Defender for Cloud's portal pages, open the **Recommendations** page. 
 1. Select the relevant recommendation:
     - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
     - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
@@ -93,7 +93,7 @@ The list of resources in the **Not applicable** tab includes a **Reason** column
 |                                                                   |                                                                                                                                                                                |
 
 ## Next steps
-In this document, you learned how to use Security Center's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
+In this document, you learned how to use Defender for Cloud's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
 
 To learn more about these configuration settings, see:
 

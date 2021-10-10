@@ -1,6 +1,6 @@
 ---
-title: File Integrity Monitoring in Azure Security Center
-description: Learn how to compare baselines with File Integrity Monitoring in Azure Security Center.
+title: File Integrity Monitoring in Microsoft Defender for Cloud
+description: Learn how to compare baselines with File Integrity Monitoring in Microsoft Defender for Cloud.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -19,7 +19,7 @@ ms.author: memildin
 
 File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
 
-This topic explains how to enable FIM on the files and registries. For more information about FIM, see [File Integrity Monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
+This topic explains how to enable FIM on the files and registries. For more information about FIM, see [File Integrity Monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
 
 ## Why use FIM?
 

@@ -1,6 +1,6 @@
 ---
-title: Additional threat protections from Azure Security Center
-description: Learn about the threat protection available from Azure Security Center beyond Azure Defender
+title: Additional threat protections from Microsoft Defender for Cloud
+description: Learn about the threat protection available from Microsoft Defender for Cloud beyond Azure Defender
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,8 +9,8 @@ ms.date: 09/05/2021
 ms.author: memildin
 ---
 
-# Additional threat protections in Azure Security Center
-As well as the built-in [Azure Defender protections](azure-defender.md), Azure Security Center also offers the following threat protection capabilities.
+# Additional threat protections in Microsoft Defender for Cloud
+As well as the built-in [Azure Defender protections](azure-defender.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.
@@ -68,7 +68,7 @@ For a list of the Azure DDoS Protection alerts, see the [Reference table of aler
 ## Next steps
 To learn more about the security alerts from these threat protection features, see the following articles:
 
-* [Reference table for all Azure Security Center alerts](alerts-reference.md)
-* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Reference table for all Microsoft Defender for Cloud alerts](alerts-reference.md)
+* [Security alerts in Microsoft Defender for Cloud](security-center-alerts-overview.md)
+* [Manage and respond to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md)
 * [Continuously export Security Center data](continuous-export.md)

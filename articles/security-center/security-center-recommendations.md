@@ -1,6 +1,6 @@
 ---
-title: Security recommendations in Azure Security Center
-description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
+title: Security recommendations in Microsoft Defender for Cloud
+description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,7 +11,7 @@ ms.author: memildin
 ---
 # Review your security recommendations
 
-This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
+This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your Azure resources.
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 
@@ -23,7 +23,7 @@ Security Center analyzes the security state of your resources to identify potent
 
 1. To find recommendations specific to the resource type, severity, environment, or other criteria that are important to you, use the optional filters above the list of recommendations.
 
-    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations.":::
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Microsoft Defender for Cloud recommendations.":::
 
 1. Expand a control and select a specific recommendation to view the recommendation details page.
 

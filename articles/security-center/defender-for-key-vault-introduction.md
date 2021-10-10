@@ -41,7 +41,7 @@ The alerts appear in Key Vault's **Security** page, the Azure Defender dashboard
 
 
 > [!TIP]
-> You can simulate Azure Defender for Key Vault alerts by following the instructions in [Validating Azure Key Vault threat detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+> You can simulate Azure Defender for Key Vault alerts by following the instructions in [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
 
 
 ## Next steps
@@ -50,6 +50,6 @@ In this article, you learned about Azure Defender for Key Vault.
 
 For related material, see the following articles: 
 
-- [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts
+- [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Microsoft Defender for Cloud alerts
 - [Continuously export Security Center data](continuous-export.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)

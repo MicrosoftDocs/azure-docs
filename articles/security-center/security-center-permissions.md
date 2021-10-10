@@ -1,6 +1,6 @@
 ---
-title: Permissions in Azure Security Center | Microsoft Docs
-description: This article explains how Azure Security Center uses role-based access control to assign permissions to users and identify the permitted actions for each role.
+title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
+description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,7 +10,7 @@ ms.author: memildin
 
 ---
 
-# Permissions in Azure Security Center
+# Permissions in Microsoft Defender for Cloud
 
 Security Center uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 

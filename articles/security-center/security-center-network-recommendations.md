@@ -1,6 +1,6 @@
 ---
-title: Protecting your network resources in Azure Security Center
-description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
+title: Protecting your network resources in Microsoft Defender for Cloud
+description: This document addresses recommendations in Microsoft Defender for Cloud that help you protect your Azure network resources and stay in compliance with security policies.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,11 +10,11 @@ ms.author: memildin
 
 ---
 # Protect your network resources
-Azure Security Center continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
+Microsoft Defender for Cloud continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#recs-networking).
 
-This article addresses recommendations that apply to your Azure resources from a network security perspective. Networking recommendations center around next generation firewalls, Network Security Groups, JIT VM access, overly permissive inbound traffic rules, and more. For a list of networking recommendations and remediation actions, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
+This article addresses recommendations that apply to your Azure resources from a network security perspective. Networking recommendations center around next generation firewalls, Network Security Groups, JIT VM access, overly permissive inbound traffic rules, and more. For a list of networking recommendations and remediation actions, see [Managing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md).
 
 The **Networking** features of Security Center include: 
 
@@ -64,7 +64,7 @@ In the **Topology** view of the networking map, you can view the following insig
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Security Center.
 - You can click any of the resources to drill down into them and view the details of that resource and its recommendations directly, and in the context of the Network map.  
-- If there are too many resources being displayed on the map, Azure Security Center uses its proprietary algorithm to smart cluster your resources, highlighting the resources that are in the most critical state, and have the most high severity recommendations. 
+- If there are too many resources being displayed on the map, Microsoft Defender for Cloud uses its proprietary algorithm to 'smart cluster' your resources, highlighting the ones that are in the most critical state, and have the most high severity recommendations.
 
 Because the map is interactive and dynamic, every node is clickable, and the view can change based on the filters:
 
@@ -109,4 +109,4 @@ To drill down into a resource:
 
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-- [Protecting your machines and applications in Azure Security Center](./asset-inventory.md)
+- [Protecting your machines and applications in Microsoft Defender for Cloud](./asset-inventory.md)

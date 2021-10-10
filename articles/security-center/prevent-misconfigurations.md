@@ -1,5 +1,5 @@
 ---
-title: How to prevent misconfigurations with Azure Security Center
+title: How to prevent misconfigurations with Microsoft Defender for Cloud
 description: Learn how to use Security Center's 'Enforce' and 'Deny' options on the recommendations details pages
 author: memildin
 manager: rkarlin

@@ -1,5 +1,5 @@
 ---
-title: Adaptive network hardening in Azure Security Center | Microsoft Docs
+title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
 author: memildin
 manager: rkarlin
@@ -11,7 +11,7 @@ ms.author: memildin
 
 # Improve your network security posture with adaptive network hardening
 
-Adaptive network hardening is an agentless feature of Azure Security Center - nothing needs to be installed on your machines to benefit from this network hardening tool.
+Adaptive network hardening is an agentless feature of Microsoft Defender for Cloud - nothing needs to be installed on your machines to benefit from this network hardening tool.
 
 This page explains how to configure and manage adaptive network hardening in Security Center.
 
@@ -149,7 +149,7 @@ Adaptive network hardening recommendations are only supported on the following s
 
 ### Are there any prerequisites or VM extensions required for adaptive network hardening?
 
-Adaptive network hardening is an agentless feature of Azure Security Center - nothing needs to be installed on your machines to benefit from this network hardening tool.
+Adaptive network hardening is an agentless feature of Microsoft Defender for Cloud - nothing needs to be installed on your machines to benefit from this network hardening tool.
 
 ### When should I use a "Deny all traffic" rule?
 

@@ -1,6 +1,6 @@
 ---
 title: Working with security policies | Microsoft Docs
-description: This article describes how to work with security policies in Azure Security Center.
+description: Learn how to work with security policies in Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,24 +11,24 @@ ms.author: memildin
 
 # Manage security policies
 
-This article explains how security policies are configured, and how to view them in Security Center. 
+This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
 To understand the relationships between initiatives, policies, and recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 
 ## Who can edit security policies?
 
-Security Center uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
+Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defender for Cloud roles:
 
-- **Security reader**: Has rights to view Security Center items such as recommendations, alerts, policy, and health. Can't make changes.
+- **Security reader**: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
 
 ## Manage your security policies
 
-To view your security policies in Security Center:
+To view your security policies in Defender for Cloud:
 
-1. In the **Security Center** dashboard, select **Security policy**.
+1. From the **Defender for Cloud** menu, select **Security policy**.
 
     :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page.":::
 
@@ -38,7 +38,7 @@ To view your security policies in Security Center:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Security Center's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
@@ -69,13 +69,13 @@ To view your security policies in Security Center:
 
 When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
 
-The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Security Center's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
+The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Defender for Cloud's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
 
 For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
-1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
+1. From Defender for Cloud's menu, select **Security policy**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Microsoft Defender for Cloud.":::
 
 1. Select the subscription or management group for which you want to disable the recommendation (and policy).
 
@@ -102,9 +102,9 @@ Some policies in your initiatives might be disabled by default. For example, in 
 
 To enable a disabled policy and ensure it's assessed for your resources:
 
-1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
+1. From Defender for Cloud's menu, select **Security policy**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Microsoft Defender for Cloud.":::
 
 1. Select the subscription or management group for which you want to enable the recommendation (and policy).
 
@@ -126,4 +126,4 @@ This page explained security policies. For related information, see the followin
 - [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md)
 - [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Learn how to set a policy across subscriptions or on Management groups using Azure Policy](../governance/policy/overview.md)
-- [Learn how to enable Security Center on all subscriptions in a management group](onboard-management-group.md)
+- [Learn how to enable Defender for Cloud on all subscriptions in a management group](onboard-management-group.md)

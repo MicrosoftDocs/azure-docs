@@ -1,6 +1,6 @@
 ---
-title: Create custom security policies in Azure Security Center | Microsoft Docs
-description: Azure custom policy definitions monitored by Azure Security Center.
+title: Create custom security policies in Microsoft Defender for Cloud | Microsoft Docs
+description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,7 +12,7 @@ zone_pivot_groups: manage-asc-initiatives
 
 # Create custom security initiatives and policies
 
-To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
+To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
 
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
@@ -55,7 +55,7 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
     1. Click **Add** and assign it to your subscription.
 
     > [!NOTE]
-    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Azure Security Center](security-center-permissions.md).
+    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](security-center-permissions.md).
 
     Your new initiative takes effect and you can see the impact in the following two ways:
 
@@ -73,7 +73,7 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
 ## Configure a security policy in Azure Policy using the REST API
 
-As part of the native integration with Azure Policy, Azure Security Center enables you to take advantage Azure Policy’s REST API to create policy assignments. The following instructions walk you through creation of policy assignments, as well as customization of existing assignments. 
+As part of the native integration with Azure Policy, Microsoft Defender for Cloud enables you to take advantage Azure Policy’s REST API to create policy assignments. The following instructions walk you through creation of policy assignments, as well as customization of existing assignments. 
 
 Important concepts in Azure Policy: 
 
@@ -107,7 +107,7 @@ This example shows you how to assign the built-in Security Center initiative on 
 
       "properties":{ 
 
-    "displayName":"Enable Monitoring in Azure Security Center", 
+    "displayName":"Enable Monitoring in Microsoft Defender for Cloud", 
 
     "metadata":{ 
 
@@ -141,7 +141,7 @@ This example shows you how to assign the built-in Security Center initiative on 
     
       "properties":{ 
     
-    "displayName":"Enable Monitoring in Azure Security Center", 
+    "displayName":"Enable Monitoring in Microsoft Defender for Cloud", 
     
     "metadata":{ 
     
@@ -176,7 +176,7 @@ This example shows you how to remove an assignment:
 
 ## Enhance your custom recommendations with detailed information
 
-The built-in recommendations supplied with Azure Security Center include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure portal or wherever you access your recommendations, you'll need to use the REST API. 
+The built-in recommendations supplied with Microsoft Defender for Cloud include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure portal or wherever you access your recommendations, you'll need to use the REST API. 
 
 The two types of information you can add are:
 

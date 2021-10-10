@@ -1,6 +1,6 @@
 ---
-title: Alert validation in Azure Security Center | Microsoft Docs
-description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
+title: Alert validation in Microsoft Defender for Cloud | Microsoft Docs
+description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,8 +9,8 @@ ms.date:  03/17/2021
 ms.author: memildin
 
 ---
-# Alert validation in Azure Security Center
-This document helps you learn how to verify if your system is properly configured for Azure Security Center alerts.
+# Alert validation in Microsoft Defender for Cloud
+This document helps you learn how to verify if your system is properly configured for Microsoft Defender for Cloud alerts.
 
 ## What are security alerts?
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
@@ -19,7 +19,7 @@ For more information, see [Security alerts in Security Center](security-center-a
 
 ## Generate sample Azure Defender alerts
 
-If you're using the new, preview alerts experience as described in [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md), you can create sample alerts in a few clicks from the security alerts page in the Azure portal.
+If you're using the new, preview alerts experience as described in [Manage and respond to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md), you can create sample alerts in a few clicks from the security alerts page in the Azure portal.
 
 Use sample alerts to:
 
@@ -33,13 +33,13 @@ To create sample alerts:
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
 
-    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center.":::
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Microsoft Defender for Cloud.":::
     
     A notification appears letting you know that the sample alerts are being created:
 
     :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notification that the sample alerts are being generated.":::
 
-    After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Azure Security Center security alerts (connected SIEMs, email notifications, and so on).
+    After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts (connected SIEMs, email notifications, and so on).
 
     :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list.":::
 
@@ -84,6 +84,6 @@ For more information about defending your Kubernetes nodes and clusters, see [In
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
-* [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md) - Learn about the different types of security alerts.
+* [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
+* [Understanding security alerts in Microsoft Defender for Cloud](./security-center-alerts-overview.md) - Learn about the different types of security alerts.

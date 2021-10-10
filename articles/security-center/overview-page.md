@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center's main dashboard or 'overview' page
+title: Microsoft Defender for Cloud's main dashboard or 'overview' page
 description: Learn about the features of the Security Center overview page
 author: memildin
 ms.author: memildin
@@ -10,9 +10,9 @@ manager: rkarlin
 
 ---
 
-# Azure Security Center's overview page
+# Microsoft Defender for Cloud's overview page
 
-When you open Azure Security Center, the first page to appear is the overview page. 
+When you open Microsoft Defender for Cloud, the first page to appear is the overview page. 
 
 This interactive dashboard provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.
 
@@ -41,11 +41,11 @@ The **Insights** pane offers customized items for your environment including:
 - Your most attacked resources
 - Your security controls that have the highest potential to increase your secure score
 - The active recommendations with the most resources impacted
-- Recent blog posts by Azure Security Center experts
+- Recent blog posts by Microsoft Defender for Cloud experts
 
 ## Next steps
 
 This page introduced the Security Center overview page. For related information, see:
 
 - [Explore and manage your resources with asset inventory and management tools](asset-inventory.md)
-- [Secure score in Azure Security Center](secure-score-security-controls.md)
+- [Secure score in Microsoft Defender for Cloud](secure-score-security-controls.md)

@@ -89,7 +89,7 @@ To enable vulnerability scans of images in your GitHub workflows:
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Azure Security Center.
+1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud.
 
 1. [View CI/CD scan results](#view-cicd-scan-results).
 

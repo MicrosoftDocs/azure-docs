@@ -1,5 +1,5 @@
 ---
-title: Use Azure Security Center to harden your Docker hosts and protect the containers
+title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
 author: memildin
 ms.author: memildin
@@ -13,7 +13,7 @@ manager: rkarlin
 
 # Harden your Docker hosts
 
-Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
 Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use Security Center's **recommendations page** to view recommendations and remediate issues.
 

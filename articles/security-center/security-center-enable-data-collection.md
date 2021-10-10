@@ -1,6 +1,6 @@
 ---
-title: Auto-deploy agents for Azure Security Center | Microsoft Docs
-description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Azure Security Center
+title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
+description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,9 +9,9 @@ ms.date: 10/08/2021
 ms.author: memildin
 
 ---
-# Configure auto provisioning for agents and extensions from Azure Security Center
+# Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
-Azure Security Center collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Security Center.
+Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Security Center.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -32,7 +32,7 @@ Security Center collects data from your Azure virtual machines (VMs), virtual ma
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources such as VMs, virtual machine scale sets, IaaS containers, and non-Azure computers. 
 
-You can benefit from Azure Security Center even if you don’t provision agents. However, you'll have limited security and the capabilities listed above aren't supported.  
+You can benefit from Microsoft Defender for Cloud even if you don’t provision agents. However, you'll have limited security and the capabilities listed above aren't supported.  
 
 Data is collected using:
 
@@ -56,7 +56,7 @@ Security Center's auto provisioning settings have a toggle for each type of supp
 
 ## Enable auto provisioning of the Log Analytics agent and extensions <a name="auto-provision-mma"></a>
 
-When automatic provisioning is on for the Log Analytics agent, Security Center deploys the agent on all supported Azure VMs and any new ones created. For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
+When automatic provisioning is on for the Log Analytics agent, Security Center deploys the agent on all supported Azure VMs and any new ones created. For the list of supported platforms, see [Supported platforms in Microsoft Defender for Cloud](security-center-os-coverage.md).
 
 To enable auto provisioning of the Log Analytics agent:
 
@@ -140,7 +140,7 @@ To enable auto provisioning of the Log Analytics agent:
 
 ## Windows security event options for the Log Analytics agent <a name="data-collection-tier"></a> 
 
-Selecting a data collection tier in Azure Security Center only affects the *storage* of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Security Center’s threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
+Selecting a data collection tier in Microsoft Defender for Cloud only affects the *storage* of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Security Center’s threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
 
 ### Requirements 
 Azure Defender is required for storing Windows security event data. [Learn more about Azure Defender](azure-defender.md).
@@ -148,9 +148,9 @@ Azure Defender is required for storing Windows security event data. [Learn more 
 Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### Information for Azure Sentinel users 
-Users of Azure Sentinel: note that security events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you're planning to add Azure Sentinel to a workspace that is already getting alerts from Azure Security Center, and is set to collect Security Events, you have two options:
-- Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
-- Disable Security Events collection in Azure Security Center (by setting **Windows security events** to
+Users of Azure Sentinel: note that security events collection within the context of a single workspace can be configured from either Microsoft Defender for Cloud or Azure Sentinel, but not both. If you're planning to add Azure Sentinel to a workspace that is already getting alerts from Microsoft Defender for Cloud, and is set to collect Security Events, you have two options:
+- Leave the Security Events collection in Microsoft Defender for Cloud as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
+- Disable Security Events collection in Microsoft Defender for Cloud (by setting **Windows security events** to
 **None** in the configuration of your Log Analytics agent). Then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
 ### What event types are stored for "Common" and "Minimal"?
@@ -179,7 +179,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 
 > [!NOTE]
 > - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
-> -  To enable data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+> -  To enable data collection for [Adaptive Application Controls](adaptive-application-controls.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 > - To collect Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), you need to enable [Audit Filtering Platform Connection](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
 
@@ -226,7 +226,7 @@ To manually install the Log Analytics agent:
     - [For Linux machines](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
-> For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).
+> For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](security-center-powershell-onboarding.md).
 
 
 ## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a> 
@@ -245,8 +245,8 @@ If the configured workspace is a user workspace (not Security Center's default w
 
 - **A pre-existing VM extension is present**:
     - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from the VM in the workspace already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
-    - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection.
-    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
+    - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Microsoft Defender for Cloud](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection.
+    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
  
 
 ## Disable auto provisioning <a name="offprovisioning"></a>

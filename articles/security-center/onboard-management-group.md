@@ -1,6 +1,6 @@
 ---
-title: Onboard a management group to Azure Security Center
-description: Learn how to use a supplied Azure Policy definition to enable Azure Security Center for all the subscriptions in a management group.
+title: Onboard a management group to Microsoft Defender for Cloud
+description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.author: memildin
 
 # Enable Security Center on all subscriptions in a management group
 
-You can use Azure Policy to enable Azure Security Center on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
+You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
 
 To onboard a management group and all its subscriptions:
 

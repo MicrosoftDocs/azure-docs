@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Regulatory compliance checks - Azure Security Center'
-description: 'Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center.'
+title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
+description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,7 +11,7 @@ ms.author: memildin
 ---
 # Tutorial: Improve your regulatory compliance
 
-Azure Security Center helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
+Microsoft Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
 
 Security Center continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
 
@@ -67,7 +67,7 @@ Using the information in the regulatory compliance dashboard, improve your compl
 
     :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Take action button on the recommendation details page leads to the remediation options.":::
 
-    For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
+    For more information about how to apply recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md).
 
 1.  After you take action to resolve recommendations, you'll see the result in the compliance dashboard report because your compliance score improves.
 
@@ -167,7 +167,7 @@ The minimum set of roles for accessing the dashboard and managing standards is *
 
 
 ### The regulatory compliance dashboard isn't loading for me
-To use the regulatory compliance dashboard, Azure Security Center must have Azure Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
+To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Azure Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
 
 1. Clear your browser's cache.
 1. Try a different browser.
@@ -220,4 +220,4 @@ The regulatory compliance dashboard can greatly simplify the compliance process,
 To learn more, see these related pages:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard. 
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Security Center to help protect your Azure resources.
+- [Managing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md) - Learn how to use recommendations in Security Center to help protect your Azure resources.

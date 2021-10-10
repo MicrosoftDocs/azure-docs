@@ -32,7 +32,7 @@ When you receive an alert from Azure Defender for Resource Manager, we recommend
     - Remove any unfamiliar Runbooks from the compromised automation account
     - Review IAM permissions for the subscription and remove permissions for any unfamiliar user account
     - Review all Azure resources in the subscription and delete any that are unfamiliar
-    - Review and investigate any security alerts for the subscription in Azure Security Center
+    - Review and investigate any security alerts for the subscription in Microsoft Defender for Cloud
     - Use Azure Activity Logs to review all activities performed in the subscription and identify any that are suspicious
 
 1. Remediate the compromised virtual machines

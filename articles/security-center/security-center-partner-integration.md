@@ -1,6 +1,6 @@
 ---
-title: Integrate security solutions in Azure Security Center | Microsoft Docs
-description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
+title: Integrate security solutions in Microsoft Defender for Cloud | Microsoft Docs
+description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -10,8 +10,8 @@ ms.date: 12/10/2020
 ms.author: memildin
 
 ---
-# Integrate security solutions in Azure Security Center
-This document helps you to manage security solutions already connected to Azure Security Center and add new ones.
+# Integrate security solutions in Microsoft Defender for Cloud
+This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
 ## Integrated Azure security solutions
 Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:

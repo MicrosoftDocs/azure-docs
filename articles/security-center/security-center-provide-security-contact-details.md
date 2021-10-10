@@ -1,6 +1,6 @@
 ---
-title: Configure email notifications for Azure Security Center alerts
-description: Learn how to fine-tune the types of emails sent out by Azure Security Center for security alerts. 
+title: Configure email notifications for Microsoft Defender for Cloud alerts
+description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails. 
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -13,7 +13,7 @@ ms.author: memildin
 
 Security alerts need to reach the right people in your organization. By default, Security Center emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
-To define your own preferences for notification emails, Azure Security Center's **Email notifications** settings page lets you choose:
+To define your own preferences for notification emails, Microsoft Defender for Cloud's **Email notifications** settings page lets you choose:
 
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription. 
 - ***what* they should be notified about** - Modify the severity levels for which Security Center should send out notifications.
@@ -77,6 +77,6 @@ URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Micr
 ## See also
 To learn more about security alerts, see the following pages:
 
-- [Security alerts - a reference guide](alerts-reference.md)--Learn about the security alerts you might see in Azure Security Center's Threat Protection module
-- [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts
+- [Security alerts - a reference guide](alerts-reference.md)--Learn about the security alerts you might see in Microsoft Defender for Cloud's Threat Protection module
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts
 - [Workflow automation](workflow-automation.md)--Automate responses to alerts with custom notification logic

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Security Center documentation # < 60 chars
-summary: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
+title: Microsoft Defender for Cloud documentation # < 60 chars
+summary: Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
 
 metadata:
-  title: Azure Security Center documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -84,9 +84,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage just-in-time access
-            url: security-center-just-in-time.md
+            url: just-in-time-access-usage.md
           - text: Set up adaptive application controls
-            url: security-center-adaptive-application.md
+            url: adaptive-application-controls.md
           - text: Implement Adaptive Network Hardening
             url: security-center-adaptive-network-hardening.md
           - text: Use the Azure Defender dashboard

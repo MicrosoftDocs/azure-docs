@@ -1,6 +1,6 @@
 ---
-title: Important changes coming to Azure Security Center
-description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
+title: Important changes coming to Microsoft Defender for Cloud
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,14 +10,14 @@ ms.author: memildin
 
 ---
 
-# Important upcoming changes to Azure Security Center
+# Important upcoming changes to Microsoft Defender for Cloud
 
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Security Center. It describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
 
-If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
+If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 
 ## Planned changes
@@ -80,4 +80,4 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 ## Next steps
 
-For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)

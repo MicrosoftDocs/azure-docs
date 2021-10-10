@@ -1,6 +1,6 @@
 ---
 title: Workload protections for your Kubernetes workloads
-description: Learn how to use Azure Security Center's set of Kubernetes workload protection security recommendations
+description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 services: security-center
 author: memildin
 manager: rkarlin
@@ -13,7 +13,7 @@ ms.author: memildin
 
 # Protect your Kubernetes workloads
 
-This page describes how to use Azure Security Center's set of security recommendations dedicated to Kubernetes workload protection.
+This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
@@ -41,7 +41,7 @@ Security Center offers more container security features if you enable Azure Defe
 
 ## Set up your workload protection
 
-Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+Microsoft Defender for Cloud includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
 ### Step 1: Deploy the add-on
 

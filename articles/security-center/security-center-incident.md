@@ -1,6 +1,6 @@
 ---
-title: Manage security incidents in Azure Security Center | Microsoft Docs
-description: This document helps you to use Azure Security Center to manage security incidents.
+title: Manage security incidents in Microsoft Defender for Cloud | Microsoft Docs
+description: This document helps you to use Microsoft Defender for Cloud to manage security incidents.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -10,7 +10,7 @@ ms.date: 02/17/2021
 ms.author: memildin
 
 ---
-# Manage security incidents in Azure Security Center
+# Manage security incidents in Microsoft Defender for Cloud
 
 Triaging and investigating security alerts can be time consuming for even the most skilled security analysts. For many, it's hard to know where to begin. 
 
@@ -26,11 +26,11 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 1. On Security Center's alerts page, use the **Add filter** button to filter by alert name to the alert name **Security incident detected on multiple resources**. 
 
-    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Locating the incidents on the alerts page in Azure Security Center.":::
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Locating the incidents on the alerts page in Microsoft Defender for Cloud.":::
 
     The list is now filtered to show only incidents. Notice that security incidents have a different icon to security alerts.
 
-    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="List of incidents on the alerts page in Azure Security Center.":::
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="List of incidents on the alerts page in Microsoft Defender for Cloud.":::
 
 1. To view details of an incident, select one from the list. A side pane appears with more details about the incident.
 
@@ -38,7 +38,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 1. To view more details, select **View full details**.
 
-    [![Respond to security incidents in Azure Security Center.](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
+    [![Respond to security incidents in Microsoft Defender for Cloud.](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
     The left pane of the security incident page shows high-level information about the security incident: title, severity, status, activity time, description, and the affected resource. Next to the affected resource you can see the relevant Azure tags. Use these tags to infer the organizational context of the resource when investigating the alert.
 
