@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 10/04/2021
+  ms.date: 10/08/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,14 +23,14 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy IoT connector Using Portal
+          - text: Deploy IoT connector using portal
             url: deploy-iot-connector-in-azure.md
             
   - title: Using IoT connector
     linkLists:
       - linkListType: concept
         links:
-          - text: IoT connector Data Flow
+          - text: IoT connector data flow
             url: iot-data-flow.md
           - text: Device mapping templates
             url: how-to-use-device-mapping-iot.md
