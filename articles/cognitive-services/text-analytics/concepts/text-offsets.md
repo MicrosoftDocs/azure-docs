@@ -19,9 +19,9 @@ Multilingual and emoji support has led to Unicode encodings that use more than o
 
 Because of the different lengths of possible multilingual and emoji encodings, the Text Analytics API may return offsets in the response.
 
-## Offsets in the API response. 
+## Offsets in the API response 
 
-Whenever offsets are returned the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember:
+Whenever offsets are returned in the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember:
 
 * Elements in the response may be specific to the endpoint that was called. 
 * HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.

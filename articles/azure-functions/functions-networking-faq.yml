@@ -2,10 +2,10 @@
 metadata:
   title: Frequently asked questions about networking in Azure Functions
   description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
-  ms.topic: troubleshooting
+  ms.topic: article
+  ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-  
     
 title: Frequently asked questions about networking in Azure Functions
 summary: |

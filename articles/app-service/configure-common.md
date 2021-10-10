@@ -280,6 +280,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 
 ## Next steps
 
+- [Environment variables and app settings reference](reference-app-settings.md)
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
 - [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

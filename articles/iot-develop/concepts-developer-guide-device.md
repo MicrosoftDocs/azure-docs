@@ -7,9 +7,9 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-zone_pivot_groups: programming-languages-set-twenty-six
+zone_pivot_groups: programming-languages-set-twenty-seven
 
-#- id: programming-languages-set-twenty-six
+#- id: programming-languages-set-twenty-seven
 ## Owner: dobett
 #  title: Programming languages
 #  prompt: Choose a programming language
@@ -24,13 +24,15 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #    title: JavaScript
 #  - id: programming-language-python
 #    title: Python
+#  - id: programming-language-embedded-c
+#    title: Embedded C
 ---
 
 # IoT Plug and Play device developer guide
 
-IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
+A IoT device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
 This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
 
@@ -46,6 +48,12 @@ Once your device or module implementation is ready, use the [Azure IoT explorer]
 :::zone pivot="programming-language-ansi-c"
 
 [!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-embedded-c"
+
+[!INCLUDE [iot-pnp-device-devguide-embedded-c](../../includes/iot-pnp-device-devguide-embedded-c.md)]
 
 :::zone-end
 

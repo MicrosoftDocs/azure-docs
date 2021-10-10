@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/overview.md",
             "redirect_url": "/azure/defender-for-iot/organizations/overview",
             "redirect_document_id": false
@@ -478,6 +483,11 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-linux-c.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-linux-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-sensor-deployment-checklist.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-your-network#predeployment-checklist",
             "redirect_document_id": false
         },
         {

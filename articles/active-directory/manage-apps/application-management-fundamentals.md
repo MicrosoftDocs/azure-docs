@@ -1,5 +1,6 @@
 ---
-title: 'Application management: Best practices and recommendations | Microsoft Docs'
+title: 'Application management: Best practices and recommendations'
+titleSuffix: Azure AD
 description: Learn best practices and recommendations for managing applications in Azure Active Directory. Learn about using automatic provisioning and publishing on-premises apps with Application Proxy.
 services: active-directory
 author: davidmu1
@@ -13,9 +14,10 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: napuri
 ---
 
-# Application management best practices
+# Application management best practices in Azure Active Directory
 
 This article contains recommendations and best practices for managing applications in Azure Active Directory (Azure AD), using automatic provisioning, and publishing on-premises apps with Application Proxy.
 

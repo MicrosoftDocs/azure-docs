@@ -17,10 +17,10 @@ Azure Defender provides threat protection at different levels:
     >[!IMPORTANT]
     > We don't currently support installation of the Log Analytics agent on Azure Kubernetes Service clusters that are running on virtual machine scale sets.
 
-    For a list of the cluster level alerts, see the [Reference table of alerts](../articles/security-center/alerts-reference.md#alerts-containerhost).
+    For a list of the host level alerts, see the [Reference table of alerts](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Cluster level (provided by Azure Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, enable Azure Defender. If your cluster is on-premises or on another cloud provider, enable [Arc enabled Kubernetes and the Azure Defender extension](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+* **Cluster level (provided by Azure Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, enable Azure Defender. If your cluster is on-premises or on another cloud provider, enable [Azure Arc-enabled Kubernetes and the Azure Defender extension](../articles/security-center/defender-for-kubernetes-azure-arc.md).
 
     To generate alerts at this level, Azure Defender monitors your clusters' logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
 

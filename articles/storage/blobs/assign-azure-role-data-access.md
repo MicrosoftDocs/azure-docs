@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -61,7 +61,7 @@ To assign a role scoped to a container, specify a string containing the scope of
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
+The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -102,6 +102,7 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
+- If you have set the appropriate allow permissions to access data via Azure AD and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Azure AD to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: Import and Export data in Azure Cache for Redis
 description: Learn how to import and export data to and from blob storage with your premium Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
-ms.author: yegu
+ms.author: cauribeg
 
 ---
 # Import and Export data in Azure Cache for Redis
@@ -55,7 +55,7 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 
     ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-resource-manager/management/view-activity-logs.md).
+    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
 
     ![Import progress](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
@@ -69,7 +69,12 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 2. Select **Choose Storage Container** and select the storage account you want. The storage account must be in the same subscription and region as your cache.
 
    > [!IMPORTANT]
-   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts. Export is not supported by Blob storage accounts at this time. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
+   >
+   > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
+   > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
+   > - Export is not supported by Blob storage accounts at this time.
+   >
+   > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
 
     ![Storage account](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
@@ -80,7 +85,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
     ![Export](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-resource-manager/management/view-activity-logs.md).
+    You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
 
     ![Export data complete](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
@@ -150,7 +155,7 @@ Yes, for PowerShell instructions see [To import an Azure Cache for Redis](cache-
 
 On the left, if you remain on **Import data** or **Export data** for longer than 15 minutes before starting the operation, you receive an error with an error message similar to the following example:
 
-```output
+```azcopy
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 ```
 

@@ -31,6 +31,8 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
+        - name: Language identification
+          href: language-identification.md
         - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
@@ -273,6 +275,8 @@
       items:
         - name: 'Recognize speech intents with LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
+        - name: 'Recognize speech intents with simple pattern matching, C++'
+          href: how-to-use-simple-language-pattern-matching.md
     - name: Reference
       items:
         - name: Speech SDK
@@ -529,6 +533,8 @@
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
+      - name: How to backup and recover speech customization resources
+        href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
     - name: Speech devices documentation
@@ -612,6 +618,8 @@
       items:
         - name: Speech Studio overview
           href: speech-studio-overview.md
+        - name: Role-based access control in Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Enterprise readiness
       items:
       - name: Region support

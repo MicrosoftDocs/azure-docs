@@ -72,16 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
     a. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/login`.
+    `https://<FQDN>/remote/saml/login`.
 
     b. In the **Identifier** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/metadata/`.
+    `https://<FQDN>/remote/saml/metadata`.
 
     c. In the **Reply URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/login/`.
+    `https://<FQDN>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/logout/`.
+    `https://<FQDN>/remote/saml/logout`.
 
 	> [!NOTE]
 	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact [Fortinet support](https://support.fortinet.com) for guidance. You can also refer to the example patterns shown in the Fortinet documentation and the **Basic SAML Configuration** section in the Azure portal.
@@ -260,7 +260,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to FortiGate VPN Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the FortiGate VPN tile in the My Apps, this will redirect to FortiGate VPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the FortiGate VPN tile in the My Apps, this will redirect to FortiGate VPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps

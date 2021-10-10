@@ -1,28 +1,20 @@
 ---
 title: 'Azure AD Connect: Configure preferred data location for Microsoft 365 resources'
 description: Describes how to put your Microsoft 365 user resources close to the user with Azure Active Directory Connect sync.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: mtillman
-editor: ''
-ms.assetid:
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
-
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Microsoft 365 resources
 The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Microsoft 365, you use this attribute to designate the geo-location of the user’s Microsoft 365 data. (The terms *region* and *geo* are used interchangeably.)
 
 ## Supported Multi-Geo locations
-For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)
+For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability)
 
 ## Enable synchronization of preferred data location
 By default, Microsoft 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
@@ -32,7 +24,7 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 > [!IMPORTANT]
 > Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 250 Microsoft 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
-> For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
+> For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability).
 
 
 

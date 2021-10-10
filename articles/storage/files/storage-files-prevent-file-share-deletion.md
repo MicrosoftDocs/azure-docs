@@ -45,7 +45,7 @@ The retention period is the amount of time that soft deleted file shares are sto
 
 Both standard and premium file shares are billed on the used capacity when soft deleted, rather than provisioned capacity. Additionally, premium file shares are billed at the snapshot rate while in the soft delete state. Standard file shares are billed at the regular rate while in the soft delete state. You won't be charged for data that is permanently deleted after the configured retention period.
 
-For more information on prices for Azure File Storage in general, see the [Azure File Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/files/).
+For more information on prices for Azure Files in general, see the [Azure Files Pricing Page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 When you initially enable soft delete, we recommend using a small retention period to better understand how the feature affects your bill.
 

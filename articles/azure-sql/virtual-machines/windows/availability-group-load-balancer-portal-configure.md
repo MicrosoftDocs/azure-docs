@@ -94,7 +94,7 @@ Azure calls the back-end address pool *backend pool*. In this case, the back-end
 
 4. On **Add backend pool**, under **Name**, type a name for the back-end pool.
 
-5. Under **Virtual machines**, select **Add a virtual machine**. 
+5. Under **Virtual machines**, select **Add a virtual machine**. Only add the primary IP address of the VM, do not add any secondary IP addresses. 
 
 6. Under **Choose virtual machines**, select **Choose an availability set**, and then specify the availability set that the SQL Server virtual machines belong to.
 

@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: sstein
-ms.date: 09/16/2020
+ms.reviewer: mathoma
+ms.date: 09/8/2021
 ---
 
 # Resource management in dense elastic pools
@@ -32,6 +32,8 @@ This approach allows customers to use dense elastic pools to achieve adequate pe
 > In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](resource-limits-dtu-elastic-pools.md) and [vCore](resource-limits-vcore-elastic-pools.md) elastic pools.
 >
 > The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
+> 
+> Additionally, if the min vCores per database, or min DTUs per database setting is set to a value greater than 0, the maximum number of databases in the pool will be implicitly limited. For more information, see [Database properties for pooled vCore databases](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) and [Database properties for pooled DTU databases](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases).
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
 
@@ -69,6 +71,9 @@ In addition to these metrics, Azure SQL Database provides a view that returns ac
 |[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
 |||
+
+> [!TIP]
+> To query these and other dynamic management views using a principal other than server administrator, add this principal to the `##MS_ServerStateReader##` [server role](security-server-roles.md).
 
 These views can be used to monitor resource utilization and troubleshoot resource contention in near real-time. User workload on the primary and readable secondary replicas, including geo-replicas, is classified into the `SloSharedPool1` resource pool and `UserPrimaryGroup.DBId[N]` workload group, where `N` stands for the database ID value.
 

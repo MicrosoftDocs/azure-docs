@@ -16,8 +16,8 @@ We are pleased to announce the declaration of Long-Term Support (LTS) for versio
 |Version      |Type                   |Date         |Highlights                             |
 |-------------|-----------------------|-------------|---------------------------------------|
 |2.5.4        |Stable                 |March 2020   |IoT Hub Direct Method Interface, control from cloud without any additional microservices (standalone mode), OPC UA Server Interface, uses OPC Foundation's OPC stack - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.5.4)|
-|2.7.206      |Stable                 |January 2021 |Configuration through REST API (orchestrated mode), supports Samples telemetry format as well as PubSub - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.7.206)|
-|2.8.0        |Long-term support (LTS)|July 2021    |IoT Edge update to 1.1 LTS, OPC stack logging and tracing for better OPC Publisher diagnostics, Security fixes|
+|[2.7.206](https://github.com/Azure/Industrial-IoT/tree/release/2.7.206)      |Stable                 |January 2021 |Configuration through REST API (orchestrated mode), supports Samples telemetry format as well as PubSub - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.7.206)|
+|[2.8.0](https://github.com/Azure/Industrial-IoT/tree/release/2.8)        |Long-term support (LTS)|July 2021    |IoT Edge update to 1.1 LTS, OPC stack logging and tracing for better OPC Publisher diagnostics, Security fixes|
 
 ## Next steps
 

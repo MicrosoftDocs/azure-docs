@@ -62,5 +62,5 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 ## Next steps
 
 In this document, you learned how to export and import analytics rules to and from ARM templates.
-- Learn more about [analytics rules](tutorial-detect-threats-built-in.md), including [custom scheduled rules](tutorial-detect-threats-custom.md).
+- Learn more about [analytics rules](detect-threats-built-in.md), including [custom scheduled rules](detect-threats-custom.md).
 - Learn more about [ARM templates](../azure-resource-manager/templates/overview.md).

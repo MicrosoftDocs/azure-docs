@@ -3,11 +3,11 @@ title: Text Merge cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
 
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ---
 
 #	Text Merge cognitive skill
@@ -15,7 +15,7 @@ ms.date: 06/17/2020
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill

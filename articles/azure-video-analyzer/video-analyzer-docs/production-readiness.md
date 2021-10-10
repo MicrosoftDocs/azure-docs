@@ -2,7 +2,7 @@
 title: Production readiness and best practices
 description: This article provides guidance on how to configure and deploy the Azure Video Analyzer module in production environments.
 ms.topic: reference
-ms.date: 04/26/2021
+ms.date: 06/01/2021
 
 ---
 # Production readiness and best practices

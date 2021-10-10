@@ -30,7 +30,7 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 **Validation and resolution**
 
-Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address called the default outbound access IP. This isn't recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration, which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. NAT Gateway is the reccomended solution for outbound.
+Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address called the default outbound access IP. This isn't recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration, which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. NAT Gateway is the recommended solution for outbound.
 
 ## Can't change backend port for existing LB rule of a load balancer that has virtual machine scale set deployed in the backend pool.
 

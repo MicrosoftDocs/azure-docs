@@ -3,7 +3,7 @@ title: Manage devices individually in your Azure IoT Central application | Micro
 description: Learn how to manage devices individually in your Azure IoT Central application. Create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,13 +26,16 @@ To learn how to manage custom groups of devices, see [Tutorial: Use device group
 
 To view an individual device:
 
-1. Choose **Devices** on the left pane. Here you see a list of all devices and of your device templates.
+1. Choose **Devices** on the left pane. Here you see a list of your device templates and a list of all the devices accessible to your organization.
 
 1. Choose a device template.
 
-1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
 
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
+
+    > [!TIP]
+    > You can use the filter tool on this page to view devices in a specific organization.
 
 ## Add a device
 
@@ -44,11 +47,34 @@ To add a device to your Azure IoT Central application:
 
 1. Choose + **New**.
 
+1. Enter a device name and ID or accept the default. The maximum length of a device name is 148 characters. The maximum length of a device ID is 128 characters.
+
 1. Turn the **Simulated** toggle to **On** or **Off**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central.
+
+1. If your application uses organizations, choose the organization the device belongs to.
+
+    > [!TIP]
+    > You can set a [default organization](howto-create-organizations.md#default-organization) to appear in the organization drop-down.
 
 1. Select **Create**.
 
 1. This device now appears in your device list for this template. Select the device to see the device details page that contains all views for the device.
+
+## Change organization
+
+To move a device to a different organization, you must have access to both the source and destination organizations. To move a device:
+
+1. Choose **Devices** on the left pane.
+
+1. Select the device to move in the device list.
+
+1. Select **Organization**.
+
+1. Select the new organization for the device:
+
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to a new organization.":::
+
+1. Select **Save**.
 
 ## Migrate devices to a template
 

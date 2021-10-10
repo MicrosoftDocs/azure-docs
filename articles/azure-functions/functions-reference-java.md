@@ -101,7 +101,7 @@ You can put more than one function in a project. Avoid putting your functions in
 Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information, see the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> You must configure an Azure Storage account in your [local.settings.json](./functions-run-local.md#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
+> You must configure an Azure Storage account in your [local.settings.json](./functions-develop-local.md#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
 
 Example:
 
@@ -182,7 +182,7 @@ Maven also lets you specify the operating system on which your function app runs
 
 | Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | windows | linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 The following example shows the operating system setting in the `runtime` section of the pom.xml file:
 
