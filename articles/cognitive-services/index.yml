@@ -21,7 +21,7 @@ highlightedContent:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-cognitive-services.md
-    - title: Cognitive Services on-prem containers
+    - title: Cognitive Services on-premises containers
       itemType: concept
       url: ./containers/index.yml
     - title: Responsible use of AI
