@@ -1,7 +1,7 @@
 ---
-title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0 ."
+title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0."
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll learn about the differences between the v2.1 and v3.0 of the Form Recognizer API and the changes you need to make, to move to the newer version of the API.
+description: In this how-to guide, you'll learn the differences between Form Recognizer API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
 author: vkurpad
 manager: nitinme
 ms.service: applied-ai-services
@@ -50,7 +50,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status is set to failed and error is returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to failed and an error will be returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
@@ -75,7 +75,7 @@ The content to be analyzed is provided via the request body. Either the URL or b
   }
   ```
 
-Base64 encoding is also supported in Form Recognzer v3.0:
+Base64 encoding is also supported in Form Recognizer v3.0:
 
 ```json
 {
@@ -110,6 +110,136 @@ Analyze response has been refactored to the following top-level results to suppo
 >
 > The analyzeResult response changes includes a number of changes like moving up from a property of pages to a top lever property within analyzeResult.
 
+```json
+
+{
+// Basic analyze result metadata
+"apiVersion": "2021-07-30-preview", // REST API version used
+"modelId": "prebuilt-invoice", // ModelId used
+"stringIndexType": "textElements", // Character unit used for string offsets and lengths:
+// textElements, unicodeCodePoint, utf16CodeUnit // Concatenated content in global reading order across pages.
+// Words are generally delimited by space, except CJK (Chinese, Japanese, Korean) characters.
+// Lines and selection marks are generally delimited by newline character.
+// Selection marks are represented in Markdown emoji syntax (:selected:, :unselected:).
+"content": "CONTOSO LTD.\nINVOICE\nContoso Headquarters...", "pages": [ // List of pages analyzed
+{
+// Basic page metadata
+"pageNumber": 1, // 1-indexed page number
+"angle": 0, // Orientation of content in clockwise direction (degree)
+"width": 0, // Page width
+"height": 0, // Page height
+"unit": "pixel", // Unit for width, height, and bounding box coordinates
+"spans": [ // Parts of top-level content covered by page
+{
+"offset": 0, // Offset in content
+"length": 7 // Length in content
+}
+], // List of words in page
+"words": [
+{
+"text": "CONTOSO", // Equivalent to $.content.Substring(span.offset, span.length)
+"boundingBox": [ ... ], // Position in page
+"confidence": 0.99, // Extraction confidence
+"span": { ... } // Part of top-level content covered by word
+}, ...
+], // List of selectionMarks in page
+"selectionMarks": [
+{
+"state": "selected", // Selection state: selected, unselected
+"boundingBox": [ ... ], // Position in page
+"confidence": 0.95, // Extraction confidence
+"span": { ... } // Part of top-level content covered by selection mark
+}, ...
+], // List of lines in page
+"lines": [
+{
+"content": "CONTOSO LTD.", // Concatenated content of line (may contain both words and selectionMarks)
+"boundingBox": [ ... ], // Position in page
+"spans": [ ... ], // Parts of top-level content covered by line
+}, ...
+]
+}, ...
+], // List of extracted tables
+"tables": [
+{
+"rowCount": 1, // Number of rows in table
+"columnCount": 1, // Number of columns in table
+"boundingRegions": [ // Bounding boxes potentially across pages covered by table
+{
+"pageNumber": 1, // 1-indexed page number
+"boundingBox": [ ... ], // Bounding box
+}
+],
+"spans": [ ... ], // Parts of top-level content covered by table // List of cells in table
+"cells": [
+{
+"kind": "stub", // Cell kind: content (default), rowHeader, columnHeader, stub, description
+"rowIndex": 0, // 0-indexed row position of cell
+"columnIndex": 0, // 0-indexed column position of cell
+"rowSpan": 1, // Number of rows spanned by cell (default=1)
+"columnSpan": 1, // Number of columns spanned by cell (default=1)
+"content": "SALESPERSON", // Concatenated content of cell
+"boundingRegions": [ ... ], // Bounding regions covered by cell
+"spans": [ ... ] // Parts of top-level content covered by cell
+}, ...
+]
+}, ...
+], // List of extracted key-value pairs
+"keyValuePairs": [
+{
+"key": { // Extracted key
+"content": "INVOICE:", // Key content
+"boundingRegions": [ ... ], // Key bounding regions
+"spans": [ ... ] // Key spans
+},
+"value": { // Extracted value corresponding to key, if any
+"content": "INV-100", // Value content
+"boundingRegions": [ ... ], // Value bounding regions
+"spans": [ ... ] // Value spans
+},
+"confidence": 0.95 // Extraction confidence
+}, ...
+], // List of extracted entities
+"entities": [
+{
+"category": "DateTime", // Primary entity category
+"subCategory": "Date", // Secondary entity category
+"content": "11/15/2019", // Entity content
+"boundingRegions": [ ... ], // Entity bounding regions
+"spans": [ ... ], // Entity spans
+"confidence": 0.99 // Extraction confidence
+}, ...
+], // List of extracted styles
+"styles": [
+{
+"isHandwritten": true, // Is content in this style handwritten?
+"spans": [ ... ], // Spans covered by this style
+"confidence": 0.95 // Detection confidence
+}, ...
+], // List of extracted documents
+"documents": [
+{
+"docType": "prebuilt-invoice", // Classified document type (model dependent)
+"boundingRegions": [ ... ], // Document bounding regions
+"spans": [ ... ], // Document spans
+"confidence": 0.99, // Document splitting/classification confidence // List of extracted fields
+"fields": {
+"VendorName": { // Field name (docType dependent)
+"type": "string", // Field value type: string, number, array, object, ...
+"valueString": "CONTOSO LTD.",// Normalized field value
+"content": "CONTOSO LTD.", // Raw extracted field content
+"boundingRegions": [ ... ], // Field bounding regions
+"spans": [ ... ], // Field spans
+"confidence": 0.99 // Extraction confidence
+}, ...
+}
+}, ...
+]
+}
+
+
+
+```
 
 ## Build or Train model
 
@@ -119,7 +249,7 @@ The model object has two updates in the new API
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL is not the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
 
-Sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
+The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
 POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2021-09-30-preview
@@ -187,9 +317,10 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
 
 ## Changes to List models
 
-List models has been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
+List models have been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
 Sample list models request
+
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
 ```
@@ -220,7 +351,7 @@ Sample response
 
 ## Next steps
 
-In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API when using any of the preview features.
+In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API for any of the preview features.
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)

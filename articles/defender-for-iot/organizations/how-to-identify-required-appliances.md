@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Identify required appliances
 
-This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances.
+This article provides information on certified Defender for IoT sensor appliances. Defender for IoT can be deployed on physical and virtual appliances.
 
 This includes certified *pre-configured* appliances, on which software is already installed, and non-configured certified appliances on which you can download and install required software.
 
@@ -27,7 +27,7 @@ Defender for IoT supports both physical and virtual deployments.
 
 ### Physical sensors
 
-This section provides an overview of physical sensor models that are available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
+This section provides an overview of physical sensor models that are available. You can purchase sensors with pre-configured software or purchase sensors that are not pre-configured.
 
 | Deployment type | Corporate | Enterprise | SMB rack mount| SMB Ruggedized |
 |--|--|--|--|--|
@@ -49,7 +49,7 @@ About bringing your own appliance: Review the supported models described here. A
 
 ### Virtual sensors
 
-This section provides an overview of the virtual sensors that are available.
+This section provides describes virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
