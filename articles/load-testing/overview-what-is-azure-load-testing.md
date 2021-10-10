@@ -22,6 +22,7 @@ You can create a load test using existing Apache JMeter scripts and identify bot
 
 ## How does Azure Load Testing work?
 
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Azure Load Testing architecture overview.":::
 
 <!-- Auto-abort sensors to identify throttling -->
 
