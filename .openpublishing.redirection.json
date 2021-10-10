@@ -224,6 +224,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/whats-new-docs.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
       "redirect_document_id": false
