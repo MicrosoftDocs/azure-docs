@@ -15,16 +15,9 @@ sections:
   - name: Builds and deployments
     questions:
       - question: |
-          What happens when my app is built?
-        answer: |
-          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It builds your app's frontend and API.
-
-          When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it will install packages using npm or Yarn. Then it will run the `build` or `build:azure` script provided in your app's _package.json_ file.
-
-      - question: |
           What frontend frameworks can be automatically built by Static Web Apps?
         answer: |
-          Oryx detects the platform and framework used by your app and builds it automatically. It supports most popular frontend frameworks, including:
+          Most popular frontend frameworks, including:
             - Node.js-based frameworks such as React, Angular, Vue.js, Next.js, and Gatsby.
             - ASP.NET Blazor WebAssembly
             - Hugo
@@ -33,7 +26,14 @@ sections:
           To learn more, see [Configure frontend frameworks](front-end-frameworks.md).
 
       - question: |
-          How do I customize how my app is built?
+          What happens during the build process?
+        answer: |
+          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It builds your app's frontend and API.
+
+          When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it will install packages using npm or Yarn. Then it will run the `build` or `build:azure` script provided in your app's _package.json_ file.
+
+      - question: |
+          Can I customize the build process?
         answer: |
           If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. Then you can use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
@@ -42,12 +42,12 @@ sections:
       - question: |
           Can I deploy my app without using GitHub Actions or Azure DevOps?
         answer: |
-          Currently, Azure Static Web Apps supports deploying your app using GitHub Actions or Azure DevOps. More deployment options will be added in the future.
+          Currently, Azure Static Web Apps supports GitHub Actions and Azure DevOps. More deployment options will be added in the future.
       
       - question: |
-          My React application works locally but fails during the Static Web Apps build process with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
+          My React application fails to build with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
         answer: |
-          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build process will treat warnings as errors when running in a continuous integration (CI) environment. Azure Static Web Apps builds run in GitHub Actions and Azure Pipelines, which are CI environments. If you have warnings in your app, it will fail during the build process. To fix these issues, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
+          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build command treats warnings as errors when running in a continuous integration (CI) environment such as GitHub Actions and Azure Pipelines. If you have warnings in your app, it will fail to build. To fix these issues, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
 
           ```json
           "scripts": {
@@ -61,7 +61,7 @@ sections:
           ?
       
       - question: |
-          Can I run the Static Web Apps action/task on a Windows/macOS GitHub Actions or Azure Pipelines build agent?
+          Can I run the Static Web Apps action/task on a Windows or macOS GitHub Actions or Azure Pipelines build agent?
         answer: |
           Azure Static Web Apps' build engine runs in a Linux Docker container, so it can only be run on a Linux build agent.
 
@@ -77,9 +77,51 @@ sections:
               lfs: true
           ```
 
+      - question: |
+          Do I have to manually purge or invalidate the cache after deploying an app?
+        answer: |
+          Azure Static Web Apps automatically handles cache invalidation. When a deployment is complete, all requests will be served the latest version of your files. However, files can still be cached in your users' browsers or in a CDN if you added one to your app. To control how browsers and CDNs cache your content, configure the appropriate headers in your app's [configuration file](configuration.md).
+
   - name: Hosting
     questions:
       - question: |
-          ?
+          How do I ensure my app is deployed to a specific Azure region?
         answer: |
-          ?
+          Azure Static Web Apps is a global service. Your app's static assets are globally distributed. When you create your app, you select a region that your managed Azure Functions app will be deployed to. If you need your function app in a region that does not support managed functions, you can use the [Bring your own function app](functions-bring-your-own.md) feature with a function app you deploy separately.
+
+      - question: |
+          How do I configure my static web app behind Azure Application Gateway or a CDN like Azure Front Door?
+        answer: |
+          Azure Static Web Apps includes global distribution of your app's static assets. If you want to maximize your global footprint or require additional features, you can add a dedicated content distribution network (CDN) or Azure Application Gateway.
+
+          To restrict traffic to a specific CDN, configure your CDN to add a header containing a predefined, secret value to every request, then configure Static Web Apps to [require the header](configuration.md#required-headers). To restrict traffic to an Azure Application Gateway, [configure your app](configuration.md#networking) to only allow traffic from your Application Gateway's IP.
+          
+          In addition, configure your app to [allow forwarding](configuration.md#allowed-forwarded-hosts) of your CDN or Application Gateway's hostnames.
+          
+          To learn about configuring Azure Front Door, see [this tutorial](front-door-manual.md).
+
+      - question: |
+          How do I enable GZip or Brotli compression?
+        answer: |
+          For assets with file extensions of popular text formats, such as `.html`, `.css`, and `.js`, Azure Static Web Apps automatically serves [GZip](https://en.wikipedia.org/wiki/Gzip)- or [Brotli](https://en.wikipedia.org/wiki/Brotli)-compressed versions of your static assets if the client supports it.
+          
+          For other file types, Static Web Apps allow you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version will be served automatically if the client supports Brotli.
+
+  - name: Configuration
+    questions:
+      - question: |
+          How do I configure environment variables for my app?
+        answer: |
+          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.md) To learn more, see [Configuration overview](configuration-overview.md).
+
+  - name: General
+    questions:
+      - question: |
+          What are the limitations of the Free plan?
+        answer: |
+          Many small and medium apps will run great on the Free plan. The Free plan includes many of the same features as the Standard plan, such as global distribution, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
+    
+    - question: |
+          Can I change the hosting plan after I create my app?
+        answer: |
+          You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
