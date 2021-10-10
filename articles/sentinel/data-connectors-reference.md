@@ -1564,13 +1564,14 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)**<br><br>[Additional instructions for deploying the Windows Forwarded Events connector](#additional-instructions-for-deploying-the-windows-forwarded-events-connector) |
 | **Prerequisites** | You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. |
-| **Log Analytics table(s)** | SecurityEvents |
+| **xPath queries prefix** | "ForwardedEvents!*" |
+| **Log Analytics table(s)** | WindowsEvents |
 | **Supported by** | Microsoft |
 | | |
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository(link)] using the **Deploy** button in the **ASIM normalization support** section of the connector page.
+We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository](link) using the **Deploy** button in the **ASIM normalization support** section of the connector page.
 
 ## Windows Firewall
 
@@ -1586,6 +1587,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
+| **xPath queries prefix** | "Security!*" |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
