@@ -121,7 +121,7 @@ sections:
         answer: |
           Many small and medium apps will run great on the Free plan. The Free plan includes many of the same features as the Standard plan, such as global distribution, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
     
-    - question: |
-          Can I change the hosting plan after I create my app?
-        answer: |
-          You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
+      - question: |
+            Can I change the hosting plan after I create my app?
+          answer: |
+            You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
