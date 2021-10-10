@@ -43,9 +43,9 @@ With the implementation of template version control, you can see and track the v
 
 1. Select any rule of type **Scheduled**.  
 
-    - If the rule displays the "*Update available*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 below).
+    - If the rule displays the "*Update available*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 in the next step below).
 
-    - If the rule was created from a template but does not have the "*Update available*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 below).
+    - If the rule was created from a template but does not have the "*Update available*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 in the next step below).
 
     - If there is only an **Edit** button, the rule was created from scratch, not from a template.
 
@@ -64,10 +64,12 @@ With the implementation of template version control, you can see and track the v
 
     > [!NOTE]
     > Images 2 and 3 above show two examples of rules created from templates, where the template has not been updated.
-    > - Image 2 shows a rule that had been created after Azure Sentinel's initial implementation of template version control in mid-2021 (***EXACT MONTH?***)
-    > - Image 3 shows a rule that had been created before that time, so there is no version information for the template. If there is a latest template version available, it is likely a new version of the template.
+    > - Image 2 shows a rule that has a version number for its current template. This signals that the rule was created after Azure Sentinel's initial implementation of template version control in October 2021.
+    > - Image 3 shows a rule that doesn't have a current template version. This shows that the rule had been created before October 2021. If there is a latest template version available, it's likely a newer version of the template than the one used to create the rule.
 
 ## Compare your active rule with its template
+
+Choose one of the following tabs according to the action you wish to take, to see the instructions for that action:
 
 # [Update template](#tab/update)
 
