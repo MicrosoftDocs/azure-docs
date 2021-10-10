@@ -12,9 +12,9 @@ adobe-target: true
 
 # What is Azure Load Testing?
 
-Azure Load Testing is a fully managed load testing service built for Microsoft Azure that enables you to generate high-scale load. Developers, testers, quality assurance engineers, and software reliability engineers can use it to optimize the quality of their cloud applications built on top of Azure.
+Azure Load Testing is a fully managed load testing service built for Microsoft Azure that enables you to generate high-scale load. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity.
 
-Azure Load Testing integrates with Azure Monitor to give you detailed application performance metrics. This integration allows you to identify which parts of your app impact performance, stability, or scalability.
+You can create a load test using existing Apache JMeter scripts and identify bottlenecks in your Azure-hosted endpoints. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -22,7 +22,6 @@ Azure Load Testing integrates with Azure Monitor to give you detailed applicatio
 
 ## How does Azure Load Testing work?
 
-You can create a load test directly from the Azure portal or enable continuous regression testing in your Continuous Integration/Continuous Deployment (CI/CD) pipeline. Azure Load Testing has built-in support for creating a load test using an Apache JMeter script.
 
 <!-- Auto-abort sensors to identify throttling -->
 
