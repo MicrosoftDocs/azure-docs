@@ -53,19 +53,19 @@ To add a Blob Storage trigger to a multi-tenant logic app workflow, follow these
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer search box, enter `Azure blob` as your filter. From the triggers list, select the trigger **When a blob is added or modified (properties only)**.
+1. In the designer search box, enter `Azure blob` as your filter. From the triggers list, select the trigger named **When a blob is added or modified (properties only)**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Consumption logic app with the trigger named "When a blob is Added or Modified in Azure Storage" selected.":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Consumption logic app and the trigger named 'When a blob is added or modified (properties only)' selected.":::
 
 1. If you're prompted for connection details, [create your blob storage connection now](#connect-to-storage-account).
 
 1. Provide the necessary information for the trigger.
 
-   1. For **Container**, select the folder icon to choose your blob storage container. Or, enter the path manually.
+   1. For the **Container** property value, select the folder icon to choose your blob storage container. Or, enter the path manually.
 
    1. Configure other trigger settings as needed.
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing parameters configuration for blob storage trigger.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing Blob Storage trigger with parameters configuration.":::
 
 1. Add one or more actions to your workflow.
 
@@ -81,7 +81,7 @@ To add a Blob Storage trigger to a single-tenant logic app workflow, follow thes
 
 1. In the search box, enter `Azure blob`. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app workflow and the trigger named "When a blob is Added or Modified in Azure Storage" selected.":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app workflow and the trigger named 'When a blob is Added or Modified in Azure Storage' selected.":::
 
 1. If you're prompted for connection details, [create your blob storage connection now](#connect-to-storage-account).
 
@@ -95,7 +95,7 @@ To add a Blob Storage trigger to a single-tenant logic app workflow, follow thes
 
    1. Copy the **URL** value, which is the path to the blob. The path resembles `https://<storage-container-name>/<folder-name>/{name}`. Provide your container name and folder name instead, but keep the `{name}` literal string.
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot of Standard logic app in designer, showing parameters configuration for blob storage trigger.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with a Blob Storage trigger and parameters configuration.":::
 
 1. Continue creating your workflow by adding one or more actions.
 
@@ -123,7 +123,7 @@ To add a Blob Storage action to a multi-tenant logic app workflow, follow these 
 
 1. In the designer search box, enter `Azure blob`. Select the Blob Storage action that you want to use.
 
-   This example uses **Get blob content**.
+   This example uses the action named **Get blob content**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-add.png" alt-text="Screenshot of Consumption logic app in designer, showing list of available Blob Storage actions.":::
 
@@ -155,7 +155,7 @@ For logic apps in a single-tenant environment:
 1. On the designer toolbar, select **Save**. 
 1. Test your logic app to make sure your selected container contains a blob. 
 
-> [!TIP]
+> [!NOTE]
 > This example only reads the contents of a blob. To view the contents, add another action that creates a file with the blob by using another connector. For example, add a OneDrive action that creates a file based on the blob contents.
 
 ---
@@ -171,7 +171,7 @@ Before you can configure your [blob storage trigger](#add-blob-storage-trigger) 
 | **Connection Name** | Yes | <*connection-name*> | The name to create for your connection |
 | **Azure Blob Storage Connection String** | Yes | <*storage-account*> | Select your storage account from the list, or provide a string. |
 
-> [!TIP]
+> [!NOTE]
 > To find a connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys**. Select **Show keys**. Copy one of the two available connection string values.
 
 ### [Consumption](#tab/consumption)
@@ -254,10 +254,12 @@ To use managed identities in your logic app to access Blob Storage:
 
 > [!NOTE]
 > Limitations for this solution:
+>
 > - You can *only* use the HTTP trigger or action in your workflow.
 > - You must set up a managed identity to authenticate your storage account connection.
 > - You can't use built-in Blob Storage operations if you authenticate with a managed identity.
-> - For logic apps in a single-tenant environment, only the system-assigned managed identity is available and supported, not the user-assigned managed identity.
+> - For logic apps in a single-tenant environment, only the system-assigned managed identity is 
+> available and supported, not the user-assigned managed identity.
 
 ### Configure storage account access
 
@@ -267,12 +269,13 @@ To set up the exception and managed identity support, first configure appropriat
 1. Open your storage account's page. In the navigation menu, under **Security + networking**, select **Networking**. 
 1. Under **Allow access from**, select the **Selected networks** option. Related settings now appear on the page.
 1. If you need to access the storage account from your computer, under **Firewall**, enable **Add your client IP address**.
-1. Under **Exceptions**, enable **Allow trusted Microsoft services to access this storage account**. 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot of blob storage account networking page in Azure portal, showing settings to allow selected networks, client IP address, and trusted Microsoft services.":::
+1. Under **Exceptions**, enable **Allow trusted Microsoft services to access this storage account**.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot of blob storage account networking page in Azure portal, showing settings to allow selected networks, client IP address, and trusted Microsoft services.":::
 1. Select **Save**.
 
-> [!TIP]
-> If you receive a **403 Forbidden** error when you try to connect to the storage account from your workflow, there are multiple possible causes. Try the following resolution before moving on to additional steps. First, disable the setting **Allow trusted Microsoft services to access this storage account** and save your changes. Then, re-enable the setting, and save your changes again. 
+> [!NOTE]
+> If you receive a **403 Forbidden** error when you try to connect to the storage account from your workflow, there are multiple possible causes. Try the following resolution before moving on to additional steps. First, disable the setting **Allow trusted Microsoft services to access this storage account** and save your changes. Then, re-enable the setting, and save your changes again.
 
 ### Create role assignment for logic app
 
@@ -295,7 +298,7 @@ Next, [enable managed identity support](../logic-apps/create-managed-service-ide
 
 ### Enable support for managed identity in logic app
 
-Next, add an [HTTP trigger or action](connectors-native-http.md) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). 
+Next, add an [HTTP trigger or action](connectors-native-http.md) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity).
 
 The steps are the same for logic apps in both single-tenant and multi-tenant environments.
 
@@ -318,4 +321,4 @@ Now, you can call the [Blob service REST API](/rest/api/storageservices/blob-ser
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
+> [Connectors overview for Azure Logic Apps](apis-list.md)
