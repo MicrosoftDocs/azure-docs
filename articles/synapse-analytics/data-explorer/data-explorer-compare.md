@@ -2,7 +2,7 @@
 title: Differences between Azure Data Explorer and Azure Synapse Analytics Data Explorer (Preview)
 description: This article describes the differences between Azure Data Explorer and Azure Synapse Analytics Data Explorer.
 ms.topic: overview
-ms.date: 08/08/2021
+ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja

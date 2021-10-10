@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Synapse Studio to monitor your Data Explorer pools (Preview)'
 description: This article provides information for monitoring Data Explorer pools.
 ms.topic: quickstart
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
