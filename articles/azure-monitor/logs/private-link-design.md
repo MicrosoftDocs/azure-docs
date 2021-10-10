@@ -167,7 +167,7 @@ We've identified the following products and experiences query workspaces through
 ## Requirements
 
 ### Network subnet size
-The smallest supported IPv4 subnet is /27 (using CIDR subnet definitions). While Azure VNets [can be as small as /29](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#how-small-and-how-large-can-vnets-and-subnets-be), Azure [reserves 5 IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) and the Azure Monitor Private Link setup requires at least 11 additional IP addresses, even if connecting to a single workspace. [Review your endpoint's DNS settings](./private-link-configure.md#reviewing-your-endpoints-dns-settings) for the detailed list of Azure Monitor Private Link endpoints.
+The smallest supported IPv4 subnet is /27 (using CIDR subnet definitions). While Azure VNets [can be as small as /29](../../virtual-network/virtual-networks-faq.md#how-small-and-how-large-can-vnets-and-subnets-be), Azure [reserves 5 IP addresses](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) and the Azure Monitor Private Link setup requires at least 11 additional IP addresses, even if connecting to a single workspace. [Review your endpoint's DNS settings](./private-link-configure.md#reviewing-your-endpoints-dns-settings) for the detailed list of Azure Monitor Private Link endpoints.
 
 
 ### Agents
