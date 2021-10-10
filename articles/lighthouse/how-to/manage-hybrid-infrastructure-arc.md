@@ -15,7 +15,7 @@ With [Azure Arc–enabled servers](../../azure-arc/servers/overview.md), custome
 
 [Azure Arc–enabled Kubernetes](../../azure-arc/kubernetes/overview.md) lets customers attach and configure Kubernetes clusters inside or outside of Azure. When a Kubernetes cluster is attached to Azure Arc, it will appear in the Azure portal, with an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource.
 
-This topic provides an overview of how to use Azure Arc–enabled servers and Azure Arc–enabled Kubernetes in a scalable way across the customer tenants you manage.
+This topic provides an overview of how to use Azure Arc-enabled servers and Azure Arc-enabled Kubernetes in a scalable way across the customer tenants you manage.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
@@ -28,7 +28,7 @@ You can manage these connected machines using Azure constructs, such as Azure Po
 
 For example, you can [ensure the same set of policies are applied across customers' hybrid machines](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). You can also use Azure Security Center to monitor compliance across all of your customers' hybrid environments, or [use Azure Monitor to collect data directly from hybrid machines](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) into a Log Analytics workspace. [Virtual machine extensions](../../azure-arc/servers/manage-vm-extensions.md) can be deployed to non-Azure Windows and Linux VMs, simplifying management of customer's hybrid machines.
 
-## Manage hybrid Kubernetes clusters at scale with Azure Arc–enabled Kubernetes
+## Manage hybrid Kubernetes clusters at scale with Azure Arc-enabled Kubernetes
 
 You can manage Kubernetes clusters that have been [connected to a customer's subscription with Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), just as if they were running in Azure.
 
@@ -41,5 +41,5 @@ You can also monitor connected clusters with Azure Monitor, and [use Azure Polic
 ## Next steps
 
 - Explore the jumpstarts and samples in the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc).
-- Learn about [supported scenarios for Azure Arc–enabled servers](../../azure-arc/servers/overview.md#supported-cloud-operations).
+- Learn about [supported scenarios for Azure Arc-enabled servers](../../azure-arc/servers/overview.md#supported-cloud-operations).
 - Learn about [Kubernetes distributions supported by Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
