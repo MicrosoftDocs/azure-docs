@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 08/05/2021
+ms.date: 10/10/2021
 ms.topic: reference
 ---
 
@@ -2676,13 +2676,13 @@ Example:
 
 #### Data fields
 
-|Name|Type|Nullable|List of values|
-|-|-|-|-|
-|id|Numeric|No|-|
-|xsenseId|Numeric|No|-|
-|xsenseAlertId|Numeric|No|-|
-|downloadUrl|String|No|URL|
-|token|String|No|-|
+|Name|Type|Nullable|
+|-|-|-|
+|id|Numeric|No|
+|xsenseId|Numeric|No|
+|xsenseAlertId|Numeric|No|
+|downloadUrl|String|No|
+|token|String|No|
 
 #### Response example
 
