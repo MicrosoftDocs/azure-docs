@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
 
 ---
@@ -17,17 +17,59 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
+## October 2021
+
+### Form Recognizer new preview release
+
+ Form Recognizer new preview release introduces several new features and capabilities:
+
+* [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
+* [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
+
+* [**Langauge Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+
+* **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
+
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
+
+Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
+
+ #### Form Recognizer model data extraction
+
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+
 ## September 2021
 
-"Fix the inaccurate name extraction in Prebuilt IDs (Driver's License) when there's suffix/dot in name."
+* [Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) are available on your Form Recognizer resource overview page in the Azure portal.
 
-[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) available on your Form Recognizer resource overview page in the Azure portal. 
+    ### Monitoring menu
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot: metrics charts in Azure portal.":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+
+    ### Charts
+
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+
+*  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
+
+    |Input Text | Result with update |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry Caleb </br></br> **LastName**: Ross Sr |
 
 ## July 2021
 
-### System-assigned managed identity support 
+### System-assigned managed identity support
 
  You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
@@ -81,9 +123,9 @@ The patch addresses invoices that do not have sub-line item fields detected such
 * [Identity documents](concept-identification-cards.md)
 * [Custom forms](concept-custom.md)
 
-#### Get started 
+#### Get started
 
-Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
+Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md)
 
 ### Layout adds table headers
 
@@ -366,9 +408,9 @@ pip package version 3.1.0b4
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="passport example" lightbox="./media/id-canada-passport-example.png":::
 
-* **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
+* **Line-item extraction for invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
-   [Learn more about the prebuilt invoice model](concept-invoices.md)
+   [Learn more about the invoice model](concept-invoices.md)
 
 * **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
