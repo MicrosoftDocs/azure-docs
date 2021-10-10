@@ -129,45 +129,7 @@ You can find and query the data for each resource type using the table name that
 
 ## Windows agent-based connections
 
-# [Log Analytics Agent (Legacy)](#tab/LAA)
-
-### Prerequisites
-
-- You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
-- You must have the **Log Analytics Contributor** role on the SecurityInsights (Azure Sentinel) solution on those workspaces, in addition to any Azure Sentinel roles.
-
-### Instructions
-
-#### Install the agent
-
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
-
-1. Select your service (**DNS** or **Windows Firewall**) and then select **Open connector page**.
-
-1. Install and onboard the agent on the device that generates the logs.
-
-    | Machine type  | Instructions  |
-    | --------- | --------- |
-    | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
-    | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
-    | | |
-
-> [!NOTE]
->
-> To allow Windows systems without the necessary internet connectivity to still stream events to Azure Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You will still need to install the Log Analytics agent on each Windows system whose events you want to collect.
->
-> For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
-
-For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
-
-
-#### Determine the logs to send
-
-For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the [**event set**](windows-security-event-id-reference.md) you wish to send and select **Update**.
-
-You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
-
-# [Azure Monitor Agent (New)](#tab/AMA)
+# [Azure Monitor Agent](#tab/AMA)
 
 > [!IMPORTANT]
 >
@@ -280,6 +242,44 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
     }
 }
 ```
+
+# [Log Analytics Agent (Legacy)](#tab/LAA)
+
+### Prerequisites
+
+- You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
+- You must have the **Log Analytics Contributor** role on the SecurityInsights (Azure Sentinel) solution on those workspaces, in addition to any Azure Sentinel roles.
+
+### Instructions
+
+#### Install the agent
+
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. Select your service (**DNS** or **Windows Firewall**) and then select **Open connector page**.
+
+1. Install and onboard the agent on the device that generates the logs.
+
+    | Machine type  | Instructions  |
+    | --------- | --------- |
+    | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
+    | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
+    | | |
+
+> [!NOTE]
+>
+> To allow Windows systems without the necessary internet connectivity to still stream events to Azure Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You will still need to install the Log Analytics agent on each Windows system whose events you want to collect.
+>
+> For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
+
+For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
+
+
+#### Determine the logs to send
+
+For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the [**event set**](windows-security-event-id-reference.md) you wish to send and select **Update**.
+
+You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
 
 ---
 
