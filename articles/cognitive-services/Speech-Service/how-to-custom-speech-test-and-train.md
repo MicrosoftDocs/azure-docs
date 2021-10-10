@@ -104,7 +104,7 @@ To associate the new dataset with an existing project in the Speech Studio durin
 }
 ```
 
-Project GUID in `project` element can be obtained via [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
+Project URL required for `project` element can be obtained via [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training/testing
 
