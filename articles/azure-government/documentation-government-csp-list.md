@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 09/21/2021
+ms.date: 10/05/2021
 ---
 
 # Azure Government authorized reseller list
@@ -18,6 +18,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 |Partner name|
 |----------------------------|
+|[2w Technologies LLC](https://2wtech.com)|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
 |[1901 Group, LLC](https://1901group.com)|
@@ -30,6 +31,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
+|[AG Grace Inc](https://aggrace.com/)|
 |[ADNET Technologies](https://thinkadnet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Advisicon, Inc](https://advisicon.com/)|
@@ -65,6 +67,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
+|[BDO Digital LLC](https://www.bdo.com/digital)|
 |[Bitscape](https://www.bitscape.com)|
 |[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
@@ -76,6 +79,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[Capgemini Government Solutions LLC](https://www.capgemini.com/us-en/service/capgemini-government-solutions/)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
+|[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
 |[Castalia Systems](https://www.castaliasystems.com)|
 |[CB5 Solutions](https://www.cbfive.com/)|
@@ -105,12 +109,14 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
 |[Corporate Technologies LLC](https://www.gocorptech.com/)|
+|[Covenant Global](https://covenant.global/)|
+|[Covenant Technology Solutions Inc.](https://covenant-tech.net/)|
 |[Crayon Software Experts LLC](https://www.crayon.com/)|
 |[Cre8tive Technology Design](https://www.ctnd.com/)|
 |[Crowe Horwath LLP](https://www.crowe.com/)|
 |[CSI, L.L.C.](http://www.csinov.com/index.php)|
+|[Custom Computer & Network Solutions](https://nowyouknowit.com/)|
 |[CuroGens, Inc.](https://www.curogens.com/)|
-|[CSRA, LLC](https://www.csra.com)|
 |[CWPS](https://www.cwps.com/)|
 |[Cyber Advisors](https://cyberadvisors.com)|
 |[Cyber Cloud Technologies](https://www.cyber-cloud.com)|
@@ -119,13 +125,16 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
 |[Data Center Services Inc](https://www.d8acenter.com)|
+|[Data Defenders LLC](https://data-defenders.com/)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
 |[Datastrong](https://www.datastrong.com)|
 |[Daymark Solutions Inc.](https://www.daymarksi.com/)|
+|[Deborgem Enterprises Incorporated](https://deborgem.com)|
 |[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/learn/us/en/rc1009777/fed)|
+|[Delphi Technology Solutions](https://delphi-ts.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
 |[Diffeo, Inc.](https://diffeo.com)|
@@ -138,21 +147,25 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
+|[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
+|[Enterprise Computing Services](https://thinkecs.com/)|
 |[Enterprise Infrastructure Partners, LLC](http://www.entisp.com/)|
 |[Enterprise Technology International](https://enterpriseti.com)|
 |[Envistacom](https://www.envistacom.com)|
 |[Epic Systems Inc](http://epicinfotech.com/)|
 |[EpochConcepts](https://epochconcepts.com)|
 |[Equilibrium IT Solutions, Inc. (Ntiva)](https://www.ntiva.com/)|
+|[eTrepid Inc](https://www.etrepid.com)|
 |[Evertec](http://www.evertecinc.com)|
 |[eWay Corp](https://www.ewaycorp.com)|
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[Executive Information Systems, LLC](https://www.execinfosys.com)|
 |[FI Consulting](https://www.ficonsulting.com/)|
+|[Firstworld USA DBA Terminal](https://www.terminal.com/)|
 |[FCN, Inc.](https://fcnit.com)|
 |[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
@@ -161,6 +174,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
 |[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
+|[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
 |[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
@@ -191,6 +205,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
+|[Illuminative Strategies Inc](https://illum-strat.com)|
 |[ImageSource](https://imagesourceinc.com/)|
 |[iMedia IT Solutions inc.](https://www.imediait.net/)|
 |[Impact Networking](https://www.impactmybiz.com)|
@@ -207,11 +222,13 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Intact Partners Inc.](https://www.itintact.com/)|
 |[Integration Partners Corp.](https://integrationpartners.com/)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
+|[InterVision Systems LLC](https://intervision.com)|
 |[Invoke, LLC](https://invokellc.com)|
 |[It1 Source LLC](https://www.it1.com)|
 |[ITInfra](https://itinfra.biz/)|
 |[ITsavvy](https://www.itsavvy.com)|
 |[IV4, Inc](https://www.iv4.com)|
+|[J and C Landwehr LLC](https://jandclandwehr.com/)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
@@ -242,6 +259,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ManCom Inc](https://www.mancominc.com/)|
 |[ManTech](https://www.mantech.com/Pages/Home.aspx)|
 |[Marco Technologies LLC](https://www.marconet.com/)|
+|[Maureen Data Systems](https://www.mdsny.com)|
 |[Mazteck IT](https://www.mazteck.com)|
 |[Media3 Technologies, LLC](https://www.media3.net)|
 |[Medsphere](https://www.medsphere.com)|
@@ -259,6 +277,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Neovera Inc.](https://www.neovera.com)|
+|[NetData Consulting Services Inc.](https://www.netdatacs.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
 |[NexusTek](https://www.nexustek.com/)|
@@ -306,11 +325,14 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Prayag Lite](https://prayaglite.com/)|
 |[Precise Software Solutions](https://www.precise-soft.com)|
 |[ProArch IT Solutions](https://www.proarch.com/)|
+|[Procentrix Inc](https://www.procentrix.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
+|[Prophet Network Integration Inc.](https://www.pniaz.com)|
 |[Protected Trust](https://www.proarch.com/)|
 |[Protera Technologies](https://www.protera.com)|
 |[Pueo Business Solutions, LLC](https://www.pueo.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
+|[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
 |[R3 LLC](https://www.r3.com)|
@@ -329,9 +351,11 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[RoboTech Science, Inc. (Cyberscend)](https://cyberscend.com)|
 |[Rollout Systems LLC](http://www.rolloutsys.com/)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
+|[RyanTech Inc.](https://ryantechinc.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
 |[SAP NS2](https://sapns2.com)|
 |[Sarela Technology Solutions LLC](https://www.sarelatech.com)|
+|[Saasplaza](https://www.intwo.cloud/)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
 |[Selex Galileo Inc](http://www.selexgalileo.com/)|
@@ -344,6 +368,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Shoshin Technologies Inc.](https://www.shoshintech.com)|
 |[Sieena, Inc.](https://siennatech.com/)|
 |[Simeon Networks](https://simeonnetworks.com)|
+|[SimpleHelix](https://simplehelix.com/)|
 |[Simons Advisors, LLC](https://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
@@ -366,15 +391,19 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
+|[Sundance Systems Inc.](https://www.sundance-sys.com)|
 |[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
 |[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
+|[SyCom Technologies](https://www.sycomtech.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
 |[Syvantis Technologies, Inc.](https://www.syvantis.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
+|[Techaxia LLC](https://www.techaxia.com)|
 |[TechFlow](https://www.techflow.com)|
+|[TechHouse GCC](https://www.tech-house.com)|
 |[TechnoMile](https://technomile.com/)|
 |[TechTrend](https://techtrend.us)|
 |[TekSynap](https://www.teksynap.com)|
@@ -420,6 +449,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Withum](https://www.withum.com/service/cyber-information-security-services/)|
 |[Workspot, Inc.](https://workspot.com)|
 |[Wovenware CA, Inc.](https://www.wovenware.com)|
+|[WCC Global](https://wwcglobal.com)|
 |[WWT](https://www2.wwt.com)|
 |[Xantrion Incorporated](https://www.xantrion.com)|
 |[X-Centric IT Solutions, LLC](https://www.x-centric.com/)|
@@ -462,6 +492,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 |Partner name|
 |----------------------------|
+|[12:34 MicroTechnologies Inc.](https://1234micro.com/)|
 |[Accenture Federal Service](https://www.accenture.com/us-en/industries/afs-index)|
 |[Agile IT, Inc](https://www.agileit.com)|
 |[American Technology Services](https://networkats.com)|
@@ -476,11 +507,14 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
 |[Conquest Cyber](https://conquestcyber.com/)|
 |[CyberSheath](https://cybersheath.com)|
+|[Daymark Solutions, Inc.](https://www.daymarksi.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com/)|
+|[eTrepid Inc.](https://www.etrepid.com/)|
 |[F1 Soluitions Inc](https://www.f1networks.com)|
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
+|Golden Five LLC|
 |[Hypori, Inc.](https://hypori.com/)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jasper Solutions](https://www.jaspersolutions.com/)|
@@ -493,13 +527,15 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
-|[Planet Technologies, Inc.](https://go-planet.com)|
 |[Perspecta](https://perspecta.com)|
+|[Planet Technologies, Inc.](https://go-planet.com)|
+|[Progeny Systems](https://www.progeny.net/)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
 |[SAIC](https://www.saic.com)|
 |[Smartronix](https://www.smartronix.com)|
+|[Strategic Communications](https://yourstrategic.com/)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[TechTrend, Inc](https://techtrend.us)|
 |[VLCM](https://www.vlcmtech.com)|
