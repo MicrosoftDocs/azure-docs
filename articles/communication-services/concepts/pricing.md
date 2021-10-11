@@ -117,7 +117,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 
 ## Call Recording
 
-Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/call-recording-sample?pivots=programming-language-java).
+Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/call-recording-sample).
 
 ### Price
 
