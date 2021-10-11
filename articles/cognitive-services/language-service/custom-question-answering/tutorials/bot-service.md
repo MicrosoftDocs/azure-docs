@@ -35,7 +35,7 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
 1. In the Language Studio portal, on the question answering **Deploy knowledge base** page, select **Create bot**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Create bot in Azure](../media/bot-service/create-bot-in-azure.png)
+    > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)
 
 1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service.
 
@@ -55,7 +55,7 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
 1. Under **Settings**, select **Test in Web Chat**.
 
     > [!div class="mx-imgBorder"]
-    > ![Test web chat](../media/bot-service/test-in-web-chat.png)
+    > ![Screenshot of Azure Bot Service UI button that reads "Test web chat".](../media/bot-service/test-in-web-chat.png)
 
 1. At the chat prompt of **Type your message**, enter:
 
@@ -64,14 +64,14 @@ After deploying your project/knowledge base, you can create a bot from the **Dep
     The chat bot responds with an answer from your knowledge base.
 
     > [!div class="mx-imgBorder"]
-    > ![Bot test chat response](../media/bot-service/bot-chat.png)
+    > ![Screenshot of bot test chat response containing a question and bot generated answer.](../media/bot-service/bot-chat.png)
 
 ## Integrate the bot with channels
 
 Select **Channels** in the Bot service resource that you have created. You can activate the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
 
    >[!div class="mx-imgBorder"]
-   >![Screenshot of integration with teams](../media/bot-service/channels.png)
+   >![Screenshot of integration with teams with product icons.](../media/bot-service/channels.png)
 
 ## Clean up resources
 
