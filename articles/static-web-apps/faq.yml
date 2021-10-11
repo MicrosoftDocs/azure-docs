@@ -35,7 +35,7 @@ sections:
       - question: |
           Can I customize the build process?
         answer: |
-          If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. Then you can use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
+          If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. You can then use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
           `skip_app_build` is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
 
@@ -47,7 +47,7 @@ sections:
       - question: |
           My React application fails to build with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
         answer: |
-          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build command treats warnings as errors when running in a continuous integration (CI) environment such as GitHub Actions and Azure Pipelines. If you have warnings in your app, it will fail to build. To fix these issues, modify your app to remove the warnings. If you can't remove the warnings, update your build script in _package.json_ to unset the `CI` environment variable:
+          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build command treats warnings as errors when running in a continuous integration (CI) environment such as GitHub Actions or Azure Pipelines. If you have warnings in your app, it will fail to build. To fix these issues, modify your app to remove the warnings. If want the build to succeed even if there are warnings, update your build script in _package.json_ to unset the `CI` environment variable:
 
           ```json
           "scripts": {
@@ -56,12 +56,25 @@ sections:
           ```
       
       - question: |
-          How do I change the branch or repo in GitHub?
+          How do I change the branch in GitHub?
         answer: |
-          ?
+          To change the branch to build and deploy from, update the branch names in your app's GitHub workflow. For example, if you want to change your app to build and deploy from a branch named `release`, update the `on` section of your workflow:
+
+          ```yaml
+          on:
+            push:
+              branches:
+                - release
+            pull_request:
+              types: [opened, synchronize, reopened, closed]
+              branches:
+                - release
+          ```
+
+          For static web apps created during the preview period, you might need to [reset the deployment token](deployment-token-management.md).
       
       - question: |
-          Can I run the Static Web Apps action/task on a Windows or macOS GitHub Actions or Azure Pipelines build agent?
+          Do I have to run the Static Web Apps action/task on a Linux GitHub Actions or Azure Pipelines build agent?
         answer: |
           Azure Static Web Apps' build engine runs in a Linux Docker container, so it can only be run on a Linux build agent.
 
@@ -78,9 +91,9 @@ sections:
           ```
 
       - question: |
-          Do I have to manually purge or invalidate the cache after deploying an app?
+          Do I have to manually purge or invalidate the cache after a deployment?
         answer: |
-          Azure Static Web Apps automatically handles cache invalidation. When a deployment is complete, all requests will be served the latest version of your files. However, files can still be cached in your users' browsers or in a CDN if you added one to your app. To control how browsers and CDNs cache your content, configure the appropriate headers in your app's [configuration file](configuration.md).
+          Azure Static Web Apps automatically handles cache invalidation. When a deployment completes, all requests will be served the latest version of your files. However, files can still be cached in your users' browsers or in a CDN if you've configured one. To control how browsers and CDNs cache your content, configure the appropriate headers in your app's [configuration file](configuration.md).
 
   - name: Hosting
     questions:
@@ -94,34 +107,78 @@ sections:
         answer: |
           Azure Static Web Apps includes global distribution of your app's static assets. If you want to maximize your global footprint or require additional features, you can add a dedicated content distribution network (CDN) or Azure Application Gateway.
 
-          To restrict traffic to a specific CDN, configure your CDN to add a header containing a predefined, secret value to every request, then configure Static Web Apps to [require the header](configuration.md#required-headers). To restrict traffic to an Azure Application Gateway, [configure your app](configuration.md#networking) to only allow traffic from your Application Gateway's IP.
+          To restrict traffic to a specific CDN, configure your CDN to add a header containing a predefined, secret value to every request and configure Static Web Apps to [require the header](configuration.md#required-headers). To restrict traffic to an Azure Application Gateway, [configure your app](configuration.md#networking) to only allow traffic from your Application Gateway's IP.
           
           In addition, configure your app to [allow forwarding](configuration.md#allowed-forwarded-hosts) of your CDN or Application Gateway's hostnames.
           
           To learn about configuring Azure Front Door, see [this tutorial](front-door-manual.md).
 
       - question: |
-          How do I enable GZip or Brotli compression?
+          How do I enable Gzip or Brotli compression?
         answer: |
-          For assets with file extensions of popular text formats, such as `.html`, `.css`, and `.js`, Azure Static Web Apps automatically serves [GZip](https://en.wikipedia.org/wiki/Gzip)- or [Brotli](https://en.wikipedia.org/wiki/Brotli)-compressed versions of your static assets if the client supports it.
+          For assets with file extensions of popular text formats, such as `.html`, `.css`, and `.js`, Azure Static Web Apps automatically serves [Gzip](https://en.wikipedia.org/wiki/Gzip)- or [Brotli](https://en.wikipedia.org/wiki/Brotli)-compressed versions of your static assets if the client supports it.
           
-          For other file types, Static Web Apps allow you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version will be served automatically if the client supports Brotli.
+          For other file types, Static Web Apps allows you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version will be served automatically if a client that supports Brotli requests `app.wasm`.
+
+      - question: |
+          Why does my frontend app return a 404 error when I access a route that exists?
+        answer: |
+          Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it'll return a 404 error because the route does not exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
 
   - name: Configuration
     questions:
       - question: |
           How do I configure environment variables for my app?
         answer: |
-          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.md) To learn more, see [Configuration overview](configuration-overview.md).
+          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.md). To learn more, see [Configuration overview](configuration-overview.md).
+
+      - question: |
+          Does Static Web Apps support managed identity?
+        answer: |
+          Static Web Apps supports managed identity, but it is only used to [retrieve authentication secrets](key-vault-secrets.md) from Key Vault.
+          
+          If you need managed identity or Key Vault references in your API, use the [bring your own function app](functions-bring-your-own.md) feature to use a separate function app that uses managed identity.
+
+  - name: Authentication
+    questions:
+      - question: |
+          How many users can log in to my static web app?
+        answer:
+          Static Web Apps does not have a limit on the number of users that can log in to your app. You can assign custom roles to up to 25 users using the built-in invitations system. If you need to assign custom roles to more users, you can use an [API function to programmatically assign roles](authentication-authorization.md?tabs=function#role-management).
+          
+      - question: |
+          How do I use the retrieve a user's access token or claims from the identity provider?
+        answer: |
+          You can access the user's access token and claims when you use an [API function for role management](authentication-authorization.md?tabs=function#role-management).
+
+      - question: |
+          Am I limited to using a single identity provider?
+        answer: |
+          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authorization-provider).
+
+          If you are using custom authentication, you can configure one or more identity providers.
+
+  - name: API functions
+    questions:
+      - question: |
+          How do I write my APIs using a language or language version that Static Web Apps doesn’t support?
+        answer: |
+          Static Web Apps' managed function apps do not support all languages or language versions that Azure Functions supports. You can use the bring your own function app feature to link a separate function app to your Static Web App.
+
+      - question: |
+          How do I use triggers in my function app that are not HTTP?
+        answer: |
+          The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as timer or Durable Functions, you can use the bring your own function app](functions-bring-your-own.md) feature to link a separate function app to your Static Web App.
 
   - name: General
     questions:
       - question: |
           What are the limitations of the Free plan?
         answer: |
-          Many small and medium apps will run great on the Free plan. The Free plan includes many of the same features as the Standard plan, such as global distribution, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
+          Many small and medium apps will run great on the Free plan. The Free plan includes many of the same features as the Standard plan such as global distribution, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
     
       - question: |
-            Can I change the hosting plan after I create my app?
+          Can I change the hosting plan after I create my app?
         answer: |
-            You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
+          You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
+      
