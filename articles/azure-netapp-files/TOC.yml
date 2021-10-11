@@ -6,6 +6,8 @@
     href: azure-netapp-files-introduction.md
   - name: What's new
     href: whats-new.md
+  - name: Azure NetApp Files for Azure Government
+    href: azure-government.md
 - name: Quickstarts
   expanded: true 
   items:
@@ -25,24 +27,22 @@
       href: azure-netapp-files-cost-model.md
     - name: Storage service add-ons
       href: storage-service-add-ons.md
-    - name: Azure NetApp Files for Azure Government
-      href: azure-government.md
-  - name: Resources and networking 
-    items:
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
     - name: Metrics for Azure NetApp Files
       href: azure-netapp-files-metrics.md
     - name: Guidelines for Azure NetApp Files network planning 
       href: azure-netapp-files-network-topologies.md
-  - name: Capacity pools and volumes 
+  - name: Quotas 
     items:
-    - name: Manual QoS capacity pool
-      href: manual-qos-capacity-pool-introduction.md
     - name: Understand volume quota
       href: volume-quota-introduction.md
     - name: Understand volume hard quota
       href: volume-hard-quota-guidelines.md
+  - name: Capacity pools 
+    items:
+    - name: Manual QoS capacity pool
+      href: manual-qos-capacity-pool-introduction.md
   - name: Data protection 
     items:
     - name: How Azure NetApp Files snapshots work
@@ -103,6 +103,10 @@
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
+  - name: FAQs
+    items:
+          - name: FAQ for Azure NetApp Files
+            href: azure-netapp-files-faqs.md
 - name: How-to guides
   items: 
   - name: Register and set up
@@ -293,5 +297,3 @@
     href: ../storage/common/nfs-comparison.md?toc=%2fazure%2fazure-netapp-files%2ftoc.json
   - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md
-  - name: FAQ
-    href: azure-netapp-files-faqs.md
