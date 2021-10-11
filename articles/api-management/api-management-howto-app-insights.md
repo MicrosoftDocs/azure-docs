@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/08/2021
+ms.date: 10/11/2021
 ms.author: danlep
 
 ---
@@ -35,8 +35,8 @@ To use Application Insights, [create an instance of the Application Insights ser
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Screenshot that shows where to add a new connection":::
 1. Select the **Application Insights** instance you created earlier and provide a short description.
 1. To enable [availability monitoring](../azure-monitor/app/monitor-web-app-availability.md) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
-
-    This setting regularly validates whether the API Management service endpoint is responding. Results appear in the **Availability** pane of the Application Insights instance.
+    * This setting regularly validates whether the API Management service endpoint is responding. 
+    * Results appear in the **Availability** pane of the Application Insights instance.
 1. Select **Create**.
 1. Check that the new Application Insights logger with an instrumentation key now appears in the list.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
