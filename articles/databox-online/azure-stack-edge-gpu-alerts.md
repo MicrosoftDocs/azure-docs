@@ -14,14 +14,15 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-This article describes alerts that occur on an Azure Stack Edge devices and steps to take when you receive the alerts. The alerts generate notifications in the Azure portal.
+This article describes alerts that occur on an Azure Stack Edge devices and steps to take when you receive the alerts. The alerts generate notifications in the Azure portal. The article also describes how to view alerts in the Azure portal and interpret alert severity.
 
 Alerts for a feature are raised only if the feature is supported in that Azure Stack Edge product. For example, you won't see virtual machine alerts on an Azure Stack Edge Pro GPU FPGA device, which doesn't support VMs.
 
-<!--> [!NOTE]
-> For information about managing alerts in the Azure portal, see [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). - Convert note to regular text in new "Alerts overview" section.-->
+## Overview of alerts
 
-## View device events
+You can view alerts on the **Device events** blade of the Azure portal. The severity of an alert indicates how to respond to it.
+
+### View device events
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
 
