@@ -12,7 +12,7 @@ zone_pivot_groups: manage-asc-initiatives
 
 # Create custom security initiatives and policies
 
-To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
+To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
@@ -25,14 +25,14 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
 ## To add a custom initiative to your subscription 
 
-1. From Security Center's sidebar, open the **Security policy** page.
+1. From Defender for Cloud's menu, select **Security policy**.
 
 1. Select a subscription or Management Group to which you would like to add a custom initiative.
 
     [![Selecting a subscription for which you'll create your custom policy.](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > You must add custom initiatives at the subscription level (or higher) for them to be evaluated and displayed in Security Center. We recommend that you select the widest scope available.
+    > For your custom initiatives to be evaluated and displayed in Defender for Cloud, you must add them at the subscription level (or higher). We recommend that you select the widest scope available.
 
 1. In the Security policy page, under Your custom initiatives, click **Add a custom initiative**.
 
@@ -59,7 +59,7 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
     Your new initiative takes effect and you can see the impact in the following two ways:
 
-    * From the Security Center sidebar, under Policy & Compliance, select **Regulatory compliance**. The compliance dashboard opens to show your new custom initiative alongside the built-in initiatives.
+    * From the Defender for Cloud menu, select **Regulatory compliance**. The compliance dashboard opens to show your new custom initiative alongside the built-in initiatives.
     
     * You'll begin to receive recommendations if your environment doesn't follow the policies you've defined.
 
@@ -83,9 +83,9 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Security Center has a built-in initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+Defender for Cloud has a built-in initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), that includes all of its security policies. To assess Defender for Cloud’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
-The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
+The built-in initiative has all of Defender for Cloud’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Defender for Cloud’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
 
 ## API examples
 
@@ -95,7 +95,7 @@ In the following examples, replace these variables:
 - **{policyAssignmentName}** enter the name of the relevant policy assignment
 - **{name}** enter your name, or the name of the administrator who approved the policy change
 
-This example shows you how to assign the built-in Security Center initiative on a subscription or management group
+This example shows you how to assign the built-in Defender for Cloud initiative on a subscription or management group
  
  ```
     PUT  
@@ -124,7 +124,7 @@ This example shows you how to assign the built-in Security Center initiative on 
     } 
  ```
 
-This example shows you how to assign the built-in Security Center initiative on a subscription, with the following policies disabled: 
+This example shows you how to assign the built-in Defender for Cloud initiative on a subscription, with the following policies disabled: 
 
 - System updates (“systemUpdatesMonitoringEffect”) 
 

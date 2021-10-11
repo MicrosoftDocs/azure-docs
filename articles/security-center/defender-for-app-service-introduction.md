@@ -14,7 +14,7 @@ manager: rkarlin
 
 ## Prerequisites
 
-Security Center is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
+Defender for Cloud is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
 
 To protect your Azure App Service plan with Azure Defender for App Service, you'll need:
 
@@ -30,7 +30,7 @@ To protect your Azure App Service plan with Azure Defender for App Service, you'
 | Aspect                       | Details                                                                                                                                                                                        |
 |------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:               | General availability (GA)                                                                                                                                                                      |
-| Pricing:                     | [Azure Defender for App Service](azure-defender.md) is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
+| Pricing:                     | [Azure Defender for App Service](azure-defender.md) is billed as shown on [Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [All App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are supported except [Azure Functions on the consumption plan](../azure-functions/functions-scale.md). |
 | Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
@@ -39,24 +39,24 @@ To protect your Azure App Service plan with Azure Defender for App Service, you'
 
 Azure App Service is a fully managed platform for building and hosting your web apps and APIs. Since the platform is fully managed, you don't have to worry about the infrastructure. It provides management, monitoring, and operational insights to meet enterprise-grade performance, security, and compliance requirements. For more information, see [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-**Azure Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. This data is then used to identify exploits and attackers, and to learn new patterns that will be used later.
+**Microsoft Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. This data is then used to identify exploits and attackers, and to learn new patterns that will be used later.
 
 When you enable Azure Defender for App Service, you immediately benefit from the following services offered by this Azure Defender plan:
 
-- **Secure** - Security Center assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in these recommendations to harden your App Service resources.
+- **Secure** - Defender for App Service assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in these recommendations to harden your App Service resources.
 
-- **Detect** - Azure Defender detects a multitude of threats to your App Service resources by monitoring:
+- **Detect** - Defender for App Service detects a multitude of threats to your App Service resources by monitoring:
     - the VM instance in which your App Service is running, and its management interface
     - the requests and responses sent to and from your App Service apps
     - the underlying sandboxes and VMs
     - App Service internal logs - available thanks to the visibility that Azure has as a cloud provider
 
-As a cloud-native solution, Azure Defender can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
+As a cloud-native solution, Defender for App Service can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
 
-The log data and the infrastructure together can tell the story: from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Security Center is deployed after a web app has been exploited, it might be able to detect ongoing attacks.
+The log data and the infrastructure together can tell the story: from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Azure Defender for App Service is deployed after a web app has been exploited, it might be able to detect ongoing attacks.
 
 
-## What threats can Azure Defender for App Service detect?
+## What threats can Defender for App Service detect?
 
 ### Threats by MITRE ATT&CK tactics
 
