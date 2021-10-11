@@ -169,6 +169,10 @@ items:
         href: language-detection/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
 - name: Key phrase extraction
   items:
   - name: Overview
@@ -193,9 +197,15 @@ items:
     - name: Call Key Phrase Analysis
       href: key-phrase-extraction/how-to/call-api.md
     - name: Use containers
-      href: key-phrase-extraction/how-to/use-containers.md
-    - name: Configure containers
-      href: concepts/configure-containers.md
+      items:
+      - name: Use Docker containers
+        href: key-phrase-extraction/how-to/use-containers.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Tutorials
     items:
     - name: Integrate Power BI 
@@ -358,6 +368,10 @@ items:
         href: sentiment-opinion-mining/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Tutorials
     items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
@@ -393,6 +407,10 @@ items:
         href: text-analytics-for-health/how-to/use-containers.md
       - name: Configure Docker containers
         href: text-analytics-for-health/how-to/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Concepts
     items:
     - name: Recognized entity categories 
@@ -428,10 +446,14 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
     href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
+  - name: Use Azure Kubernetes Service
+    href: tutorials/use-kubernetes-service.md
 - name: Enterprise readiness
   items:
     - name: Region support
