@@ -1,5 +1,5 @@
 ---
-title: Create and customize playbooks from built-in templates | Microsoft Docs
+title: Create and customize Azure Sentinel playbooks from built-in templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 services: sentinel
 cloud: na
@@ -19,9 +19,7 @@ ms.author: yelevin
 
 ---
 
-# Create and customize playbooks from built-in templates
-
-## Introduction
+# Create and customize Azure Sentinel playbooks from built-in templates
 
 > [!IMPORTANT]
 >
