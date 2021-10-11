@@ -46,8 +46,8 @@
       href: conditions-prerequisites.md
     - name: Conditions FAQ
       href: conditions-faq.md
-    - name: Principal attributes example
-      href: conditions-principal-attributes-example.md
+    - name: Custom security attributes example
+      href: conditions-custom-security-attributes-example.md
   - name: Security
     items:
     - name: Security controls by Azure Policy

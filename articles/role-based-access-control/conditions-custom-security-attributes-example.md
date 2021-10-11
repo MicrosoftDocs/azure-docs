@@ -1,5 +1,5 @@
 ---
-title: Simplify the management of Azure role assignments by using conditions and principal attributes (Preview) - Azure ABAC
+title: Simplify the management of Azure role assignments by using conditions and custom security attributes (Preview) - Azure ABAC
 description: Simplify the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
@@ -13,7 +13,7 @@ ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Simplify the management of Azure role assignments by using conditions and principal attributes (Preview)
+# Simplify the management of Azure role assignments by using conditions and custom security attributes (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -34,13 +34,13 @@ Consider a company named Contoso with thousands of customers that want to set up
 
 This configuration could potentially require 256,000 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role assignments in a subscription, which is well beyond the 2,000 role assignments limit. Having this many role assignments would be difficult, if not impossible, to maintain.
 
-![Diagram showing thousands for role assignments.](./media/conditions-principal-attributes-example/role-assignments-multiple.png)
+![Diagram showing thousands for role assignments.](./media/conditions-custom-security-attributes-example/role-assignments-multiple.png)
 
 ## Example solution
 
 A way to handle this scenario in a maintainable manner is to use role assignment conditions. The following diagram shows a solution to reduce the 256,000 role assignments to just one role assignment by using a condition. The role assignment is at a higher resource group scope and a condition helps controls access to the containers. The condition checks whether the container name matches the custom security attribute on the service principal for the customer.
 
-![Diagram showing one role assignment and a condition.](./media/conditions-principal-attributes-example/role-assignment-condition.png)
+![Diagram showing one role assignment and a condition.](./media/conditions-custom-security-attributes-example/role-assignment-condition.png)
 
 Here is the expression in the condition that makes this solution work:
 
