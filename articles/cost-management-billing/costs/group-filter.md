@@ -52,13 +52,18 @@ For more information about terms, see [Understand the terms used in the Azure us
 
 For customers with an MCA agreement, the `Publisher type` value **Azure** will be replaced by the value **Microsoft** to reflect that it applies to all charges from Microsoft that are tracked in Cost Management + Billing. This change is effective on 14 October 2021.
 
-Note the following points:
+Note the following:
 
-- Saved views in Cost analysis - Any saved views that are using the filter `PublisherType` = **Azure** will be updated to reflect the new value of **Microsoft**. There's no action required.
-- Budgets with PublisherType filter - Any budgets that have been created with `PublisherType` = **Azure** filter will be updated to reflect the new value of **Microsoft**. There's no action required.
-- Exports - Any export files generated before 14 October 2021 will have the values of **Azure** in the `PublisherType` field and after 14 October 2021, the value would be **Microsoft**. Take note of this change if you're merging exported files.
-- Downloaded data - Any cost and usage files downloaded before 14 October 2021 will still have the old value of **Azure** in the `PublisherType` field. Take note of this change when merging downloaded files.
-- REST API calls - If you use Cost Management + Billing REST API calls that filter the `PublisherType` field by the value **Azure**, update them to filter by **Microsoft** after 14 October 2021 to get all your first party charges from Microsoft.
+- Saved views in Cost analysis - Any saved views that are using the filter `PublisherType` = **Azure** will be updated to reflect the new value of **Microsoft**. 
+    - Action needed: None.
+- Budgets with `PublisherType` filter - Any budgets that have been created with `PublisherType` = **Azure** filter will be updated to reflect the new value of **Microsoft**.
+    - Action needed: None.
+- Exports - Any export files generated before 14 October 2021 will have the value of **Azure** in the `PublisherType field` and after 14 October 2021, the value would be **Microsoft**.
+    - Action needed: *Ensure you are accounting for the changed values when merging new files with files downloaded before 14 Oct 2021*.
+- Downloaded data - In any downloaded files from Cost analysis, usage details downloaded files before 14 October 2021 will still have the old value of **Azure** in the `PublisherType` field.
+    - Action needed: *Ensure you are accounting for the changed values when merging new files with files downloaded before 14 Oct 2021*.
+- REST API calls - If you use Cost Management + Billing REST API calls that filter the PublisherType field by the value **Azure**, update them to filter by **Microsoft** after 14 October 2021.
+    - Action needed: *Use `Publisher type` = **Microsoft** in your REST API calls to get all your first party charges. Calls with `Publisher type` = **Azure** will not return any data*.
 
 > [!NOTE]
 > This change doesn't affect you if you have an Enterprise Agreement (EA) or a pay-as-you-go (PAYG) accounts.
