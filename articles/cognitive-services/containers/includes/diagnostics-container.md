@@ -20,10 +20,10 @@ docker pull mcr.microsoft.com/azure-cognitive-services/diagnostic`
 Then run the container, replace `{ENDPOINT_URI}` with your endpoint, and `{API_KEY}` with your key to your resource:
 
 ```bash
-docker run mcr.microsoft.com/azure-cognitive-services/diagnostic
+docker run --rm mcr.microsoft.com/azure-cognitive-services/diagnostic \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-The container will look for common issues, such as whether your billing endpoint can be reached successfully. 
+The container will test for network connectivity to the billing endpoint.
