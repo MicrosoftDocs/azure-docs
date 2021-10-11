@@ -28,16 +28,45 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration currently can be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
+- Configuration can currently be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
 - The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables currently are limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables currently aren't supported.
-- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
+- Supported tables are limited those specified in the [supported tables](#supported-tables) section below. 
+- The existing custom log tables won’t be supported in export. A new custom log version available in March 2022 will be supported.
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table becomes supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- Data export will be available in all regions, but currently not available in the following: Switzerland North, Switzerland West, Germany West Central, Australia Central 2, UAE Central, UAE North, Japan West, Brazil Southeast, Norway East, Norway West, France South, South India, Korea South, Jio India Central, Jio India West, Canada East, West US 3, Sweden Central, Sweden South, Government clouds, China.
-- You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
+- You can define up to 10 enabled rules in your workspace. Additional rules are allowed when disabled. 
 - Destination must be unique across all export rules in your workspace.
-- The destination storage account or event hub must be in the same region as the Log Analytics workspace.
-- Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters for an event hub. Tables with longer names will not be exported.
+- Destinations must be in the same region as the Log Analytics workspace.
+- Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
+- Data export will be available in all regions, but currently supported in: 
+    - Australia Central
+    - Australia East
+    - Australia Southeast
+    - Brazil South
+    - Canada Central
+    - Central India
+    - Central US
+    - East Asia
+    - East US
+    - East US 2
+    - France Central
+    - Germany West Central
+    - Japan East
+    - Korea Central
+    - North Central US
+    - North Europe
+    - South Africa North
+    - South Central US
+    - Southeast Asia
+    - Switzerland North
+    - Switzerland West
+    - UAE North
+    - UK South
+    - UK West
+    - West Central US
+    - West Europe
+    - West US
+    - West US 2
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.

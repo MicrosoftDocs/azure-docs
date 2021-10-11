@@ -59,7 +59,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 <a id="powershell"></a>
 
-You can enable static website hosting by using the Azure PowerShell module.
+You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 1. Open a Windows PowerShell command window.
 
@@ -71,7 +71,7 @@ You can enable static website hosting by using the Azure PowerShell module.
    Connect-AzAccount
    ```
 
-4. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+4. If your identity is associated with more than one subscription, then set your active subscription.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -119,11 +119,11 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
+You can add, edit, or remove a policy by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, then set your active subscription.
 
    ```azurecli
       az account set --subscription <subscription-id>

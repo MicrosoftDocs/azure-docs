@@ -171,6 +171,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
 
+[Delete rows in target when not present in source](https://www.youtube.com/watch?v=9i7qf1vczUw)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

@@ -34,7 +34,7 @@ The sample graph you'll be working with represents a building with two floors an
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
 
 >[!NOTE]
->This quickstart is for exploring a prebuilt graph to understand how Azure Digital Twins represents data. For simplicity, the quickstart does not cover setting up connections between IoT Hub devices and their graph representations. To set up a connected end-to-end flow for your graph, please move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md).
+>This quickstart is for exploring a prebuilt graph to understand how Azure Digital Twins represents data. For simplicity, the quickstart does not cover setting up connections between IoT Hub devices and their graph representations. To set up a connected end-to-end flow for your graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md).
 
 ## Prerequisites
 

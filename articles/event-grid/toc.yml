@@ -100,6 +100,10 @@
       href: scripts/event-grid-powershell-resource-group.md
     - name: Subscribe and filter events for resource group
       href: scripts/event-grid-powershell-resource-group-filter.md
+    - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md
+    - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
@@ -210,6 +214,9 @@
       href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
     - name: Authenticate event delivery to event handlers
       href: security-authentication.md
     - name: Authenticate publishing clients
@@ -252,7 +259,7 @@
       href: auth0-how-to.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
-  - name: Post to custom topics using access keys
+  - name: Publish events custom topics using access keys
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
@@ -348,9 +355,6 @@
       href: /azure/templates/microsoft.eventgrid/topics
   - name: SDKs
     href: sdk-overview.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
