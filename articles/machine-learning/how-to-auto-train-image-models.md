@@ -38,7 +38,7 @@ Automated ML supports model training for computer vision tasks like image classi
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
-    > Only Python 3.6 and 3.7 is compatible with automated ML support for computer vision tasks. 
+    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
 
 ## Select your task type
 Automated ML for images supports the following task types:
@@ -302,7 +302,8 @@ automl_image_config_yolov5 = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETEC
                                                compute_target=compute_target,
                                                training_data=training_dataset,
                                                validation_data=validation_dataset,
-                                               hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}))
+                                               hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}),
+                                               iterations=1)
 ```
 
 Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparamter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
