@@ -30,23 +30,27 @@ The Synapse prepurchase discount applies to usage from the following products:
 - Azure Synapse Analytics Data Flow - Basic
 - Azure Synapse Analytics Data Flow - Standard
 
+For more information about available SCU tiers and pricing discounts, you'll use the reservation purchase experience in the following section.
+
 ## Purchase Synapse commit units
 
-You can buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise subscription.
+You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise subscription.
 
 - You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
 - For Enterprise Agreement (EA) subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 
 ### To Purchase:
 
-1. Go to the [Azure portal](https://portal.azure.com).
-2. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
-3. Select a scope. Use the **Scope** list to select a subscription scope:
+1. Go to the [Azure portal](https://portal.azure.com/?synapse=true#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand/autoOpenSpecPicker//productType/Reservation).
+1. If needed, navigate to **Reservations** and then at the top of the page, select **+ Add**.
+1. On the Purchase reservations page, select **Azure Synapse Analytics Pre-Purchase Plan**.
+1. On the Select the product you want to purchase page, select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+1. Select a scope. Use the **Scope** list to select a subscription scope:
     - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
     - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
-4. Select how many Azure Synapse commit units you want to purchase and complete the purchase.  
+1. Select how many Azure Synapse commit units you want to purchase and then complete the purchase.  
     :::image type="content" source="./media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing the Select the product experience for the Azure Synapse Analytics Pre-Purchase Plan." lightbox="./media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" :::
 
 ## Change scope and ownership
