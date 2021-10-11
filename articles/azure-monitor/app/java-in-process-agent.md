@@ -4,6 +4,8 @@ description: Application performance monitoring for Java applications running in
 ms.topic: conceptual
 ms.date: 06/24/2021
 ms.custom: devx-track-java
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
