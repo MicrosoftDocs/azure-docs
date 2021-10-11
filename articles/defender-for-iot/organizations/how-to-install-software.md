@@ -38,7 +38,7 @@ The following rack mount appliances are available:
 | **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | up to 4 RJ45 | Up to 5 RJ45 |
 | **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec | 100 Mb/Sec |
-| **Max Protected Devices** | 10,000 | 15,000 | 1,000 | 800 |
+| **Max Protected Devices** | 10,000 | 10,000 | 1,000 | 800 |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
