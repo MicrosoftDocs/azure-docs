@@ -1,6 +1,6 @@
 ---
 title: FAQs About Azure NetApp Files | Microsoft Docs
-description: Review frequently asked questions about Azure NetApp Files, such as networking, security, performance, capacity management, and data migration/protection.
+description: Answers frequently asked questions (FAQs) about Azure NetApp Files capacity management.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
