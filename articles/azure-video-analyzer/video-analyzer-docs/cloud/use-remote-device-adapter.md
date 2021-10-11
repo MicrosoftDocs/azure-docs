@@ -35,8 +35,6 @@ The following are required for this how-to guide:
 * IoT Hub
   * User-assigned managed identity with **Contributor** role access
 * Video Analyzer account must be paired with IoT Hub
-> [!NOTE]
-> In Video Analyzer, IoT Hubs must be onboarded with a user-assigned managed identity (UAMI)
 * [IoT Edge with Video Analyzer edge module installed and configured manually](../edge/deploy-iot-edge-device.md)
 * [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
   * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
