@@ -216,9 +216,9 @@ This action creates and runs an Azure load test from a GitHub Workflow. The acti
 - name: 'Azure Load Testing'
   uses: azure/load-testing@v1
   with:
-    YAMLFilePath: 'Application/SampleApp.yaml'
-    loadtestresource: 'nikita-sampleapp'
-    resourceGroup: 'nikita-sample-rg'
+    YAMLFilePath: '< YAML File path>'
+    loadTestResource: '<name of the load test resource>'
+    resourceGroup: '<name of the resource group of your load test resource>' 
     parameters: |
       { 
           "secrets": [ 
