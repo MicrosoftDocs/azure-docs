@@ -4,7 +4,7 @@ description: You can create a question answering project from your own content, 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/06/2021
+ms.date: 11/02/2021
 ---
 
 # Create, test, and deploy custom question answering

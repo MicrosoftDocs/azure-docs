@@ -4,7 +4,7 @@ description: In this tutorial, create a no code FAQ Bot with Question Answering 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 11/02/2021
 ---
 
 # Tutorial: Create a FAQ bot
