@@ -1,5 +1,5 @@
 ---
-title: Configure virtual machine offer test drive properties on Azure Marketplace
+title: Configure virtual machine offer test drive properties
 description: Configure virtual machine offer test drive properties in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 10/15/2021
 ---
 
-# Virtual machine offer test drive
+# Set up a virtual machine offer test drive
 
 A test drives allows customers to try your solution before they buy by giving them access to a preconfigured environment for a fixed number of hours, resulting in highly qualified leads and an increase in conversions.
 

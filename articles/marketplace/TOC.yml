@@ -193,7 +193,7 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
-  - name: Azure virtual machine offers
+  - name: Azure virtual machine offer
     items:
     - name: Plan the offer
       href: marketplace-virtual-machines.md
@@ -209,8 +209,10 @@
         href: azure-vm-create-preview.md
       - name: Plans
         href: azure-vm-create-plans.md
-    - name: Resell through CSPs
-      href: azure-vm-create-resell-csp.md
+      - name: Resell through CSPs
+        href: azure-vm-create-resell-csp.md
+      - name: Set up a test drive
+        href: azure-vm-create-test-drive.md
     - name: Create technical assets
       items:
       - name: Create VM from an approved base
@@ -239,7 +241,7 @@
       href: create-consulting-service-offer-listing.md
     - name: Pricing and availability
       href: create-consulting-service-pricing-availability.md
-  - name: Dynamics 365 offers
+  - name: Dynamics 365 offer
     items: 
     - name: Plan your offer
       href: marketplace-dynamics-365.md
@@ -321,7 +323,7 @@
           href: iot-edge-plan-availability.md
         - name: Plan technical configuration
           href: iot-edge-plan-technical-configuration.md
-  - name: Managed Service offers
+  - name: Managed Service offer
     items:
     - name: Plan the offer
       href: plan-managed-service-offer.md
@@ -335,7 +337,7 @@
       href: create-managed-service-offer-preview.md
     - name: Create plans
       href: create-managed-service-offer-plans.md
-  - name: Power BI app offers
+  - name: Power BI app offer
     items:
     - name: Plan the offer
       href: marketplace-power-bi.md
@@ -351,7 +353,7 @@
         href: power-bi-app-technical-configuration.md
       - name: Supplemental content
         href: power-bi-app-supplemental-content.md
-  - name: Power BI visual offers
+  - name: Power BI visual offer
     items:
     - name: Plan the offer
       href: marketplace-power-bi-visual.md
@@ -371,7 +373,7 @@
         href: power-bi-visual-manage-names.md
     - name: FAQs on migrating to the commercial marketplace
       href: power-bi-visual-faq.yml
-  - name: SaaS offers
+  - name: SaaS offer
     items:
     - name: Plan the offer
       href: plan-saas-offer.md
@@ -409,7 +411,7 @@
     href: review-publish-offer.md
   - name: Update existing offers
     href: update-existing-offer.md   
-- name: Sell and market your offers
+- name: Sell and market your offer
   items: 
   - name: Marketing best practices
     href: gtm-marketing-best-practices.md
