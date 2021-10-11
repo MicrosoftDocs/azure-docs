@@ -84,7 +84,7 @@ This will return a list all soft-deleted services available for undelete under t
 Use the API Management [Create Or Update](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) operation, substituting `{subscriptionId}`, `{resourceGroup}`, and `{apimServiceName}` with your Azure subscription, resource group name, and API Management name:
 
 ```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2020-06-01-preview
+api-version=2021-01-01-preview https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2020-06-01-preview
 ```
 
 . . . and set the `restore` property to `true` in the request body. (When this flag is specified and set to *true*, all other properties will be ignored.) For example:
