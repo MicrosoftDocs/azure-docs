@@ -31,7 +31,7 @@ As with Teams anonymous meeting join, your application must have the meeting lin
 
 During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send receive new chat messages, but they will have access to messages sent and received during the meeting.
 
-Features such as raised hand, together mode, and breakout rooms will only be available for Teams users, but these might be enabled in the future. 
+Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. 
 
 ## Current limitations and known issues
 
