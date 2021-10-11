@@ -162,7 +162,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-[azure-cli-install]:../../../cli/azure/install-azure-cli.md
+[azure-cli-install]:cli/azure/install-azure-cli.md
  
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -744,7 +744,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../azure/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
