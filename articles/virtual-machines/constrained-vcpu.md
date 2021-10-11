@@ -80,11 +80,11 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_E8-2ads_v5 | 2    | Same as E8ads_v5|
 | Standard_E16-8ads_v5| 8    | Same as E16ads_v5|
 | Standard_E16-4ads_v5| 4    | Same as E16ads_v5|
-| Standard_E32-8ads_v5| 16   | Same as E32ads_v5|
-| Standard_E64-32ads_v5| 8   | Same as E64ads_v5|
-| Standard_E64-16ads_v5| 32  | Same as E64ads_v5|
-| Standard_E96-48ads_v5| 16  | Same as E96ads_v5|
-| Standard_E96-24ads_v5| 48  | Same as E96ads_v5|
+| Standard_E32-8ads_v5| 8   | Same as E32ads_v5|
+| Standard_E64-32ads_v5| 32   | Same as E64ads_v5|
+| Standard_E64-16ads_v5| 16  | Same as E64ads_v5|
+| Standard_E96-48ads_v5| 48  | Same as E96ads_v5|
+| Standard_E96-24ads_v5| 24  | Same as E96ads_v5|
 | Standard_E4-2as_v5  |	2    | Same as E4as_v5 | 
 | Standard_E8-4as_v5  |	4    | Same as E8as_v5 | 
 | Standard_E8-2as_v5  |	2    | Same as E8as_v5 | 
