@@ -24,8 +24,8 @@ Here are the currently available replication task templates in this preview:
 
 | Resource type | Replication task template |
 |---------------|---------------------------|
-| Azure Event Hubs | - Replicate to an Event Hub: Replicate from the current namespace to a specified target. <p>- Replicate from an Event Hub: Replicate from a specified target to the current namespace. |
-| Azure Service Bus | - Replicate to Service Bus queue: Replicate events from the current namespace to a specified target. <p>- Replicate from Service Bus queue: Replicate events from a specified target to the current namespace. <p>- Replicate from Service Bus topic subscription: Replicate events from the current namespace to a specified target. |
+| Azure Event Hubs | - Replicate to Event Hubs: Replicate content between two Event Hubs instances. |
+| Azure Service Bus | - Replicate to Service Bus: Replicate content between two Service Bus namespaces. <p>- Copy new messages from Service Bus queue to Storage container: When a new message arrives in a queue, create a blob to store the message. |
 |||
 
 ## Retry policy
@@ -35,3 +35,29 @@ To avoid data loss during an availability event on either side of a replication 
 The policy settings chosen for the example projects in the sample repository configure an exponential backoff strategy with retry intervals from 5 seconds to 15 minutes with infinite retries to avoid data loss.
 
 For Service Bus, review the "using retry support on top of trigger resilience" section to understand the interaction of triggers and the maximum delivery count defined for the queue.
+
+<a name="pricing"></a>
+
+## Pricing
+
+When you create a replication task, charges start incurring immediately. Underneath, a replication is a single-tenant based logic app, so the [Standard pricing model](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/) applies to replication tasks. Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app workflow.
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Based on the template that you choose, the source and target Azure resources, specifically:
+
+  | Replication task template | Resources |
+  |---------------------------|-----------|
+  | Replicate to Event Hubs | The source and target Event Hubs instances. You can also create the target instance when you create the replication task. |
+  | Replicate to Service Bus | The source and target Service Bus namespaces. You can also create the target namespace when you create the replication task. |
+  | Copy new messages from Service Bus queue to Storage container | The source Service Bus queue and the target Blob Storage container. You can also create the storage container when you create the replication task. |
+  |||
+
+* An Office 365 account if you want to follow along with the example, which sends you email by using Office 365 Outlook.
+
+<a name="create-replication-task"></a>
+
+## Create a replication task
+
