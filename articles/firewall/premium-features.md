@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/11/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -98,6 +98,8 @@ Azure Firewall Premium is supported in the following regions:
 - Central India (Public / India)
 - Central US (Public / United States)
 - Central US EUAP (Public / Canary (US))
+- China North 2 (Mooncake / China)
+- China East 2 (Mooncake / China)
 - East Asia (Public / Asia Pacific)
 - East US (Public / United States)
 - East US 2 (Public / United States)
@@ -120,6 +122,9 @@ Azure Firewall Premium is supported in the following regions:
 - UAE North (Public / UAE)
 - UK South (Public / United Kingdom)
 - UK West (Public / United Kingdom)
+- USGov Arizona (Fairfax / USGov)
+- USGov Texas (Fairfax / USGov)
+- USGov Virginia (Fairfax / USGov)
 - West Central US (Public / United States)
 - West Europe (Public / Europe)
 - West India (Public / India)
