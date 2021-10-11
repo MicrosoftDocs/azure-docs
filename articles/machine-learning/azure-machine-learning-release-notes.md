@@ -1062,8 +1062,6 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
     + Added a new type of user exception  that is raised if the cache store contents have been tampered with
   + **azureml-automl-runtime**
     + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
-  + **azureml-contrib-itp**
-    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
   + **azureml-contrib-notebook**
     + Doc improvements to azureml-contrib-notebook package.
   + **azureml-contrib-pipeline-steps**
