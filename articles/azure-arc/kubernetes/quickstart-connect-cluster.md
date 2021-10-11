@@ -22,7 +22,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
-* Install the **connectedk8s** Azure CLI extension of version >= 1.0.0:
+* Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
   ```console
   az extension add --name connectedk8s
@@ -43,8 +43,6 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
-
-* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

@@ -82,7 +82,7 @@ A Private Link service specifies the following properties:
 
 The alias is composed of three parts: *Prefix*.*GUID*.*Suffix*
 
-- Prefix is the service name. You can pick you own prefix. After "Alias" is created, you can't change it, so select your prefix appropriately.  
+- Prefix is the service name. You can pick your own prefix. After "Alias" is created, you can't change it, so select your prefix appropriately.  
 - GUID will be provided by platform. This helps make the name globally unique. 
 - Suffix is appended by Azure: *region*.azure.privatelinkservice 
 

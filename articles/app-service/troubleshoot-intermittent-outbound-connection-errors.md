@@ -163,14 +163,6 @@ TCP connections and SNAT ports are not directly related. A TCP connections usage
  
 If SNAT ports are exhausted, where WebJobs are unable to connect to SQL Database, there is no metric to show how many connections are opened by each individual web application process. To find the problematic WebJob, move several WebJobs out to another App Service plan to see if the situation improves, or if an issue remains in one of the plans. Repeat the process until you find the problematic WebJob.
 
-### Using SNAT ports sooner
-
-You cannot change any Azure settings to release the used SNAT ports sooner, as all SNAT ports will be released as per the below conditions and the behavior is by design.
- 
-* If either server or client sends FINACK, the [SNAT port will be released](../load-balancer/load-balancer-outbound-connections.md) after 240 seconds.
-* If an RST is seen, the SNAT port will be released after 15 seconds.
-* If idle timeout has been reached, the port is released.
- 
 ## Additional information
 
 * [SNAT with App Service](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)

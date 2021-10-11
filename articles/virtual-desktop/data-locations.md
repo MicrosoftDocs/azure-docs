@@ -10,7 +10,7 @@ manager: femila
 ---
 # Data locations for Azure Virtual Desktop
 
-Azure Virtual Desktop is currently available for all geographical locations. Administrators can choose the location to store user data when they create the host pool virtual machines and associated services, such as file servers. Learn more about Azure geographies at the [Azure datacenter map](https://azuredatacentermap.azurewebsites.net/).
+Azure Virtual Desktop is currently available for all geographical locations. Administrators can choose the location to store user data when they create the host pool virtual machines and associated services, such as file servers. Learn more about Azure geographies at [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview).
 
 >[!NOTE]
 >Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.

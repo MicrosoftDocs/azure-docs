@@ -8,30 +8,32 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/08/2021
 ---
 
 # Knowledge store "projections" in Azure Cognitive Search
 
-Projections, an element of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
+Projections are the element of a [knowledge store](knowledge-store-concept-intro.md) definition that specifies the physical expression of your data in Azure Storage. A projection definition determines the number and type of data structures in Azure Storage.
 
-Projections can be tabular, where data articulation is in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage, or binary images also stored in Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
+## Types of data structures
 
-The knowledge store supports three types of projections:
+A knowledge store is a logical construction that's physically expressed in Azure Storage as tables, JSON objects, or binary image files.
 
-+ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. Only valid JSON objects can be projected as tables. Since an enriched document can contain nodes that are not named JSON objects, you'll add a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) within a skill to create valid JSON. 
+| Projection | Storage | Usage |
+|------------|---------|-------|
+| Tables | Azure Table Storage | Used for data that's best represented as rows and columns. Table projections allow you to define a schematized shape or projection. Only valid JSON objects can be projected as tables. Since an enriched document can contain nodes that are not named JSON objects, you'll add a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) within a skill to create valid JSON. |
+| Objects | Azure Blob Storage | Used when you need a JSON representation of your data and enrichments. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that. |
+| Files | Azure Blob Storage | Used when you need to save normalized, binary image files. |
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, use object projections to save the output as blobs. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that.
+You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
-+ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images to blob storage.
+## Basic definition
 
-To see projections defined in context, step through [Create a knowledge store in REST](knowledge-store-create-rest.md).
+Projections are an array of complex collections under a `knowledgeStore` definition in a [skillset object](/rest/api/searchservice/create-skillset). 
 
-## Basic pattern
+Each set of tables, objects, and files is a *project group*, and you can have multiple groups if storage requirements include supporting different tools and scenarios. Within a single group, you can have multiple tables, objects, and files. 
 
-Projections are an array of complex collections under a `knowledgeStore` definition in a skillset object. Each set of tables, objects, and files is a *project group*, and you can have multiple groups if storage requirements include supporting different tools and scenarios. Within a single group, you can have multiple tables, objects, and files. 
-
-Typically only one group is used, but the following example shows two to illustrate the pattern when multiple groups exist.
+Typically only one group is used, but the following example shows two to reinforce the idea of multiple groups.
 
 ```json
 "knowledgeStore" : {
@@ -51,7 +53,7 @@ Typically only one group is used, but the following example shows two to illustr
 }
 ```
 
-### Projection groups
+## Data isolation and relatedness
 
 Having multiple sets of table-object-file combinations is useful for supporting different scenarios. You might use one set for design and debug of a skillset, capturing output for further examination, while a second set collects output used for an online app, with a third for data science workloads.
 

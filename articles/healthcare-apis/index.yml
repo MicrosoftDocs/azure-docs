@@ -10,9 +10,9 @@ metadata:
   ms.service: healthcare-apis
   ms.topic: landing-page 
   ms.collection: collection
-  author: ginalee-dotcom
-  ms.author: ginle
-  ms.date: 06/01/2021
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 10/05/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -44,7 +44,6 @@ landingContent:
           - text: Healthcare APIs FAQs
             url: healthcare-apis-faqs.md
 
-  
   - title: Transfer and Transform Data
     linkLists:
       - linkListType: how-to-guide
@@ -100,13 +99,9 @@ landingContent:
             url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy IoT connector Using Portal
+          - text: Deploy IoT connector using portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:
-          - text: Receive device data through IoT Hub
+          - text: Receive device data through Azure IoT Hub
             url: ./iot/device-data-through-iot-hub.md
-
-
- 
-            

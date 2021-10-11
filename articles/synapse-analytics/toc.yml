@@ -482,6 +482,8 @@ items:
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
         - name: Convert resource classes to workload groups
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
+        - name: Troubleshooting a missed classification
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-troubleshoot-missed-classification.md?context=/azure/synapse-analytics/context/context
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
@@ -1189,6 +1191,10 @@ items:
       items:
       - name: Pipeline runs
         href: monitoring/how-to-monitor-pipeline-runs.md
+      - name: Send email from a pipeline
+        href: ../data-factory/how-to-send-email.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Send Microsoft Teams notifications from a pipeline
+        href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Create integration runtime
       items:
       - name: Azure integration runtime
@@ -1210,7 +1216,44 @@ items:
       - name: Activity troubleshooting
         href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Connector troubleshooting
-        href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        items:
+        - name: Overview and general copy activity errors
+          href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          displayName: polybase, timeout
+        - name: Azure Blob Storage
+          href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Cosmos DB (including SQL API)
+          href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Lake (Gen1 and Gen2)
+          href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure database for PostgreSQL
+          href: ../data-factory/connector-troubleshoot-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure files
+          href: ../data-factory/connector-troubleshoot-azure-files.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+          href: ../data-factory/connector-troubleshoot-synapse-sql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Table Storage
+          href: ../data-factory/connector-troubleshoot-azure-table-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: DB2
+          href: ../data-factory/connector-troubleshoot-db2.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Delimited text format
+          href: ../data-factory/connector-troubleshoot-delimited-text.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
+          href: ../data-factory/connector-troubleshoot-dynamics-dataverse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: FTP, SFTP and HTTP
+          href: ../data-factory/connector-troubleshoot-ftp-sftp-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Oracle
+          href: ../data-factory/connector-troubleshoot-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: ORC format
+          href: ../data-factory/connector-troubleshoot-orc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Parquet format
+          href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: REST
+          href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SharePoint Online list
+          href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: XML format
+          href: ../data-factory/connector-troubleshoot-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Continuous Integration and Deployment
         href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Security and access control

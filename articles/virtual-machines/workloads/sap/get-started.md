@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2021
+ms.date: 10/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,6 +77,8 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- October 08, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add defaults in sudoers file and update for HANA scale-out(for HANA srHook)
+- October 01, 2021: Added link to new Azure Backup architecture for SAP HANA backup document into table of content. Added link to Azure Backup service for Oracle DBMS into [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 24, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to adjust the instructions for creating sudoers file (for HANA srHook)
 - September 15, 2021: Introducing new HADR configuration for SAP ASE in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - September 08, 2021: Adding manual QoS capacity pool into [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
