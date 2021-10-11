@@ -17,20 +17,36 @@ Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) 
 
 | Property | Description | Data type |
 |---|---|--|
-| `id` | The unique identifier of the container app. The value uses the following format:<br><br>`subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP_NAME>/providers/Microsoft.Web/containerapps/<NAME>`<br><br>In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets. | string |
+| `id` | The unique identifier of the container app. See below for additional details. | string |
 | `name` | The Container Apps application name. This name is used at the end of the `id` property in the ARM template file. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
 | `kind` | \*\*TODO\*\* | string |
+
+The `id` value takes the following form:
+
+```console
+subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP_NAME>/providers/Microsoft.Web/containerapps/<NAME>
+```
+
+In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
 ## properties
 
 | Property | Description | Data type |
 |---|---|---|
 | `provisioningState` | The state of a long running operation, for example when new container revision is created. Possible values include: \*\*TODO\*\* | string |
-| `kubeEnvironmentId` | aklsjdf<br><br>`/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAM>/providers/Microsoft.Web/kubeEnvironments/<KUBERNETES_ENVIRONMENT_NAME>`<br><br> | string |
+| `kubeEnvironmentId` | \*\*TODO\*\* | string |
 | `latestRevisionName` | The name of the revision that corresponds to the current configuration state of the container app's object | string |
 | `latestRevisionFqdn` | The domain name used to access the latest revision of the container app | string |
+
+The `kubeEnvironmentId` value takes the following form:
+
+```console
+/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAM>/providers/Microsoft.Web/kubeEnvironments/<KUBERNETES_ENVIRONMENT_NAME>
+```
+
+In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
 ## properties.configuration
 
