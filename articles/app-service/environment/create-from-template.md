@@ -1,12 +1,12 @@
 ---
 title: Create an ASE with ARM
 description: Learn how to create an external or ILB App Service environment by using an Azure Resource Manager template.
-author: ccompy
+author: madsd
 
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
-ms.date: 06/13/2017
-ms.author: ccompy
+ms.date: 10/11/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Create an ASE by using an Azure Resource Manager template
@@ -15,8 +15,6 @@ ms.custom: seodec18, devx-track-azurepowershell
 > [!NOTE]
 > This article is about the App Service Environment v2 and App Service Environment v3 which are used with Isolated App Service plans
 > 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure virtual network (VNet). When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
 
@@ -33,22 +31,20 @@ When you create an ASE from a template, you must start with:
 * The subscription you want to deploy into.
 * The location you want to deploy into.
 
-To automate your ASE creation:
+To automate your ASE creation, follow they guidelines in the sections below. If you are creating an ILB ASEv2 with custom dnsSuffix (for example, `internal-contoso.com`), there are a few more things to do.
 
-1. Create the ASE from a template. If you create an External ASE, you're finished after this step. If you create an ILB ASE with custom dnsSuffix (for example, `internal-contoso.com`), there are a few more things to do.
+1. After your ILB ASE with custom dnsSuffix is created, an TLS/SSL certificate that matches your ILB ASE domain should be uploaded.
 
-2. After your ILB ASE with custom dnsSuffix is created, an TLS/SSL certificate that matches your ILB ASE domain should be uploaded.
-
-3. The uploaded TLS/SSL certificate is assigned to the ILB ASE as its "default" TLS/SSL certificate.  This certificate is used for TLS/SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.internal-contoso.com`).
+2. The uploaded TLS/SSL certificate is assigned to the ILB ASE as its "default" TLS/SSL certificate.  This certificate is used for TLS/SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.internal-contoso.com`).
 
 
 ## Create the ASE
 A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv3][asev3quickstarts] and [ASEv2][quickstartasev2create].
 
-If you want to make an ASE, use these Resource Manager template [ASEv3][quickstartilbasecreate] or [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
+If you want to make an ASE, use these Resource Manager template [ASEv3][asev3quickstarts] or [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
 ### ASEv3 parameters
 * *aseName*: Required. This parameter defines an unique ASE name. 
-* *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
+* *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
 * *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this][AZ Support for ASEv3].
 * *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
 * *useExistingVnetandSubnet*: Required. Set to true if using an existing VNet and subnet. 
@@ -62,7 +58,7 @@ If you want to make an ASE, use these Resource Manager template [ASEv3][quicksta
 * *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing VNet and subnet where ASE will reside.
 * *existingVirtualNetworkResourceGroup*: his parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
 * *subnetName*: This parameter defines the subnet name of the existing VNet and subnet where ASE will reside.
-* *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
+* *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
 * *dnsSuffix*: This parameter defines the default root domain that's assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. Because an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to be resolvable and accessible only within Contoso's virtual network. 
 * *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs.
 
@@ -75,7 +71,7 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-It takes about two hours for the ASEv3 and an hour for the ASEv2 to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
+It takes about two hours for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" TLS/SSL certificate
 A TLS/SSL certificate must be associated with the ASE as the "default" TLS/SSL certificate that's used to establish TLS connections to apps. If the ASE's default DNS suffix is *internal-contoso.com*, a connection to `https://some-random-app.internal-contoso.com` requires an TLS/SSL certificate that's valid for **.internal-contoso.com*. 
