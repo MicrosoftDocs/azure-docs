@@ -129,11 +129,11 @@ It includes the following inputs
 
 The following are the supported values
 
-|Aggregation function  |client metric  |condition  |
+|Aggregate function  |client metric  |condition  |
 |---------|---------|---------|
-|Average (avg)     | Response Time (response_time) </br>Units: milliseconds (ms)  |    greater than (>)      |
-|Average (avg)     | Latency (latency) </br> Units: milliseconds (ms)            |    greater than (>)      |
-|Rate (rate)       | Error (error) </br> Enter percentage values                 |    greater than (>)      |
+|Average (avg)     | Response Time (response_time) </br>Integer values Units: milliseconds (ms). Only Integer values are allowed  |    greater than (>)      |
+|Average (avg)     | Latency (latency) </br>  Units: milliseconds (ms). Only Integer values are allowed          |    greater than (>)      |
+|Rate (rate)       | Error (error) </br> Enter percentage values. Float values are allowed                |    greater than (>)      |
 
 Add the test criteria to your pipeline load test as shown below
 
@@ -142,7 +142,7 @@ Add the test criteria to your pipeline load test as shown below
 1. Add the following snippet to the file
 
     ```yml
-    criteria: 
+    faliureCriteria: 
         - avg(response_time) > 100ms
         - avg(latency) > 300ms
         - rate(error) > 20
@@ -157,7 +157,7 @@ Add the test criteria to your pipeline load test as shown below
 1. Edit the SampleApp.yml file and change the above test criteria to the following
 
     ```yml
-    criteria: 
+    faliureCriteria: 
         - avg(response_time) > 300ms
         - avg(latency) > 300ms
         - rate(error) > 20

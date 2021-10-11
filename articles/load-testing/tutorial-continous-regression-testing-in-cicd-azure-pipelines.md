@@ -125,11 +125,11 @@ It includes the following inputs
 
 The following are the supported values
 
-|Aggregation function  |client metric  |condition  |
+|Aggregate function  |client metric  |condition  |
 |---------|---------|---------|
-|Average (avg)     | Response Time (response_time) </br>Units: milliseconds (ms)  |    greater than (>)      |
-|Average (avg)     | Latency (latency) </br> Units: milliseconds (ms)            |    greater than (>)      |
-|Rate (rate)       | Error (error) </br> Enter percentage values                 |    greater than (>)      |
+|Average (avg)     | Response Time (response_time) </br>Integer values Units: milliseconds (ms). Only Integer values are allowed  |    greater than (>)      |
+|Average (avg)     | Latency (latency) </br>  Units: milliseconds (ms). Only Integer values are allowed          |    greater than (>)      |
+|Rate (rate)       | Error (error) </br> Enter percentage values. Float values are allowed                |    greater than (>)      |
 
 Add the test criteria to your pipeline load test as shown below
 
@@ -138,9 +138,9 @@ Add the test criteria to your pipeline load test as shown below
 1. Add the following snippet to the file
 
     ```yml
-    criteria: 
-        - avg(response_time) > 100ms
-        - avg(latency) > 300ms
+    faliureCriteria: 
+        - avg(response_time) > 100
+        - avg(latency) > 300
         - rate(error) > 20
     ```
 
@@ -153,7 +153,7 @@ Add the test criteria to your pipeline load test as shown below
 1. Edit the SampleApp.yml file and change the above test criteria to the following
 
     ```yml
-    criteria: 
+    faliureCriteria: 
         - avg(response_time) > 300ms
         - avg(latency) > 300ms
         - rate(error) > 20
@@ -181,7 +181,7 @@ To add parameters to your load test from pipeline
 
 1. Locate the Variables for this pipeline.
 
-1. Add a variable with Name "APIKey" and Value as your token.
+1. Add a variable with Name "APIKeySecret" and Value as your token.
 
 1. Check the option Keep this value secret, to store the variable in an encrypted manner. Save the changes
 
@@ -192,11 +192,10 @@ To add parameters to your load test from pipeline
       [
           {
           "name": "APIKey",
-          "value": "$(APIKey)",
+          "value": "$(APIKeySecret)",
           }
       ]
     ```
-
 
 1. Save and run the pipeline.
 
