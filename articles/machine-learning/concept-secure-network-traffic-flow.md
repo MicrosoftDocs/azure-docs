@@ -87,7 +87,7 @@ Data profiling depends on the Azure Machine Learning managed service being able 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
 
-To allow access to the storage account, configure the storage account to __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
+To allow access to the storage account, configure the storage account to allow a __resource instance__ for your workspace or select the __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
 
 Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they are the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
 

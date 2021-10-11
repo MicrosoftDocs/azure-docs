@@ -3,15 +3,16 @@ title: Plan a Privileged Identity Management deployment? - Azure AD | Microsoft 
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: BarbaraSelden
-manager: martinco
+author: curtand
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.author: baselden
+ms.date: 10/07/2021
+ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
