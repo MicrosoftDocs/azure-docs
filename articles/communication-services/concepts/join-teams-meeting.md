@@ -33,8 +33,6 @@ As with Teams anonymous meeting join, your application must have the meeting lin
 
 During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting. Anonymous Communication Services users cannot add additional participants to the meeting and they cannot record the meeting.
 
-Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. 
-
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
 ## Privacy
@@ -48,6 +46,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants.
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
+- Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
 
 ## Next steps
 
