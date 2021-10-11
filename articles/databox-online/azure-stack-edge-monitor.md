@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-This article describes how to monitor your Azure Stack Edge device by viewing metrics and hardware status to configure and manage alerts, and view metrics. You can also [view device alerts](azure-stack-edge-gpu-alerts.md) in the Azure portal. Use the local web UI on your physical device to view the hardware status of the various device components.
+This article describes how to monitor your Azure Stack Edge device. To monitor your device, you can use the Azure portal or the local web UI. Use the Azure portal to view metrics, view device events, and configure and manage alerts. Use the local web UI on your physical device to view the hardware status of the various device components.
 
 In this article, you learn how to:
 
@@ -62,6 +62,11 @@ A full list of the metrics is shown in the following table:
 |**Edge compute - percentage CPU**    |         |
 
 
+### View device events
+
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+
+
 ## View hardware status
 
 Take the following steps in the local web UI to view the hardware status of your device components.
@@ -74,6 +79,5 @@ Take the following steps in the local web UI to view the hardware status of your
 
 ## Next steps
 
-Learn how to [View device alerts](azure-stack-edge-gpu-alerts.md).
-Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
-Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
+- Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
+- Learn how to [Manage alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
