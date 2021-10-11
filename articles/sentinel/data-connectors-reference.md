@@ -481,9 +481,9 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Box  solution](sentinel-solutions-catalog.md#box)|
+| **Data ingestion method** | Only available after installing the [Box  solution](sentinel-solutions-catalog.md#box)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -514,9 +514,9 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco ACI solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | Only available after installing the [Cisco ACI solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -534,9 +534,9 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco Duo Security solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | Only available after installing the [Cisco Duo Security solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -571,9 +571,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco ISE solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Only available after installing the [Cisco ISE solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 ## Cisco Meraki (Preview)
@@ -592,9 +592,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco Secure Email Gateway / ESA solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | Only available after installing the [Cisco Secure Email Gateway / ESA solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -602,9 +602,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco StealthWatch solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | Only available after installing the [Cisco StealthWatch solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 ## Cisco Umbrella (Preview)
@@ -639,9 +639,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Cisco Web Security Appliance (WSA) solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | Only available after installing the [Cisco Web Security Appliance (WSA) solution](sentinel-solutions-catalog.md#cisco)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -669,9 +669,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [CloudFlare solution](sentinel-solutions-catalog.md#cloudflare)|
+| **Data ingestion method** | Only available after installing the [CloudFlare solution](sentinel-solutions-catalog.md#cloudflare)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -689,7 +689,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
+| **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md) |
 | **Supported by** | Microsoft |
@@ -699,9 +699,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Contrast Security solution](sentinel-solutions-catalog.md#contrast-security)|
+| **Data ingestion method** | Only available after installing the [Contrast Security solution](sentinel-solutions-catalog.md#contrast-security)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -709,9 +709,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Crowdstrike solution](sentinel-solutions-catalog.md#crowdstrike)|
+| **Data ingestion method** | Only available after installing the [Crowdstrike solution](sentinel-solutions-catalog.md#crowdstrike)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -741,9 +741,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Digital Guardian solution](sentinel-solutions-catalog.md#digital-guardian)|
+| **Data ingestion method** | Only available after installing the [Digital Guardian solution](sentinel-solutions-catalog.md#digital-guardian)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -946,9 +946,9 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [FireEye NX (Network Security) solution](sentinel-solutions-catalog.md#fireeye-nx-network-security)|
+| **Data ingestion method** | Only available after installing the [FireEye NX (Network Security) solution](sentinel-solutions-catalog.md#fireeye-nx-network-security)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -956,9 +956,9 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Flare Systems Firework solution](sentinel-solutions-catalog.md#flare-systems-firework)|
+| **Data ingestion method** | Only available after installing the [Flare Systems Firework solution](sentinel-solutions-catalog.md#flare-systems-firework)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1006,9 +1006,9 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Forescout solution](sentinel-solutions-catalog.md#forescout)|
+| **Data ingestion method** | Only available after installing the [Forescout solution](sentinel-solutions-catalog.md#forescout)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1053,9 +1053,9 @@ end
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Google Cloud Platform DSN solution](sentinel-solutions-catalog.md#google)|
+| **Data ingestion method** | Only available after installing the [Google Cloud Platform DSN solution](sentinel-solutions-catalog.md#google)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1063,9 +1063,9 @@ end
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Google Cloud Platform Cloud Monitoring solution](sentinel-solutions-catalog.md#google)|
+| **Data ingestion method** | Only available after installing the [Google Cloud Platform Cloud Monitoring solution](sentinel-solutions-catalog.md#google)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1073,9 +1073,9 @@ end
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Google Cloud Platform Identity and Access Management solution](sentinel-solutions-catalog.md#google)|
+| **Data ingestion method** | Only available after installing the [Google Cloud Platform Identity and Access Management solution](sentinel-solutions-catalog.md#google)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1108,9 +1108,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [HYAS Insight for Azure Sentinel Solutions Gallery solution](sentinel-solutions-catalog.md#hyas)|
+| **Data ingestion method** | Only available after installing the [HYAS Insight for Azure Sentinel Solutions Gallery solution](sentinel-solutions-catalog.md#hyas)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1152,9 +1152,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [IronNet CyberSecurity Iron Defense - Azure Sentinel solution](sentinel-solutions-catalog.md#ironnet)|
+| **Data ingestion method** | Only available after installing the [IronNet CyberSecurity Iron Defense - Azure Sentinel solution](sentinel-solutions-catalog.md#ironnet)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1163,9 +1163,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Juniper IDP solution](sentinel-solutions-catalog.md#juniper)|
+| **Data ingestion method** | Only available after installing the [Juniper IDP solution](sentinel-solutions-catalog.md#juniper)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1185,7 +1185,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available in the [Lookout Mobile Threat Defense for Azure Sentinel](sentinel-solutions-catalog.md#lookout) |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [Lookout Mobile Threat Defense for Azure Sentinel](sentinel-solutions-catalog.md#lookout) |
 | **Log Analytics table(s)** | Lookout_CL |
 | **API credentials** | <li>Lookout Application Key |
 | **Vendor documentation/<br>installation instructions** | <li>[Installation Guide](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (login required)<li>[API Documentation](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (login required)<li>[Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security) |
@@ -1196,9 +1196,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [McAfee ePolicy Orchestrator solution](sentinel-solutions-catalog.md#mcafee)|
+| **Data ingestion method** | Only available after installing the [McAfee ePolicy Orchestrator solution](sentinel-solutions-catalog.md#mcafee)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1206,9 +1206,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [McAfee Network Security Platform solution](sentinel-solutions-catalog.md#mcafee)|
+| **Data ingestion method** | Only available after installing the [McAfee Network Security Platform solution](sentinel-solutions-catalog.md#mcafee)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1274,9 +1274,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Azure Sentinel for Teams solution](sentinel-solutions-catalog.md#azure)|
+| **Data ingestion method** | Only available after installing the [Azure Sentinel for Teams solution](sentinel-solutions-catalog.md#azure)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1401,9 +1401,9 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Oracle Database Audit solution](sentinel-solutions-catalog.md#oracle)|
+| **Data ingestion method** | Only available after installing the [Oracle Database Audit solution](sentinel-solutions-catalog.md#oracle)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1469,9 +1469,9 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [PingFederate solution](sentinel-solutions-catalog.md#ping-identity)|
+| **Data ingestion method** | Only available after installing the [PingFederate solution](sentinel-solutions-catalog.md#ping-identity)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1585,9 +1585,9 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Rapid7 InisghtVM CloudAPI solution](sentinel-solutions-catalog.md#rapid7|
+| **Data ingestion method** | Only available after installing the [Rapid7 InisghtVM CloudAPI solution](sentinel-solutions-catalog.md#rapid7|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1595,9 +1595,9 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [RSA SecurID solution](sentinel-solutions-catalog.md#rsa)|
+| **Data ingestion method** | Only available after installing the [RSA SecurID solution](sentinel-solutions-catalog.md#rsa)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1634,9 +1634,9 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Semperis solution](sentinel-solutions-catalog.md#semperis)|
+| **Data ingestion method** | Only available after installing the [Semperis solution](sentinel-solutions-catalog.md#semperis)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1644,9 +1644,9 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Senserva Pro solution](sentinel-solutions-catalog.md#senserva-pro)|
+| **Data ingestion method** | Only available after installing the [Senserva Pro solution](sentinel-solutions-catalog.md#senserva-pro)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1683,9 +1683,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Senserva Pro solution](sentinel-solutions-catalog.md#senserva-pro)|
+| **Data ingestion method** | Only available after installing the [Senserva Pro solution](sentinel-solutions-catalog.md#senserva-pro)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1694,9 +1694,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Slack Audit solution](sentinel-solutions-catalog.md#slack)|
+| **Data ingestion method** | Only available after installing the [Slack Audit solution](sentinel-solutions-catalog.md#slack)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1726,9 +1726,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Sophos Endpoint Protection solution](sentinel-solutions-catalog.md#sophos)|
+| **Data ingestion method** | Only available after installing the [Sophos Endpoint Protection solution](sentinel-solutions-catalog.md#sophos)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1774,9 +1774,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Symantec Endpoint solution](sentinel-solutions-catalog.md#symantec)|
+| **Data ingestion method** | Only available after installing the [Symantec Endpoint solution](sentinel-solutions-catalog.md#symantec)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1820,9 +1820,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Tenable solution](sentinel-solutions-catalog.md#tenable)|
+| **Data ingestion method** | Only available after installing the [Tenable solution](sentinel-solutions-catalog.md#tenable)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1841,9 +1841,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Trend Micro Apex One solution](sentinel-solutions-catalog.md#trend-micr)|
+| **Data ingestion method** | Only available after installing the [Trend Micro Apex One solution](sentinel-solutions-catalog.md#trend-micr)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1887,9 +1887,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Ubiquiti UniFi solution](sentinel-solutions-catalog.md#ubiquiti)|
+| **Data ingestion method** | Only available after installing the [Ubiquiti UniFi solution](sentinel-solutions-catalog.md#ubiquiti)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1897,9 +1897,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [vArmour Application Controller and Azure Sentinel solution](sentinel-solutions-catalog.md#varmour)|
+| **Data ingestion method** | Only available after installing the [vArmour Application Controller and Azure Sentinel solution](sentinel-solutions-catalog.md#varmour)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1907,9 +1907,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Vectra Stream solution](sentinel-solutions-catalog.md#vectra)|
+| **Data ingestion method** | Only available after installing the [Vectra Stream solution](sentinel-solutions-catalog.md#vectra)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -2016,9 +2016,9 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available in the [Corelight for Azure Sentinel solution](sentinel-solutions-catalog.md#zeek)|
+| **Data ingestion method** | Only available after installing the [Corelight for Azure Sentinel solution](sentinel-solutions-catalog.md#zeek)|
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md) |
+| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
 
