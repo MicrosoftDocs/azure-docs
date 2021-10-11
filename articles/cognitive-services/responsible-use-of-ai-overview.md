@@ -66,3 +66,10 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 * [Characteristics and limitations](/legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/anomaly-detector/context/context)
 * [Integration and responsible use](/legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context)
+
+## Language Understanding
+
+* [Transparency note and use cases](/legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context)
+* [Integration and responsible use](/legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context)
