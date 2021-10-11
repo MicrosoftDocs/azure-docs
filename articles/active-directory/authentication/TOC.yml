@@ -11,6 +11,8 @@
     href: tutorial-enable-sspr.md
   - name: Enable Azure AD Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
+  - name: Enable cloud sync password writeback (Preview)
+    href: tutorial-enable-cloud-sync-sspr-writeback.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
   - name: Configure custom banned password lists
