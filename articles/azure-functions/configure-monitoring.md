@@ -142,7 +142,7 @@ You can use a log level setting of `None` prevent any logs from being written fo
 >
 > From above samples:
 > * If `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both Application Insights and Function Monitor tab.
-> * If `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics` and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level. 
+> * If `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level. 
 >
 > In both cases you will continue to collect errors and exceptions data in Application Insights and Function Monitor tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
@@ -299,10 +299,18 @@ Depending on how the telemetry generated is going to be consumed, real-time dash
 * **Tune your functions telemetry**: with the default log level set to `Error` or `Warning`, no detailed information from each function will be gathered (dependencies, custom metrics, custom events, and traces). For those functions that are key for production monitoring, define an explicit entry for `Function.<YOUR_FUNCTION_NAME>` category and set it to `Information`, so you can gather detailed information. At this point, to avoid gathering [user-generated logs](functions-monitoring.md#writing-to-logs) at `Information` level, set the `Function.<YOUR_FUNCTION_NAME>.User` category to `Error` or `Warning` log level.
 
 * **Host.Aggregator category**: as described in [Configure categories](#configure-categories), this category provides aggregated information of function invocations. The information from this category is gathered in Application Insights `customMetrics` table, and it's shown in the function Overview tab, at the Azure portal. If you set this category to other value different than `Information`, you will stop gathering the data in the `customMetrics` table and will not be displayed function details at the Azure portal. Depending on how you configure the aggregator, consider that there will be a delay (determined by the `flushTimeout`) in the telemetry gathered.
-![Host.Aggregator telemetry in portal and Application Insights customMetrics](media/configure-monitoring/host-aggregator-metrics-portal-logs.png)
+
+  Host.Aggregator telemetry data displayed in the function Overview tab:
+  [ ![Screenshot of Host.Aggregator telemetry displayed in function Overview tab.](media/configure-monitoring/host.aggregator-function-overview.jpg) ](media/configure-monitoring/host.aggregator-function-overview.jpg#lightbox)
+  Host.Aggregator telemetry data in Application Insights customMetrics table is displayed as follows:
+  [ ![Screenshot of Host.Aggregator telemetry in customMetrics Application Insights table.](media/configure-monitoring/host.aggregator-customMetrics.jpg) ](media/configure-monitoring/host.aggregator-customMetrics.jpg#lightbox)
 
 * **Host.Results category**: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating the success or failure of a function invocation. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function Monitor tab, and in different Application Insights dashboards (Performance, Failures...). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
-![Host.Results telemetry function Overview tab and Application Insights Performance dashboard](media/configure-monitoring/host-result-metrics-portal-logs.png)
+
+  Host.Results telemetry data displayed in the function Monitor tab:
+  [ ![Screenshot of Host.Results telemetry in function Monitor tab.](media/configure-monitoring/host.results-function-monitor.jpg) ](media/configure-monitoring/host.results-function-monitor.jpg#lightbox)
+  Host.Results telemetry data displayed in Application Insights Performance dashboard:
+  [ ![Screenshot of Host.Results telemetry in Application Insights Performance dashboard.](media/configure-monitoring/host.results-applicationInsights.jpg) ](media/configure-monitoring/host.result-applicationInsights.png#lightbox)
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights about function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based on the other.
 
@@ -400,6 +408,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 ```
 ---
 
+> [!NOTE]
 > Overriding the `host.json` through changing app settings require your function app to be restarted.
  
 ## Next steps
