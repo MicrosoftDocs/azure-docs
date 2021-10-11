@@ -238,8 +238,8 @@ Make sure all sample project’s dependent libraries (***azure_iot, threadx, net
     atprogram --tool edbg --interface SWD --device ATSAME54P20A program --chiperase --file atsame54_azure_iot.bin --verify
     ```
 
-    [!NOTE]
-    For more information about using the Atmel-ICE and atprogram tools with the Microchip E54, see [Using Atmel-ICE for AVR Programming In Mass Production](http://ww1.microchip.com/downloads/en/AppNotes/00002466A.pdf).
+    > [!NOTE]
+    > For more information about using the Atmel-ICE and atprogram tools with the Microchip E54, see [Using Atmel-ICE for AVR Programming In Mass Production](http://ww1.microchip.com/downloads/en/AppNotes/00002466A.pdf).
 
     After the flashing process completes, the console confirms that programming was successful:
 
@@ -266,13 +266,12 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
 
-> [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > [!TIP]
+    > If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 
 1. Select **Settings**.
 
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
-
     * **Baud rate**: 115,200
     * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
     * **Flow control**: DTR/DSR
