@@ -112,7 +112,7 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-flow-self-service-password-reset) before signing up/signing into a developer account using Azure Active Directory B2C. 
+> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/azure/active-directory-b2c/user-flow-self-service-password-reset) before signing up/signing into a developer account using Azure Active Directory B2C. 
 
 1. Open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
 
