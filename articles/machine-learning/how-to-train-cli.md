@@ -331,7 +331,7 @@ To register a model, you can download the outputs and create a model from the lo
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="sklearn_download_register_model":::
 
-### Sweep hyperparameters
+## Sweep hyperparameters
 
 You can modify the previous job to sweep over hyperparameters:
 
@@ -384,7 +384,7 @@ The CIFAR-10 example above translates well to a pipeline job. The previous job c
 
 Both "train-model" and "eval-model" will have a dependency on the "get-data" job's output. Additionally, "eval-model" will have a dependency on the "train-model" job's output. Thus the three jobs will run sequentially.
 
-You can write these three jobs as a pipeline job:
+You can orchestrate these three jobs within a pipeline job:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
 
