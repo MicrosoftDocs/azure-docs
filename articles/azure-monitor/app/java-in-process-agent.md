@@ -70,7 +70,7 @@ Or by creating a configuration file named `applicationinsights.json`, and placin
 
 Find the connection string on your Application Insights Resource.
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights connection string":::
 
 #### 4. Confirm data is flowing
 
