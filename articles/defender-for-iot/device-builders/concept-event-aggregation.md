@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ---
 
@@ -107,6 +107,7 @@ The data collected for each event is:
 | **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
 | **os_platform** | The OS of the device. |
 | **os_arch** | The architecture of the OS. For example, `x86_64`. |
+| **nics** | The network interface controller. <br> It is composed of the following; <br> - **type**: one of the following values: `UNKNOWN`, `ETH`, `WIFI`, `MOBILE`, or `SATELLITE`. <br> - **vlans**: The virtual lan associated with the network interface. <br> - **vendor**: The vendor of the network controller. <br> - **info**: IPS, and MACs associated with the network controller. This Includes the following fields: <br> - **ipv4_address**: The IPv4 address <br> - **ipv6_address**: The IPv6 address. <br> - **mac**: The Mac Address. |  
 | **IP address** | The IP address of the device. |
 | **MAC address** | The MAC address of the device. |
 
