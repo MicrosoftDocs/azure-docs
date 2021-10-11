@@ -45,24 +45,11 @@ The queue-based trigger functions are required in support of this feature. All t
 - **Sequenced** - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop. 
     The proper way to use the sequence functionality is to create a tag named **sequencestart** on each VM you wish to be started in a sequence. The tag value needs to be an integer ranging from 1 to N for each VM in the respective scope. The tag is optional and if not present, the VM simply won't participate in the sequencing. The same criteria applies to stopping VMs with only the tag name being different and use **sequencestop** in this case. You have to configure both the tags in each VM to get start and stop action.
 
-  For example,
+    For example, consider the settings in the following table:
 
-  <table>
-    <tr>
-     <td align = "center"><b>VM Name</b></td>
-      <td align = "center"><b>Tags</b></td>
-      <td align = "center"><b>Action Order</b></td>
-    </tr>
-    <tr>
-      <td>VM1</td>
-      <td>sequencestart : 1 <br/> sequencestop : 2</td>
-      <td rowspan="2">Start : VM1, VM2 <br/> Stop : VM2, VM1</td>
-    </tr>
-    <tr>
-       <td>VM2</td>
-      <td>sequencestart : 2 <br/> sequencestop : 1</td>
-    </tr>
-  </table>
+    | VM Name | Tags | Action Order |
+    | VM1 | `sequencestart : 1`<br/>`sequencestop : 2` | `Start : VM1, VM2`<br/>`Stop : VM2, VM1` |
+    | VM2 | `sequencestart : 2`<br/>`sequencestop : 1` | |
 
     > [!NOTE]
     > This scenario only supports Azure Resource Manager VMs.
