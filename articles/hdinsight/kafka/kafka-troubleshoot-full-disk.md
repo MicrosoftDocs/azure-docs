@@ -3,12 +3,14 @@ title: Broker fails to start due to a full disk in Azure HDInsight
 description: Troubleshooting steps for Apache Kafka broker process that can't start due to disk full error. 
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 10/08/2021
+author: Jacky-hdi
+ms.author: linjzhu 
+ms.date: 10/11/2021
 ---
 
 # Scenario: Brokers are unhealthy or can't restart due to disk space full issue
 
-This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues using  Apache Kafka in Azure HDInsight clusters.
 
 ## Issue
 
@@ -44,10 +46,11 @@ To mitigate the issue:
     ```
 
 3. Back up the files that are older than the new retention time.
+
 4. When there is some free space available, you can restart the brokers to use the new retention time configuration. Restarting the brokers cleans the older logs and frees up some space on disk.
 
-    > [!IMPORTANT]
-    > Sometimes, taking a backup might not be an option because either the OS disk might get full or it would overload other Kafka disks. In this scenario, you might have to delete files that are older than the retention time.
+   > [!IMPORTANT]
+   > Sometimes, taking a backup might not be an option because either the OS disk might get full or it would overload other Kafka disks. In this scenario, you might have to delete files that are older than the retention time.
 
 ## Resolution
 
@@ -57,8 +60,8 @@ To avoid these scenarios, consider using one of the following options:
 
 - If the partitions are too large, increase the number of partitions for the heaviest topics.
 
-   > [!NOTE]
-   > Increasing the partitions in an existing topic doesn't reorganize the data in the topic. You must first manually copy data from an old, low-partition topic to a new, higher-partition topic. 
+  > [!NOTE]
+  > Increasing the partitions in an existing topic doesn't reorganize the data in the topic. You must first manually copy data from an old, low-partition topic to a new, higher-partition topic. 
 
 - Scale out the cluster and rebalance all the partitions across multiple disks.
 
