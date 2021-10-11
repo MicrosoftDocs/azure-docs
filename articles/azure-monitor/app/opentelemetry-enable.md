@@ -11,6 +11,10 @@ ms.author: mmcc
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights.
 
+> [!IMPORTANT]
+> Azure Monitor OpenTelemetry Exporter for .NET, Node.js,and Python applications is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Limitations of preview release
 
 ### [.NET](#tab/net)
