@@ -283,7 +283,7 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 > [!NOTE]
 > Epoch-level metrics for precision, recall and per_label_metrics are not available when using the 'coco' method.
 
-![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-object-detection-mAP.png)
+![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
 ## Model explanations and feature importances
 
