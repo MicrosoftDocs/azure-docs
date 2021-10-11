@@ -1,7 +1,7 @@
 ---
 title: Prevent rate-limiting errors for Azure Cosmos DB API for Cassandra.
 description: Prevent your Azure Cosmos DB API for Cassandra operations from hitting rate limiting errors with the SSR (server-side retry) feature
-author: dileep rao
+author: dileepraotv-github
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
@@ -92,6 +92,6 @@ To learn more about troubleshooting common errors, see this article:
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
-* [Provision throughput on containers and databases](../set-throughput.md) 
-* [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
+* [Provision throughput on containers and databases](../how-to-provision-throughput-cassandra.md) 
+* [Partition key best practices](../cassandra-partitioning.md)
+
