@@ -19,7 +19,7 @@ sections:
       - question: |
          How do I configure autoscale so I run zero session hosts after working hours?
         answer: |
-         Ramp-down mode always uses the lowest possible number of session hosts possible. However, the lowest number possible doesn’t include zero. Instead, you can configure a time limit policy to sign out all disconnected users.
+         Ramp-down mode always uses the lowest possible number of session hosts possible. However, if active sessions exist the lowest number won't be zero. Configure a time limit policy to sign out all disconnected users.
           
       - question: |
          Does autoscale create or delete virtual machines (VMs) based on service load?
