@@ -28,9 +28,9 @@ This procedure requires several tools that must be installed and run locally. Do
     * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
     * **Azure Cognitive Services** resource with the S0 pricing tier.
 
-[!INCLUDE [Create a Cognitive Services Text Analytics resource](../../includes/containers/create-text-analytics-resource.md)]
+[!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/containers/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
 
 ## Deploy the Key Phrase Extraction container to an AKS cluster
@@ -156,7 +156,7 @@ This procedure requires several tools that must be installed and run locally. Do
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.
 
-    ![View the container home page to verify that it's running](../../media/swagger-docs-on-container.png)
+    ![View the container home page to verify that it's running](../media/swagger-container-documentation.png)
 
 1. Select the **Service API Description** link to go to the container's Swagger page.
 
