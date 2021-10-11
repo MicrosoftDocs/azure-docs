@@ -11,11 +11,11 @@ ms.date: 10/15/2021
 
 # Set up a virtual machine offer test drive
 
-A test drives allows customers to try your solution before they buy by giving them access to a preconfigured environment for a fixed number of hours, resulting in highly qualified leads and an increase in conversions.
+A test drive allows customers to try your solution before they buy by giving them access to a preconfigured environment for a fixed number of hours, resulting in highly qualified leads and an increase in conversions.
 
 There are different kinds of test drives available depending on the offer and marketplace, but an Azure Resource Manager (ARM) deployment is the only option available for a VM offer.
 
-To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md). The deployment template will contain all the Azure resources that comprise your solution. One your template is complete, return here and continue reading below to learn how to add it to your offer's test drive.
+To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md). The deployment template will contain all the Azure resources that comprise your solution. Once your template is complete, return here and continue reading below to learn how to add it to your offer's test drive.
 
 If you want to learn about how other types of test drives work, see [What is a test drive?](https://go.microsoft.com/fwlink/?linkid=2091010).
 
@@ -40,7 +40,7 @@ Enter a value in the boxes between 0-99 to indicate how many of Hot, Warm, or Co
 
 ### Technical configuration
 
-Technical configuration is accomplished with an Azure Resource Manager template as described at the beginning of this topic. An ARM template is a coded .zip container of Azure resources that you design to best represent your solution.
+Technical configuration is accomplished with an Azure Resource Manager template as described at the beginning of this article. An ARM template is a coded .zip container of Azure resources that you design to best represent your solution.
 
 Drag your Azure Resource Manager template into the area indicated, or **Browse** for the file.
 
