@@ -357,7 +357,7 @@ After you successfully install the Windows failover cluster, you need to adjust 
 These settings were tested with customers and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
 
 ## Configure Azure shared disk
-Ths section is only applicable, if you are using Azure shared disk.
+This section is only applicable, if you are using Azure shared disk.
 
 ### Create and attach Azure shared disk with PowerShell
 Run this command on one of the cluster nodes. You will need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
