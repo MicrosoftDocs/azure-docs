@@ -70,14 +70,14 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 - Premium SSDs support availability sets. 
+- Premium SSDs support Zone Redundant Storage (ZRS)
 
 
 **Limitations**: 
-- It is recommended to place the virtual machines in the same availability set and proximity placement group.
-- Ultra disks do not support availability sets. 
-- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine. 
-- Regardless of the chosen hardware availability solution, the availability of the failover cluster is always 99.9% when using Azure Shared Disks. 
 - Premium SSD disk caching is not supported.
+- Ultra disks do not support availability sets. 
+- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine to 99.9%
+- Ultra disks do not support Zone Redundant Storage (ZRS)
 
  
 To get started, see [SQL Server failover cluster instance with Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 

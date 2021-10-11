@@ -31,80 +31,52 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. All nodes must exist in the same [proximity placement group](../../../virtual-machines/co-location.md#proximity-placement-groups).
+- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 ## Add Azure shared disk
-Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
+[Deploy a managed Premium SSD disk with the shared disk feature enabled](/azure/virtual-machines/disks-shared-enable?tabs=azure-portal#deploy-a-premium-ssd-as-a-shared-disk). Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
 
-Add an Azure shared disk by doing the following: 
+## Attach shared disk to VMs
+Once you've deployed a shared disk with maxShares>1, you can mount the disk to one or more of your VMs.
 
-1. Save the following script as *SharedDiskConfig.json*: 
+Follow these steps to attach the shared disk on all the VMs that will be part of FCI. 
 
-   ```JSON
-   { 
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "dataDiskName": {
-         "type": "string",
-         "defaultValue": "mySharedDisk"
-       },
-       "dataDiskSizeGB": {
-         "type": "int",
-         "defaultValue": 1024
-       },
-       "maxShares": {
-         "type": "int",
-         "defaultValue": 2
-       }
-     },
-     "resources": [
-       {
-         "type": "Microsoft.Compute/disks",
-         "name": "[parameters('dataDiskName')]",
-         "location": "[resourceGroup().location]",
-         "apiVersion": "2019-07-01",
-         "sku": {
-           "name": "Premium_LRS"
-         },
-         "properties": {
-           "creationData": {
-             "createOption": "Empty"
-           },
-           "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-           "maxShares": "[parameters('maxShares')]"
-         }
-       }
-     ] 
-   }
-   ```
+1. Select the VM in Azure portal for which you want to attach the shared disk.
+2. From the menu on the left, select **Disks**.
+3. Select **Attach existing disks** to attach the shared disk to the VM. 
+4. Select the shared disk under **Disk name** drop down. 
+5. Select **Save**.
 
-2. Run *SharedDiskConfig.json* by using PowerShell: 
+After a few moments, the shared data disk is attached to the VM and appears in the list of Data disks for that VM.
 
-   ```powershell
-   $rgName = < specify your resource group name>
-       $location = 'westcentralus'
-       New-AzResourceGroupDeployment -ResourceGroupName $rgName `
-   -TemplateFile "SharedDiskConfig.json"
-   ```
+## Initialize a new data disk
+Once the shared disk is attached on all the VMs, follow the steps to initialize the disk from **one** of the VM that will be part of FCI. . 
+ 
+1. Connect to **one** of the VM.
+2. Select the Windows **Start** menu inside the running VM and enter **diskmgmt.msc** in the search box. The **Disk Management** console opens.
+3. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
+4. Verify the new disk is selected and then select **OK** to initialize it.
+5. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
+6. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
+7. Close **Disk Management**.
+8. A pop-up window appears notifying you that you need to format the new disk before you can use it. Select **Format disk**.
+9. In the **Format new disk** window, check the settings, and then select **Start**.
+10. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
+11. When the formatting is complete, select **OK**.
 
-3. For each VM, initialize the attached shared disks as GUID partition table (GPT) and format them as New Technology File System (NTFS) by running this command: 
-
-    ```powershell
-    $resourceGroup = "<your resource group name>"
-    $location = "<region of your shared disk>"
-    $ppgName = "<your proximity placement groups name>"
-    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-        -Name "<your VM node name>"
-    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-        -DiskName "<your shared disk name>"
-    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-        -Lun <available LUN - check disk setting of the VM>
-    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-    ```
+1. Connect to the VM.
+2. Select the Windows Start menu inside the running VM and enter diskmgmt.msc in the search box. The Disk Management console opens.
+3. Disk Management recognizes that you have a new, uninitialized disk and the Initialize Disk window appears.
+4. Verify the new disk is selected and then select OK to initialize it.
+The new disk appears as unallocated. Right-click anywhere on the disk and select New simple volume. The New Simple Volume Wizard window opens.
+Proceed through the wizard, keeping all of the defaults, and when you're done select Finish.
+Close Disk Management.
+A pop-up window appears notifying you that you need to format the new disk before you can use it. Select Format disk.
+In the Format new disk window, check the settings, and then select Start.
+A warning appears notifying you that formatting the disks erases all of the data. Select OK.
+When the formatting is complete, select OK.
 
 ## Create failover cluster
 
