@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 10/04/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
@@ -290,3 +290,19 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 > [!TIP]
 > Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+
+## Conditional Access
+
+[Conditional Access](../active-directory/conditional-access/overview.md) is the tool used by Azure Active Directory to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
+
+To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. In the **Cloud apps or actions** section of the policy, add **Azure Cognitive Search** as a cloud app depending on how you want to set up your policy.
+1. Update the remaining parameters of the policy. For example, specify which users and groups this policy applies to. 
+1. Save the policy.
+
+> [!IMPORTANT]
+> If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies cannot be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.

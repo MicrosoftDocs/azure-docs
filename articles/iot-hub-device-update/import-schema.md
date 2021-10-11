@@ -36,7 +36,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
 | Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
-| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 2 GB per individual file, or 2 GB collectively per update |
+| SizeInBytes | Int64 | Size of file in bytes. | See [Device Update limits](./device-update-limits.md) for maximum size per individual file and collectively per update |
 | Hashes | `Hashes` object | JSON object containing hash(es) of the file |
 
 ## CompatibilityInfo Object

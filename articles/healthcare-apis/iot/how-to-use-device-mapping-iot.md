@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/05/2021
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ IoT connector requires two types of JSON-based mapping templates. The first type
 
 The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The two types of mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoT connector through the Azure portal. The Device mapping document is added through the **Configure Device mapping** page and the FHIR destination mapping document through the **Configure FHIR destination mapping** page.
+The two types of mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoT connector through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
 
 > [!NOTE]
 > Mapping templates are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
