@@ -44,7 +44,7 @@ The Logstash engine is comprised of three components:
 >
 > - Microsoft does not support third-party Logstash output plugins for Azure Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Azure Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.9**.
+> - Azure Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.15**.
 
 The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
