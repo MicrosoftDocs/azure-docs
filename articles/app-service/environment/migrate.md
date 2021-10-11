@@ -28,7 +28,7 @@ The following scenarios are currently not supported:
 - App Service Environment v1
 - ILB App Service Environment with a custom domain suffix
 - Internet facing App Service Environment with IP SSL addresses
-- Zone pinned App Service Environment
+- [Zone pinned](zone-redundancy.md) App Service Environment
 
 The App Service platform will review your App Service Environment to confirm migration availability. If your scenario does not pass all validation checks, you will receive feedback with details for why you can't migrate at this time.
 
@@ -40,17 +40,17 @@ The App Service platform will review your App Service Environment to confirm mig
 
 The migration consists of two steps. Prior to starting Step 1, you will need to provide configuration information for your new App Service Environment. The migration tool will automatically enable or disable these options for you depending on whether or not they're supported. Note that an internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
 
-- **App Service Environment Subnet**: At this time, the only supported configuration is to place your new App Service Environment in the existing subnet used by the old environment.
+- **App Service Environment Subnet**: At this time, the only supported configuration is to place your new App Service Environment in the existing [subnet](network-info.md#overview) used by the old environment.
 - **Zone Redundancy**: A migrated App Service Environment can be configured with [zone redundancy](zone-redundancy.md) if zone redundancy is available in the selected region.
-- **KeyVault**: Required for migration of an ILB App Service Environment with custom domain suffix. This scenario is not supported at this time.
+- **KeyVault**: Required for migration of an ILB App Service Environment with custom [domain suffix](networking.md#addresses). This scenario is not supported at this time.
 
 ### Step 1 of migration
 
-During this step, which begins after confirming the above configuration details, the platform creates the new inbound IP (if you are migrating an internet facing App Service Environment) and the new outbound IP. This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you will not be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls.
+During this step, which begins after confirming the above configuration details, the platform creates the [new inbound IP (if you are migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you will not be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls in preparation for the migration. You will also have access to scale or modify you existing App Service Environment again if needed.
 
 ### Step 2 of migration
 
-After Step 1 completes, you should continue with Step 2 as soon as possible. It is recommended that you move on within one week. Step 2 removes the existing App Service Environment and replaces it with the new App Service Environment v3 and converts all App Service plans in the App Service Environment from Isolated to Isolated v2. During this step, **the old App Service Environment is removed and all of the apps that are on it are temporarily down**. You should expect about two hours of downtime during this step. Also, during this step the public addresses that are used by the App Service Environment will change to the IPs identified during Step 1. As in Step 1, during this process, you will not be able to scale or modify you App Service Environment or deploy apps to it. When the migration is complete, the apps that were on the original App Service Environment will be running on the new environment.
+After Step 1 completes, you should continue with Step 2 as soon as possible. It is recommended that you move on within one week. Step 2 removes the existing App Service Environment and replaces it with the new App Service Environment v3 and converts all App Service plans in the App Service Environment from Isolated to Isolated v2. During this step, **the old App Service Environment is removed and all of the apps that are on it are temporarily down**. You should expect about two hours of downtime during this step. Also, during this step, the public addresses that are used by the App Service Environment will change to the IPs identified during Step 1. As in Step 1, during this process, you will not be able to scale or modify you App Service Environment or deploy apps to it. When the migration is complete, the apps that were on the original App Service Environment will be running on the new environment.
 
 > [!NOTE]
 > Due to the conversion of App Service Plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and capacity. You will have the opportunity to [scale your environment](../manage-scale-up.md) as needed once the migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
@@ -68,4 +68,4 @@ Ensure you understand how migrating to an App Service Environment v3 will affect
 
 ### Migrating your App Service Environment
 
-...
+...(TBD, pending implementation of tooling)
