@@ -48,6 +48,7 @@ The queue-based trigger functions are required in support of this feature. All t
     For example, consider the settings in the following table:
 
     | VM Name | Tags | Action Order |
+    | --- | --- | --- |
     | VM1 | `sequencestart : 1`<br/>`sequencestop : 2` | `Start : VM1, VM2`<br/>`Stop : VM2, VM1` |
     | VM2 | `sequencestart : 2`<br/>`sequencestop : 1` | |
 
