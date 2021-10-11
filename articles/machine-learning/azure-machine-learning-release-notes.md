@@ -39,7 +39,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Improve error message on failed dashboard download
   + **azureml-train-automl-client**
     + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
-    + Add TCNForecaster support to model test runs.
     + Enable binary metrics calculation
   + **azureml-train-automl-runtime**
     + Add TCNForecaster support to model test runs.
@@ -1063,8 +1062,6 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
     + Added a new type of user exception  that is raised if the cache store contents have been tampered with
   + **azureml-automl-runtime**
     + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
-  + **azureml-contrib-itp**
-    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
   + **azureml-contrib-notebook**
     + Doc improvements to azureml-contrib-notebook package.
   + **azureml-contrib-pipeline-steps**
