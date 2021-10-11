@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
-ms.devlang: 
 ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
@@ -409,7 +408,7 @@ Be aware of the following limitations:
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 - **System databases are not replicated** to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service Master Key (SMK) for SQL Managed Instance, which is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
-- If an instance participates in auto-failover group, changing the instance's [connection type](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) does not take effect for the connections established through the failover group listener endpoint. You will need to temporarily delete and recreate auto-failover group for the connection type change to take effect.
+- If an instance participates in auto-failover group, changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint. You will need to temporarily delete and recreate auto-failover group for the connection type change to take effect.
 
 ## Programmatically managing failover groups
 
