@@ -83,7 +83,7 @@ Run your application and open your Application Insights Resource blade on the Az
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](#java-standalone-config.md#cloud-role-name) to represent them properly on the Application Map.
+> If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the Application Map.
 
 
 ## Configuration options

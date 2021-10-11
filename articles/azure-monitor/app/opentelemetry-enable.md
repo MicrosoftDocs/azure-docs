@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
-description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
+description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry.
 ms.topic: conceptual
 ms.date: 10/13/2021
 author: mattmccleary
@@ -441,7 +441,7 @@ These attributes may include adding a custom business property to your telemetry
 
 #### Add custom property
 
-Any [attributes](#add-activityspan-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+Any [attributes](#add-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
@@ -623,7 +623,7 @@ span._attributes["enduser.id"] = "<User ID>"
 ---
 -->
 
-### Filter Telemetry
+### Filter telemetry
 
 You may use following ways to filter out telemetry before leaving your application.
 

@@ -1,13 +1,13 @@
 ---
-title: OpenTelemetry Overview | Microsoft Docs
-description: Provides an overview of how to use OpenTelemetry with Azure Monitor
+title: OpenTelemetry with Azure Monitor overview 
+description: Provides an overview of how to use OpenTelemetry with Azure Monitor.
 ms.topic: conceptual
 ms.date: 09/28/2021
 author: mattmccleary
 ms.author: mmcc
 ---
 
-# OpenTelemetry Overview
+# OpenTelemetry overview
 
 Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vendor-neutral instrumentation, and we're delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
 
