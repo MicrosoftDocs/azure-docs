@@ -428,6 +428,5 @@ See [Troubleshooting](java-standalone-troubleshoot.md).
 ## Next steps
 
 - Review the source code at the [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java).
-- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application]().
 - To learn more about OpenTelemetry and its community, visit the [OpenTelemetry Java GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
