@@ -348,6 +348,9 @@ import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/sdk-trace-n
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 
+// ----------------------------------------
+// Setting Role name and role instance
+// ----------------------------------------
 const config: NodeTracerConfig = {
         resource: new Resource({
             [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
@@ -355,6 +358,9 @@ const config: NodeTracerConfig = {
             [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
         }),
     };
+// ----------------------------------------
+// Done setting Role name and role instance
+// ----------------------------------------
 const provider = new NodeTracerProvider(config);
 ...
 ```
@@ -369,8 +375,14 @@ trace.set_tracer_provider(
         resource=Resource.create(
             {
                 SERVICE_NAME: "my-helloworld-service",
+# ----------------------------------------
+# Setting Role name and role instance
+# ----------------------------------------
                 SERVICE_NAMESPACE: "my-namespace",
                 SERVICE_INSTANCE_ID: "my-instance",
+# ----------------------------------------------
+# Done setting Role name and role instance
+# ----------------------------------------------
             }
         )
     )
