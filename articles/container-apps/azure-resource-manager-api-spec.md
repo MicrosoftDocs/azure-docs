@@ -1,6 +1,6 @@
 ---
-title: Container Apps ARM API specification
-description: 
+title: Container Apps ARM template API specification
+description: Explore the available properties in the Container Apps ARM template.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -9,26 +9,52 @@ ms.date: 10/21/2021
 ms.author: cshoe
 ---
 
-# Container Apps ARM API specification
+# Container Apps ARM template API specification
 
+Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following describes the properties available in the container app ARM template.
 
-| Property | Description | Read only| Required |
-|---|---|---|---|
-| latestRevisionName | The name of the revision that correspond to the current configuration state of the container app's object | Yes | No |
-| latestRevisionFqdn | The domain name used to access the latest revision of the container app | Yes | No |
-| provisioningState | The state of a long running operation (e.g. when new container revision is created) | Yes | No |
-| kubeEnvironmentId |  | Yes | No |
-| Fqdn | random part is used to prevent domain name stealing | Yes | No |
-| Containers |  | No | Yes |
-| Configuration |  | No | No |
-| Scale |  | No | No |
-| Dapr |  | No | No |
-| Transport | Possible values: auto (default), http, http2 | No | No |
-| Registries | contains the authentication parameters to pull images from private registries | No | No |
+## Root
+
+| Property | Description | Data type |
+|---|---|--|
+| `id` | The unique identifier of the container app. The value uses the following format:<br><br>`subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP_NAME>/providers/Microsoft.Web/containerapps/<NAME>`<br><br>In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets. | string |
+| `name` | The Container Apps application name. This name is used at the end if the `id` property in the ARM template file. | string |
+| `location` | The Azure region where the Container Apps instance is deployed. | string |
+| `tags` | Collection of Azure tags associated with the container app. | array |
+| `kind` | \*\*TODO\*\* | string |
+
+## properties
+
+| Property | Description | Data type |
+|---|---|---|
+| `provisioningState` | The state of a long running operation, for example when new container revision is created. Possible values include: \*\*TODO\*\* | string |
+| `kubeEnvironmentId` | aklsjdf<br><br>`/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAM>/providers/Microsoft.Web/kubeEnvironments/<KUBERNETES_ENVIRONMENT_NAME>`<br><br> | string |
+| `latestRevisionName` | The name of the revision that correspond to the current configuration state of the container app's object | string |
+| `latestRevisionFqdn` | The domain name used to access the latest revision of the container app | string |
+
+## properties.configuration
+
+| Property | Description | Data type |
+|---|---|---|
+| `activeRevisionsMode` | Setting to `multiple` allows you to maintain multiple revisions. Setting to `single` automatically deactivates old revisions. | string |
+| `secrets` | Contains references to secret values passed in to the \*\*TODO\*\*  | object |
+| `ingress` | Configuration object that defines the public accessibility of a container app.  | object |
+| `registries` | Configuration object that holds references to credentials for external container registries.  | object |
+
+## properties.template
+
+| Property | Description | Data type |
+|---|---|---|
+| `revisionSuffix` | Value that is appended to the end of each container app revision. | string |
+| `containers` | Configuration object that defines what container images are included in the container app. | object |
+| `scale` | Configuration object that defines scale rules for the container app. | object |
+| `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
+
+## Example template
 
 ```yml
-id: subscriptions/{id}/resourceGroups/{group}/providers/Microsoft.Web/containerapps/mypythonapp
-name: mypythonapp
+id: subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/containerapps/<CONTAINER_APP_NAME>
+name: mysampleapp
 type: Microsoft.Web/containerapps
 location: East US 2
 tags:
@@ -36,11 +62,11 @@ tags:
 kind: containerapp
 properties:
   provisioningState: Succeeded,
-  kubeEnvironmentId: /subscriptions/{id}/resourceGroups/{group}/providers/Microsoft.Web/kubeEnvironments/{name}
-  latestRevisionName: mypythonapp-af5kc0p
-  latestRevisionFqdn: mypythonapp-af5kc0p.mykubeenvironment-90cb2y1s.eastus.containerapps.io
+  kubeEnvironmentId: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAM>/providers/Microsoft.Web/kubeEnvironments/<KUBERNETES_ENVIRONMENT_NAME>
+  latestRevisionName: mysampleapp-af5kc0p
+  latestRevisionFqdn: mysampleapp-af5kc0p.mykubeenvironment-90cb2y1s.eastus.containerapps.io
   configuration:
-    activeRevisionsMode: multiple | single
+    activeRevisionsMode: multiple
     secrets:
     - name: queueconnection
       value: secretValue1
@@ -55,11 +81,11 @@ properties:
     ingress:
       external: true
       targetPort: 8080
-      fqdn: mypythonapp.mykubeenvironment-90cb2y1s.eastus.containerapps.io
+      fqdn: mysampleapp.mykubeenvironment-90cb2y1s.eastus.containerapps.io
       transport: auto
       allowInsecure: true
       traffic:
-      - revisionName: mypythonapp-bf32da4
+      - revisionName: mysampleapp-bf32da4
         weight: 80
       - latestRevision: true
         weight: 20
