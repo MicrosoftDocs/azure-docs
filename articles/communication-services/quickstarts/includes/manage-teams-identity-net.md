@@ -55,10 +55,10 @@ Use the following code to begin:
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Azure;
-using Azure.Core;
 using Azure.Communication.Identity;
+using Microsoft.Identity.Client;
 
 namespace TeamsAccessTokensQuickstart
 {
@@ -80,7 +80,8 @@ First step in the token exchange flow is getting a token for your Teams user by 
 
 ```csharp
 string appId = "Contoso's_Application_ID";
-string authority = "https://login.microsoftonline.com/common";
+string tenantId = "Contoso's_TenantId_ID";
+string authority = $"https://login.microsoftonline.com/{tenantId}";
 string redirectUri = "http://localhost";
 
 var aadClient = PublicClientApplicationBuilder
@@ -129,7 +130,7 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential)
 Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```csharp
-var accessToken = await client.ExchangeTeamsTokenAsync(tokenResult.AccessToken);
+var accessToken = await client.ExchangeTeamsTokenAsync(teamsUserAadToken.AccessToken);
 Console.WriteLine($"Token:{accessToken.Value.Token}");
 ```
 

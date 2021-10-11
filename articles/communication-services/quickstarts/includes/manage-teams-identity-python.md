@@ -55,14 +55,15 @@ pip install msal
 First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
 
 ```python
-from msal import PublicClientApplication
+from msal.application import PublicClientApplication
 
 client_id = "Contoso's_Application_ID"
-authority = "https://login.microsoftonline.com/common"
+tenant_id = "Contoso's_TenantId_ID"
+authority = "https://login.microsoftonline.com/%s" % tenant_id
 
 app = PublicClientApplication(client_id, authority=authority)
 
-scope = "https://auth.msft.communication.azure.com/VoIP"
+scope = [ "https://auth.msft.communication.azure.com/VoIP" ]
 teams_token_result = app.acquire_token_interactive(scope)
 ```
 
