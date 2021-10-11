@@ -92,6 +92,7 @@ The AppId URI acts as the prefix for the scopes referenced in the API's code, an
 | Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
 | Use verified domain in Line of Business (LoB) apps | Malformed URI    |
 | Inventory your AppId URIs                    |      -----             |
+| Use AppId Uri to expose WebApi in your organization| Use AppId Uri to identify the application, instead use the appId property|
 
 ## App ownership configuration
 
