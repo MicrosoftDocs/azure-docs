@@ -44,7 +44,7 @@ Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) pro
 | Standard_E96d_v5             | 96 | 768 | 2400 | 32 | 615000/3872 | 8 | 30000 |
 
 
-<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Edsv5-series
