@@ -37,14 +37,15 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2bs_v5   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 2 | 10000 |
-| Standard_E4bs_v5   | 4  | 32  | Remote Storage Only | 8  | 11000/350   | 2 | 10000 |
-| Standard_E8bs_v5   | 8  | 64  | Remote Storage Only | 16 | 22000/625   | 4 | 10000 |
-| Standard_E16bs_v5  | 16 | 128 | Remote Storage Only | 32 | 44000/1250  | 8 | 12500 |
-| Standard_E32bs_v5  | 32 | 256 | Remote Storage Only | 32 | 88000/2500  | 8 | 16000 |
-| Standard_E48bs_v5  | 48 | 384 | Remote Storage Only | 32 | 120000/4000 | 8 | 16000 |
-| Standard_E64bs_v5  | 64 | 504 | Remote Storage Only | 32 | 120000/4000 | 8 | 20000 |
+| Standard_E2bs_v5<sup>1</sup>   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 2 | 10000 |
+| Standard_E4bs_v5               | 4  | 32  | Remote Storage Only | 8  | 11000/350   | 2 | 10000 |
+| Standard_E8bs_v5               | 8  | 64  | Remote Storage Only | 16 | 22000/625   | 4 | 10000 |
+| Standard_E16bs_v5              | 16 | 128 | Remote Storage Only | 32 | 44000/1250  | 8 | 12500 |
+| Standard_E32bs_v5              | 32 | 256 | Remote Storage Only | 32 | 88000/2500  | 8 | 16000 |
+| Standard_E48bs_v5              | 48 | 384 | Remote Storage Only | 32 | 120000/4000 | 8 | 16000 |
+| Standard_E64bs_v5              | 64 | 504 | Remote Storage Only | 32 | 120000/4000 | 8 | 20000 |
 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Ebdsv5-series
 
@@ -62,14 +63,15 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB)  | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bds_v5   | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 2 | 10000 |
-| Standard_E4bds_v5   | 4  | 32  | 150  | 8  | 18750/242   | 11000/350   | 2 | 10000 |
-| Standard_E8bds_v5   | 8  | 64  | 300  | 16 | 37500/485   | 22000/625   | 4 | 10000 |
-| Standard_E16bds_v5  | 16 | 128 | 600  | 32 | 75000/968   | 44000/1250  | 8 | 12500 |
-| Standard_E32bds_v5  | 32 | 256 | 1200 | 32 | 150000/1936 | 88000/2500  | 8 | 16000 |
-| Standard_E48bds_v5  | 48 | 384 | 1800 | 32 | 225000/2904 | 120000/4000 | 8 | 16000 |
-| Standard_E64bds_v5  | 64 | 504 | 2400 | 32 | 300000/3872 | 120000/4000 | 8 | 20000 |
+| Standard_E2bds_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 2 | 10000 |
+| Standard_E4bds_v5               | 4  | 32  | 150  | 8  | 18750/242   | 11000/350   | 2 | 10000 |
+| Standard_E8bds_v5               | 8  | 64  | 300  | 16 | 37500/485   | 22000/625   | 4 | 10000 |
+| Standard_E16bds_v5              | 16 | 128 | 600  | 32 | 75000/968   | 44000/1250  | 8 | 12500 |
+| Standard_E32bds_v5              | 32 | 256 | 1200 | 32 | 150000/1936 | 88000/2500  | 8 | 16000 |
+| Standard_E48bds_v5              | 48 | 384 | 1800 | 32 | 225000/2904 | 120000/4000 | 8 | 16000 |
+| Standard_E64bds_v5              | 64 | 504 | 2400 | 32 | 300000/3872 | 120000/4000 | 8 | 20000 |
 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
