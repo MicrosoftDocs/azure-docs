@@ -149,11 +149,11 @@ To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic
 
 1. Under the trigger or action where you want to add the Blob Storage action, select **Insert a new step** (**+**) > **Add an action**.
 
-1. In the **Add an action** pane that opens, under the **Choose an operation** search box, select either **Built-in** to find the **Azure Blob** *built-in* actions, or select **Azure** to find the **Azure Blob Storage** *managed connector* actions.
+1. On the designer, make sure that **Add an operation** is selected. In the **Add an action** pane that opens, under the **Choose an operation** search box, select either **Built-in** to find the **Azure Blob** *built-in* actions, or select **Azure** to find the **Azure Blob Storage** *managed connector* actions.
 
 1. In the search box, enter `Azure blob`. Select the Azure Blob action that you want to use.
 
-   This example uses **Reads Blob Content from Azure Storage**, which only reads the blob content. To later view the content, add a different action that creates a file with the blob content using another connector. For example, you can add a OneDrive action that creates a file based on the blob content.
+   This example uses the action named **Reads Blob Content from Azure Storage**, which only reads the blob content. To later view the content, add a different action that creates a file with the blob content using another connector. For example, you can add a OneDrive action that creates a file based on the blob content.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-action-add.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and the available Azure Blob Storage actions.":::
 
@@ -261,15 +261,17 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 1. Note the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) for your logic app resource's region.
 
-1. In the [Azure portal](https://portal.azure.com), find your storage account resource.
+1. In the [Azure portal](https://portal.azure.com), find and open your storage account resource.
 
 1. On the storage account navigation menu, under **Security + networking**, select **Networking**.
 
-1. Under **Allow access from**, select **Selected networks**. The related settings now appear on the page.
+   1. Under **Allow access from**, select **Selected networks**, which shows the relevant settings.
 
-1. Under **Firewall**, add the IP addresses or ranges that need access.
+   1. Under **Firewall**, add the IP addresses or ranges that need access. If you need to access the storage account from your computer, select **Add your client IP address**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Screenshot of blob storage account networking page in Azure portal, showing firewall settings to add IP addresses and ranges to the allowlist.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Screenshot of blob storage account networking page in Azure portal, showing firewall settings to add IP addresses and ranges to the allowlist.":::
+
+   1. When you're done, select **Save**.
 
 ### Access storage accounts through trusted virtual network
 
@@ -304,19 +306,19 @@ To use managed identities in your logic app to access Blob Storage, follow these
 
 To set up the exception and managed identity support, first configure appropriate access to your storage account:
 
-1. In the [Azure portal](https://portal.azure.com), open your storage account.
+1. In the [Azure portal](https://portal.azure.com), find and open your storage account resource.
 
 1. On the storage account navigation menu, under **Security + networking**, select **Networking**.
 
-1. Under **Allow access from**, select **Selected networks**. The related settings now appear on the page.
+   1. Under **Allow access from**, select **Selected networks**, which shows the relevant settings.
 
-1. If you need to access the storage account from your computer, under **Firewall**, enable **Add your client IP address**.
+   1. If you need to access the storage account from your computer, under **Firewall**, select **Add your client IP address**.
 
-1. Under **Exceptions**, enable **Allow trusted Microsoft services to access this storage account**.
+   1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot showing the Azure portal and the Blob Storage account networking page with settings to allow selected networks, client IP address, and trusted Microsoft services.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot showing the Azure portal and the Blob Storage account networking page with settings to allow selected networks, client IP address, and trusted Microsoft services.":::
 
-1. When you're done, select **Save**.
+   1. When you're done, select **Save**.
 
 > [!NOTE]
 > If you receive a **403 Forbidden** error when you try to connect to the storage account from your workflow, 
@@ -328,13 +330,13 @@ To set up the exception and managed identity support, first configure appropriat
 
 Next, [enable managed identity support](../logic-apps/create-managed-service-identity.md) on your logic app resource.
 
+The following steps are the same for Consumption logic apps in multi-tenant environments and Standard logic apps in single-tenant environments.
+
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
 1. On the logic app resource navigation menu, under **Settings**, select **Identity.**
 
-1. On the **System assigned** pane, set **Status** to **On**. This setting might already be enabled.
-
-1. Under **Permissions**, select **Azure role assignments**.
+1. On the **System assigned** pane, set **Status** to **On**, which might already be enabled. Under **Permissions**, select **Azure role assignments**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Screenshot showing the Azure portal and logic app resource menu with the "Identity" settings pane and 'Azure role assignment permissions' button.":::
 
@@ -346,7 +348,7 @@ Next, [enable managed identity support](../logic-apps/create-managed-service-ide
 
    1. For **Scope**, select **Storage**.
 
-   1. For **Subscription**, selected the subscription for your storage account.
+   1. For **Subscription**, select the subscription for your storage account.
 
    1. For **Resource**, select the storage account that you want to access from your logic app workflow.
 
@@ -370,7 +372,7 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
    1. Select a **Method** for your request. This example uses the HTTP **PUT** method.
 
-   1. Enter the **URI** for your blob. This path resembles `https://<your-storage-account>.blob.core.windows.net/<your-blob>`.
+   1. Enter the **URI** for your blob. The path resembles `https://<storage-container-name>/<folder-name>/{name}`. Provide your container name and folder name instead, but keep the `{name}` literal string.
 
    1. Under **Headers**, add the following items:
 
@@ -384,9 +386,9 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
 1. From the **Add a new parameter** list, select **Authentication** to [configure the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity).
 
-    1. Under **Authentication**, for **Authentication type**, choose **Managed identity**.
+    1. Under **Authentication**, for the **Authentication type** property, select **Managed identity**.
 
-    1. For **Managed identity**, select **System-assigned managed identity**.
+    1. For the **Managed identity** property, select **System-assigned managed identity**.
 
     :::image type="content" source="./media/connectors-create-api-azureblobstorage/managed-identity-authenticate.png" alt-text="Screenshot showing the workflow designer and HTTP action with the managed identity authentication parameter settings.":::
 
@@ -396,5 +398,4 @@ Now, you can call the [Blob service REST API](/rest/api/storageservices/blob-ser
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Connectors overview for Azure Logic Apps](apis-list.md)
+[Connectors overview for Azure Logic Apps](apis-list.md)
