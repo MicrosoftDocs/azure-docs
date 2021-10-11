@@ -1,5 +1,5 @@
 ---
-title: 'Azure CDN endpoint multi-origin (Preview)' 
+title: 'Azure CDN endpoint multi-origin' 
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
 author: asudbring
