@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 08/16/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -51,7 +51,7 @@ If you are an existing Azure Storage blob inventory user who has configured inve
 
 ## Inventory policy
 
-An inventory policy is a collection of rules in a JSON document.
+An inventory report is configured by adding an inventory policy with one or more rules. An inventory policy is a collection of rules in a JSON document.
 
 ```json
 {
@@ -193,7 +193,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ## Inventory run
 
-A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
+A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days.   
 
 Inventory policies are read or written in full. Partial updates aren't supported.
 
@@ -254,6 +254,8 @@ Each inventory run for a rule generates the following files:
 - **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
+
+The blob paths that appear in an inventory file might not appear in any particular order. 
 
   > [!NOTE]
   > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
@@ -338,7 +340,7 @@ This section describes limitations and known issues of the Azure Storage blob in
 
 ### Inventory job fails to complete for hierarchical namespace enabled accounts
 
-The inventory job may not complete within 24 hours for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created.
+The inventory job may not complete within 2 days for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created.
 
 ### Inventory job cannot write inventory reports
 
