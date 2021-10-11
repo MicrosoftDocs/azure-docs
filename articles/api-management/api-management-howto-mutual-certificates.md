@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 API Management allows you to secure access to the backend service of an API using client certificates. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
-You can also manage API Management certificates using the [API Management REST API](/azure/templates/microsoft.apimanagement/2020-06-01-preview/service/certificates).
+You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/2021-01-01-preview/certificate).
 
 ## Certificate options
 
