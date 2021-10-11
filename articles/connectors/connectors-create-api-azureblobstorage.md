@@ -81,7 +81,7 @@ To add an Azure Blob trigger to a logic app workflow in single-tenant Azure Logi
 
 1. In the search box, enter `Azure blob`. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app workflow and the trigger named 'When a blob is Added or Modified in Azure Storage' selected.":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal, workflow designer, Standard logic app workflow and Azure Blob trigger selected.":::
 
 1. If you're prompted for connection details, [create your Azure Blob Storage connection now](#connect-blob-storage-account).
 
@@ -316,7 +316,7 @@ To set up the exception and managed identity support, first configure appropriat
 
    1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot showing the Azure portal and the Blob Storage account networking page with settings to allow selected networks, client IP address, and trusted Microsoft services.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="Screenshot showing Azure portal and Blob Storage account networking pane with allow settings.":::
 
    1. When you're done, select **Save**.
 
