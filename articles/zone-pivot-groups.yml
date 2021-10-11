@@ -1267,7 +1267,7 @@ groups:
     title: REST
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-javascript
+  - id: programming-language-python
     title: Python
 - id: azure-maps-android
 # Owner: richbrun
