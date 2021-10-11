@@ -355,7 +355,7 @@ When removing indexes and immediately running queries the have filters on the dr
 
 ## ReIndex command
 
-The `reIndex` command will recreate all indexes on a collection. In some rare cases, query performance or other index issues in your collection may be solved by running the `reIndex` command. If you're experiencing issues with indexing, recreating the indexes with the 'reIndex' command is a recommended approach. 
+The `reIndex` command will recreate all indexes on a collection. In some rare cases, query performance or other index issues in your collection may be solved by running the `reIndex` command. If you're experiencing issues with indexing, recreating the indexes with the `reIndex` command is a recommended approach. 
 
 You can run the `reIndex` command using the following syntax:
 
