@@ -3,8 +3,8 @@ title: VMware software update frequency
 description: Supported VMware software update frequency for Azure VMware Solution.
 ms.topic: include
 ms.date: 08/24/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 

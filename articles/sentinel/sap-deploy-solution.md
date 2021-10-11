@@ -132,7 +132,7 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 1. Use the following command as an example, inserting the values for your resource group and VM name:
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. On your new VM, install:
@@ -289,23 +289,13 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
-1. Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. Run:
+Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Run:
 
-1. Run the following command on your SAP data connector machine:
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Restart the Docker container:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 The SAP data connector Docker container on your machine is updated. 
 

@@ -4,9 +4,9 @@ description: This article provides conceptual details about supported data sourc
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions 
 ---
 # Supported data sources and file types in Azure Purview
@@ -64,4 +64,4 @@ All 206 system classification rules apply to structured file formats. Only the M
 ## Next steps
 
 - [Scans and ingestion in Purview](concept-scans-and-ingestion.md)
-- [Manage data sources in Azure Purview (Preview)](manage-data-sources.md)
+- [Manage data sources in Azure Purview](manage-data-sources.md)

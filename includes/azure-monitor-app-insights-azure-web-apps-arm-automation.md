@@ -44,11 +44,11 @@ To create an Azure Resource Manager template with all the default Application In
 
 2. Select **Review +create** then **Download a template for automation** at the bottom.
 
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="App Service web app creation menu" :::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot of App Service web app creation menu." :::
 
     This option generates the latest Azure Resource Manager template with all required settings configured.
     
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="App Service web app template" border="false":::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot of App Service web app template." border="false":::
     
 
 Below is a sample, replace all instances of  `AppMonitoredSite` with your site name:

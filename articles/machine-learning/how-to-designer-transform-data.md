@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to import and transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
