@@ -47,6 +47,6 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: local folder in MLflow format
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-mlflow.yml":::
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)

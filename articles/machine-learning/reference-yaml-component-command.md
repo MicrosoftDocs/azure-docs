@@ -96,7 +96,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## Hello world command component
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/2a_basic_component/component.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
 
 ## Next steps
 
