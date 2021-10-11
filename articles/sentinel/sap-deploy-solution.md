@@ -2,7 +2,7 @@
 title: Deploy SAP continuous threat monitoring | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel solution for SAP environments.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
@@ -11,12 +11,12 @@ ms.subservice: azure-sentinel
 
 ---
 
-#  Deploy SAP continuous threat monitoring (public preview)
+#  Deploy SAP continuous threat monitoring (preview)
 
 This article takes you step by step through the process of deploying Azure Sentinel continuous threat monitoring for SAP.
 
 > [!IMPORTANT]
-> The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Sentinel SAP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Overview
@@ -308,9 +308,9 @@ Make sure to check for any other updates available:
 
 ## Collect SAP HANA audit logs
 
-If you have SAP HANA database audit logs configured with Syslog, you'll need also need to configure your Log Analytics agent to collect the Syslog files.
+If you have SAP HANA database audit logs configured with Syslog, you'll also need to configure your Log Analytics agent to collect the Syslog files.
 
-1. Make sure that the SAP HANA audit log trail is configured to use Syslog as described in *SAP Note 0002624117*, accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
+1. Make sure that the SAP HANA audit log trail is configured to use Syslog, as described in *SAP Note 0002624117*, which is accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
 
     - [SAP HANA Audit Trail - Best Practice](https://archive.sap.com/documents/docs/DOC-51098)
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
