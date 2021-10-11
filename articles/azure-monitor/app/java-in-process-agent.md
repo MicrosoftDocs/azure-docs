@@ -75,7 +75,7 @@ Find the connection string on your Application Insights Resource.
 
 #### 4. Confirm data is flowing
 
-Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
+Run your application and open your Application Insights Resource tab on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
 > If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
@@ -231,7 +231,7 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
 #### Set user ID
-Populate the User Id field in the requests, dependencies, and/or exceptions table.
+Populate the User ID field in the requests, dependencies, and/or exceptions table.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before setting Authenticated User ID.
@@ -262,7 +262,7 @@ The _client_IP_ field in the requests, dependencies, and/or exceptions table are
 
 
 ### Override span name
-You may use `opentelemetry-api` to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+You may use `opentelemetry-api` to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance tab when you pivot by Operations.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later
@@ -323,7 +323,7 @@ and correlates it with auto-collected telemetry.
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, custom requests, dependencies and exceptions can be enabled through `opentelemetry-api` and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, custom requests, dependencies, and exceptions can be enabled through `opentelemetry-api` and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |---------------------|------------|---------------------|---------|-------------------|
@@ -461,5 +461,5 @@ See [Troubleshooting](java-standalone-troubleshoot.md).
 
 - Review the source code at the [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application]().
-- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Java GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+- To learn more about OpenTelemetry and its community, visit the [OpenTelemetry Java GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - [Enable web/browser user monitoring](javascript.md) to enable usage experiences.

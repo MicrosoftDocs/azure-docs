@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
+title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
 ms.topic: conceptual
 ms.date: 10/11/2021
@@ -31,7 +31,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (i.e., instrumentation libraries) through Azure Functions Worker
+ - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
 
 Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -72,7 +72,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (i.e., instrumentation libraries) through Azure Functions Worker
+ - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
 
 Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -299,7 +299,7 @@ Replace placeholder `<Your Connection String>` in the above code with the connec
 
 #### Confirm data is flowing
 
-Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
+Run your application and open your Application Insights Resource tab on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
 > If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
@@ -447,7 +447,7 @@ The following libraries are validated to work with the Preview Release:
 ### Add span attributes
 
 Span attributes can be added using either of the following two options.
-1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
+1. Enrich option provided by the instrumentation libraries. For more information, see the README of individual [instrumentation libraries](#instrumentation-libraries).
 2. Adding a custom span processor.
 
 These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
@@ -946,7 +946,7 @@ logger.addHandler(stream)
 
 Known issues for the Azure Monitor OpenTelemetry Exporters include: 
 
-- Operation name is missing on dependency telemetry, which adversely impacts failures and performance blade experience.
+- Operation name is missing on dependency telemetry, which adversely impacts failures and performance tab experience.
 - Device model is missing on request and dependency telemetry, which adversely impacts device cohort analysis.
 - Database server name is left out of dependency name, which will incorrectly aggregate tables with the same name on different servers.
 
@@ -982,7 +982,7 @@ For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://g
 - Review the source code at the [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
 - To install the NuGet package, check for updates, or view release notes, visit the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) page.
 - Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Tracing.Customization).
-- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet).
+- To learn more about OpenTelemetry and its community, visit the [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
 
 
@@ -991,7 +991,7 @@ For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://g
 - Review the source code at the  [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter).
 - To install the NPM package, check for updates, or view release notes, visit the [Azure Monitor Exporter NPM Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) page.
 - Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples).
-- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry JavaScript GitHub Repository](https://github.com/open-telemetry/opentelemetry-js).
+- To learn more about OpenTelemetry and its community, visit the [OpenTelemetry JavaScript GitHub Repository](https://github.com/open-telemetry/opentelemetry-js).
 - [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
 
 ### [Python](#tab/python)
@@ -999,7 +999,7 @@ For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://g
 - Review the source code at the [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md).
 - To install the PyPI package, check for updates, or view release notes, visit the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
 -  Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
-- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python).
+- To learn more about OpenTelemetry and its community, visit the [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python).
 - [Enable web/browser user monitoring](javascript.md) to enable usage experiences.
 
 ---
