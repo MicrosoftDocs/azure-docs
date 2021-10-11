@@ -46,7 +46,7 @@ The queue-based trigger functions are required in support of this feature. All t
 
     The proper way to use the sequence functionality is to create a tag named **sequencestart** on each VM you wish to be started in a sequence. The tag value needs to be an integer ranging from 1 to N for each VM in the respective scope. The tag is optional and if not present, the VM simply won't participate in the sequencing. The same criteria applies to stopping VMs with only the tag name being different and use **sequencestop** in this case. You have to configure both the tags in each VM to get start and stop action.
 
-    For example, consider the settings in the following table:
+    For example, the following table shows how two VMs with opposite sequences end up running in the same order:
 
     :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Table that shows sequence settings tag examples":::
 
