@@ -182,3 +182,9 @@ sections:
         answer: |
           You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
       
+      - question: |
+          How can I get help or suggest a new feature?
+        answer: |
+          If you need help or have a suggestion, you can create an issue in the [Static Web Apps GitHub repository](https://github.com/Azure/static-web-apps/issues).
+
+          For immediate help with a problem, [contact Azure support](https://azure.microsoft.com/support/options/).
