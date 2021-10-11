@@ -57,7 +57,7 @@ When throttling is detected, serverless SQL pool has built-in handling to resolv
 
 ### Azure AD Pass-through Authentication performance
 
-Serverless SQL pool allows you to access files in storage by using Azure Active Directory (Azure AD) Pass-through Authentication or shared access signature credentials. You might experience slower performance with Azure AD Pass-through Authentication than you would with shared access signatures.
+Serverless SQL pool allows you to access files in storage by using Azure Active Directory (Azure AD) Pass-through Authentication or shared access signature credentials. Using Azure AD Pass-through Authentication requires serverless SQL pool to interact with Azure AD. You might experience slower performance with Azure AD Pass-through Authentication than you would with shared access signatures. Serverless SQL pool is optimized to interact with Azure AD least number of times, so slowdown should be insignificant, if any.
 
 If you need better performance, try using shared access signature credentials to access storage.
 
