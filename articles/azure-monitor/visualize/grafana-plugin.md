@@ -9,7 +9,7 @@ ms.date: 11/06/2017
 # Monitor your Azure services in Grafana
 You can monitor Azure services and applications using [Grafana](https://grafana.com/) and its included [Azure Monitor data source plugin](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). The plugin retrieves data from three Azure services:
 - Azure Monitor Metrics for numeric time series data from data from Azure resources. 
-- Azure Monitor Logs for log and performance data from Azure resources that enables you to query using the powerful Kusto Query Language (KQL).
+- Azure Monitor Logs for log and performance data from Azure resources that enables you to query using the Kusto Query Language (KQL).
 - Azure Resource Graph to quickly query and identify Azure resources across subscriptions.
 
 You can then display this performance and availability data on your Grafana dashboards.
@@ -55,11 +55,11 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 Once successfully logged in, you should see the option to add your first data source.
 
-![Add Data Source](./media/grafana-plugin/add-datasource.png)
+![Add Data Source](./media/grafana-plugin/add-data-source.png)
 
 1. Select **Add data source**, filter by name *Azure* and select the **Azure Monitor** data source.
 
-![Azure Monitor Data Source](./media/grafana-plugin/azure-monitor-datasoruce.png)
+![Azure Monitor Data Source](./media/grafana-plugin/azure-monitor-data-source-list.png)
 
 2. Pick a name for the data source and choose between Managed Identity or App Registration for authentication.
 
@@ -99,7 +99,7 @@ The Azure Monitor plugin includes several out of the box dashboards that you may
 
 1. Click on the **Dashboards** tab of the Azure Monitor plugin to see a list of available dashboards.
 
-   ![Azure Monitor Data Source Dashboards](./media/grafana-plugin/data-source-dashboards.png)
+   ![Azure Monitor Data Source Dashboards](./media/grafana-plugin/azure-data-source-dashboards.png)
 
 2. Click on **Import** to download a dashboard.
 
