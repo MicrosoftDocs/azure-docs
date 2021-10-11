@@ -1,6 +1,6 @@
 ---
 title: Micro agent security recommendations (Preview)
-description: Learn about the concept of security recommendations and how they are used in the Defender for IoT Hub.
+description: Learn about the concept of security recommendations and how they are used with the Defender for IoT micro agent.
 ms.topic: conceptual
 ms.date: 10/11/2021
 ---
