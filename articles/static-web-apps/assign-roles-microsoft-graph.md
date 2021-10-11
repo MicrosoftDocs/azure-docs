@@ -82,7 +82,7 @@ In this tutorial, you learn to:
 
 1. Select **Go to resource** to open your new static web app.
 
-1. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need the hostname from this URL to set up Active Directory authentication and test the app.
+1. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need this URL to set up Active Directory authentication and test the app.
 
 ## Create an Azure Active Directory application
 
