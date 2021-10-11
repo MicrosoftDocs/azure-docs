@@ -41,7 +41,7 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 - Support different data types: Boolean, integer, string​
 - Support single value or multiple values
 - Support user-defined free-form values​ or predefined values
-- Directory synced users from an on-premises Active Directory can be assigned custom security attributes
+- Assign custom security attributes to directory synced users from an on-premises Active Directory
 
 The following example shows how you can specify custom security attribute values that are single, multiple, free-form, or predefined.
 
@@ -97,7 +97,9 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. **Use attributes**
 
-    This can include filtering users and applications or adding conditions to Azure role assignments for fine-grained access control. [Learn more](../enterprise-users/users-custom-security-attributes.md)
+    Filter users and applications that use custom security attributes. [Learn more](../enterprise-users/users-custom-security-attributes.md)
+
+    Add conditions that use custom security attributes to Azure role assignments for fine-grained access control. [Learn more](../../role-based-access-control/conditions-custom-security-attributes.md)
 
 ## Terminology
 
@@ -187,6 +189,6 @@ Depending on whether you have an Azure AD Premium P1 or P2 license, here are the
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+- [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
 - [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
-- [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
