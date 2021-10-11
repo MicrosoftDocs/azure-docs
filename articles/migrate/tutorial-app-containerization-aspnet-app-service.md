@@ -193,35 +193,35 @@ Parameterizing the configuration makes it available as a deploy-time parameter. 
     ![Screenshot that shows the Build images window.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 
 > [!NOTE]
-> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](../container-registry/container-registry-authentication.md#admin-account)
+> Only Azure container registries with the admin user account enabled are displayed. The admin user account is currently required for deploying an image from an Azure container registry to Azure App Service. For more information, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md#admin-account).
 
-2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
+2. The Dockerfiles needed to build the container images for each selected application are generated at the beginning of the build step. Select **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before you start the build process.
 
-3. **Trigger build process**: Select the applications to build images for and click **Build**. Clicking build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
+3. Select the applications that you want to build images for, and then select **Build**. Selecting **Build** will start the container image build for each application. The tool monitors the build status and will let you proceed to the next step when the build finishes.
 
-4. **Track build status**: You can also monitor progress of the build step by clicking the **Build in Progress** link under the status column. The link takes a couple of minutes to be active after you've triggered the build process.  
+4.  You can monitor the progress of the build by selecting **Build in Progress** under the status column. The link will become active a couple of minutes after you trigger the build process.  
 
-5. Once the build is completed, click **Continue** to specify deployment settings.
+5. After the build is complete, select **Continue** to specify deployment settings:
 
-    ![Screenshot for app container image build completion.](./media/tutorial-containerize-apps-aks/build-aspnet-app-completed.png)
+    ![Screenshot that shows the Review link, the container image status, and the Build and Continue buttons.](./media/tutorial-containerize-apps-aks/build-aspnet-app-completed.png)
 
 ## Deploy the containerized app on Azure App Service
 
-Once the container image is built, the next step is to deploy the application as a container on [Azure App Service](https://azure.microsoft.com/services/app-service/).
+After the container image is built, the next step is to deploy the application as a container on [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-1. **Select the Azure App Service plan**: Specify the Azure App Service plan that the application should use.
+1. Select the Azure App Service plan that the application should use.
 
-     - If you don’t have an App Service plan or would like to create a new App Service plan to use, you can choose to create on from the tool by clicking **Create new App Service plan**.      
-     - Click **Continue** after selecting the App Service plan.
+     - If you don't have an App Service plan or want to create a new App Service plan to use, you create one by selecting **Create new App Service plan**.      
+1. Select **Continue** after you select the App Service plan.
 
-2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](../app-service/configure-common.md#configure-connection-strings)
+2. If you parameterized application configurations, specify the secret store to use for the application. You can choose Azure Key Vault or App Service application settings to manage your application secrets. For more information, see [Configure connection strings](../app-service/configure-common.md#configure-connection-strings).
 
-     - If you've selected App Service application settings for managing secrets, then click **Continue**.
-     - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
-         - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new Azure Key Vault**.
-         - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
+     - If you selected App Service application settings to manage your secrets,  select **Continue**.
+     - If you want to use an Azure key vault to manage your application secrets, specify the key vault that you want to use.     
+         - If you don’t have an Azure key vault or want to create a new key vault, you can create one by selecting **Create new Azure Key Vault**.
+         - The tool will automatically assign the necessary permissions for managing secrets via the key vault.
 
-3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure Files and mount them on the application container during deployment. 
+3. If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure Files and mount them on the application container during deployment. 
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 
