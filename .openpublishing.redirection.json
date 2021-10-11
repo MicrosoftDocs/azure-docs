@@ -5939,11 +5939,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/storage/blobs/premium-tier-for-data-lake-storage.md",
-      "redirect_url": "/azure/storage/blobs/storage-blob-block-blob-premium",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
