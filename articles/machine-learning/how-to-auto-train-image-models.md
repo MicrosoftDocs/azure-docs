@@ -306,7 +306,7 @@ automl_image_config_yolov5 = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETEC
                                                iterations=1)
 ```
 
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparamter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
+Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
@@ -330,6 +330,7 @@ With support for computer vision tasks in automated ML, you can sweep hyperparam
 
 You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
+
 ### Sampling methods for the sweep
 
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `hyperparameter_sampling` parameter:
@@ -337,6 +338,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Random sampling](how-to-tune-hyperparameters.md#random-sampling)
 * [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
 * [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) (not supported for conditional spaces)
+
 
 ### Early termination policies
 
@@ -357,6 +359,10 @@ Parameter | Detail
 `iterations` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parametr to 1.
 `max_concurrent_iterations`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
+
+> [!NOTE]
+> For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
+
 ### Arguments
 
 You can pass fixed settings or parameters that don't change during the parameter space sweep as arguments. Arguments are passed in name-value pairs and the name must be prefixed by a double dash. 
@@ -376,6 +382,14 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
 automl_image_run = experiment.submit(automl_image_config)
 ```
+## Outputs and evaluation metrics
+
+The automl training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
+
+> [!TIP]
+> Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
+
+For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 
 ## Register and deploy model
 
