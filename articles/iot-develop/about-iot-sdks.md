@@ -10,7 +10,7 @@ ms.date: 02/11/2021
 
 # Overview of Azure IoT Device SDKs
 
-The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient and reliable way to connect your devices to Azure IoT services. The SDKs are available in various programming languages for and with support for multiple RTOSs for embedded devices.
+The Azure IoT device SDKs include a set of device client libraries, samples, and documentation. The device SDKs simplify the process of programmatically connecting devices to Azure IoT. The SDKs are available in various programming languages for and with support for multiple RTOSs for embedded devices.
 
 ## Why use an Azure IoT Device SDK?
 
@@ -24,17 +24,19 @@ The advantages of using an Azure IoT Device SDK over building a custom connectio
 
 ## Which SDK should I use?
 
-The primary consideration to account for when choosing your SDK is the devices capabilities. Many devices, particularly MCU based, have memory and compute limitations. 
+The main consideration in choosing an SDK is the device's own hardware. General computing devices like PCs and mobile phones, contain microprocessor units (MPUs) and have relatively greater compute and memory resources. A specialized class of devices, which are used as sensors or other special-purpose roles, contain microcontroller units (MCUs) and have relatively limited compute and memory resources. These resource-constrained devices require specialized development tools and SDKs. The following table summarizes the different classes of devices, and which SDKs to use for device development.
 
-* For constrained devices, refer to the [Embedded device SDKs](#embedded-device-sdks). 
-* For all other devices, refer to the [Device application SDKs](#device-application-sdks).
+|Device class|Description|Examples|SDKs|
+|-|-|-|-|
+|Resource-constrained|Includes embedded, special-purpose MCU-based devices with compute and memory limitations|Sensors|[Embedded device SDKs](#embedded-device-sdks)|
+|Other|Includes general purpose MPU-based devices with larger compute and memory resources|PC, smartphone, Raspberry Pi|[Device SDKs](#device-sdks)|
 
 > [!Note] 
 > For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](concepts-iot-device-types.md).
 
-## Device application SDKs
+## Device SDKs
 
-These SDKs can run on any device that can support a higher-order language runtime including devices such as PCs, Raspberry Pis, and smartphones. 
+These SDKs can run on a general MPU-based computing device such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java.
 
 The SDKs are available in **multiple languages** providing the flexibility to choose which best suits your team and scenario.
 
@@ -63,7 +65,10 @@ The embedded device SDKs are available for **multiple operating systems** provid
 
 ## Next Steps
 
+To learn more about using the Azure IoT device SDKs to connect general, MPU-based devices, see the following articles:
+
 * [Quickstart: Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 * [Quickstart: Send telemetry to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+To learn more about using the Azure IoT embedded device SDKs to connect resource-constrained, MCU-based devices, see the following article:
 * [Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
-* Learn more about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)
