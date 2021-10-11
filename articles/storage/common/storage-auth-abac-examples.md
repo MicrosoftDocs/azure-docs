@@ -613,6 +613,8 @@ This condition allows read and write access to blobs if the user has a [custom s
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read and write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read and write blobs with `Project=Cascade`.
 
+For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
+
 ![Diagram of example 9 condition showing read and write access to blobs based on tags and custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-example.png)
 
 ```
@@ -622,7 +624,7 @@ For example, if Brenda has the attribute `Project=Baker`, she can only read and 
  )
  OR 
  (
-  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
  )
 )
 AND
@@ -634,7 +636,7 @@ AND
  )
  OR 
  (
-  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
  )
 )
 ```
@@ -671,6 +673,8 @@ This condition allows read access to blobs if the user has a [custom security at
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
 
+For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
+
 ![Diagram of example 10 condition showing read access to blobs based on tags and multi-value custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-multi-value-example.png)
 
 ```
@@ -680,7 +684,7 @@ For example, if Chandra has the Project attribute with the values Baker and Casc
  )
  OR 
  (
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAnyOfAnyValues:StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project]
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAnyOfAnyValues:StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project]
  )
 )
 ```
