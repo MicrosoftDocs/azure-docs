@@ -98,7 +98,7 @@ Storage auto-grow prevents your server from running out of storage and becoming 
 
 For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
 
-Remember that storage once auto-scaled up, cannot be scaled not down.
+Remember that storage once auto-scaled up, cannot be scaled down.
 
 ## IOPS
 
