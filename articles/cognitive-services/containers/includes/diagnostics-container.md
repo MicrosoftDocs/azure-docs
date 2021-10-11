@@ -14,7 +14,7 @@ If you're having trouble running a Cognitive Services container, you can try usi
 To get the container, use the following Docker `pull` command:
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/diagnostic`
+docker pull mcr.microsoft.com/azure-cognitive-services/diagnostic
 ```
 
 Then run the container, replace `{ENDPOINT_URI}` with your endpoint, and `{API_KEY}` with your key to your resource:
