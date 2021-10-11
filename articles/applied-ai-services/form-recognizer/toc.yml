@@ -98,6 +98,8 @@ items:
   items:
   - name: Model overview
     href: concept-model-overview.md
+  - name: Form Recognizer Studio | preview
+    href: concept-form-recognizer-studio.md 
   - name: General document model | preview
     href: concept-general-document.md
   - name: Layout model
