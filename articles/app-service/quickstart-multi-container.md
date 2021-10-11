@@ -17,8 +17,6 @@ ms.custom: mvc, seodec18, devx-track-azurecli
 
 [Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](../cloud-shell/overview.md) using a Docker Compose configuration.
 
-![Sample multi-container app on Web App for Containers][1]
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
