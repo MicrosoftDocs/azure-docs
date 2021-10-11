@@ -264,7 +264,7 @@ src = "./fridgeObjects/"
 train_validation_ratio = 5
 
 # Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = ws.get_default_datastore().name
+workspaceblobstore = workspace.get_default_datastore().name
 
 # Path to the training and validation files
 train_annotations_file = os.path.join(src, "train_annotations.jsonl")
@@ -303,7 +303,7 @@ with open(train_annotations_file, 'w') as train_f:
                 index += 1
 
 ```
-For more information, see [AutoMLImage_MultiClass_SampleNotebook notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
+For more information, see [AutoMLImage_MultiClass_SampleNotebook notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
 #### Image Classification Multi-label
 We'll use [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip). It has 128 images and 4 classes/labels {can, carton, milk bottle, water bottle} with a .csv file having image names with their respective labels and a folder containing all the images. It's one of the common data formats used in multi-label image classification.
@@ -319,7 +319,7 @@ src = "./multilabelFridgeObjects"
 train_validation_ratio = 5
 
 # Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = ws.get_default_datastore().name
+workspaceblobstore = workspace.get_default_datastore().name
 
 # Path to the labels file.
 labelFile = os.path.join(src, "labels.csv")
@@ -360,7 +360,7 @@ with open(train_annotations_file, 'w') as train_f:
 
 
 ```
-For more information, see [AutoMLImage_MultiLabel_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+For more information, see [AutoMLImage_MultiLabel_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 #### Object Detection
 Most Object Detection datasets are available in either Pascal VOC format or COCO format. In this section, you'll use raw input data available in Pascal VOC or COCO format and generate JSONL files.
@@ -445,7 +445,7 @@ with open(train_annotations_file, 'w') as train_f:
 
 ```
 #### COCO format:
-If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection) script to generate JSONL files.
+If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection) script to generate JSONL files.
 ```python
 # Generate jsonl file from coco file
 !python coco2jsonl.py \
@@ -454,18 +454,18 @@ If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Az
 --task_type "ObjectDetection" \
 --base_url "AmlDatastore://workspaceblobstore/odFridgeObjects/images/"
 ```
-For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 #### Instance Segmentation
-Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script.  
+Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script.  
 
 ```python
 from jsonl_converter import convert_mask_in_VOC_to_jsonl
 
 data_path = "./odFridgeObjectsMask/"
-convert_mask_in_VOC_to_jsonl(data_path, ws)
+convert_mask_in_VOC_to_jsonl(data_path, workspace)
 ```
-For more information, see [AutoMLImage_InstanceSegmentation_SampleNotebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For more information, see [AutoMLImage_InstanceSegmentation_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 ### Custom script
 If your dataset doesn't follow any of the previously mentioned raw formats, you can use your own script to generate JSON Lines files based on schema defined in the first section.
@@ -479,39 +479,26 @@ Upload the entire parent directory consisting of images and JSONL files to the c
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./fridgeObjects', target_path='fridgeObjects')
 ```
-Once the data uploading is done, we can create an AzureML [Dataset](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture#datasets-and-datastores) for training and validation sets as below. If the validation JSONL file isn't provided, 20% of training data will be used for validation.
+Once the data uploading is done, we can create an [AzureML Tabular Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) for training as below.
 
 ```python
-from azureml.contrib.dataset.labeled_dataset import _LabeledDatasetFactory, LabeledDatasetTask
 from azureml.core import Dataset
+from azureml.data import DataType
 
 training_dataset_name = 'fridgeObjectsTrainingDataset'
-if training_dataset_name in ws.datasets:
-    training_dataset = ws.datasets.get(training_dataset_name)
-    print('Found the training dataset', training_dataset_name)
-else:
-    # create training dataset
-    training_dataset = _LabeledDatasetFactory.from_json_lines(
-        task=LabeledDatasetTask.IMAGE_CLASSIFICATION, path=ds.path('fridgeObjects/train_annotations.jsonl'))
-    training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
-    
-# create validation dataset
-validation_dataset_name = "fridgeObjectsValidationDataset"
-if validation_dataset_name in ws.datasets:
-    validation_dataset = ws.datasets.get(validation_dataset_name)
-    print('Found the validation dataset', validation_dataset_name)
-else:
-    validation_dataset = _LabeledDatasetFactory.from_json_lines(
-        task=LabeledDatasetTask.IMAGE_CLASSIFICATION, path=ds.path('fridgeObjects/validation_annotations.jsonl'))
-    validation_dataset = validation_dataset.register(workspace=ws, name=validation_dataset_name)
-    
-    
+# create training dataset
+training_dataset = Dataset.Tabular.from_json_lines_files(
+   path=ds.path("fridgeObjects/train_annotations.jsonl"),
+   set_column_types={"image_url": DataType.to_stream(ds.workspace)},
+)
+training_dataset = training_dataset.register(
+   workspace=ws, name=training_dataset_name
+)
 print("Training dataset name: " + training_dataset.name)
-print("Validation dataset name: " + validation_dataset.name)
 ```
 
 ## Data format for Inference
-In this section, you'll learn the input data format required to make predictions with the endpoint. Use the deployed web service (model endpoint) to make inferences on new images. Any aforementioned image format is accepted with content type **application/octet-stream**
+In this section, you'll learn the input data format required to make predictions with the endpoint. Use the deployed web service (model endpoint) to make inferences on new images. Any aforementioned image format is accepted with content type **application/octet-stream**.
 
 ### Input format
 Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where?tabs=azcli), we can use the following code snippet to get predictions for all tasks.
