@@ -1,8 +1,8 @@
 ---
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
-description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry.
+description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/13/2021
 author: mattmccleary
 ms.author: mmcc
 ---
@@ -82,7 +82,7 @@ Follow the steps in this section and you will be able to instrument your applica
 ### Prerequisites
 
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
 
 ### [.NET](#tab/net)
 
@@ -163,7 +163,17 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-This document shows how to collect traces in Azure Monitor using OpenTelemetry for C# console applications. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all those application types.
+> [!NOTE]
+> The following guidance shows how to enable Azure Monitor Application Insights for a C# console applications.
+> 
+> Check out OpenTelemetry GitHub Readmes for guidance on other applications types:
+> - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNet/README.md)
+> - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md)
+> - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md)
+> 
+> Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all listed application types.
+> 
+> For additional resources, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). 
 
 ```csharp
 using System.Diagnostics;
@@ -441,7 +451,7 @@ These attributes may include adding a custom business property to your telemetry
 
 #### Add custom property
 
-Any [attributes](#add-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+Any [attributes](#add-activityspan-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
@@ -623,7 +633,7 @@ span._attributes["enduser.id"] = "<User ID>"
 ---
 -->
 
-### Filter telemetry
+### Filter Telemetry
 
 You may use following ways to filter out telemetry before leaving your application.
 
