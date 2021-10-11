@@ -13,19 +13,27 @@ ms.date: 10/11/2021
 
 ## October 2021
 
+### Azure Cache for Redis 6.0 GA
+
+Azure Cache fore Redis 6.0 includes a new feature and a set of smaller performance enhancements, security improvements, and developer productivity features. You can now use an append-only data structure, *Redis Streams*, to ingest, manage, and make sense of data that is continuously being generated.
+
+Additionally, Azure Cache for Redis 6.0 introduces new commands: `STRALGO`, `ZPOPMIN`, `ZPOPMAX`, and `HELP` for performance and ease of use.
+
+Get started with Azure Cache for Redis 6.0, today, and select either Redis 6.0 during cache creation. Also, you can upgrade your existing Redis 4.0 cache instances. For more information, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md).
+
 ### Diagnostics for connected clients
 
 Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users will be able to route these logs to a destination of their choice, such as a storage account or event hub.
 
 For more information, see [Monitor Azure Cache for Redis data using diagnostic settings](cache-monitor-diagnostic-settings.md).
 
-### Redis Enterprise update
+### Azure Cache for Redis Enterprise update
 
-Azure Cache for Redis Enterprise now supports active geo-replication.
+Active geo-replication public preview now supports:
 
-- Redis Search Module: Deploy RediSearch with Active-Active
-- Now support five databases in a replication group. Previously, supported two.
-- OSS clustering policy - suitable for high performance workloads and provides better scalability.
+- RediSearch Module: Deploy RediSearch with active geo-replication
+- Five caches in a replication group. Previously, supported two caches.
+- OSS clustering policy - suitable for high-performance workloads and provides better scalability.
 
 ## October 2020
 
