@@ -56,6 +56,8 @@ Bring your own identity (BYOI) is the common model for using Azure Communication
 
 For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
+It is currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
+
 ## Microsoft 365 Teams identity
 The Azure Communication Services Calling SDK can be used with Microsoft 365 Teams identities to support Teams-like experiences for Teams interoperability. Microsoft 365 Teams identities are provided and authenticated by Azure Active Directory. Your app can make or accept calls with a regular Microsoft 365 identity. All attributes and details about the user are bound to the Azure Active Directory user.
 
