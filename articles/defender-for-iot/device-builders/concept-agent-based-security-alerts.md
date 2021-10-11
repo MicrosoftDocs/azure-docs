@@ -2,7 +2,7 @@
 title: Micro agent security alerts (Preview)
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features and service.
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/11/2021
 ---
 
 # Micro agent security alerts (Preview)
@@ -18,9 +18,10 @@ For more information, see [customizable alerts](concept-customizable-security-al
 
 ## Security alerts
 
+### High severity
+
 | Name | Severity | Data Source | Description | Suggested remediation steps |
 |--|--|--|--|--|
-| **High** severity |  |  |  |
 | Binary Command Line | High | Defender-IoT-micro-agent | LA Linux binary being called/executed from the command line was detected. This process may be legitimate activity, or an indication that your device is compromised. | Review the command with the user that ran it and check if this is something legitimately expected to run on the device. If not, escalate the alert to your information security team. |
 | Disable firewall | High | Defender-IoT-micro-agent | Possible manipulation of on-host firewall detected. Malicious actors often disable the on-host firewall in an attempt to exfiltrate data. | Review with the user that ran the command to confirm if this was legitimate expected activity on the device. If not, escalate the alert to your information security team. |
 | Port forwarding detection | High | Defender-IoT-micro-agent | Initiation of port forwarding to an external IP address detected. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. |
@@ -31,7 +32,11 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Behavior similar to ransomware detected | High | Defender-IoT-micro-agent | Execution of files similar to known ransomware that may prevent users from accessing their system, or personal files, and may demand ransom payment to regain access. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. |
 | Crypto coin miner image | High | Defender-IoT-micro-agent | Execution of a process normally associated with digital currency mining detected. | Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team. |
 | Operating System (OS) on this device should be updated from current end-of-life version | High | Defender-IoT-micro-agent | End-of-life versions of operating systems lack security patches and make devices vulnerable. | Update or reinstall a supported version of the operating system, or apply additional hardening measures. |
-| **Medium** severity |  |  |  |
+
+### Medium severity
+
+| Name | Severity | Data Source | Description | Suggested remediation steps |
+|--|--|--|--|--|
 | Behavior similar to common Linux bots detected | Medium | Defender-IoT-micro-agent | Execution of a process normally associated with common Linux botnets detected. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. |
 | Behavior similar to Fairware ransomware detected | Medium | Defender-IoT-micro-agent | Execution of rm -rf commands applied to suspicious locations detected using analysis of host data. Because rm -rf recursively deletes files, it is normally only used on discrete folders. In this case, it is being used in a location that could remove a large amount of data. Fairware ransomware is known to execute rm -rf commands in this folder. | Review with the user that ran the command this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. |
 | Crypto coin miner container image detected | Medium | Defender-IoT-micro-agent | Container detecting running known digital currency mining images. | 1. If this behavior is not intended, delete the relevant container image.<br> 2. Make sure that the Docker daemon is not accessible via an unsafe TCP socket. <br> 3. Escalate the alert to the information security team. |
@@ -58,7 +63,11 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Permissive firewall policy in one of the chains | Medium | Defender-IoT-micro-agent | Found an allowed firewall policy (INPUT/OUTPUT). The policy should deny all traffic by default and define rules to allow necessary communication to/from the device. | Change firewall policy to drop and add specific rules to permit access to legitimate connections to/from the device. |
 | Permissive firewall rule in the input chain | Medium | Defender-IoT-micro-agent | Input firewall rule found that contains a permissive pattern for a wide range of IP addresses or ports. | Review the rules in the recommendation and verify only necessary addresses / ports are permitted in. |
 | Permissive firewall rule in the output chain | Medium | Defender-IoT-micro-agent | Output firewall rule found that contains a permissive pattern for a wide range of IP addresses or ports. | Review the rules in the recommendation and verify that only necessary addresses / ports are permitted out. |
-| **LOW** severity |  |  |  |
+
+### Low severity
+
+| Name | Severity | Data Source | Description | Suggested remediation steps |
+|--|--|--|--|--|
 | Bash history cleared | Low | Defender-IoT-micro-agent | Bash history log cleared. Malicious actors commonly erase bash history to hide their own commands from appearing in the logs. | Review with the user that ran the command that the activity in this alert to see if you recognize this as legitimate administrative activity. If not, escalate the alert to the information security team. |
 | Agent sending underutilized messages | Low | Defender-IoT-micro-agent | IoT agent message size capacity is currently underutilized, causing an increase in the number of sent messages. Adjust message intervals for better utilization. | To avoid too many underutilized messages, consider enlarging the high/low priority send intervals. |
 
