@@ -102,7 +102,7 @@ This section shows you how to create a .NET Core console application to send mes
         //
         // Create the clients that we'll use for sending and processing messages.
         client = new ServiceBusClient(connectionString);
-        sender = client.CreateSender(queueName);
+        sender = client.CreateSender(topicName);
 
         // create a batch 
         using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
@@ -119,9 +119,9 @@ This section shows you how to create a .NET Core console application to send mes
 
         try
         {
-            // Use the producer client to send the batch of messages to the Service Bus queue
+            // Use the producer client to send the batch of messages to the Service Bus topic
             await sender.SendMessagesAsync(messageBatch);
-            Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+            Console.WriteLine($"A batch of {numOfMessages} messages has been published to the topic.");
         }
         finally
         {
@@ -133,7 +133,7 @@ This section shows you how to create a .NET Core console application to send mes
 
         Console.WriteLine("Press any key to end the application");
         Console.ReadKey();
-    }    
+    }
     ```
 1. Here's what your Program.cs file should look like: 
     
@@ -240,6 +240,8 @@ In this section, you'll create a .NET Core console application that receives mes
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
 1. In the **Package Manager Console** window, confirm that **SubscriptionReceiver** is selected for the **Default project**. If not, use the drop-down list to select **SubscriptionReceiver**.
+
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-subscription-receiver-project.png" alt-text="Image showing the selection of SubscriptionReceiver project in the Package Manager Console window." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-subscription-receiver-project.png":::    
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
     ```cmd
