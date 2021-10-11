@@ -51,6 +51,8 @@
         href: acunetix-360-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
+      - name: Adaptive Shield
+        href: adaptive-shield-tutorial.md  
       - name: Adobe Captivate Prime
         href: adobecaptivateprime-tutorial.md
       - name: Adobe Creative Cloud
@@ -655,6 +657,8 @@
         href: elium-tutorial.md
       - name: eLuminate
         href: eluminate-tutorial.md
+      - name: embed signage
+        href: embed-signage-tutorial.md  
       - name: Empactis
         href: empactis-tutorial.md
       - name: EmpCenter
@@ -1096,6 +1100,8 @@
         href: jobscore-tutorial.md
       - name: join.me
         href: joinme-tutorial.md
+      - name: JoinedUp
+        href: joinedup-tutorial.md  
       - name: JOSA
         href: josa-tutorial.md
       - name: Jostle
@@ -2014,6 +2020,8 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamSticker by Communitio
+        href: teamsticker-by-communitio-tutorial.md  
       - name: TeamViewer
         href: teamviewer-tutorial.md
       - name: Teamwork.com
@@ -2403,6 +2411,8 @@
         href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Chaos
+        href: chaos-provisioning-tutorial.md
       - name: Chatwork
         href: chatwork-provisioning-tutorial.md
       - name: CheckProof
@@ -2443,6 +2453,8 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: directprint.io
+        href: directprint-io-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
       - name: Envoy
@@ -2527,8 +2539,12 @@
         href: jostle-provisioning-tutorial.md
       - name: Juno Journey
         href: juno-journey-provisioning-tutorial.md
+      - name: Klaxoon
+        href: klaxoon-provisioning-tutorial.md 
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Klaxoon SAML
+        href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
       - name: LimbleCMMS
@@ -2569,6 +2585,8 @@
         href: mypolicies-provisioning-tutorial.md
     - name: N - S
       items:
+      - name: Netpresenter
+        href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
       - name: New Relic by Organization
@@ -2643,6 +2661,8 @@
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
+      - name: Sentry
+        href: sentry-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Segment
@@ -2739,6 +2759,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zero
+        href: zero-provisioning-tutorial.md
       - name: Zip
         href: zip-provisioning-tutorial.md
       - name: Zoom

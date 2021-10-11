@@ -1,9 +1,9 @@
 ---
 title: Assign access to Azure Cost Management data
-description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
+description: This article walks you though assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/27/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.custom: secdec18
 
 # Assign access to Cost Management data
 
-For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control (Azure RBAC). This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
+For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control (Azure RBAC). This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't access a parent scope that child scopes roll up to.
 
@@ -51,7 +51,7 @@ To view cost data for other Azure subscriptions, a user must have at least read 
 - Subscription
 - Resource group
 
-Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Cost Management for partners](get-started-partners.md).
 
 ## Enable access to costs in the Azure portal
 
@@ -156,7 +156,7 @@ Access to a resource group requires at least the Cost Management Reader (or Read
 
 ## Cross-tenant authentication issues
 
-Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure Azure role-based access control (Azure RBAC) to another tenant's subscription and then try to view cost data.
+Currently, Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure Azure role-based access control (Azure RBAC) to another tenant's subscription and then try to view cost data.
 
 *To work around the problem*: After you configure cross-tenant Azure RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
 
