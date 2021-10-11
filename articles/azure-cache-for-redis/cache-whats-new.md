@@ -15,11 +15,18 @@ ms.date: 10/11/2021
 
 ### Azure Cache for Redis 6.0 GA
 
-Azure Cache fore Redis 6.0 includes a new feature and a set of smaller performance enhancements, security improvements, and developer productivity features. You can now use an append-only data structure, *Redis Streams*, to ingest, manage, and make sense of data that is continuously being generated.
+Azure Cache fore Redis 6.0 is now generally available. The new version includes:
+
+- Redis Streams, a new data type
+- performance enhancements
+- some developer productivity features
+- boosts security
+
+You can now use an append-only data structure, Redis Streams, to ingest, manage, and make sense of data that is continuously being generated.
 
 Additionally, Azure Cache for Redis 6.0 introduces new commands: `STRALGO`, `ZPOPMIN`, `ZPOPMAX`, and `HELP` for performance and ease of use.
 
-Get started with Azure Cache for Redis 6.0, today, and select either Redis 6.0 during cache creation. Also, you can upgrade your existing Redis 4.0 cache instances. For more information, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md).
+Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during cache creation. Also, you can upgrade your existing Redis 4.0 cache instances. For more information, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md).
 
 ### Diagnostics for connected clients
 
