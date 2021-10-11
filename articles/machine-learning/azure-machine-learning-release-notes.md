@@ -39,7 +39,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Improve error message on failed dashboard download
   + **azureml-train-automl-client**
     + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
-    + Add TCNForecaster support to model test runs.
     + Enable binary metrics calculation
   + **azureml-train-automl-runtime**
     + Add TCNForecaster support to model test runs.
