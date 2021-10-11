@@ -120,7 +120,7 @@ After the project creation step, in the custom model phase:
 
 1. From the labeling view, define the labels and their types that you are interested in extracting.
 
-1. Select the text in the docyment and click the label from the drop-down list or the labels pane.
+1. Select the text in the document and click the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
