@@ -25,7 +25,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 * Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
 * General performance and AI quality improvements
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn how to use the new preview features.
+See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)

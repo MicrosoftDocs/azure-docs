@@ -25,6 +25,10 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * Extract tables, values, and entities from forms and documents with our Form Recognizer Studio General Documents feature:
 
+##### Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
+
+:::image type="content" source="media/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
 
