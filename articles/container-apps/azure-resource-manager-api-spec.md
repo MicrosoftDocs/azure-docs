@@ -11,14 +11,14 @@ ms.author: cshoe
 
 # Container Apps ARM template API specification
 
-Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following describes the properties available in the container app ARM template.
+Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following tables describe the properties available in the container app ARM template.
 
 ## Root
 
 | Property | Description | Data type |
 |---|---|--|
 | `id` | The unique identifier of the container app. The value uses the following format:<br><br>`subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP_NAME>/providers/Microsoft.Web/containerapps/<NAME>`<br><br>In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets. | string |
-| `name` | The Container Apps application name. This name is used at the end if the `id` property in the ARM template file. | string |
+| `name` | The Container Apps application name. This name is used at the end of the `id` property in the ARM template file. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
 | `kind` | \*\*TODO\*\* | string |
@@ -29,7 +29,7 @@ Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) 
 |---|---|---|
 | `provisioningState` | The state of a long running operation, for example when new container revision is created. Possible values include: \*\*TODO\*\* | string |
 | `kubeEnvironmentId` | aklsjdf<br><br>`/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAM>/providers/Microsoft.Web/kubeEnvironments/<KUBERNETES_ENVIRONMENT_NAME>`<br><br> | string |
-| `latestRevisionName` | The name of the revision that correspond to the current configuration state of the container app's object | string |
+| `latestRevisionName` | The name of the revision that corresponds to the current configuration state of the container app's object | string |
 | `latestRevisionFqdn` | The domain name used to access the latest revision of the container app | string |
 
 ## properties.configuration
