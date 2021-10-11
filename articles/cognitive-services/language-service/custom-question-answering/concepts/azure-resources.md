@@ -59,7 +59,7 @@ Your custom question answering feature deals with two kinds of keys: **authoring
 Use these keys when making requests to the service through APIs.
 
 > [!div class="mx-imgBorder"]
-> ![Key management managed preview](../media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
+> ![Key management managed preview](../../../qnamaker/media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
 
 |Name|Location|Purpose|
 |--|--|--|
@@ -73,12 +73,12 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
 > [!div class="mx-imgBorder"]
-> ![Custom qna (Preview) resource list](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+> ![Custom qna (Preview) resource list](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 2. Go to **Keys and Endpoint**:
 
 > [!div class="mx-imgBorder"]
-> ![Custom qna (Preview) Subscription key](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+> ![Custom qna (Preview) Subscription key](../../../qnamaker/media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 ### Management service region
 
@@ -97,7 +97,7 @@ The Text Analytics resource with Custom question answering (Preview) feature pro
 
 ### Azure Cognitive Search resource
 
-The [Cognitive Search](../../../search/index.yml) resource is used to:
+The [Cognitive Search](../../../../search/index.yml) resource is used to:
 
 * Store the question and answer pairs
 * Provide the initial ranking (ranker #1) of the question and answer pairs at runtime
