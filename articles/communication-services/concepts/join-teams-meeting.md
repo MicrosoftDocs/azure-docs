@@ -17,9 +17,11 @@ ms.subservice: teams-interop
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there is no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications do not require Teams licenses to join Teams meetings. 
+Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there is no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications do not require Teams licenses to join Teams meetings. This is ideal for business-to-consumer solutions that enable licensed Teams users (e.g. healthcare providers or financial advisors) and external users (e.g. patients or clients) using a custom application to join into a virtual consultation experience.
 
 It is also possible to use Microsoft 365 Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
+
+It is currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
 
 ## Enabling anonymous meeting join in your Teams tenant
 
