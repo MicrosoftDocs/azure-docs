@@ -94,8 +94,6 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 
 ## Test drive
 
-You can choose to enable a test drive for your VM. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
-
 [!INCLUDE [Test drives section](includes/test-drives.md)]
 
 ## Customer leads
