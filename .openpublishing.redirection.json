@@ -7155,7 +7155,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/index.yml",
-      "redirect_url": "/azure/cognitive-services/language-service",
+      "redirect_url": "/azure/cognitive-services/language-service/index",
       "redirect_document_id": true
     },
     {
@@ -7175,7 +7175,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-sentiment-analysis.md",
-      "redirect_url": "/azure/cognitive-services/language-service/sentiment-opinion-mining",
+      "redirect_url": "/azure/cognitive-services/language-service/sentiment-opinion-mining/overview",
       "redirect_document_id": true
     },
     {
@@ -7201,13 +7201,86 @@
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
       "redirect_url": "/azure/cognitive-services/language-service/overview#deploy-on-premises-using-docker-containers",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-container-config.md",
       "redirect_url": "/azure/cognitive-services/language-service/concepts/configure-containers",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-kubernetes-service.md",
+      "redirect_url": "/azure/cognitive-services/language-service/tutorials/use-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/migration-guide.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/language-detection/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/language-detection/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/named-entity-types.md",
+      "redirect_url": "/azure/cognitive-services/language-service/named-entity-recognition/concepts/named-entity-categories",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/text-offsets.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/multilingual-emoji-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/Tutorials/tutorial-power-bi-key-phrases.md",
+      "redirect_url": "/azure/cognitive-services/language-service/key-phrase-extraction/tutorials/integrate-power-bi",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/tutorials/extract-excel-information.md",
+      "redirect_url": "/azure/cognitive-services/language-service/named-entity-recognition/tutorials/extract-excel-information",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-user-scenarios.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-faq.yml",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": false
+    },
+
+    
+    
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
