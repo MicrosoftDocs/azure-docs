@@ -42,7 +42,7 @@ Use this procedure to find your solution, based on it's status, the content incl
 
 Install the solution in your workspace when find one that fits your organization's needs, and make sure to keep updating it with the latest changes.
 
-**To find a solution**:
+### Find a solution
 
 1. From the Azure Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
@@ -62,9 +62,7 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub":::
 
-
-
-**To install or update a solution**:
+### Install or update a solution
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
