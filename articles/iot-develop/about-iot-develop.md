@@ -31,7 +31,7 @@ Device application developers are adapting existing devices to connect to the cl
 Rather than develop constrained devices at scale, these developers focus on enabling a specific IoT scenario required by their cloud solution. Some of these developers will also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see [Embedded Device Development](#embedded-device-development) path below.
 
 > [!IMPORTANT]
-> See the [Device SDKs](about-iot-sdks.md#device-application-sdks) to get started.
+> See the [Device SDKs](about-iot-sdks.md#device-sdks) to get started.
 
 ### Embedded device development
 Embedded development targets constrained devices that have limited memory and processing. Constrained devices restrict what can be achieved compared to a traditional development platform.
