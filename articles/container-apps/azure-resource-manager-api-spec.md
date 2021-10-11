@@ -17,7 +17,7 @@ Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) 
 
 | Property | Description | Data type |
 |---|---|--|
-| `id` | The unique identifier of the container app. See below for additional details. | string |
+| `id` | The unique identifier of the container app. See the explanation below for more details. | string |
 | `name` | The Container Apps application name. This name is used at the end of the `id` property in the ARM template file. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
