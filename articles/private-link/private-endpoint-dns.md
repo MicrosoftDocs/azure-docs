@@ -82,7 +82,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 | Azure Purview (Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
-
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
@@ -99,6 +99,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 
 ## DNS configuration scenarios
 
