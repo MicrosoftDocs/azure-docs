@@ -162,7 +162,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-[azure-cli-install]:/cli/azure/install-azure-cli.md
+[azure-cli-install]:../../../cli/azure/install-azure-cli.md
  
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -732,7 +732,7 @@ Deployment of the Azure Extension for SAP (see chapter [Azure Extension for SAP]
 
 As Azure provides more functionality, new PowerShell cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
 
-For a general list of Azure-related PowerShell commands check here: </powershell/azure/>.
+For a general list of Azure-related PowerShell commands check here: [Azure PowerShell documentation][azure-ps].
 
 ### Management via Microsoft Azure CLI commands
 
@@ -744,7 +744,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/azure/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../azure/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -1997,11 +1997,11 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.
 >
 > To get familiar with Azure Virtual Machine Backup start here:
-> </azure/backup/backup-azure-vms>.
+> [Back up an Azure VM from the VM settings](/../../../azure/backup/backup-azure-vms).
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> </azure/backup/backup-azure-dpm-introduction>.
+> [Prepare to back up workloads to Azure with System Center DPM](/../../../azure/backup/backup-azure-dpm-introduction).
 >
 > ![Linux logo.][Logo_Linux] Linux
 >
