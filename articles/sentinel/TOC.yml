@@ -61,11 +61,11 @@
         href: normalization-content.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
-  - name: Azure Sentinel solutions
+  - name: Azure Sentinel content
     items:
-    - name: About Sentinel solutions
+    - name: About Sentinel content
       href: sentinel-solutions.md
-    - name: Solutions catalog
+    - name: Content hub catalog
       href: sentinel-solutions-catalog.md
   - name: Threat intelligence
     items:
@@ -154,7 +154,7 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Discover and deploy solutions
+  - name: Manage your content and discover solutions
     href: sentinel-solutions-deploy.md
   - name: Use threat intelligence
     items:

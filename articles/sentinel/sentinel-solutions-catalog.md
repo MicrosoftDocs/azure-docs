@@ -86,7 +86,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, and hunting queries. |Security - Network Security, Networking | Community|
+|**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
 |**Azure Sentinel 4 Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Azure Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
 |**Azure Sentinel for Teams**     | [Data connector](data-connectors-reference.md#microsoft-teams), analytics rules, playbooks, hunting queries      |   Application      |    Community     |
@@ -118,7 +118,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-|**Check Point Azure Sentinel Solutions**   |[Data connector](data-connectors-reference.md#check-point), playbooks  | Security - Automation (SOAR) | Partner|
+|**Check Point Azure Sentinel Solutions**   |[Data connector](data-connectors-reference.md#check-point), playbooks, custom Logic App connector  | Security - Automation (SOAR) | Partner|
 | | | | |
 
 
@@ -127,13 +127,13 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci--preview), parser |Security – Network |Microsoft |
-|**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks |Security – Automation (SOAR) |Microsoft |
+|**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks, custom Logic App connector |Security – Automation (SOAR) |Microsoft |
 |**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security--preview), parser | Identity|Microsoft |
-|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise--preview), workbooks, analytics rules, playbooks, hunting queries, parser |Networking, Security - Others | Microsoft |
-|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki--preview), playbooks |Security - Network |Microsoft |
+|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise--preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Networking, Security - Others | Microsoft |
+|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki--preview), playbooks, custom Logic App connector |Security - Network |Microsoft |
 |**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa--preview), parser |Security - Threat Protection |Microsoft |
 |**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch--preview), parser |Security - Network | Microsoft|
-|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella--preview), workbooks, analytics rules, playbooks, hunting queries, parser |Security - Cloud Security |Microsoft |
+|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella--preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
 |**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa--preview), parser|Security - Network |Microsoft |
 | | | | |
 
@@ -229,7 +229,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks|Security - Automation (SOAR) | Microsoft|
+|**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks, custom Logic App connector|Security - Automation (SOAR) | Microsoft|
 | | | |
 
 <!-- Coming soon>
@@ -247,7 +247,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 |---------|---------|---------|---------|
 |**Google Cloud Platform DNS Solution** |[Data connector](data-connectors-reference.md#google-cloud-platform-dns-preview), parser |Cloud Provider, Networking |Microsoft |
 | **Google Cloud Platform Cloud Monitoring Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-cloud-monitoring-preview), parser |Cloud Provider | Microsoft|
-| **Google Cloud Platform Identity and Access Management Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-identity-and-access-management-preview), workbook, analytics rules, playbooks, hunting queries, parser|Cloud Provider, Identity |Microsoft |
+| **Google Cloud Platform Identity and Access Management Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-identity-and-access-management-preview), workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector|Cloud Provider, Identity |Microsoft |
 | | | | |
 
 <!-- | **Google Apigee** | Data connector | DevOps | | -->
@@ -348,7 +348,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **McAfee ePolicy Orchestrator Solution**| [Data connector](data-connectors-reference.md#mcafee-epolicy-orchestrator-preview), workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection| Microsoft |
+| **McAfee ePolicy Orchestrator Solution**| [Data connector](data-connectors-reference.md#mcafee-epolicy-orchestrator-preview), workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector| Security - Threat protection| Microsoft |
 |**McAfee Network Security Platform Solution** (Intrushield) + AntiVirus Information (T1 minus Logic apps) |[Data connector](data-connectors-reference.md#mcafee-network-security-platform-preview), workbooks, analytics rules, hunting queries, parser |Security - Threat protection | Microsoft|
 
 
@@ -375,7 +375,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Palo Alto PAN-OS**|[Data connector](#palo-alto), playbooks |Security - Automation (SOAR), Security - Network |Microsoft |
+| **Palo Alto PAN-OS**|[Data connector](#palo-alto), playbooks, custom Logic App connector |Security - Automation (SOAR), Security - Network |Microsoft |
 | **Palo Alto Prisma Solution**|[Data connector](#palo-alto), workbooks, analytics rules, hunting queries, parser |Security - Cloud security |Microsoft |
 | | | | |
 <!-- | **Palo Alto Cortex** |Data connector | Security - Cloud Security  | |  -->
@@ -392,7 +392,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Proofpoint POD Solution** |[Data connector](data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview), workbook, analytics rules, hunting queries, parser| Security - Threat protection|Microsoft |
-|**Proofpoint TAP Solution** | Workbooks, analytics rules, playbooks|Security - Automation (SOAR), Security - Threat protection |Microsoft |
+|**Proofpoint TAP Solution** | Workbooks, analytics rules, playbooks, custom Logic App connector|Security - Automation (SOAR), Security - Threat protection |Microsoft |
 | | | |
 
 ## Qualys

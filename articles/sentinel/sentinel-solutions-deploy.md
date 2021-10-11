@@ -23,26 +23,18 @@ ms.author: yelevin
 >
 > Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Sentinel Content hub provides access to Azure Sentinel solutions, packed with content for for end-to-end product, domain, or industry needs. This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use.
+The Azure Sentinel Content hub provides access to Azure Sentinel solutions, packed with content for for end-to-end product, domain, or industry needs.
 
-If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use. 
 
-Solutions can consist of any or all of the following content types:
+- Find your solutions in the Content hub based on their statuses, the content included, support, and more.
 
-- **Data connectors**, some with accompanying **parsers**
-- **Workbooks**
-- **Analytics rules**
-- **Hunting queries**
-- **Playbooks**
-- **Watchlists**
+- Install the solution in your workspace when find one that fits your organization's needs, and make sure to keep updating it with the latest changes.
 
-## Find and install or update a solution
-
-Use this procedure to find your solution, based on it's status, the content included, support model, and more.
-
-Install the solution in your workspace when find one that fits your organization's needs, and make sure to keep updating it with the latest changes.
-
-### Find a solution
+> [!TIP]
+> If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+> 
+## Find a solution
 
 1. From the Azure Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
@@ -62,7 +54,7 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub":::
 
-### Install or update a solution
+## Install or update a solution
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
@@ -81,62 +73,6 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 For more information, see [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Azure Sentinel data connector](data-connectors-reference.md).
 
 
-## Content hub categories
-
-Content in the Azure Sentinel content hub is applied with one or more of the following categories:
-
-**Domain categories**:
-
-:::row:::
-   :::column span="":::
-      - Application
-      - Cloud Provider
-      - Compliance
-      - Identity
-      - IT Operations
-   :::column-end:::
-   :::column span="":::
-      - Platform
-      - Storage
-      - Networking
-      - User Behavior (UEBA)
-   :::column-end:::
-   :::column span="":::
-      - Devops
-      - Internet of Things (IoT)
-      - Training and Tutorials
-      - Migration
-   :::column-end:::
-:::row-end:::
-
-**Security categories**:
-
-:::row:::
-   :::column span="":::
-      - Security - Threat protection. Includes threat protection, email protection, XDR, and endpoint protection.
-      - Security - Information protection
-      - Security - Threat intelligence
-      - Security - Network
-      - Security - Vulnerability management
-   :::column-end:::
-   :::column span="":::
-      - Security - Automation (SOAR)
-      - Security - Insider Threat
-      - Security - 0-day Vulnerability
-      - Security - Cloud security
-      - Security - Others
-   :::column-end:::
-:::row-end:::
-
-## Solution support
-
-Both Microsoft and other organizations author Azure Sentinel solutions. Each solution has one of the following support types:
-
-| Support type| Description|
-|-------------|------------|
-|**Microsoft-supported**|Applies to:<ul><li>Solutions where Microsoft is the data provider, where relevant, and author.</li><li>Some Microsoft-authored solutions for non-Microsoft data sources.</li></ul>Microsoft supports and maintains solutions in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support solutions that are authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to solutions authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that solution.<br><br>For any issues with a partner-supported solution, contact the specified solution support contact.|
-|**Community-supported**|Applies to solutions authored by Microsoft or partner developers that don't have listed contacts for solution support and maintenance on the specified solution page in Azure Sentinel.<br><br>For questions or issues with these solutions, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
 
 
