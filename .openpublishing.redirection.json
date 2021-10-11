@@ -7154,6 +7154,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/index.yml",
+      "redirect_url": "/azure/cognitive-services/language-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/whats-new.md",
+      "redirect_url": "/azure/cognitive-services/language-service/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-language-detection.md",
+      "redirect_url": "/azure/cognitive-services/language-service/language-detection/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-sentiment-analysis.md",
+      "redirect_url": "/azure/cognitive-services/language-service/sentiment-opinion-mining",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-keyword-extraction.md",
+      "redirect_url": "/azure/cognitive-services/language-service/key-phrase-extraction/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-entity-linking.md",
+      "redirect_url": "/azure/cognitive-services/language-service/named-entity-recognition/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-for-health.md",
+      "redirect_url": "/azure/cognitive-services/language-service/text-analytics-for-health/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/extractive-summarization.md",
+      "redirect_url": "/azure/cognitive-services/language-service/text-summarization/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
+      "redirect_url": "/azure/cognitive-services/language-service/overview#deploy-on-premises-using-docker-containers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-container-config.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/configure-containers",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": false
