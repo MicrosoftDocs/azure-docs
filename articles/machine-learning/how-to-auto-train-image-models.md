@@ -310,7 +310,7 @@ Once you've built a baseline model, you might want to optimize model performance
 
 ### Primary metric
 
-This is an optional parameter to specify the metric to be used for model optimization and hyperparameter tuning. Using other primary metric values is currently not supported. Default values depend on the task type.
+The primary metric used for model optimization and hyperparameter tuning depends on the task type. Using other primary metric values is currently not supported. 
 
 * `accuracy` for IMAGE_CLASSIFICATION
 * `iou` for IMAGE_CLASSIFICATION_MULTILABEL
