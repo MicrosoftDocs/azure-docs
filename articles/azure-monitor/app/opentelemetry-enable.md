@@ -316,14 +316,17 @@ You may set [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-th
 ### [.NET](#tab/net)
 
 ```csharp
+// Setting Role name and Role instance
 var resourceAttributes = new Dictionary<string, object> {
-                                        { "service.name", "my-service" },
-                                        { "service.namespace", "my-namespace" },
-                                        { "service.instance.id", "my-instance" }};
+    { "service.name", "my-service" },
+    { "service.namespace", "my-namespace" },
+    { "service.instance.id", "my-instance" }};
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
+// Done setting Role name and Role instance
 
+// Set ResourceBuilder on the provider
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
+        .SetResourceBuilder(resourceBuilder)
         .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
@@ -446,19 +449,30 @@ The following libraries are validated to work with the Preview Release:
 
 ### Add span attributes
 
-Span attributes can be added using either of the following two options.
-1. Enrich option provided by the instrumentation libraries. For more information, see the README of individual [instrumentation libraries](#instrumentation-libraries).
+Span attributes can be added using either of the following two ways.
+1. Using options provided by [instrumentation libraries](#instrumentation-libraries).
 2. Adding a custom span processor.
 
 These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
 
+> [!TIP]
+> The advantage of using "options provided by instrumentation libraries" (when available) is that the entire context is available, meaning users can select to add or filter additional attributes. For example, the enrich option the HttpClient instrumentation library includes giving users access to the httpRequestMessage itself, to select anything from it and store it as an attribute.
+
 #### Add custom property
 
-Any [attributes](#add-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+Any [attributes](#add-activityspan-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
-If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
+1. Many instrumentation libraries provide an enrich option. Refer to Readme of individual instrumentation libraries for guidance.
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+
+2. Using custom processor:
+
+> [!TIP]
+> Add the processor shown below BEFORE the Azure monitor exporter.
 
 ```csharp
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
@@ -493,7 +507,10 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 
 ##### [Node.js](#tab/nodejs)
 
-If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
+Using custom processor:
+
+> [!TIP]
+> Add the processor shown below BEFORE the Azure monitor exporter.
 
 ```typescript
 import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
@@ -523,7 +540,10 @@ provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 
 ##### [Python](#tab/python)
 
-If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
+Using custom processor:
+
+> [!TIP]
+> Add the processor shown below BEFORE the Azure monitor exporter.
 
 ```python
 ...
