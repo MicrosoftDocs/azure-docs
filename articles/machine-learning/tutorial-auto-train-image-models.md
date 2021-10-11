@@ -92,7 +92,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Visualize data
 
-Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format, you can visualize the ground truth bounding boxes for an image. To do so, be sure you have matplotlib installed.
+Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format, you can visualize the ground truth bounding boxes for an image. To do so, be sure you have `matplotlib` installed.
 
 ```
 %pip install --upgrade matplotlib
@@ -119,6 +119,8 @@ def plot_ground_truth_boxes(image_file, ground_truth_boxes):
     ax.imshow(img_np)
     ax.axis("off")
 
+    label_to_color_mapping = {}
+
     for gt in ground_truth_boxes:
         label = gt["label"]
 
@@ -126,8 +128,14 @@ def plot_ground_truth_boxes(image_file, ground_truth_boxes):
         topleft_x, topleft_y = img_w * xmin, img_h * ymin
         width, height = img_w * (xmax - xmin), img_h * (ymax - ymin)
 
+        if label in label_to_color_mapping:
+            color = label_to_color_mapping[label]
+        else:
+            # Generate a random color. If you want to use a specific color, you can use something like "red".
+            color = np.random.rand(3)
+            label_to_color_mapping[label] = color
+
         # Display bounding box
-        color = np.random.rand(3) # "red"
         rect = patches.Rectangle((topleft_x, topleft_y), width, height,
                                  linewidth=2, edgecolor=color, facecolor="none")
         ax.add_patch(rect)
@@ -150,7 +158,11 @@ def plot_ground_truth_boxes_jsonl(image_file, jsonl_file):
                 break
     if not ground_truth_data_found:
         print("Unable to find ground truth information for image: {}".format(image_file))
+```
 
+Using the above helper functions, for any given image, you can run the following code to display the bounding boxes.
+
+```python
 image_file = "./odFridgeObjects/images/31.jpg"
 jsonl_file = "./odFridgeObjects/train_annotations.jsonl"
 
