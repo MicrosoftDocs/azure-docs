@@ -25,9 +25,10 @@ Install the following prerequisites on your development machine except where not
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [.NET Core SDK 3.1](/dotnet/core/install/). Be sure to install the .NET SDK, not just runtime. For Raspberry PI, you'll need to follow the instructions to [manually install the SDK](/dotnet/core/install/linux-scripted-manual#manual-install). This is because for Debian, package manager installs of the .NET SDK are only supported on the x64 architecture.
+- .NET Core SDK 3.1. Be sure to install the .NET SDK, not just the runtime. To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
 
-  To check the version of the .NET SDK and runtime installed on your machine, run `dotnet --info`.
+  - For Windows and Linux (except Raspberry Pi), follow the instructions to [install the .NET Core SDK 3.1](/dotnet/core/install/) on your platform.
+  - For Raspberry Pi, you'll need to follow the instructions to [manually install the SDK](/dotnet/core/install/linux-scripted-manual#manual-install). This is because on Debian, package manager installs of the .NET SDK are only supported for the x64 architecture.
 
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
