@@ -124,9 +124,41 @@ The following values are required to enable tunneling on the RTSP source node:
 
 ## Create and activate live pipeline in the cloud
 
+When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Device ID must be defined.
 
+```
+   {
+    "name": "Sample-Pipeline-1",
+    "properties": {
+        "topologyName": "CVRwithRemoteDeviceAdapter", <!-- TODO: change to match name in GitHub -->
+        "description": "Continuous video recording with ingestion via a remote device adapter",
+        "bitrateKbps": 500,
+        "parameters": [
+            {
+                "name": "rtspUrlParameter",
+                "value": "rtsp://localhost:554/media/camera-300s.mkv"
+            },
+            {
+                "name": "rtspUsernameParameter",
+                "value": "test"
+            },
+            {
+                "name": "rtspPasswordParameter",
+                "value": "password"
+            },
+            {
+                "name": "ioTHubDeviceIdParameter",
+                "value": "building1-camera1"
+            }
+          ]
+       }
+   }
+```
+After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.
 
 <!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
+
+The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
 
 ## Playback recorded video in Azure Portal
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
@@ -141,5 +173,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next Steps
-Now with the camera connected to Video Analyzer, try out the [different available nodes in the cloud](../quotas-limitations.md) to create a topology and run a pipeline that fits your needs.
+Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial]()<!-- TODO: add link to Keith's export to MP4 tutorial -->
 
