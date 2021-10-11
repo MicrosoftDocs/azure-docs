@@ -15,18 +15,20 @@ ms.date: 10/8/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Dasv5-series and Dadsv5-series are new sizes utilizing AMD's 2.55Ghz EPYC™ 7663v processor in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running their general purpose workloads. The Dasv5 VMs offer a diskless alternative with the same CPU performance. The Dadsv5 VMs have 50% more disk space and better disk IOPs than Dav4/Dasv4.
+The Dasv5-series and Dadsv5-series are sizes utilizing AMD's 3rd Generation EPYC processor in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running their general purpose workloads. The Dadsv5 VMs have 50% more disk space and faster disk IOPs than Dav4/Dasv4.
+
+Remote Data disk storage is billed separately from virtual machines. 
 
 > [!NOTE]
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 ## Dasv5-series
 
-Dasv5-series sizes are based on the 2.55Ghz AMD EPYC™ processor that can achieve a boosted maximum frequency of 3.7GHz. The Dasv5-series sizes offer a combination of vCPU and memory for most production workloads. Data disk storage is billed separately from virtual machines.
+Dasv5-series utilize AMD's 3rd Generation EPYC processors that can achieve a boosted maximum frequency of 3.7GHz. The Dasv5-series sizes offer a combination of vCPU and memory for most production workloads. Data disk storage is billed separately from virtual machines.
 
-[ACU](acu.md): 160 - 190 <br>
-[Premium Storage](premium-storage-performance.md): Not Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Not Supported <br>
+[ACU](acu.md): 230 - 260 <br>
+[Premium Storage](premium-storage-performance.md): Supported <br>
+[Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
@@ -49,9 +51,9 @@ Dasv5-series sizes are based on the 2.55Ghz AMD EPYC™ processor that can achie
 
 ## Dadsv5-series
 
-Dadsv5-series sizes are based on the 2.55Ghz AMD EPYC™ processor that can achieve a boosted maximum frequency of 3.7GHz. The Dadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines.
+Dadsv5-series utilize AMD's 3rd Generation EPYC processors that can achieve a boosted maximum frequency of 3.7GHz. The Dadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines.
 
-[ACU](acu.md): 160 - 190 <br>
+[ACU](acu.md): 230 - 260 <br>
 [Premium Storage](premium-storage-performance.md): Not Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
