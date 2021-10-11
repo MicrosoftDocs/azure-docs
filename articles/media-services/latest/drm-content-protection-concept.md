@@ -252,6 +252,9 @@ For REST examples that use custom license/key acquisition URLs, see [Streaming P
 > [!NOTE]
 > Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
+
 ## Troubleshoot
 
 If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure that you specify the appropriate streaming policy.
