@@ -105,8 +105,26 @@
         href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: FAQs
     items:
-          - name: FAQ for Azure NetApp Files
-            href: azure-netapp-files-faqs.md
+          - name: Networking FAQs
+            href: faq-networking.md
+          - name: Security FAQs
+            href: faq-security.md
+          - name: Performance FAQs
+            href: faq-performance.md
+          - name: NFS FAQs
+            href: faq-nfs.md
+          - name: SMB FAQs
+            href: faq-smb.md
+          - name: Capacity management FAQs
+            href: faq-capacity-management.md
+          - name: Data migration and protection FAQs
+            href: faq-data-migration-protection.md
+          - name: Azure NetApp Files backup FAQs
+            href: faq-backup.md
+          - name: Application resilience FAQs
+            href: faq-application-resilience.md
+          - name: Product FAQs
+            href: faq-product.md
 - name: How-to guides
   items: 
   - name: Register and set up

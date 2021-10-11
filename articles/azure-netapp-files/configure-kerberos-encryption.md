@@ -114,7 +114,8 @@ You should understand the security options available for NFSv4.1 volumes, the te
 
 * [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
 * [Troubleshoot NFSv4.1 Kerberos volume issues](troubleshoot-nfsv41-kerberos-volumes.md)
-* [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
+* [NFS FAQs](faq-nfs.md)
+* [Performance FAQs](faq-performance.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 

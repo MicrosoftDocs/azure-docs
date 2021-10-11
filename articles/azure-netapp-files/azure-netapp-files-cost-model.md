@@ -57,4 +57,4 @@ The following diagram illustrates the concepts.
 * [Monitor the capacity of a volume](monitor-volume-capacity.md)
 * [Resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
 * [Manage billing by using tags](manage-billing-tags.md)
-* [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [Capacity management FAQs](faq-capacity-management.md)

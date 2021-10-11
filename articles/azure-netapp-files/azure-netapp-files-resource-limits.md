@@ -51,7 +51,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
 
-For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
+For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
