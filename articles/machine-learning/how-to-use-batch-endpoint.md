@@ -193,13 +193,13 @@ There are three options to specify the data inputs in CLI `invoke`.
 
     Use `--input-path` to specify a folder (use prefix `folder:`) or a file (use prefix `file:`) in an Azure Machine Learning registered datastore. The syntax for the data URI is `folder:azureml://datastores/<datastore-name>/paths/<data-path>/` for folder, and `file:azureml://datastores/<datastore-name>/paths/<data-path>/<file-name>` for a specific file.
 
-    The example uses publicly available data in a folder from `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Name of the batch scoring job will be returned from the invoke response. Run the following code to invoke the batch endpoint using this data. `--query name` is added to only return the job name from the invoke response, and it will be used later to [Monitor batch scoring job execution progress](#Monitor-batch-scoring-job-execution-progress) and [Check batch scoring results](#Check-batch-scoring-results). Remove `--query name -o tsv` if you want to see the full invoke response.
+    The example uses publicly available data in a folder from `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Name of the batch scoring job will be returned from the invoke response. Run the following code to invoke the batch endpoint using this data. `--query name` is added to only return the job name from the invoke response, and it will be used later to [Monitor batch scoring job execution progress](#monitor-batch-scoring-job-execution-progress) and [Check batch scoring results](#check-batch-scoring-results). Remove `--query name -o tsv` if you want to see the full invoke response.
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 * __Option 2: Registered dataset__
 
-    Use `--input-dataset` to pass in an Azure Machine Learning registered dataset. To create a dataset, check `az ml dataset create -h` for instruction, and follow the [Dataset schema](reference-yaml-dataset#yaml-syntax.md).
+    Use `--input-dataset` to pass in an Azure Machine Learning registered dataset. To create a dataset, check `az ml dataset create -h` for instruction, and follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax).
 
     > [!NOTE]
     > FileDataset that is created using the preceding version of the CLI and Python SDK can also be used. TabularDataset is not supported. 
