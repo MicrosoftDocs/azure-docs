@@ -23,9 +23,13 @@ To create a namespace:
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
     1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
     1. Enter a **name for the namespace**. The system immediately checks to see if the name is available. For a list of rules for naming namespaces, see [Create Namespace REST API](/rest/api/servicebus/create-namespace).
-    1. For **Location**, choose the region in which your namespace should be hosted.1. 
-    1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. If you want to use [topics and subscriptions](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions are not supported in the Basic pricing tier. If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-premium-messaging.md).
-    7. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+    1. For **Location**, choose the region in which your namespace should be hosted.
+    1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
+    
+        If you want to use [topics and subscriptions](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions aren't supported in the Basic pricing tier. 
+
+        If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-premium-messaging.md).
+    1. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
    
         :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page":::
     1. On the **Review + create** page, review settings, and select **Create**. 
@@ -37,7 +41,9 @@ To create a namespace:
     :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
 
 ## Get the connection string 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. To copy the primary and secondary keys for your namespace, follow these steps: 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
+
+To copy the primary connection string for your namespace, follow these steps: 
 
 1. On the **Service Bus Namespace** page, select **Shared access policies** on the left menu.
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
@@ -47,3 +53,4 @@ Creating a new namespace automatically generates an initial Shared Access Signat
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
+    You can use this page to copy primary key, secondary key, and secondary connection string. 
