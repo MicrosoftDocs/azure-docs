@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse database templates
 description: Learn about database templates and what is a lake database.
-author: prlangad
-ms.author: prlangad
+author: gesaur
+ms.author: gesaur
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 11/02/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.
@@ -10,16 +10,41 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 
 # Azure Synapse database templates
 
-Azure Synapse Analytics now provides the ability to create a database using industry specific blueprints for databases. Use these templates to create your database in Synapse.
 
-## What are database templates?
-The Database templates are models that contain semantics how data in a lake can be represented and deployed as a database. These serve as templates to prepare your database, saving you the effort to build databases from scratch. This increases productivity and reduces time to insights with the automated data lifecycle. Database templates ease the preparation of database semantics and deployment into a lake database for further data ingestion, exploration, and analysis. They offer standardized semantics to choose and deploy to lake database.
+The journey of data from source systems to data warehouses and data marts to solve business problems starts with data and how they are shaped. Database templates are a set of business and technical data definitions that are pre-designed to meet the needs of a particular industry. They act as blueprints that provide common elements derived from best practices, government regulations and the complex data and analytic needs of an industry-specific organization. 
 
-## What is a lake database?
-A lake database is an artifact that includes tables, columns, and logical relationships, and define schema for a business solution. The lake database can help you build your schema based on your operational data, transaction data, and business semantics while maintaining your data in data lake. A lake database is part of an Azure Synapse workspace and is unique within a workspace. You can define a lake database in Azure Synapse Spark, or through the database designer UI. You can also query using any Azure Synapse compute pool types, for example, Azure Synapse SQL, Azure Synapse Spark, or integration runtimes.
+These 'information blueprints' can be used by organizations for planning, architecting, designing, governing, reporting, business intelligence and advanced analytics. The data models provide a complete integrated business-wide information architecture and can help you with a timely and predictable way to implement a proven industry best-of-breed data architecture. 
 
-## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
+For example, if you are building a product recommendation solution for your retail customers, you will require a basic blue-print to understand the customer purchased what product and the transaction that led to the purchase. Also, maybe we need to understand the store where the item from picked from. You also need to understand whether the customer is part of the loyalty program. Just to accomplish this use case we need the following schema: 
+
+ - Product 
+ - Transaction 
+ - TransactionLineItem 
+ - Customer 
+ - CustomerLoyalty 
+ - Store 
+
+You can accomplish this use case by simply selecting the 6 tables in the retail database template. 
+
+[[retail-database-template-example.png|alt=Retail database template example]]
+
+A typical database templates addresses the core requirements of a specific industry and consists of a bundle of: 
+
+ - supporting set of [business area templates](concepts-database-templates.md#business-area-templates)
+ - one or more [enterprise templates](concepts-database-templates.md#enterprise-templates)   
+
+
+
+# Avaialbe database templates 
+
+Currently there are 6 dataase templates avaialable that customers can leverage to start creating their lake database. 
+
+ - **Banking** - For companies who are analyzing banking data.
+ - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
+ - **Fund Management** - for companies managing investment funds on behalf of investors.
+ - **Life Insurance & Annuities** - For companies who provide life insurance, sell annuities, or both.
+ - **Property & Casualty Insurance** - For companies who provide insurance against risks to property and various forms of liability coverage.
+ - **Retail** - for sellers of consumer goods or services to customers through multiple channels.
+
+As emission and carbon managment has become a very important topic in all industires we have included those components in all the avaialble database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
