@@ -224,7 +224,7 @@ The following code demonstrates enabling OpenTelemetry in a simple Node.js appli
 
 ```typescript
 const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-const { BatchSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+const { BatchSpanProcessor, Span } = require("@opentelemetry/sdk-trace-base");
 const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
 
 const provider = new NodeTracerProvider();
@@ -250,7 +250,7 @@ for (let i = 0; i < 10; i += 1) {
 // Be sure to end the span.
 parentSpan.end();
 
-function doWork(parent: opentelemetry.Span) {
+function doWork(parent: Span) {
   // Start another span. In this example, the main method already started a
   // span, so that'll be the parent span, and this will be a child span.
   const ctx = opentelemetry.trace.setSpan(opentelemetry.context.active(), parent);
