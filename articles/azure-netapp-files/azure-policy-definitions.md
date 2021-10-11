@@ -32,10 +32,11 @@ Azure NetApp Files supports Azure Policy. You can integrate Azure NetApp Files w
 
 The Azure Policy built-in definitions for Azure NetApp Files enable organization admins to restrict creation of unsecure volumes or audit existing volumes. Each policy definition in Azure Policy has a single *effect*. That effect determines what happens when the policy rule is evaluated to match.  
 
-Two effects of Azure Policy can be used with Azure NetApp Files:
+The following effects of Azure Policy can be used with Azure NetApp Files:
 
 * *Deny* creation of non-compliant volumes
 * *Audit* existing volumes for compliance
+* *Disable* a policy definition
 
 The following Azure Policy built-in definitions are available for use with Azure NetApp Files:
 
