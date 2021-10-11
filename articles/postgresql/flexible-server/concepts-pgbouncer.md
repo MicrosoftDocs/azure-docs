@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 10/01/2021
 ---
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
@@ -20,7 +20,7 @@ PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only
 When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling.
 
 > [!Note]
-> PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking.
+> PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking. 
 
 ## Enabling and configuring PgBouncer
 
@@ -41,7 +41,7 @@ You can configure PgBouncer, settings with these parameters:
 For more details on the PgBouncer configurations, please see [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
 > [!Note] 
-> Upgrading of PgBouncer will be managed by Azure.
+> Upgrading of PgBouncer is managed by Azure.
 
 ## Switching your application to use PgBouncer
 
@@ -72,6 +72,7 @@ Utilizing an application side pool together with PgBouncer on the database serve
 * If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you will lose the PgBouncer capability.
 * Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal does not show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. 
+* [SCRAM authentication](how-to-connect-scram.md) is not supported with PgBouncer.
   
 ## Next steps
 

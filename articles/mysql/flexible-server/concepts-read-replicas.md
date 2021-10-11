@@ -23,6 +23,9 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 Replicas are new servers that you manage similar to your source Azure Database for MySQL flexible servers. You will incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
 
+> [!NOTE]
+> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
@@ -136,7 +139,8 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 
 | Scenario | Limitation/Consideration |
 |:-|:-|
-| Replica on server with zone-redundant HA enabled | Not supported |
+| Replica on server with HA enabled | Not supported |
+| Replica on server in Burstable Pricing Tier| Not supported |
 | Cross region read replication | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |
 | Source server restart | When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |

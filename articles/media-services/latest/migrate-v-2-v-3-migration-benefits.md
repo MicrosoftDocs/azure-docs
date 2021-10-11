@@ -21,7 +21,7 @@ ms.author: inhenkel
 
 ## Use the latest API
 
-We encourage you to start using version 2020-05-01 of the Azure Media Services V3 API now to gain the benefits because new features, functionality, and performance optimizations are only available in the current V3 API.
+We encourage you to start using version 2020-05-01 (or later) of the Azure Media Services V3 API now to gain the benefits because new features, functionality, and performance optimizations are only available in the current V3 API.
 
 You can change the API version in the portal, latest SDKs, latest CLI, and REST API with the correct version string.
 

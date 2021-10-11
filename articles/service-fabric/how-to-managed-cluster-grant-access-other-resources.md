@@ -3,7 +3,7 @@ title: Grant an application access to other Azure resources on a Service Fabric 
 description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication on a Service Fabric managed cluster.
 
 ms.topic: article
-ms.date: 5/10/2021
+ms.date: 10/05/2021
 ---
 
 # Granting a Service Fabric application's managed identity access to Azure resources on a Service Fabric managed cluster
@@ -101,4 +101,4 @@ And for system-assigned managed identities:
 For more details, please see [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Next steps
-* [Deploy an Azure Service Fabric application with user-assigned or system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Deploy an application with Managed Identity to a Service Fabric managed cluster](how-to-managed-cluster-application-managed-identity.md)

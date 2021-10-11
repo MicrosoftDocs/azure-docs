@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/10/2021
+ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrat
 ## Azure AD Connect cloud sync video
 The following short video provides an excellent overview of Azure AD Connect cloud sync:
 
-> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 
 ## Comparison between Azure AD Connect and cloud sync
@@ -72,6 +72,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
 | On-demand provisioning|● |● |
+| Support for US Government|● |● |
 
 ## Next steps 
 

@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 10/04/2021
 ms.custom: references_regions
 ---
 
@@ -116,12 +116,12 @@ Otherwise, your application code used for creating and populating an index is th
 
 ## Next steps
 
-To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). See [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations.
+To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). Review [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations, or checkout [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) for real-world tips.
 
 For a discussion about performance and demonstrations of the techniques discussed in this article, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
+>
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

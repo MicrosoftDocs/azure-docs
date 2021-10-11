@@ -10,6 +10,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
+ms.custom: subject-monitoring
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ---
 
@@ -80,7 +81,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > [!IMPORTANT]
 > When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Key Vault resources. These queries work with the [new language](/azure-monitor/logs/log-query-overview).
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Key Vault resources. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 * Are there any slow requests?
 
@@ -177,7 +178,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
-If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](/azure-monitor/overview#application-insights.md) may offer additional types of alerts.
+If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault.
 

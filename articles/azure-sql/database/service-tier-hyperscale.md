@@ -162,49 +162,12 @@ If you need to restore a Hyperscale database in Azure SQL Database to a region o
 
 ## <a name=regions></a>Available regions
 
-The Azure SQL Database Hyperscale tier is available in all regions but enabled by default in the following regions listed below. If you want to create a Hyperscale database in a region where Hyperscale is not enabled by default, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
+The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure regions. If you want to create a Hyperscale database in a region where Hyperscale is not enabled by default, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
 
 - Use the [Region access](quota-increase-request.md#region) SQL Database quota type.
 - In the description, add the compute SKU/total cores including high-availability and named replicas, and indicate that you are requesting Hyperscale capacity.
 - Also specify a projection of the total size of all databases over time in TB.
 
-Enabled Regions:
-- Australia East
-- Australia Southeast
-- Australia Central
-- Brazil South
-- Canada Central
-- Canada East
-- Central US
-- China East 2
-- China North 2
-- East Asia
-- East US
-- East Us 2
-- France Central
-- Germany West Central
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- North Central US
-- North Europe
-- Norway East
-- Norway West
-- South Africa North
-- South Central US
-- Southeast Asia
-- Switzerland West
-- UK South
-- UK West
-- US DoD Central
-- US DoD East
-- Us Govt Arizona
-- US Govt Texas
-- West Central US
-- West Europe
-- West US
-- West US 2
 
 ## Known limitations
 

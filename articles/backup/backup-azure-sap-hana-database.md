@@ -20,11 +20,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
->As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
-
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 

@@ -144,7 +144,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed bellow. If this is your case, please contact the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for more information.
+* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed below. Azure Synapse SQL serverless isn't affected.
   * : (Colon)
   * ` (Grave accent)
   * , (Comma)
@@ -156,6 +156,21 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * = (Equal sign)
   * " (Quotation mark)
  
+* If you have properties names using the characters listed above, the alternatives are:
+   * Change your data model in advance to avoid these characters.
+   * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
+   * Use Change Feed to create a materialized view of your container without these characters in properties names.
+   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loading data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+```
+
 * Azure Synapse Spark now supports properties with whitespaces in their names.
 
 ### Schema representation
