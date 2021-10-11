@@ -39,12 +39,12 @@ A typical database templates addresses the core requirements of a specific indus
 
 Currently there are 6 dataase templates avaialable that customers can leverage to start creating their lake database. 
 
- - Banking - For companies who are analyzing banking data.
- - Consumer Goods - for manufacturers or producers of goods bought and used by consumers.
- - Fund Management - for companies managing investment funds on behalf of investors.
- - Life Insurance & Annuities - For companies who provide life insurance, sell annuities, or both.
- - Property & Casualty Insurance - For companies who provide insurance against risks to property and various forms of liability coverage.
- - Retail - for sellers of consumer goods or services to customers through multiple channels.
+ - **Banking** - For companies who are analyzing banking data.
+ - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
+ - **Fund Management** - for companies managing investment funds on behalf of investors.
+ - **Life Insurance & Annuities** - For companies who provide life insurance, sell annuities, or both.
+ - **Property & Casualty Insurance** - For companies who provide insurance against risks to property and various forms of liability coverage.
+ - **Retail** - for sellers of consumer goods or services to customers through multiple channels.
 
 As emission and carbon managment has become a very important topic in all industires we have included those components in all the avaialble database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
