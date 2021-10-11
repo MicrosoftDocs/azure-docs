@@ -46,7 +46,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 
 - A BYOI user may join a Teams meeting that is scheduled for a Teams channel, but they will not be able to send or receive any chat messages, since they are not members of the channel.
 - When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/graph/api/call-list-participants), details for Communication Services users are not currently included.
-- Teams meetings support up to 1000 participant, but the Azure Communication Services Calling SDK currently only supports 350 participants.
+- Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants.
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 
 ## Next steps
