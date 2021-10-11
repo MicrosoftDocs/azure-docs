@@ -28,6 +28,7 @@ ms.author: sajagtap
 In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
 
 ### Azure Blob Storage container
+
 A **standard performance** [**Azure Blob Storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
   * [**Create a storage account**](/azure/storage/common/storage-account-create). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
