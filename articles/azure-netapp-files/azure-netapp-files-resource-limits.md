@@ -26,7 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
-|  [Regional capacity quota per subscription](#regional-capacity-quota)   |  25 TiB  |  Yes  |
+|  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  25 TiB  |  Yes  |
 |  Number of NetApp accounts per Azure region per subscription  |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
@@ -93,21 +93,6 @@ If you have already allocated at least 4 TiB of quota for a volume, you can init
 
 You can increase the maxfiles limit to 500 million if your volume quota is at least 20 TiB. <!-- ANF-11854 --> 
 
-## Regional capacity quota
-
-You can click **Quota** under Settings of Azure NetApp Files to display the current and default quota sizes for the region. 
-
-For example: 
-
-![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png) 
-
-You can [submit a support request](#request-limit-increase) for an increase of a regional capacity quota without incurring extra cost. The support request you submit will be sent to the Azure capacity management team for processing. You will receive a response typically within two business days. The Azure capacity management team might contact you if you have a large request.  
-
-A regional capacity quota increase does not incur a billing increase. Billing is still based on the provisioned capacity pools.
-For example, if you currently have 25 TiB of provisioned capacity, you can request a quota increase to 35 TiB.  Within two business days, your quota increase will be applied to the requested region. When the quota increase is applied, you still pay for only the current provisioned capacity (25 TiB). But when you actually provision the additional 10 TiB, you will be billed for 35 TiB.
-
-The current [resource limits](#resource-limits) for Azure NetApp Files are not changing. You will still be able to provision a 500-TiB capacity pool. But before doing so, the regional capacity quota needs to be increased to 500 TiB.
-
 ## Request limit increase
 
 You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
@@ -138,3 +123,4 @@ You can create an Azure support request to increase the adjustable limits from t
 
 - [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
+- [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)

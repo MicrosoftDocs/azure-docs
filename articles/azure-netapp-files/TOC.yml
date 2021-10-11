@@ -35,6 +35,8 @@
       href: azure-netapp-files-network-topologies.md
   - name: Quotas 
     items:
+    - name: Regional capacity quota
+      href: regional-capacity-quota.md
     - name: Understand volume quota
       href: volume-quota-introduction.md
     - name: Understand volume hard quota
