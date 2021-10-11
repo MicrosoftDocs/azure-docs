@@ -1,18 +1,18 @@
 ---
 title: "Quickstart - Set up Azure Spring Cloud configuration server"
-description: Describes set up of Azure Spring Cloud config server for app deployment.
+description: Describes the set up of Azure Spring Cloud configuration server for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/11/2021
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Set up Azure Spring Cloud configuration server
 
-Azure Spring Cloud Config server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the config server to get data from a Git repository.
+Azure Spring Cloud configuration server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the configuration server to get data from a Git repository.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -33,7 +33,7 @@ This command tells Configuration server to find the configuration data in the [s
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Azure Spring Cloud Config server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
+Azure Spring Cloud configuration server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
 
 ## Prerequisites
 
