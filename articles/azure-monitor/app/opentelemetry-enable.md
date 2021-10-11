@@ -464,7 +464,7 @@ These attributes may include adding a custom business property to your telemetry
 
 #### Add custom property
 
-Any [attributes](#add-activityspan-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
+Any [attributes](#add-span-attributes) which are added to activity/span will be exported as custom properties. They'll populate the _customDimensions_ field in the requests and/or dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
