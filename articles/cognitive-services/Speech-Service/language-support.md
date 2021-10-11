@@ -413,23 +413,24 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Speaker Recognition
 
-See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+Speaker recognition is kind of language agnostics. We built an universal model for text-independent speaker recognition by lumping together various data sources of multiple languages. We have tuned and evaluated on languages and locales as the following table for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
-|English (US)  |  en-US  |  yes  |  yes  |  yes |
-|Chinese (Mandarin, simplified) | zh-CN     |     n/a |     yes |     yes|
-|English (Australia)     | en-AU     | n/a     | yes     | yes|
-|English (Canada)     | en-CA     | n/a |     yes |     yes|
-|English (UK)     | en-GB     | n/a     | yes     | yes|
-|French (Canada)     | fr-CA     | n/a     | yes |     yes|
-|French (France)     | fr-FR     | n/a     | yes     | yes|
-|German (Germany)     | de-DE     | n/a     | yes     | yes|
-|Italian | it-IT     |     n/a     | yes |     yes|
-|Japanese     | ja-JP | n/a     | yes     | yes|
-|Portuguese (Brazil) | pt-BR |     n/a |     yes |     yes|
-|Spanish (Mexico)     | es-MX     | n/a |     yes |     yes|
-|Spanish (Spain)     | es-ES | n/a     | yes |     yes|
+|English (US)  |  `en-US`  |  yes  |  yes  |  yes |
+|Chinese (Mandarin, simplified) | `zh-CN`     |     n/a |     yes |     yes|
+|English (Australia)     | `en-AU`    | n/a     | yes     | yes|
+|English (Canada)     | `en-CA`     | n/a |     yes |     yes|
+|English (India)     | `en-IN`     | n/a |     yes |     yes|
+|English (UK)     | `en-GB`     | n/a     | yes     | yes|
+|French (Canada)     | `fr-CA`     | n/a     | yes |     yes|
+|French (France)     | `fr-FR`     | n/a     | yes     | yes|
+|German (Germany)     | `de-DE`     | n/a     | yes     | yes|
+|Italian | `it-IT`     |     n/a     | yes |     yes|
+|Japanese     | `ja-JP` | n/a     | yes     | yes|
+|Portuguese (Brazil) | `pt-BR` |     n/a |     yes |     yes|
+|Spanish (Mexico)     | `es-MX`     | n/a |     yes |     yes|
+|Spanish (Spain)     | `es-ES` | n/a     | yes |     yes|
 
 ## Next steps
 
