@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
 description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
 ---
@@ -82,7 +82,7 @@ Follow the steps in this section and you will be able to instrument your applica
 ### Prerequisites
 
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
+- Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
 ### [.NET](#tab/net)
 

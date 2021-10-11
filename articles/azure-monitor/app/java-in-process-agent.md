@@ -18,8 +18,8 @@ Java auto-instrumentation can be enabled without any code changes.
 
 ### Prerequisites
 - Java Application using version 8+
-- Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
-- Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
 ### Enable Azure Monitor Application Insights
 **1. Download the auto-instrumentation jar file**
