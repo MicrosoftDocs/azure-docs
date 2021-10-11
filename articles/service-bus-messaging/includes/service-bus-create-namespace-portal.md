@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 09/01/2021
+ ms.date: 10/08/2021
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -39,15 +39,11 @@ To create a namespace:
 ## Get the connection string 
 Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. To copy the primary and secondary keys for your namespace, follow these steps: 
 
-1. Click **All resources**, then click the newly created namespace name.
-2. In the namespace window, click **Shared access policies**.
-3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
+1. On the **Service Bus Namespace** page, select **Shared access policies** on the left menu.
+3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-info.png" alt-text="Screenshot shows the Shared access policies window with a policy highlighted.":::
 4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
-5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
-
-<!--Image references-->
 

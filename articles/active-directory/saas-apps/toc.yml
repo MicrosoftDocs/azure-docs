@@ -2451,6 +2451,8 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: directprint.io
+        href: directprint-io-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
       - name: Envoy
