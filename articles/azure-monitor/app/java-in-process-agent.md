@@ -12,9 +12,6 @@ ms.author: mmcc
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
-> [!NOTE]
-> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to use the `opentelemetry-api`. For versions older than 3.2.0 you'll need the the [Java 2.x SDK](./java-2x-get-started.md) for the same.
-
 ## Get started
 Java auto-instrumentation can be enabled without any code changes.
 
@@ -259,40 +256,9 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("enduser.id", "myuser");
 ```
 
-#### Set User IP
-The _client_IP_ field in the requests, dependencies, and/or exceptions table are auto collected by Java 3.X auto-instrumentation. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
-
-
-### Override span name
-You may use `opentelemetry-api` to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance tab when you pivot by Operations.
-
-> [!NOTE]
-> This feature is only in 3.2.0 and later
-
-Add `opentelemetry-api-1.6.0.jar` to your application
-
-```xml
-<dependency>
-  <groupId>io.opentelemetry</groupId>
-  <artifactId>opentelemetry-api</artifactId>
-  <version>1.6.0</version>
-</dependency>
-```
-
-and set the name in your code:
-
-```java
-import io.opentelemetry.api.trace.Span;
-
-Span.current().updateName("myspanname")
-```
-
 ### Get trace ID or span ID
 
 You may use `opentelemetry-api` to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
-
-> [!NOTE]
-> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later
