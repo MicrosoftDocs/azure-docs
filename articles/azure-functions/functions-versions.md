@@ -67,7 +67,7 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 ## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x (Preview)
 
-Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
+Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to test extensively before changing the major version in production apps.
 
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
