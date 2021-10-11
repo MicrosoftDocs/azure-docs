@@ -60,7 +60,7 @@ The "hello world" job has all three:
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
 
 > [!WARNING]
-> Python must be installed in the environment used for jobs. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed, or derive from a base image with Python installed already. This limitation will be removed in a future release.
+> Python must be installed in the environment used for jobs. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed, or derive from a base image with Python installed already.
 
 > [!TIP]
 > The `$schema:` throughout examples allows for schema validation and autocompletion if authoring YAML files in [VSCode with the Azure Machine Learning extension](how-to-setup-vs-code.md).
@@ -193,7 +193,7 @@ Literal inputs to jobs can be [converted to search space inputs](#search-space-i
 For a sweep job, you can specify a search space for literal inputs to be chosen from. For the full range of options for search space inputs, see the [sweep job YAML syntax reference](reference-yaml-job-sweep.md).
 
 > [!WARNING]
-> Sweep jobs are not currently supported in pipeline jobs. This limitation will be removed in a future release.
+> Sweep jobs are not currently supported in pipeline jobs.
 
 Let's demonstrate the concept with a simple Python script that takes in arguments and logs a random metric:
 
@@ -267,9 +267,6 @@ You can specify named data outputs. This will create a directory in the default 
 You can modify the earlier "hello world" job to write to a named data output:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
-
-> [!TIP]
-> You will be able to specify locations other than the default datastore for data outputs in a future release. These non-default outputs are useful in pipelines.
 
 ## Hello pipelines
 
