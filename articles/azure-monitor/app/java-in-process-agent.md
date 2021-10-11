@@ -74,7 +74,7 @@ Find the connection string on your Application Insights Resource.
 
 #### 4. Confirm data is flowing
 
-Run your application and open your Application Insights Resource tab on the Azure portal. It may take a few minutes for data to show up in the Portal.
+Run your application and open your Application Insights Resource tab on the Azure portal. It may take a few minutes for data to show up in the portal.
 
 > [!NOTE]
 > If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
