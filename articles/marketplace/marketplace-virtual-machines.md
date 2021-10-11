@@ -98,7 +98,7 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 
 ## Customer leads
 
-[!INCLUDE [Customer leads section](includes/customer-leads.md)]
+When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 ## Legal contracts
 
