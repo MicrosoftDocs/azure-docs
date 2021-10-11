@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js and Python applications
 description: Provides guidance on how to enable Azure Monitor on applications using OpenTelemetry
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 author: mattmccleary
 ms.author: mmcc
 ---
@@ -30,9 +30,9 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation through Azure Functions Worker
- 
- Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
+ - Distributed Tracing context propagation (i.e., instrumentation libraries) through Azure Functions Worker
+
+Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
 ### [Node.js](#tab/nodejs)
 
@@ -69,23 +69,24 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation through Azure Functions Worker
+ - Distributed Tracing context propagation (i.e., instrumentation libraries) through Azure Functions Worker
 
- Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
+Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
 ---
 
 ## Get started
 
-Follow the five steps in this section and you will be able to instrument your application with OpenTelemetry.
+Follow the steps in this section and you will be able to instrument your application with OpenTelemetry.
 
 ### Prerequisites
 
-### [.NET](#tab/net)
-
-- Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) >= `.NET Framework 4.6.1`.
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
+
+### [.NET](#tab/net)
+
+- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) >= `.NET Framework 4.6.1`.
 
 
 ### [Node.js](#tab/nodejs)
@@ -93,14 +94,11 @@ Follow the five steps in this section and you will be able to instrument your ap
 - Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime.
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
-- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
 
 ### [Python](#tab/python)
 
 - Python Application using version 3.6+
-- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource). Get connection string from your existing or newly created Application Insights resource.
+
 
 ---
 
@@ -305,17 +303,14 @@ You may set [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-th
 ### [.NET](#tab/net)
 
 ```csharp
-// Setting Role name and Role instance
 var resourceAttributes = new Dictionary<string, object> {
-    { "service.name", "my-service" },
-    { "service.namespace", "my-namespace" },
-    { "service.instance.id", "my-instance" }};
+                                        { "service.name", "my-service" },
+                                        { "service.namespace", "my-namespace" },
+                                        { "service.instance.id", "my-instance" }};
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
-// Done setting Role name and Role instance
 
-// Set ResourceBuilder on the provider
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .SetResourceBuilder(resourceBuilder)
+        .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
         .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
@@ -436,11 +431,11 @@ The following libraries are validated to work with the Preview Release:
 
 ## Modify telemetry
 
-### Add activity/span attributes
+### Add span attributes
 
-Activity/span attributes can be added using either of the following two options.
+Span attributes can be added using either of the following two options.
 1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
-2. Adding a custom processor.
+2. Adding a custom span processor.
 
 These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
 
@@ -949,7 +944,7 @@ Known issues for the Azure Monitor OpenTelemetry Exporters include:
 
 ### [.NET](#tab/net)
 
-For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 
 ### [Node.js](#tab/nodejs)
 
@@ -963,7 +958,7 @@ For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://g
 
 ## OpenTelemetry feedback
 
-- Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
+- Fill out the OpenTelemetry community's [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Engage with other Azure Monitor users at [Microsoft's Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
 
