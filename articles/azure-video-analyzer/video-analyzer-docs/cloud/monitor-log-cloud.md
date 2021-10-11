@@ -14,7 +14,7 @@ You'll also learn how to consume the logs that the service generates.
 
 Below diagram represents common taxonomy used for the events or telemetry data  emitted by Video Analyzer Service:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/taxonomy-cloud.png" alt-text="Diagram that shows the taxonomy of events.":::
+> :::image type="content" source="./media/taxonomy-cloudnew.png" alt-text="Diagram that shows the taxonomy of events.":::
 
 **Event Types:** Service emits following types of event data
 
@@ -24,17 +24,17 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 
 | Event        | Level               | Short Description                                              |
 | ------------- | ------------------- |  ------------------------------------------------------------ |
-|RecordingStarted	|Information|	Media recording started|
-|RecordingAvailable	|Information|	Media recording available|
-|RecordingStopped	|Information|	Media recording stopped|
-|PipelineStateChanged	|Information|	State of pipeline changed|
+|RecordingStarted	|Informational|	Media recording started|
+|RecordingAvailable	|Informational|	Media recording available|
+|RecordingStopped	|Informational|	Media recording stopped|
+|PipelineStateChanged	|Informational|	State of pipeline changed|
 
    *Sample operational event*
       
 ```json
         {
             "time": "2021-10-06T21:19:36.0988630Z",
-            "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+            "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
             "region": "westcentralus",
             "category": "Operational",
             "operationName": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
@@ -67,14 +67,14 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 |ProtocolError        |	Error|	RTSP or any other protocol error|
 |StorageError        |	Error|	Storage read/write error|
 |RtspPlaybackSessionEstablished|	Information| RTSP Playback session is establised|	
-|RtspPlaybackSessionClosed|	Information|	RTSP Playback session is closed|
+|RtspPlaybackSessionClosed|	Informational|	RTSP Playback session is closed|
 
 *Sample diagnostic event*
   
 ```json
     {
     "time": "2021-10-06T21:19:34.1290000Z",
-    "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+    "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
     "region": "westcentralus",
     "category": "Diagnostics",
     "operationName": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
@@ -90,15 +90,46 @@ Below diagram represents common taxonomy used for the events or telemetry data  
     }
 
 ```
+* **Audit:** Audit event is used to log API access. User will see audit logs in Activity logs on Azure portal or could download logs from the configured storage account
+    * Following fields will be visible to user in Activity logs section: Operation name, Status, Time stamp.
+    * Volume: Usually low. Recommended to only enable these events when auditing is needed.
 
+*Sample diagnostic event*
+  
+```json
+{
+  "time": "2021-10-07T23:53:31.6792370Z",
+  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID /RESOURCEGROUPS/NEWIGNITERELEASEMAYANK/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "region": "westcentralus",
+  "category": "Audit",
+  "operationName": "Microsoft.VideoAnalyzer.Audit.ResourceGet",
+  "level": "Warning",
+  "uri": "https://6e1d86578c9a464480061a5ea2af9ec9.api.westcentralus-private1.videoanalyzer.azure.net/videos/batchjobsinknode",
+  "resultType": "Failed",
+  "resultSignature": "403",
+  "identity": [
+    {
+      "alg": "RS256",
+      "kid": "jrLTTDh9dAJdDDHIXZnySD4EVeI",
+      "typ": "JWT"
+    },
+    {
+      "sub": "livetest1",
+      "aud": [ "https://6e1d86578c9a464480061a5ea2af9ec9.streaming.westcentralus-private1.videoanalyzer.azure.net/fa24f509-e9b6-41bc-9bd6-c09a5e6a8d10", "wss://6e1d86578c9a464480061a5ea2af9ec9.rtsp-tunnel.westcentralus-private1.videoanalyzer.azure.net/fa24f509-e9b6-41bc-9bd6-c09a5e6a8d10" ],
+      "exp": 1633410145,
+      "iss": "https://westcentralus-private1.videoanalyzer.azure.net/"
+    }
+  ],
+  "traceContext": "{\n  \"traceId\": \"4bb0dcf5-5c6d-4aa3-8c03-3f3d7e2c6210\"\n}",
+  "properties": { "subject": "/videos/batchjobsinknodemayank" }
+}
+
+```
 ## Events monitoring
 
-You can use Video Analyzer’s metrics & diagnostic events published by service to your storage account by going to Azure portal -> Video Analyzer account -> Monitoring option. 
+You can use Video Analyzer’s metrics & diagnostic events published by service to your storage account by going to Azure portal -> Video Analyzer account -> Monitoring option.
 
-ARM generated **Activity log** is also available automatically and can be seen by selecting 'Activity log' in the Video Analyzer account management blade as shown below. 
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/activitylog.png" alt-text="Activity log.":::
+**Activity log** is also generated automatically and can be accessed by selecting 'Activity log' in the Video Analyzer account management blade under overview option in left pane.
 
 ## Event schema
 
@@ -124,7 +155,6 @@ Every event, when observed via IoT Hub, has a set of common properties:
 
 ```json
 // Azure Monitor Logs Event Sample
-// [Public Docs - Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-schema)
 {
     // Common
     "time": "2021-08-23T12:00:00.000Z",
@@ -176,7 +206,7 @@ Metrics namespace: Standard metrics
 
 ## Azure Monitor log collection 
 
-[Azure Monitor](../../../azure-monitor/overview.md) is the most common way customers will consume events generated by Azure services, customers have a built-in monitoring experience via Azure Monitor. Currently Video Analyzer service **only supports Azure Monitor** as the destination for telemetry events.
+Use [Azure Monitor](../../../azure-monitor/overview.md) to consume events generated by Azure services, customers have a built-in monitoring experience via Azure Monitor. Currently Video Analyzer service **only supports Azure Monitor** as the recommended way to consume service telemetry events.
 
 Follow the steps for storage account configuration with Azure Monitor:
 * Go to Diagnostic settings under monitoring option of Video Analyzer Account management blade
