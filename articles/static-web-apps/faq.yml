@@ -181,7 +181,12 @@ sections:
           Can I change the hosting plan after I create my app?
         answer: |
           You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you're not using features that require the Standard plan.
-      
+    
+      - question: |
+          Can I develop my static web app locally without deploying it?
+        answer: |
+          Most frontend frameworks provide a development server for running your app locally. However, if you want to use authentication or API functions, it can be difficult to test all the features of your app without deploying it to Azure. To run your app locally, you can use the [Static Web Apps command line interface (CLI)](https://www.npmjs.com/package/@azure/static-web-apps-cli), which emulates the cloud experience, including authentication, and integrates with the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) to run your API functions. There's also a [Static Web Apps Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) that can be used to deploy your app to Azure.
+
       - question: |
           How can I get help or suggest a new feature?
         answer: |
