@@ -460,7 +460,7 @@ This section is only applicable, if you are using the third-party software SIOS 
 Now, you have a working Windows Server failover clustering configuration in Azure. To install an SAP ASCS/SCS instance, you need a shared disk resource. One of the options is to use SIOS DataKeeper Cluster Edition is a third-party solution that you can use to create shared disk resources.  
 
 Installing SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk involves these tasks:
-- Add Microsoft .NET Framework, if needed. See the [SIOS documentation]((https://us.sios.com/products/datakeeper-cluster/) for the most up-to-date .NET framework requirements 
+- Add Microsoft .NET Framework, if needed. See the [SIOS documentation](https://us.sios.com/products/datakeeper-cluster/) for the most up-to-date .NET framework requirements 
 - Install SIOS DataKeeper
 - Configure SIOS DataKeeper
 
