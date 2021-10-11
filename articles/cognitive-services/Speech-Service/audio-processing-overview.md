@@ -1,7 +1,7 @@
 ---
 title: Audio processing - Speech service
 titleSuffix: Azure Cognitive Services
-description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
+description: An overview of audio processing and capabilities of the Microsoft Audio Stack.
 services: cognitive-services
 author: hasyashah
 manager: nitinme
@@ -28,6 +28,8 @@ The Microsoft Audio Stack is a set of enhancements optimized for speech processi
 * **Dereverberation** - Reduce the reflections of sound from surfaces in the environment.
 * **Acoustic echo cancellation** - Suppress audio being played out of the device while microphone input is active.
 * **Automatic gain control** - Dynamically adjust the person’s voice level to account for soft speakers, long distances, or non-calibrated microphones.
+
+![Block diagram of Microsoft Audio Stack's enhancements.](media/audio-processing/mas-block-diagram.png)
 
 The Microsoft Audio Stack powers a wide range of Microsoft’s products:
 * **Windows** - Microsoft Audio Stack is the default speech processing pipeline when using the Speech audio category. 

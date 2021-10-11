@@ -208,6 +208,3 @@ std::shared_ptr<AudioConfig> audioInput = AudioConfig::FromStreamInput(pushStrea
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 ---
-
-## Migrating from Speech Devices SDK
-
