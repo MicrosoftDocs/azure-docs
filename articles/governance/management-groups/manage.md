@@ -25,7 +25,7 @@ subscriptions you might have. To learn more about management groups, see
 > refreshing the browser, signing in and out, or requesting a new token.
 
 > [!IMPORTANT]
-> As per [this](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-6.4.0 Az.Resources) module article, 
+> As per [this](https://docs.microsoft.com/powershell/module/az.resources/) module article, 
 > AzManagementGroup related Az PowerShell cmdlets mention that the **-GroupId** is alias of **-GroupName** parameter 
 > so we can use either of it to provide Management Group Id as a string value. 
 
