@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 10/06/2021
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -163,6 +163,26 @@ This option is accessible from the Extract option in the ribbon
 in
   #"Pivoted column"
 ```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+
+### Formatting date/time columns
+
+To set the date/time format when using Power Query ADF, please follow these sets to set the format.
+
+![Power Query Change Type](media/data-flow/power-query-date-2.png)
+
+1. Select the column in the Power Query UI and choose Change Type > Date/Time
+2. You will see a warning message
+3. Open Advanced Editor and change ```TransformColumnTypes``` to ```TransformColumns```. Specify the format and culture based on the input data.
+
+![Power Query Editor](media/data-flow/power-query-date-3.png)
+
+```
+#"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
 ## Next steps
 

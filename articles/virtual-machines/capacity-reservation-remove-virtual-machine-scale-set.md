@@ -25,14 +25,6 @@ There are two ways to change an association:
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-> [!NOTE]
-> On-demand Capacity Reservation is available for virtual machine scale sets in Uniform orchestration mode only in select regions. To check if your region is supported, go to [Uniform virtual machine scale set deployment tracker](https://aka.ms/vmssuniformdeploymenttracker).
-
-
 ## Deallocate the Virtual machine scale set
 
 The first option is to deallocate the virtual machine scale set, change the Capacity Reservation Group property at the scale set level, and then update the underlying VMs. 

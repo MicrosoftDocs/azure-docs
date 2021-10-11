@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 10/06/2021
 ms.author: victorh
 ---
 
@@ -39,6 +39,7 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 443               | Service Tag      | AzureCloud, WindowsVirtualDesktop |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
+|Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246                    |
 
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
@@ -48,7 +49,6 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 | Name      | Source type | Source                    | Protocol   | Destination type | Destination                                                                                 |
 | --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
 | Rule Name | IP Address  | VNet or Subnet IP Address | Https:443  | FQDN Tag         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Rule Name | IP Address  | VNet or Subnet IP Address | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
 > We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
