@@ -49,7 +49,7 @@ To find more information on verified domains, refer to the [custom domains docum
 
 The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
 
-If a request fails the validation check, the application Api for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
+If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
