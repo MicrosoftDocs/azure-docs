@@ -198,6 +198,8 @@
       items:
       - name: Key-based authentication
         href: search-security-api-keys.md
+      - name: Azure AD authentication
+        href: search-howto-aad.md
       - name: Role-based authorization
         href: search-security-rbac.md
       - name: Configure an IP firewall
