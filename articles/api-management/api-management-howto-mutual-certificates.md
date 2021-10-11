@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 API Management allows you to secure access to the backend service of an API using client certificates. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
-You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/2020-12-01/certificate).
+You can also manage API Management certificates using the [API Management REST API](/azure/templates/microsoft.apimanagement/2020-06-01-preview/service/certificates).
 
 ## Certificate options
 
@@ -150,4 +150,3 @@ To delete a certificate, select it and then select **Delete** from the context m
 [Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
-
