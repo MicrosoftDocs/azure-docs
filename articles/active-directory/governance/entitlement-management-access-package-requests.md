@@ -48,12 +48,24 @@ You can also retrieve requests for an access package using Microsoft Graph.  A u
 
 ## Remove request (Preview)
 
-You can remove a completed request that is no longer needed by clicking the **Remove** button.
-Note that removing a request does not remove the assignment, only the data of the request. To remove an assignment and the resulting access from that assignment, in the left menu, click **Assignments**, locate the assignment, and then [remove the assignment](entitlement-management-access-package-assignments.md).
+You can also remove a completed request that is no longer needed. To remove a request:
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Requests**.
+
+1. Find the request you want to remove from the access package.
+
+1. Select the Remove button.
+
+> [!NOTE]
+> If you remove a completed request from an access package, this doesn't remove the active assignment, only the data of the request. So the requestor will continue to have access. If you also need to remove an assignment and the resulting access from that access package, in the left menu, click **Assignments**, locate the assignment, and then [remove the assignment](entitlement-management-access-package-assignments.md).
 
 ### Remove a request with Microsoft Graph
-You can also remove a request using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [remove an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-beta&preserve-view=true).
 
+You can also remove a request using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [remove an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-beta&preserve-view=true).
 
 ## Next steps
 
