@@ -291,7 +291,7 @@ To use managed identities in your logic app to access Blob Storage, follow these
 
 1. [Create a role assignment for your logic app](#create-role-assignment-logic-app).
 
-1. [Enable support for the managed identity in your logic app](#enable-support-for-managed-identity-in-logic-app).
+1. [Enable support for the managed identity in your logic app](#enable-managed-identity-support).
 
 > [!NOTE]
 > Limitations for this solution:
@@ -361,6 +361,8 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
       :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Screenshot of role assignment configuration pane, showing settings for scope, subscription, resource, and role.":::
 
    1. Select **Save** to finish creating the role assignment.
+
+<a name="enable-managed-identity-support"></a>
 
 ### Enable managed identity support on logic app
 
