@@ -250,58 +250,66 @@ In MPLAB, select **Debug > Debug Main Project**.
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 
-1. Start **Termite**.    
+1. Start **Termite**.
+
 > [!TIP]
 > If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
-2. Select **Settings**.
-3. In the **Serial port settings** dialog, check the following settings and update if needed:
-> * **Baud rate**: 115,200
-> * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
-> * **Flow control**: DTR/DSR
-> :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
-4. Select OK.
-5. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
-6. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+1. Select **Settings**.
 
-```output
+1. In the **Serial port settings** dialog, check the following settings and update if needed:
+
+    * **Baud rate**: 115,200
+    * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
+    * **Flow control**: DTR/DSR
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+
+1. Select OK.
+
+1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
+
+1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+
+    ```output
     Starting Azure thread
 
     Initializing DHCP
         IP address: 192.168.0.21
-	    Mask: 255.255.255.0
-	    Gateway: 192.168.0.1
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.75.75
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-	    SNTP server 0.pool.ntp.org
-	    SNTP IP address: 45.55.58.103
-	    SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 45.55.58.103
+        SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsg;1
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-```
+    ```
 
 Keep Termite open to monitor device output in the following steps.
 
 ## Verify the device status
 
 To view the device status in IoT Central portal:
+
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to *Provisioned*.
 1. Confirm that the **Device template** is updated to *Getting Started Guide*.
@@ -355,6 +363,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 If you no longer need the Azure resources created in this quickstart, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
+
 1. Select **Administration** > **Your application**.
 1. Select **Delete**.
 
