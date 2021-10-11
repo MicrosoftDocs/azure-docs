@@ -78,7 +78,7 @@ It takes about 20 minutes to do these steps.
 
 ## Set up authentication
 
-Learn how to [set up authentication](../azure/developer/java/sdk/get-started#set-up-authentication).
+Learn how to [set up authentication](/azure/developer/java/sdk/get-started#set-up-authentication).
 
 ## Create the management client
 
