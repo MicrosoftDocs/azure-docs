@@ -58,15 +58,15 @@ The `az ml environment` command can be used for managing Azure Machine Learning 
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/environment). Several are shown below.
 
-## YAML - local Docker context
+## YAML: local Docker build context
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
 
-## YAML - Docker image
+## YAML: Docker image
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
 
-## YAML - Docker image plus Conda file
+## YAML: Docker image plus conda file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
 

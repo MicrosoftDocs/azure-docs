@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) component job YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -54,20 +56,6 @@ ms.reviewer: laobri
 Component jobs can be run inside pipeline jobs. `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
 
 Component jobs currently cannot be run as standalone jobs and can only be run inside pipelines.
-
-## Schema
-
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
-
-# [JSON](#tab/json)
-
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/commandJob.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/commandJob.schema.yml":::
-
----
 
 ## Next steps
 

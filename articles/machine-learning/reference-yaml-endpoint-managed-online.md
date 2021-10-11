@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) online endpoint YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!NOTE]
@@ -38,19 +40,21 @@ ms.reviewer: laobri
 
 The `az ml online-endpoint` commands can be used for managing Azure Machine Learning online endpoints.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: basic
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/managedOnlineEndpoint.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: system-assigned identity
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/managedOnlineEndpoint.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
 
----
+## YAML: user-assigned identity
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
 
 ## Next steps
 

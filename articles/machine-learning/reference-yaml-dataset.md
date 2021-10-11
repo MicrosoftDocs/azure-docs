@@ -46,35 +46,35 @@ The `az ml dataset` commands can be used for managing Azure Machine Learning dat
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/dataset). Several are shown below.
 
-## YAML - datastore file
+## YAML: datastore file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file.yml":::
 
-## YAML - datastore folder
+## YAML: datastore folder
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder.yml":::
 
-## YAML - https file
+## YAML: https file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-https.yml":::
 
-## YAML - https folder
+## YAML: https folder
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-https.yml":::
 
-## YAML - wasbs file
+## YAML: wasbs file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-wasbs.yml":::
 
-## YAML - wasbs folder
+## YAML: wasbs folder
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-wasbs.yml":::
 
-## YAML - local file
+## YAML: local file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-file.yml":::
 
-## YAML - local folder
+## YAML: local folder
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-folder.yml":::
 

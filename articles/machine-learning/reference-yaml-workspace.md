@@ -49,23 +49,23 @@ The `az ml workspace` command can be used for managing Azure Machine Learning wo
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/workspace). Several are shown below.
 
-## YAML - basic
+## YAML: basic
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/basic.yml":::
 
-## YAML - with existing resources
+## YAML: with existing resources
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
 
-## YAML - customer-managed key
+## YAML: customer-managed key
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
 
-## YAML - private link
+## YAML: private link
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
 
-## YAML - high business impact
+## YAML: high business impact
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/hbi.yml":::
 

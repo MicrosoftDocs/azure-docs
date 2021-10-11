@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) batch deployment YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -48,19 +50,17 @@ ms.reviewer: laobri
 
 The `az ml batch-deployment` commands can be used for managing Azure Machine Learning batch deployments.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: basic (MLflow)
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/batchDeployment.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/batchDeployment.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 ## Next steps
 

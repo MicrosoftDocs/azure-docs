@@ -92,7 +92,9 @@ The `az ml component` commands can be used for managing Azure Machine Learning c
 
 Command component examples are available in the examples GitHub repository. Select examples for are shown below.
 
-## Example: hello world
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipeline-with-components). Several are shown below.
+
+## Hello world command component
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/2a_basic_component/component.yml":::
 

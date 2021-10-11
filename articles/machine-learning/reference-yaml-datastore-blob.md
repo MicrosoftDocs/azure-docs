@@ -44,19 +44,19 @@ The `az ml datastore` command can be used for managing Azure Machine Learning da
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown below.
 
-## YAML - identity-based access
+## YAML: identity-based access
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-credless.yml":::
 
-## YAML - account key
+## YAML: account key
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob.yml":::
 
-## YAML - wasbs protocol
+## YAML: wasbs protocol
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-protocol.yml":::
 
-## YAML - sas token
+## YAML: sas token
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-sas.yml":::
 

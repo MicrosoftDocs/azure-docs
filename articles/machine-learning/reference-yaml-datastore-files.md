@@ -44,11 +44,11 @@ The `az ml datastore` command can be used for managing Azure Machine Learning da
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown below.
 
-## YAML - account key
+## YAML: account key
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file.yml":::
 
-## YAML - sas token
+## YAML: sas token
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file-sas.yml":::
 

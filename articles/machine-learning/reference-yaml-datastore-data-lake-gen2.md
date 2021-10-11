@@ -47,11 +47,11 @@ The `az ml datastore` command can be used for managing Azure Machine Learning da
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown below.
 
-## YAML - identity-based access
+## YAML: identity-based access
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2-credless.yml":::
 
-## YAML - tenant id, client id, client secret
+## YAML: tenant id, client id, client secret
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2.yml":::
 

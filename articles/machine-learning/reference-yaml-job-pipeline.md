@@ -72,23 +72,23 @@ The `az ml job` commands can be used for managing Azure Machine Learning pipelin
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-## YAML - hello pipeline
+## YAML: hello pipeline
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline.yml":::
 
-## YAML - input/output dependency
+## YAML: input/output dependency
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-io.yml":::
 
-## YAML - common job settings
+## YAML: common pipeline job settings
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-settings.yml":::
 
-## YAML - top-level input and overriding common job settings
+## YAML: top-level input and overriding common job settings
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
 
-## YAML - model training pipeline
+## YAML: model training pipeline
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
 

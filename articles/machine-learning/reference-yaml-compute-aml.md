@@ -53,23 +53,23 @@ The `az ml compute` commands can be used for managing Azure Machine Learning com
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/compute). Several are shown below.
 
-## YAML - minimal
+## YAML: minimal
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-minimal.yml":::
 
-## YAML - basic
+## YAML: basic
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-basic.yml":::
 
-## YAML - custom location
+## YAML: custom location
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-location.yml":::
 
-## YAML - low priority
+## YAML: low priority
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-low-priority.yml":::
 
-## YAML - SSH username and password
+## YAML: SSH username and password
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-ssh-password.yml":::
 

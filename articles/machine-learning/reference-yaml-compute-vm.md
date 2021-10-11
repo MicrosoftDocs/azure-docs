@@ -37,7 +37,7 @@ The `az ml compute` command can be used for managing Virtual Machines (VM) attac
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/compute). Several are shown below.
 
-## YAML - basic
+## YAML: basic
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/vm-attach.yml":::
 

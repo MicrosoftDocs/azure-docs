@@ -201,11 +201,11 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-## YAML - hello sweep
+## YAML: hello sweep
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
 
-## YAML - basic Python model training
+## YAML: basic Python model hyperparameter tuning
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 

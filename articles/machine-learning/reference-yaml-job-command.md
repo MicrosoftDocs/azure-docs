@@ -93,67 +93,67 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-## YAML - hello world
+## YAML: hello world
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
 
-## YAML - display name, description, and tags
+## YAML: display name, description, and tags
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
 
-## YAML - environment variables
+## YAML: environment variables
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
 
-## YAML - source code
+## YAML: source code
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
 
-## YAML - literal inputs
+## YAML: literal inputs
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
 
-## YAML - write to default outputs
+## YAML: write to default outputs
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
 
-## YAML - write to named data output
+## YAML: write to named data output
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
 
-## YAML - datastore file input
+## YAML: datastore URI file input
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
 
-## YAML - datastore folder input
+## YAML: datastore URI folder input
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
 
-## YAML - URI file input
+## YAML: URI file input
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
 
-## YAML - URI folder input
+## YAML: URI folder input
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
 
-## YAML - basic Python model training
+## YAML: basic Python model training
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
-## YAML - basic R model training with local Docker context
+## YAML: basic R model training with local Docker context
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/r/iris/job.yml":::
 
-## YAML - distributed PyTorch
+## YAML: distributed PyTorch
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
-## YAML - distributed TensorFlow
+## YAML: distributed TensorFlow
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
 
-## YAML - distributed MPI
+## YAML: distributed MPI
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 

@@ -42,11 +42,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 The `az ml compute` command can be used for managing Azure Machine Learning compute instances.
 
-## YAML - minimal
+## YAML: minimal
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
 
-## YAML - basic
+## YAML: basic
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-basic.yml":::
 

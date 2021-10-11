@@ -41,11 +41,11 @@ The `az ml model` command can be used for managing Azure Machine Learning models
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model). Several are shown below.
 
-## YAML - local file
+## YAML: local file
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-file.yml":::
 
-## YAML - local folder in MLflow format
+## YAML: local folder in MLflow format
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-folder.yml":::
 
