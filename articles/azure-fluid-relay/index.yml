@@ -44,7 +44,7 @@ landingContent:
           - text: Distributed data structures (DDS)
             url: concepts/data-structures.md
           - text: Azure Fluid Relay token contract
-            url: how-tos/fluid-json-web-token
+            url: how-tos/fluid-json-web-token.md
 
   # Card
   - title: How to use Azure Fluid
