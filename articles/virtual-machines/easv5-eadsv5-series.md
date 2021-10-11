@@ -77,7 +77,7 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC processors that can achieve a bo
 | Standard_E112iads_v5            | 112| 672 | 2400 | 64 | 450000 / 4000 (1600) | 120000/2000  | 8 | 50000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.<br>
-<sup>2</sup>Constrained core sizes available
+<sup>2</sup> Constrained core sizes available
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
