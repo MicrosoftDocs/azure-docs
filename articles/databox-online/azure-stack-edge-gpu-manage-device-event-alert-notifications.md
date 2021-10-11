@@ -1,20 +1,20 @@
 ---
-title: Manage device event alert notifications for your Azure Stack Edge Pro resources | Microsoft Docs 
-description: Describes how to use the Azure portal to manage alerts for device events on your Azure Stack Edge Pro resources.
+title: Use action rules to manage alert notifications on Azure Stack Edge devices | Microsoft Docs 
+description: Describes how to define action rules to manage alert notifications for Azure Stack Edge devices in the Azure portal.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 10/11/2021
 ms.author: alkohli
 ---
-# Manage device event alert notifications on Azure Stack Edge Pro resources
+# Use action rules to manage alert notifications on Azure Stack Edge devices
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.  
+This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource.  
 
 ## About action rules
 
@@ -120,8 +120,6 @@ The email notification will look similar to this one.
 
 ## Next steps
 
-<!-- - See [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md) for guidance on creating a new action group.
-- See [Configure an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
-- See [Monitor your Azure Stack Edge Pro](azure-stack-edge-monitor.md) for info about reviewing device events, hardware status, and metrics charts. 
-- See [Using Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md) for info about optimizing Azure Monitor for Azure Stack Edge Pro GPU devices.
-- See [Create, view, and manage metric alerts using Azure Monitor Link target](../azure-monitor/alerts/alerts-metric.md) for info about managing individual alerts.
+- [View device alerts](azure-stack-edge-gpu-alerts.md).
+- [Work with alert metrics](../azure-monitor/alerts/alerts-metric.md).
+- [Set up Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
