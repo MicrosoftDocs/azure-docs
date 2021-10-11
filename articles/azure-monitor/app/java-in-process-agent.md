@@ -230,7 +230,7 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
 #### Set user ID
-Populate the User ID field in the requests, dependencies, and/or exceptions table.
+Populate the user ID field in the requests, dependencies, and/or exceptions table.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before setting Authenticated User ID.
