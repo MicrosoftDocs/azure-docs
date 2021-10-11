@@ -398,15 +398,13 @@
       displayName: rest claims exchange
     - name: Secure an API connector
       href: secure-rest-api.md
-  - name: Custom policy
+  - name: Troubleshooting
     items:
-    - name: Troubleshooting
-      items:
-      - name: Collect logs using Application Insights
-        href: troubleshoot-with-application-insights.md
-        displayName: troubleshooting, app insights
-      - name: Troubleshooting custom policies
-        href: troubleshoot-custom-policies.md
+    - name: Collect logs using Application Insights
+      href: troubleshoot-with-application-insights.md
+      displayName: troubleshooting, app insights
+    - name: Troubleshooting and error handling
+      href: troubleshoot.md
   - name: UserInfo endpoint
     href: userinfo-endpoint.md
   - name: Partner integration
