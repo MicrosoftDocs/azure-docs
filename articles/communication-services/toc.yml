@@ -151,7 +151,7 @@ items:
     href: concepts/notifications.md
   - name: Teams interoperability
     items:
-      - name: Teams interoperability overview
+      - name: Overview
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
