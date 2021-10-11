@@ -41,7 +41,7 @@ The App Service platform will review your App Service Environment to confirm mig
 The migration consists of two steps. Prior to starting Step 1, you will need to provide configuration information for your new App Service Environment. The migration tool will automatically enable or disable these options for you depending on whether or not they're supported. Note that an internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
 
 - **App Service Environment Subnet**: At this time, the only supported configuration is to place your new App Service Environment in the existing [subnet](network-info.md#overview) used by the old environment.
-- **Zone Redundancy**: A migrated App Service Environment can be configured with [zone redundancy](zone-redundancy.md) if zone redundancy is available in the selected region.
+- **Zone Redundancy**: A migrated App Service Environment can be configured with [zone redundancy](zone-redundancy.md) if zone redundancy is [available in the selected region](overview.md#regions).
 - **KeyVault**: Required for migration of an ILB App Service Environment with custom [domain suffix](networking.md#addresses). This scenario is not supported at this time.
 
 ### Step 1 of migration
