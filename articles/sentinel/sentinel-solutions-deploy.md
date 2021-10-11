@@ -21,9 +21,11 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel solutions experience and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Sentinel Content hub provides access to both solutions, which are content packs for end-to-end product, domain, or industry needs, and are supported either by Microsoft or a partner. For more information, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+The Azure Sentinel Content hub provides access to Azure Sentinel solutions, packed with content for for end-to-end product, domain, or industry needs. This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use.
+
+If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
 
 Solutions can consist of any or all of the following content types:
 

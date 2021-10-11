@@ -1185,7 +1185,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [Lookout Mobile Threat Defense for Azure Sentinel](sentinel-solutions-catalog.md#lookout) |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [Lookout Mobile Threat Defense for Azure Sentinel](sentinel-solutions-catalog.md#lookout) solution |
 | **Log Analytics table(s)** | Lookout_CL |
 | **API credentials** | <li>Lookout Application Key |
 | **Vendor documentation/<br>installation instructions** | <li>[Installation Guide](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (login required)<li>[API Documentation](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (login required)<li>[Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security) |
@@ -1585,7 +1585,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Rapid7 InisghtVM CloudAPI solution](sentinel-solutions-catalog.md#rapid7|
+| **Data ingestion method** | Only available after installing the [Rapid7 InisghtVM CloudAPI solution](sentinel-solutions-catalog.md#rapid7)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
