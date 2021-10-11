@@ -360,8 +360,10 @@
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Kudu service
       href: resources-kudu.md
-    - name: Migration Assistant
-      href: app-service-migration-assistant.md
+    - name: Migrate ASP.NET
+      href: app-service-asp-net-migration.md
+    - name: Migrate Java
+      href: app-service-java-migration.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

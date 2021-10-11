@@ -4574,6 +4574,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-migration-assistant.md",
+      "redirect_url": "/azure/app-service/app-service-asp-net-migration",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
       "redirect_document_id": false
