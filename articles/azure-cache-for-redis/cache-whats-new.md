@@ -5,10 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: reference
-ms.date: 09/28/2020
-
-
-#Customer intent: As a user of Azure Cache for Redis, I want to find out what're the latest changes in the service.
+ms.date: 10/11/2021
 
 ---
 
@@ -16,11 +13,14 @@ ms.date: 09/28/2020
 
 ## October 2021
 
-### Diagnostics
+### Diagnostics for connected clients
 
 Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users will be able to route these logs to a destination of their choice, such as a storage account or event hub.
 
-### Redis update
+For more information, see link.
+
+### Redis Enterprise update
+
 Azure Cache for Redis Enterprise now supports active geo-replication.
 
 - Redis Search Module: Deploy RediSearch with Active-Active
