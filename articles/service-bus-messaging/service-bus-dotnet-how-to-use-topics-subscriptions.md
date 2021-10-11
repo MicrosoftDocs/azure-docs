@@ -31,9 +31,8 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 [!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
 
-
-    > [!IMPORTANT]
-    > Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
+> [!IMPORTANT]
+> Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
 
 ## Send messages to the topic
 This section shows you how to create a .NET Core console application to send messages to a Service Bus topic. 

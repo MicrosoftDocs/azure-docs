@@ -16,18 +16,18 @@
 4. Enter a **name** for the topic. Leave the other options with their default values.
 5. Select **Create**.
 
-    ![Create topic](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" alt-text="Image showing the Create topic page.":::
 
-## Create subscriptions to the topic
+## Create a subscription to the topic
 1. Select the **topic** that you created in the previous section. 
     
-    ![Select topic](./media/service-bus-create-topics-subscriptions-portal/select-topic.png)
-2. On the **Service Bus Topic** page, select **Subscriptions** from the left menu, and then select **+ Subscription** on the toolbar. 
-    
-    ![Add subscription button](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/select-topic.png" alt-text="Image showing the selection of topic from the list of topics.":::
+2. On the **Service Bus Topic** page, select **+ Subscription** on the toolbar. 
+
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png" alt-text="Image showing the Add subscription button.":::    
 3. On the **Create subscription** page, follow these steps:
     1. Enter **S1** for **name** of the subscription.
     1. Enter **3** for **Max delivery count**.
     1. Then, select **Create** to create the subscription. 
 
-        ![Create subscription page](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
+        :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png" alt-text="Image showing the Create subscription page.":::
