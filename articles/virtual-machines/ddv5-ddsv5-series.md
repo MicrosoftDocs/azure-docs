@@ -30,20 +30,22 @@ The new Ddv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2d_v5  | 2  | 8   | 75   | 4  | 19000/120   | 2 | 1000  |
-| Standard_D4d_v5  | 4  | 16  | 150  | 8  | 38500/242   | 2 | 2000  |
-| Standard_D8d_v5  | 8  | 32  | 300  | 16 | 77000/485   | 4 | 4000  |
-| Standard_D16d_v5 | 16 | 64  | 600  | 32 | 154000/968  | 8 | 8000  |
-| Standard_D32d_v5 | 32 | 128 | 1200 | 32 | 308000/1936 | 8 | 16000 |
-| Standard_D48d_v5 | 48 | 192 | 1800 | 32 | 462000/2904 | 8 | 24000 |
-| Standard_D64d_v5 | 64 | 256 | 2400 | 32 | 615000/3872 | 8 | 30000 |
-| Standard_D96d_v5 | 96 | 384 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_D2d_v5<sup>1</sup>  | 2  | 8   | 75   | 4  | 19000/120   | 2 | 1000  |
+| Standard_D4d_v5              | 4  | 16  | 150  | 8  | 38500/242   | 2 | 2000  |
+| Standard_D8d_v5              | 8  | 32  | 300  | 16 | 77000/485   | 4 | 4000  |
+| Standard_D16d_v5             | 16 | 64  | 600  | 32 | 154000/968  | 8 | 8000  |
+| Standard_D32d_v5             | 32 | 128 | 1200 | 32 | 308000/1936 | 8 | 16000 |
+| Standard_D48d_v5             | 48 | 192 | 1800 | 32 | 462000/2904 | 8 | 24000 |
+| Standard_D64d_v5             | 64 | 256 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_D96d_v5             | 96 | 384 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Ddsv5-series
 
@@ -63,15 +65,16 @@ The new Ddsv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v5  | 2  | 8   | 75   | 4  | 38500/242(100)    | 8000/200   | 2 | 2000  |
-| Standard_D4ds_v5  | 4  | 16  | 150  | 8  | 38500/242(100)    | 8000/200   | 2 | 2000  |
-| Standard_D8ds_v5  | 8  | 32  | 300  | 16 | 77000/485(200)    | 16000/400  | 4 | 4000  |
-| Standard_D16ds_v5 | 16 | 64  | 600  | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
-| Standard_D32ds_v5 | 32 | 128 | 1200 | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
-| Standard_D48ds_v5 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 80000/2000 | 8 | 24000 |
-| Standard_D64ds_v5 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
-| Standard_D96ds_v5 | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
+| Standard_D2ds_v5<sup>1</sup>  | 2  | 8   | 75   | 4  | 38500/242(100)    | 8000/200   | 2 | 2000  |
+| Standard_D4ds_v5              | 4  | 16  | 150  | 8  | 38500/242(100)    | 8000/200   | 2 | 2000  |
+| Standard_D8ds_v5              | 8  | 32  | 300  | 16 | 77000/485(200)    | 16000/400  | 4 | 4000  |
+| Standard_D16ds_v5             | 16 | 64  | 600  | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
+| Standard_D32ds_v5             | 32 | 128 | 1200 | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
+| Standard_D48ds_v5             | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 80000/2000 | 8 | 24000 |
+| Standard_D64ds_v5             | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
+| Standard_D96ds_v5             | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

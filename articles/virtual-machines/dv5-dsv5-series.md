@@ -37,14 +37,16 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_D2_v5  | 2  | 8   | Remote Storage Only | 4  | 2 | 1000  |
-| Standard_D4_v5  | 4  | 16  | Remote Storage Only | 8  | 2 | 2000  |
-| Standard_D8_v5  | 8  | 32  | Remote Storage Only | 16 | 4 | 4000  |
-| Standard_D16_v5 | 16 | 64  | Remote Storage Only | 32 | 8 | 8000  |
-| Standard_D32_v5 | 32 | 128 | Remote Storage Only | 32 | 8 | 16000 |
-| Standard_D48_v5 | 48 | 192 | Remote Storage Only | 32 | 8 | 24000 |
-| Standard_D64_v5 | 64 | 256 | Remote Storage Only | 32 | 8 | 30000 |
-| Standard_D96_v5 | 96 | 384 | Remote Storage Only | 32 | 8 | 30000 |
+| Standard_D2_v5<sup>1</sup>  | 2  | 8   | Remote Storage Only | 4  | 2 | 1000  |
+| Standard_D4_v5              | 4  | 16  | Remote Storage Only | 8  | 2 | 2000  |
+| Standard_D8_v5              | 8  | 32  | Remote Storage Only | 16 | 4 | 4000  |
+| Standard_D16_v5             | 16 | 64  | Remote Storage Only | 32 | 8 | 8000  |
+| Standard_D32_v5             | 32 | 128 | Remote Storage Only | 32 | 8 | 16000 |
+| Standard_D48_v5             | 48 | 192 | Remote Storage Only | 32 | 8 | 24000 |
+| Standard_D64_v5             | 64 | 256 | Remote Storage Only | 32 | 8 | 30000 |
+| Standard_D96_v5             | 96 | 384 | Remote Storage Only | 32 | 8 | 30000 |
+
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Dsv5-series
 
@@ -62,15 +64,16 @@ Dsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (IceLake). The
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2s_v5  | 2  | 8   | Remote Storage Only | 4  | 3200/48    | 2 | 1000  |
-| Standard_D4s_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/96    | 2 | 2000  |
-| Standard_D8s_v5  | 8  | 32  | Remote Storage Only | 16 | 12800/192  | 4 | 4000  |
-| Standard_D16s_v5 | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 8 | 8000  |
-| Standard_D32s_v5 | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 | 16000 |
-| Standard_D48s_v5 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 | 24000 |
-| Standard_D64s_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
-| Standard_D96s_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
+| Standard_D2s_v5<sup>1</sup>  | 2  | 8   | Remote Storage Only | 4  | 3200/48    | 2 | 1000  |
+| Standard_D4s_v5              | 4  | 16  | Remote Storage Only | 8  | 6400/96    | 2 | 2000  |
+| Standard_D8s_v5              | 8  | 32  | Remote Storage Only | 16 | 12800/192  | 4 | 4000  |
+| Standard_D16s_v5             | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 8 | 8000  |
+| Standard_D32s_v5             | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 | 16000 |
+| Standard_D48s_v5             | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 | 24000 |
+| Standard_D64s_v5             | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
+| Standard_D96s_v5             | 96 | 384 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
