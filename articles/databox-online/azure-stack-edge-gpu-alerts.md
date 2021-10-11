@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/11/2021
 ms.author: alkohli
 ---
 # Review alerts on Azure Stack Edge
@@ -16,15 +16,29 @@ ms.author: alkohli
 
 This article describes alerts that occur on an Azure Stack Edge devices and steps to take when you receive the alerts. The alerts generate notifications in the Azure portal.
 
-Alerts for a specific feature are raised only if feature exists in that Azure Stack Edge product. For example, on an Azure Stack Edge Pro GPU FPGA device, you won't see alerts for virtual machines and Local Azure Resource Manager.
+Alerts for a feature are raised only if the feature is supported in that Azure Stack Edge product. For example, you won't see virtual machine alerts on an Azure Stack Edge Pro GPU FPGA device, which doesn't support VMs.
 
 <!--> [!NOTE]
 > For information about managing alerts in the Azure portal, see [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). - Convert note to regular text in new "Alerts overview" section.-->
 
+## View device events
+
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+
+You can manage alert notifications in the Azure portal by using action rules. For information, see [Using action rules to manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+
+### Alert severity levels
+
+Alerts have different severity levels, depending on the impact of the alert situation and the need for a response to the alert. The severity levels are:
+
+- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that Azure Stack Edge service is not interrupted.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
+- **Informational** – This alert contains information that can be useful in tracking and managing your system.
+
 
 ## Alerts quick-reference
 
-The following tables list some of the Microsoft Azure Stack Edge alerts that you might encounter, as well as additional information and recommendations where available. Azure Stack Edge device alerts fall into one of the following categories:
+The following tables list some of the Azure Stack Edge alerts that you might run across, with descriptions and recommended actions. The alerts are grouped in the following categories:
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
@@ -224,6 +238,8 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 ### Cluster alerts
 
+**Clustering is in private preview. These alerts will not be included in the initial publication. We may comment out this section until Clustering goes to public preview.**
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |The cluster quorum witness resource is offline. |Critical |Take the following steps:<ol><li>Check the witness resource.</li><li>Start or replace failed nodes on your device.</li></ol> |
@@ -242,16 +258,16 @@ The following tables list some of the Microsoft Azure Stack Edge alerts that you
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
-| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target.--> |
+| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target.--> |
 | Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
-|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target.--> |
 |Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
-|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target: http://aka.ms/vmtroubleshoot.--> |
+|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target.--> |
 
 
 ## Next steps
 
-- [Manage device event alerts](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
-- [View metrics for your Azure Stack Edge device](databox-online/azure-stack-edge-monitor.md#view-metrics).
-- [Use Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor).
+- [Create action rules to manage alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+- [Use metrics charts](azure-stack-edge-monitor.md#view-metrics).
+- [Set up Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
