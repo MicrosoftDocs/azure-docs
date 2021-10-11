@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel content hub catalog  | Microsoft Docs
-description: This article displays and details the currently available Microsoft Sentinel content hub packages.
+title: Azure Sentinel content hub catalog  | Microsoft Docs
+description: This article displays and details the currently available Azure Sentinel content hub packages.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -14,20 +14,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 10/11/2021
 ms.author: bagol
 ---
-# Microsoft Sentinel content hub catalog
+# Azure Sentinel content hub catalog
 
 > [!IMPORTANT]
 >
-> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Microsoft Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Azure Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
+[Azure Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Azure Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
 
-This article lists the built-in, on-demand, Microsoft Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
+This article lists the built-in, on-demand, Azure Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
 
 For more information, see [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md).
+
+## General security solutions
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+<!--|**CyberSecurity Maturity Model Certification** |Workbooks, analytics rules |Compliance |Microsoft |-->
+<!--|**HoneyTokens (Deception Solution for Sentinel)** |Workbooks, analytics rules, watchlists |Security - Threat Protection |Microsoft |-->
+|**Insiders Risk Management** |Workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
+| **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
+|**Zero Trust** (TIC3.0) |Workbooks |Identity, Security - Others |Microsoft |
+| | | | |
 
 <!-- template for new sections>
 |Name    |Includes  |Categories |Supported by  |
@@ -36,24 +47,70 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 | | | | |
 -->
 
+<!-- Coming soon>
+
+## Abnormal Security
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Abnormal Security** |Data connector | Security - Threat protection | |
+| | | | |
+-->
+
+<!-- Coming soon>
+
+## Arista Networks
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Arista Networks** (Awake Security) |Data connector, workbooks, analytics rules | Security - Network | |
+| | | | |
+-->
+
+<!-- Coming soon>
+
+## Armorblox
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Armorblox - Sentinel** |Data connector | Security - Threat protection | |
+| | | | |
+-->
+
+
+
 ## Azure
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+<!-- |**Azure Defender SOC for IoT** | Workbooks, analytics rules, playbooks | Internet of Things (IoT), Security - Threat protection | | -->
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, and hunting queries. |Security - Network Security, Networking | Microsoft|
+|**Azure Sentinel 4 Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
+|**Azure Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Microsoft   |
+|**Azure Sentinel for Teams**     | [Data connector](data-connectors-reference.md#microsoft-teams), analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
 | **Azure Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
-| **Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries, parser  | Application |Microsoft  |
+| **Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries  | Application |Microsoft  |
 | | | | |
+
+<!-- Coming soon>
+
+## BitGlass
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**BitGlass** |Data connector | Security - Network | |
+| | | | |
+-->
 
 ## Box
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-| **Box Solution**| Data connector, workbook, analytics rules, hunting queries, parser |  Storage, application  | Box|
+| **Box Solution**| [Data connector](data-connectors-reference.md#box-preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Box|
 | | | | |
 
 
-## Checkpoint
+## Check Point
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
@@ -63,58 +120,77 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 ## Cisco
 
-<!--add links to data connectors and back-->
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci-preview), parser |Security – Network |Cisco |
+|**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks |Security – Automation (SOAR) |Microsoft |
+|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security-preview), parser | Identity|Cisco |
+|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise-preview), workbooks, analytics rules, playbooks, hunting queries, parser |Networking, Security - Others | Cisco |
+|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki-preview), playbooks |Security - Network |Cisco |
+<!-- | **Cisco Secure Endpoint / Cisco Advanced Malware Protection** | Data connector | Security - Threat protection, Networking | | -->
+|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa-preview), parser |Security - Threat Protection |Cisco |
+|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch-preview), parser |Security - Network | Cisco|
+|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser |Security - Cloud Security |Cisco |
+|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa-preview), parser|Security - Network |Cisco |
+| | | | |
+
+<!-- Coming soon>
+
+## Claroty
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Cisco ACI** |Data connector |Security – Network |Cisco |
-|**Cisco ASA** |Data connector, playbooks |Security – Automation (SOAR) |Cisco |
-|**Cisco Duo Security** |Data connector | Identity|Cisco |
-|**Cisco ISE** |Data connector |Data connector, workbooks, analytics rules, playbooks,hunting queries |Networking, Security - Others | Cisco
-|**Cisco Meraki** |Data connector, playbooks |Security - Network |Cisco |
-|**Cisco SEG / ESA / Cisco Secure Email Gateway** |Data connector |Security - Threat Protection |Cisco |
-|**Cisco StealthWatch** |Data connector |Security - Network | Cisco|
-|**Cisco Umbrella** |Data connector, workbooks, analytics rules, playbooks, hunting queries |Security - Cloud Security |Cisco |
-|**Cisco Web Security Appliance (WSA)** | Data connector|Security - Network |Cisco |
+|**Claroty** |Data connector | Internet of Things (IoT), Security - Others| |
 | | | | |
+-->
 
 ## Cloudflare
 
-<!--add links to data connectors and back-->
+
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Cloudflare Solution**|Data connector, workbooks, analytics rules, hunting queries| Security - Network, networking |Cloudflare |
+| **Cloudflare Solution**|[Data connector](data-connectors-reference.md#cloudflare-preview), workbooks, analytics rules, hunting queries, parser| Security - Network, networking |Cloudflare |
 | | | | |
 
 
 ## Contrast Security
 
-<!--add links to data connectors and back-->
+
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Contrast Protect Azure Sentinel Solution**|Data connector, workbooks, analytics rules |Security - Threat protection |Contrast Security |
+| **Contrast Protect Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#contrast-security-preview), workbooks, analytics rules |Security - Threat protection |Contrast Security |
 | | | | |
 
 ## Crowdstrike
 
-<!--add links to data connectors and back-->
+
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **CrowdStrike Falcon Endpoint Protection Solution**| Data connector, workbooks, analytics rules, playbooks| Security - Threat protection| CrowdStrike|
+| **CrowdStrike Falcon Endpoint Protection Solution**| [Data connector](data-connectors-reference.md#crowdstrike-preview), workbooks, analytics rules, playbooks, parser| Security - Threat protection| CrowdStrike|
 | | | | |
 
 ## Digital Guardian
 
-<!--add links to data connectors and back-->
+
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Digital Guardian** |Data connector |Security - Information Protection |Digital Guardian |
+|**Digital Guardian** |[Data connector](data-connectors-reference.md#digital-guardian-preview), parser |Security - Information Protection |Digital Guardian |
 | | | |
 
+
+<!-- Coming soon>
+
+## Endgame
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Endgame / Elastic agent** |Data connector | Security - Threat protection| |
+| | | | |
+-->
 ## FalconForce
 
 |Name    |Includes  |Categories |Supported by  |
@@ -126,36 +202,47 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**FireEye NX (Network Security)** |Data connector |Security - Network| FireEye|
+|**FireEye NX (Network Security)** |[Data connector](data-connectors-reference.md#fireeye-nx-preview), parser |Security - Network| FireEye|
 | | | |
 
 ## Flare Systems Firework
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Flare Systems Firework** |Data connector |Security - Threat protection | Flare Systems|
+|**Flare Systems Firework** |[Data connector](data-connectors-reference.md#flare-systems-firework-preview) |Security - Threat protection | Flare Systems|
 | | | |
 
 ## Forescout
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Forescout** |Data connector |Security - Network | Forescout|
+|**Forescout** |[Data connector](data-connectors-reference.md#forescout-preview), parser |Security - Network | Forescout|
 | | | |
 
 ## Fortinet Fortigate
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Fortinet Fortigate** |Data connector, playbooks|Security - Automation (SOAR) | Fortinet|
+|**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks|Security - Automation (SOAR) | Fortinet|
 | | | |
+
+<!-- Coming soon>
+
+## GitHub
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**GitHub** |Data connector, workbooks | DevOps| |
+| | | | |
+-->
 ## Google
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Google Cloud Platform DNS Solution** |Data connector |Cloud Provider, Networking |Google |
-| **Google Cloud Platform Cloud Monitoring Solution**|Data connector |Cloud Provider | Google|
-| **Google Cloud Platform Identity and Access Management Solution**|Data connector, workbook, analytics rules, playbooks, hunting queries|Cloud Provider, Identity |Google |
+<!-- | **Google Apigee** | Data connector | DevOps | | -->
+|**Google Cloud Platform DNS Solution** |[Data connector](data-connectors-reference.md#google-cloud-platform-dns-preview), parser |Cloud Provider, Networking |Google |
+| **Google Cloud Platform Cloud Monitoring Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-cloud-monitoring-preview), parser |Cloud Provider | Google|
+| **Google Cloud Platform Identity and Access Management Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-identity-and-access-management-preview), workbook, analytics rules, playbooks, hunting queries, parser|Cloud Provider, Identity |Google |
 | | | | |
 
 ## HYAS
@@ -165,193 +252,254 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 | **HYAS Insight for Azure Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |HYAS |
 | | | | |
 
-## ibos
+<!-- Coming soon>
+
+## Illusive
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**iboss** | | | |
-| | | |
-## Infoblox
+|**Illusive - New Solutions** |Data connector, analytics rules, playbooks  | Security - Threat protection| |
+| | | | |
+-->
+## Imperva
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Infoblox Cloud Data Connector Solution**| Provides built-in, customizable threat detection for [BloxOne DDI](https://www.infoblox.com/products/bloxone-ddi/).| | |
+| **Imperva Cloud WAF** (formally Imperva Incapsula)| [Data connector](data-connectors-reference.md#imperva-waf-gateway-preview), parser| Security - Network | Imperva|
 | | | | |
 
-
-## IronNet CyberSecurity Iron Defense
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**IronNet CyberSecurity Iron Defense** | | | |
-| | | |
-## jamf
+## InfoBlox
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**jamf** | | | |
+| **InfoBlox Threat Defense / InfoBlox Cloud Data Connector**| [Data connector](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), workbook, analytics rules| Security - Threat protection | InfoBlox|
+| | | | |
+
+<!-- Coming soon>
+
+## IPQualityScore
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**IPQualityScore** |Playbooks   | Security - Threat intelligence| |
+| | | | |
+-->
+
+## IronNet
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**IronNet CyberSecurity Iron Defense - Azure Sentinel** | |Security - Network |IronNet |
 | | | |
+
+<!-- Coming soon>
+
+## Ivanti
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Ivanti** |Data connector   | IT Operations, Security - Others| |
+| | | | |
+-->
+
+<!-- Coming soon>
+
+## Jboss
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Jboss** |Data connector   | Platform, Application| |
+| | | | |
+-->
 
 ## Juniper
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Juniper IDP** |Provides built-in, customizable threat detection for [Juniper Intrusion Detection and Prevention](https://www.juniper.net/documentation/us/en/software/junos/idp-policy/topics/topic-map/security-idp-overview.html).| | |
+|**Juniper IDP** |[Data connector](data-connectors-reference.md#juniper-idp-preview), parser|Security - Network |Juniper |
 | | | | |
+
+
+<!-- Coming soon>
+
+## Kaspersky
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Kaspersky AntiVirus** |Data connector   | Security - Threat protection| |
+| | | | |
+-->
+
+## Lookout
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+| **Lookout Mobile Threat Defense for Azure Sentinel**| [Data connector](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|Security - Network |Juniper |
+| | | |
 
 ## McAfee
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **McAfee ePolicy Orchestrator Solution**| Provides built-in, customizable threat detection for the [McAfee ePO](https://www.mcafee.com/enterprise/en-in/products/epolicy-orchestrator.html).| | |
-|**McAfee Network Security Platform Solution** |[McAfee Network Security Platform](https://www.mca.fee.com/enterprise/en-us/products/virtual-network-security-platform.html) | | |
+| **McAfee ePolicy Orchestrator Solution**| [Data connector](data-connectors-reference.md#mcafee-epolicy-orchestrator-preview), workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection| McAfee |
+|**McAfee Network Security Platform Solution** (Intrushield) + AntiVirus Information (T1 minus Logic apps) |[Data connector](data-connectors-reference.md#mcafee-network-security-platform-preview), workbooks, analytics rules, hunting queries, parser |Security - Threat protection | McAfee|
 
-## Microsoft
 
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**Microsoft Sentinel 4 Dynamics 365**     |   Data connector, workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
-|**Microsoft Sentinel for SQL PaaS**     | Provides built-in, customizable threat detection for Azure SQL PaaS, based on SQL Audit logs, and with seamless integration to alerts from Azure Defender for SQL.   <br><br>**Supported by**: Microsoft     |         |         |
-|**Microsoft Sentinel for Teams**     | Provides human and automated analysis for logs and real-time meeting monitoring.   <br><br>**Supported by**: Microsoft      | Analytics rules, hunting queries, and playbooks        |         |
-| | | |
+<!-- Coming soon>
 
-## Mimecast
+## Nucleus Cyber
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Mimecast** | | | |
-| | | |
-## Netscope
+|**Nucleus Cyber NC Protect** (ArchTIS) |Data connector, workbooks   | Security - Information protection| |
+| | | | |
+-->
 
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**NetScope** | | | |
-| | | |
-
-## Nucleus Cyber NC Protect
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**Nucleus Cyber NC Protect** | | | |
-| | | |
-
-## NXlog
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**NXlog** | | | |
-| | | |
 ## Oracle
 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Oracle Database Audit Solution** | Provides built-in, customizable threat detection for the [Oracle Database](https://www.oracle.com/database/technologies/security/db-auditing.html).| | |
+|**Oracle Database Audit Solution** | [Data connector](data-connectors-reference.md#oracle-database-audit), workbook, analytics rules, hunting queries, parser| Application|Oracle |
+<!-- | **Oracle Cloud Infrastructure** |Data connector | Cloud Provider | |  -->
 | | | | |
 
 ## Palo Alto
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Palo Alto Prisma Solution**|Provides built-in, customizable threat detection for [Prisma Cloud](https://www.paloaltonetworks.com/prisma/cloud). | | |
+<!-- | **Palo Alto Cortex** |Data connector | Security - Cloud Security  | |  -->
+| **Palo Alto PAN-OS**|[Data connector](#palo-alto), playbooks |Security - Automation (SOAR), Security - Network |Palo Alto Networks |
+| **Palo Alto Prisma Solution**|[Data connector](#palo-alto), workbooks, analytics rules, hunting queries, parser |Security - Cloud security |Palo Alto Networks |
 | | | | |
 
-## PingFederate
+## Ping Identity
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**PingFederate Solution** |Provides built-in, customizable threat detection for [PingFederate®](https://www.pingidentity.com/en/resources/client-library/data-sheets/pingfederate-data-sheet.html).| | |
+|**PingFederate Solution** |[Data connector](data-connectors-reference.md#ping-identiy), workbooks, analytics rules, hunting queries, parser| Identity|Ping Identity |
 | | | | |
 
 ## Proofpoint
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Proofpoint POD Solution** |Provides built-in, customizable threat detection for [Proofpoint on Demand Email Security](https://www.proofpoint.com/us/products/email-security-and-protection/email-protection).| | |
-|**Proofpoint TAP Solution** | Provides built-in, customizable threat detection for [Proofpoint Targeted Attack Protection (TAP)](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection).| | |
+|**Proofpoint POD Solution** |[Data connector](data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview), workbook, analytics rules, hunting queries, parser| Security - Threat protection|Proofpoint |
+|**Proofpoint TAP Solution** | Workbooks, analytics rules, playbooks|Security - Automation (SOAR), Security - Threat protection |Proofpoint |
 | | | |
 
 ## Qualys
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Qualys VM Solution** |Provides built-in, customizable threat detection for [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/). | | |
+|**Qualys VM Solution** |Workbooks, analytics rules |Security - Vulnerability Management |Qualys |
 | | | | |
 
 ## Rapid7
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Rapid7 InsightVM CloudAPI Solution** |Provides built-in, customizable threat detection for the [Rapid7 Insight platform](https://www.rapid7.com/products/insightvm/). | | |
+|**Rapid7 InsightVM CloudAPI Solution** |[Data connector](data-connectors-reference.md#rapid-7-insight-vm-cloudapi-preview), parser|Security - Vulnerability Management |Rapid7 |
+| | | | |
+
+<!-- Coming soon>
+
+## Recorded Future
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Recorded Future** |Playbooks   | Security - Threat intelligence| |
+| | | | |
+-->
+
+## ReversingLabs
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+| **ReversingLabs TitaniumCloud File Enrichment Solution**|Playbooks |Security - Threat intelligence | |
 | | | | |
 
 ## RiskIQ
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **RiskIQ Security Intelligence Playbooks**|Enriches and adds context to incidents using data from [RiskIQ](https://www.riskiq.com/), including comments that link to further details in RiskIQ's investigative platform. | | |
+| **RiskIQ Security Intelligence Playbooks**|Playbooks |Security - Threat intelligence, Security - Automation (SOAR) |RiskIQ |
 | | | | |
 
-## Riverbed
+## RSA
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Riverbed** | | | |
+|**RSA SecurID** |[Data connector](data-connectors-reference.md#rsa-securid), parser |Security - Others, Identity |RSA |
 | | | |
 
-## Safeguard Cyber
 
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**Safeguard Cyber** | | | |
-| | | |
+<!-- Coming soon>
+
 ## Sailpoint
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Sailpoint** | | | |
-| | | |
+|**Sailpoint** |Data connector, workbooks, analytics rules, playbooks   | Security - Threat protection, Identity| |
+| | | | |
+-->
+
+<!-- Coming soon>
+
+## Snowflake
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Snowflake** |Data connector   | Application | |
+| | | | |
+-->
+
+
 ## SAP
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Continuous Threat Monitoring for SAP**|Provides built-in, customizable threat detection for [SAP environments](sap-deploy-solution.md).| [Data connector, workbooks, automation rules, and watchlists](sap-solution-security-content.md)  | |
+| **Continuous Threat Monitoring for SAP**|[Data connector](sap-deploy-solution.md), [workbooks, analytics rules, watchlists](sap-solution-security-content.md) | Application  |SAP |
 | | | | |
 
-
-## Senserva
+## Semperis
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Senserva Offer for Azure Sentinel** |Provides built-in, customizable threat detection for [Senserva](https://www.senserva.com/product/).|Queries, workbooks, and playbooks | |
+| **Semperis**|[Data connector](data-connectors-reference.md#semperis-preview), workbooks, analytics rules, parser | Security - Threat protection, Identity  |Semperis |
 | | | | |
+
+## Senserva Pro
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Senserva Offer for Azure Sentinel** |[Data connector](data-connectors-reference.md#senserva-pro-preview), workbooks, analytics rules, hunting queries |Compliance |Senserva Pro |
+| | | | |
+
+<!-- Coming soon>
+
+## Sonrai Security
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Sonrai Security - Azure Sentinel** |Data connector, workbooks, analytics rules   | Compliance| |
+| | | | |
+-->
 
 ## Slack
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Slack Audit Solution**| Enables you to ingest [Slack Audit Records](https://api.slack.com/admins/audit-logs) in to Azure Sentinel via REST. For more information see [Slack Audit](https://slack.com) and [API documentation](https://api.slack.com/admins/audit-logs#the_audit_event).| Data connector| |
+| **Slack Audit Solution**| [Data connector](data-connectors-reference.md#slack-audit-preview), workbooks, analytics rules, hunting queries, parser |Application| Slack|
 | | | | |
 
 
-## SlashNext
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**SlashNext** | | | |
-| | | |
-## Sonrai Security
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**Sonrai Security** | | | |
-| | | |
 ## Sophos
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Sophos Endpoint Protection Solution** |Provides built-in, customizable threat detection for [Sophos](https://www.sophos.com/en-us/company.aspx). | | |
-| **Sophos XG Firewall Solution**| Provides built-in, customizable threat detection for [Sophos](https://www.sophos.com/en-us/company.aspx). | | |
+|**Sophos Endpoint Protection Solution** |[Data connector](data-connectors-reference.md#sophos-endpoint-protection-preview), parser| Security - Threat protection |Sophos |
+| **Sophos XG Firewall Solution**| Workbooks, analytics rules, parser |Security - Network |Sophos |
 | | | | |
 
 
@@ -359,24 +507,33 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Symantec Endpoint Protection Solution**|Provides built-in, customizable threat detection for [Symantec Endpoint Protection](https://www.broadcom.com/products/cyber-security/endpoint).| | |
-| **Symantec ProxySG  Solution**|Provides built-in, customizable threat detection for [Symantec Secure Web Gateway](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway).| | |
+| **Symantec Endpoint**|[Data connector](data-connectors-reference.md#symantec-endpoint-preview), workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Symantec |
+| **Symantec ProxySG  Solution**|Workbooks, analytics rules |Security - Network |Symantec |
 | | | | |
 
-
-## ReversingLabs
+## Tenable
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **ReversingLabs TitaniumCloud File Enrichment Solution**|Provides built-in, customizable threat detection for [ReversingLabs TitaniumCloud](https://www.reversinglabs.com/products/file-reputation-service). <br><br>For more information, see [ReversingLabs TitaniumCloud](threat-intelligence-integration.md#reversinglabs-titaniumcloud) threat intelligence. |Playbooks | |
+|**Tenable Nessus Scanner / IO VM reports for cloud**  | [Data connector](data-connectors-reference.md#tenable-preview), parser| Security - Vulnerability Management| Tenable |
 | | | | |
 
+<!-- Coming soon>
 
-## TrendMicro
+## The Hive
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Trend Micro Apex One Solution**  | Provides built-in, customizable threat detection for [Trend Micro Apex One](https://www.trendmicro.com/en_us/business/products/user-protection/sps/endpoint.html).| | |
+|**The Hive** |Data connector   | Application| |
+| | | | |
+-->
+
+## Trend Micro
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Trend Micro Apex One Solution**  | [Data connector](data-connectors-reference.md#trend-micro-apex-one-preview), hunting queries, parser| Security - Threat protection|TrendMicro |
+<!-- | **Trend Micro CAS** | Data connector | Security - Threat Protection | | -->
 | | | | |
 
 
@@ -385,7 +542,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Ubiquiti UniFi Solution**|Provides built-in, customizable threat detection for [Ubiquiti Inc.](https://www.ui.com/) services. | | |
+| **Ubiquiti UniFi Solution**|[Data connector](data-connectors-reference.md#ubiquti-unifi-preview), workbooks, analytics rules, hunting queries, parser |Security - Network |Ubiquiti |
 | | | | |
 
 
@@ -393,21 +550,49 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **vArmour Application Controller and Azure Sentinel Solution**|Provides built-in, customizable threat detection for [vArmour Application Controller](https://www.varmour.com/). | | |
+| **vArmour Application Controller and Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#varmour-preview), workbook, analytics rules |IT Operations |vArmour |
 | | | | |
+
+## Vectra
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Vectra Stream Solution** |[Data connector](data-connectors-reference.md#vectra-stream-preview), hunting queries, parser |Security - Network |Vectra AI |
+| | | |
+
+<!-- Coming soon>
 
 ## VMRay
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**VMRay** | | | |
-| | | |
+|**VMRay - Azure Sentinel** |Data connector  | Security - Threat protection| |
+| | | | |
+-->
+
 ## VMWare
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **VMware Carbon Black Solution**|Provides built-in, customizable threat detection for [VMware Carbon Black](https://www.carbonblack.com/products/vmware-carbon-black-cloud-endpoint/).| | |
+| **VMware Carbon Black Solution**|Workbooks, analytics rules| Security - Threat protection| VMWare|
 | | | | |
+
+## Zeek Network
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network-preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | |
+| | | | |
+
+<!-- Coming soon>
+
+## ZeroFOX
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**ZeroFOX** |Data connector   | Security - Threat protection| |
+| | | | |
+-->
 
 ## Next steps
 
