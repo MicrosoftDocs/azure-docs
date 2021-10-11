@@ -64,7 +64,7 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC processors that can achieve a bo
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|
 | Standard_E2ads_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9000 / 125 (50)      | 3750/82      | 2 | 2000  |
 | Standard_E4ads_v5<sup>2</sup>   | 4  | 32  | 150  | 8  | 19000 / 250 (100)    | 6400/144     | 2 | 4000  |
 | Standard_E8ads_v5<sup>2</sup>   | 8  | 64  | 300  | 16 | 38000 / 500 (200)    | 12800/200    | 4 | 8000  |
