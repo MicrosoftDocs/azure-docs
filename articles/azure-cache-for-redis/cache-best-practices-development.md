@@ -38,13 +38,13 @@ This request/response is a difficult one to measure. You could instrument your c
 
 Resolutions for large response sizes are varied but include:
 
-1. Optimize your application for a large number of small values, rather than a few large values.
+- Optimize your application for a large number of small values, rather than a few large values.
     - The preferred solution is to break up your data into related smaller values.
     - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
-1. Increase the size of your VM to get higher bandwidth capabilities
+- Increase the size of your VM to get higher bandwidth capabilities
     - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
     - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
-1. Increase the number of connection objects your application uses.
+- Increase the number of connection objects your application uses.
     - Use a round-robin approach to make requests over different connection objects.
 
 ## Key distribution
