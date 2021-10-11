@@ -130,6 +130,15 @@ Content in the Azure Sentinel content hub is applied with one or more of the fol
    :::column-end:::
 :::row-end:::
 
+## Solution support
+
+Both Microsoft and other organizations author Azure Sentinel solutions. Each solution has one of the following support types:
+
+| Support type| Description|
+|-------------|------------|
+|**Microsoft-supported**|Applies to:<ul><li>Solutions where Microsoft is the data provider, where relevant, and author.</li><li>Some Microsoft-authored solutions for non-Microsoft data sources.</li></ul>Microsoft supports and maintains solutions in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support solutions that are authored by any party other than Microsoft.|
+|**Partner-supported**|Applies to solutions authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that solution.<br><br>For any issues with a partner-supported solution, contact the specified solution support contact.|
+|**Community-supported**|Applies to solutions authored by Microsoft or partner developers that don't have listed contacts for solution support and maintenance on the specified solution page in Azure Sentinel.<br><br>For questions or issues with these solutions, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
 
 

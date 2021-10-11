@@ -110,7 +110,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-| **Box Solution**| [Data connector](data-connectors-reference.md#box-preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
+| **Box Solution**| [Data connector](data-connectors-reference.md#box--preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
 | | | | |
 
 
@@ -126,15 +126,15 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci-preview), parser |Security – Network |Microsoft |
+|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci--preview), parser |Security – Network |Microsoft |
 |**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks |Security – Automation (SOAR) |Microsoft |
-|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security-preview), parser | Identity|Microsoft |
-|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise-preview), workbooks, analytics rules, playbooks, hunting queries, parser |Networking, Security - Others | Microsoft |
-|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki-preview), playbooks |Security - Network |Microsoft |
-|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa-preview), parser |Security - Threat Protection |Microsoft |
-|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch-preview), parser |Security - Network | Microsoft|
-|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser |Security - Cloud Security |Microsoft |
-|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa-preview), parser|Security - Network |Microsoft |
+|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security--preview), parser | Identity|Microsoft |
+|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise--preview), workbooks, analytics rules, playbooks, hunting queries, parser |Networking, Security - Others | Microsoft |
+|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki--preview), playbooks |Security - Network |Microsoft |
+|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa--preview), parser |Security - Threat Protection |Microsoft |
+|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch--preview), parser |Security - Network | Microsoft|
+|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella--preview), workbooks, analytics rules, playbooks, hunting queries, parser |Security - Cloud Security |Microsoft |
+|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa--preview), parser|Security - Network |Microsoft |
 | | | | |
 
 <!-- | **Cisco Secure Endpoint / Cisco Advanced Malware Protection** | Data connector | Security - Threat protection, Networking | | -->
@@ -166,7 +166,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Contrast Protect Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#contrast-security-preview), workbooks, analytics rules |Security - Threat protection |Partner |
+| **Contrast Protect Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#contrast-security-preview), workbooks, analytics rules |Security - Threat protection |Contrast Security |
 | | | | |
 
 ## Crowdstrike
@@ -201,7 +201,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**FalconFriday Content | Falcon Friday** |Analytics rules |User Behavior (UEBA), Security - Insider threat | Partner|
+|**FalconFriday Content - Falcon Friday** |Analytics rules |User Behavior (UEBA), Security - Insider threat | FalconForce|
 | | | |
 
 ## FireEye NX (Network Security)
@@ -215,7 +215,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Flare Systems Firework** |[Data connector](data-connectors-reference.md#flare-systems-firework-preview) |Security - Threat protection | Partner|
+|**Flare Systems Firework** |[Data connector](data-connectors-reference.md#flare-systems-firework-preview) |Security - Threat protection | Flare Systems|
 | | | |
 
 ## Forescout
@@ -256,7 +256,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **HYAS Insight for Azure Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |Partner |
+| **HYAS Insight for Azure Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |HYAS |
 | | | | |
 
 <!-- Coming soon>
@@ -279,7 +279,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **InfoBlox Threat Defense / InfoBlox Cloud Data Connector**| [Data connector](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), workbook, analytics rules| Security - Threat protection | Partner|
+| **InfoBlox Threat Defense / InfoBlox Cloud Data Connector**| [Data connector](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), workbook, analytics rules| Security - Threat protection | InfoBlox|
 | | | | |
 
 <!-- Coming soon>
@@ -296,7 +296,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**IronNet CyberSecurity Iron Defense - Azure Sentinel** | |Security - Network |Partner |
+|**IronNet CyberSecurity Iron Defense - Azure Sentinel** | |Security - Network |IronNet |
 | | | |
 
 <!-- Coming soon>
@@ -423,14 +423,14 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **ReversingLabs TitaniumCloud File Enrichment Solution**|Playbooks |Security - Threat intelligence |Partner |
+| **ReversingLabs TitaniumCloud File Enrichment Solution**|Playbooks |Security - Threat intelligence |ReversingLabs |
 | | | | |
 
 ## RiskIQ
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **RiskIQ Security Intelligence Playbooks**|Playbooks |Security - Threat intelligence, Security - Automation (SOAR) |Partner |
+| **RiskIQ Security Intelligence Playbooks**|Playbooks |Security - Threat intelligence, Security - Automation (SOAR) |RiskIQ |
 | | | | |
 
 ## RSA
@@ -473,14 +473,14 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Semperis**|[Data connector](data-connectors-reference.md#semperis-preview), workbooks, analytics rules, parser | Security - Threat protection, Identity  |Partner |
+| **Semperis**|[Data connector](data-connectors-reference.md#semperis-preview), workbooks, analytics rules, parser | Security - Threat protection, Identity  |Semperis |
 | | | | |
 
 ## Senserva Pro
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Senserva Offer for Azure Sentinel** |[Data connector](data-connectors-reference.md#senserva-pro-preview), workbooks, analytics rules, hunting queries |Compliance |Partner |
+|**Senserva Offer for Azure Sentinel** |[Data connector](data-connectors-reference.md#senserva-pro-preview), workbooks, analytics rules, hunting queries |Compliance |Senserva Pro |
 | | | | |
 
 <!-- Coming soon>
@@ -558,7 +558,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **vArmour Application Controller and Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#varmour-preview), workbook, analytics rules |IT Operations |Partner |
+| **vArmour Application Controller and Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#varmour-preview), workbook, analytics rules |IT Operations |vArmour |
 | | | | |
 
 ## Vectra
@@ -589,7 +589,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network-preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Partner|
+| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network--preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Zeek Network|
 | | | | |
 
 <!-- Coming soon>

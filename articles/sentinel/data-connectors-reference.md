@@ -1679,15 +1679,6 @@ Follow the instructions to obtain the credentials.
 1. Select **SAVE**
 1. Save credentials of the new user for using in the data connector.
 
-## Senserva Pro (Preview)
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | Only available after installing the [Senserva Pro solution](sentinel-solutions-catalog.md#senserva-pro)|
-| **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
-| **Supported by** | Microsoft |
-| | |
 
 
 ## Slack Audit (Preview)
@@ -1841,7 +1832,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Trend Micro Apex One solution](sentinel-solutions-catalog.md#trend-micr)|
+| **Data ingestion method** | Only available after installing the [Trend Micro Apex One solution](sentinel-solutions-catalog.md#trend-micro)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
@@ -2016,7 +2007,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Corelight for Azure Sentinel solution](sentinel-solutions-catalog.md#zeek)|
+| **Data ingestion method** | Only available after installing the [Corelight for Azure Sentinel solution](sentinel-solutions-catalog.md#zeek-network)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
