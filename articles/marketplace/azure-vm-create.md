@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/27/2021
+ms.date: 10/15/2021
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -77,16 +77,18 @@ Select **Create** to generate the offer and continue. Partner Center opens the *
 
 ## Test drive (optional)
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads.
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box. You will configure the test drive later. With test drive, configuring a CRM is required (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box; this will enable test drive options in the left-nav menu. You will configure the test drive on those pages later.
+
+With test drive, configuring a CRM for customer leads is required (see next section). To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
-[!INCLUDE [Customer leads](includes/customer-leads.md)] 
+[!INCLUDE [Customer leads](includes/customer-leads.md)]
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
