@@ -30,7 +30,20 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2021
 
+- [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
+
+### Manage template versions for your scheduled analytics rules (Public preview)
+
+When you create analytics rules from [built-in Azure Sentinel rule templates](detect-threats-built-in.md), you effectively create a copy of the template. Past that point, the active rule is ***not*** dynamically updated to match any changes that get made to the originating template.
+
+However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
+
+- If you made changes to a rule when creating it from a template (or at any time after that), you can always revert the rule back to its original version (as a copy of the template).
+
+- You can get notified when a template is updated, and you'll have the choice to update your rules to the new version of their templates or leave them as they are.
+
+[Learn how to manage these tasks](manage-analytics-rule-templates.md), and what to keep in mind. These procedures apply to any [Scheduled](detect-threats-built-in.md#scheduled) analytics rules created from templates.
 
 ### DHCP normalization schema (Public preview)
 
