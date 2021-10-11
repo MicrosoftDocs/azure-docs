@@ -106,9 +106,9 @@
     items:
     - name: Prerequisites Azure VM Extension for SAP
       href: vm-extension-for-sap.md
-    - name: Standard Version of Azure VM Extension for SAP
+    - name: Standard version of Azure VM Extension for SAP
       href: vm-extension-for-sap-std.md
-    - name: New Version of Azure VM Extension for SAP
+    - name: New version of Azure VM Extension for SAP
       href: vm-extension-for-sap-new.md
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md

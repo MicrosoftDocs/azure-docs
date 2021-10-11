@@ -19,20 +19,20 @@ ms.author: oldoll
 
 # Standard Version of Azure VM extension for SAP solutions
 [new-extension]:vm-extension-for-sap-new.md (New Version of Azure VM extension for SAP solutions)
-[configure-windows]:vm-extension-for-sap-std.md#cb095b34-51c9-41f3-aeed-30a16072a1dc (Configure the Azure VM extension for SAP solutions with PowerShell)
-[configure-linux]:vm-extension-for-sap-std.md#c691e304-3524-4bfd-8612-992d5715a689 (Configure the Azure VM extension for SAP solutions with Azure CLI)
+[configure-windows]:vm-extension-for-sap-standard.md#cb095b34-51c9-41f3-aeed-30a16072a1dc (Configure the Azure VM extension for SAP solutions with PowerShell)
+[configure-linux]:vm-extension-for-sap-standard.md#c691e304-3524-4bfd-8612-992d5715a689 (Configure the Azure VM extension for SAP solutions with Azure CLI)
 [configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d 
-[troubleshoot-windows]:vm-extension-for-sap-std.md#f566b77e-5427-451b-b4ca-6b93114d51e8 (Troubleshooting for Windows)
-[troubleshoot-linux]:vm-extension-for-sap-std.md#a4dae567-e7fd-4d4b-8279-510b8e5fae4a (Troubleshooting for Linux)
-[healthcheck]:vm-extension-for-sap-std.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
-[deployment-guide-4.1]:vm-extension-for-sap-std.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
-[deploy-cli]:vm-extension-for-sap-std.md#1ded9453-1330-442a-86ea-e0fd8ae8cab3 (Deploying Azure CLI)
+[troubleshoot-windows]:vm-extension-for-sap-standard.md#f566b77e-5427-451b-b4ca-6b93114d51e8 (Troubleshooting for Windows)
+[troubleshoot-linux]:vm-extension-for-sap-standard.md#a4dae567-e7fd-4d4b-8279-510b8e5fae4a (Troubleshooting for Linux)
+[healthcheck]:vm-extension-for-sap-standard.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
+[deployment-guide-4.1]:vm-extension-for-sap-standard.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
+[deploy-cli]:vm-extension-for-sap-standard.md#1ded9453-1330-442a-86ea-e0fd8ae8cab3 (Deploying Azure CLI)
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-1100]:media/virtual-machines-shared-sap-deployment-guide/1100-azperflib.png
 [azure-cli-2]:/cli/azure/install-azure-cli
 [msdn-set-Azvmaemextension]:/powershell/module/az.compute/set-azvmaemextension
 [deployment-guide-figure-900]:media/virtual-machines-shared-sap-deployment-guide/900-cmd-update-executed.png
-[readiness-check]:vm-extension-for-sap-std.md#6b2561a0-b476-4579-847d-6c68117eb26e (Readiness check)
+[readiness-check]:vm-extension-for-sap-standard.md#6b2561a0-b476-4579-847d-6c68117eb26e (Readiness check)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [deployment-guide-figure-1300]:media/virtual-machines-shared-sap-deployment-guide/1300-cmd-test-executed.png
@@ -40,10 +40,10 @@ ms.author: oldoll
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[deployment-guide-contact-support]:vm-extension-for-sap-std.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Troubleshooting Azure Extension for SAP - Contact Support)
-[deployment-guide-run-the-script]:vm-extension-for-sap-std.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Troubleshooting Azure Extension for SAP - Run the setup script)
-[deployment-guide-redeploy-after-sysprep]:vm-extension-for-sap-std.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Troubleshooting Azure Extension for SAP - Redeploy after sysprep)
-[deployment-guide-fix-internet-connection]:vm-extension-for-sap-std.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Troubleshooting Azure Extension for SAP - Fix internet connection)
+[deployment-guide-contact-support]:vm-extension-for-sap-standard.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Troubleshooting Azure Extension for SAP - Contact Support)
+[deployment-guide-run-the-script]:vm-extension-for-sap-standard.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Troubleshooting Azure Extension for SAP - Run the setup script)
+[deployment-guide-redeploy-after-sysprep]:vm-extension-for-sap-standard.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Troubleshooting Azure Extension for SAP - Redeploy after sysprep)
+[deployment-guide-fix-internet-connection]:vm-extension-for-sap-standard.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Troubleshooting Azure Extension for SAP - Fix internet connection)
 
 
 
@@ -152,7 +152,7 @@ To install the Azure VM Extension for SAP by using Azure CLI:
    ...
    ```
 
-## Update the configuration of Azure Extension for SAP
+## Update the configuration of Azure extension for SAP
 
 Update the configuration of Azure Extension for SAP in any of the following scenarios:
 * The joint Microsoft/SAP team extends the capabilities of the VM extension and requests more or fewer counters.
@@ -163,7 +163,7 @@ Update the configuration of Azure Extension for SAP in any of the following scen
 
 To update settings, update configuration of Azure Extension for SAP by following the steps in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows].
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and troubleshooting
 
 After you have deployed your Azure VM and set up the relevant Azure Extension for SAP, check whether all the components of the extension are working as expected.
 
@@ -391,7 +391,7 @@ For a complete and up-to-date list of known issues, see SAP Note [1999351], whic
 
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows]. You might have to wait for an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
-## Azure Extension Error Codes
+## Azure extension error codes
 
 | Error ID | Error description | Solution |
 |---|---|---|
@@ -434,7 +434,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 | <a name="cfg_033"></a>cfg/033 | One of the metric providers failed. | [run setup script][deployment-guide-run-the-script] |
 | <a name="str_034"></a>str/034 | Provider thread failed. | [contact support][deployment-guide-contact-support] |
 
-### Detailed Guidelines on Solutions Provided
+### Detailed guidelines on solutions provided
 
 #### <a name="0d2847ad-865d-4a4c-a405-f9b7baaa00c7"></a>Run the setup script
 

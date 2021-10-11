@@ -21,7 +21,7 @@ ms.author: oldoll
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[std-extension]:vm-extension-for-sap-std.md (Standard Version of Azure VM extension for SAP solutions)
+[std-extension]:vm-extension-for-sap-standard.md (Standard Version of Azure VM extension for SAP solutions)
 [configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (Configure the New Azure VM extension for SAP solutions with PowerShell)
 [troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Troubleshooting for Windows)
 [troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Troubleshooting for Linux)
@@ -267,7 +267,7 @@ For a complete and up-to-date list of known issues, see SAP Note [1999351], whic
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure-windows]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
 
 
-## Azure Extension Error Codes
+## Azure extension error codes
  
 All error IDs have a unique tag in the form of a-#, where # is a number. It allows a fast search for a specific error and possible solutions.
  
