@@ -38,7 +38,7 @@ Automated ML supports model training for computer vision tasks like image classi
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
-    > Only Python 3.7 is compatible with automated ML support for computer vision tasks. 
+    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
 
 ## Select your task type
 Automated ML for images supports the following task types:
@@ -302,14 +302,15 @@ automl_image_config_yolov5 = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETEC
                                                compute_target=compute_target,
                                                training_data=training_dataset,
                                                validation_data=validation_dataset,
-                                               hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}))
+                                               hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}),
+                                               iterations=1)
 ```
 
 Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparamter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
-This is an optional parameter to specify the metric to be used for model optimization and hyperparameter tuning. Using other primary metric values is currently not supported. Default values depend on the task type.
+The primary metric used for model optimization and hyperparameter tuning depends on the task type. Using other primary metric values is currently not supported. 
 
 * `accuracy` for IMAGE_CLASSIFICATION
 * `iou` for IMAGE_CLASSIFICATION_MULTILABEL
@@ -339,7 +340,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 
 ### Early termination policies
 
-You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the `policy` parameter. If no termination policy is specified, all configurations are run to completion.
+You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the `early_termination_policy` parameter. If no termination policy is specified, all configurations are run to completion.
 
 * [Bandit policy](how-to-tune-hyperparameters.md#bandit-policy)
 * [Median stopping policy](how-to-tune-hyperparameters.md#median-stopping-policy)
@@ -353,7 +354,7 @@ You can control the resources spent on your hyperparameter sweep by specifying t
 
 Parameter | Detail
 -----|----
-`iterations` |  Maximum number of configurations to sweep. Must be an integer between 1 and 1000.
+`iterations` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parametr to 1.
 `max_concurrent_iterations`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 ### Arguments
