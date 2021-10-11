@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 09/29/2021
+ms.date: 10/04/2021
 ---
 # FAQs About Azure NetApp Files
 
@@ -70,10 +70,6 @@ Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
 Yes, you can configure up to five rules in a single NFS export policy.
-
-### Does Azure NetApp Files support Network Security Groups?
-
-No, currently you cannot apply Network Security Groups to the delegated subnet of Azure NetApp Files or the network interfaces created by the service.
 
 ### Can I use Azure RBAC with Azure NetApp Files?
 

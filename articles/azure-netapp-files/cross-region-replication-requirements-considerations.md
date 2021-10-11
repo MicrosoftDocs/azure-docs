@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/07/2021
 ms.author: b-juche
 ---
 
@@ -29,7 +29,7 @@ Note the following requirements and considerations about [using the volume cross
 * The destination account must be in a different region from the source volume region. You can also select an existing NetApp account in a different region.  
 * The replication destination volume is read-only until you [fail over to the destination region](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) to enable the destination volume for read and write. 
 * Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
-* You can set up a maximum of five volumes for replication within a single subscription per region. You can open a support ticket to request for an increase in the default quota of five replication destination volumes (per subscription in a region). 
+* See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-region replication destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region).
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
 * Cascading and fan in/out topologies are not supported.
 * Configuring volume replication for source volumes created from snapshot is not supported at this time.

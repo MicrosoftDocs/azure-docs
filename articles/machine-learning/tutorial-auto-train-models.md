@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: AutoML- train regression model'
+title: 'Tutorial: AutoML-train regression model'
 titleSuffix: Azure Machine Learning
 description: Train a regression model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac

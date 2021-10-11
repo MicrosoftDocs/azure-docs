@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
@@ -107,7 +107,7 @@ In this article you learn how to secure the following training compute resources
     * If you plan to use the __SDK__, the storage account can be in a different subnet.
 
     > [!NOTE]
-    > Selecting the checkbox for "Allow trusted Microsoft services to access this account" is not sufficient to allow communication from the compute.
+    > Adding a resource instance for your workspace or selecting the checkbox for "Allow trusted Microsoft services to access this account" is not sufficient to allow communication from the compute.
 
 * When your workspace uses a private endpoint, the compute instance can only be accessed from inside the virtual network. If you use a custom DNS or hosts file, add an entry for `<instance-name>.<region>.instances.azureml.ms`. Map this entry to the private IP address of the workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md) article.
 * Virtual network service endpoint policies don't work for compute cluster/instance system storage accounts.

@@ -107,7 +107,9 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts are not supported.
 
-* For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store is not supported at this time.
+* Azure Synapse Link and periodic backup mode can coexist in the same database account. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. 
+
+* Azure Synapse Link and continuous backup mode can't coexist in the same database account. Currently database accounts with Synapse Link enabled can't use continuous backup mode and vice-versa.
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account did not exist.
 
