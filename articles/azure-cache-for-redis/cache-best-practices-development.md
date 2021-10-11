@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
 ---
 
