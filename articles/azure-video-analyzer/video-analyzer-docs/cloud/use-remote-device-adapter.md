@@ -72,7 +72,7 @@ In Azure Portal:
 
 ```
  {
-   "@apiVersion" : "1.0",
+   "@apiVersion" : "1.1",
    "name": "remoteDeviceAdapterCamera1",
    "properties": {
      "target": {
