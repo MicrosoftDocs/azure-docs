@@ -67,7 +67,7 @@ Some alerts are triggered by more than one event type. If the events have differ
 
 ### Edge compute alerts
 
-The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-FPGA).  
+The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga).  
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
