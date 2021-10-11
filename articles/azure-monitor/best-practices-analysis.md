@@ -17,11 +17,11 @@ The following sections describe Azure Monitor features that provide analysis of 
 ### Overview page
 Most Azure services will have an **Overview** page in the Azure portal that includes a **Monitor** section with charts showing recent charts for critical metrics. This is intended for owners of individual services to quickly assess the performance of the resource. Since this page is based on platform metrics that are collected automatically, there's no configuration required for this feature.
 
-## Metrics explorer
+### Metrics explorer
 Metrics explorer allows users to interactively work with metric data and create metric alerts. Most users will be able to use metrics explorer with minimal training but must be familiar with the metrics they want to analyze. There's no configuration required for this feature once data collection has been configured. Platform metrics for Azure resources will automatically be available. Guest metrics for virtual machines will be available when Azure Monitor agent has been deployed to them, and application metrics will be available when Application Insights has been configured.
 
 
-## Log Analytics
+### Log Analytics
 Log Analytics allows users to create log queries to interactively work with log data and create log query alerts. There is some training required for users to become familiar with the query language, although they can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. This allows users who are familiar with the query language to build queries for others in the organization.
 
 
