@@ -28,12 +28,12 @@ Spatial Analysis is an AI service that helps organizations maximize the value of
 The core operations of Spatial Analysis are built on a system that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
 
 ### People Counting
-Count the number of people in a designated area over time using PersonCount.  
+Count the number of people in a designated zone over time using the PersonCount operation. This operation works for a zone within a single cameras field of view. It generates an independent count for each frame processed without attempting to track people across frames.
 
 ![count](https://user-images.githubusercontent.com/11428131/136633993-0fa00c08-4ca7-436f-9b82-4a4f1ef5fb0e.gif)
 
 ### Enter/Exit Spaces
-Monitor how long people stay in an area or when the enter and exit.
+Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more. 
 
 ![space](https://user-images.githubusercontent.com/11428131/136633984-2fb7295c-cca8-4ab2-acff-25a85d833db0.gif)
 
