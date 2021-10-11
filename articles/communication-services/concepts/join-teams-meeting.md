@@ -33,6 +33,13 @@ During a meeting, Communication Services users will be able to use core audio, v
 
 Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. 
 
+Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
+
+## Privacy
+Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
+
+Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
+
 ## Current limitations and known issues
 
 - A BYOI user may join a Teams meeting that is scheduled for a Teams channel, but they will not be able to send or receive any chat messages, since they are not members of the channel.
