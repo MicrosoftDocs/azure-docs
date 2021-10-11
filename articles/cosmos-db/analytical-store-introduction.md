@@ -160,7 +160,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
    * Change your data model in advance to avoid these characters.
    * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
    * Use Change Feed to create a materialized view of your container without these characters in properties names.
-   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loadind data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
+   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loading data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
 
 ```Python
 df = spark.read\
