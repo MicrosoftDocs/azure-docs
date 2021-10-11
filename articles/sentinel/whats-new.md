@@ -51,7 +51,7 @@ Azure Sentinel now provides a Content Hub, a centralized location to find and de
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
-:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub.":::
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
 
 Newly supported solutions include the following, and more:
 
@@ -62,23 +62,23 @@ Newly supported solutions include the following, and more:
       - Cisco Duo Security
       - Cisco Meraki
       - Cisco StealthWatch
+      - Digital Guardian
    :::column-end:::
    :::column span="":::
-      - Digital Guardian
       - 365 Dynamics
       - FalconForce
       - FireEye NX
       - Flare Systems Firework
-   :::column-end:::
-   :::column span="":::
       - Forescout
       - Fortinet Fortigate
+   :::column-end:::
+   :::column span="":::
       - Imperva Cloud FAW
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
+      - Lookout
    :::column-end:::
    :::column span="":::
-      - Lookout
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
       - Rapid7 Nexpose
