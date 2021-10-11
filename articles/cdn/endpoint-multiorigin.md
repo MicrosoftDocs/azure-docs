@@ -1,5 +1,5 @@
 ---
-title: 'Azure CDN endpoint multi-origin (Preview)' 
+title: 'Azure CDN endpoint multi-origin' 
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
 author: asudbring
@@ -17,6 +17,8 @@ Multi-origin support eliminates downtime and establishes global redundancy.
 By choosing multiple origins within an Azure CDN endpoint, the redundancy provided spreads the risk by probing the health of each origin and failing over if necessary.
 
 Setup one or more origin groups and choose a default origin group. Each origin group is a collection of one or more origins that can take similar workloads.
+
+The first origin group is set as the default origin group. Multi-origin feature is enabled when a default origin group for the CDN endpoint is selected. Once the multi-origin feature is enabled, it can't be disabled and the default origin group can't be deleted. The default origin group is used for routing requests to the origin. You'e allowed to update the origin group configuration and switch to a single origin configuration. You're also allowed to change the default origin group designation to another origin group.
 
 > [!NOTE]
 > Currently this feature is only available from Azure CDN from Microsoft. 
