@@ -76,13 +76,13 @@ Virtual Machine and Azure Application offers are a good fit if you want customer
 
 ### Usage-based and subscription pricing
 
-When publishing an offer as a usage-based or subscription transaction, Microsoft provides the technology and services to process software license purchases, returns, and charge-backs. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction. The publisher, retain your designation as the seller, provider, distributor, and licensor.
+When publishing an offer as a usage-based or subscription transaction, Microsoft provides the technology and services to process software license purchases, returns, and charge-backs. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction. The publisher, however, retains the designation as the seller, provider, distributor, and licensor.
 
 Microsoft enables customers to order, license, and use your software, subject to the terms and conditions of both Microsoft's commercial marketplace and your end-user licensing agreement. You must either provide your own end-user licensing agreement or select the [Standard Contract](./standard-contract.md) when creating the offer.
 
 ### Free software trials
 
-For transact publishing scenarios, you can make a software license available free for 30 to 120 days, depending on the subscription. Customers will be changed for applicable Azure infrastructure usage.
+For transact publishing scenarios, you can make a software license available free for 30 to 120 days, depending on the subscription. Customers will be charged for applicable Azure infrastructure usage.
 
 ### Examples of pricing and store fees
 
@@ -196,7 +196,7 @@ The ability to transact through Microsoft is available for the following commerc
 
 You can create a private plan for an offer, complete with negotiated, deal-specific pricing, or custom configurations.
 
-Private plans enable you to provide higher or lower pricing to specific customers than the publicly available offering. Private plans can be used to discount or add a premium to an offer. Private plans can be made available to one or more customers by listing their Azure subscription at the plan-level.
+Private plans enable you to provide higher or lower pricing to specific customers than the publicly available offer. Private plans can be used to discount or add a premium to an offer. Private plans can be made available to one or more customers by listing their Azure subscription at the plan-level.
 
 ## Next steps
 
