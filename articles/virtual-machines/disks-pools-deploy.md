@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 11/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -59,7 +59,7 @@ For more information on subnet delegation, see [Add or remove a subnet delegatio
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
 - The **StoragePool** resource provider must have been assigned an RBAC role that contains **Read** and **Write** permissions for every managed disk in the disk pool.
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
+- Must be either a premium SSD, standard SSD, or an ultra disk in the same availability zone as the disk pool.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 
@@ -93,7 +93,7 @@ For optimal performance, deploy the disk pool in the same Availability Zone of y
 
 To add a disk, it must meet the following requirements:
 
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
+- Must be either a premium SSD, standard SSD, or an ultra disk in the same availability zone as the disk pool.
     - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
