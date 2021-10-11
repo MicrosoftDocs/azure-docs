@@ -150,7 +150,11 @@ items:
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
-    href: concepts/teams-interop.md
+    items:
+      - name: Teams interoperability overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Service Events (EventGrid)
     href: ../event-grid/event-schema-communication-services.md
     maintainContext: true
