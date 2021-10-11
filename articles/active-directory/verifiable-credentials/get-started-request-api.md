@@ -32,21 +32,12 @@ To get an access token, your app must be registered with the Microsoft identity 
 
 ### Get an access token
 
-Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token using the of the Microsoft identity platform. To get a token by using the client credentials grant, send a POST request to the `/token` endpoint of the Microsoft identity platform.
-
-To acquire an access token, we recommend that you use a trusted oauth library. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL is a Microsoft provided library that simplifies adding authentication and authorization to your app that can call a secure web API.
+Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token using the of the Microsoft identity platform. We recommend that you use a trusted oauth library. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL is a Microsoft provided library that simplifies adding authentication and authorization to your app that can call a secure web API.
 
 # [HTTP](#tab/http)
 
 ```http
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1   //Line breaks for clarity
-Host: login.microsoftonline.com
-Content-Type: application/x-www-form-urlencoded
-
-client_id=12345678-0000-0000-00000000000000000
-&scope=bbb94529-53a3-4be5-a069-7eaf2712b826/.default
-&client_secret=sampleCredentia1s
-&grant_type=client_credentials
+Pleaes refer to to the Microsoft Authentication Library (MSAL) documentation for more information on how to acquire tokens via HTTP.
 ```
 
 # [C#](#tab/csharp)
