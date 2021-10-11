@@ -119,7 +119,7 @@
     - name: Manage access rights with Azure RBAC
       href: assign-azure-role-data-access.md
     - name: Get an access token for authorization with Azure AD
-      href: identity-library-acquire-token.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Authorize with a managed identity
       href: authorize-with-manage-identity.md
     - name: View and manage account keys

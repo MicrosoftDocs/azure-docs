@@ -138,7 +138,7 @@
       - name: Authenticate and authorize with Azure AD
         items:
           - name: Get an access token for authorization with Azure AD
-            href: identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           - name: Authorize with a managed identity
             href: authorize-with-manage-identity.md
           - name: Authorize from an application

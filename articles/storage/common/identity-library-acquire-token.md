@@ -14,7 +14,7 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-## Use the Azure Identity library to get an access token for authorization
+# Use the Azure Identity library to get an access token for authorization
 
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of Azure Storage requests.
 
@@ -81,7 +81,7 @@ For more information about how to create a service principal, see one of the fol
 
 - [Create an Azure AD app and service principal in the portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
-- [Create an Azure service principal with Azure CLI](h/cli/azure/create-an-azure-service-principal-azure-cli)
+- [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 > [!IMPORTANT]
 > Azure role assignments may take several minutes to propagate.
