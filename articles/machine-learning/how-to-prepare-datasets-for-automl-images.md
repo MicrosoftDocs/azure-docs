@@ -457,7 +457,7 @@ If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Az
 For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 #### Instance Segmentation
-Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script.  
+Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script. Instance segmentation supports training with polygons only. You can use `convert_mask_to_polygon` method in [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script to get polygons from the masks.
 
 ```python
 from jsonl_converter import convert_mask_in_VOC_to_jsonl
@@ -479,7 +479,7 @@ Upload the entire parent directory consisting of images and JSONL files to the c
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./fridgeObjects', target_path='fridgeObjects')
 ```
-Once the data uploading is done, we can create an [AzureML Tabular Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) for training as below.
+Once the data uploading is done, we can create an [AzureML Tabular Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and register as below.
 
 ```python
 from azureml.core import Dataset
