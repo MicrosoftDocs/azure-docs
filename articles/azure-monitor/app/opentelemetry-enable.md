@@ -316,14 +316,17 @@ You may set [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-th
 ### [.NET](#tab/net)
 
 ```csharp
+// Setting Role name and Role instance
 var resourceAttributes = new Dictionary<string, object> {
-                                        { "service.name", "my-service" },
-                                        { "service.namespace", "my-namespace" },
-                                        { "service.instance.id", "my-instance" }};
+    { "service.name", "my-service" },
+    { "service.namespace", "my-namespace" },
+    { "service.instance.id", "my-instance" }};
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
+// Done setting Role name and Role instance
 
+// Set ResourceBuilder on the provider
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
+        .SetResourceBuilder(resourceBuilder)
         .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
