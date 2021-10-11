@@ -194,6 +194,8 @@
           href: event-driven-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
+        - name: Concurrency
+          href: functions-concurrency.md
         - name: Designing for identical input
           href: functions-idempotent.md
     - name: Triggers and bindings

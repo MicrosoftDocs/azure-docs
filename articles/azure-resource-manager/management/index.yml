@@ -78,7 +78,7 @@ landingContent:
           - text: .NET
             url: /dotnet/api/microsoft.azure.management.resourcemanager
           - text: Java
-            url: /java/api/com.microsoft.azure.management.resources
+            url: /java/api/com.azure.resourcemanager.resources
           - text: Python
             url: /python/api/overview/azure/resources
 

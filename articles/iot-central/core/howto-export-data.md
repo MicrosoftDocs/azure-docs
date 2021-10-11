@@ -2,8 +2,8 @@
 title: Export data from Azure IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Azure and custom cloud destinations.
 services: iot-central
-author: lizross
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central

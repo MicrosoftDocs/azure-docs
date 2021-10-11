@@ -26,9 +26,9 @@ Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only requir
 
 If you don't want to use custom locations and just want to use management features like Azure Monitor and Azure Policy (Gatekeeper), they are available natively on AKS and connection to Azure Arc is not required in such cases.
     
-## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Hub and Azure Stack Edge to Azure Arc?
+## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Edge to Azure Arc?
 
-Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge or Azure Stack Hub to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
+Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
 
 If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 

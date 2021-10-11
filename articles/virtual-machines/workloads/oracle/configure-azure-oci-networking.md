@@ -29,6 +29,10 @@ The following image shows a high-level overview of the interconnection:
 
 ![Cross-cloud network connection](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
 
+> [!NOTE]
+> The ExpressRoute connection seen in the diagram is a regular [ExpressRoute circuit](../../../expressroute/expressroute-introduction.md) and supports all fuctionalities such as Global Reach.
+> 
+
 ## Prerequisites
 
 * To establish connectivity between Azure and OCI, you must have an active Azure subscription and an active OCI tenancy.

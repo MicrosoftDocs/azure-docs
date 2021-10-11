@@ -18,7 +18,7 @@ On the **Technical configuration** tab, provide the files needed for the Power B
 
 ## PBIVIZ package
 
-[Pack your Power BI visual](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
+[Pack your Power BI visual](/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
 
 - Visual name
 - Display name
