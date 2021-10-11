@@ -7,7 +7,7 @@ ms.subservice:
 ms.custom:
 ms.devlang: 
 ms.topic: how-to
-author: zoranrilak
+author: zoran-rilak-msft
 ms.author: zoranrilak
 ms.reviewer: 
 ms.date: 09/24/2021
@@ -87,7 +87,7 @@ We'll follow a simplified process that creates and configures a single service e
 5. In Policy definitions, select **+ Add** under **Resources** and enter or select the following information in **Add a resource** pane:
    - Service: Select **Microsoft.Storage**.
    - Scope: Select **All accounts in subscription**.
-   - Subscription: Select a subscription containing the storage account(s) to permit. Refer to your [inventory of Azure storage accounts](#prepare-your-azure-storage-account-inventory)  created earlier.
+   - Subscription: Select a subscription containing the storage account(s) to permit. Refer to your [inventory of Azure storage accounts](#prepare-your-azure-storage-account-inventory) created earlier.
    - Select on **Add** button at the bottom to finish adding the resource.
    - Add more subscriptions by repeating the above steps as needed.
 
@@ -110,3 +110,11 @@ We'll follow a simplified process that creates and configures a single service e
 ![Associate a service endpoint policy with a subnet](./media/service-endpoint-policies-configure/associate-service-endpoint-policy.png)
 
 4. Select **Save** to finish configuring the virtual network.
+
+> [!WARNING]
+> If no policies on a managed instance's subnet have the /Services/Azure/ManagedInstance alias set, then this step will fail. That error message will look like this:
+>
+>     Failed to save subnet 'subnet'. Error: 'Found conflicts with NetworkIntentPolicy. Details: Subnet of Virtual Network cannot have resources or properties which conflict with network intent policy.
+>     Service endpoint policies on subnet are missing definitions [...] as provided in the Network Intent Policy: ...
+>
+> To avoid this, we recommend that you set this alias in all policies on such subnets. This will also make policy management easier.
