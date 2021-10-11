@@ -45,7 +45,7 @@ ms.author: lajanuar
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
-| Divehi | `dv` |✔|||✔||
+| Dhivehi | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
