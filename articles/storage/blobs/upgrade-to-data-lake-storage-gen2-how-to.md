@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/11/2021
 ms.author: normesta
 
 ---
@@ -190,7 +190,11 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
    - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   If validation fails, a file named **error.json** will appear in a container named **hnsonerror**. You can open that file to determine why the account did not pass the validation step. 
+   If the validation succeeds, the process completes and no errors appear.
+   
+   If validation fails, a validation error will appear in the console. For example, the error `(IncompatibleValuesForAccountProperties) Values for account properties are incompatible: Versioning Enabled` indicates that an incompatible feature (Versioning) is enabled on the account. In this case, you would disable the feature and then start the validation process again.
+
+   In some cases, the path to a file named **error.json** appears in the console. You can open that file to determine why the account did not pass the validation step. 
 
    The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 
@@ -217,7 +221,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!IMPORTANT]
    > Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as they might destabilize the upgrade process.
 
-   When the migration has completed successfully, a message similar to the following appears. 
+   If the migration succeeds, the process completes and no errors appear.
 
 ---
 
