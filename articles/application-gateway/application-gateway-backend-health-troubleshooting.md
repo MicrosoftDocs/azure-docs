@@ -139,15 +139,15 @@ this message is displayed, it suggests that Application Gateway couldn't success
     [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
     by using the PowerShell commands described in these linked resources.
 
-### DNS server updates
+### Updates to the DNS entries of the backend pool
 
 **Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
-**Cause:** DNS servers for Application Gateway are determined at time of startup and are unable to be changed dynamically while running.
+**Cause:** Application Gateway resolves the DNS entries for the backend pool at time of startup and doesn't update them dynamically while running.
 
 **Resolution:**
 
-Application Gateway must be restarted after DNS servers are changed on the Virtual Network to begin to use the new servers. This operation can be completed via Azure PowerShell or Azure CLI.
+Application Gateway must be restarted after any modification to the backend server DNS entries to begin to use the new IP addresses.  This operation can be completed via Azure PowerShell or Azure CLI.
 
 #### Azure PowerShell
 ```
