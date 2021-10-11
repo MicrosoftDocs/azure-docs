@@ -1,6 +1,6 @@
 ---
-title: Image Builder - Create a Windows Virtual Desktop image
-description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
+title: Image Builder - Create a Azure Virtual Desktop image
+description: Create an Azure VM image of Azure Virtual Desktop using Azure Image Builder in PowerShell.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -12,14 +12,14 @@ ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
+# Create a Azure Virtual Desktop image using Azure VM Image Builder and PowerShell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article shows you how to create a Windows Virtual Desktop image with these customizations:
+This article shows you how to create a Azure Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
-* Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
+* Running a [Azure Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
 * Install [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
