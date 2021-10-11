@@ -107,21 +107,16 @@ The data collected for each event is:
 | **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
 | **os_platform** | The OS of the device. |
 | **os_arch** | The architecture of the OS. For example, `x86_64`. |
-| **nics** | The network interface controller. |
-| **IP address** | The IP address of the device.
-| **MAC address** | The MAC address of the device.
+| **nics** | The network interface controller. The full list of properties are listed below. |
 
-The **nics** is composed of the following;
+The **nics** properties are composed of the following;
 
-- **type**: one of the following values: `UNKNOWN`, `ETH`, `WIFI`, `MOBILE`, or `SATELLITE`.
-- **vlans**: The virtual lan associated with the network interface.
-- **vendor**: The vendor of the network controller.
-- **info**: IPS, and MACs associated with the network controller. This Includes the following fields;
-
-    - **ipv4_address**: The IPv4 address.
-    - **ipv6_address**: The IPv6 address.
-    - **mac**: The Mac Address.
-
+| Parameter | Description|
+|--|--|
+|**type** | one of the following values: `UNKNOWN`, `ETH`, `WIFI`, `MOBILE`, or `SATELLITE`. |
+| **vlans** | The virtual lan associated with the network interface. |
+| **vendor** | The vendor of the network controller. |
+| **info** | IPS, and MACs associated with the network controller. This Includes the following fields; <br> - **ipv4_address**: The IPv4 address. <br> - **ipv6_address**: The IPv6 address. <br> - **mac**: The MAC address.|
 
 ## Baseline (trigger based)
 
