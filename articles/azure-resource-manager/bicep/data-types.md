@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 09/30/2021
 ---
 
 # Data types in Bicep
@@ -78,9 +78,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type.
-
-In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Don't use commas to between properties.
 
 ```bicep
 param exampleObject object = {
@@ -88,6 +86,23 @@ param exampleObject object = {
   id: '123-abc'
   isCurrent: true
   tier: 1
+}
+```
+
+In Bicep, quotes are optionally allowed on object property keys:
+
+```bicep
+var test = {
+  'my - special. key': 'value'
+}
+```
+
+In the preceding example, quotes are used when the object property keys contain special characters.  For example space, '-', or '.'. The following example shows how to use interpolation in object property keys.
+
+```bicep
+var stringVar = 'example value'
+var objectVar = {
+  '${stringVar}': 'this value'
 }
 ```
 

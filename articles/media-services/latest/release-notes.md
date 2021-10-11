@@ -29,6 +29,9 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## September 2021
 
+### New basic pass-through live event SKU
+
+The new basic pass-through live event SKU allows customers to create live events at a [lower price point](https://azure.microsoft.com/pricing/details/media-services/). It is similar to standard pass-through live events, but with lower input bandwidth limits, fewer live output allowed, different DVR window length limits, and no access to live transcription. See [live event types comparison](./live-event-types-comparison-reference.md#types-comparison) for more details.
 
 ### Improved scale management and monitoring for a Streaming Endpoint in the portal
 
@@ -206,7 +209,7 @@ See the official [Azure Updates announcement](https://azure.microsoft.com/update
 
 ### Standard Encoder support for v2 API features
 
-In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 version of the encoding API.
+In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 (or later) version of the encoding API.
 
 - Multiple Input File stitching is now supported using the new **JobInputClip** support.
     - An example is available for .NET showing how to [stitch two assets together](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).

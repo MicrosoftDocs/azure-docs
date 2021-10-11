@@ -106,7 +106,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
 
 For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
 

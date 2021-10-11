@@ -42,7 +42,7 @@ You need to create a destination volume where you want the data from the source 
 1. The destination account must be in a different region from the source volume region. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
 You can also select an existing NetApp account in a different region.  
 
-2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 
     You can also select an existing capacity pool to host the replication destination volume.  
 

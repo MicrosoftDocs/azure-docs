@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Monitor managed online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 05/03/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
@@ -14,7 +14,7 @@ ms.custom: how-to, devplatv2
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how to monitor[ Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor [Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
 
 In this article you learn how to:
 
