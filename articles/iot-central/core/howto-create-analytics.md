@@ -50,8 +50,7 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 
 After you've queried your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
 
-> [!TIP]
-> You can Save your analytics queries at the top left hand corner to preserve them and refer back later.
+Select **Save** to save an analytics query. Later, you can retrieve any queries you saved.
 
 - **Time editor panel:** By default you see data from the last day. You can drag either end of the slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. The time control also has an **Interval size** slider that controls the interval size used to aggregate the data.
 
