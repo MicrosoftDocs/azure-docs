@@ -2411,6 +2411,8 @@
         href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Chaos
+        href: chaos-provisioning-tutorial.md
       - name: Chatwork
         href: chatwork-provisioning-tutorial.md
       - name: CheckProof
@@ -2659,6 +2661,8 @@
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
+      - name: Sentry
+        href: sentry-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Segment
@@ -2755,6 +2759,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zero
+        href: zero-provisioning-tutorial.md
       - name: Zip
         href: zip-provisioning-tutorial.md
       - name: Zoom

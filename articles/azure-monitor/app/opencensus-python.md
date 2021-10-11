@@ -22,7 +22,7 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4-v3.7.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4+.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
 ## Introducing Opencensus Python SDK
@@ -344,47 +344,47 @@ Opencensus Python SDK allows adding custom dimensions to your metrics telemetry 
 
 1. Insert the tags that you want to use into the tag map. The tag map acts like a sort of "pool" of all available tags you can use.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    ...
+    ```
 
 1. For a specific `View`, specify the tags you want to use when recording metrics with that view via the tag key.
 
-```python
-...
-prompt_view = view_module.View("prompt view",
-                               "number of prompts",
-                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
-                               prompt_measure,
-                               aggregation_module.CountAggregation())
-...
-```
+    ```python
+    ...
+    prompt_view = view_module.View("prompt view",
+                                "number of prompts",
+                                ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                                prompt_measure,
+                                aggregation_module.CountAggregation())
+    ...
+    ```
 
 1. Be sure to use the tag map when recording in the measurement map. The tag keys that are specified in the `View` must be found in the tag map used to record.
 
-```python
-...
-mmap = stats_recorder.new_measurement_map()
-mmap.measure_int_put(prompt_measure, 1)
-mmap.record(tmap) # <-- pass the tag map in here
-...
-```
+    ```python
+    ...
+    mmap = stats_recorder.new_measurement_map()
+    mmap.measure_int_put(prompt_measure, 1)
+    mmap.record(tmap) # <-- pass the tag map in here
+    ...
+    ```
 
 1. Under the `customMetrics` table, all metrics records emitted using the `prompt_view` will have custom dimensions `{"url":"http://example.com"}`.
 
 1. To produce tags with different values using the same keys, create new tag maps for them.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap2 = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-tmap2.insert("url", "https://www.wikipedia.org/wiki/")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap2 = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+    ...
+    ```
 
 #### Performance counters
 
