@@ -65,17 +65,19 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC processors that can achieve a bo
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ads_v5   | 2  | 16  | 75   | 4  | 9000 / 125 (50)      | 3750/82      | 2 | 2000  |
-| Standard_E4ads_v5   | 4  | 32  | 150  | 8  | 19000 / 250 (100)    | 6400/144     | 2 | 4000  |
-| Standard_E8ads_v5   | 8  | 64  | 300  | 16 | 38000 / 500 (200)    | 12800/200    | 4 | 8000  |
-| Standard_E16ads_v5  | 16 | 128 | 600  | 32 | 75000 / 1000 (400)   | 25600/384    | 8 | 10000 |
-| Standard_E20ads_v5  | 20 | 160 | 750  | 32 | 93750 / 1250 (500)   | 32000/480    | 8 | 12500 |
-| Standard_E32ads_v5  | 32 | 256 | 1200 | 32 | 150000 / 2000 (800)  | 51200/768    | 8 | 16000 |
-| Standard_E48ads_v5  | 48 | 384 | 1800 | 32 | 225000 / 3000 (1200) | 76800/1152   | 8 | 24000 |
-| Standard_E64ads_v5  | 64 | 512 | 2400 | 32 | 300000 / 4000 (1600) | 80000/1200   | 8 | 32000 |
-| Standard_E96ads_v5  | 96 | 672 | 2400 | 32 | 450000 / 4000 (1600) | 80000/1600   | 8 | 40000 |
-| Standard_E112iads_v5| 112| 672 | 2400 | 64 | 450000 / 4000 (1600) | 120000/2000  | 8 | 50000 |
+| Standard_E2ads_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9000 / 125 (50)      | 3750/82      | 2 | 2000  |
+| Standard_E4ads_v5<sup>2</sup>   | 4  | 32  | 150  | 8  | 19000 / 250 (100)    | 6400/144     | 2 | 4000  |
+| Standard_E8ads_v5<sup>2</sup>   | 8  | 64  | 300  | 16 | 38000 / 500 (200)    | 12800/200    | 4 | 8000  |
+| Standard_E16ads_v5<sup>2</sup>  | 16 | 128 | 600  | 32 | 75000 / 1000 (400)   | 25600/384    | 8 | 10000 |
+| Standard_E20ads_v5              | 20 | 160 | 750  | 32 | 93750 / 1250 (500)   | 32000/480    | 8 | 12500 |
+| Standard_E32ads_v5<sup>2</sup>  | 32 | 256 | 1200 | 32 | 150000 / 2000 (800)  | 51200/768    | 8 | 16000 |
+| Standard_E48ads_v5              | 48 | 384 | 1800 | 32 | 225000 / 3000 (1200) | 76800/1152   | 8 | 24000 |
+| Standard_E64ads_v5<sup>2</sup>  | 64 | 512 | 2400 | 32 | 300000 / 4000 (1600) | 80000/1200   | 8 | 32000 |
+| Standard_E96ads_v5<sup>2</sup>  | 96 | 672 | 2400 | 32 | 450000 / 4000 (1600) | 80000/1600   | 8 | 40000 |
+| Standard_E112iads_v5            | 112| 672 | 2400 | 64 | 450000 / 4000 (1600) | 120000/2000  | 8 | 50000 |
 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC.<br>
+<sup>2</sup>Constrained core sizes available
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
