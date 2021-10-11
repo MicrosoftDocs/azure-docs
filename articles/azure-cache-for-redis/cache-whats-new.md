@@ -17,7 +17,7 @@ ms.date: 10/11/2021
 
 Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users will be able to route these logs to a destination of their choice, such as a storage account or event hub.
 
-For more information, see link.
+For more information, see [Monitor Azure Cache for Redis data using diagnostic settings](cache-monitor-diagnostic-settings.md).
 
 ### Redis Enterprise update
 
