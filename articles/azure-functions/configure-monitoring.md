@@ -300,17 +300,17 @@ Depending on how the telemetry generated is going to be consumed, real-time dash
 
 * **Host.Aggregator category**: as described in [Configure categories](#configure-categories), this category provides aggregated information of function invocations. The information from this category is gathered in Application Insights `customMetrics` table, and it's shown in the function Overview tab, at the Azure portal. If you set this category to other value different than `Information`, you will stop gathering the data in the `customMetrics` table and will not be displayed function details at the Azure portal. Depending on how you configure the aggregator, consider that there will be a delay (determined by the `flushTimeout`) in the telemetry gathered.
 
-  Host.Aggregator telemetry data displayed in the function Overview tab:
+  The following screenshot shows Host.Aggregator telemetry data displayed in the function Overview tab.
   :::image type="content" source="media/configure-monitoring/host.aggregator-function-overview.png" alt-text="Screenshot of Host.Aggregator telemetry displayed in function Overview tab.":::
 
-  Host.Aggregator telemetry data in Application Insights customMetrics table is displayed as follows:
+  The following screenshot shows Host.Aggregator telemetry data in Application Insights customMetrics table.
   :::image type="content" source="media/configure-monitoring/host.aggregator-customMetrics.png" alt-text="Screenshot of Host.Aggregator telemetry in customMetrics Application Insights table.":::
 
 * **Host.Results category**: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating the success or failure of a function invocation. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function Monitor tab, and in different Application Insights dashboards (Performance, Failures...). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
 
-  Host.Results telemetry data displayed in the function Monitor tab:
+  The following screenshot shows the Host.Results telemetry data displayed in the function Monitor tab.
   :::image type="content" source="media/configure-monitoring/host.results-function-monitor.png" alt-text="Screenshot of Host.Results telemetry in function Monitor tab.":::
-  Host.Results telemetry data displayed in Application Insights Performance dashboard:
+  The following screenshot shows Host.Results telemetry data displayed in Application Insights Performance dashboard.
   :::image type="content" source="media/configure-monitoring/host.results-applicationInsights.png" alt-text="Screenshot of Host.Results telemetry in Application Insights Performance dashboard.":::
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights about function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based on the other.
