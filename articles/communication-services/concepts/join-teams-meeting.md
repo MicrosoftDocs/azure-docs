@@ -17,13 +17,13 @@ ms.subservice: teams-interop
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/en-us/pricing/details/communication-services/) applies to these users, but there is no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications do not require Teams licenses to join Teams meetings. 
+Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there is no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications do not require Teams licenses to join Teams meetings. 
 
-It is also possible to use Microsoft 365 Teams identities with the Azure Communication Services SDKs. More information is available [here](https://docs.microsoft.com/en-us/azure/communication-services/concepts/teams-interop).
+It is also possible to use Microsoft 365 Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
 
 ## Enabling anonymous meeting join in your Teams tenant
 
-When a BYOI user joins a Teams meetings, they are treated as anonymous external users, similar to users that join a Teams meeting anonymously using the Teams web application. The ability for BYOI users to join Teams meetings as anonymous users is controlled by the existing "allow anonymous meeting join" configuration, which also controls the existing Teams anonymous meeting join. This setting can be updated in the [Teams admin center](https://admin.teams.microsoft.com/meetings/settings) or with the Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](https://docs.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingconfiguration). Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/en-us/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
+When a BYOI user joins a Teams meetings, they are treated as anonymous external users, similar to users that join a Teams meeting anonymously using the Teams web application. The ability for BYOI users to join Teams meetings as anonymous users is controlled by the existing "allow anonymous meeting join" configuration, which also controls the existing Teams anonymous meeting join. This setting can be updated in the [Teams admin center](https://admin.teams.microsoft.com/meetings/settings) or with the Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](https://docs.microsoft.com/powershell/module/skype/set-csteamsmeetingconfiguration). Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
 ## Meeting experience
 
@@ -36,9 +36,9 @@ Features such as raised hand, together mode, and breakout rooms will only be ava
 ## Current limitations and known issues
 
 - A BYOI user may join a Teams meeting that is scheduled for a Teams channel, but they will not be able to send or receive any chat messages, since they are not members of the channel.
-- When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/en-us/graph/api/call-list-participants), details for Communication Services users are not currently included.
+- When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - Teams meeting support up to 1000 participant, but the Azure Communication Services Calling SDK currently only supports 350 participants.
-- With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
+- With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 
 ## Next steps
 
