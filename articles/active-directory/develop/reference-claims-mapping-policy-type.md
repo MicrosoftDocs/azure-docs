@@ -332,7 +332,7 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
-### Group Filter
+### Group Filter (Preview)
 
 **String:** GroupFilter
 
