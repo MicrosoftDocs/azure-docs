@@ -121,7 +121,7 @@ sections:
           For other file types, Static Web Apps allows you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version will be served automatically if a client that supports Brotli requests `app.wasm`.
 
       - question: |
-          Why does my frontend app return a 404 error when I access a route that exists?
+          Why does my static web app return a 404 error when I access a route that exists?
         answer: |
           Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it'll return a 404 error because the route does not exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
 
@@ -149,14 +149,14 @@ sections:
       - question: |
           How do I use the retrieve a user's access token or claims from the identity provider?
         answer: |
-          You can access the user's access token and claims when you use an [API function for role management](authentication-authorization.md?tabs=function#role-management).
+          You can retrieve the user's access token and claims when you use an [API function for role management](authentication-authorization.md?tabs=function#role-management).
 
       - question: |
           Am I limited to using a single identity provider?
         answer: |
           When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authorization-provider).
 
-          If you are using custom authentication, you can configure one or more identity providers.
+          If you're using [custom authentication](authentication-custom.md), you can configure one or more identity providers.
 
   - name: API functions
     questions:
@@ -180,7 +180,7 @@ sections:
       - question: |
           Can I change the hosting plan after I create my app?
         answer: |
-          You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you are not using features that require the Standard plan.
+          You can upgrade from the Free to Standard plan at any time. You can also downgrade from the Standard plan to the Free plan if you're not using features that require the Standard plan.
       
       - question: |
           How can I get help or suggest a new feature?
