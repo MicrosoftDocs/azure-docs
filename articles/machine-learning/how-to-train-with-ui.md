@@ -23,7 +23,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [Introducing jobs](how-to-train-cli.md#introducing-jobs).
+* Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 
 ## Get started
 
