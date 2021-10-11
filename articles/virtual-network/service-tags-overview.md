@@ -133,18 +133,24 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 ## Service tags on-premises  
 You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You can obtain the information programmatically or via a JSON file download, as described in the following sections.
 
-### Use the Service Tag Discovery API (public preview)
+### Use the Service Tag Discovery API
 You can programmatically retrieve the current list of service tags together with IP address range details:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
-> [!NOTE]
-> It takes up to 4 weeks for new Service Tag data to propagate in the API results. The change number in the response metadata will be incremented when this happens. There may be temporary differences in results when different location values are specified. When using the results to create NSG rules, you should set the location paramater to match the NSG's region. 
+For example, to retrieve all the prefixes for the Storage Service Tag, you can use the following PowerShell cmdlets: 
 
-> [!NOTE]
-> The API data will represent those tags which can be used with NSG rules, a subset of the tags currently in the downloadable JSON file. While in public preview, we do not guarantee that the data will remain the same from one update to the next. 
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus2
+$storage = $serviceTags.Values | Where-Object { $_.Name -eq "Storage" }
+$storage.Properties.AddressPrefixes
+```
+#### Note that: 
+- It takes up to 4 weeks for new Service Tag data to propagate in the API results accross all Azure regions. 
+- You must be authenticated and have a role with read permissions for your current subscription. 
+- The API data represents those tags which can be used with NSG rules, a subset of the tags currently in the downloadable JSON file. 
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
