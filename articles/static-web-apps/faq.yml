@@ -110,16 +110,16 @@ sections:
       - question: |
           How do I ensure my app is deployed to a specific Azure region?
         answer: |
-          Azure Static Web Apps is a global service. Your app's static assets are globally distributed. When you create your app, you select a region that your managed Azure Functions app will be deployed to. If you need your function app in a region that does not support managed functions, you can use the [Bring your own function app](functions-bring-your-own.md) feature with a function app you deploy separately.
+          Azure Static Web Apps is a global service. Your app's static assets are globally distributed. When you create your app, you select a region that your managed Azure Functions app will be deployed to. If you need your function app in a region that doesn't support managed functions, you can use the [Bring your own function app](functions-bring-your-own.md) feature with a function app you deploy separately.
 
       - question: |
           How do I configure my static web app behind Azure Application Gateway or a CDN like Azure Front Door?
         answer: |
-          Azure Static Web Apps includes global distribution of your app's static assets. If you want to maximize your global footprint or require additional features, you can add a dedicated content distribution network (CDN) or Azure Application Gateway.
+          Azure Static Web Apps includes global distribution of your app's static assets. If you want to maximize your global footprint or require advanced features, you can add a dedicated content distribution network (CDN) or Azure Application Gateway.
 
-          To restrict traffic to a specific CDN, configure your CDN to add a header containing a predefined, secret value to every request and configure Static Web Apps to [require the header](configuration.md#required-headers). To restrict traffic to an Azure Application Gateway, [configure your app](configuration.md#networking) to only allow traffic from your Application Gateway's IP.
+          To restrict traffic to a specific CDN, configure your CDN to add a header containing a predefined, secret value to every request, and configure Static Web Apps to [require the header](configuration.md#required-headers). To restrict traffic to an Azure Application Gateway, [configure your app](configuration.md#networking) to only allow traffic from your Application Gateway's IP.
           
-          In addition, configure your app to [allow forwarding](configuration.md#allowed-forwarded-hosts) of your CDN or Application Gateway's hostnames.
+          Also, configure your app to [allow forwarding](configuration.md#allowed-forwarded-hosts) of your CDN or Application Gateway's hostnames.
           
           To learn about configuring Azure Front Door, see [this tutorial](front-door-manual.md).
 
@@ -133,7 +133,7 @@ sections:
       - question: |
           Why does my static web app return a 404 error when I access a route that exists?
         answer: |
-          Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it'll return a 404 error because the route does not exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
+          Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it will return a 404 error because the route doesn't exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
 
   - name: Configuration
     questions:
@@ -145,7 +145,7 @@ sections:
       - question: |
           Does Static Web Apps support managed identity?
         answer: |
-          Static Web Apps supports managed identity, but it is only used to [retrieve authentication secrets](key-vault-secrets.md) from Key Vault.
+          Static Web Apps supports managed identity, but it's only used to [retrieve authentication secrets](key-vault-secrets.md) from Key Vault.
           
           If you need managed identity or Key Vault references in your API, use the [bring your own function app](functions-bring-your-own.md) feature to use a separate function app that uses managed identity.
 
@@ -154,7 +154,7 @@ sections:
       - question: |
           How many users can log in to my static web app?
         answer:
-          Static Web Apps does not have a limit on the number of users that can log in to your app. You can assign custom roles to up to 25 users using the built-in invitations system. If you need to assign custom roles to more users, you can use an [API function to programmatically assign roles](authentication-authorization.md?tabs=function#role-management).
+          Static Web Apps doesn't have a limit on the number of users that can log in to your app. You can assign custom roles to up to 25 users using the built-in invitations system. If you need to assign custom roles to more users, you can use an [API function to programmatically assign roles](authentication-authorization.md?tabs=function#role-management).
           
       - question: |
           How do I use the retrieve a user's access token or claims from the identity provider?
@@ -173,10 +173,10 @@ sections:
       - question: |
           How do I write my APIs using a language or language version that Static Web Apps doesn’t support?
         answer: |
-          Static Web Apps' managed function apps do not support all languages or language versions that Azure Functions supports. You can use the bring your own function app feature to link a separate function app to your Static Web App.
+          Static Web Apps' managed function apps don't support all languages or language versions that Azure Functions supports. You can use the bring your own function app feature to link a separate function app to your Static Web App.
 
       - question: |
-          How do I use triggers in my function app that are not HTTP?
+          How do I use triggers in my function app that aren't HTTP?
         answer: |
           The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as timer or Durable Functions, you can use the bring your own function app](functions-bring-your-own.md) feature to link a separate function app to your Static Web App.
 
