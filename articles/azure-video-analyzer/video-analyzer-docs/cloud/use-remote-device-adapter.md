@@ -115,7 +115,7 @@ The following values are required to enable tunneling on the RTSP source node:
                     },
                     "tunnel": { 
                         "@type": "#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel",
-                        "iotHubName" : "{{ioTHubName}}",
+                        "iotHubName" : "<IoT Hub Name>",
                         "deviceId": "${ioTHubDeviceIdParameter}"
                     }
                 }
