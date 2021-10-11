@@ -274,13 +274,13 @@ Specifies the directory within the DATA_SOURCE, or ERROR_FILE_DATASOURCE if spec
 
 error.json file contains json array with encountered errors related to rejected rows. Each element representing error contains following attributes:
 
-| Attribute | Description                         |
-| --------- | ----------------------------------- |
-| Error     | Reason why row is rejected          |
-| Row       | Rejected row ordinal number in file |
-| Column    | Rejected column ordinal number      |
-| Value     | Rejected column value               |
-| File      | Path to file that row belongs to    |
+| Attribute | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Reason why row is rejected.                                  |
+| Row       | Rejected row ordinal number in file.                         |
+| Column    | Rejected column ordinal number.                              |
+| Value     | Rejected column value. If value is larger than 100 characters, only first 100 characters will be present. |
+| File      | Path to file that row belongs to.                            |
 
 ## Fast delimited text parsing
 
