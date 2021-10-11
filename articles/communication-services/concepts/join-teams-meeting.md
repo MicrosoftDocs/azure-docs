@@ -29,7 +29,7 @@ When a BYOI user joins a Teams meetings, they are treated as an anonymous extern
 
 As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users displayed in Teams is configurable via the Communication Services Calling SDK and they are labeled as “external” to let Teams users know they have not been authenticated using Azure Active Directory.
 
-During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send receive new chat messages, but they will have access to messages sent and received during the meeting.
+During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting.
 
 Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. 
 
@@ -37,7 +37,7 @@ Features such as raised hand, together mode, and breakout rooms will only be ava
 
 - A BYOI user may join a Teams meeting that is scheduled for a Teams channel, but they will not be able to send or receive any chat messages, since they are not members of the channel.
 - When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/graph/api/call-list-participants), details for Communication Services users are not currently included.
-- Teams meeting support up to 1000 participant, but the Azure Communication Services Calling SDK currently only supports 350 participants.
+- Teams meetings support up to 1000 participant, but the Azure Communication Services Calling SDK currently only supports 350 participants.
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 
 ## Next steps
