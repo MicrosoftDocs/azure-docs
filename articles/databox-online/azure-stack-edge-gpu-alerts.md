@@ -71,7 +71,7 @@ The Edge compute alerts in the following table are raised on Azure Stack Edge Pr
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
-|Edge compute is unhealthy. |Critical | Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**.<br>If the problem persists, contact Microsoft Support. |
+|Edge compute is unhealthy. |Critical | Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and click **Restart**.<br>If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Edge compute ran into an issue with name resolution. |Critical |Ensure that your DNS server {15} is online and reachable. If the problem persists, contact your network administrator. |
 |Compute acceleration card configuration has an issue. |Critical |We've detected an unsupported compute acceleration card configuration.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 |Compute acceleration card configuration has an issue. |Critical |We've detected an unsupported compute acceleration card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
@@ -138,8 +138,8 @@ The following alerts indicate performance issues related to resource usage on Az
 |The memory used by the virtual machines on node {0} of your device exceeds the configured threshold. |Critical |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Your device is almost out of storage space. If a disk fails, then you may not be able to restore data on this device. |Critical |Delete data to free up capacity on your device. |
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|The node {0} on your device is using more memory than expected. |Warning |If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The CPU utilization on node {0} of your device has exceeded the threshold for an extended duration. |Warning |Reduce workloads or modules running on your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|The node {0} on your device is using more memory than expected. |Warning |If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The CPUs reserved for the virtual machines on node {0} of your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce CPU reservation for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |The memory used by the virtual machines on your device exceeds the configured threshold. |Warning |Take one of the following steps:<ol><li>Reduce memory allocated for the virtual machines running on your device.</li><li>Remove some virtual machines off your device.</li></ol> |
 |Too many virtual machines are active on node {0} of your device. |Warning |The device will try to balance load across other nodes. Consider reducing some virtual machine workloads from your device. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
@@ -148,7 +148,7 @@ The following alerts indicate performance issues related to resource usage on Az
 
 ### Storage alerts
 
-The following alerts are for issues that occur when accessing volumes or uploading data to volumes in Azure storage.
+The following alerts are for issues that occur when accessing or uploading data to Azure Storage.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -166,7 +166,7 @@ The following alerts are for issues that occur when accessing volumes or uploadi
 
 ### Security alerts
 
-The following alerts signal an attempt to access an Azure Stack Edge device and or a certificate that is approaching expiry.
+The following alerts signal access issues related to passwords, certificates, or keys, or report attempts to access an Azure Stack Edge device.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -182,7 +182,7 @@ The following alerts signal an attempt to access an Azure Stack Edge device and 
 
 ### Key Vault alerts
 
-The following alerts relate to Key Vault configurations.
+The following alerts relate to your Azure Key Vault configuration.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -256,7 +256,7 @@ The following alerts relate to Microsoft updates and firmware updates for physic
 
 ### Cluster alerts
 
-The following alerts are raised for issues with clustering on Azure Stack Edge devices.
+The following alerts are raised for clustering issues on Azure Stack Edge devices.
 
 **Clustering is in private preview. These alerts will not be included in the initial publication. We may comment out this section until Clustering goes to public preview.**
 
@@ -280,12 +280,12 @@ The following alerts are raised for virtual machines on an Azure Stack Edge devi
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target.--> |
-| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK.<!--Get the correct link target.--> |
+|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see **OUT OF DATE LINK**. |
+| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see **OUT OF DATE LINK**. |
 | Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
-|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target.--> |
+|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see **OUT OF DATE LINK**. |
 |Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
-|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see BROKEN LINK. <!--Get the correct link target.--> |
+|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see **OUT OF DATE LINK**. |
 
 
 ## Next steps
