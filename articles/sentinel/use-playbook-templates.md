@@ -41,7 +41,7 @@ You can get playbook templates from the following sources:
 
 Technically, a playbook template is an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
-This article focuses on deploying a playbook template from Playbook templates tab under Automation.
+This article focuses on deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
 This article helps you understand how to:
 
