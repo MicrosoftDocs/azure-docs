@@ -26,7 +26,8 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
- - Auto-population of User ID, Authenticated User ID, and User IP when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User ID and Authenticated User ID when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User IP (to determine location attributes)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
@@ -44,7 +45,8 @@ Please consider carefully whether this preview is right for you. It enables dist
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
- - Auto-population of User ID, Authenticated User ID, and User IP when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User ID and Authenticated User ID when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User IP (to determine location attributes)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
@@ -65,7 +67,8 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
- - Auto-population of User ID, Authenticated User ID, and User IP when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User ID and Authenticated User ID when using the [Application Insights JavaScript SDK](javascript.md)
+ - Auto-population of User IP (to determine location attributes)
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
