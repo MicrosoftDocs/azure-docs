@@ -67,7 +67,7 @@ Some alerts are triggered by more than one event type. If the events have differ
 
 ### Edge compute alerts
 
-The Edge compute alerts in the following table are raised in Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-FPGA).  
+The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-FPGA).  
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
@@ -110,6 +110,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Local Azure Resource Manager alerts
 
+The following alerts are raised by the local Azure Resource Manager, which is used to connect to the local APIs on Azure Stack Edge devices.
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Specified service authentication certificate with thumbprint '{0}' does not have a private key |Critical |If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
@@ -124,6 +126,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 
 ### Performance alerts
+
+The following alerts indicate performance issues related to resource usage on Azure Stack Edge devices.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -144,6 +148,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Storage alerts
 
+The following alerts are for issues that occur when accessing volumes or uploading data to volumes in Azure storage.
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Could not access volume {0}. |Critical |This could happen when the volume is offline, or too many drives or servers have failed or are disconnected. Take the following steps:<ol><li>Reconnect missing drives and bring up servers that are down.</li><li>Allow the sync to complete.</li><li>Replace any failed drives and restore lost data from backup.</li></ol> |
@@ -160,6 +166,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Security alerts
 
+The following alerts signal an attempt to access an Azure Stack Edge device and or a certificate that is approaching expiry.
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |{0} from {1} expires in {2} days. |Critical<br>Warning |Check your certificate and upload a new certificate before the expiration date. |
@@ -174,6 +182,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Key Vault alerts
 
+The following alerts relate to Key Vault configurations.
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Key Vault is not configured |Critical<br>Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>If secrets are soft deleted, follow the steps [here](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
@@ -184,6 +194,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 
 ### Hardware alerts
+
+The following alerts indicate an issue with a physical disk or other hardware component on an Azure Stack Edge device.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -224,6 +236,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Update alerts
 
+The following alerts relate to Microsoft updates and firmware updates for physical device components.
+
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |Could not download the updates. Error message : '{0}'. |Critical |{0} |
@@ -242,6 +256,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 ### Cluster alerts
 
+The following alerts are raised for issues with clustering on Azure Stack Edge devices.
+
 **Clustering is in private preview. These alerts will not be included in the initial publication. We may comment out this section until Clustering goes to public preview.**
 
 |Alert text |Severity |Description / Recommended action |
@@ -259,6 +275,8 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 
 ### Virtual machine alerts
+
+The following alerts are raised for virtual machines on an Azure Stack Edge device.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
