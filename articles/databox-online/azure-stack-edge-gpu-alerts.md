@@ -26,7 +26,7 @@ You can view alerts on the **Device events** blade of the Azure portal. The seve
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
 
-You can manage alert notifications in the Azure portal by using action rules. For information, see [Using action rules to manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+You can manage alert notifications for events on Azure Stack Edge devices by creating action rules. For information, see [Using action rules to manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
 
 ### Alert severity levels
 
@@ -54,8 +54,7 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 * [Cluster alerts](#cluster-alerts)
 * [Virtual machine alerts](#virtual-machine-alerts)
 
-> [!NOTE]
-> Some alerts are triggered by more than one event type. If the events have different recommended actions, the table has an alert entry for each of the events.
+Some alerts are triggered by more than one event type. If the events have different recommended actions, the table has an alert entry for each of the events.
 
 
 ### Cloud connectivity alerts
@@ -67,6 +66,8 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 
 ### Edge compute alerts
+
+The Edge compute alerts in the following table are raised in Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-FPGA).  
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
@@ -92,6 +93,8 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 
 ### Edge compute alerts for FPGA
+
+The Edge compute alerts in the following table occur only on Azure Stack Edge Pro with FPGA devices.
 
 |Alert text |Severity |Description / Recommended action |
 |---------------------|---------------------------------|
