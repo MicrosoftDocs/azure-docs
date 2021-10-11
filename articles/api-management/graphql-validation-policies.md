@@ -15,21 +15,19 @@ ms.author: danlep
 
 This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use the following validation policies to validate requests to a [GraphQL API](graphql-api.md) imported to API Management.
+Use the following validation policies to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
 ## Validation policies
 
 - [Validate GraphQL request](#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
-
-
 ## Validate GraphQL request
 
-The `validate-graphql-request` policy validates both the GraphQL request and authorizaiton. An invalid query is a "request error", and authorization cannot be done until the request is valid. 
+The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
 
-* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: a mutation, query, or subscription, or individual field in a type declaration.  Permissions may not be applied to input types, fragments, unions, interfaces, or the schema element.   
-* There can be multiple authorize sub-policies.  The most specific path is used to select the appropriate authorization rule for each leaf node in the query. Each authorize can optionally provide a different action, and if clauses allow the admin to specify conditional actions.  
-* The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) policy and tells the service that all introspection requests (`__schema`, `__type`, etc.) should be rejected.   
+* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: a mutation, query, or subscription, or individual field in a type declaration. Permissions may not be applied to input types, fragments, unions, interfaces, or the schema element.   
+* There can be multiple authorization sub-policies. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. Each authorization can optionally provide a different action, and `if` clauses allow the admin to specify conditional actions.  
+* The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) policy and can be used to reject introspection requests (`__schema`, `__type`, etc.).   
 
 ### Policy statement
 
@@ -42,15 +40,13 @@ The `validate-graphql-request` policy validates both the GraphQL request and aut
 
 ### Example
 
+The following example validates a GraphQL query. Requests larger than 100 kb or with query depth greater than 4 are rejected. Access to the following querty paths is rejected: the introspection path and the `list Users` query. 
+
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
     <authorize path="/" action="allow" /> 
     <authorize path="/__*" action="reject" /> 
     <authorize path="/Query/list Users" action="reject" /> 
-        <if condition="policy-expression" action="allow"/>
-    </authorize> 
-    <authorize path="/User/address" action="remove"> 
-        <if condition="policy-expression" action="allow"/> 
     </authorize> 
 </validate-graphql-request> 
 ```
@@ -80,9 +76,9 @@ Available actions are described in the following table.
 
 |Action |Description  |
 |---------|---------|
-|reject     | A request error happens, and the request is not sent to the backend        |
-|remove     | A field error happens, and the field is removed from the request         |
-|allow     | The field is passed to the back end        |
+|reject     | A request error happens, and the request is not sent to the back end   .     |
+|remove     | A field error happens, and the field is removed from the request.         |
+|allow     | The field is passed to the back end.        |
 
 ### Usage
 
