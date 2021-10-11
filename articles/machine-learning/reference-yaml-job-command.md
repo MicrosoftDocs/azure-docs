@@ -97,7 +97,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
 
-## YAML: display name, description, and tags
+## YAML: display name, experiment name, description, and tags
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
 
