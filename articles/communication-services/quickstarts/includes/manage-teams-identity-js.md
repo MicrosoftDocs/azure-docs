@@ -41,6 +41,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 
 npm install @azure/communication-identity --save
 npm install @azure/msal-node --save
+npm install express --save
 
 ```
 
@@ -58,17 +59,17 @@ Use the following code to begin:
 
 ```javascript
 const { CommunicationIdentityClient } = require('@azure/communication-identity');
+const path = require('path');
+const express = require("express");
+const msal = require('@azure/msal-node');
 
-const main = async () => {
-  console.log("Azure Communication Services - Access Tokens Quickstart")
+const SERVER_PORT = process.env.PORT || 3000;
+const REDIRECT_URI = "http://localhost:3000"; 
 
-  // Quickstart code goes here
-};
+// Quickstart code goes here
 
-main().catch((error) => {
-  console.log("Encountered an error");
-  console.log(error);
-})
+app.listen(SERVER_PORT, () => console.log(`Teams token application starte on ${SERVER_PORT}!`))
+
 ```
 
 1. Save the new file as **issue-teams-access-token.js** in the *access-tokens-quickstart* directory.
@@ -78,8 +79,6 @@ main().catch((error) => {
 First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
 
 ```javascript
-const msal = require("@azure/msal-node");
-
 const msalConfig = {
     auth: {
         clientId: "Contoso's_Application_ID",
@@ -88,36 +87,40 @@ const msalConfig = {
 };
 
 const pca = new msal.PublicClientApplication(msalConfig);
+const provider = new msal.CryptoProvider();
 
-const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
-const scope = "https://auth.msft.communication.azure.com/VoIP";
-const redirectUri = "http://localhost";
+const app = express();
 
-const authCodeUrlParameters = {
-    scopes: [scope],
-    redirectUri: redirectUri,
-    codeChallenge: challenge, // PKCE Code Challenge
-    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
-};
-
-// get url to sign user in and consent to scopes needed for application
-pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-    console.log(response);
-
-    const tokenRequest = {
-        code: response["authorization_code"],
-        codeVerifier: verifier // PKCE Code Verifier 
-        redirectUri: redirectUri,
-        scopes: [scope],
+app.get('/', async (req, res) => {
+    const {verifier, challenge} = await provider.generatePkceCodes();
+    const authCodeUrlParameters = {
+        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        redirectUri: REDIRECT_URI,
+        codeChallenge: challenge, 
+        codeChallengeMethod: "S256"
     };
 
-    // acquire a token by exchanging the code
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+app.get('/redirect', async (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        redirectUri: REDIRECT_URI,
+    };
+
     pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("\nResponse: \n:", response);
+        console.log("nResponse: n:", response);
+        //TODO: the following code snipets go here
+        res.sendStatus(200);
     }).catch((error) => {
         console.log(error);
+        res.status(500).send(error);
     });
-}).catch((error) => console.log(JSON.stringify(error)));
+});
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -166,5 +169,5 @@ console.log(`Token: ${response}`);
 From a console prompt, navigate to the directory containing the *issue-teams-access-token.js* file, then execute the following `node` command to run the app.
 
 ```console
-node ./issue-access-token.js
+node ./issue-teams-access-token.js
 ```
