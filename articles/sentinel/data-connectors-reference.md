@@ -709,7 +709,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Crowdstrike solution](sentinel-solutions-catalog.md#crowdstrike)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Only available after installing the [Crowdstrike solution](sentinel-solutions-catalog.md#crowdstrike)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
@@ -1196,7 +1196,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [McAfee ePolicy Orchestrator solution](sentinel-solutions-catalog.md#mcafee)|
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [McAfee ePolicy Orchestrator solution](sentinel-solutions-catalog.md#mcafee)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
@@ -1774,7 +1774,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Symantec Endpoint solution](sentinel-solutions-catalog.md#symantec)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Only available after installing the [Symantec Endpoint solution](sentinel-solutions-catalog.md#symantec)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
