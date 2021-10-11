@@ -293,11 +293,11 @@ Change the PITR backup retention and differential backup frequency for active Az
 # Valid backup retention must be between 1 and 35 days
 # Valid differential backup frequency must be ether 12 or 24
 az sql db str-policy set \
-  --resource-group myresourcegroup \
-  --server myserver \
-  --name mydb \
-  --retention-days 28 \
-  --diffbackup-hours 24
+    --resource-group myresourcegroup \
+    --server myserver \
+    --name mydb \
+    --retention-days 28 \
+    --diffbackup-hours 24
 ```
 
 #### [SQL Database](#tab/managed-instance)
@@ -308,10 +308,10 @@ Use the following example to change the PITR backup retention of a **single acti
 # Set new PITR backup retention period on an active individual database
 # Valid backup retention must be between 1 and 35 days
 az sql midb short-term-retention-policy set
-  --resource-group myresourcegroup \
-  --managed-instance myinstance \
-  --name mymanageddb \
-  --retention-days 1 \
+    --resource-group myresourcegroup \
+    --managed-instance myinstance \
+    --name mymanageddb \
+    --retention-days 1 \
 ```
 
 Use the following example to change the PITR backup retention for **all active** databases in a SQL Managed Instance.
@@ -320,9 +320,9 @@ Use the following example to change the PITR backup retention for **all active**
 # Set new PITR backup retention period for ALL active databases
 # Valid backup retention must be between 1 and 35 days
 az sql midb short-term-retention-policy set
-  --resource-group myresourcegroup \
-  --managed-instance myinstance \
-  --retention-days 1 \
+    --resource-group myresourcegroup \
+    --managed-instance myinstance \
+    --retention-days 1 \
 ```
 
 Use the following example to change the PITR backup retention for a **single dropped** database in a SQL Managed Instance.
@@ -331,11 +331,11 @@ Use the following example to change the PITR backup retention for a **single dro
 # Set new PITR backup retention on an individual dropped database
 # Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
 az sql midb short-term-retention-policy set
-  --resource-group myresourcegroup \
-  --managed-instance myinstance \
-  --name mymanageddb \
-  --deleted-time "2021-05-20T05:34:22" \
-  --retention-days 0 \
+    --resource-group myresourcegroup \
+    --managed-instance myinstance \
+    --name mymanageddb \
+    --deleted-time "2021-05-20T05:34:22" \
+    --retention-days 0 \
 ```
 
 Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
