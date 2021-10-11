@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Allow read access to blobs based on tags and custom security attributes (Preview) - Azure ABAC"
+title: "Allow read access to blobs based on tags and custom security attributes (Preview) - Azure ABAC"
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/15/2021
 ms.author: rolyon
@@ -13,7 +13,7 @@ ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Tutorial: Allow read access to blobs based on tags and custom security attributes (Preview)
+# Allow read access to blobs based on tags and custom security attributes (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -21,16 +21,12 @@ ms.author: rolyon
 
 In this article, you learn how to allow read access to blobs based on blob index tags and custom security attributes by using attribute-based access control (ABAC) conditions. This can make it easier to manage access to blobs.
 
-In this tutorial, you learn how to:
-- Allow read access to blobs based on blob index tags and custom security attributes
-- Add a condition to a role assignment
-
 ## Prerequisites
 
 To assign custom security attributes and add role assignments conditions in your Azure AD tenant, you need:
 
 - Azure AD Premium P1 or P2 license
-- [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
+- [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
@@ -38,7 +34,7 @@ To assign custom security attributes and add role assignments conditions in your
 
 ## Condition
 
-In this tutorial, you allow read access to blobs if the user has a custom security attribute that matches the blob index tag. This is accomplished by adding a condition to the role assignment.
+In this article, you allow read access to blobs if the user has a custom security attribute that matches the blob index tag. This is accomplished by adding a condition to the role assignment.
  
 ![Diagram of role assignment with a condition.](./media/conditions-custom-security-attributes/condition-principal-attribute.png)
 
@@ -55,7 +51,7 @@ Here is what the condition looks like in code:
  )
  OR 
  (
-  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
  )
 )
 ```
@@ -66,10 +62,12 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Sign in to the [Azure portal](https://azure.portal.com).
 
-1. Click **Azure Active Directory**.
+1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
-1. Add an attribute named `Project` with values of `Baker` and `Cascade`. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
- 
+1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+
+    ![Screenshot of adding a custom security attribute.](./media/conditions-custom-security-attributes/project-attribute-add.png)
+
 ## Step 2: Assign the custom security attribute to a user
 
 1. In Azure AD, create a security group.
@@ -77,7 +75,9 @@ For more information about conditions, see [What is Azure attribute-based access
 1. Add a user as a member of the group.
 
 1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
- 
+
+    ![Screenshot of assigning a custom security attribute.](./media/conditions-custom-security-attributes/project-users-attributes-assign.png)
+
 1. Be sure to click **Save** to save your assignment.
 
 ## Step 3: Set up storage and blob index tags
@@ -105,7 +105,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment**.
  
 1. On the **Role** tab, select the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role.
  
@@ -113,7 +113,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. (Optional) In the **Description** box, enter **Read access to blobs if the user has a custom security attribute that matches the blob index tag**.
 
-1. On the **Condition** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**.
 
     The Add role assignment condition page appears.
  
@@ -140,6 +140,8 @@ For more information about conditions, see [What is Azure attribute-based access
     > [!NOTE]
     > If Principal is not listed as an option in Attribute source, make sure you have defined custom security attribute as described earlier in [Step 1: Add a new custom security attribute](#step-1-add-a-new-custom-security-attribute).
 
+    ![Screenshot of condition using principal attribute displayed in visual editor.](./media/conditions-custom-security-attributes/condition-principal-visual.png)
+
 1. Scroll up to **Editor type** and click **Code**.
 
     Your condition should look similar to the following:
@@ -151,7 +153,7 @@ For more information about conditions, see [What is Azure attribute-based access
      )
      OR 
      (
-      @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+      @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
      )
     )
     ```
@@ -176,6 +178,8 @@ For more information about conditions, see [What is Azure attribute-based access
 1. Open the storage account and container you created.
 
 1. Ensure that the authentication method is set to **Azure AD User Account** and not **Access key**.
+
+    ![Screenshot of storage container with test files.](./media/conditions-custom-security-attributes/test-storage-container.png)
 
 1. Click the Baker text file.
 
@@ -203,10 +207,10 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
     $groupRoleAssignment = Get-AzRoleAssignment -ObjectId <groupObjectId> -Scope <scope>
     ```
     
-1. Set the `Condition` property of the role assignment object.
+1. Set the `Condition` property of the role assignment object. Be sure to use your attribute set name.
 
     ```powershell
-    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
+    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
     ```
 
 1. Set the `ConditionVersion` property of the role assignment object.
@@ -301,10 +305,10 @@ You can also use Azure CLI to add role assignments conditions. The following com
     }
     ```
 
-1. Update the `condition` property.
+1. Update the `condition` property. Be sure to use your attribute set name.
 
     ```azurecli
-    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
+    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
     ```
 
 1. Update the `conditionVersion` property.
@@ -355,16 +359,6 @@ You can also use Azure CLI to add role assignments conditions. The following com
     ...
     }
     ```
-
-## Clean up resources
-
-1. Remove the role assignment you added.
-
-1. Delete the test storage account you created.
-
-1. Remove the custom security attributes from the user.
-
-1. Deactivate the custom security attributes you added.
 
 ## Next steps
 

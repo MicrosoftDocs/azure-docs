@@ -28,8 +28,6 @@
     href: tutorial-custom-role-powershell.md
   - name: Create a custom role - CLI
     href: tutorial-custom-role-cli.md
-  - name: Conditions and custom security attributes
-    href: conditions-custom-security-attributes.md
 - name: Concepts
   items:
   - name: Role definitions
@@ -108,6 +106,8 @@
       href: conditions-role-assignments-template.md
     - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
+    - name: Conditions and custom security attributes
+      href: conditions-custom-security-attributes.md
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments
