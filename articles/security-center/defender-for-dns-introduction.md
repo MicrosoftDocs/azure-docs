@@ -3,7 +3,7 @@ title: Azure Defender for DNS - the benefits and features
 description: Learn about the benefits and features of Azure Defender for DNS
 author: memildin
 ms.author: memildin
-ms.date: 08/18/2021
+ms.date: 10/11/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
