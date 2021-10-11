@@ -72,7 +72,7 @@ VM-level bursting is enabled in all regions in the Azure Public Cloud on these s
 - [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
 - [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md)
 - [Easv5-series](../articles/virtual-machines/easv5-eadsv5-series.md)
-- [Eadsv5-series.md](../articles/virtual-achines/easv5-eadsv5-series.md)
+- [Eadsv5-series](../articles/virtual-machines/easv5-eadsv5-series.md}
 - [B-series](../articles/virtual-machines/sizes-b-series-burstable.md)
 - [Fsv2-series](../articles/virtual-machines/fsv2-series.md)
 - [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)

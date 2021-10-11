@@ -66,7 +66,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Edsv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [Ev5](ev5-esv5-series.md) | 195 - 210* | 2:1\*\*\* |
 | [Esv5](ev5-esv5-series.md) | 195 - 210* | 2:1\*\*\* |
-| [Easv5](easv5-eadsv5-series) | 195 - 210*| 2:1\*\*\* |
+| [Easv5](easv5-eadsv5-series.md) | 195 - 210*| 2:1\*\*\* |
 | [Eadsv5](easv5-eadsv5-series.md) | 195 - 210*| 2:1\*\*\* |
 | [Edv5](edv5-edsv5-series.md) | 195 - 210* | 2:1\*\*\* |
 | [Edsv5](edv5-edsv5-series.md) | 195 - 210* | 2:1\*\*\* |
