@@ -29,7 +29,7 @@ ms.author: oldoll
 
 [sap-resources]:vm-extension-for-sap.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [new-monitoring]:vm-extension-for-sap.md#38d9f33f-d0af-4b8f-8134-f1f97d656fb6 (New Version of VM Extension for SAP)
-[std-extension]:vm-extension-for-sap-std.md (Standard Version of Azure VM extension for SAP solutions)
+[std-extension]:vm-extension-for-sap-standard.md (Standard Version of Azure VM extension for SAP solutions)
 [new-extension]:vm-extension-for-sap-new.md (New Version of Azure VM extension for SAP solutions )
 [azure-ps]:/powershell/azure/
 [azure-cli]:/cli/azure/install-classic-cli

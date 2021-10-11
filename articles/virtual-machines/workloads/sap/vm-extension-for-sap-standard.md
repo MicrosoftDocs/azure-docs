@@ -1,5 +1,5 @@
 ---
-title: Standard Version of Azure VM extension for SAP solutions | Microsoft Docs
+title: Standard version of Azure VM extension for SAP solutions | Microsoft Docs
 description: Learn how to deploy the Std VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
