@@ -9,6 +9,8 @@ ms.author: wesmc
 > [!NOTE]
 > Some areas of this service have adjustable limits. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 >
+>The actual value to which a limit can be adjusted can vary based on each customer’s deployment.
+>
 > If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 The following table lists the limits that apply to Azure IoT Hub Device Provisioning Service resources.
