@@ -9,7 +9,7 @@ ms.author: mmcc
 
 # OpenTelemetry Overview
 
-Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vender-neutral instrumentation, and we're delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
+Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vendor-neutral instrumentation, and we're delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
 
 Microsoft worked together with project stakeholders from two previously popular open-source telemetry projects, [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/), to help create a single project -- OpenTelemetry. OpenTelemetry includes contributions from all major cloud and Application Performance Management (APM) vendors and is housed by the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) of which Microsoft is a Platinum Member.
 
@@ -72,6 +72,6 @@ Codeless / Agent-based   | Auto-Instrumentation
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft’s OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 - [.NET](opentelemetry-enable.md) 
-- [Python](opentelemetry-enable.md)
-- [JavaScript](opentelemetry-enable.md)
 - [Java](java-in-process-agent.md)
+- [JavaScript](opentelemetry-enable.md)
+- [Python](opentelemetry-enable.md)
