@@ -163,16 +163,6 @@ After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The
 
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI TLS/SSL certificate bindings for individual apps.
 
-## App Service Environment v1 ##
-App Service Environment has three versions: ASEv1, ASEv2 and ASEv3. The preceding information was based on ASEv2 and ASEv3. This section shows you the differences between ASEv1, ASEv2 and ASEv3.
-
-In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL binding. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
-
-ASEv1 uses a different pricing model from ASEv2 and ASEv3. In ASEv1, you pay for each vCPU allocated. That includes vCPUs that are used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
-
-To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE v1 with a Resource Manager template][ILBASEv1Template].
-
-
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
@@ -201,4 +191,4 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
 [Create ASEv3]: creation.md
 [asev3quickstarts]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create
-[AZ Support for ASEv3]: https://docs.microsoft.com/azure/app-service/environment/zone-redundancy
+[AZ Support for ASEv3]: zone-redundancy.md
