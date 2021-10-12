@@ -16,19 +16,19 @@ items:
   items:
    - name: Form Recognizer v2.1
      items:
-     - name: "Get started: Form Recognizer labeling tool"
+     - name: Form Recognizer labeling tool
        href: quickstarts/try-sample-label-tool.md
-     - name: "Get started: client libraries and REST API"
+     - name: Client libraries and REST API
        href: quickstarts/try-sdk-rest-api.md
    - name: "Form Recognizer v3.0 | Preview"
      items:
-       - name: "Get started: Form Recognizer Studio (preview)"
+       - name: Form Recognizer Studio (preview)
          href: quickstarts/try-v3-form-recognizer-studio.md
-       - name: "Get started: REST API (preview)"
+       - name: REST API (preview)
          href: quickstarts/try-v3-rest-api.md
-       - name: "Get started: C# SDK (preview)"
+       - name: C# SDK (preview)
          href: quickstarts/try-v3-csharp-sdk.md
-       - name:  "Get started: Python SDK (preview)" 
+       - name:  Python SDK (preview)
          href: quickstarts/try-v3-python-sdk.md
 - name: Samples
   items:
@@ -98,6 +98,8 @@ items:
   items:
   - name: Model overview
     href: concept-model-overview.md
+  - name: Form Recognizer Studio | preview
+    href: concept-form-recognizer-studio.md 
   - name: General document model | preview
     href: concept-general-document.md
   - name: Layout model
@@ -133,6 +135,8 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
+  - name: Error codes and messages v3.0 (preview) 
+    href: preview-error-guide.md 
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

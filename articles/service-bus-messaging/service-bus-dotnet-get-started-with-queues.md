@@ -3,8 +3,8 @@ title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create a .NET Core C# application to send messages to and receive messages from a Service Bus queue.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 08/16/2021
-ms.custom: contperf-fy21q4
+ms.date: 10/11/2021
+ms.custom: contperf-fy22q2
 ---
 
 # Get started with Azure Service Bus queues (.NET)
@@ -62,7 +62,6 @@ This section shows you how to create a .NET Core console application to send mes
 1. In **Program.cs**, add the following `using` statements at the top of the namespace definition, before the class declaration.
 
     ```csharp
-    using System;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     ```
@@ -255,7 +254,6 @@ In this section, you'll add code to retrieve messages from the queue.
 1. In **Program.cs**, add the following `using` statements at the top of the namespace definition, before the class declaration.
 
     ```csharp
-    using System;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     ```
@@ -270,15 +268,33 @@ In this section, you'll add code to retrieve messages from the queue.
     // name of your Service Bus queue
     static string queueName = "<QUEUE NAME>";
 
-
     // the client that owns the connection and can be used to create senders and receivers
     static ServiceBusClient client;
 
     // the processor that reads and processes messages from the queue
     static ServiceBusProcessor processor;
     ```
-3. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code. See code comments for more details. 
-    Here are the important steps from the code:
+3. Add the following methods to the `Program` class to handle received messages and any errors. 
+
+    ```csharp
+    // handle received messages
+    static async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body}");
+
+        // complete the message. messages is deleted from the queue. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    static Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    ```
+4. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code. 
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the primary connection string to the namespace. 
     1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
     1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object. 
