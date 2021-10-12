@@ -108,7 +108,7 @@ var job = await client.CreateJobAsync(
     channelReference: "12345",
     queueId: queue.Value.Id,
     priority: 1,
-    workerRequirements: new List<RouterRequirement>
+    workerSelector: new List<LabelSelector>
     {
         new (
             key: "Location", 
