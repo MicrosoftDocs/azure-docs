@@ -163,6 +163,8 @@
       href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: edge/troubleshoot.md
+  - name: Connect cameras to cloud via remote device adapter
+    href: cloud/use-remote-device-adapter.md
   - name: Camera discovery
     href: edge/camera-discovery.md
 - name: Reference 
