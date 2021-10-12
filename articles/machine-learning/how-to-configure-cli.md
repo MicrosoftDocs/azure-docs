@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/18/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---

@@ -5,7 +5,7 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/17/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli

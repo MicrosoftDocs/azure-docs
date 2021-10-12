@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 10/01/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devplatv2
 

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 06/10/2021
+ms.date: 10/21/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.

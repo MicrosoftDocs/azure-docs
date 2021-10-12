@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 10/08/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: 
 

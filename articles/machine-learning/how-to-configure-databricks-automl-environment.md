@@ -8,7 +8,7 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: automl
 ms.reviewer: larryfr
-ms.date: 09/14/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
