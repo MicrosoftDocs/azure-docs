@@ -10,7 +10,7 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.subservice: app-proxy
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Azure AD Application Proxy: Version release history
