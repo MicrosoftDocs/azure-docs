@@ -185,8 +185,8 @@ There are two types of schema representation in the analytical store. These type
 It is possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It is not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB accounts are not compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB accounts aren't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
  * Currently this change can't be made through the Azure portal. All database accounts that have Synapse LinK enabled by the Azure portal will have the default schema representation type, well defined schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
