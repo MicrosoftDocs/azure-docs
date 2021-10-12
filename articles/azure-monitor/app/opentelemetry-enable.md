@@ -170,17 +170,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-> [!NOTE]
-> The following guidance shows how to enable Azure Monitor Application Insights for a C# console applications.
-> 
-> Check out OpenTelemetry GitHub Readmes for guidance on other applications types:
-> - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNet/README.md)
-> - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md)
-> - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md)
-> 
-> Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all listed application types.
-> 
-> For additional resources, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). 
+The following code demonstrates enabling OpenTelemetry in a C# console application. For auto-collection of telemetry, check out [instrumentation libraries](#instrumentation-libraries) section.
 
 ```csharp
 using System.Diagnostics;
