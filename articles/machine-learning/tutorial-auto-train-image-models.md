@@ -55,7 +55,7 @@ This tutorial uses the NCsv3-series (with V100 GPUs) as this type of compute tar
 
 The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`.
 
-> [! WARNING]
+> [!WARNING]
 > Ensure your subscription has sufficient quota for the compute target you wish to use.
 
 ```python
