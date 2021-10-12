@@ -28,6 +28,8 @@ items:
       href: how-to-use-device-mapping-iot.md
     - name: Use FHIR destination mapping templates
       href: how-to-use-fhir-mapping-iot.md
+    - name: Export IoT connector Metrics through Diagnostic settings
+      href: iot-metrics-diagnostics-export.md
 
 - name: Resources
   expanded: true

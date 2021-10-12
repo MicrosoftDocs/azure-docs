@@ -177,7 +177,7 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
   }
 ```
 
-If you want to access the cluster, follow the steps [here][access-cluster].
+Update kubeconfig in order to access the cluster, follow the steps [here][access-cluster].
 
 ## Non-interactive sign in with kubelogin
 
@@ -392,7 +392,7 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
 ### Apply Just-in-Time access at the namespace level
 
-1. Integrate your AKS cluster with [Azure RBAC](manage-azure-rbac.md).
+1. Integrate your AKS cluster with [Azure RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac).
 2. Associate the group you want to integrate with Just-in-Time access with a namespace in the cluster through role assignment.
 
 ```azurecli-interactive

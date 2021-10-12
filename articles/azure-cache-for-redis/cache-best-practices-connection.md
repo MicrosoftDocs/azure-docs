@@ -5,7 +5,7 @@ description: Learn how to make your Azure Cache for Redis connections resilient.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
 ---
 
@@ -18,6 +18,23 @@ Configure your client connections to retry commands with exponential backoff. Fo
 ## Test resiliency
 
 Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
+
+## TCP settings for Linux-hosted client applications
+
+Some Linux versions use optimistic TCP settings by default. The TCP settings can create a situation where a client connection to a cache cannot be reestablished for a long time when a Redis server stops responding before closing the connection gracefully. The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
+
+We recommend these TCP settings:
+
+|Setting  |Value |
+|---------|---------|
+| *net.ipv4.tcp_retries2*   | 5 |
+| *TCP_KEEPIDLE*   | 15 |
+| *TCP_KEEPINTVL*  | 5 |
+| *TCP_KEEPCNT* | 3 |
+
+Consider using the *ForceReconnect* pattern. For an implementation of the pattern, see the code in [Reconnecting with Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+
+For more information about the scenario can be found here, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 
 ## Configure appropriate timeouts
 

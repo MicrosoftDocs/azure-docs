@@ -41,7 +41,6 @@ Before you complete the steps in this article, you should already have:
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
-- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 
 ## Create DNN resource 
 
@@ -142,7 +141,11 @@ Use Failover Cluster Manager to restart the SQL Server instance. Follow these st
 
 ## Update connection string
 
-To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is earlier than 4.6.1. 
+Update the connection string of any application connecting to the SQL Server FCI DNN, and include `MultiSubnetFailover=True` in the connection string. If your client does not support the MultiSubnetFailover parameter, it is not compatible with a DNN. 
+
+The following is an example connection string for a SQL FCI DNN with the DNS name of **FCIDNN**: 
+
+`Data Source=FCIDNN, MultiSubnetFailover=True`
 
 Additionally, if the DNN is not using the original VNN, SQL clients that connect to the SQL Server FCI will need to update their connection string to the DNN DNS name. To avoid this requirement, you can update the DNS name value to be the name of the VNN. But you'll need to [replace the existing VNN with a placeholder](#rename-the-vnn) first. 
 
@@ -193,6 +196,8 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 ## Limitations
 
+
+- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 - There might be more considerations when you're working with other SQL Server features and an FCI with a DNN. For more information, see [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md). 
 
 ## Next steps
