@@ -90,7 +90,7 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
    This example shows only one of the connections that's required by this task.
 
-   ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
+   ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](./media/create-replication-tasks-azure-resources/create-authenticate-connections.png)
 
 1. When you're prompted, sign in with your Azure account credentials.
 

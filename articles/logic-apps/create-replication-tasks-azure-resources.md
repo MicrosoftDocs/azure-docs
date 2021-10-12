@@ -72,9 +72,9 @@ When you create a replication task, charges start incurring immediately. Underne
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
-   This example shows the prompt to create the connection to the target Service Bus resource.
+   This example shows the prompt to create the connection to the target Service Bus namespace because the connection already exists for the current, or source, namespace.
 
-   ![Screenshot showing selected "Create" option for the target Service Bus connection.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
+   ![Screenshot showing selected "Create" option for the target Service Bus connection.](./media/create-replication-tasks-azure-resources/create-authenticate-connections.png)
 
 1. When you're prompted, sign in with your Azure account credentials.
 
