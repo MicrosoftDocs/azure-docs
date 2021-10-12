@@ -34,7 +34,7 @@ For more information, see:
 * [Advanced threat protection for Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [The list of threat protection alerts for Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
-### Display Azure Security Center recommendations in Microsoft Cloud App Security <a name="azure-mcas"></a>
+## Display Azure Security Center recommendations in Microsoft Cloud App Security <a name="azure-mcas"></a>
 
 Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
