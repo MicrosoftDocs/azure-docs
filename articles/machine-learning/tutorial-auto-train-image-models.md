@@ -90,7 +90,7 @@ experiment_name = 'automl-image-object-detection'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
-## Visualize data
+## Visualize input data
 
 ### From JSONL files
 
@@ -182,7 +182,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 
 ### From Azure Machine Learning dataset
 
-You can also visualize the ground truth bounding boxes for an image, when you have the input image data in dataset format.
+You can also visualize the ground truth bounding boxes for an image, when you have the input image data in Azure ML Dataset format.
 
 Load the dataset into a pandas dataframe.
 
