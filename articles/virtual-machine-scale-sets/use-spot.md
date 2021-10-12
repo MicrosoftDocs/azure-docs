@@ -1,8 +1,8 @@
 ---
 title: Create a scale set that uses Azure Spot Virtual Machines 
 description: Learn how to create Azure virtual machine scale sets that use Azure Spot Virtual Machines to save on costs.
-author: JagVeerappan
-ms.author: jagaveer
+author: mimckitt
+ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
