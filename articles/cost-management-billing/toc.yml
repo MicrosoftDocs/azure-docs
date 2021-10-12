@@ -236,6 +236,8 @@
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
         href: manage/ea-portal-administration.md
+      - name: Azure direct EA administration
+        href: manage/direct-ea-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
       - name: EA tasks in Microsoft Customer Agreement

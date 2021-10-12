@@ -224,6 +224,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/whats-new-docs.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
       "redirect_document_id": false
@@ -6676,6 +6681,26 @@
     {
       "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
       "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/how-to-request-transit-data.md",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/mobility-coverage.md ",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
+      "redirect_url": "/azure/azure-maps",
       "redirect_document_id": false
     },
     {
@@ -28132,6 +28157,11 @@
       "source_path_from_root": "/articles/storage/blobs/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/access-tiers-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
+      "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
