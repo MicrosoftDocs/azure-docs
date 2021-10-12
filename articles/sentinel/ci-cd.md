@@ -74,7 +74,7 @@ Each repository connection must be used for a single type of content. For more i
 
 1. After the **Azure-Sentinel** app is installed in your repository, the **Branch** dropdown in the **Create a new connection** page is populated with your branches. Select the branch where you want to store your Azure Sentinel content.
 
-1. From the **Content Type** dropdown, select the type of content you'll be saving. You must define your content type so that users can filter connections in the **Repositories** grid by the content type each connection contains.
+1. From the **Content Type** dropdown, select the type of content you'll be saving. Define your content type to make your connection filterable in the **Repositories** page.
 
 1. Select **Create** to create your connection. For example:
 
@@ -82,11 +82,14 @@ Each repository connection must be used for a single type of content. For more i
 
 After the connection is created, a new workflow is generated in GitHub, and the content stored in your repository is deployed to your Azure Sentinel workspace.
 
-### Viewing GitHub deployment status
+After the deployment is complete, the content stored in your repository are displayed in your Azure Sentinel workspace, in the relevant Azure Sentinel page.
 
-You can view the status of your Azure Sentinel content deployment in GitHub, on the **GitHub Actions** page. 
 
-Select the workflow file shown there to access detailed deployment logs and any specific error messages, if relevant.
+> [!TIP]
+> The workflow deployment typically takes a few minutes to complete. You can view the status of your Azure Sentinel content deployment in GitHub, on the **Actions** tab.
+>
+> Select the workflow .yaml file shown there to access detailed deployment logs and any specific error messages, if relevant.
+>
 
 ### Customize the GitHub deployment workflow
 
@@ -102,10 +105,11 @@ TBD
 
 ## Edit or delete content in your repository
 
-After you've successfully created connections to your source control repository, we recommend that you edit any content stored there *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or a local editing tool.
+After you've successfully created connections to your source control repository, we recommend that you edit any content stored there *only* in the repository or your deployment pipeline, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or a local editing tool.
 
 If you've edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
+When you edit and redeploy content to your Azure Sentinel workspace, the content is marked as disabled in Azure Sentinel while it's being re-deployed. Select **Refresh** when your redeployment is complete to update the content status.
 
 ## Remove a source control connection
 
