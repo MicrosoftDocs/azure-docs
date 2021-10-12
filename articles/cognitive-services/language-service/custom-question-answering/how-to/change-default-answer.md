@@ -4,7 +4,7 @@ description: The default answer is returned when there is no match to the questi
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 11/02/2021
 ---
 
 # Change default answer for custom question answering

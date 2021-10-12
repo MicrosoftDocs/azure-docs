@@ -4,7 +4,7 @@ description: This quickstart shows you how to create and manage your knowledge b
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/08/2021
+ms.date: 11/02/2021
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 zone_pivot_groups: custom-qna-quickstart
 ---

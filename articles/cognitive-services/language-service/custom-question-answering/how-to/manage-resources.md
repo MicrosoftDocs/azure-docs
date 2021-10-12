@@ -4,7 +4,7 @@ description: Before you can create any knowledge bases, you must first set up cu
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/02/2021
 ---
 
 # Manage custom question answering resources

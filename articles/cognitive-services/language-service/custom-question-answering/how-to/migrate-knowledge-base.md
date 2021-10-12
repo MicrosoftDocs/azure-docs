@@ -4,7 +4,7 @@ description: Migrating a custom question answering project requires exporting a 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 11/02/2021
 ---
 # Migrate projects and question answer sources
 

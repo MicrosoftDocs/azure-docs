@@ -4,7 +4,7 @@ description: Understand Precise answering feature available in custom question a
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/02/2021
 ---
 
 # Precise answering
