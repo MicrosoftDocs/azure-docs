@@ -32,16 +32,6 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_multiclass_predictions_vis.jpg)
 
-| Key       | Description  | Example |
-| -------- |----------|-----|
-| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Image type (all the available Image formats in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | Class/label of the image<br>`Required, String` | `"cat"` |
-
-
 **Input data format/schema in each JSON Line:**
 ```json
 {
@@ -54,6 +44,16 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
    "label":"class_name",
 }
 ```
+
+| Key       | Description  | Example |
+| -------- |----------|-----|
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the available Image formats in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| label | Class/label of the image<br>`Required, String` | `"cat"` |
+
 
 Example of a JSONL file for multi-class image classification:
 ```json
@@ -68,15 +68,6 @@ Example of a JSONL file for multi-class image classification:
 ### Image Classification Multi-label
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_multilabel_predictions_vis.jpg)
-
-| Key       | Description  | Example |
-| -------- |----------|-----|
-| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | List of classes/labels in the image<br>`Required, List of Strings` | `["cat","dog"]` |
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -98,6 +89,16 @@ Example of a JSONL file for multi-class image classification:
 }
 ```
 
+| Key       | Description  | Example |
+| -------- |----------|-----|
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| label | List of classes/labels in the image<br>`Required, List of Strings` | `["cat","dog"]` |
+
+
 Example of a JSONL file for Image Classification Multi-label:
 
 ```json
@@ -113,24 +114,7 @@ Example of a JSONL file for Image Classification Multi-label:
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_objectdetection_predictions_vis.jpg)
 
-| Key       | Description  | Example |
-| -------- |----------|-----|
-| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Image type (all the Image formats available in Pillow library are supported. But for YOLO only image formats allowed by opencv are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (outer key) | List of bounding boxes, where each box is a dictionary of `label, topX, topY, bottomX, bottomY, isCrowd` their top-left and bottom-right coordinates<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
-| label (inner key)| Class/label of the object in the bounding box<br>`Required, String` | `"cat"` |
-| topX | Ratio of x coordinate of top-left corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.260` |
-| topY | Ratio of y coordinate of top-left corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.406` |
-| bottomX | Ratio of x coordinate of bottom-right corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.735` |
-| bottomY | Ratio of y coordinate of bottom-right corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.701` |
-| isCrowd | Indicates whether the bounding box is around the crowd of objects. if this special flag is set, we skip this particular  bounding box when calculating the metric.<br>`Optional, Bool` | `0` |
-
-
 **Input data format/schema in each JSON Line:**
-
 
 ```json
 {
@@ -170,6 +154,23 @@ Here,
 
 topX, topY, bottomX, bottomY are top-left and bottom-right corners of a bounding box normalized with image width, height, width, height respectively.
 
+
+| Key       | Description  | Example |
+| -------- |----------|-----|
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type (all the Image formats available in Pillow library are supported. But for YOLO only image formats allowed by opencv are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| label (outer key) | List of bounding boxes, where each box is a dictionary of `label, topX, topY, bottomX, bottomY, isCrowd` their top-left and bottom-right coordinates<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
+| label (inner key)| Class/label of the object in the bounding box<br>`Required, String` | `"cat"` |
+| topX | Ratio of x coordinate of top-left corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.260` |
+| topY | Ratio of y coordinate of top-left corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.406` |
+| bottomX | Ratio of x coordinate of bottom-right corner of the bounding box and width of the image<br>`Required, Float in the range [0,1]` | `0.735` |
+| bottomY | Ratio of y coordinate of bottom-right corner of the bounding box and height of the image<br>`Required, Float in the range [0,1]` | `0.701` |
+| isCrowd | Indicates whether the bounding box is around the crowd of objects. if this special flag is set, we skip this particular  bounding box when calculating the metric.<br>`Optional, Bool` | `0` |
+
+
 Example of a JSONL file for Object Detection:
 ```json
 {"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]}
@@ -185,18 +186,6 @@ Example of a JSONL file for Object Detection:
 For Instance Segmentation, we only support polygon as input and output, no masks.
 
 ![Image Classification](./media/how-to-prepare-datasets-for-automl-images/testimage_instance_segmentation_predictions_vis.jpg)
-
-| Key       | Description  | Example |
-| -------- |----------|-----|
-| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (outer key) | List of masks, where each mask is a dictionary of `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
-| label (inner key)| Class/label of the object in the mask<br>`Required, String` | `"cat"` |
-| isCrowd | Indicates whether the mask is around the crowd of objects<br>`Optional, Bool` | `0` |
-| polygon | Polygon coordinates for the objects<br>`Required, List of List(list of multiple instances) of Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -216,6 +205,19 @@ For Instance Segmentation, we only support polygon as input and output, no masks
    ]
 }
 ```
+
+| Key       | Description  | Example |
+| -------- |----------|-----|
+| image_url | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| image_details | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| format  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| label (outer key) | List of masks, where each mask is a dictionary of `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
+| label (inner key)| Class/label of the object in the mask<br>`Required, String` | `"cat"` |
+| isCrowd | Indicates whether the mask is around the crowd of objects<br>`Optional, Bool` | `0` |
+| polygon | Polygon coordinates for the objects<br>`Required, List of List(list of multiple instances) of Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
+
 
 Example of a JSONL file for Instance Segmentation:
 
