@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
