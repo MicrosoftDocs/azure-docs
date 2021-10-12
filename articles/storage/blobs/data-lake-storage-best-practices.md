@@ -36,7 +36,7 @@ As you move between content sets, you'll notice some slight terminology differen
 
 If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using the premium performance tier for your storage account. The premium performance tier makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
-The storage costs of premium performance are higher, but transaction costs are lower, so if your workloads execute a large number of transactions, this tier can be economical. To learn more about this tier, it's cost implications, and to read about real world scenarios where our customers have applied the premium performance tier, see [Premium performance tier for Azure block blob storage](storage-blob-block-blob-premium.md).
+The storage costs of premium performance are higher, but transaction costs are lower, so if your workloads execute a large number of transactions, this tier can be economical. To learn more about this tier, it's cost implications, and to read about real world scenarios where our customers have applied the premium performance tier, see [Premium performance tier for Azure block blob storage](premium-tier-for-data-lake-storage.md).
 
 ## Optimize for data ingest
 
