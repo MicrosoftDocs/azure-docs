@@ -3,7 +3,7 @@ title: What is BareMetal Infrastructure on Azure?
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/27/2021
 ---
 
 #  What is BareMetal Infrastructure on Azure?
@@ -31,8 +31,8 @@ BareMetal Infrastructure is intended for critical workloads that require certifi
 BareMetal Infrastructure offers these benefits:
 
 - Certified hardware for specialized workloads
-    - SAP (Refer to [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533))
-    - Oracle (Refer to [Oracle document ID #948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
+    - SAP (Refer to [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533). You'll need an SAP account for access.)
+    - Oracle (Refer to [Oracle document ID #948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52). You'll need an Oracle account for access.)
 - Non-hypervised BareMetal instance, single tenant ownership
 - Low latency between Azure hosted application VMs to BareMetal instances (0.35 ms)
 - All Flash SSD and NVMe

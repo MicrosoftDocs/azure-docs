@@ -115,7 +115,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob’s access tier to hot with standard priority.
+# Change the blob's access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
@@ -184,7 +184,7 @@ az storage blob show \
 
 ## See also
 
-- [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 - [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
 - [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

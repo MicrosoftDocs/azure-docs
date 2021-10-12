@@ -13,7 +13,7 @@ ms.subservice: files
 
 Cloud tiering has two policies that determine which files are tiered to the cloud: the **volume free space policy** and the **date policy**.
 
-The **volume free space policy** ensures that a specified percentage of the local volume the server endpoint is located on is always kept free. 
+The **volume free space policy** ensures that a specified percentage of the local volume the server endpoint is located on is always kept free.
 
 The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will override the date policy and continue tiering the coldest files until the volume free space percentage is met.
 
@@ -31,7 +31,7 @@ We'll use an example to illustrate how these policies work: Let's say you config
 
 **Change 1:** You enabled cloud tiering, set a volume free space policy of 20%, and kept the date policy disabled. With that configuration, cloud tiering ensures 20% (in this case 100 GiB) of space is kept free and available on the local machine. As a result, the total capacity of the local cache is 400 GiB. That 400 GiB will store the most recently and frequently accessed files on the local volume.
 
-With this configuration, only files 1 through 4 would be stored in the local cache, and file 5 would be tiered. This is only 370 GiB out of the 400 GiB that could be used. File 5 is 140 GiB and would exceed the 400 GiB limit if it was locally cached. 
+With this configuration, only files 1 through 4 would be stored in the local cache, and file 5 would be tiered. This is only 370 GiB out of the 400 GiB that could be used. File 5 is 140 GiB and would exceed the 400 GiB limit if it was locally cached.
 
 **Change 2:** Say a user accesses file 5. This makes file 5 the most recently accessed file in the share. As a result, File 5 would be stored in the local cache and to fit under the 400 GiB limit, file 4 would be tiered. The following table shows where the files are stored, with these updates:
 
@@ -57,7 +57,7 @@ With this configuration, only files 1 through 4 would be stored in the local cac
 
 In this case, files 1, 2 and 5 would be locally cached and files 3 and 4 would be tiered. Because the date policy is 60 days, files 3 and 4 are tiered, even though the volume free space policy allows for up to 400 GiB locally.
 
-> [!NOTE] 
+> [!NOTE]
 > Files are not automatically recalled when customers change the volume free space policy to a smaller value (for example, from 20% to 10%) or change the date policy to a larger value (for example, from 20 days to 50 days).
 
 ## Multiple server endpoints on a local volume
@@ -66,4 +66,4 @@ Cloud tiering can be enabled for multiple server endpoints on a single local vol
 
 ## Next steps
 
-* [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md)
+- [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md)

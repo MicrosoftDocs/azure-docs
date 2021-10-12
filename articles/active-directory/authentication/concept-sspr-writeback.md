@@ -47,7 +47,7 @@ To get started with SSPR writeback, complete the following tutorial:
 
 ## How password writeback works
 
-When a federated or password hash synchronized user attempts to reset or change their password in the cloud, the following actions occur:
+When a password hash synchronized, pass-through authentication configured or a federated user attempts to reset or change their password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
@@ -101,7 +101,7 @@ Password writeback is a highly secure service. To ensure your information is pro
 After a user submits a password reset, the reset request goes through several encryption steps before it arrives in your on-premises environment. These encryption steps ensure maximum service reliability and security. They are described as follows:
 
 1. **Password encryption with 2048-bit RSA Key**: After a user submits a password to be written back to on-premises, the submitted password itself is encrypted with a 2048-bit RSA key.
-1. **Package-level encryption with AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM. This encryption prevents anyone with direct access to the underlying Service Bus channel from viewing or tampering with the contents.
+1. **Package-level encryption with 256-bit AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM (with a key size of 256 bits). This encryption prevents anyone with direct access to the underlying Service Bus channel from viewing or tampering with the contents.
 1. **All communication occurs over TLS/SSL**: All the communication with Service Bus happens in an SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
 1. **Automatic key rollover every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect, to ensure maximum service security and safety.
 

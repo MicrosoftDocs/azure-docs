@@ -1,7 +1,6 @@
 ---
 title: Upgrading Linux OS for Azure Service Fabric
 description: Learn about options for migrating your Azure Service Fabric cluster to another Linux OS
-manager: tassb
 ms.topic: conceptual
 ms.date: 09/14/2021
 ---
@@ -26,7 +25,7 @@ The general approach is to:
 
     * Ensure after the new target OS node type is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceeding with removing the old node type.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
-4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
+4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](service-fabric-sfctl.md) / [PowerShell](/powershell/module/ServiceFabric) / [FabricClient](/dotnet/api/system.fabric.fabricclient) and disable all nodes in the old node type.
 5. Remove the old node types.
 
 > [!NOTE]
@@ -38,9 +37,9 @@ The general approach is to:
 > [!NOTE]
 > The steps below demonstrate how to quickly prototype the node type migration via Az PowerShell cmdlets in a TEST-only cluster. For production clusters facing real business traffic, the same steps are expected to be done by issuing ARM upgrades, to preserve replayability & a consistent declarative source of truth.
 
-1. Update vmImage setting on Service Fabric cluster resource using [Update-AzServiceFabricVmImage](https://docs.microsoft.com/powershell/module/az.servicefabric/update-azservicefabricvmimage):
+1. Update vmImage setting on Service Fabric cluster resource using [Update-AzServiceFabricVmImage](/powershell/module/az.servicefabric/update-azservicefabricvmimage):
 
-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps):
+    [Azure PowerShell](/powershell/azure/install-az-ps):
     ```powershell
     # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"

@@ -8,7 +8,7 @@ ms.topic: overview
 author: yorek
 ms.author: damauri
 ms.reviewer: 
-ms.date: 7/27/2021
+ms.date: 9/24/2021
 ---
 
 # Hyperscale secondary replicas
@@ -17,7 +17,7 @@ ms.date: 7/27/2021
 As described in [Distributed functions architecture](service-tier-hyperscale.md), Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as replicas:
 
 - Primary: serves read and write operations
-- Secondary: provides read scale-out, high availability, and geo-replication
+- Secondary: provides [read scale-out](read-scale-out.md), [high availability](high-availability-sla.md), and [geo-replication](active-geo-replication-overview.md)
 
 Secondary replicas are always read-only, and can be of three different types:
 
@@ -58,7 +58,12 @@ The difference from HA replicas is that named replicas:
 - support for up to 30 named replicas (for each primary replica);
 - support different authentication for each named replica by creating different logins on logical servers hosting named replicas.
 
-The main goal of named replicas is to enable massive OLTP read scale-out scenario, and to improve Hybrid Transactional and Analytical Processing (HTAP) workloads. Examples of how to create such solutions are available here:
+As a result, named replicas offers several benefits over HA replicas, for what concern read-only workloads:
+
+- users connected to a named replica will suffer no disconnection if the primary replica is scaled up or down; at the same time users connected to primary replica will be unaffected by named replicas scaling up or down
+-	workloads running on any replica, primary or named, will be unaffected by long running queries running on other replicas
+
+The main goal of named replicas is to enable massive OLTP [read scale-out](read-scale-out.md) scenario, and to improve Hybrid Transactional and Analytical Processing (HTAP) workloads. Examples of how to create such solutions are available here:
 
 - [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 - [HTAP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)

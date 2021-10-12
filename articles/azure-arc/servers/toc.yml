@@ -41,7 +41,7 @@
       href: agent-overview.md
     - name: Plan for deployment
       href: plan-at-scale-deployment.md
-    - name: Connect machines to Azure Arc from the Azure portal
+    - name: Connect machines using a deployment script
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: onboard-service-principal.md
