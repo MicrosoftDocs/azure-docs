@@ -55,10 +55,10 @@
         href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
-      - name: Plan for deployment
-        href: plan-sso-deployment.md
       - name: What is single sign-on?
         href: what-is-single-sign-on.md
+      - name: Plan for deployment
+        href: plan-sso-deployment.md
     - name: Application security
       items:
       - name: App access options
@@ -118,14 +118,14 @@
         href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrate applications
       items:
-      - name: Migration resources
-        href: migration-resources.md
       - name: Migrate an AD FS app to Azure
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
+      - name: Migration resources
+        href: migration-resources.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
