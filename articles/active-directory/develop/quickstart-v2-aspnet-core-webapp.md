@@ -44,7 +44,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > If you want to manually configure your application and code sample, use the following procedures.
 > #### Step 1: Register your application
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
@@ -95,10 +95,12 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following code:
 >
+>    ```json
+>    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
+>    "ClientId": "Enter_the_Application_Id_here",
+>    "TenantId": "common",
+>    ```
 >
-
- :::code language="json" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/appsettings.json" range="4,5,6":::
-
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the directory (tenant) ID (a GUID) or the tenant name (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** value on the app's **Overview** page.
@@ -132,9 +134,23 @@ This section gives an overview of the code required to sign in users. This overv
 
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service_ref_for_docs_ms" highlight="3,4":::
-
+    services.AddControllersWithViews(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    });
+   services.AddRazorPages()
+        .AddMicrosoftIdentityUI();
+}
+```
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
 
@@ -148,8 +164,18 @@ The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity pla
 
 The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality. Also in the `Configure()` method, you must register Microsoft Identity Web routes with at least one call to `endpoints.MapControllerRoute()` or a call to `endpoints.MapControllers()`:
 
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="endpoint_map_ref_for_docs_ms":::
+```csharp
+app.UseAuthentication();
+app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+```
 
 ### Attribute for protecting a controller or methods
 

@@ -35,7 +35,7 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge
 ```
 
 If the JSON code isn't well formed, you might receive the following error:
-&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
+&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '\<deployment manifest.json\>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
 
 If you encounter this error, we recommend that you check the JSON for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
@@ -151,6 +151,17 @@ To gather the relevant logs that should be added to the ticket, follow the instr
 1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
 1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
+1. Restart the Video Analyzer edge module. 
+	> [!NOTE]
+	> This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events. 	
+	
+	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module :
+	
+	```cmd
+	sudo iotedge restart <avaedge>
+	```
+
+   You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
    1. Zip all the files in the _debugLogs_ folder.
@@ -288,11 +299,11 @@ gRPC in .NET core documents also share some valuable information on [Performance
 
 There are several things you can do to get more information about the problem.
 
-- Include the “**mediaPipeline** log category in the desired properties of the Video Analyzer module and ensure the log level is set to `Information`.
+- Include the "**mediaPipeline** log category in the desired properties of the Video Analyzer module and ensure the log level is set to `Information`.
 - To test network connectivity, you can run the following command from the edge device.
 
   ```
-  sudo docker exec avaedge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>”
+  sudo docker exec avaedge /bin/bash -c "apt update; apt install -y telnet; telnet <inference-host> <inference-port>"
   ```
 
   If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error.

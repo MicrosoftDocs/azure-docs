@@ -16,7 +16,7 @@ ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ---
 
-# How to: Sign in any Azure Active Directory user using the multi-tenant application pattern
+# Sign in any Azure Active Directory user using the multi-tenant application pattern
 
 If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. This configuration is called *making your application multi-tenant*. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.
 

@@ -11,6 +11,8 @@ ms.subservice: disks
 
 # Azure premium storage: design for high performance
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
 While we address performance scenarios for the Storage layer in this article, you will need to optimize the application layer. For example, if you are hosting a SharePoint Farm on Azure Premium Storage, you can use the SQL Server examples from this article to optimize the database server. Additionally, optimize the SharePoint Farm's Web server and Application server to get the most performance.
@@ -225,7 +227,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros. For more information, see [Linux distributions endorsed on Azure](linux/endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
@@ -304,7 +306,7 @@ For all premium SSDs or ultra disks, you may be able to disable “barriers” f
 
 * For **reiserFS**, use the barrier=none mount option to disable barriers.  To explicitly enable barriers, use barrier=flush.
 * For **ext3/ext4**, use the barrier=0 mount option to disable barriers.  To explicitly enable barriers, use barrier=1.
-* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier.  Note that in later Linux kernel versions, the design of XFS file system always ensures durability, and disabling barriers has no effect.  
+* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier. As of version 4.10 of the mainline Linux kernel, the design of XFS file system always ensures durability. Disabling barriers has no effect and the “nobarrier” option is deprecated. However, some Linux distributions may have backported the changes to a distribution release with an earlier kernel version, check with your distribution vendor for the status in the distribution and version you are running.
 
 ## Disk striping
 

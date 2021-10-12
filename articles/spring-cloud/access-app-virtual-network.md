@@ -1,8 +1,8 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
 description: Access app in an Azure Spring Cloud in virtual network.
-author:  brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
@@ -19,18 +19,46 @@ When **Assign Endpoint** for applications in an Azure Spring Cloud service insta
 
 The following procedure creates a private DNS zone for an application in the private network.
 
+#### [Portal](#tab/azure-portal)
+
 1. Open the Azure portal. From the top search box, search for **Private DNS zones**, and select **Private DNS zones** from the result.
 
-2. On the **Private DNS zones** page, select **+ Add**.
+2. On the **Private DNS zones** page, select **Add**.
 
 3. Fill out the form on the **Create Private DNS zone** page. Enter **<span>private.azuremicroservices.io</span>** as the **Name** of the zone.
 
->[!NOTE]
-> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+    >[!NOTE]
+    > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 4. Select **Review + Create**.
 
 5. Select **Create**.
+
+#### [CLI](#tab/azure-CLI)
+
+1. Define variables for your subscription, resource group, and Azure Spring Cloud instance. Customize the values based on your real environment.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Sign in to the Azure CLI and choose your active subscription.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. Create the private DNS zone. 
+
+   ```azurecli
+   az network private-dns zone create --resource-group $RESOURCE_GROUP \
+      --name private.azuremicroservices.io
+   ```
+
+---
 
 It may take a few minutes to create the zone.
 
@@ -38,7 +66,9 @@ It may take a few minutes to create the zone.
 
 To link the private DNS zone to the virtual network, you need to create a virtual network link.
 
-1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>** 
+#### [Portal](#tab/azure-portal)
+
+1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**
 
 2. On the left pane, select **Virtual network links**.
 
@@ -50,11 +80,27 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
     ![Add virtual network link](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
-6. Click **OK**.
+6. Select **OK**.
+
+#### [CLI](#tab/azure-CLI)
+
+Link the private DNS zone you just created to the virtual network holding your Azure Spring Cloud service.
+
+   ```azurecli
+   az network private-dns link vnet create --resource-group $RESOURCE_GROUP \
+       --name azure-spring-cloud-dns-link \
+       --zone-name private.azuremicroservices.io \
+       --virtual-network $VIRTUAL_NETWORK_NAME \
+       --registration-enabled false
+   ```
+
+---
 
 ## Create DNS record
 
 To use the private DNS zone to translate/resolve DNS, you must create an "A" type record in the zone.
+
+#### [Portal](#tab/azure-portal)
 
 1. Select the virtual network resource you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
 
@@ -79,7 +125,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 4. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**.
 
-5. Select **+ Record set**.
+5. Select **Record set**.
 
 6. In **Add record set**, enter or select this information:
 
@@ -95,9 +141,39 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
     ![Add private DNS zone record](media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png)
 
+#### [CLI](#tab/azure-CLI)
+
+1. Find the IP Address for your Spring Cloud services. Customize the value of your spring cloud name based on your real environment.
+
+   ```azurecli
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
+       --name $SPRING_CLOUD_NAME --query \
+       "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
+       --output tsv`
+   IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
+       --resource-group $SERVICE_RUNTIME_RG \
+       --query "[0].privateIpAddress" \
+       --output tsv`
+   ```
+
+1. Use this IP address to create the A record in your DNS zone. 
+
+   ```azurecli
+   az network private-dns record-set a add-record \
+     --resource-group $RESOURCE_GROUP \
+     --zone-name private.azuremicroservices.io \
+     --record-set-name '*' \
+     --ipv4-address $IP_ADDRESS
+   ```
+
+---
+
 ## Assign private FQDN for your application
 
 After following the procedure in [Build and deploy microservice applications](./how-to-deploy-in-azure-virtual-network.md), you can assign private FQDN for your application.
+
+#### [Portal](#tab/azure-portal)
 
 1. Select the Azure Spring Cloud service instance deployed in your virtual network, and open the **Apps** tab in the menu on the left.
 
@@ -108,6 +184,20 @@ After following the procedure in [Build and deploy microservice applications](./
     ![Assign private endpoint](media/spring-cloud-access-app-vnet/assign-private-endpoint.png)
 
 4. The assigned private FQDN (labeled **URL**) is now available. It can only be accessed within the private network, but not on Internet.
+
+#### [CLI](#tab/azure-CLI)
+
+Update your app to assign an endpoint to it. Customize the value of your spring app name based on your real environment.
+
+```azurecli
+SPRING_CLOUD_APP='your spring cloud app'
+az spring-cloud app update --name $SPRING_CLOUD_APP \
+    --resource-group $RESOURCE_GROUP \
+    --service $SPRING_CLOUD_NAME \
+    --assign-endpoint true
+```
+
+---
 
 ## Access application private FQDN
 

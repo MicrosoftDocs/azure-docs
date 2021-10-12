@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PolicyStat | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SAML 2.0 Integration with PolicyStat | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PolicyStat.
 services: active-directory
 author: jeevansd
@@ -220,7 +220,7 @@ In this section, a user called Britta Simon is created in PolicyStat. PolicyStat
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the PolicyStat tile in the Access Panel, you should be automatically signed in to the PolicyStat for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the PolicyStat tile in the Access Panel, you should be automatically signed in to the PolicyStat for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

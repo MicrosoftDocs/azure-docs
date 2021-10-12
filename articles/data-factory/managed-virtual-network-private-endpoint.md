@@ -4,14 +4,15 @@ description: Learn about managed virtual network and managed private endpoints i
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
-ms.date: 06/16/2021
+ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
+ms.date: 09/28/2021
 ---
 
-# Azure Data Factory Managed Virtual Network (preview)
+# Azure Data Factory Managed Virtual Network
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article will explain Managed Virtual Network and Managed Private endpoints in Azure Data Factory.
 
@@ -30,9 +31,6 @@ Benefits of using Managed Virtual Network:
 
 > [!IMPORTANT]
 >Currently, the managed Virtual Network is only supported in the same region as Azure Data Factory region.
-
-> [!Note]
->As Azure Data Factory managed Virtual Network is still in public preview, there is no SLA guarantee.
 
 > [!Note]
 >Existing public Azure integration runtime can't switch to Azure integration runtime in Azure Data Factory managed virtual network and vice versa.
@@ -78,6 +76,9 @@ By design, Azure integration runtime in managed virtual network takes longer que
 > [!NOTE]
 > Copy activity doesn't have TTL support yet.
 
+> [!NOTE]
+> 2 DIU for Copy activity is not supported in managed virtual network.
+
 ## Create managed virtual network via Azure PowerShell
 ```powershell
 $subscriptionId = ""
@@ -93,7 +94,7 @@ $privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${r
 $integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
 
 # Create managed Virtual Network resource
-New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}" -Properties
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}" -Properties @{}
 
 # Create managed private endpoint resource
 New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
@@ -126,19 +127,20 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ### Supported Data Sources
 Below data sources have native Private Endpoint support and can be connected through private link from ADF Managed Virtual Network.
 - Azure Blob Storage (not including Storage account V1)
-- Azure Table Storage (not including Storage account V1)
-- Azure Files (not including Storage account V1)
-- Azure Data Lake Gen2
-- Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure Synapse Analytics
-- Azure CosmosDB SQL
-- Azure Key Vault
-- Azure Private Link Service
-- Azure Search
+- Azure Cognitive Search
+- Azure Cosmos DB SQL API
+- Azure Data Lake Storage Gen2
+- Azure Database for MariaDB
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
-- Azure Database for MariaDB
+- Azure Files (not including Storage account V1)
+- Azure Key Vault
 - Azure Machine Learning
+- Azure Private Link Service
+- Azure Purview
+- Azure SQL Database (not including Azure SQL Managed Instance)
+- Azure Synapse Analytics
+- Azure Table Storage (not including Storage account V1)
 
 > [!Note]
 > You still can access all data sources that are supported by Data Factory through public network.
@@ -194,6 +196,9 @@ To access on premises data sources from managed Virtual Network using Private En
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
 - **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
 - The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for Azure Key Vault.
+
+### Linked Service creation of Azure HDI
+- The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for HDI using private link service and load balancer with port forwarding.
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Private Endpoint for AKV":::
 

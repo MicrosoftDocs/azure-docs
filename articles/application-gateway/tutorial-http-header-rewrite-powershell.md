@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: absha 
+ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 

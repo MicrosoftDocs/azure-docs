@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
-author: amitbapat
-ms.author: ambapat
+author: mbaldwin
+ms.author: mbaldwin
 ms.date: 06/21/2021
 ms.service: key-vault
 ms.subservice: managed-hsm

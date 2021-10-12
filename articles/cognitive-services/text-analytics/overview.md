@@ -48,6 +48,10 @@ Language detection can [detect the language an input text is written in](how-tos
 
 Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
 
+## Text summarization
+
+[Summarization](how-tos/extractive-summarization.md) produces a summary of text by extracting sentences that collectively represent the most important or relevant information within the original content. This feature condenses articles, papers, or documents down to key sentences.
+
 ## Text Analytics for health
 
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 

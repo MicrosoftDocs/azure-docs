@@ -68,7 +68,7 @@ Get-Help example:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 Check the agent deployment status by running:
 
-```sc.exe query "ASC IoT Agent"```
+`sc.exe query "ASC IoT Agent"`
 
 ### Uninstall the agent
 

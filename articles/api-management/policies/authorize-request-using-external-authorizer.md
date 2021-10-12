@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how authorize requests using external authorizer encapsulating a custom or legacy authentication/authorization logic.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Authorize requests using external authorizer

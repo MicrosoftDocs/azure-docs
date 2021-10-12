@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/05/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,7 +31,7 @@ The cmdlets in the AzFilesHybrid PowerShell module make the necessary modificati
 
 ### Download AzFilesHybrid module
 
-- If you don't have [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It is required for the module to import successfully.
+- If you don't have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It is required for the module to import successfully.
 - [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note that AES 256 kerberos encryption is supported on v0.2.2 or above. If you have enabled the feature with a AzFilesHybrid version below v0.2.2 and want to update to support AES 256 Kerberos encryption, please refer to [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either **Owner** or **Contributor** Azure role on the storage account.
@@ -99,11 +99,11 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
-### Checking environment
+### Check the environment
 
-First, you must check the state of your environment. Specifically, you must check if [Active Directory PowerShell](/powershell/module/activedirectory/) is installed, and if the shell is being executed with administrator privileges. Then check to see if the [Az.Storage 2.0 module](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) is installed, and install it if it isn't. After completing those checks, check your AD DS to see if there is either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](/windows/win32/ad/about-service-logon-accounts) that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net". If the account doesn't exist, create one as described in the following section.
+First, you must check the state of your environment. Specifically, you must check if [Active Directory PowerShell](/powershell/module/activedirectory/) is installed, and if the shell is being executed with administrator privileges. Then check to see if the [Az.Storage 2.0 module (or newer)](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) is installed, and install it if it isn't. After completing those checks, check your AD DS to see if there is either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](/windows/win32/ad/about-service-logon-accounts) that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net". If the account doesn't exist, create one as described in the following section.
 
-### Creating an identity representing the storage account in your AD manually
+### Create an identity representing the storage account in your AD manually
 
 To create this account manually, create a new Kerberos key for your storage account. Then, use that Kerberos key as the password for your account with the PowerShell cmdlets below. This key is only used during setup and cannot be used for any control or data plane operations against the storage account. 
 
@@ -125,9 +125,37 @@ If your OU enforces password expiration, you must update the password before the
 
 Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represent the storage account doesn't need to be synced to Azure AD.
 
+#### (Optional) Enable AES256 encryption
+
+If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, you can skip this section.
+
+The domain object that represents your storage account must meet the following requirements:
+- The storage account name cannot exceed 15 characters.
+- The domain object must be created as a computer object in the on-premises AD domain.
+- Except for the trailing '$', the storage account name must be the same as the computer object's SamAccountName.
+
+If your domain object doesn't meet those requirements, delete it and create a new domain object that does.
+
+Replace `<domain-object-identity>` and `<domain-name>` with your values, then use the following command to configure AES256 support: 
+
+```powershell
+Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
+
+After you've ran that command, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
+
+```powershell
+$KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
+$KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
+$KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
+$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+
+Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
+```
+
 ### Enable the feature on your storage account
 
-Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#creating-an-identity-representing-the-storage-account-in-your-ad-manually).
+Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information

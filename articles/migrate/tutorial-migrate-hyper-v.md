@@ -255,12 +255,12 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.
-1. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
-1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
 1. Remove the on-premises VMs from your local VM inventory.

@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/28/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ---
@@ -45,7 +45,7 @@ ASEs host applications from only one customer and do so in one of their VNets. C
 
 ## Dedicated environment ##
 
-An ASE is dedicated exclusively to a single subscription and can host 100 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated environment that is exclusive to a single customer and can host 200 App Service plan total instances. A single Isolated SKU App Service plan can have up to 100 instances in it. When you add up all the instances from all of the App Service plans in that ASE, the total must be less than or equal to 200.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 

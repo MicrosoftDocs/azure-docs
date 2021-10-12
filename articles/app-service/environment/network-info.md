@@ -44,7 +44,7 @@ The size of the subnet used to host an ASE cannot be altered after the ASE is de
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
 
-When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
+When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs are removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
 
 ## ASE dependencies ##
 

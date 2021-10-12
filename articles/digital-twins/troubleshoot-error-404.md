@@ -41,4 +41,4 @@ If you're using the `DefaultAzureCredential` class in your code and you continue
 ## Next steps
 
 Read more about security and permissions on Azure Digital Twins:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+* [Security for Azure Digital Twins solutions](concepts-security.md)

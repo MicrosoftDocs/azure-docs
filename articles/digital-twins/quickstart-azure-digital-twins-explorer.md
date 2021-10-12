@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as **digital twins**. Then you connect them into a knowledge **graph** that can respond to live events and be queried for information.
 
-In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This is a tool that allows you to visualize and interact with your Azure Digital Twins data within the Azure portal.
+In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This is a tool that allows you to visualize and interact with your Azure Digital Twins data within the Azure portal. 
 
 You'll complete the following steps:
 
@@ -32,6 +32,9 @@ You'll complete the following steps:
 The sample graph you'll be working with represents a building with two floors and two rooms. Floor0 contains Room0, and Floor1 contains Room1. The graph will look like this image:
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
+
+>[!NOTE]
+>This quickstart is for exploring a prebuilt graph to understand how Azure Digital Twins represents data. For simplicity, the quickstart does not cover setting up connections between IoT Hub devices and their graph representations. To set up a connected end-to-end flow for your graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md).
 
 ## Prerequisites
 
@@ -302,4 +305,4 @@ You may also want to delete the sample project folder from your local machine.
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Code a client app](tutorial-code.md)
+> [Code a client app](tutorial-code.md)

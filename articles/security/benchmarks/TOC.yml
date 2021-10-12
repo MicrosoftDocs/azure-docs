@@ -141,7 +141,7 @@
   - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
   - name: Azure Peering Service security baseline
-    href: ../../peering-service/security-baseline.md
+    href: /security/benchmark/azure/baselines/peering-service-security-baseline
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Private Link security baseline
@@ -207,7 +207,7 @@
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
-    href: /power-bi/fundamentals/security-baseline
+    href: /security/benchmark/azure/baselines/power-bi-security-baseline
   - name: Security Center baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline

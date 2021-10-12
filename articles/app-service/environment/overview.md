@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 07/05/2021
+ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
 ---
@@ -55,7 +55,7 @@ The number of addresses used by an ASEv3 in its subnet will vary based on how ma
 
 The apps in an ASE do not need any features enabled to access resources in the same VNet that the ASE is in. If the ASE VNet is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked by user configuration on the network. 
 
-The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a VNet. The apps in an ASEv3 do not need any configuration to be in the VNet. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is completely external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes. 
+The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a VNet. The apps in an ASEv3 do not need any configuration to be in the VNet. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes. 
 
 ## Feature differences
 
@@ -82,39 +82,47 @@ There are a few features that are not available in ASEv3 that were available in 
 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
-- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
-- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
+- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is empty.
+- **Availability Zone ASEv3**: There is a minimum nine Windows I1v2 instance charge. There is no added charge for availability zone support if you have nine or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
-Reserved Instance pricing for Isolated v2 will be available after GA.  
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][reservedinstances]. The pricing, along with reserved instance pricing, is available at [App Service pricing][pricing] under **Isolated v2 plan**. 
 
 ## Regions
 
-The ASEv3 is available in the following regions.
+The ASEv3 is available in the following regions. 
 
-|Normal ASEv3 regions|	Dedicated hosts regions|	AZ ASEv3 regions|
-|--------------------|-------------------------|------------------|
-|Australia East|	Australia East|	Australia East|
-|Australia Southeast|	Australia Southeast	|Canada Central|
-|Brazil South	|Brazil South	|Central US|
-|Canada Central|	Canada Central|	East US|
-|Central India	|Central India|	East US 2|
-|Central US	|Central US	|France Central|
-|East Asia	|East Asia| Germany West Central|
-|East US	|East US	| North Europe|
-|East US 2|	East US 2|	South Central US|
-|France Central	|France Central	| Southeast Asia|
-|Germany West Central	|Germany West Central|	UK South|
-|Korea Central	|Korea Central	| West Europe|
-|North Europe	|North Europe|	West US 2|
-|Norway East	|Norway East|	|
-|South Africa North|	South Africa North| |	
-|South Central US	|South Central US	| |
-|Southeast Asia|	Southeast Asia	| |
-|Switzerland North	|Switzerland North| |	
-|UK South|	UK West| |	
-|UK West|	West Central US	| |
-|West Central US	|West Europe| |	
-|West Europe	|West US	| |
-|West US	|West US 2|  |	
-|West US 2		| |
+|Normal and dedicated host ASEv3 regions|	AZ ASEv3 regions|
+|---------------------------------------|------------------|
+|Australia East|	Australia East|
+|Australia Southeast|Brazil South|
+|Brazil South	|Canada Central|
+|Canada Central|Central US|
+|Central India	|East US|
+|Central US	|East US 2|
+|East Asia	| France Central|
+|East US	| Germany West Central|
+|East US 2|	Japan East|
+|France Central	| North Europe|
+|Germany West Central	|	South Central US|
+|Japan East	| Southeast Asia|
+|Korea Central	| UK South|
+|North Central US	| West Europe|
+|North Europe	| West US 2|
+|Norway East	| |
+|South Africa North	| |
+|South Central US	| |
+|Southeast Asia| |
+|Switzerland North	| |	
+|UAE North| |	
+|UK South| |	
+|UK West| |
+|West Central US	| |	
+|West Europe	| |
+|West US	| |	
+|West US 2| |
+|West US 3| |
+
+<!--Links-->
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
+[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

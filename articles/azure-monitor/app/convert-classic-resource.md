@@ -45,8 +45,11 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
     - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
-- Continuous export is not supported for workspace-based resources and must be disabled.
+- **Continuous export is not supported for workspace-based resources** and must be disabled.
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
+
+    > [!CAUTION]
+    > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
 

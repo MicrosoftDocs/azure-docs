@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
 ---
 
@@ -100,6 +100,11 @@ Deploy SQL Managed Instance in a dedicated subnet inside the virtual network. Th
 - **Network security group (NSG):** An NSG needs to be associated with the SQL Managed Instance subnet. You can use an NSG to control access to the SQL Managed Instance data endpoint by filtering traffic on port 1433 and ports 11000-11999 when SQL Managed Instance is configured for redirect connections. The service will automatically provision and keep current [rules](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
 - **User defined route (UDR) table:** A UDR table needs to be associated with the SQL Managed Instance subnet. You can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA). Service will automatically provision and keep current [entries](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
 - **Sufficient IP addresses:** The SQL Managed Instance subnet must have at least 32 IP addresses. For more information, see [Determine the size of the subnet for SQL Managed Instance](vnet-subnet-determine-size.md). You can deploy managed instances in [the existing network](vnet-existing-add-subnet.md) after you configure it to satisfy [the networking requirements for SQL Managed Instance](#network-requirements). Otherwise, create a [new network and subnet](virtual-network-subnet-create-arm-template.md).
+- **Unlocked resources:** The virtual network that contains the subnet delegated to SQL Managed Instance must not have any [write or delete locks](../../azure-resource-manager/management/lock-resources.md) placed on the virtual network resource, its parent resource group, or subscription. Placing locks on the virtual network or its parent resources may prevent SQL Managed Instance from completing its regular maintenance and cause degraded performance, delayed bugfixes, loss of regulatory compliance, operation outside of SLOs, and make the instance unusable.
+- **Allowed by Azure policies:** If you leverage [Azure Policy](../../governance/policy/overview.md) to control the creation, modification and deletion of resources via deny effects in the scope that includes the virtual network whose subnet is delegated to SQL Managed Instance, you need to take steps to ensure that such policies do not prevent SQL Managed Instance from deploying or performing regular maintenance. If resources of those resource types cannot be created or managed by SQL Managed Instance, it may fail to deploy or become unusable following a maintenance operation. The types of resources that need to be excluded from deny effects are:  
+  - Microsoft.Network/serviceEndpointPolicies
+  - Microsoft.Network/networkIntentPolicies
+  - Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies
 
 > [!IMPORTANT]
 > When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed. Rules below are for the informational purposes only, and you should not deploy them using ARM template / PowerShell / CLI. If you want to use the latest official template you could always [retrieve it from the portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

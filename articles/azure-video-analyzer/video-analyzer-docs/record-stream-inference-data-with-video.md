@@ -3,7 +3,7 @@ title: Record and stream inference metadata with video - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record video and inference metadata to the cloud and play back the recording with the visual inference metadata.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Record and stream inference metadata with video
@@ -139,7 +139,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
     }
   ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
 
 
 ## Run the sample program

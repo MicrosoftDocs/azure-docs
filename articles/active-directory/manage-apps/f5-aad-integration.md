@@ -1,5 +1,6 @@
 ---
-title: Azure AD secure hybrid access with F5 | Microsoft Docs
+title: Secure hybrid access with F5
+titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
 services: active-directory
 author: davidmu1
@@ -11,9 +12,10 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
-# F5 BIG-IP Access Policy Manager and Azure Active Directory integration for secure hybrid access
+# Integrate F5 BIG-IP with Azure Active Directory
 
 The proliferation of mobility and evolving threat landscape is placing extra scrutiny on resource access and governance, putting [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) front and center of all modernization programs.
 At Microsoft and F5, we realize this digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of these vulnerable services.
@@ -25,7 +27,7 @@ SHA addresses this blind spot by enabling organizations to continue using their 
 Having Azure AD pre-authenticate access to BIG-IP published services provides many benefits:
 
 - Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview),
-[MS Authenticator](../user-help/user-help-auth-app-download-install.md), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md),
+[MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md),
 and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md)
@@ -77,7 +79,7 @@ Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange be
 
 Whether a direct employee, affiliate, or consumer, most users are already acquainted with the Office 365 login experience, so accessing BIG-IP services via SHA remains largely familiar.
 
-Users now find their BIG-IP published services consolidated in the  [MyApps](../user-help/my-apps-portal-end-user-access.md) or [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
+Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
 
 The screenshots provided are from the Azure AD app portal that users access securely to find their BIG-IP published services and for managing their account properties.  
 

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ For customers with access to [Identity Protection](../identity-protection/overvi
 
 ## User risk 
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-risk) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## Device platforms
 
@@ -104,7 +104,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS | Browsers |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, [Firefox 91+](https://support.mozilla.org/kb/windows-sso) |
 | Windows 8 / 8.1 | Internet Explorer, Chrome |
 | Windows 7 | Internet Explorer, Chrome |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |

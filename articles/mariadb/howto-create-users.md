@@ -15,7 +15,7 @@ This article describes how you can create users in Azure Database for MariaDB.
 When you first created your Azure Database for MariaDB, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md). You can locate your server admin login user name from the Azure portal.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 The server admin user gets certain privileges for your server as listed:
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER

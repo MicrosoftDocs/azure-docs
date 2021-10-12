@@ -4,7 +4,6 @@ titleSuffix: Azure Cognitive Search
 description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
 
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search

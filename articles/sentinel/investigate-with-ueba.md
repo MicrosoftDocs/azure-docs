@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2021
+ms.date: 07/27/2021
 ms.author: bagol
 
 ---
-# Investigate incidents with UEBA data
+# Tutorial: Investigate incidents with UEBA data
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
@@ -26,6 +26,9 @@ This article describes common methods and sample procedures for using [user enti
 > Noted features in this article are currently in  **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+> [!NOTE]
+> This tutorial provides scenario-based procedures for a top customer task: investigating with UEBA data. For more information, see [Investigate incidents with Azure Sentinel](investigate-cases.md).
+>
 ## Prerequisites
 
 Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md).
@@ -76,13 +79,46 @@ For example:
 
 [ ![Open an incident's user entity page.](media/ueba/open-entity-pages.png) ](media/ueba/open-entity-pages.png#lightbox)
 
-The user entity page is also linked from the [incident page](tutorial-investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+The user entity page is also linked from the [incident page](investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 > [!TIP]
 > After confirming the data on the user entity page for the specific user associated with the incident, go to the Azure Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
 >
 > In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 >
+
+### Embed IdentityInfo data in your analytics rules (Public Preview)
+
+As attackers often use the organization's own user and service accounts, data about those user accounts, including the user identification and privileges, are crucial for the analysts in the process of an investigation.
+
+Embed data from the **IdentityInfo table** to fine-tune your analytics rules to fit your use cases, reducing false positives, and possibly speeding up your investigation process.
+
+For example:
+
+- To correlate security events with the **IdentityInfo** table in an an alert that's triggered if a server is accessed by someone outside the **IT** department:
+
+    ```kusto
+    SecurityEvent
+    | where EventID in ("4624","4672")
+    | where Computer == "My.High.Value.Asset"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.SubjectUserSid == $right.AccountSID
+    | where Department != "IT"
+    ```
+
+- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+
+    ```kusto
+    SigninLogs
+    | where AppDisplayName == "GithHub.Com"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
+    | where GroupMembership !contains "Developers"
+    ```
+
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
@@ -132,5 +168,5 @@ Learn more about UEBA, investigations, and hunting:
 
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md)
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Hunt for threats with Azure Sentinel](hunting.md)

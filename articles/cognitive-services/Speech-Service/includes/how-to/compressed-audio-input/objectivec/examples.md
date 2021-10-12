@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 To configure Speech SDK to accept compressed audio input, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.

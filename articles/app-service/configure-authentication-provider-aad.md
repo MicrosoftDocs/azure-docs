@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory authentication as an 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.custom: seodec18, fasttrack-edit
 ---
 
 # Configure your App Service or Azure Functions app to use Azure AD login
@@ -21,7 +21,7 @@ The App Service Authentication feature can automatically create an app registrat
 > [!NOTE]
 > The option to create a new registration is not available for government clouds. Instead, [define a registration separately](#advanced).
 
-## <a name="express"> </a>Create a new app registration automatically
+## <a name="express"> </a> Option 1: Create a new app registration automatically
 
 This option is designed to make enabling authentication simple and requires just a few clicks.
 
@@ -42,7 +42,7 @@ You're now ready to use the Microsoft Identity Platform for authentication in yo
 
 For an example of configuring Azure AD login for a web app that accesses Azure Storage and Microsoft Graph, see [this tutorial](scenario-secure-app-authentication-app-service.md).
 
-## <a name="advanced"> </a>Use an existing registration created separately
+## <a name="advanced"> </a>Option 2: Use an existing registration created separately
 
 You can also manually register your application for the Microsoft Identity Platform, customizing the registration and configuring App Service Authentication with the registration details. This is useful, for example, if you want to use an app registration from a different Azure AD tenant than the one your application is in.
 

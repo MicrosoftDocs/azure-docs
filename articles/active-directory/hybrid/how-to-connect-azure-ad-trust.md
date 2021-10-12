@@ -42,7 +42,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
 | Alternate-id | If sync is configured to use alternate-id, Azure AD Connect configures AD FS to perform authentication using alternate-id. |
 | Automatic metadata update | Trust with Azure AD is configured for automatic metadata update. AD FS periodically checks the metadata of Azure AD trust and keeps it up-to-date in case it changes on the Azure AD side. |
-| Integrated Windows Authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
+| Integrated Windows authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
 
 ## Execution flows and federation settings configured by Azure AD Connect
 

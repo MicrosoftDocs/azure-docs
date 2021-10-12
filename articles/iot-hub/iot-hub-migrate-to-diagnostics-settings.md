@@ -2,7 +2,7 @@
 title: Migrate Azure IoT Hub operations monitoring to IoT Hub resource logs in Azure Monitor | Microsoft Docs
 description: How to update Azure IoT Hub to use Azure Monitor instead of operations monitoring to monitor the status of operations on your IoT hub in real time.
 author: kgremban
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

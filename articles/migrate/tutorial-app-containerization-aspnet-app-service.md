@@ -2,7 +2,7 @@
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure App Service.
 description: Tutorial:Containerize & migrate ASP.NET applications to Azure App Service.
 services:
-author: rahugup
+author: rahug1190
 manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
@@ -147,7 +147,8 @@ The App Containerization helper tool connects remotely to the application server
 1. Specify the **IP address/FQDN and the credentials** of the server running the ASP.NET application that should be used to remotely connect to the server for application discovery.
     - The credentials provided must be for a local administrator (Windows) on the application server.
     - For domain accounts (the user must be an administrator on the application server), prefix the username with the domain name in the format *<domain\username>*.
-    - You can run application discovery for upto five servers at a time.
+    - For local accounts (the user must be an administrator on the application server), prefix the username with the hostname in the format *<hostname\username>*.
+    - You can run application discovery for up to five servers at a time.
 
 2. Click **Validate** to verify that the application server is reachable from the machine running the tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
 
@@ -160,8 +161,8 @@ The App Containerization helper tool connects remotely to the application server
     ![Screenshot for discovered ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
-4. Use the checkbox to select the applications to containerize.
-5. **Specify container name**: Specify a name for the target container for each selected application. The container name should be specified as <*name:tag*> where the tag is used for container image. For example, you can specify the target container name as *appname:v1*.   
+5. Use the checkbox to select the applications to containerize.
+6. **Specify container name**: Specify a name for the target container for each selected application. The container name should be specified as <*name:tag*> where the tag is used for container image. For example, you can specify the target container name as *appname:v1*.   
 
 ### Parameterize application configurations
 Parameterizing the configuration makes it available as a deployment time parameter. This allows you to configure this setting while deploying the application as opposed to having it hard-coded to a specific value in the container image. For example, this option is useful for parameters like database connection strings.
@@ -221,7 +222,7 @@ Once the container image is built, the next step is to deploy the application as
          - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new Azure Key Vault**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
 
-3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure file storage and mount them on the application container during deployment. 
+3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure Files and mount them on the application container during deployment. 
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 

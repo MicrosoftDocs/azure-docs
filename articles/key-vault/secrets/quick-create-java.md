@@ -149,9 +149,9 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 ```
 
 ### Authenticate and create a client
-In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+In the example below, the name of your key vault is expanded to the key vault URI, in the format `https://\<your-key-vault-name\>.vault.azure.net`. This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");

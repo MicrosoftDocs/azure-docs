@@ -33,16 +33,19 @@ ms.author: lajanuar
 | Assamese | `as` |✔|✔||||
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
+| Bashkir | `ba` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
+| Chinese (Literary) | `lzh` |✔|||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
 | Croatian | `hr` |✔|✔|✔|✔|✔|
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
+| Divehi | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
@@ -51,6 +54,7 @@ ms.author: lajanuar
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
+| Georgian | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek | `el` |✔|✔|✔|✔|✔|
 | Gujarati | `gu` |✔|✔|✔|✔||
@@ -73,15 +77,19 @@ ms.author: lajanuar
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central) | `ku` |✔|✔||✔||
 | Kurdish (Northern) | `kmr` |✔|✔||||
+| Kyrgyz | `ky` |✔|||||
 | Lao | `lo` |✔|✔||✔||
 | Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
+| Macedonian | `mk` |✔|||✔||
 | Malagasy | `mg` |✔|✔|✔|||
 | Malay | `ms` |✔|✔|✔|✔|✔|
 | Malayalam | `ml` |✔|✔||||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
+| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
+| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
 | Myanmar | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
@@ -105,13 +113,18 @@ ms.author: lajanuar
 | Swedish | `sv` |✔|✔|✔|✔|✔|
 | Tahitian | `ty` |✔| |✔|✔||
 | Tamil | `ta` |✔|✔|||✔|
+| Tatar | `tt` |✔|||||
 | Telugu | `te` |✔|✔||||
 | Thai | `th` |✔| |✔|✔|✔|
+| Tibetan | `bo` |✔||||
 | Tigrinya | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
+| Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
 | Urdu | `ur` |✔|✔|✔|✔|✔|
+| Uyghur | `ug` |✔||||
+| Uzbek (Latin | `uz` |✔|||✔||
 | Vietnamese | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||

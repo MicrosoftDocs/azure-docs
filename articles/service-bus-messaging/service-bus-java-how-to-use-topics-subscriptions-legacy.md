@@ -1,8 +1,8 @@
 ---
 title: Use Azure Service Bus topics and subscriptions with Java
-description: In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
-ms.date: 06/23/2020
-ms.topic: quickstart
+description: In this article, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
   - seo-java-july2019
@@ -12,16 +12,16 @@ ms.custom:
   - mode-api
 ---
 
-# Quickstart: Use Service Bus topics and subscriptions with Java
-In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
+# Use Service Bus topics and subscriptions with Java (old package)
+In this article, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 
 > [!WARNING]
->  This quickstart uses the old azure-servicebus packages. For a quickstart that uses the latest azure-messaging-servicebus package, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  This article uses the old azure-servicebus packages. For an article that uses the latest azure-messaging-servicebus package, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
 
 
 ## Prerequisites
 
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete steps in this article, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
     1. Create a Service Bus **namespace**.
     2. Get the **connection string**.

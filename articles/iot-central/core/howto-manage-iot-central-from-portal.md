@@ -28,13 +28,17 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
 * **Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-
-  * Asia Pacific
-  * Australia
-  * Europe
-  * Japan
-  * United Kingdom
-  * United States
+    
+    * Australia
+    * East Central US
+    * East US
+    * East US 2
+    * Japan East
+    * North Europe
+    * Southeast Asia
+    * UK South
+    * West Europe
+    * West US
 
   Once you choose a location, you can't later move your application to a different location.
 
@@ -103,6 +107,10 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 * IoT Central autogenerates one test device ID for each device template in the application. This device ID is visible on the **Manage test device** page for a device template. You may choose to validate your device templates before publishing them by generating code that uses these test device IDs. While these devices are excluded from billing, they're still counted in the metrics.
 
 * While metrics may show a subset of device-to-cloud communication, all communication between the device and the cloud [counts as a message for billing](https://azure.microsoft.com/pricing/details/iot-central/).
+
+## Monitor connected IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## Next steps
 

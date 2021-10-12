@@ -73,7 +73,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
 
 ## Review the generated import manifest
 
-Example:
+An example manifest output is below. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md). 
 ```json
 {
   "updateId": {
@@ -157,17 +157,15 @@ Example:
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
-## If you're importing via APIs instead
-
-If you've just finished using the steps above to import via the Azure portal, skip to Next Steps below.
-
-If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
-  - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
-  - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
-
-
 ## Next Steps
 
 [Create Groups](create-update-group.md)
 
 [Learn about import concepts](import-concepts.md)
+
+## If you're importing via APIs instead
+
+If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
+  - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
+  - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
+  - If you re-use the same SAS URL while testing, you may encounter errors when the token expires. This is the case when submitting the import manifest as well as the update content itself.

@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 09/20/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
 
-When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
+When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
 
 This article explains the considerations and steps for enabling LDAP with extended groups when you create an NFS volume.  
 
@@ -29,8 +29,6 @@ This article explains the considerations and steps for enabling LDAP with extend
 * LDAP with extended groups is supported only with Active Directory Domain Services (ADDS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services are not supported. 
 
 * LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (AADDS).  
-
-* If you enable the LDAP with extended groups feature, LDAP-enabled [Kerberos volumes](configure-kerberos-encryption.md) will not correctly display the file ownership for LDAP users. A file or directory created by an LDAP user will default to `root` as the owner instead of the actual LDAP user. However, the `root` account can manually change the file ownership by using the command `chown <username> <filename>`. 
 
 * You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
 
@@ -76,15 +74,21 @@ This article explains the considerations and steps for enabling LDAP with extend
 4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
 
     * Required attributes for LDAP users:   
-        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+        `uid: Alice`,  
+        `uidNumber: 139`,  
+        `gidNumber: 555`,  
+        `objectClass: user, posixAccount`
     * Required attributes for LDAP groups:   
-        `objectClass: group`, `gidNumber: 555`
+        `objectClass: group, posixGroup`,  
+        `gidNumber: 555`
 
-    You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor:  
+    The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
+
+    ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+
+    You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor. See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
 
     ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
-
-    See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
 
 5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 

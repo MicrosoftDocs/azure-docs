@@ -8,7 +8,7 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/12/2021
 ---
 
 #	Text Translation cognitive skill
@@ -20,9 +20,8 @@ This capability is useful if you expect that your documents may not all be in on
 The [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-reference.md) is a non-regional Cognitive Service, meaning that your data is not guaranteed to stay in the same region as your Azure Cognitive Search or attached Cognitive Services resource.
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 ## @odata.type  
 Microsoft.Skills.Text.TranslationSkill

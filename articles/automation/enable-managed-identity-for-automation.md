@@ -3,7 +3,7 @@ title: Using a system-assigned managed identity for an Azure Automation account 
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 09/23/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,9 +16,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
 
-- The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
+- The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
@@ -43,7 +43,7 @@ You can enable a system-assigned managed identity for an Azure Automation accoun
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -104,9 +104,7 @@ Syntax and example steps are provided below.
 
 #### Syntax
 
-The body syntax below enables a system-assigned managed identity to an existing Automation account. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
-
-PATCH
+The body syntax below enables a system-assigned managed identity to an existing Automation account using the HTTP **PATCH** method. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
 
 ```json
 { 
@@ -116,9 +114,7 @@ PATCH
 }
 ```
 
-If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
-
-PATCH
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity, you need to specify each user-assigned identity using comma-delimited list. The example below uses the HTTP **PATCH** method.
 
 ```json
 { 
@@ -145,7 +141,7 @@ Perform the following steps.
 
 1. Copy and paste the body syntax into a file named `body_sa.json`. Save the file on your local machine or in an Azure storage account.
 
-1. Revise the variable value below and then execute.
+1. Update the variable value below and then execute.
 
     ```powershell
     $file = "path\body_sa.json"
@@ -225,7 +221,7 @@ Perform the following steps.
 
 1. Revise the syntax of the template above to use your Automation account and save it to a file named `template_sa.json`.
 
-1. Revise the variable value below and then execute.
+1. Update the variable value below and then execute.
 
     ```powershell
     $templateFile = "path\template_sa.json"
@@ -256,6 +252,8 @@ An Automation account can use its system-assigned managed identity to get tokens
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
+Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.This example uses Azure PowerShell to show how to assign the Contributor
+
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
 ```powershell
@@ -267,11 +265,17 @@ New-AzRoleAssignment `
 
 ## Authenticate access with system-assigned managed identity
 
-After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference. Replace `SubscriptionID` with your actual subscription ID and then execute the following command:
+After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
 ```powershell
-Connect-AzAccount -Identity
-$AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 > [!NOTE]
@@ -280,12 +284,13 @@ $AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
 ## Generate an access token without using Azure cmdlets
 
 For HTTP Endpoints make sure of the following.
+
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
 - The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers.
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'.
 
-### Get Access token for System Assigned Identity using Http Get
+### Get Access token for System Assigned Identity using HTTP Get
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -297,7 +302,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token
 ```
 
-### Get Access token for System Assigned Identity using Http Post
+### Get Access token for System Assigned Identity using HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT  

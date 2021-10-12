@@ -21,7 +21,7 @@ You can view and manage query packs in the Azure portal from the **Log Analytics
 You can set the permissions on a query pack when you view it in the Azure portal. Users require the following permissions to use query packs:
 
 - **Reader** - User can see and run all queries in the query pack.
-- **Contributer** - User can modify existing queries and add new queries to the query pack.
+- **Contributor** - User can modify existing queries and add new queries to the query pack.
 
 ## Default query pack
 A query pack, called **DefaultQueryPack** is automatically created in each subscription in a resource group called **LogAnalyticsDefaultResources** when the first query is saved. You can create queries in this query pack or create additional query packs depending on your requirements.

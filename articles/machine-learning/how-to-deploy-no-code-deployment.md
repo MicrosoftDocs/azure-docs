@@ -5,15 +5,13 @@ description: 'No code deployment lets you deploy a model as a web service withou
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
 ---
 
-# (Preview) No-code model deployment
+# No-code model deployment (preview)
 
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 

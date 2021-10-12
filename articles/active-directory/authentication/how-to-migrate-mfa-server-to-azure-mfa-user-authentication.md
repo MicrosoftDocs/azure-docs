@@ -337,7 +337,7 @@ We recommend reviewing MFA Server logs to ensure no users or applications are us
 
 ### Convert your domains to managed authentication
 
-You should now [convert your federated domains in Azure AD to managed](../hybrid/plan-migrate-adfs-password-hash-sync.md#convert-domains-from-federated-to-managed) and remove the staged rollout configuration. 
+You should now [convert your federated domains in Azure AD to managed](../hybrid/migrate-from-federation-to-cloud-authentication.md#convert-domains-from-federated-to-managed) and remove the staged rollout configuration. 
 This ensures new users use cloud authentication without being added to the migration groups.
 
 ### Revert claims rules on AD FS and remove MFA Server authentication provider

@@ -70,7 +70,21 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
-      href: cache-best-practices.md
+      items:
+       - name: Connection resilience
+         href: cache-best-practices-connection.md
+       - name: Server load management
+         href: cache-best-practices-server-load.md
+       - name: Memory management
+         href: cache-best-practices-memory-management.md
+       - name: Development
+         href: cache-best-practices-development.md
+       - name: Scaling
+         href: cache-best-practices-scale.md
+       - name: Kubernetes-hosted client applications
+         href: cache-best-practices-kubernetes.md
+       - name: Performance testing
+         href: cache-best-practices-performance.md
     - name: Security
       items:
       - name: Network isolation options
@@ -110,6 +124,8 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
+    - name: Migrate from VNet injection to Private Link
+      href: cache-vnet-migration.md
     - name: Planning FAQs
       href: cache-planning-faq.yml
   - name: Build
@@ -152,6 +168,8 @@
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
+    - name: Monitor with diagnostic logs
+      href: cache-monitor-diagnostic-settings.md
     - name: Monitoring FAQs
       href: cache-monitor-troubleshoot-faq.yml
   - name: Scale

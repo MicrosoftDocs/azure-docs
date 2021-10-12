@@ -48,8 +48,8 @@ Use the following procedure to define a custom log file.  Scroll to the end of t
 ### Step 1. Open the Custom Log Wizard
 The Custom Log Wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
-1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Advanced Settings**.
-2. Click on **Data** > **Custom logs**.
+1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Settings**.
+2. Click on **Custom logs**.
 3. By default, all configuration changes are automatically pushed to all agents. For Linux agents, a configuration file is sent to the Fluentd data collector.
 4. Click **Add+** to open the Custom Log Wizard.
 
