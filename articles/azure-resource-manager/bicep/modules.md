@@ -7,7 +7,9 @@ ms.date: 10/12/2021
 
 # Bicep modules
 
-Bicep enables you to divide deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. By using modules, you can encapsulate complex details of your deployment and reuse files in different deployments. If you create a module registry, you can share modules with other people in your organization.
+Bicep enables you to divide deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you can encapsulate complex details of your deployment and easily reuse files in different settings. 
+
+To share modules with other people in your organization, [create a private registry](#private-module-registry.md). Modules in the registry are only available to users with the correct permissions.
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
 
@@ -76,7 +78,7 @@ For example:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 
-Instead of providing the full path each time to a module in a registry, you can configure aliases in the [bicepconfig.json file](bicep-config.md). The aliases make it easier to reference the module.
+The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-module-registry). The aliases make it easier to reference the module.
 
 ## Parameters
 

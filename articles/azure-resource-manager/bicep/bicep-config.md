@@ -5,11 +5,17 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ---
 
-# Bicep config file
+# Add custom settings in the Bicep config file
 
-To customize configuration values for your Bicep deployments, add a file named **bicepconfig.json** to the directory where you store Bicep files. Within this file, you specify the configuration values to use. This article describes the available properties for the configuration file.
+To customize configuration values for your Bicep deployments, add a file named **bicepconfig.json** to the directory where you store Bicep files. Within this file, specify the configuration values to use. This article describes the available properties for the configuration file.
 
 You can add multiple bicepconfig.json files. The closest configuration file in the directory hierarchy is used.
+
+## Edit with Visual Studio Code
+
+The Bicep extension for Visual Studio Code provides intellisense for editing Bicep configuration files. The intellisense helps you see which properties are available for editing.
+
+:::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
 ## Aliases for module registry
 
@@ -107,18 +113,18 @@ The properties are:
 
 - **enabled**: enter **true** for enabling linter, enter **false** for disabling linter.
 - **verbose**: enter **true** to show the bicepconfig.json file used by Visual Studio Code.
-- **rules**: enter rule-specific values. Each rule has at least one property, and level. This property commands the behavior of Bicep if the case if found in the Bicep file.
+- **rules**: enter rule-specific values. Each rule has a level. The level determines how the linter responds when a violation is found.
 
 The available values for **level** are:
 
 | **level**  | **Build-time behavior** | **Editor behavior** |
 |--|--|--|
-| `Error` | Violations appear as Errors in command-line build output, and cause builds to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
-| `Warning` | Violations appear as Warnings in command-line build output, but they don't cause builds to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
+| `Error` | Violations appear as Errors in command-line build output, and causes the build to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
+| `Warning` | Violations appear as Warnings in command-line build output, but they don't cause the build to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
 | `Info` | Violations don't appear in the command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
 
-For hardcoded environment URLs, you can customize which URLs are checked. By default, the following URLs are disallowed:
+For the rule about hardcoded environment URLs, you can customize which URLs are checked. By default, the following URLs aren't allowed:
 
 ```json
 {
@@ -164,6 +170,4 @@ For hardcoded environment URLs, you can customize which URLs are checked. By def
 }
 ```
 
-The Bicep extension of Visual Studio Code provides intellisense for editing Bicep configuration files:
 
-:::image type="content" source="./media/linter/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::

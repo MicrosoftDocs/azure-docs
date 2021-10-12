@@ -48,6 +48,9 @@
     - name: Outputs
       href: outputs.md
       displayName: dynamic number of outputs,modules
+    - name: Modules
+      href: modules.md
+      displayName: scopes,consume
     - name: Loops
       items:
       - name: Resources
@@ -140,61 +143,58 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+  - name: Create private registry
+    href: private-module-registry.md
 - name: Reference
   items:
-  - name: Bicep language
-    items:
-    - name: Modules
-      href: modules.md
-      displayName: scopes,consume
-    - name: Data types
-      href: data-types.md
-      displayName: supported types,arrays,booleans,integers,objects,strings,secure
-    - name: Functions
-      items:
-      - name: All functions
-        href: bicep-functions.md
-      - name: Any function
-        href: bicep-functions-any.md
-      - name: Array functions
-        href: bicep-functions-array.md
-      - name: Date functions
-        href: bicep-functions-date.md
-      - name: Deployment functions
-        href: bicep-functions-deployment.md
-      - name: File functions
-        href: bicep-functions-files.md
-      - name: Logical functions
-        href: bicep-functions-logical.md
-      - name: Numeric functions
-        href: bicep-functions-numeric.md
-      - name: Object functions
-        href: bicep-functions-object.md
-      - name: Resource functions
-        href: bicep-functions-resource.md
-      - name: Scope functions
-        href: bicep-functions-scope.md
-      - name: String functions
-        href: bicep-functions-string.md
-    - name: Operators
-      items:
-      - name: All operators
-        href: operators.md
-      - name: Accessor operators
-        href: operators-access.md
-      - name: Comparison operators
-        href: operators-comparison.md
-      - name: Logical operators
-        href: operators-logical.md
-      - name: Numeric operators
-        href: operators-numeric.md
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
     href: file.md
-  - name: Bicep configuration file
-    href: bicep-config.md
   - name: Resource reference
     href: /azure/templates/
+  - name: Data types
+    href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+  - name: Bicep configuration file
+    href: bicep-config.md
+  - name: Functions
+    items:
+    - name: All functions
+      href: bicep-functions.md
+    - name: Any function
+      href: bicep-functions-any.md
+    - name: Array functions
+      href: bicep-functions-array.md
+    - name: Date functions
+      href: bicep-functions-date.md
+    - name: Deployment functions
+      href: bicep-functions-deployment.md
+    - name: File functions
+      href: bicep-functions-files.md
+    - name: Logical functions
+      href: bicep-functions-logical.md
+    - name: Numeric functions
+      href: bicep-functions-numeric.md
+    - name: Object functions
+      href: bicep-functions-object.md
+    - name: Resource functions
+      href: bicep-functions-resource.md
+    - name: Scope functions
+      href: bicep-functions-scope.md
+    - name: String functions
+      href: bicep-functions-string.md
+  - name: Operators
+    items:
+    - name: All operators
+      href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
+    - name: Comparison operators
+      href: operators-comparison.md
+    - name: Logical operators
+      href: operators-logical.md
+    - name: Numeric operators
+      href: operators-numeric.md
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version

@@ -130,24 +130,24 @@ For example:
 bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-The `publish` command doesn't recognize aliases you've defined in a **bicepconfig.json** file. Provide the full module path.
+The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicepconfig.md) file. Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same registry with the same module path overwrites the old module. We recommend that you create a new version for each update.
 
 ## restore
 
-The `restore` command gets a copy of a module from an external registry and stores it in a local cache. You typically don't need to run `restore` because it's called automatically by `build`. The external module must exist in the local cache before the Bicep file can be built.
+When your Bicep file uses modules that are published to an external registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. The external modules must exist in the local cache before the Bicep file can be built. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
-You must have Bicep CLI version **x.xx or later** to use the publish command.
+You must have Bicep CLI version **x.xx or later** to use the restore command.
 
-To manually restore an external module, use:
+To manually restore the external modules for a file, use:
 
 ```bicep
 bicep restore <bicep-file>
 ```
 
-The Bicep file you provide as a parameter must reference an external module. For example:
+The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
 
 ```bicep
 module stgModule 'br/exampleregistry.azurecr.io/bicep/modules/storage:v1' = {

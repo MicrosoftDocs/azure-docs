@@ -7,7 +7,7 @@ ms.date: 10/12/2021
 
 # Use Bicep linter
 
-The Bicep linter analyzes Bicep files so you can find syntax errors and best practice violations before you build or deploy your Bicep file. The linter makes it easier to enforce coding standards by providing guidance during development. You can customize the set of authoring best practices to use for checking the file.
+The Bicep linter checks Bicep files for syntax errors and best practice violations. The linter makes it easier to enforce coding standards by providing guidance during development. You can customize the set of authoring best practices to use for checking the file.
 
 ## Linter requirements
 
@@ -24,11 +24,11 @@ The current set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
-You can customize the linter rules in the [Bicep configuration file](bicep-config.md).
+You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Bicep configuration file](bicep-config.md).
 
 ## Use in Visual Studio Code
 
-Install the Bicep extension 0.4 or later to use linter.  The following screenshot shows linter in action:
+The following screenshot shows the linter in Visual Studio Code:
 
 :::image type="content" source="./media/linter/bicep-linter-show-errors.png" alt-text="Bicep linter usage in Visual Studio Code.":::
 
@@ -46,7 +46,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-Install the Bicep CLI 0.4 or later to use linter.  The following screenshot shows linter in action. The Bicep file is the same as used in [Use in Visual Studio Code](#use-in-visual-studio-code).
+The following screenshot shows the linter in the command line.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
