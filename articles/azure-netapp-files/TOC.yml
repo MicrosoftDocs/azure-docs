@@ -23,16 +23,16 @@
       href: azure-netapp-files-understand-storage-hierarchy.md
     - name: Service levels for Azure NetApp Files
       href: azure-netapp-files-service-levels.md
-    - name: Cost model for Azure NetApp Files
-      href: azure-netapp-files-cost-model.md
-    - name: Storage service add-ons
-      href: storage-service-add-ons.md
+    - name: Guidelines for Azure NetApp Files network planning 
+      href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
     - name: Metrics for Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Guidelines for Azure NetApp Files network planning 
-      href: azure-netapp-files-network-topologies.md
+    - name: Storage service add-ons
+      href: storage-service-add-ons.md
+    - name: Cost model for Azure NetApp Files
+      href: azure-netapp-files-cost-model.md
   - name: Quotas 
     items:
     - name: Regional capacity quota
