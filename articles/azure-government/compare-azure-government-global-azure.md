@@ -6,7 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
-ms.date: 10/01/2021
+ms.date: 10/11/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -291,6 +291,8 @@ The following Azure Cost Management + Billing **features are not currently avail
 The following Azure Lighthouse **features are not currently available** in Azure Government:
 
 - Managed Service offers published to Azure Marketplace
+- Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, is not supported
+- Privileged Identity Management (PIM) feature is not enabled, for example, just-in-time (JIT) / eligible authorization capability
 
 ### [Azure Monitor](../azure-monitor/overview.md)
 
@@ -371,7 +373,7 @@ The following Azure Migrate **features are not currently available** in Azure Go
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government).
+For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 
 ## Networking
@@ -421,26 +423,20 @@ The following Azure Backup **features are not currently available** in Azure Gov
 
 - Azure Disk Backup, as documented in [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
 
-### [Azure NetApp Files](../azure-netapp-files/index.yml)
-
-For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
-see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
-
 ### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
 
 The following Azure managed disks **features are not currently available** in Azure Government:
 
 - Zone-redundant storage (ZRS)
 
-### [Azure Storage](../storage/index.yml)
+### [Azure NetApp Files](../azure-netapp-files/index.yml)
 
-For a how-to guide that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](./documentation-government-get-started-connect-to-storage.md). Table in [Guidance for developers](#guidance-for-developers) section shows the URL endpoints for main Azure Storage services.
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
+see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
 
 ### [Azure Import/Export](../import-export/storage-import-export-service.md)
 
-With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
-
-For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
+With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region. For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
 
 ## Web
