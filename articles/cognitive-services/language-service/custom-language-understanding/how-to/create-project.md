@@ -48,11 +48,11 @@ That project can be re-imported as a new project. If you import a project with t
 
 :::image type="content" source="../media/export.png" alt-text="A screenshot showing the Conversational Language Understanding export button." lightbox="../media/export.png":::
 
-If you have an existing LUIS application, you can _import_ the LUIS application JSON to CLU directly, and it will create a Conversation project with all the pieces that are currently available in CLU: Intents, ML entities, and utterances. Learn more about backwards compatibility with LUIS [here](./concepts/backwards-compatibility.md).
+If you have an existing LUIS application, you can _import_ the LUIS application JSON to CLU directly, and it will create a Conversation project with all the pieces that are currently available in CLU: Intents, ML entities, and utterances. Learn more about backwards compatibility with LUIS [here](../concepts/backwards-compatibility.md).
 
 Click on the downwards arrow button next to "Create a new project" and select "Import", then select the LUIS or CLU JSON file.
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import.png":::
 
 # Next Steps
-- [Build schema](./how-to/build-schema.md)
+- [Build schema](./build-schema.md)
