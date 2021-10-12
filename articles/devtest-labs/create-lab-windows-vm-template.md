@@ -44,12 +44,12 @@ If you have an Azure subscription, select the following **Deploy to Azure** butt
 
 1. On the **Creates a lab in Azure DevTest Labs with a Windows Server VM** screen, fill out the following items:
 
-- **Resource group**, create a new resource group so it's easy to clean up later.
-- **Region**, select a location for the resource group.
-- **Lab Name**, enter a name for the new lab instance.
-- **Vm Name**, enter a name for the VM to create. 
-- **User Name**, enter a name for the user who can access the VM. 
-- **Password**, enter a password for the user.
+   - **Resource group**, create a new resource group so it's easy to clean up later.
+   - **Region**, select a location for the resource group.
+   - **Lab Name**, enter a name for the new lab instance.
+   - **Vm Name**, enter a name for the VM to create. 
+   - **User Name**, enter a name for the user who can access the VM. 
+   - **Password**, enter a password for the user.
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
