@@ -107,7 +107,7 @@ Before deploying Komprise, the target service must be deployed. You can learn mo
 - How to create [Azure File Share](../../../files/storage-how-to-create-file-share.md)
 - How to create an [SMB volume](../../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) or [NFS export](../../../../azure-netapp-files/azure-netapp-files-create-volumes.md) in Azure NetApp Files
 
-The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may setup the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
+The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may set up the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
 
 1. Open the Azure portal, and search for  **storage accounts**. 
 
@@ -218,7 +218,7 @@ Managing object provides different experience. The Director and Observer are pro
 
 ## Migration guide
 
-Komprise provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied. In case of an object migration, objects, prefixes, and metadata of each object are migrated.
+Komprise provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied. In an object migration, objects, prefixes, and metadata of each object are migrated.
 
 To configure and run a migration, follow these steps:
 
@@ -229,17 +229,17 @@ To configure and run a migration, follow these steps:
 
 1. Add migration task by selecting proper source and destination share. Provide a migration name. Once configured, click on **Start Migration**. This step is slightly different for file and object data migrations.
    
-    1. File migrations
+    1. File migration
 
        :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
 
-       File migrations provides options to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
+       File migration provides options to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
 
-    1. Object migrations
+    1. Object migration
 
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-object-migration.png" alt-text="Screenshot that shows adding object migration":::
 
-        Object migrations provide options to choose the destination Azure storage tier (Hot, Cool, Archive). You may also choose to verify each data transfer using MD5 checksum. This involves additional egress costs as cloud objects must be retrieved to calculate the MD5 checksum.
+        Object migration provides options to choose the destination Azure storage tier (Hot, Cool, Archive). You may also choose to verify each data transfer using MD5 checksum. Egress costs can occur with MD5 checksums as cloud objects must be retrieved to calculate the MD5 checksum.
 
 2. Once the migration started, you can go to **Migrate** to monitor the progress.
 
