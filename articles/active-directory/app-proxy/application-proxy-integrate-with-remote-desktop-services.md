@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Publish Remote Desktop with Azure Active Directory Application Proxy
