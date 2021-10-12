@@ -156,7 +156,7 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Create content in your repository
+  - name: Manage custom content in your repository
     href: ci-cd.md
   - name: Use threat intelligence
     items:
