@@ -148,7 +148,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
         > [!TIP]
         > You can bring your own validation dataset (preview) separate from your training data. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-    1. Provide a test dataset (preview) to use to evaluate a model that automated ML generated for you. You can either provide your own test dataset or opt to use a percentage of your training dataset. Learn about [test runs](#test-your-model).
+    1. Provide a test dataset (preview) to use to evaluate a model that automated ML generated for you. You can either provide your own test dataset or opt to use a percentage of your training dataset. Learn about [test runs](#test-your-model-preview).
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.

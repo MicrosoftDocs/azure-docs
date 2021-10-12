@@ -99,7 +99,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 > You can use **test data** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
 > Learn how to: 
 > * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
-> * [Test the models automated ML generated for your experiment](#test-the-best-models).
+> * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
 
 ### Large data 
@@ -507,7 +507,7 @@ RunDetails(run).show()
 
 ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
-## Test the best model (preview)
+## Test models (preview)
 
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
