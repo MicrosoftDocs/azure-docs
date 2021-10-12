@@ -11,6 +11,9 @@ ms.custom: contperf-fy21q1
 
 This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the cloud. 
 
+> [!NOTE]
+> A preview [opentelemetry-based .NET offering](opentelemetry-enable.md?tabs=net). [Learn more](opentelemetry-overview.md).
+
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
