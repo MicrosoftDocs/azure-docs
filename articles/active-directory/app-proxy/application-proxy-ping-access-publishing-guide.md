@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
