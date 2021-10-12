@@ -16,6 +16,17 @@ ms.date: 9/20/2021
 This page describes the private access option. For public access, see
 [here](concepts-hyperscale-firewall-rules.md).
 
+> [!NOTE]
+>
+> Private access is available for preview in only [certain
+> regions](concepts-hyperscale-limits.md#regions).
+>
+> If the private access option is not selectable for your server group even
+> though your server group is within an allowed region, please open an Azure
+> [support
+> request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest),
+> and include your Azure subscription ID, to get access.
+
 ## Definitions
 
 **Virtual network**. An Azure Virtual Network (VNet) is the fundamental

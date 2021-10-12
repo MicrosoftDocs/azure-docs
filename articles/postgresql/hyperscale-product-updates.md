@@ -39,6 +39,11 @@ Here are the features currently available for preview:
   Allow hosts on a virtual network (VNet) to securely access a
   Hyperscale (Citus) server group over a private endpoint.
 
+> [!NOTE]
+>
+> Private access is available for preview in only [certain
+> regions](concepts-hyperscale-limits.md#regions).
+
 ## Contact us
 
 Let us know about your experience using preview features, by emailing [Ask
