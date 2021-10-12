@@ -148,8 +148,6 @@ The Capacity Reservation must meet the following rules:
     --zone 1
     ```
 
-To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell/module/az.Resources/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), and [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
-
 ### [PowerShell](#tab/powershell1)
 
 1. Before you can create a capacity reservation, create a resource group with `New-AzResourceGroup`. The following example creates a resource group *myResourceGroup* in the East US location.
