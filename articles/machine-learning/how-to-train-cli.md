@@ -94,7 +94,7 @@ Then use `$run_id` in subsequent commands like `update`, `show`, or `stream`:
 
 ## Organize jobs
 
-To organize jobs, you can set a display name, description, and tags. Descriptions support markdown syntax in the studio. These properties are mutable after a job is created. A full example:
+To organize jobs, you can set a display name, experiment name, description, and tags. Descriptions support markdown syntax in the studio. These properties are mutable after a job is created. A full example:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
 
