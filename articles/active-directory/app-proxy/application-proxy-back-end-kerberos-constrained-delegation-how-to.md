@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: asteen, japere
+ms.reviewer: asteen, ashishj
 ---
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy

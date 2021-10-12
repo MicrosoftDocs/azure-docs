@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere, asteen
+ms.reviewer: ashishj, asteen
 ---
 
 # How to configure single sign-on to an Application Proxy application
