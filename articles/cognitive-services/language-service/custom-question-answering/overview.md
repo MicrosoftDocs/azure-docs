@@ -4,7 +4,7 @@ description: Question answering is a cloud-based Natural Language Processing (NL
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 09/15/2021
+ms.date: 11/02/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
 ---
 

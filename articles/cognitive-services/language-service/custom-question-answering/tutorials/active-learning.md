@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/29/2021
+ms.date: 11/02/2021
 ---
 
 # Enrich your knowledge base with Active Learning

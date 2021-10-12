@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 11/02/2021
 
 ---
 
