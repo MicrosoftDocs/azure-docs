@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 ## Sign in to Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 
 1. At the top, select **Create a resource**.
 
@@ -34,7 +34,6 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. Select **Create Virtual Machine**.
 
     ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
-
 
 ## Configure an Intel SGX Virtual Machine
 
@@ -51,17 +50,11 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Configure the operating system image that you would like to use for your virtual machine.
 
-    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS. You may also select Windows Server 2019, or and Ubuntu 18.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
+    * **Choose Image**: For this tutorial, select Windows Server 2019 - Gen2. You may also select Ubuntu 20.04 LTS - Gen2, or Ubuntu 18.04 LTS - Gen2.
     
-    * **Toggle the image for Gen 2**: Intel SGX VMs only run on [Generation 2](../virtual-machines/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
+    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, you can select **Generation 2**, then Apply.
     
-
-        ![Advanced Tab](media/quick-create-portal/advanced-tab-virtual-machine.png)
-
-
-        ![VM Generation](media/quick-create-portal/gen2-virtual-machine.png)
-
-    * **Return to basic configuration**: Go back to the **Basics** tab using the navigation at the top.
+        ![image](https://user-images.githubusercontent.com/63871188/137002081-4879e3a9-f98b-4055-ba97-0f7aaac73f54.png)
 
 1. Choose a virtual machine with Intel SGX capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**.
 
