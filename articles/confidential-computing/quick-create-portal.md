@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create Intel SGX VM in the Azure portal 
-description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure portal 
+title: Quickstart - Create Intel SGX VM in the Azure Portal 
+description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal 
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -52,7 +52,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
     * **Choose Image**: For this tutorial, select Windows Server 2019 - Gen2. You may also select Ubuntu 20.04 LTS - Gen2, or Ubuntu 18.04 LTS - Gen2.
     
-    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, you can select **Generation 2**, then Apply.
+    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, then select **Generation 2**.
     
         ![image](https://user-images.githubusercontent.com/63871188/137002081-4879e3a9-f98b-4055-ba97-0f7aaac73f54.png)
 
