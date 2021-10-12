@@ -28,7 +28,7 @@ A mesh network is a topology in which all the virtual networks in the [network g
 
 :::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
 
-###<a name="connectedgroup"></a> Connected group
+### <a name="connectedgroup"></a> Connected group
 
 When you create a mesh topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate to each other just like if you were to peer virtual networks together manually. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual network connected together in a connected group won't have a peering config listed under *Peerings* for the virtual network.
 
