@@ -36,8 +36,7 @@ They might create an intent to represent each of these actions. They might also 
 
 * Meeting attendants
 * Date
-* Meeting duration
-* Names
+* Meeting durations
 
 
 For **orchestration workflow** projects, you can only create intents. The orchestration workflow project is intended to route to other target services that may be enabled with entity extraction to complete the conversation flow. You can add new intents that are connected to other services _or_ create intents that aren't connected to any service (a disconnected intent). 
@@ -68,6 +67,8 @@ To build a project schema for orchestration workflow projects:
     1. **Service Type**: LUIS, Custom Question Answering (QnA), or Conversational Language Understanding.
     2. **Project Name**: The project you want the intent to connect to.
     3. **Version for utterances** (Only for LUIS): which LUIS version should be used to train the orchestrator classification model.
+
+    :::image type="content" source="../media/orchestration-intent.png" alt-text="A screenshot showing the intent creation modal for orchestration projects in Language Studio." lightbox="../media/orchestration-intent.png":::
 
 > [!IMPORTANT]
 > * Connected intents cannot be selected because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
