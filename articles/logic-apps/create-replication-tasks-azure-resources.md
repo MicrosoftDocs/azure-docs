@@ -58,11 +58,37 @@ When you create a replication task, charges start incurring immediately. Underne
 
 1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
 
-On the **Tasks** pane, select **Add a task** so that you can select a task template.
+   ![Screenshot showing Azure Service Bus instance with "Automation" section and "Tasks (preview)" selected.](./media/create-replication-tasks-azure-resources/service-bus-automation-menu.png)
+
+1. On the **Tasks** pane, select **Add a task** so that you can select a task template.
 
 1. On the **Add a task** pane, under **Select a template**, select the template for the replication task that you want to create. If the next page doesn't appear, select **Next: Authenticate**.
 
+   This example continues by selecting the **Replicate to Service Bus** task template.
+
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
+
+   This example shows only one of the connections that's required by this task.
+
+1. When you're prompted, sign in with your Azure account credentials.
+
+   Each successfully authenticated connection looks similar to this example:
+
+1. After you authenticate all the connections, select **Next: Configure** if the next page doesn't appear.
+
+1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
+
+   > [!NOTE]
+   > You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). 
+   > Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+   >
+   > For example, if you name your task `SendMonthlyCost`, but you later edit the underlying workflow to run weekly, 
+   > you can't change your task's name to `SendWeeklyCost`.
+
+   The task that you created, which is automatically live and running, now appears on the **Tasks** list.
+
+   > [!TIP]
+   > If the task doesn't appear immediately, try refreshing the tasks list or wait a little before you refresh. On the toolbar, select **Refresh**.
 
 ## Set up retry policy
 

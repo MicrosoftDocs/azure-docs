@@ -105,11 +105,12 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
 
    > [!NOTE]
-   > You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). 
-   > Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+   > You can't change the task name after creation, so consider a name that still applies if you 
+   > [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying 
+   > workflow apply only to the task that you created, not the task template.
    >
-   > For example, if you name your task `SendMonthlyCost`, but you later edit the underlying workflow to run weekly, 
-   > you can't change your task's name to `SendWeeklyCost`.
+   > For example, if you name your task `SendMonthlyCost`, but you later edit the underlying workflow 
+   > to run weekly, you can't change your task's name to `SendWeeklyCost`.
 
    Tasks that send email notifications require an email address.
 
