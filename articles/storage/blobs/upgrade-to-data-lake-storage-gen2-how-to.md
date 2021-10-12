@@ -242,7 +242,7 @@ You can stop the migration before it completes. Something here about what happen
 To stop the upgrade before it completes, select **Cancel upgrade** while the upgrade is in progress.
 
 > [!div class="mx-imgBorder"]
-> ![Cancel upgrade](./media/upgrade-to-data-lake-storage-gen2-how-to/cancel-upgrade.png)
+> ![Cancel upgrade](./media/upgrade-to-data-lake-storage-gen2-how-to/cancel-the-upgrade.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
