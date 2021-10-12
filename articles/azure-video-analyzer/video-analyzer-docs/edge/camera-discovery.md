@@ -82,7 +82,7 @@ The following steps apply to both the `onvifDeviceDiscover` and the `onvifDevice
 
 ### onvifDeviceDiscover
 
-This driect method Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
+This direct method lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
 
 > [!NOTE]
 > The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
