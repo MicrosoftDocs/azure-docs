@@ -2,11 +2,11 @@
 title: Data migration options from StorSimple 8000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 8000 series.
 services: storsimple
-author: fauhse
+author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 09/29/2021 
+ms.date: 10/22/2021 
 ms.author: fauhse
 
 ---
@@ -18,19 +18,19 @@ ms.author: fauhse
 
 ## Migration options
 
-Your migration options separate into two main categories.
+There are two main migration paths, cloud-side or on-premises:
 
 ### Cloud-side migrations
 
-There are two storage types you can move into directly from StorSimple: Azure file shares and Azure blob storage:
+There are two Azure offerings you can migrate to from StorSimple: Azure Files and Azure Blob Storage:
 
-* **Azure file shares** </br>Azure file shares are the right choice when you want to preserve your file and folder structure, ACLs, timestamps, attributes, and backups. Optionally, you can combine them with Azure File Sync and create a on-premises cache of your Azure file shares. Backup, cloud tiering, and multi-site sync are also highly utilized features that match or exceed previous StorSimple capabilities. [Follow this guide for a simple, self-service migration](../storage/files/storage-files-migration-storsimple-8000.md).
-* **Azure blob storage** </br>In some cases, Azure blob containers can be the right choice, if SMB access, file and folder metadata (incl. ACLs), and backups are not important for you to preserve. Specifically the available archive tier can provide long-term, cost efficient offline storage if only the raw data needs to be preserved.
+* **Azure file shares** </br>If you want to preserve your file and folder structure, ACLs, timestamps, attributes, and backups, then Azure Files is the ideal choice. Optionally, you can also make use of Azure File Sync and create an on-premises cache of your Azure file shares. Backup, cloud tiering, and multi-site sync are also highly utilized features that match or exceed previous StorSimple capabilities. [Follow this guide for a simple, self-service migration](../storage/files/storage-files-migration-storsimple-8000.md).
+* Azure Blob Storage</br>If you don't want to preserve file and folder metadata, ACLs, or backups, and SMB access isn't important, then Azure Blob Storage may fit your needs. Specifically, the archive tier can provide long-term, cost efficient offline storage, if only the raw data needs to be preserved.
 
 The StorSimple Data Manager can be used to move the latest StorSimple volume backup into a blob container.
-However, the Data Manager also has a dedicated migration service built-in, that allows you to split your StorSimple volumes into several Azure file shares, moves all required backups and preserves file fidelity to its best ability. [Continue on this migration path by following the migration guide](../storage/files/storage-files-migration-storsimple-8000.md)
+However, the Data Manager also has a dedicated migration service built-in, that allows you to split your StorSimple volumes into several Azure file shares, move all required backups, and preserves file fidelity to its best ability. [To use this migration path, follow this migration guide](../storage/files/storage-files-migration-storsimple-8000.md)
 
-Should you decide that Azure file shares or Azure blob storage are not your final destination for tha data, you can migrate the data from these locations to the solution you have chosen. RoboCopy or AzCopy can be helpful to accomplish a move out of Azure Storage. Check with the vendor of your choice to find the best possible migration path for data located in either Azure file shares or Azure blob containers.
+If you determine that neither of the Azure offerings are suitable for your data, you can migrate your data out of these locations to a location of your choice. RoboCopy or AzCopy can be helpful to accomplish such a move out. Check with the vendor of your choice to find the best possible migration path for data located in either Azure file shares or Azure blob containers.
 
 ### On-premises recall and copy
 

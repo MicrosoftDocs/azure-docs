@@ -17,7 +17,7 @@ ms.date: 08/17/2021
 ms.author: alkohli
 ---
 
-# StorSimple Data Manager solution overview
+# StorSimple Data Manager overview
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -25,13 +25,13 @@ ms.author: alkohli
 
 Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency. As the data is stored in StorSimple format, it is not readily consumable by other cloud applications that you may want to use.
 
-The StorSimple Data Manager allows you to copy your StorSimple data to Azure file shares or Azure blob storage. This article focuses on the latter.
+The StorSimple Data Manager allows you to copy your StorSimple data to Azure file shares or Azure blob storage. This article focuses on the former.
 
 In some scenarios, Azure blob storage can be the right choice, if file and folder structure, metadata, and backups are not important for you to preserve.
-The remainder of this article provides an overview of the StorSimple Data Manager solution. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
+The remainder of this article provides an overview of the StorSimple Data Manager. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 
 > [!IMPORTANT]
-> If you are looking for documentation on how to use the Data Manager to migrate away from StorSimple: [Continue reading the migration guide](../storage/files/storage-files-migration-storsimple-8000.md).
+> To learn how to use the Data Manager to migrate away from StorSimple: [Continue reading the migration guide](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ## Functional overview
 
@@ -44,7 +44,6 @@ The StorSimple Data Manager service identifies StorSimple data in the cloud from
 
 The primary use case for a Data Manager is the build-in migration service to leave the StorSimple platform.
 
-Beyond migrating away from StorSimple, you can use the Data Manager with Azure Functions, Azure Automation, and Azure Data Factory to have workflows running on your data as it comes into StorSimple. You might want to process your media content that you store on StorSimple with Azure Media Services, or run a Machine Learning algorithm on that data, or bring up a Hadoop cluster to analyze the data that you store on StorSimple. With the vast array of services available on Azure combined with the data on StorSimple, you can unlock the power of your data.
 
 ## Choosing a region
 
@@ -86,7 +85,7 @@ File fidelity refers to the multitude of attributes, timestamps, and data that c
 [Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will cause per-item issues during a migration:
 
 * Timestamps: File change time will not be set - it is currently read-only over the REST protocol. Last access timestamp on a file will not be moved, it currently isn't a supported attribute on files stored in an Azure file share.
-* [Alternative Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams will be stripped from the file in the process.
+* [Alternate Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams will be stripped from the file in the process.
 * Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs will list each skipped item and a reason.
 * EFS encrypted files will fail to copy. Copy logs will show the item failed to copy with *Access is denied*.
 * Corrupt files are skipped. The copy logs may list different errors for each item that is corrupt on the StorSimple disk: *The request failed due to a fatal device hardware error* or *The file or directory is corrupted or unreadable* or *The access control list (ACL) structure is invalid*.
