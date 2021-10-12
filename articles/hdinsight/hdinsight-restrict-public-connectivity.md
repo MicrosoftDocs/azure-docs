@@ -8,9 +8,9 @@ ms.date: 09/20/2021
 
 # Restrict public connectivity in Azure HDInsight
 
-In the [default virtual network architecture](./hdinsight-virtual-network-architecture.md) of Azure HDInsight, the HDInsight resource provider (RP) communicates with the cluster over a public network. In this article, you learn about the advanced controls that you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to a private network. 
+In the [default virtual network architecture](./hdinsight-virtual-network-architecture.md) of Azure HDInsight, the HDInsight resource provider communicates with the cluster over a public network. In this article, you learn about the advanced controls that you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to a private network. 
 
-If you want to have public connectivity between your HDInsight cluster and dependent resources, consider restricting the connectivity of your cluster by following the guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md). In addition to restricting public connectivity, you can configure Azure Private Link-enabled dependency resources to use with HDInsight clusters.
+If you want public connectivity between your HDInsight cluster and dependent resources, consider restricting the connectivity of your cluster by following the guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md). In addition to restricting public connectivity, you can configure Azure Private Link-enabled dependency resources to use with HDInsight clusters.
 
 The following diagram shows what a potential HDInsight virtual network architecture might look like when `resourceProviderConnection` is set to *outbound*:
 
@@ -21,7 +21,9 @@ The following diagram shows what a potential HDInsight virtual network architect
 
 ## Initialize a restricted cluster
 
-By default, the HDInsight resource provider uses an *inbound* connection to the cluster by using public IP addresses. When the `resourceProviderConnection` network property is set to *outbound*, it reverses the connections to the HDInsight resource provider so that the connections are always initiated from inside the cluster and go out to the resource provider. In this configuration, without an inbound connection, there's no need to configure inbound service tags in the network security group. There's also no need to bypass the firewall or network virtual appliance via user-defined routes.
+By default, the HDInsight resource provider uses an *inbound* connection to the cluster by using public IP addresses. When the `resourceProviderConnection` network property is set to *outbound*, it reverses the connections to the HDInsight resource provider so that the connections are always initiated from inside the cluster and go out to the resource provider. 
+
+In this configuration, without an inbound connection, there's no need to configure inbound service tags in the network security group. There's also no need to bypass the firewall or network virtual appliance via user-defined routes.
 
 After you create your cluster, set up proper DNS resolution by adding DNS records that are needed for your restricted HDInsight cluster. The following canonical name DNS record (CNAME) is created in the Azure-managed public DNS zone: `azurehdinsight.net`.
 
