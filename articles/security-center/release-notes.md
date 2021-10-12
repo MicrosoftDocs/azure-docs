@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/03/2021
+ms.date: 10/06/2021
 ms.author: memildin
 
 ---
@@ -26,15 +26,58 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in October include:
 
+- [Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
+- [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
+- [Software inventory filters added to asset inventory (in preview)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+
+
+### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
+
+We've extended the integration between [Azure Defender for servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provide for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+
+Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in near real time with the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) enabled, and without the need for additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape and detections in your organization.
+
+Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to surface the vulnerabilities detected by threat and vulnerability management for your [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
+
+To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+
+Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+
+### Vulnerability assessment solutions can now be auto enabled (in preview)
+
+Security Center's auto provisioning page now includes the option to automatically enable a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
+
+Also, if the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) is enabled, you'll have a choice of vulnerability assessment solutions:
+
+- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
+- The integrated Qualys agent
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
+
+Your chosen solution will be automatically enabled on supported machines.
+
+Learn more in [Automatically configure vulnerability assessment for your machines](auto-deploy-vulnerability-assessment.md).
+
+### Software inventory filters added to asset inventory (in preview)
+
+The [asset inventory](asset-inventory.md) page now includes a filter to select machines running specific software - and even specify the versions of interest. 
+
+Additionally, you can query the software inventory data in **Azure Resource Graph Explorer**.
+
+To use these new features, you'll need to enable the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md). 
+
+For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
 
 ### Changed prefix of some alert types from "ARM_" to "VM_" 
 
 In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
-WIth this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
+With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
 | Original name                                  | From this change                              |
 |------------------------------------------------|-----------------------------------------------|
@@ -67,7 +110,7 @@ Learn more about the [Azure Defender for Resource Manager](defender-for-resource
 
 In September, the following update was released:
 
-### Two new recommendations to audit OS configurations for Azure security baseline compliance
+### Two new recommendations to audit OS configurations for Azure security baseline compliance (in preview)
 
 The following two recommendations have been released to assess your machines' compliance with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md) and the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md):
 
@@ -76,6 +119,7 @@ The following two recommendations have been released to assess your machines' co
 
 These recommendations make use of the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
 
+Learn more about using these recommendations in [Harden a machine's OS configuration using guest configuration](apply-security-baseline.md).
 
 ## August 2021
 
@@ -107,7 +151,7 @@ Learn more in [Protect your endpoints with Security Center's integrated EDR solu
 
 ### Two new recommendations for managing endpoint protection solutions (in preview)
 
-We've added two **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. Both recommendations include support for Azure virtual machines and machines connected to Azure Arc enabled servers.
+We've added two **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. Both recommendations include support for Azure virtual machines and machines connected to Azure Arc-enabled servers.
 
 |Recommendation |Description |Severity |
 |---|---|---|
@@ -504,13 +548,13 @@ Security Center includes built-in vulnerability scanners to scan your VMs, SQL s
 
 With this change, you can use the **Open query** button to also open the query showing the security findings.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner related recommendations.":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner-related recommendations.":::
 
-The **Open query** button offers additional options for some other recommendations too where relevant.
+The **Open query** button offers additional options for some other recommendations where relevant.
 
 Learn more about Security Center's vulnerability scanners:
 
-- [Azure Defender's integrated vulnerability assessment scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-container-registries-usage.md)
 

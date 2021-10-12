@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -134,6 +134,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Application extension properties
 
 - [List extension properties](/graph/api/application-list-extensionproperty)
+- [Delete extension property](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 

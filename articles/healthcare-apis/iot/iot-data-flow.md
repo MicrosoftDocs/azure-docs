@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/05/2021
 ms.author: jasteppe
 ---
 
-# IoT connector: data flow
+# IoT connector data flow
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -53,7 +53,7 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 
 ## Next steps
 
-Click below next step to learn how to create Device and FHIR destination mapping templates.
+Learn how to create Device and FHIR destination mapping templates.
 
 > [!div class="nextstepaction"]
 > [IoT connector Device mapping templates](how-to-use-device-mapping-iot.md)
