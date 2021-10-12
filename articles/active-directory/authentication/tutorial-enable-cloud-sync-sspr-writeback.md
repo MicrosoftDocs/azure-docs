@@ -90,7 +90,7 @@ To verify and enable password writeback in SSPR, complete the following steps:
 1. Set **Write back passwords to your on-premises directory?** to **Yes**. 
 1. Set **Allow users to unlock accounts without resetting their password?** to **Yes**.
    
-   ![Screenshot showing how to enable cloud sync](media/tutorial-enable-sspr-cloud-sync-writeback/writeback.png)
+   ![Screenshot showing how to enable writeback](media/tutorial-enable-sspr-cloud-sync-writeback/writeback.png)
 
 1. When ready, select **Save**. 
 
