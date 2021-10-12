@@ -81,7 +81,7 @@ var distributionPolicy = await client.SetDistributionPolicyAsync(
     id: "Longest_Idle_45s_Min1Max10",
     name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
     offerTTL: TimeSpan.FromSeconds(45),
-    mode: new LongestIdleModePolicy(
+    mode: new LongestIdleMode(
         minConcurrentOffers: 1,
         maxConcurrentOffers: 10)
 );
