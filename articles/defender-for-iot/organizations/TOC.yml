@@ -12,7 +12,7 @@
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: System prerequisites
     displayName: firewall, proxy, open ports
@@ -20,7 +20,7 @@
   - name: Get started with Azure Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
-- name: Tutorial
+- name: Tutorials
   expanded: false
   items:
   - name: Azure Defender for IoT trial setup
