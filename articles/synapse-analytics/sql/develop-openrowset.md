@@ -252,7 +252,7 @@ Reject Options
 
 > [!NOTE]
 > Rejected rows feature is in Public Preview.
-> Please note that rejected rows feature is supported only for delimited text files and PARSER_VERSION 1.0.
+> Please note that rejected rows feature works for delimited text files and PARSER_VERSION 1.0.
 
 
 You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if actual data types don't match the column definitions of the external table.
