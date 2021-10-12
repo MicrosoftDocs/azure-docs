@@ -22,7 +22,6 @@ In this quickstart, you'll build a .NET console application to authenticate a Mi
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
-- Enable a custom Teams endpoint experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 - An Azure Active Directory instance with users that have a Teams license.
 
 ## Introduction
