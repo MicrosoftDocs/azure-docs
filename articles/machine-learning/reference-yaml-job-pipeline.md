@@ -84,7 +84,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-settings.yml":::
 
-## YAML: top-level input and overriding common job settings
+## YAML: top-level input and overriding common pipeline job settings
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
 
