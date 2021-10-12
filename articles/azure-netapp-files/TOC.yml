@@ -251,20 +251,14 @@
       href: azure-netapp-files-sdk-cli.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot capacity pools 
+    - name: Troubleshoot capacity pool errors 
       href: troubleshoot-capacity-pools.md
-    - name: Troubleshoot cross-region replication
-      href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot volume errors
       href: troubleshoot-volumes.md
-    - name: Troubleshoot SMB or dual-protocol volumes
-      href: troubleshoot-dual-protocol-volumes.md
-    - name: Troubleshoot NFSv4.1 Kerberos volumes
-      href: troubleshoot-nfsv41-kerberos-volumes.md
-    - name: Troubleshoot snapshot policies
+    - name: Troubleshoot snapshot policy errors
       href: troubleshoot-snapshot-policies.md
-    - name: Troubleshoot LDAP volumes
-      href: troubleshoot-ldap-volumes.md
+    - name: Troubleshoot cross-region replication errors
+      href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference

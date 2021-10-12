@@ -106,4 +106,4 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
-* [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)
+* [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
