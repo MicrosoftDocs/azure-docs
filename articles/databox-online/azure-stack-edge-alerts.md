@@ -197,7 +197,7 @@ The following alerts relate to your Azure Key Vault configuration.
 |-----------|---------|---------------------------------|
 |Key Vault is not configured<sup>*</sup> |Critical<br>Warning |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, see [Prerequisites for an Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>If secrets are soft deleted, follow the steps [here](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) to recover the secrets.</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 |Key Vault is not configured<sup>*</sup> |Warning |Configure the Key Vault for your Azure Stack Edge resource. For detailed steps, see [Create a key vault](../key-vault/general/quick-create-portal.md). |
-|Key Vault is deleted |Critical |If the key vault is deleted and the purge protection duration of 90 days hasn't elapsed, follow the steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-a-soft-deleted-key-vault).<!--Verify link target.-->|
+|Key Vault is deleted |Critical |If the key vault is deleted and the purge protection duration of 90 days hasn't elapsed, follow the steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-a-soft-deleted-key-vault). |
 |Couldn’t retrieve secret(s) from the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. The required permissions are are present [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 |Couldn’t access the Key Vault |Critical |<ol><li>Verify that the Key Vault is not deleted.</li><li>Assign the appropriate permissions for your device to get and set the secrets. For detailed steps, click [here](azure-stack-edge-gpu-deploy-prep.md#prerequisites).</li><li>Refresh the Key Vault details to clear the alert.</li></ol> |
 
@@ -209,7 +209,6 @@ The following alerts indicate an issue with a hardware component, such as physic
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|{0} has failed. |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
 |{0} on {1} has failed. |Critical |This is because the power supply is not connected properly or has failed. Take the following steps to resolve this issue:<ol><li>Make sure that the power supply connection is proper.</li><li>[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement power supply unit. |
 |Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to *NEED LINK TARGET*.<!--Current target: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |{0} is powered off. |Warning |Connect the Power Supply Unit to a Power Distribution Unit. |
@@ -218,8 +217,8 @@ The following alerts indicate an issue with a hardware component, such as physic
 |Started the replacement of {0}. |Informational |No action is required from you. |
 |Successfully replaced {0} |Informational |No action is required from you. |
 |{0} is disconnected. |Warning |Verify that '{0}' is cabled properly and the network interface is up. |
-|{0} has failed.<sup>*</sup> |Critical |Verify that '{0}' is cabled properly and the network interface is up.<br>In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) |
-|{0} has failed.<sup>*</sup> |Critical | The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
+|{0} has failed.<sup>*</sup> |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
+|{0} has failed.<sup>*</sup> |Critical |Verify that '{0}' is cabled properly and the network interface is up.<br>In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, contact Microsoft Support at [http://aka.ms/getazuresupport](azure-stack-edge-contact-microsoft-support.md). |
 |Some data on the cache physical disk {0} on node {1} can't be read, preventing us from moving it onto capacity drives. |Warning |Replace the physical disk. |
 |The cache physical disk {0} on node {1} failed some reads or writes, so to protect your data we've moved it onto capacity drives. |Warning | Replace the physical disk. |
 |The physical disk {0} on node {1} failed to read or write multiple times in the last couple of days. If this keeps happening, it could mean that the drive is malfunctioning, damaged, or beginning to fail. |Warning |If the issue persists, consider replacing the physical disk. |
@@ -293,8 +292,8 @@ The following alerts are raised for virtual machines on an Azure Stack Edge devi
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
-| The virtual machine {0} is  not operating properly. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
-| Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
+|The virtual machine {0} is not operating properly. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
+|Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
 |The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
 |Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
 |Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
