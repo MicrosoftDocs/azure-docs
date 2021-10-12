@@ -33,7 +33,7 @@ This article describes how to install solutions in your Azure Sentinel workspace
 
 > [!TIP]
 > If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
-> 
+>
 ## Find a solution
 
 1. From the Azure Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
@@ -42,7 +42,7 @@ This article describes how to install solutions in your Azure Sentinel workspace
 
     Filter the list displayed, either by entering any part of a solution name in the **Search** field, or by selecting specific values from the filters. Note that the search functionality only recognizes whole words.
 
-    For a detailed list of available categories, see [below](#content-hub-categories).
+    For more information, see [Content categories](sentinel-solutions.md#content-categories).
 
     > [!TIP]
     > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
