@@ -63,18 +63,17 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 * You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
 
-::: zone pivot="two-node"
 
 ## Configure setup type
 
 ::: zone pivot="single-node"
+
 1. Go to the **Get started** page.
 1. In the **Set up a single node device** tile, select **Start**.
 
     ![Local web UI "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png)   
 
 ::: zone-end
-
 
 ::: zone pivot="two-node"
 
@@ -207,13 +206,13 @@ To configure the cluster, you'll need to establish a cluster witness and then ad
 
 ### Configure cluster witness
 
-You'll now create a cluster witness. A cluster witness helps establish quorum for a two-node device if a node goes down. To learn about quorum, see [Understanding quorum](windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
+You'll now create a cluster witness. A cluster witness helps establish quorum for a two-node device if a node goes down. To learn about quorum, see [Understanding quorum](/windows-server/failover-clustering/manage-cluster-quorum#understanding-quorum). 
 
 A cluster witness can be: 
 
 - **Cloud witness** if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. 
 
-    Use cloud witness when you have internet access. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](windows-server/failover-clustering/deploy-cloud-witness).
+    Use cloud witness when you have internet access. For more information on cloud witness, see [Deploy a cloud witness for Failover cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 - **File share witness** if you use a local SMB file share to provide a vote in the cluster quorum. Use a file share witness if all the servers in a cluster have spotty internet connectivity or can't use disk witness as there aren't any shared drives. 
 
     Use file share witness if you're in an IT environment with other machines and file shares. For more information on file share witness, see [Deploy a file share witness for Failover cluster](/windows-server/failover-clustering/file-share-witness).
