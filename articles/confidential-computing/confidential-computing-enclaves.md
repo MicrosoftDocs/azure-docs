@@ -12,9 +12,7 @@ ms.author: JenCook
 
 # Build with enclaves 
 
-[!NOTE] DCsv3 and DCdsv3 are in public preview as of November 1, 2021.
-
-[DCsv2-series](../virtual-machines/dcv2-series.md) and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs are backed by [Intel® Software Guard Extensions](https://intel.com/sgx). 
+[DCsv2-series](../virtual-machines/dcv2-series.md) and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md)* VMs are backed by [Intel® Software Guard Extensions](https://intel.com/sgx). 
 
 Software Guard Extensions (SGX) allows customers to create enclaves that protect data and keeps it encrypted while the CPU is processing it, even the operating system and hypervisor cannot access it, nor can datacenter admins who have physical access.  
 
@@ -26,7 +24,7 @@ Enclaves are secured portions of the hardware’s processor and memory. There's 
 
 Think of an enclave as a secured lockbox. You put encrypted code and data in the lockbox. From the outside, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed and re-encrypted, before being sent out.
 
-Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory that can be held inside. [DCsv2-series](../virtual-machines/dcv2-series.md) offers up to 168 MiB, whereas [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) offers up to 256 GB for more memory intensive workloads.
+Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory that can be held inside. [DCsv2-series](../virtual-machines/dcv2-series.md) offers up to 168 MiB, whereas [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md)* offers up to 256 GB for more memory intensive workloads.
 
 [Read more](virtual-machine-solutions-sgx.md) about deploying Intel SGX VMs with hardware-based trusted enclaves.
 
@@ -36,3 +34,5 @@ When developing applications, you can use [software tools](application-developme
 ## Next Steps
 - [Deploy a DCsv2 or DCsv3/DCdsv3-series virtual machine](quick-create-portal.md)
 - [Develop an enclave-aware application](application-development.md) using the OE SDK
+
+*DCsv3 and DCdsv3 are in public preview as of November 1, 2021.
