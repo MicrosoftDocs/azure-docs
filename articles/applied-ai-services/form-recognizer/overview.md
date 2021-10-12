@@ -53,7 +53,7 @@ The following features are supported by the Form Recognizer service v2.1. Use th
 ### [Form Recognizer preview (v3.0)](#tab/v3-0)
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities.
+> Form Recognizer studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
 The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
