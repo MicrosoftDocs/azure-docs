@@ -45,7 +45,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 For single tenant applications, a request to add/update AppId Uri (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme provided by AAD.
 This could prevent applications from adding an AppId Uri if the domain isn't in the verified domain list or value does not use the default scheme.
-To find more information on verified domains, refer to the [custom domains documentation](../active-directory/fundamentals/add-custom-domain.md).
+To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
 
 The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
 
