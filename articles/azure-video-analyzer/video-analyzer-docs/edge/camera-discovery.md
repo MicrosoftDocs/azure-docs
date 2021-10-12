@@ -73,7 +73,7 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
 
 ## Use direct method calls
 
-Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
+The Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
 The following steps apply to both the `onvifDeviceDiscover` and the `onvifDeviceGet` sections below:
 
 1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
@@ -82,7 +82,7 @@ The following steps apply to both the `onvifDeviceDiscover` and the `onvifDevice
 
 ### onvifDeviceDiscover
 
-Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
+This driect method Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
 
 > [!NOTE]
 > The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
