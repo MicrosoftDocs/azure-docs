@@ -13,9 +13,9 @@ ms.author: cherylmc
 
 ---
 
-# Upgrade a SKU (Preview)
+# Upgrade a SKU
 
-This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you upgrade, you can't revert back to the Basic SKU without deleting and reconfiguring Bastion. During Preview, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings- SKUs](configuration-settings.md#skus). 
+This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you upgrade, you can't revert back to the Basic SKU without deleting and reconfiguring Bastion. Currently, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings- SKUs](configuration-settings.md#skus). 
 
 ## Configuration steps
 

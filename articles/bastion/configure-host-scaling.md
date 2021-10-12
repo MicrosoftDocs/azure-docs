@@ -7,15 +7,15 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling.
 
 ---
 
-# Configure host scaling (Preview)
+# Configure host scaling
 
-This article helps you add additional scale units (instances) to Azure Bastion in order to accommodate additional concurrent client connections. During Preview, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance). 
+This article helps you add additional scale units (instances) to Azure Bastion in order to accommodate additional concurrent client connections. During Preview, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance).
 
 ## Configuration steps
 
