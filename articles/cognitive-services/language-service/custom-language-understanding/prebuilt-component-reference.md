@@ -1,6 +1,6 @@
 ## Overview
 
-Conversational Language Understanding allows you to add prebuilt components to entities. Prebuilt components automatically predict common types from utterances. Learn more about components [here](../TBD).
+Conversational Language Understanding allows you to add prebuilt components to entities. Prebuilt components automatically predict common types from utterances. Learn more about components [here](./concepts/entity-components.md).
 
 ## Reference
 
