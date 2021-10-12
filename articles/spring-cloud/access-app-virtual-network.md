@@ -42,6 +42,21 @@ The following procedure creates a private DNS zone for an application in the pri
    SUBSCRIPTION='subscription-id'
    RESOURCE_GROUP='my-resource-group'
    VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Sign in to the Azure CLI and choose your active subscription.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. Create the private DNS zone. 
+
+   ```azurecli
+   az network private-dns zone create --resource-group $RESOURCE_GROUP \
+      --name private.azuremicroservices.io
+   ```
 
 ---
 
@@ -77,6 +92,7 @@ Link the private DNS zone you just created to the virtual network holding your A
        --zone-name private.azuremicroservices.io \
        --virtual-network $VIRTUAL_NETWORK_NAME \
        --registration-enabled false
+   ```
 
 ---
 
@@ -131,16 +147,25 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
    ```azurecli
    SPRING_CLOUD_NAME='spring-cloud-name'
-   
    SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
        --name $SPRING_CLOUD_NAME --query \
        "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
        --output tsv`
-   
    IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
        --resource-group $SERVICE_RUNTIME_RG \
        --query "[0].privateIpAddress" \
        --output tsv`
+   ```
+
+1. Use this IP address to create the A record in your DNS zone. 
+
+   ```azurecli
+   az network private-dns record-set a add-record \
+     --resource-group $RESOURCE_GROUP \
+     --zone-name private.azuremicroservices.io \
+     --record-set-name '*' \
+     --ipv4-address $IP_ADDRESS
+   ```
 
 ---
 
@@ -164,13 +189,13 @@ After following the procedure in [Build and deploy microservice applications](./
 
 Update your app to assign an endpoint to it. Customize the value of your spring app name based on your real environment.
 
-   ```azurecli
-   SPRING_CLOUD_APP='your spring cloud app'
-   
-   az spring-cloud app update --name $SPRING_CLOUD_APP \
-       --resource-group $RESOURCE_GROUP \
-       --service $SPRING_CLOUD_NAME \
-       --assign-endpoint true
+```azurecli
+SPRING_CLOUD_APP='your spring cloud app'
+az spring-cloud app update --name $SPRING_CLOUD_APP \
+    --resource-group $RESOURCE_GROUP \
+    --service $SPRING_CLOUD_NAME \
+    --assign-endpoint true
+```
 
 ---
 
