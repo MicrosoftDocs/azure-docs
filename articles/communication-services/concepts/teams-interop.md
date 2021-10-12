@@ -98,5 +98,4 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 > [Authenticate Microsoft 365 users](../quickstarts/manage-teams-identity.md)

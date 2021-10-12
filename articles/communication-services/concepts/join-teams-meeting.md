@@ -53,3 +53,4 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 
 > [!div class="nextstepaction"]
 > [Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Join a BYOI chat app to a Teams meeting](../quickstarts/chat/meeting-interop.md)
