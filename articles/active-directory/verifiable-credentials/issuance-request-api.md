@@ -86,6 +86,7 @@ The issuance request payload contains information about your verifiable credenti
     },
     "issuance": {
         "type": "VerifiedCredentialExpert",
+        "manifest": "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
         "pin": {
             "value": "3539",
             "length": 4
