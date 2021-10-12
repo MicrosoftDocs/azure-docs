@@ -32,14 +32,10 @@ Count the number of people in a designated zone over time using the PersonCount 
 
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
-
-
 ### Enter/exit spaces
 Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more. 
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
-
-![Spatial Analysis visualizes orientation and speed of people in a store](https://user-images.githubusercontent.com/11428131/137017305-46c9b6c5-1a11-4d98-89ed-67c7e8d0bb12.gif)
 
 ### Social distancing and facemask detection 
 Understand how well people follow social distancing and facemask guidance using video.
