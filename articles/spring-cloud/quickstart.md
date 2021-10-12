@@ -347,7 +347,7 @@ Note that this example uses Java version 8.  If you want to use Java version 11,
 ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
 1. Select **Generate** when all the dependencies are set. 
-1. Download and unpack the package, then create a web controller for a simple web application by adding the file `src/main/java/com/example/hellospring/HelloController.java` with the following contents:
+1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
 
     ```java
     package com.example.hellospring;
