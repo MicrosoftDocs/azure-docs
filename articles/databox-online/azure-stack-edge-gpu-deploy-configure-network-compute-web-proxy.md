@@ -280,6 +280,11 @@ For Azure consistent services and NFS, you'll also need to define a virtual IP t
 For Azure Consistent Services, follow these steps to configure virtual IP.
 
 1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Azure Consistent Services**. 
+
+    ![Local web UI "Cluster" page with "Azure Consistent Services" selected for "Virtual IP Settings" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-1.png)
+
+
+
 1. In the **Virtual IP settings** blade, input the following.
 
     1. From the dropdown list, select the **Azure Consistent Services network**. 
@@ -287,17 +292,25 @@ For Azure Consistent Services, follow these steps to configure virtual IP.
     1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the Azure Consistent Services network that you specified. If you selected DHCP, a virtual IP is automatically picked from the Azure Consistent Services network that you selected.
 1. Select **Apply**.
 
+    ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for Azure consistent services on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-2.png)
+
+
 ### For Network File System
 
 For clients connecting via NFS protocol to the two-node device, follow these steps to configure virtual IP.
 
 1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Network File System**.
+
+    ![Local web UI "Cluster" page with "Network File System" selected for "Virtual IP Settings" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-1.png)
+
 1. In the **Virtual IP settings** blade, input the following.
 
     1. From the dropdown list, select the **NFS network**.
     1. Choose IP settings from **DHCP** or **Static**.
     1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the NFS network that you specified. If you selected DHCP, a virtual IP is automatically picked from the NFS network that you selected.
 1. Select **Apply**.
+
+    ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-2.png)
 
 > [!NOTE]
 > Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
