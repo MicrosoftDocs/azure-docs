@@ -161,6 +161,8 @@
       href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: troubleshoot.md
+  - name: Connect cameras to cloud via remote device adapter
+    href: cloud/use-remote-device-adapter.md
 - name: Reference 
   items:
   - name: Access policies
