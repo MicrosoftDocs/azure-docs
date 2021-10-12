@@ -62,6 +62,28 @@ var policy = await client.SetClassificationPolicyAsync(
     id: "XBOX_NA_QUEUE_Priority_1_10",
     name: "Select XBOX Queue and set priority to 1 or 10",
     defaultQueueId: "DEFAULT_QUEUE",
+    queueSelector: new QueueIdSelector(
+        new ExpressionRule()
+        {
+            Expression = $"If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")"
+        }
+    ),
+    workerSelector: new List<LabelSelectorAttachment>
+    {
+        new StaticLabelSelector(new LabelSelector(
+                        key: "Language",
+                        @operator: LabelOperator.Equal,
+                        value: "English")
+        )
+    },
+    prioritizationRule: new ExpressionRule()
+    {
+        Expression = "If(job.Hardware_VIP = true, 10, 1)"
+    }
+);
+    id: "XBOX_NA_QUEUE_Priority_1_10",
+    name: "Select XBOX Queue and set priority to 1 or 10",
+    defaultQueueId: "DEFAULT_QUEUE",
     queueSelectionPolicy: new QueueIdentitySelectionPolicy(
         new ExpressionRuleContainer()
         {
