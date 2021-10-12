@@ -45,7 +45,7 @@ Now, in addition during the trial period:
 
 For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
-### Content hub and 55+ new solutions
+### Content hub and new solutions (Public preview)
 
 Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
 
@@ -101,6 +101,14 @@ For more information, see:
 >[!TIP]
 > We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
 >
+
+### Manage custom content in source control repositories (Public preview)
+
+Now, the new Azure Sentinel **Repositories** page provides you with the ability to store your custom content in GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspace.
+
+Store your custom content in an external repository in order to maintain it outside of Azure Sentinel. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspace, and visible from the various Azure Sentinel galleries, such as the **Analytics**, **Notebooks**, or **Workbooks** pages.
+
+For more information, see [Manage custom content in your own repository](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
