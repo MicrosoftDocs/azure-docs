@@ -24,7 +24,7 @@ In this article, you will learn how to create an empty [lake database](TODO) in 
 ## Create lake database from database template
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. This will open the **Data** tab where you can see the list of databases that already exist in your workspace.
 2. Hover over the **Databases** section and select the ellipsis **...**, then choose **Lake database (preview)**.
-   1. ![Screenshot showing create empty lake database]()
+   1. ![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
 3. The database designer tab will open with an empty database.
 4. The database designer has **Properties** on the right that need to be configured.
     - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
