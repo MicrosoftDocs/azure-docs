@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal
 
@@ -31,7 +31,7 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. The Standard SKU is currently in Preview. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article. 
+Azure Bastion has two available SKUs, Basic and Standard. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article.
 
 The following table shows features and corresponding SKUs.
 

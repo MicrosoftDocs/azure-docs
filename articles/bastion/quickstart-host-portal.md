@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
@@ -93,8 +93,8 @@ There are a few different ways to configure a bastion host. In the following ste
 1. After the subnet creates, the page advances automatically to **Step 3**. For Step 3, use the following values:
 
    * **Name:** Name the bastion host.
-   * **Tier:** The tier is the SKU. For this exercise, select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
-   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count is in Preview and relies on the Standard SKU. In this quickstart, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
+   * **Tier:** The tier is the SKU. For this exercise, select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus).
+   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count relies on the Standard SKU. In this quickstart, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
    * **Public IP address:** Select **Create new**.
    * **Public IP address name:** The name of the Public IP address resource.
    * **Public IP address SKU:** Pre-configured as **Standard**.
