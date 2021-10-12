@@ -83,14 +83,14 @@ az extension add --name spring-cloud
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
+You can provision an instance of the Azure Spring Cloud service using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 
 ## Prerequisites
 
-* [Install JDK 8](/java/azure/jdk/)
+* [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with the command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Provision an instance of Azure Spring Cloud
 
