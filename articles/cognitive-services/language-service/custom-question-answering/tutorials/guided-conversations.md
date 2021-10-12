@@ -78,7 +78,7 @@ Similarly, we add another prompt **Check Pen Settings** to help the user trouble
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of a question and answer about creating a follow-up prompt for replacing pen tips]( ../media/guided-conversations/replace-pen.png) ]( ../media/guided-conversations/replace-pen.png#lightbox)
 
-We finally save the changes and test these prompts in the Test pane:
+Finally, save the changes and test these prompts in the **Test** pane:
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of question answer UI with save changes highlighted in a red box]( ../media/guided-conversations/save-changes.png) ]( ../media/guided-conversations/save-changes.png#lightbox)
