@@ -48,9 +48,6 @@
     - name: Outputs
       href: outputs.md
       displayName: dynamic number of outputs,modules
-    - name: Modules
-      href: modules.md
-      displayName: scopes,consume
     - name: Loops
       items:
       - name: Resources
@@ -147,6 +144,9 @@
   items:
   - name: Bicep language
     items:
+    - name: Modules
+      href: modules.md
+      displayName: scopes,consume
     - name: Data types
       href: data-types.md
       displayName: supported types,arrays,booleans,integers,objects,strings,secure

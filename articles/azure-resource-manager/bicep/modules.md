@@ -4,22 +4,79 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/11/2021
 ---
 
 # Use Bicep modules
 
 Bicep enables you to break down a complex solution into modules. A Bicep module is just a Bicep file that is deployed from another Bicep file. You can encapsulate complex details of the resource declaration in a module, which improves readability of files that use the module. You can reuse these modules, and share them with other people. Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
 
-This article describes how to define and consume modules.
+This article describes how to add modules to your Bicep file.
 
-For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+## Definition syntax
 
-## Define modules
+The basic syntax for defining a module is:
 
-Every Bicep file can be used as a module. A module only exposes parameters and outputs as a contract to other Bicep files. Parameters and outputs are optional.
+```bicep
+module <module-symbolic-name> '<path-to-file>' = {
+  name: '<linked-deployment-name>'
+  params: {
+    <parameter-names-and-values>
+  }
+}
+```
 
-The following Bicep file can be deployed directly to create a storage account or be used as a module.  The next section shows you how to consume modules:
+The [path](#path-to-module) can be either a local file or an external file in a Bicep module registry.
+
+The symbolic name is just like the symbolic name for a resource. Use the symbolic name to reference the module in another part of the Bicep file.
+
+The **name** property is required when defining a module. It becomes the name of the nested deployment resource in the generated template.
+
+If you need to specify a scope that is different than the scope for the main file, add the scope property.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/scope-definition.bicep" highlight="4" :::
+
+To conditionally deploy a module, add the `if` expression. The use is similar to [conditionally deploying a resource](conditional-resource-deployment.md).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
+
+To deploy more than one instance of a module, add the `for` expression:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="2" :::
+
+For more information, see [Module iteration in Bicep](loop-modules.md).
+
+## Path to module
+
+### Local file
+
+If the module is a **local file**, provide a relative path to that file. All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\\) character is unsupported. Paths can contain spaces.
+
+For example to deploy a file that is up one level in the directory from your main file, use:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" highlight="1" :::
+
+### File in registry
+
+If the module is in a Bicep module registry, provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
+
+```bicep
+module <module-symbolic-name> 'br/<registry-name>.azurecr.io/<module-path>:<tag>'
+```
+
+- **br** is the schema name for a Bicep registry.
+- **module path** is called `repository` in Azure Container Registry. The **module path** can contain segments separated by the `/` character.
+- **tag** is used for specifying module version.
+
+For example:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
+
+## Parameters
+
+The parameters you provide in your module definition match the parameters in the Bicep file.
+
+The following Bicep example has three parameters - storagePrefix, storageSKU, and location. The storageSKU parameter has a default value so you don't have to provide a value during deployment.
 
 ```bicep
 @minLength(3)
@@ -56,17 +113,13 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-Output is used to pass values to the parent Bicep files.
-
-## Consume modules
-
-Use the _module_ keyword to consume a module. The following Bicep file deploys the resource defined in the module file being referenced:
+To use the preceding example as a module, provide values for those parameters.
 
 ```bicep
 @minLength(3)
 @maxLength(11)
 param namePrefix string
-param location string = resourceGroup().location
+param location string
 
 module stgModule 'storageAccount.bicep' = {
   name: 'storageDeploy'
@@ -79,34 +132,18 @@ module stgModule 'storageAccount.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-- **module**: Keyword.
-- **symbolic name** (stgModule): Identifier for the module.
-- **module file**: Module files must be referenced by using relative paths. All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\\) character is unsupported. Paths can contain spaces.
-- The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource, which is generated for the module:
+## Output
 
-    ```json
-    ...
-    ...
-    "resources": [
-      {
-        "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2020-10-01",
-        "name": "storageDeploy",
-        "properties": {
-          ...
-        }
-      }
-    ]
-    ...
-    ```
-- The **_params_** property contains any parameters to pass to the module file. These parameters match the parameters defined in the Bicep file.
+Output is used to pass values to the parent Bicep files.
+
+## Consume modules
+
 
 Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
 
 To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
 
-You can conditionally deploy a module. Use the same **if** syntax as you would use when [conditionally deploying a resource](conditional-resource-deployment.md).
-
+You can conditionally deploy a module. Use the same **if** syntax as you would use when 
 ```bicep
 param deployZone bool
 
@@ -114,8 +151,6 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
   name: 'myZoneModule'
 }
 ```
-
-You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).
 
 ## Configure module scopes
 
@@ -206,5 +241,5 @@ module  'module.bicep' = {
 
 ## Next steps
 
+- For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [getSecret](bicep-functions-resource.md#getsecret) function.
-- You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).
