@@ -28,7 +28,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-<<<<<<< HEAD
 
 ## November 2021
 
@@ -129,7 +128,6 @@ For example:
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
-=======
 ## October 2021
 
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
@@ -166,7 +164,6 @@ For more information, see:
 
 - [Azure Sentinel DHCP normalization schema reference (Public preview)](dhcp-normalization-schema.md)
 - [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
->>>>>>> 2ca0d4ad0ff6bc77d49476d728a6f9724aae5bb9
 
 ## September 2021
 
