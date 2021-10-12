@@ -15,6 +15,8 @@ ms.custom:
 
 In this article, you will learn how to add a heat map layer to an Azure Maps visual in Power BI.
 
+:::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in Azure Maps Visual for Power BI.":::
+
 Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data “hot spots” on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map will result in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
 
 A heat map is useful when users want to visualize vast comparative data:
@@ -25,14 +27,15 @@ A heat map is useful when users want to visualize vast comparative data:
 
 ## Prerequisites
 
-- An Azure Maps visual in Power BI as described in [Getting started with the Azure Maps visual for Power BI](/power-bi-visual-getting-started.md).
+- [Getting started with the Azure Maps visual for Power BI](/power-bi-visual-getting-started.md).
 - [Understanding layers in the Azure Maps visual for Power BI](/power-bi-visual-understanding-layers.md).
 
 ## Add the heat map layer
 
-To create the Heat map layer, switch the **Heat map** toggle to **On** in the **Format** pane.
+1. In Power BI Desktop, select the Azure map that you created.
+1. In the **Format** pane, switch the **Heat map** toggle to **On**.
 
-:::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in Azure Maps Visual for Power BI":::
+Now you can adjust all the Heat map layer settings to suit your report.
 
 ## Heat map layer settings
 
@@ -58,3 +61,29 @@ The following table shows the primary settings that are available in the **Heat 
 | Min zoom |Minimum zoom level the layer is visible at. Valid values are 1 to 22. Default: **0** |
 |Max zoom |Maximum zoom level the layer is visible at.  Valid values are 1 to 22. Default: **22**|
 |Layer position |Specify the position of the layer relative to other map layers. Valid values include **Above labels**, **Below labels** and **Below roads** |
+
+## Next steps
+
+Change how your data is displayed on the map:
+
+> [!div class="nextstepaction"]
+> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+
+Add more context to the map:
+
+> [!div class="nextstepaction"]
+> [Add a reference layer](power-bi-visual-add-reference-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a tile layer](power-bi-visual-add-tile-layer.md)
+
+> [!div class="nextstepaction"]
+> [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
+
+Customize the visual:
+
+> [!div class="nextstepaction"]
+> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+
+> [!div class="nextstepaction"]
+> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
