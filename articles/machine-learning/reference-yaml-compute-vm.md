@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) attached Virtual Machine YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -31,19 +33,13 @@ ms.reviewer: laobri
 
 The `az ml compute` command can be used for managing Virtual Machines (VM) attached to an Azure Machine Learning workspace.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/compute). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: basic
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/vmCompute.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/vmCompute.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/vm-attach.yml":::
 
 ## Next steps
 

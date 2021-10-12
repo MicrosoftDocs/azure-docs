@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) command job YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -72,8 +74,8 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax]() for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax]() for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount the data will be consumed as a mount path. For download mode the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
@@ -87,19 +89,73 @@ ms.reviewer: laobri
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: hello world
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/commandJob.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: display name, experiment name, description, and tags
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/commandJob.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
 
----
+## YAML: environment variables
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+
+## YAML: source code
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+
+## YAML: literal inputs
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
+
+## YAML: write to default outputs
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
+
+## YAML: write to named data output
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
+
+## YAML: datastore URI file input
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
+
+## YAML: datastore URI folder input
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+
+## YAML: URI file input
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
+
+## YAML: URI folder input
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
+
+## YAML: basic Python model training
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+
+## YAML: basic R model training with local Docker context
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/r/iris/job.yml":::
+
+## YAML: distributed PyTorch
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+
+## YAML: distributed TensorFlow
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+
+## YAML: distributed MPI
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## Next steps
 

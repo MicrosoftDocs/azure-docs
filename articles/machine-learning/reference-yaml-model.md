@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) model YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/model.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -35,20 +37,16 @@ ms.reviewer: laobri
 
 The `az ml model` command can be used for managing Azure Machine Learning models.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/model.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: local file
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/model.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-file.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: local folder in MLflow format
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/model.schema.yml":::
-
----
-
-## Next steps
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-mlflow.yml":::
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)

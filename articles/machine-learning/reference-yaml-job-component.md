@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) component job YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -38,8 +40,8 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**   | | |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**   | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount, the data will be consumed as a mount path. For download mode, the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
@@ -54,20 +56,6 @@ ms.reviewer: laobri
 Component jobs can be run inside pipeline jobs. `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
 
 Component jobs currently cannot be run as standalone jobs and can only be run inside pipelines.
-
-## Schema
-
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
-
-# [JSON](#tab/json)
-
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/commandJob.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/commandJob.schema.yml":::
-
----
 
 ## Next steps
 

@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) sweep job YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -180,8 +182,8 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax]() for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax]() for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount the data will be consumed as a mount path. For download mode the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
@@ -195,19 +197,17 @@ ms.reviewer: laobri
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: hello sweep
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/sweepJob.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: basic Python model hyperparameter tuning
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/sweepJob.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
 ## Next steps
 

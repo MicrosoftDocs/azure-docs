@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) managed online deployment YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -63,19 +65,23 @@ ms.reviewer: laobri
 
 The `az ml online-deployment` commands can be used for managing Azure Machine Learning managed online deployments.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: basic
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/managedOnlineDeployment.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-# [YAML](#tab/yaml)
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/green-deployment.yml":::
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/managedOnlineDeployment.schema.yml":::
+## YAML: system-assigned identity
 
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
+
+## YAML: user-assigned identity
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
 
 ## Next steps
 

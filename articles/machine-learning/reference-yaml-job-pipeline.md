@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) pipeline job YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -51,8 +53,8 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**   | | |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). **One of `file` or `folder` is required.**   | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount, the data will be consumed as a mount path. For download mode, the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
@@ -66,19 +68,29 @@ ms.reviewer: laobri
 
 The `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: hello pipeline
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/pipelineJob.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: input/output dependency
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/pipelineJob.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-io.yml":::
 
----
+## YAML: common pipeline job settings
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-settings.yml":::
+
+## YAML: top-level input and overriding common job settings
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
+
+## YAML: model training pipeline
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
 
 ## Next steps
 

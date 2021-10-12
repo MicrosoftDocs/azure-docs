@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) batch endpoint YAML schema
 
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## YAML syntax
@@ -33,19 +35,13 @@ ms.reviewer: laobri
 
 The `az ml batch-endpoint` commands can be used for managing Azure Machine Learning endpoints.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: basic
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/batchEndpoint.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/batchEndpoint.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
 
 ## Next steps
 
