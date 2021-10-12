@@ -277,7 +277,13 @@ This scenario is where Identity Protection Policy blocks a sign-in attempt due t
 For more information, see [How to configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
 
 
+### Pass Through Authentication 
 
+Because pass trough authentication is an integration of on premises and cloud authentication technologies, it can be difficult to determine where the problem lies. This diagnostic is intended to make these scenarios easier to diagnose and resolve. 
+
+This diagnostic scenario identifies user specific sign-in issues when the authentication method being used is pass through authentication (PTA) and there is a PTA specific error. Errors due to other problems-even when PTA authentication is being used-will still be diagnosed correctly. 
+
+The diagnostic showa contextual information about the failure and the user signing in, additional reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md). 
 
 ## Next steps
 
