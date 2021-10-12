@@ -191,6 +191,8 @@
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
     href: file.md
+  - name: Bicep configuration file
+    href: bicep-config.md
   - name: Resource reference
     href: /azure/templates/
   - name: Bicep CLI
