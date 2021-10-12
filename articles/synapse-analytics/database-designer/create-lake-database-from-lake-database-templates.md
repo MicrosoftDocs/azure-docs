@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How-to: Create a lake database from database templates
 
-In this article, you will learn how to leverage the Synapse database templates to simplify the creation of a [lake database](TODO). Using database templates provides your database with rich semantic information, allowing end users of the data to more easily understand what data is available and how to use it.
+In this article, you will learn how to leverage the Synapse database templates to simplify the creation of a [lake database](./concepts-lake-database.md). Using database templates provides your database with rich semantic information, allowing end users of the data to more easily understand what data is available and how to use it.
 
 
 ## Prerequisites
@@ -34,7 +34,7 @@ In this article, you will learn how to leverage the Synapse database templates t
     - **Zoom preview** to provide a preview of the canvas
     - **Expand all**/**Collapse all** to view more or less columns within a table on the canvas
     - **Clear canvas** to clear-off all the tables on the canvas
-    ![Exploration page of the canvas, showing sample tables and controls](/media/create-lake-database-from-lake-database-template/canvas-overview.png)
+    ![Exploration page of the canvas, showing sample tables and controls](./media/create-lake-database-from-lake-database-template/canvas-overview.png)
 
 5. On the left, you will see list of folders containing the items of the template you can add to the canvas. There are several controls to help.
     - **Search box** to search for tables based on a term. The term will be searched across the template tables, columns, and descriptions.
@@ -64,19 +64,19 @@ In this article, you will learn how to leverage the Synapse database templates t
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
 
-![Screenshot showing the database designer with the properties panel open](/media/create-lake-database-from-lake-database-template/designer-overview.png)
+![Screenshot showing the database designer with the properties panel open](./media/create-lake-database-from-lake-database-template/designer-overview.png)
 
 
-1.    You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as desired in the database. For more information on modifying a lake database, see [Modify a lake database.](TODO)
+1.    You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as desired in the database. For more information on modifying a lake database, see [Modify a lake database.](./modify-lake-database.md)
 
-2.    With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [link]() If you are using Synapse Live mode, you can click "publish".
+2.    With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [Learn more about source control in Synapse](././cicd/../../cicd/source-control.md) If you are using Synapse Live mode, you can click "publish".
     - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
-    - ![Screenshot of the validation pane showing validation errors in the database](/media/create-lake-database-from-lake-database-template/validation-errors.png)
+    - ![Screenshot of the validation pane showing validation errors in the database](./media/create-lake-database-from-lake-database-template/validation-errors.png)
     - Publishing will create your database schema in the Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 3.  You have now created a lake database using a lake database template in Azure Synapse. 
 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below. 
-- [Modify a lake database](TODO)
-- [Learn more about lake databases](TODO)
+- [Modify a lake database](./modify-lake-database.md)
+- [Learn more about lake databases](./concepts-lake-database.md)
