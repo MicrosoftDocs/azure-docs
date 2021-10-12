@@ -37,5 +37,5 @@ The following Form Recognizer service features are available in the Studio.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with the Form Recognizer Studio (preview)](quickstarts/try-v3-form-recognizer-studio)
+> [Get started with the Form Recognizer Studio (preview)](quickstarts/try-v3-form-recognizer-studio.md)
 
