@@ -22,10 +22,10 @@ Replication don't aim to exactly create exact 1:1 clones of a source to a target
 
 Here are the currently available replication task templates in this preview:
 
-| Resource type | Replication task template |
+| Resource type | Replication task templates |
 |---------------|---------------------------|
-| Azure Event Hubs | - Replicate to Event Hubs: Replicate content between two Event Hubs instances. |
-| Azure Service Bus | - Replicate to Service Bus: Replicate content between two Service Bus namespaces. <p>- Copy new messages from Service Bus queue to Storage container: When a new message arrives in a queue, create a blob to store the message. |
+| Azure Event Hubs | - **Replicate to Event Hubs**: Replicate content between two Event Hubs instances. <p>- |
+| Azure Service Bus | - **Replicate to Service Bus**: Replicate content between two Service Bus namespaces. <p>- **Copy new messages from Service Bus queue to Storage container**: When a new message arrives in a queue, create a blob to store the message. |
 |||
 
 ## Retry policy
