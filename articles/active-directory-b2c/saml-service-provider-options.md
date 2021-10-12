@@ -83,7 +83,7 @@ The following example shows metadata for a SAML service provider, with `WantAsse
 
 ```xml
 <EntityDescriptor ID="id123456789" entityID="https://samltestapp2.azurewebsites.net" validUntil="2099-12-31T23:59:59Z" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-  <SPSSODescriptor  WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+  <SPSSODescriptor WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
   ...
   </SPSSODescriptor>
 </EntityDescriptor>
@@ -152,7 +152,7 @@ To configure the encryption method for encrypting the copy of the key that was u
 - `Rsa15` (default): RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm.
 - `RsaOaep`: RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm.  
 
-The metadata controls the value of the  `<EncryptedKey>` element in the SAML response.
+The metadata controls the value of the `<EncryptedKey>` element in the SAML response.
 
 The following example shows the `EncryptedAssertion` section of a SAML assertion. The encrypted data method is `Aes128`, and the encrypted key method is `Rsa15`.
 

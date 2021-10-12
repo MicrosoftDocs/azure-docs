@@ -34,7 +34,7 @@ In this article, learn how to connect your Security Assertion Markup Language (S
 
 Organizations that use Azure AD B2C as their customer identity and access management solution might require integration with applications that authenticate by using the SAML protocol. The following diagram shows how Azure AD B2C serves as an *identity provider* (IdP) to achieve single-sign-on (SSO) with SAML-based applications.
 
-![Diagram with Azure Active Directory B 2 C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
+![Diagram with Azure Active Directory B2C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
 
 1. The application creates a SAML AuthN request that's sent to the SAML login endpoint for Azure AD B2C.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
@@ -175,7 +175,7 @@ Now that your policy can create SAML responses, you must configure the policy to
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `_B2C_1A_signup_signin_saml_` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
+1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `B2C_1A_signup_signin_saml` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
 
     ```xml
     <TrustFrameworkPolicy
