@@ -59,7 +59,7 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
     *Use case:* if a particular Fusion detection pattern is not applicable (or known to be prone to false positives) in your environment, you can exclude that detection pattern from Fusion detections.
     
     1. Select the **exclusion link** in the Fusion incident, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
-        :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="":::
+        :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="Screenshot of Fusion incident. Select the exclusion link.":::
 
     1. On the **Configure Fusion** page, you'll see the detection pattern has been added to the exclusion list. Remove an exclusion at any time by selecting the 'x' on an already listed detection pattern.
     
