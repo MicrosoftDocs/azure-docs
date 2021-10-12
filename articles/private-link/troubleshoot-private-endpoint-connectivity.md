@@ -101,7 +101,8 @@ Review these steps to make sure all the usual configurations are as expected to 
 
     a. If you are not able to see the Private Endpoint Route in the Source VM, check if 
      - The Source VM and the Private Endpoint belongs to the same VNET. If yes, then you need to engage support. 
-     - The Source VM and the Private Endpoint are part of different VNETs, then check for the IP connectivity between the VNETS. If there are IP connectivity and still you are not able to see the route, engage support. 
+     - The Source VM and the Private Endpoint are part of different VNETs that are directly peered with each other. If yes, then you need to engage support.
+     - The Source VM and the Private Endpoint are part of different VNETs that are not directly peered with each other, then check for the IP connectivity between the VNETs.
 
 1. If the connection has validated results, the connectivity problem might be related to other aspects like secrets, tokens, and passwords at the application layer.
    - In this case, review the configuration of the private link resource associated with the private endpoint. For more information, see the [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)
