@@ -31,9 +31,7 @@ When a BYOI user joins a Teams meeting, they're treated as an anonymous external
 
 As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users displayed in Teams is configurable via the Communication Services Calling SDK and they're labeled as “external” to let Teams users know they haven't been authenticated using Azure Active Directory.
 
-During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting.
-
-Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. 
+During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting. Anonymous Communication Services users cannot add additional participants to the meeting and they cannot start recording or transcription for the meeting.
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
@@ -42,14 +40,17 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
 
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
-## Current limitations and known issues
+## Limitations and known issues
 
-- A BYOI user may join a Teams meeting that is scheduled for a Teams channel, but they will not be able to send or receive any chat messages, since they are not members of the channel.
+- A BYOI user may join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they will not be able to send or receive any chat messages, since they are not members of the channel.
 - When using Microsoft Graph to [list the participants in a Teams meeting](https://docs.microsoft.com/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants.
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
+- Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
+- The Calling SDK does not currently support closed captions for Teams meetings.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Join a BYOI chat app to a Teams meeting](../quickstarts/chat/meeting-interop.md)

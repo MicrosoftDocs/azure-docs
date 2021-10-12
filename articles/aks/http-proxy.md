@@ -16,6 +16,8 @@ This feature adds HTTP proxy support to AKS clusters, exposing a straightforward
 
 Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also enables installation of a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Limitations and other details
 
 The following scenarios are **not** supported:
