@@ -203,7 +203,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",
@@ -221,7 +221,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<workspaceName>",
         "apiVersion": "2018-06-01",
