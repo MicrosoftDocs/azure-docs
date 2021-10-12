@@ -1,13 +1,13 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 09/12/2021
+ms.date: 10/09/2021
 ms.topic: how-to
 ---
 
 # Defender for IoT installation
 
-This article describes how to install the following elements of Azure Defender for IoT:
+This article describes how to install the following Azure Defender for IoT components:
 
 - **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide (direct download)](./getting-started.md).
 
@@ -38,7 +38,7 @@ The following rack mount appliances are available:
 | **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | up to 4 RJ45 | Up to 5 RJ45 |
 | **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec | 100 Mb/Sec |
-| **Max Protected Devices** | 30,000 | 15,000 | 1,000 | 800 |
+| **Max Protected Devices** | 10,000 | 10,000 | 1,000 | 800 |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -50,7 +50,7 @@ The following virtual appliances are available:
 |--|--|--|--|
 | **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments |
 | **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec |
-| **Max protected devices** | 30,000 | 10,000 | 800 |
+| **Max protected devices** | 10,000 | 10,000 | 800 |
 | **Deployment Type** | Corporate | Enterprise | SMB |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
@@ -272,11 +272,11 @@ To install:
 
 1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::
 
 1. Define the appliance profile, and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::
 
    | Parameter | Configuration |
    |--|--|
@@ -507,7 +507,7 @@ To install:
     | ----------| ------------- |
     | **Hardware profile** | Select **corporate**. |
     | **Management interface** | **eno2** |
-    | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
+    | **Default network parameters (provided by the customer)** | **management network IP address:** <br> **subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/> You do not need to configure the bridge interface. This option is used for special use cases only. |
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
@@ -518,9 +518,9 @@ To install:
 
 ## HP EdgeLine 300 installation
 
-•	A default administrative user is provided. We recommend that you change the password during the network configuration.
+- A default administrative user is provided. We recommend that you change the password during the network configuration.
 
-•	The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
 ### HP EdgeLine 300 back panel
 
@@ -598,12 +598,12 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
     | Parameter | Configuration |
     |--|--|
     | **configure hardware profile** | **office** |
-    | **configure management network interface** | **enp3s0** <br />or <br />**possible value** |
+    | **configure management network interface** | **enp3s0** <br /> or <br />**possible value** |
     | **configure management network IP address:** | **IP address provided by the customer** |
     | **configure subnet mask:** | **IP address provided by the customer** |
     | **configure DNS:** | **IP address provided by the customer** |
     | **configure default gateway IP address:** | **IP address provided by the customer** |
-    | **configure input interface(s)** | **enp4s0** <br />or <br />**possible value** |
+    | **configure input interface(s)** | **enp4s0** <br /> or <br />**possible value** |
     | **configure bridge interface(s)** | N/A |
 
 1. Accept the settings and continue by entering `Y`.
@@ -773,7 +773,7 @@ To install the software:
 
    | Parameter | Configuration |
    |--|--|
-   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br /> or <br />**possible value** |
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  or <br />**possible value** |
    | **configure management network IP address:** | **IP address provided by the customer** |
    | **configure subnet mask:** | **IP address provided by the customer** |
    | **configure DNS:** | **IP address provided by the customer** |
@@ -851,7 +851,7 @@ The on-premises management console VM supports the following architectures:
 
 | Architecture | Specifications | Usage |
 |--|--|--|
-| Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
+| Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments |
 | Small | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
 | Office | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments |
 
@@ -1018,7 +1018,7 @@ This section provides the Nuvo 5006LP installation procedure. Before installing 
 
 The following procedure describes how to configure the Nuvo 5006LP BIOS. Make sure the operating system was previously installed on the appliance.
 
-To configure the BIOS:
+**To configure the BIOS**:
 
 1. Power on the appliance.
 
@@ -1035,6 +1035,8 @@ To configure the BIOS:
 #### Software installation (Nuvo 5006LP)
 
 The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+**To install the software**:
 
 1. Connect the external CD, or disk on key with the ISO image.
 
@@ -1079,6 +1081,8 @@ This section provides the Fitlet2 installation procedure. Before installing the 
 
 #### Configure the Fitlet2 BIOS
 
+**To configure the Fitlet2 BIOS**:
+
 1. Power on the appliance.
 
 1. Navigate to **Main** > **OS Selection**.
@@ -1110,7 +1114,9 @@ This section provides the Fitlet2 installation procedure. Before installing the 
 1. Navigate to **CSM Configuration** > **CSM Support**.
 
 1. Press **+/-** to select **Enabled**.
+
 1. Navigate to **Advanced** > **Boot option filter [Legacy only]** and change setting in the following fields to **Legacy**:
+
     - Network
     - Storage
     - Video
@@ -1207,6 +1213,7 @@ Post-installation validation must include the following tests:
 - **Task Manager**: Translates the tasks that appear in the table of processes to the following layers:
   
   - Persistent layer (Redis)
+
   - Cash layer (SQL)
 
 - **Network Statistics**: Displays your network statistics.
@@ -1214,10 +1221,15 @@ Post-installation validation must include the following tests:
 - **TOP**: Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.
 
 - **Backup Memory Check**: Provides the status of the backup memory, checking the following:
+
   - The location of the backup folder
+
   - The size of the backup folder
+
   - The limitations of the backup folder
+
   - When the last backup happened
+
   - How much space there is for the extra backup files
 
 - **ifconfig**: Displays the parameters for the appliance's physical interfaces.
@@ -1226,7 +1238,7 @@ Post-installation validation must include the following tests:
 
 - **Errors from Core, log**: Displays errors from the core log file.
 
-To access the tool:
+**To access the tool**:
 
 1. Sign in to the sensor with the **Support** user credentials.
 
@@ -1236,9 +1248,9 @@ To access the tool:
 
 ### Check system health by using the CLI
 
-**Test 1: Sanity**
+Verify that the system is up, and running prior to testing the system's sanity.
 
-Verify that the system is up and running:
+**To test the system's sanity**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1250,9 +1262,9 @@ Verify that the system is up and running:
 
 1. Verify that **System is UP! (prod)** appears at the bottom.
 
-**Test 2: Version check**
-
 Verify that the correct version is used:
+
+**To check the system's version**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1260,9 +1272,9 @@ Verify that the correct version is used:
 
 1. Check that the correct version appears.
 
-**Test 3: Network validation**
-
 Verify that all the input interfaces configured during the installation process are running:
+
+**To validate the system's network status**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1272,9 +1284,9 @@ Verify that all the input interfaces configured during the installation process 
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
 
-**Test 4: Management access to the UI**
-
 Verify that you can access the console web GUI:
+
+**To check that management has access to the UI**:
 
 1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
 
@@ -1342,13 +1354,15 @@ Verify that you can access the console web GUI:
 
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-## Appendix A: Mirroring port on vSwitch (ESXi)
+## Configure a SPAN port
 
-### Configure a SPAN port on an existing vSwitch
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
-A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port.
+:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
-To configure a SPAN port:
+### Configure a SPAN port with ESXi
+
+**To configure a SPAN port with ESXi**:
 
 1. Open vSwitch properties.
 
@@ -1372,15 +1386,134 @@ To configure a SPAN port:
 
 1. Select **OK**.
 
-1. Connect to the sensor and verify that mirroring works.
+1. Connect to the sensor, and verify that mirroring works.
 
-## Appendix B: Access sensors from the on-premises management console
+### Configure a SPAN port with Hyper-V
+
+Prior to starting you will need to:
+
+- Ensure that there is no instance of a virtual appliance running.
+
+- Enable Ensure SPAN on the data port, and not the management port.
+
+- Ensure that the data port SPAN configuration is not configured with an IP address.
+
+**To configure a SPAN port with Hyper-V**:
+
+1. Open the Virtual Switch Manager.
+
+1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
+
+    :::image type="content" source="media/tutorial-install-components/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
+
+1. Select **Create Virtual Switch**.
+
+1. Under connection type, select **External Network**.
+
+1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
+
+   :::image type="content" source="media/tutorial-install-components/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
+
+1. Select **OK**.
+
+#### Attach a SPAN Virtual Interface to the virtual switch
+
+You are able to attach a SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
+
+**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
+
+1. Select the newly added SPAN virtual switch, and add a new network adapter with the following command:
+
+    ```bash
+    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
+    ```
+
+1. Enable port mirroring for the selected interface as the span destination with the following command:
+
+    ```bash
+    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
+    ```
+
+    | Parameter | Description |
+    |--|--|
+    | VK-C1000V-LongRunning-650 | CPPM VA name |
+    |vSwitch_Span |Newly added SPAN virtual switch name |
+    |Monitor |Newly added adapter name |
+
+1. Select **OK**.
+
+These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+
+**To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
+
+1. Under the Hardware list, select **Network Adapter**.
+
+1. In the Virtual Switch field, select **vSwitch_Span**.
+
+    :::image type="content" source="media/tutorial-install-components/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
+
+1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
+
+1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
+
+    :::image type="content" source="media/tutorial-install-components/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
+
+1. Select **OK**.
+
+#### Enable Microsoft NDIS capture extensions for the virtual switch
+
+Microsoft NDIS Capture Extensions will need to be enabled for the new virtual switch.
+
+**To enable Microsoft NDIS capture extensions for the newly added virtual switch**:
+
+1. Open the Virtual Switch Manager on the Hyper-V host.
+
+1. In the Virtual Switches list, expand the virtual switch name `vSwitch_Span` and select **Extensions**.
+
+1. In the Switch Extensions field, select **Microsoft NDIS Capture**.
+
+    :::image type="content" source="media/tutorial-install-components/microsoft-ndis.png" alt-text="Screenshot of enabling the Microsoft NDIS by selecting it from the switch extensions menu.":::
+
+1. Select **OK**.
+
+#### Set the Mirroring Mode on the external port
+
+Mirroring mode will need to be set on the external port of the new virtual switch to be the source.
+
+You will need to configure the Hyper-V virtual switch (vSwitch_Span) to forward any traffic that comes to the external source port, to the virtual network adapter that you configured as the destination.
+
+Use the following PowerShell commands to set the external virtual switch port to source mirror mode:
+
+```bash
+$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
+$ExtPortFeature.SettingData.MonitorMode=2
+Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
+```
+
+| Parameter | Description |
+|--|--|
+| vSwitch_Span | Newly added SPAN virtual switch name. |
+| MonitorMode=2 | Source |
+| MonitorMode=1 | Destination |
+| MonitorMode=0 | None |
+
+Use the following PowerShell command to verify the monitoring mode status:
+
+```bash
+Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
+```
+
+| Parameter | Description |
+|--|--|
+| vSwitch_Span | Newly added SPAN virtual switch name |
+
+## Access sensors from the on-premises management console
 
 You can enhance system security by preventing direct user access to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
 
-To enable tunneling:
+**To enable tunneling**:
 
 1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 

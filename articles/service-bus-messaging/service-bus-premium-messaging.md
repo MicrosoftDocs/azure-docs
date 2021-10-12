@@ -2,7 +2,7 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 10/06/2021
 ---
 
 # Service Bus Premium and Standard messaging tiers

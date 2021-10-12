@@ -29,10 +29,6 @@ You can integrate threat intelligence (TI) into Azure Sentinel through the follo
 
 - **Visualize key information** about your imported threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-> [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## View your threat indicators in Azure Sentinel
 
 ### Find and view your indicators in Logs
@@ -134,6 +130,10 @@ According to the default settings, each time the rule runs on its schedule, any 
 In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./investigate-cases.md).
 
 ## Detect threats using matching analytics (Public preview)
+
+> [!IMPORTANT]
+> Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 [Create a rule](detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
 

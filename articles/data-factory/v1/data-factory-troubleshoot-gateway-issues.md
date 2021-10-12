@@ -3,6 +3,7 @@ title: Troubleshoot Data Management Gateway issues
 description: Provides tips to troubleshoot issues related to Data Management Gateway.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain

@@ -1,4 +1,4 @@
-- name: Azure Cost Management + Billing documentation
+- name: Cost Management + Billing documentation
   href: index.yml
 - name: Overview
   items:
@@ -36,7 +36,7 @@
   items:
   - name: Cost Management
     items:
-    - name: Azure Cost Management best practices
+    - name: Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
       href: costs/understand-cost-mgt-data.md
@@ -230,6 +230,8 @@
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
         href: manage/ea-portal-administration.md
+      - name: Azure direct EA administration
+        href: manage/direct-ea-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
       - name: Azure Enterprise transfers
@@ -394,11 +396,13 @@
       href: manage/ea-portal-troubleshoot.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Create EA support request
+      href: manage/how-to-create-azure-support-request-ea.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/billing
-  - name: Azure Cost Management REST API
+  - name: Cost Management REST API
     href: /rest/api/cost-management
   - name: Azure Consumption REST API
     href: /rest/api/consumption

@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 09/27/2021
 ---
 
 # Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges
@@ -61,7 +61,7 @@ In Object Navigator select **Function Group** from the list and type its name in
 
 1. Once the function group is created, select it.
 
-2. Right-click on the function group name in repository browser, and select **Create**, then **Function Module**.
+2. Select and hold (or right-click) on the function group name in repository browser, and select **Create**, then **Function Module**.
 
 3. In the **Function Module** field, enter `Z_MITI_DOWNLOAD`. Populate **Short text** input with proper description.
 
@@ -108,7 +108,7 @@ When the module has been created, specify the following information:
 
 7. Save the function (press ctrl+S or choose **Function Module**, then **Save** in the main menu).
 
-8. Click **Activate** icon on the toolbar (ctrl+F3) and select  **Continue** button in dialog window. If prompted, you should select  the generated includes to be activated along with the main function module.
+8. Select the **Activate** icon on the toolbar (ctrl+F3) and select  **Continue** button in dialog window. If prompted, you should select  the generated includes to be activated along with the main function module.
 
 ### Testing the Function
 

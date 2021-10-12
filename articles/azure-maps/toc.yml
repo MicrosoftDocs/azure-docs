@@ -1,3 +1,4 @@
+items:
 - name: Azure Maps documentation 
   href: index.yml
 - name: Overview
@@ -87,8 +88,6 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-    - name: Mobility coverage
-      href: mobility-coverage.md
     - name: Weather coverage
       href: weather-coverage.md  
   - name: Localization support
@@ -97,8 +96,6 @@
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility services
-    href: mobility-service-data-structure.md
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
@@ -140,10 +137,6 @@
       href: how-to-use-best-practices-for-routing.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
-    - name: Request public transit routes
-      href: how-to-request-transit-data.md
-    - name: Request real-time public transit data
-      href: how-to-request-real-time-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
     - name: Request elevation data
@@ -396,8 +389,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
@@ -16,12 +16,12 @@ ms.custom: b2c-support
 
 # Overview of user accounts in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory, Active Directory B2B, and Active Directory B2C share in the types of user accounts that can be used.
+In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory (Azure AD), Azure Active Directory B2B (Azure AD B2B), and Azure Active Directory B2C (Azure AD B2C) share in the types of user accounts that can be used.
 
 The following types of accounts are available:
 
 - **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
-- **Guest account** - A guest account can only be a Microsoft account or an Azure Active Directory user that can be used to access applications or manage tenants.
+- **Guest account** - A guest account can only be a Microsoft account or an Azure AD user that can be used to access applications or manage tenants.
 - **Consumer account** - A consumer account is used by a user of the applications you've registered with Azure AD B2C. Consumer accounts can be created by:
   - The user going through a sign-up user flow in an Azure AD B2C application
   - Using Microsoft Graph API
