@@ -49,6 +49,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
 - The Calling SDK does not currently support closed captions for Teams meetings.
 - Communication Services users cannot join [Teams live events](https://docs.microsoft.com/en-us/microsoftteams/teams-live-events/what-are-teams-live-events)
+- [Teams activity handler events](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
 
 ## Next steps
 
