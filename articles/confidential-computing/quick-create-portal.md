@@ -50,11 +50,12 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Configure the operating system image that you would like to use for your virtual machine.
 
-    * **Choose Image**: For this tutorial, select Windows Server 2019 - Gen2. You may also select Ubuntu 20.04 LTS - Gen2, or Ubuntu 18.04 LTS - Gen2.
+    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS - Gen2. You may also select Ubuntu 18.04 LTS - Gen2, or Windows Server 2019.
     
     * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, then select **Generation 2**.
     
-        ![image](https://user-images.githubusercontent.com/63871188/137002081-4879e3a9-f98b-4055-ba97-0f7aaac73f54.png)
+        ![image](https://user-images.githubusercontent.com/63871188/137009767-421ee49a-ded8-4cfd-ac53-a3d6750880b9.png)
+
 
 1. Choose a virtual machine with Intel SGX capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**.
 
