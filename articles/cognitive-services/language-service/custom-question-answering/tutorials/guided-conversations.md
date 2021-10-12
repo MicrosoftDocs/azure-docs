@@ -59,7 +59,7 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
     |Questions | Fix problems with Surface |
     |Answers and prompts | Here are some things to try first if your Surface Pen won't write, open apps, or connect to Bluetooth.|
     
-    We then add a follow-up prompt to the newly created question pair by choosing **Add follow-up prompts**. Fill the details for the prompt as shown:
+2. We then add a follow-up prompt to the newly created question pair by choosing **Add follow-up prompts**. Fill the details for the prompt as shown:
     
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of UI with "add a follow-up prompt" highlighted in a red box]( ../media/guided-conversations/add-prompts.png) ]( ../media/guided-conversations/add-prompts.png#lightbox)
@@ -69,17 +69,17 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of a question and answer about checking your surface pen compatibility]( ../media/guided-conversations/compatability-check.png) ]( ../media/guided-conversations/compatability-check.png#lightbox)
     
-    Similarly, we add another prompt **Check Pen Settings** to help the user troubleshoot the Surface Pen and add question pair to it.
+3. Similarly, we add another prompt **Check Pen Settings** to help the user troubleshoot the Surface Pen and add question pair to it.
     
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of a question and answer about checking your surface pen settings]( ../media/guided-conversations/pen-settings.png) ]( ../media/guided-conversations/check-pen-settings.png#lightbox)
 
-2. Add another follow-up prompt to the newly created prompt. We now add “Replace Pen tips’ as a follow-up prompt to the previously created prompt “Check Pen Settings”.
+4. Add another follow-up prompt to the newly created prompt. We now add “Replace Pen tips’ as a follow-up prompt to the previously created prompt “Check Pen Settings”.
 
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of a question and answer about creating a follow-up prompt for replacing pen tips]( ../media/guided-conversations/replace-pen.png) ]( ../media/guided-conversations/replace-pen.png#lightbox)
     
-    Finally, save the changes and test these prompts in the **Test** pane:
+5. Finally, save the changes and test these prompts in the **Test** pane:
     
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of question answer UI with save changes highlighted in a red box]( ../media/guided-conversations/save-changes.png) ]( ../media/guided-conversations/save-changes.png#lightbox)
