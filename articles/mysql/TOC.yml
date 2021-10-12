@@ -478,13 +478,9 @@
       - name: Slow query Logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
-<<<<<<< HEAD
-        href: flexible-server/concepts-audit-logs.md
-=======
         href: flexible-server/concepts-audit-logs.md 
       - name: Workbooks
         href: flexible-server/concepts-workbooks.md 
->>>>>>> 75f4fb65e56356b92fc5200f5c913cb0a15f1022
     - name: Replication
       items:
       - name: Data-in replication
@@ -560,27 +556,12 @@
           href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitoring
       items:
-<<<<<<< HEAD
-      - name: Configure slow query logs
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-slow-query-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-slow-query-log-cli.md
-      - name: Configure Audit logs
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-audit-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-audit-log-cli.md
-=======
       - name: Query performance insights
         href: flexible-server/tutorial-query-performance-insights.md
       - name: Auditing
         href: flexible-server/tutorial-configure-audit.md
       - name: Alerts
         href: flexible-server/how-to-alert-on-metric.md  
->>>>>>> 75f4fb65e56356b92fc5200f5c913cb0a15f1022
     - name: Replication
       items:
       - name: Configure data-in replication
