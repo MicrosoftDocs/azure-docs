@@ -54,21 +54,27 @@ When you create a replication task, charges start incurring immediately. Underne
 
 1. In the [Azure portal](https://portal.azure.com), find the Azure resource that you want to replicate.
 
-   Currently, replication tasks are available only for Event Hubs instances and Service Bus namespaces.
+   Currently, replication tasks are available only for Event Hubs and Service Bus. This example shows how to create a Service Bus replication task.
 
 1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
 
-   ![Screenshot showing Azure Service Bus instance with "Automation" section and "Tasks (preview)" selected.](./media/create-replication-tasks-azure-resources/service-bus-automation-menu.png)
+   ![Screenshot showing Azure portal and Azure Service Bus resource menu with "Tasks (preview)" selected.](./media/create-replication-tasks-azure-resources/service-bus-automation-menu.png)
 
 1. On the **Tasks** pane, select **Add a task** so that you can select a task template.
 
-1. On the **Add a task** pane, under **Select a template**, select the template for the replication task that you want to create. If the next page doesn't appear, select **Next: Authenticate**.
+   ![Screenshot showing the "Tasks (preview)" pane with "Add a task" selected.](./media/create-replication-tasks-azure-resources/add-replication-task.png)
 
-   This example continues by selecting the **Replicate to Service Bus** task template.
+1. On the **Add a task** pane, under **Select a template**, in the template for the replication task that you want to create, select **Select**. If the next page doesn't appear, select **Next: Authenticate**.
+
+   This example continues by selecting the **Replicate to Service Bus** task template, which replicates content between Service Bus namespaces.
+
+   ![Screenshot showing the "Add a task" pane with "Replicate to Service Bus" template selected.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
-   This example shows only one of the connections that's required by this task.
+   This example shows the prompt to create the connection to the target Service Bus resource.
+
+   ![Screenshot showing selected "Create" option for the target Service Bus connection.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
 
 1. When you're prompted, sign in with your Azure account credentials.
 

@@ -72,19 +72,19 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that you want to manage.
 
-1. On the resource navigation menu, in the **Automation** section, and select **Tasks (Preview)**.
+1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
 
-   ![Screenshot that shows the Azure portal and a storage account resource menu where the "Automation" section has the "Tasks" menu item selected.](./media/create-automation-tasks-azure-resources/storage-account-menu-automation-section.png)
+   ![Screenshot that shows the Azure portal and storage account resource menu with "Tasks (preview)" selected.](./media/create-automation-tasks-azure-resources/storage-account-menu-automation-section.png)
 
 1. On the **Tasks** pane, select **Add a task** so that you can select a task template.
 
-   ![Screenshot that shows the storage account "Tasks" pane where the toolbar has "Add a task" selected.](./media/create-automation-tasks-azure-resources/add-automation-task.png)
+   ![Screenshot that shows the "Tasks (preview)" pane with "Add a task" selected.](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. On the **Add a task** pane, under **Select a template**, select the template for the task that you want to create. If the next page doesn't appear, select **Next: Authenticate**.
+1. On the **Add a task** pane, under **Select a template**, in the template for the replication task that you want to create, select **Select**. If the next page doesn't appear, select **Next: Authenticate**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
-   ![Screenshot that shows the selections, "Send monthly cost for resource" and "Next: Authenticate".](./media/create-automation-tasks-azure-resources/select-task-template.png)
+   ![Screenshot that shows the "Add a task" pane with "Send monthly cost for resource" template selected.](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
