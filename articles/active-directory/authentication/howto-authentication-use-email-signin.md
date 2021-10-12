@@ -27,7 +27,9 @@ Some organizations haven't moved to hybrid authentication for the following reas
 * Changing the Azure AD UPN creates a mismatch between on-premises and Azure AD environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
-To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `balas@fabrikam.com`.
+To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
+
+:::image type="content" source="media/howto-authentication-use-email-signin/email-alternate-login-id.png" alt-text="Email as Alternate Login ID":::
 
 This article shows you how to enable and use email as an alternate login ID.
 
@@ -36,7 +38,7 @@ This article shows you how to enable and use email as an alternate login ID.
 Here's what you need to know about email as an alternate login ID:
 
 * The feature is available in Azure AD Free edition and higher.
-* The feature enables sign-in with verified domain *ProxyAddresses* for cloud-authenticated Azure AD users.
+* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD B2B scenarios in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
@@ -54,7 +56,7 @@ In the current preview state, the following limitations apply to email as an alt
 
 * **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
     * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
-    * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity via alternate email.
+    * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
     * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
@@ -65,8 +67,6 @@ In the current preview state, the following limitations apply to email as an alt
     * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business
     * Microsoft Office on macOS
-    * Microsoft Teams on web
-    * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
@@ -119,6 +119,12 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 > Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to you tenant.
 >
 > For more information, see [Add and verify a custom domain name in Azure AD][verify-domain].
+
+## B2B guest user sign-in with an email address
+
+:::image type="content" source="media/howto-authentication-use-email-signin/email-alternate-login-id-for-b2b.png" alt-text="Email as Alternate Login ID for B2B Guest Users":::
+
+Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
 
 ## Enable user sign-in with an email address
 
@@ -305,10 +311,6 @@ To remove a staged rollout policy, first disable the policy then remove it from 
 Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
 Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
 ```
-
-## B2B guest user sign-in with an email address
-
-Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled, Azure AD users can sign in with non-UPN email as a guest on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
 
 ## Test user sign-in with an email address
 
