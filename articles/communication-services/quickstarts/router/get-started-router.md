@@ -69,7 +69,7 @@ Job Router clients can be authenticated using your connection string acquired fr
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
 var connectionString = "your_connection_string";
-var client = new JobRouterClient(connectionString);
+var client = new RouterClient(connectionString);
 ```
 
 ## Create a distribution policy
