@@ -1,7 +1,7 @@
 ---
-title: Custom Language Understanding language support 
+title: Conversational Language Understanding language support 
 titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the Custom Language Understanding feature of Azure Cognitive Service for Language.
+description: This article explains which natural languages are supported by the Conversational Language Understanding feature of Azure Cognitive Service for Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,34 +12,52 @@ ms.date: 09/10/2021
 ms.author: aahi
 ---
 
-# Custom Language Understanding language support 
+# Conversational Language Understanding language support 
 
 Use this article to learn which natural languages are supported by the Custom Language Understanding feature of Language Services.
 
-## Supported languages for conversation projects
+### Supported languages for conversation Projects
 
-|Language| Language code |
-|---|---|
-|English| `en` |
-|French| `fr` |
-|German| `de` |
-|Italian| `it` |
-|Spanish| `es` |
-|Brazilian Portuguese| `pt-PT`
-|Chinese| `zh-hans` |
-|Japanese| `ja` |
-|Korean| `ko` |
+When creating a conversation project in CLU, you can specify the primary language of your project. The primary language is used as the default language of the project.
 
-Enabling multiple languages allows you to add training data and predict your projects for all the available languages above. See the [quickstart article](quickstart.md) for information on creating a project. 
+The supported languages for conversation projects are:
+
+| **Language** | **Language Code** |
+| --- | --- |
+| Brazilian Portuguese | `pt-br` |
+| Chinese | `zh-cn` |
+| Dutch | `nl-nl` |
+| English | `en-us` |
+| French | `fr-fr` |
+| German | `de-de` |
+| Gujarati | `gu-in` |
+| Hindi | `hi-in` |
+| Italian | `it-it` |
+| Japanese | `ja-jp` |
+| Korean | `ko-kr` |
+| Marathi | `mr-in` |
+| Spanish | `es-es` |
+| Tamil | `ta-in` |
+| Telugu | `te-in` |
+| Turkish | `tr-tr` |
+
+#### Multilingual Conversation Projects
+
+When you enable multiple languages in a project, you can add data in multiple languages to your project. You can also train the project in one language and immediately predict it in other languages. The quality of predictions may vary between languages – and certain language groups work better than others with respect to multilingual predictions.
 
 ## Supported languages for orchestration workflow projects
 
 |Language| Language code |
 |---|---|
-|English| `en` |
+| Brazilian Portuguese | `pt-br` |
+| English | `en-us` |
+| French | `fr-fr` |
+| German | `de-de` |
+| Italian | `it-it` |
+| Spanish | `es-es` |
 
 Orchestration workflow projects are not available for use in multiple languages.
 
 ## Next steps
 
-[Custom language understanding overview](overview.md)
+[Conversational language understanding overview](overview.md)
