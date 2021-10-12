@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.author: banders
 ---
 
@@ -71,7 +71,7 @@ The Events section displays events (invoiced spend) that decremented your MACC c
 |---|---|
 | Date | The date when the event happened |
 | Description | A description of the event |
-| Billing profile | The billing profile for which the event happened |
+| Billing profile | The billing profile for which the event happened. The billing profile only applies to Microsoft Customer Agreements. If you have an EA enrollment, the Billing Profile isn't shown. |
 | MACC decrement | The amount of MACC decrement from the event |
 | Remaining commitment | The remaining MACC commitment after the event |
 
