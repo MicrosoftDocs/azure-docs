@@ -1048,7 +1048,14 @@
     items:
     - name: Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/   
+      items:
+      - name: edge
+        tocHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+        topicHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+      - name: cloud
+        tocHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
+        topicHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud        
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
