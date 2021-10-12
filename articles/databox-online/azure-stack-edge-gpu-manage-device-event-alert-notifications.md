@@ -120,6 +120,6 @@ The email notification will look similar to this one.
 
 ## Next steps
 
-- [View device alerts](azure-stack-edge-gpu-alerts.md).
+- [View device alerts](azure-stack-edge-alerts.md).
 - [Work with alert metrics](../azure-monitor/alerts/alerts-metric.md).
 - [Set up Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
