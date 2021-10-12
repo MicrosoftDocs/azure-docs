@@ -33,6 +33,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Hyper-Threading]: Not Supported<br>
 [Premium Storage and Caching]: Supported<br>
 [Ultra-Disk Storage]: Supported<br>
+[Accelerated Networking]: Supported (CLI provisioning / ARM template only)<br>
 [Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
 [Live Migration]: Not Supported<br>
 [Memory Preserving Updates]: Not Supported<br>
@@ -44,27 +45,27 @@ We are offering two variants dependent on whether the workload benefits from a l
 
 | Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory (GB) |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
-| Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | TBD     |  4                 |
-| Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | TBD     |  8                 |
-| Standard_DC4s_v3 | 4              | 32          | N/A                    | 16             | TBD     |  16                |
-| Standard_DC8s_v3 | 8              | 64          | N/A                    | 32             | TBD     |  32                |
-| Standard_DC16s_v3  | 16           | 128         | N/A                    | 32             | TBD     |  64                |
-| Standard_DC24s_v3  | 24           | 192         | N/A                    | 32             | TBD     |  128               |
-| Standard_DC32s_v3  | 32           | 256         | N/A                    | 32             | TBD     |  192               |
-| Standard_DC48s_v3  | 48           | 384         | N/A                    | 32             | TBD     |  256               |
+| Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | 2     |  4                 |
+| Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | 2     |  8                 |
+| Standard_DC4s_v3 | 4              | 32          | N/A                    | 16             | 4     |  16                |
+| Standard_DC8s_v3 | 8              | 64          | N/A                    | 32             | 8     |  32                |
+| Standard_DC16s_v3  | 16           | 128         | N/A                    | 32             | 8     |  64                |
+| Standard_DC24s_v3  | 24           | 192         | N/A                    | 32             | 8     |  128               |
+| Standard_DC32s_v3  | 32           | 256         | N/A                    | 32             | 8     |  192               |
+| Standard_DC48s_v3  | 48           | 384         | N/A                    | 32             | 8     |  256               |
 
 ## DCdsv3-series Technical specifications
 
 | Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory (GB) |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
-| Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | TBD     |  4                 |
-| Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | TBD     |  8                 |
-| Standard_DC4ds_v3 | 4              | 32          | 300                    | 16             | TBD     |  16                |
-| Standard_DC8ds_v3 | 8              | 64          | 600                    | 32             | TBD     |  32                |
-| Standard_DC16ds_v3  | 16           | 128         | 1200                    | 32             | TBD     |  64                |
-| Standard_DC24ds_v3  | 24           | 192         | 1800                    | 32             | TBD     |  128               |
-| Standard_DC32ds_v3  | 32           | 256         | 2400                    | 32             | TBD     |  192               |
-| Standard_DC48ds_v3  | 48           | 384         | 2400                    | 32             | TBD     |  256               |
+| Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | 2     |  4                 |
+| Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | 2     |  8                 |
+| Standard_DC4ds_v3 | 4              | 32          | 300                    | 16             | 4     |  16                |
+| Standard_DC8ds_v3 | 8              | 64          | 600                    | 32             | 8     |  32                |
+| Standard_DC16ds_v3  | 16           | 128         | 1200                    | 32             | 8     |  64                |
+| Standard_DC24ds_v3  | 24           | 192         | 1800                    | 32             | 8     |  128               |
+| Standard_DC32ds_v3  | 32           | 256         | 2400                    | 32             | 8     |  192               |
+| Standard_DC48ds_v3  | 48           | 384         | 2400                    | 32             | 8     |  256               |
 
 ## Get started
 
