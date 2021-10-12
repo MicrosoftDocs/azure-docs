@@ -30,11 +30,11 @@ When signing into a preconfigured Arrow sensor for the first time, you'll need t
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover on-premises management console password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of the enter the unique identifier and then select recover.":::
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
@@ -72,33 +72,33 @@ When a new sensor is deployed or, for example, the sensor is working slowly or n
 
 1. In the **Devices** window, make sure devices are being discovered.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Ensure that devices are discovered.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Screenshot of the discovered devices.":::
 
 1. From the side menu, select **Data Mining**.
 
 1. In the **Data Mining** window, select **ALL** and generate a report.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Generate a new report by using data mining.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Screenshot of the generate a new report by using data mining screen.":::
 
 1. Make sure the report contains data.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Ensure that the report contains data.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Screenshot of the ensure that the report contains data screen.":::
 
 1. From the side menu, select **Trends & Statistics**.
 
 1. In the **Trends & Statistics** window, select **Add Widget**.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Add a widget by selecting it.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Screenshot of the add a widget by selecting it.":::
 
 1. Add a widget and make sure it shows data.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Ensure that the widget is showing data.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Screenshot of the the widget showing data.":::
 
 1. From the side menu, select **Alerts**. The **Alerts** window appears.
 
 1. Make sure the alerts were created.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Screenshot of the alerts were created.":::
 
 ### Investigate a lack of expected alerts on the sensor
 
@@ -120,7 +120,7 @@ When the widgets in the **Trends & Statistics** window show no data, do the foll
 
 When devices shown on the map appear not connected to each other, something might be wrong with the SPAN port configuration. That is, you might be seeing only broadcasting devices and no unicast traffic.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Screenshot of the broadcasting devices.":::
 
 In such a case, validate that you only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic as well.
 
@@ -150,7 +150,7 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 
 Another indication of the same problem is when multiple internet-related alerts appear.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Multiple internet-related alerts.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Screenshot of the multiple internet-related alerts.":::
 
 **To fix the configuration**:
 
@@ -243,7 +243,7 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
 1. Select **Export Logs**.
 
-    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to system support.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="Screenshot of the export a log to system support screen.":::
 
 1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
@@ -302,11 +302,11 @@ Audit logs can be obtained only through the management console. Audit logs conta
 
 1. Select **Export**.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Select Audit Logs and then select Export to create your file":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Screenshot of the select Audit Logs and then select Export to create your file screen.":::
 
 The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="You can see the file you created in the archived files section of the Export Trouleshooting Information window.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="Screenshot of the file you created in the archived files section of the Export Trouleshooting Information window.":::
 
 ## Next steps
 
