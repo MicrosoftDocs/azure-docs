@@ -59,7 +59,7 @@ These partners have **Managed Application** offers that are available now to dep
 |[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| The integration of the Cisco SD-WAN solution with Azure virtual WAN enhances Cloud OnRamp for Multi-Cloud deployments and enables configuring Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) as a network virtual appliance (NVA) in Azure Virtual WAN Hubs. [View  Cisco SD-WAN Cloud OnRamp, Cisco IOS XE Release 17.x Configuration Guide](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[VMware SD-WAN in Virtual WAN Hub](https://sdwan.vmware.com/partners/microsoft) | For instructions on deplaying the VMware SD-WAN Appliance in the Virtual WAN hub, please look at the [VMware SD-WAN in Virtual WAN Hub Deployment Guide](https://kb.vmware.com/s/article/82746). To deploy, please access the managed application [here](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan)|
 
-The following partners are slated to bring NVA in the Virtual Hub offers in the near future: Aviatrix, Citrix and Versa Networks.
+The following partners are slated to bring NVA in the Virtual Hub offers in the near future: Aviatrix, Citrix, Versa Networks and Silverpeak.
 
 ## <a name="locations"></a>Locations
 
