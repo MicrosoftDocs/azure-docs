@@ -51,7 +51,7 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
 1. Click on Set modules and select the Video Analyzer edge module.
 1. Select **Container Create Options** and add the following JSON entries to the respective sections:
 
-    - At the top after the first `{` enter the following:
+    - In the JSON entry box, after the first `{` enter the following:
   
         ```JSON
         "NetworkingConfig": {
@@ -61,7 +61,7 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
         },
         ```
 
-    - HostConfig:
+    - In the `HostConfig` JSON object:
 
         ```JSON
         "NetworkMode": "host",
