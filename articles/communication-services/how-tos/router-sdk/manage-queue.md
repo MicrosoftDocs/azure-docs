@@ -38,7 +38,7 @@ var distributionPolicy = await client.SetDistributionPolicyAsync(
         maxConcurrentOffers: 10)
 );
 
-var queue = client.SetQueueAsync(
+var queue = await client.SetQueueAsync(
     id: "XBOX_DEFAULT_QUEUE",
     name: "XBOX Default Queue",
     distributionPolicy: "Longest_Idle_45s_Min1Max10"
