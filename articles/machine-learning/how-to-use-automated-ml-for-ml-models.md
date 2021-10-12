@@ -208,7 +208,7 @@ On the Data transformation tab, you can see a diagram of what data preprocessing
 After your experiment completes, you can test the model(s) that automated ML generates for you. If you specified a test dataset or opted for a train/test split during your experiment setup-- on the **Validate and test** form, automated ML automatically tests the recommended model by default.
 
 >[!IMPORTANT]
-> Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+> Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 To view the results of the test run, 
 1. Navigate to the **Models** page, select the best model. 

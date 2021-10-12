@@ -509,6 +509,9 @@ RunDetails(run).show()
 
 ## Test the best model (preview)
 
+>[!IMPORTANT]
+> Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment.
 
 The following code demonstrates how to generate the predictions from the test run and its metrics.
