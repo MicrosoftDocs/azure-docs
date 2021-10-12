@@ -19,7 +19,7 @@ Azure Cache for Redis 6.0 is now generally available. The new version includes:
 
 - Redis Streams, a new data type
 - performance enhancements
-- some developer productivity features
+- enhanced developer productivity
 - boosts security
 
 You can now use an append-only data structure, Redis Streams, to ingest, manage, and make sense of data that is continuously being generated.
@@ -30,7 +30,7 @@ Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during c
 
 ### Diagnostics for connected clients
 
-Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users will be able to route these logs to a destination of their choice, such as a storage account or event hub.
+Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users can route these logs to a destination of their choice, such as a storage account or event hub.
 
 For more information, see [Monitor Azure Cache for Redis data using diagnostic settings](cache-monitor-diagnostic-settings.md).
 
