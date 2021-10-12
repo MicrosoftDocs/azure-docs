@@ -14,7 +14,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 The lake database in Azure Synapse Analyitcs enables customers to bring together data desig, meta information about the data that is stored and a possiblity to describe how and where the data should stored. In todays data lakes it is very complex to understand how data is structured 
 
-![Lake database overview](./media/concepts-lake-database/lake-database-overview/lake-database-overview.png)
+![Lake database overview](./media/concepts-lake-database/lake-database-overview.png)
 
 
 ## Database designer
