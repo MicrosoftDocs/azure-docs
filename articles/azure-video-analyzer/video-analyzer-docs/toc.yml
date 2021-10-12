@@ -205,5 +205,5 @@
     href: faq.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md
-  - name: Azure Video Analytics Terraform resource
+  - name: Terraform resource
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer
