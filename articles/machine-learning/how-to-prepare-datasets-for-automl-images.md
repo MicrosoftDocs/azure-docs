@@ -247,7 +247,7 @@ For manually labeling image datasets, refer to [Azure Machine Learning data labe
 Data Labeling Project should be exported as an Azure ML Dataset, which can then be used to train the AutoML model.
 ### Use Converters
 
-For popular vision data formats (like VOC or COCO), we provide scripts to generate JSONL files for training and validation data. Please refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
+For popular vision data formats (like VOC or COCO), we provide scripts to generate JSONL files for training and validation data. Refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
 
 ### Custom script
 If your dataset doesn't follow any of the previously mentioned raw formats, you can use your own script to generate JSON Lines files based on schema defined in the first section.
