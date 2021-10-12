@@ -1761,7 +1761,7 @@ Follow the instructions to obtain the credentials.
 | | |
 
 
-## Symantec Endpoint  (Preview)
+## Symantec Endpoint (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1807,7 +1807,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-## Tenable  (Preview)
+## Tenable (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1828,7 +1828,7 @@ Follow the instructions to obtain the credentials.
 | | |
 
 
-## Trend Micro Apex One   (Preview)
+## Trend Micro Apex One (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1874,7 +1874,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/technical-support) |
 | | |
 
-## Ubiquti UniFi  (Preview)
+## Ubiquti UniFi (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1884,7 +1884,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-## vArmour  (Preview)
+## vArmour (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -2003,7 +2003,7 @@ Follow the instructions to obtain the credentials.
 1. Select **Save**.
 
 
-## Zeek Network  (Preview)
+## Zeek Network (Preview)
 
 | Connector attribute | Description |
 | --- | --- |

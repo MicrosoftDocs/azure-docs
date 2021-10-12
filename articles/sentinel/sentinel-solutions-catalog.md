@@ -110,7 +110,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-| **Box Solution**| [Data connector](data-connectors-reference.md#box--preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
+| **Box Solution**| [Data connector](data-connectors-reference.md#box-preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
 | | | | |
 
 
@@ -126,15 +126,15 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci--preview), parser |Security – Network |Microsoft |
+|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci-preview), parser |Security – Network |Microsoft |
 |**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks, custom Logic App connector |Security – Automation (SOAR) |Microsoft |
-|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security--preview), parser | Identity|Microsoft |
-|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise--preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Networking, Security - Others | Microsoft |
-|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki--preview), playbooks, custom Logic App connector |Security - Network |Microsoft |
-|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa--preview), parser |Security - Threat Protection |Microsoft |
-|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch--preview), parser |Security - Network | Microsoft|
-|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella--preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
-|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa--preview), parser|Security - Network |Microsoft |
+|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security-preview), parser | Identity|Microsoft |
+|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Networking, Security - Others | Microsoft |
+|**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki-preview), playbooks, custom Logic App connector |Security - Network |Microsoft |
+|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa-preview), parser |Security - Threat Protection |Microsoft |
+|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch-preview), parser |Security - Network | Microsoft|
+|**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
+|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa-preview), parser|Security - Network |Microsoft |
 | | | | |
 
 <!-- | **Cisco Secure Endpoint / Cisco Advanced Malware Protection** | Data connector | Security - Threat protection, Networking | | -->
@@ -589,7 +589,7 @@ For more information, see [Discover and deploy Azure Sentinel solutions (Public 
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network--preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Zeek Network|
+| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network-preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Zeek Network|
 | | | | |
 
 <!-- Coming soon>
