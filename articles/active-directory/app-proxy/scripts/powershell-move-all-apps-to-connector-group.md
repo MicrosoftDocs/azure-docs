@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Move all Azure Active Directory Application Proxy apps assigned to a connector group to another connector group
