@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/17/2020
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, devx-track-js
 ---
