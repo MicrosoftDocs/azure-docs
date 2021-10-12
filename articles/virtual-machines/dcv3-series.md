@@ -33,7 +33,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Hyper-Threading]: Not Supported<br>
 [Premium Storage and Caching]: Supported<br>
 [Ultra-Disk Storage]: Supported<br>
-[Accelerated Networking]: Supported (CLI provisioning / ARM template only)<br>
+[Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
 [Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
 [Live Migration]: Not Supported<br>
 [Memory Preserving Updates]: Not Supported<br>
