@@ -82,8 +82,6 @@ YAML job specification values can be overridden using `--set` when creating or u
 
 Most `az ml job` commands other than `create` and `list` require `--name/-n`, which is a job's name or "Run ID" in the studio. You should not directly set a job's `name` property during creation as it must be unique per workspace. Azure Machine Learning generates a random GUID for the job name if it is not set which can be obtained from the output of job creation in the CLI or by copying the "Run ID" property in the studio and MLflow APIs.
 
-To organize jobs, set a `display_name` instead, which does not have to be unique.
-
 To automate jobs in scripts and CI/CD flows, you can capture a job's name when it is created by querying and stripping the output by adding `--query name -o tsv`. The specifics will vary by shell, but for Bash:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_name":::
@@ -174,7 +172,7 @@ Jobs typically have inputs and outputs. Inputs can be model parameters, which mi
 
 ### Literal inputs
 
-Literal inputs are directly resolved the command. You can modify our "hello world" job to use literal inputs:
+Literal inputs are directly resolved in the command. You can modify our "hello world" job to use literal inputs:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
 
