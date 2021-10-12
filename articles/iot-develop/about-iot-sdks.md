@@ -28,7 +28,7 @@ The main consideration in choosing an SDK is the device's own hardware. General 
 
 |Device class|Description|Examples|SDKs|
 |-|-|-|-|
-|Resource-constrained|Includes embedded, special-purpose MCU-based devices with compute and memory limitations|Sensors|[Embedded device SDKs](#embedded-device-sdks)|
+|Embedded devices|Special-purpose MCU-based devices with compute and memory limitations|Sensors|[Embedded device SDKs](#embedded-device-sdks)|
 |Other|Includes general purpose MPU-based devices with larger compute and memory resources|PC, smartphone, Raspberry Pi|[Device SDKs](#device-sdks)|
 
 > [!Note] 
