@@ -48,7 +48,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1-credless.yml":::
 
-## YAML: tenant id, client id, client secret
+## YAML: tenant ID, client ID, client secret
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1.yml":::
 
