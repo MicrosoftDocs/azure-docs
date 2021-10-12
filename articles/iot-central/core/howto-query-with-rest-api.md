@@ -3,7 +3,7 @@ title: Use the REST API to query devices in Azure IoT Central
 description: How to use the IoT Central REST API to query devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/14/2021
+ms.date: 10/12/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -18,6 +18,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 - Get the last 24 hours of data from devices that are in the same room. Room is a device or cloud property.
 - Find all devices that are in an error state and have outdated firmware.
 - Telemetry trends from devices, averaged in 10-minute windows.
+- Get the current firmware version of all your thermostat devices.
 
 This article describes how to use the `/query` API to query devices.
 
@@ -88,6 +89,7 @@ The query syntax is similar to SQL syntax and is made up of the following clause
 - `FROM` is required and identifies the device type you're querying. This clause specifies the device template ID.
 - `WHERE` is optional and lets you filter the results.
 - `ORDER BY` is optional and lets you sort the results.
+- `GROUP BY` is optional and lets you aggregate results.
 
 The following sections describe these clauses in more detail.
 
@@ -118,8 +120,8 @@ You can find the component name in the device template:
 The following limits apply in the `SELECT` clause:
 
 - There's no wildcard operator.
-- You can't have more than five items in the select list.
-- In a single query, you either select telemetry or properties but not both.
+- You can't have more than 15 items in the select list.
+- In a single query, you either select telemetry or properties but not both. A property query can include both reported properties and cloud properties.
 
 ### Aliases
 
@@ -130,6 +132,9 @@ Use the `AS` keyword to define an alias for an item in the `SELECT` clause. The 
   "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
 }
 ```
+
+> [!TIP]
+> You can't use another item in the select list as an alias. For example, the following isn't allowed `SELECT id, temp AS id...`.
 
 The result looks like the following output:
 
@@ -224,10 +229,9 @@ The following operators are supported:
 
 The following limits apply in the `WHERE` clause:
 
-- You can use a maximum of three operators in a single query.
+- You can use a maximum of 10 operators in a single query.
 - In a telemetry query, the `WHERE` clause can only contain telemetry and device metadata filters.
-- In a property query, the `WHERE` clause can only contain property and device metadata filters.
-- Data type validation isn't supported. The comparison value must match the capability schema type.
+- In a property query, the `WHERE` clause can only contain reported properties, cloud properties, and device metadata filters.
 
 ## Aggregations and GROUP BY clause
 
@@ -263,14 +267,12 @@ The results look like the following output:
 }
 ```
 
-The following aggregation functions are supported: `MAX`, `MIN`, `COUNT`, `AVG`, `FIRST`, and `LAST`.
+The following aggregation functions are supported: `SUM`, `MAX`, `MIN`, `COUNT`, `AVG`, `FIRST`, and `LAST`.
 
 Use `GROUP BY WINDOW` to specify the window size. If you don't use `GROUP BY WINDOW`, the query aggregates the telemetry over the last 30 days.
 
-The following limits apply to the use of aggregates:
-
-- You can only aggregate telemetry values.
-- You can't use multiple aggregations on the same value. For example `LAST(temp), AVG(temp)` isn't supported.
+> [!NOTE]
+> You can only aggregate telemetry values.
 
 ## ORDER BY clause
 
@@ -285,8 +287,16 @@ The `ORDER BY` clause lets you sort the query results by a telemetry value, the 
 > [!TIP]
 > Combine `ORDER BY` with `TOP` to limit the number of results the query returns after sorting.
 
-`ORDER BY` isn't supported in property queries.
+## Limits
+
+The current limits for queries are:
+
+- No more than 15 items in the `SELECT` clause list.
+- No more than 10 logical operations in the `WHERE` clause.
+- Queries return a maximum of 10,000 records.
+- The maximum length of a query string is 350 characters.
+- You can't use the wildcard (`*`) in the `SELECT` clause list.
 
 ## Next steps
 
-Now that you've learned how to query devices with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+Now that you've learned how to query devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
