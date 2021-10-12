@@ -1,5 +1,5 @@
 ---
-title: Prepare datasets for AutoML Images
+title: Prepare datasets for AutoML for Images
 titleSuffix: Azure Machine Learning
 description: Image data preparation for Azure Machine Learning automated ML to train computer vision models on classification, object detection,  and segmentation
 author: vadthyavath
@@ -13,7 +13,7 @@ ms.date: 09/30/2021
 
 # Preparing Datasets for AutoML Images
 
-In this article, you'll learn how to prepare image datasets to build computer vision models using AutoML. we'll describe the schema and data preparation needed for 
+In this article, we'll learn how to prepare image datasets to build computer vision models using AutoML. we'll describe the schema and data preparation needed for 
 + **Image Classification**
 + **Image Classification Multi-label**
 + **Object Detection**
@@ -131,13 +131,6 @@ Example of a JSONL file for Image Classification Multi-label:
 
 **Input data format/schema in each JSON Line:**
 
-Here, 
-- xmin = x coordinate of top-left corner of bounding box
-- ymin = y coordinate of top-left corner of bounding box
-- xmax = x coordinate of bottom-right corner of bounding box
-- ymax = y coordinate of bottom-right corner of bounding box
-
-topX, topY, bottomX, bottomY are top-left and bottom-right corners of a bounding box normalized with image width, height, width, height respectively.
 
 ```json
 {
@@ -169,6 +162,14 @@ topX, topY, bottomX, bottomY are top-left and bottom-right corners of a bounding
 }
 ```
 
+Here, 
+- xmin = x coordinate of top-left corner of bounding box
+- ymin = y coordinate of top-left corner of bounding box
+- xmax = x coordinate of bottom-right corner of bounding box
+- ymax = y coordinate of bottom-right corner of bounding box
+
+topX, topY, bottomX, bottomY are top-left and bottom-right corners of a bounding box normalized with image width, height, width, height respectively.
+
 Example of a JSONL file for Object Detection:
 ```json
 {"image_url": "AmlDatastore://image_data/Image_01.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "can", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]}
@@ -192,10 +193,10 @@ For Instance Segmentation, we only support polygon as input and output, no masks
 | format  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | width | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
 | height | Height of the image<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (outer key) | List of masks, where each mask is a dictionary of `label, bbox, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "bbox": "null", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
+| label (outer key) | List of masks, where each mask is a dictionary of `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
 | label (inner key)| Class/label of the object in the mask<br>`Required, String` | `"cat"` |
 | isCrowd | Indicates whether the mask is around the crowd of objects<br>`Optional, Bool` | `0` |
-| polygon | Polygon coordinates for the the object<br>`Required, List of List(list of multiple instances) of Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
+| polygon | Polygon coordinates for the objects<br>`Required, List of List(list of multiple instances) of Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -229,7 +230,7 @@ Example of a JSONL file for Instance Segmentation:
 
 ## Input Data Preparation
 
-There are three ways in which you can prepare the data to train computer vision models on AutoML for images.
+There are three ways in which you can prepare the data to train computer vision models on AutoML for Images.
 + **Azure Machine Learning data labeling** (If labeled data is unavailable then use data labeling tool to manually label images, which automatically generates the data required for training in the expected format)
 + **Use converters** (Use the script provided to generate JSONL files for images)
 + **Custom script** (Use your own script to generate the data in JSON Lines format based on the schema defined above)
@@ -244,228 +245,9 @@ For manually labeling image datasets, refer to [Azure Machine Learning data labe
 Data Labeling Project should be exported as an Azure ML Dataset, which can then be used to train the AutoML model.
 ### Use Converters
 
-For popular vision data formats, we provide scripts to generate JSONL files for training and validation data. For example, VOC and COCO data formats for Object detection are frequently used in computer vision. We provide scripts to convert data from raw files to JSON Lines text files for training and validation sets.
+For popular vision data formats (like VOC or COCO), we provide scripts to generate JSONL files for training and validation data. Please refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
 
-#### Image Classification (binary/multi-class)
-If the images are stored in their respective class wise directories like the following,
-- /water_bottle/
-- /milk_bottle/
-- /carton/
-- /can/
-
-where {water_bottle, milk_bottle, carton, can} are the classes in the dataset. We need to convert this data to JSONL format and upload all the images along with JSONL files for training and validation sets to create AzureML Dataset, which can be used for training models.
-We'll use [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain the JSONL file generation process. Following script generates `train_annotations.jsonl` and `validation_annotations.jsonl` files under the parent directory with 80% of the data for training and 20% for validation. For more information on multi-class classification schema for JSONL files, see input data format/schema section.
-
-```python
-import json
-import os
-
-src = "./fridgeObjects/"
-train_validation_ratio = 5
-
-# Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = workspace.get_default_datastore().name
-
-# Path to the training and validation files
-train_annotations_file = os.path.join(src, "train_annotations.jsonl")
-validation_annotations_file = os.path.join(src, "validation_annotations.jsonl")
-
-# sample json line dictionary
-json_line_sample = \
-    {
-        "image_url": "AmlDatastore://" + workspaceblobstore + "/"
-                     + os.path.basename(os.path.dirname(src)),
-        "label": "",
-        "label_confidence": 1.0
-    }
-
-index = 0
-# Scan each sub directary and generate jsonl line
-with open(train_annotations_file, 'w') as train_f:
-    with open(validation_annotations_file, 'w') as validation_f:
-        for className in os.listdir(src):
-            subDir = src + className
-            if not os.path.isdir(subDir):
-                continue
-            # Scan each sub directary
-            print("Parsing " + subDir)
-            for image in os.listdir(subDir):
-                json_line = dict(json_line_sample)
-                json_line["image_url"] += f"/{className}/{image}"
-                json_line["label"] = className
-
-                if index % train_validation_ratio == 0:
-                    # validation annotation
-                    validation_f.write(json.dumps(json_line) + "\n")
-                else:
-                    # train annotation
-                    train_f.write(json.dumps(json_line) + "\n")
-                index += 1
-
-```
-For more information, see [AutoMLImage_MultiClass_SampleNotebook notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
-
-#### Image Classification Multi-label
-We'll use [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip). It has 128 images and 4 classes/labels {can, carton, milk bottle, water bottle} with a .csv file having image names with their respective labels and a folder containing all the images. It's one of the common data formats used in multi-label image classification.
-
-Following script generates JSONL files (`train_annotations.jsonl` and `validation_annotations.jsonl`) for this dataset under the parent directory (multilabelFridgeObjects) with 80% of the dataset for training and 20% for validation. For more information on multi-label classification schema for JSONL files, see input data format/schema section.
-
-```python
-import json
-import os
-import xml.etree.ElementTree as ET
-
-src = "./multilabelFridgeObjects"
-train_validation_ratio = 5
-
-# Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = workspace.get_default_datastore().name
-
-# Path to the labels file.
-labelFile = os.path.join(src, "labels.csv")
-
-# Path to the training and validation files
-train_annotations_file = os.path.join(src, "train_annotations.jsonl")
-validation_annotations_file = os.path.join(src, "validation_annotations.jsonl")
-
-# sample json line dictionary
-json_line_sample = \
-    {
-        "image_url": "AmlDatastore://" + workspaceblobstore + "/multilabelFridgeObjects",
-        "label": []
-    }
-
-# Read each annotation and convert it to jsonl line
-with open(train_annotations_file, 'w') as train_f:
-    with open(validation_annotations_file, 'w') as validation_f:
-        with open(labelFile, 'r') as labels:
-            for i, line in enumerate(labels):
-                # Skipping the title line and any empty lines.
-                if (i == 0 or len(line.strip()) == 0):
-                    continue
-                line_split = line.strip().split(",")
-                if len(line_split) != 2:
-                    print("Skipping the invalid line: {}".format(line))
-                    continue
-                json_line = dict(json_line_sample)
-                json_line["image_url"] += f"/images/{line_split[0]}"
-                json_line["label"] = line_split[1].strip().split(" ")
-
-                if i % train_validation_ratio == 0:
-                    # validation annotation
-                    validation_f.write(json.dumps(json_line) + "\n")
-                else:
-                    # train annotation
-                    train_f.write(json.dumps(json_line) + "\n")
-
-
-```
-For more information, see [AutoMLImage_MultiLabel_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
-
-#### Object Detection
-Most Object Detection datasets are available in either Pascal VOC format or COCO format. In this section, you'll use raw input data available in Pascal VOC or COCO format and generate JSONL files.
-
-#### Pascal VOC format:
-
-we'll use [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes or labels {can, carton, milk bottle, water bottle} to demonstrate object detection dataset preparation.
-
-If your dataset is in Pascal VOC format, following script can be utilized to generate JSONL files. For more information on object detection schema for JSONL files, see input data format/schema section.
-
-```python
-import json
-import os
-import xml.etree.ElementTree as ET
-
-src = "./odFridgeObjects/"
-train_validation_ratio = 5
-
-# Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = ws.get_default_datastore().name
-
-# Path to the annotations
-annotations_folder = os.path.join(src, "annotations")
-
-# Path to the training and validation files
-train_annotations_file = os.path.join(src, "train_annotations.jsonl")
-validation_annotations_file = os.path.join(src, "validation_annotations.jsonl")
-
-# sample json line dictionary
-json_line_sample = \
-    {
-        "image_url": "AmlDatastore://" + workspaceblobstore + "/"
-                     + os.path.basename(os.path.dirname(src)) + "/" + "images",
-        "image_details": {"format": None, "width": None, "height": None},
-        "label": []
-    }
-
-# Read each annotation and convert it to jsonl line
-with open(train_annotations_file, 'w') as train_f:
-    with open(validation_annotations_file, 'w') as validation_f:
-        for i, filename in enumerate(os.listdir(annotations_folder)):
-            if filename.endswith(".xml"):
-                print("Parsing " + os.path.join(src, filename))
-
-                root = ET.parse(os.path.join(annotations_folder, filename)).getroot()
-
-                width = int(root.find('size/width').text)
-                height = int(root.find('size/height').text)
-
-                labels = []
-                for object in root.findall('object'):
-                    name = object.find('name').text
-                    xmin = object.find('bndbox/xmin').text
-                    ymin = object.find('bndbox/ymin').text
-                    xmax = object.find('bndbox/xmax').text
-                    ymax = object.find('bndbox/ymax').text
-                    isCrowd = int(object.find('difficult').text)
-                    labels.append({"label": name,
-                                   "topX": float(xmin)/width,
-                                   "topY": float(ymin)/height,
-                                   "bottomX": float(xmax)/width,
-                                   "bottomY": float(ymax)/height,
-                                   "isCrowd": isCrowd})
-                # build the jsonl file
-                image_filename = root.find("filename").text
-                _, file_extension = os.path.splitext(image_filename)
-                json_line = dict(json_line_sample)
-                json_line["image_url"] = json_line["image_url"] + "/" + image_filename
-                json_line["image_details"]["format"] = file_extension[1:]
-                json_line["image_details"]["width"] = width
-                json_line["image_details"]["height"] = height
-                json_line["label"] = labels
-
-                if i % train_validation_ratio == 0:
-                    # validation annotation
-                    validation_f.write(json.dumps(json_line) + "\n")
-                else:
-                    # train annotation
-                    train_f.write(json.dumps(json_line) + "\n")
-            else:
-                print("Skipping unknown file: {}".format(filename))
-
-```
-#### COCO format:
-If your dataset is in COCO format, use the [coco2jsonl.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection) script to generate JSONL files.
-```python
-# Generate jsonl file from coco file
-!python coco2jsonl.py \
---input_coco_file_path "./odFridgeObjects_coco.json" \
---output_dir "./odFridgeObjects" --output_file_name "odFridgeObjects_from_coco.jsonl" \
---task_type "ObjectDetection" \
---base_url "AmlDatastore://workspaceblobstore/odFridgeObjects/images/"
-```
-For more information, see [AutoMLImage_ObjectDetection_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
-
-#### Instance Segmentation
-Instance Segmentation datasets in Pascal VOC format consist of Images, their annotations (in XML format) and masks for each image. We'll use [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) in the VOC format to generate JSONL files using  [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script. Instance segmentation supports training with polygons only. You can use `convert_mask_to_polygon` method in [jsonl_converter](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation) script to get polygons from the masks.
-
-```python
-from jsonl_converter import convert_mask_in_VOC_to_jsonl
-
-data_path = "./odFridgeObjectsMask/"
-convert_mask_in_VOC_to_jsonl(data_path, workspace)
-```
-For more information, see [AutoMLImage_InstanceSegmentation_SampleNotebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For example, VOC and COCO data formats for Object detection are frequently used in computer vision. We provide scripts to convert data from raw files to JSON Lines text files for training and validation sets.
 
 ### Custom script
 If your dataset doesn't follow any of the previously mentioned raw formats, you can use your own script to generate JSON Lines files based on schema defined in the first section.
@@ -498,10 +280,10 @@ print("Training dataset name: " + training_dataset.name)
 ```
 
 ## Data format for Inference
-In this section, you'll learn the input data format required to make predictions with the endpoint. Use the deployed web service (model endpoint) to make inferences on new images. Any aforementioned image format is accepted with content type **application/octet-stream**.
+In this section, we document the input data format required to make predictions when using a deployed model. Any aforementioned image format is accepted with content type `application/octet-stream`.
 
 ### Input format
-Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where?tabs=azcli), we can use the following code snippet to get predictions for all tasks.
+Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
 ```python
 # input image for inference
