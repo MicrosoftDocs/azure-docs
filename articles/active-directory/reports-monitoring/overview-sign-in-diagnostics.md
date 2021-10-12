@@ -61,10 +61,8 @@ To start and complete the diagnostic process, you need to:
 
 The diagnostic allows two methods to find events to investigate:  
 
-1. Sign-in failures users have [flagged for assistance](overview-flagged-sign-ins.md). 
-2. Search for specific events by the user and additional criteria. 
-
-  
+- Sign-in failures users have [flagged for assistance](overview-flagged-sign-ins.md). 
+- Search for specific events by the user and additional criteria. 
 
 Flagged sign-ins are automatically presented in a list of up to 100. You can run a diagnostics on an event immediately by clicking it.  
 
