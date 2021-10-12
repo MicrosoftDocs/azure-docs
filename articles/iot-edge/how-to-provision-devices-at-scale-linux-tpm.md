@@ -82,7 +82,7 @@ You're ready to continue.
 In this section, you create a new Linux VM on Hyper-V. You configure this VM with a simulated TPM for testing how automatic provisioning works with IoT Edge.
 
 > [!TIP]
-> If you're using a VM, you'll copy and paste on the VM many times throughout this article. Copying and pasting isn't easy through the Hyper-V Manager connection application. You might want to connect to the VM through Hyper-V Manager once to retrieve its IP address. First run `sudo apt install net-tools` and then run `hostname -I`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
+> If you're using a VM, you'll copy and paste on the VM many times throughout this article. Copying and pasting isn't easy through the Hyper-V Manager connection application. You might want to connect to the VM through Hyper-V Manager once to retrieve its IP address. First, run `sudo apt install net-tools`, and then run `hostname -I`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
 ### Create a virtual switch
 
@@ -105,7 +105,7 @@ A virtual switch enables your VM to connect to a physical network.
 
 Create a new VM from a bootable image file.
 
-1. Download a disk image file to use for your VM and save it locally. For example, use [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](/support.md).
+1. Download a disk image file to use for your VM and save it locally. For example, use [Ubuntu Server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](/support.md).
 
 1. In Hyper-V Manager, select **Action** > **New** > **Virtual Machine** on the **Actions** menu.
 
@@ -147,7 +147,7 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
-In this section, you build a tool that you can use to retrieve the **Registration ID** and **Endorsement key** for your TPM.
+In this section, you build a tool that you can use to retrieve the Registration ID and Endorsement key for your TPM.
 
 1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
@@ -164,7 +164,7 @@ In this section, you build a tool that you can use to retrieve the **Registratio
 1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 > [!TIP]
-> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The **Endorsement key**, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The Endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique Registration ID for your TPM device. For example, you can create an SHA-256 hash of the Endorsement key.
 
 After you have your registration ID and endorsement key, you're ready to continue.
 
@@ -211,7 +211,7 @@ Your device must have access to the Microsoft installation packages.
 
 1. Install the repository configuration that matches your device's operating system.
 
-   * **Ubuntu Sever 18.04**:
+   * **Ubuntu Server 18.04**:
 
       ```bash
       curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
@@ -359,7 +359,7 @@ After the runtime is installed on your device, configure the device with the inf
 
 1. Update the values of `scope_id` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with device provisioning service first and then fall back to the provisioning backup if that falls. If a device is set to dynamically provision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with the device provisioning service first and then fall back to the provisioning backup if that fails. If a device is set to dynamically provision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the file.
 
@@ -415,7 +415,7 @@ The IoT Edge runtime needs to access the TPM to automatically provision your dev
 
 You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Create a new rule that will give the IoT Edge runtime access to tpm0 and tpmrm0.
+1. Create a new rule that will give the IoT Edge runtime access to `tpm0` and `tpmrm0`.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -427,7 +427,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-1. Copy the following access information into the rules file. The `tpmrm0` might not be present on devices that use a kernel earlier than 4.12. Devices that don't have tpmrm0 will safely ignore that rule.
+1. Copy the following access information into the rules file. The `tpmrm0` might not be present on devices that use a kernel earlier than 4.12. Devices that don't have `tpmrm0` will safely ignore that rule.
 
    ```input
    # allow iotedge access to tpm0
@@ -437,7 +437,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 
 1. Save and exit the file.
 
-1. Trigger the udev system to evaluate the new rule.
+1. Trigger the `udev` system to evaluate the new rule.
 
    ```bash
    /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
@@ -456,7 +456,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
    crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
 
 1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
@@ -474,7 +474,7 @@ The IoT Edge runtime relies on a TPM service that brokers access to a device's T
 
 You can give access to the TPM by overriding the systemd settings so that the `aziottpm` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Create a new rule that will give the IoT Edge runtime access to tpm0 and tpmrm0.
+1. Create a new rule that will give the IoT Edge runtime access to `tpm0` and `tpmrm0`.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -486,7 +486,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-1. Copy the following access information into the rules file. The `tpmrm0` might not be present on devices that use a kernel earlier than 4.12. Devices that don't have tpmrm0 will safely ignore that rule.
+1. Copy the following access information into the rules file. The `tpmrm0` might not be present on devices that use a kernel earlier than 4.12. Devices that don't have `tpmrm0` will safely ignore that rule.
 
    ```input
    # allow aziottpm access to tpm0 and tpmrm0
@@ -496,7 +496,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
 1. Save and exit the file.
 
-1. Trigger the udev system to evaluate the new rule.
+1. Trigger the `udev` system to evaluate the new rule.
 
    ```bash
    /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
@@ -515,7 +515,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
 
 1. Apply the configuration changes that you made on the device.
 
