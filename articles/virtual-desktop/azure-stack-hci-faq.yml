@@ -1,0 +1,33 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Virtual Desktop for Azure Stack HCI FAQ - Azure
+  description: Frequently asked questions about Azure Virtual Desktop for Azure Stack HCI.
+  author: Heidilohr
+  ms.topic: conceptual
+  ms.date: 11/02/2021
+  ms.author: helohr 
+  ms.custom: devx-track-azurepowershell
+  manager: femila
+    
+title: Azure Virtual Desktop for Azure Stack HCI FAQ
+summary: This article answers frequently asked questions about Azure Virtual Desktop for Azure Stack HCI.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+         What session host operating systems does this feature support?
+        answer: |
+          Azure Virtual Desktop for Azure Stack HCI supports the same operating systems as regular Azure Virtual Desktop.
+          
+      - question: |
+         Which Azure Virtual Desktop clients does this feature support?
+        answer: |
+          Azure Virtual Desktop for Azure Stack HCI supports the same clients as Azure Virtual Desktop.
+          
+      - question: |
+         Can I use Azure Virtual Desktop with other on-premises infrastructure besides Azure Stack HCI?
+        answer: |
+          No. Azure Virtual Desktop's on-premises capabilities only extend to session hosts running Azure Stack HCI infrastructure.
+          
