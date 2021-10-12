@@ -66,8 +66,8 @@ For the default scale condition, use the following values:
 * Set __Maximum__ to __5__.
 * Set __Default__ to __2__.
 
-
 :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+
 ---
 
 ## Create a rule to scale out
@@ -123,7 +123,7 @@ If you have both scale out and scale in rules, your rules will look similar to t
 
 :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
 
---- 
+---
 
 ## Create a rule for endpoint metrics
 
