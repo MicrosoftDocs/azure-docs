@@ -63,20 +63,22 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processors that can
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_E2ads_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9000 / 125 (50)      | 3750/82      | 2 | 2000  |
-| Standard_E4ads_v5<sup>2</sup>   | 4  | 32  | 150  | 8  | 19000 / 250 (100)    | 6400/144     | 2 | 4000  |
-| Standard_E8ads_v5<sup>2</sup>   | 8  | 64  | 300  | 16 | 38000 / 500 (200)    | 12800/200    | 4 | 8000  |
-| Standard_E16ads_v5<sup>2</sup>  | 16 | 128 | 600  | 32 | 75000 / 1000 (400)   | 25600/384    | 8 | 10000 |
-| Standard_E20ads_v5              | 20 | 160 | 750  | 32 | 93750 / 1250 (500)   | 32000/480    | 8 | 12500 |
-| Standard_E32ads_v5<sup>2</sup>  | 32 | 256 | 1200 | 32 | 150000 / 2000 (800)  | 51200/768    | 8 | 16000 |
-| Standard_E48ads_v5              | 48 | 384 | 1800 | 32 | 225000 / 3000 (1200) | 76800/1152   | 8 | 24000 |
-| Standard_E64ads_v5<sup>2</sup>  | 64 | 512 | 2400 | 32 | 300000 / 4000 (1600) | 80000/1200   | 8 | 32000 |
-| Standard_E96ads_v5<sup>2</sup>  | 96 | 672 | 2400 | 32 | 450000 / 4000 (1600) | 80000/1600   | 8 | 40000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected Network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_E2ads_v5<sup>2</sup>  | 2  | 16  | 75   | 4  | 9000 / 125 (50)      | 3750/82      | 10000/600  | 2 | 2000  |
+| Standard_E4ads_v5<sup>3</sup>  | 4  | 32  | 150  | 8  | 19000 / 250 (100)    | 6400/144     | 20000/600  | 2 | 4000  |
+| Standard_E8ads_v5<sup>3</sup>  | 8  | 64  | 300  | 16 | 38000 / 500 (200)    | 12800/200    | 20000/600  | 4 | 8000  |
+| Standard_E16ads_v5<sup>3</sup> | 16 | 128 | 600  | 32 | 75000 / 1000 (400)   | 25600/384    | 40000/600  | 8 | 10000 |
+| Standard_E20ads_v5             | 20 | 160 | 750  | 32 | 94000 / 1250 (500)   | 32000/480    | 64000/600  | 8 | 12500 |
+| Standard_E32ads_v5<sup>3</sup> | 32 | 256 | 1200 | 32 | 150000 / 2000 (800)  | 51200/768    | 80000/1200 | 8 | 16000 |
+| Standard_E48ads_v5             | 48 | 384 | 1800 | 32 | 225000 / 3000 (1200) | 76800/1152   | 80000/1800 | 8 | 24000 |
+| Standard_E64ads_v5<sup>3</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 (1600) | 80000/1200   | 80000/1800 | 8 | 32000 |
+| Standard_E96ads_v5<sup>3</sup> | 96 | 672 | 2400 | 32 | 450000 / 4000 (1600) | 80000/1600   | 80000/2000 | 8 | 40000 |
 
-<sup>1</sup> Accelerated networking can only be applied to a single NIC.<br>
-<sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
+<sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>2</sup> Accelerated networking can only be applied to a single NIC.
+<sup>3</sup> [Constrained core sizes available](constrained-vcpu.md).
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
