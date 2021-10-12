@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Understand your resource health
+title: "Troubleshooting Azure Digital Twins: Resource health"
 titleSuffix: Azure Digital Twins
-description: See how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
+description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1

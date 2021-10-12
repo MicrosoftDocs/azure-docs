@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: View metrics with Azure Monitor
+title: "Troubleshooting Azure Digital Twins: Metrics"
 titleSuffix: Azure Digital Twins
-description: See how to view Azure Digital Twins metrics in Azure Monitor.
+description: Learn how to view Azure Digital Twins metrics in Azure Monitor to troubleshoot and oversee your instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/16/2021
+ms.date: 10/5/2021
 ms.topic: how-to
 ms.service: digital-twins
 
