@@ -48,6 +48,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 - Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
 - The Calling SDK does not currently support closed captions for Teams meetings.
+- Communication Services users cannot join [Teams live events](https://docs.microsoft.com/en-us/microsoftteams/teams-live-events/what-are-teams-live-events)
 
 ## Next steps
 
