@@ -1,16 +1,18 @@
 ---
 # Mandatory fields.
-title: Set up alerts
+title: "Troubleshooting: Alerts"
 titleSuffix: Azure Digital Twins
-description: See how to enable alerts on Azure Digital Twins metrics.
+description: Learn how to troubleshoot Azure Digital Twins by setting up alerts based on service metrics.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/15/2021
+ms.date: 10/5/2021
 ms.topic: how-to
 ms.service: digital-twins
 ---
 
 # Troubleshooting Azure Digital Twins: Alerts
+
+In this article, you'll learn how to set up alerts in the [Azure portal](https://portal.azure.com). These alerts will notify you when configurable conditions you've defined based on the metrics of your Azure Digital Twins instance are met, allowing you to take important actions.
 
 Azure Digital Twins collects [metrics](troubleshoot-metrics.md) for your service instance that give information about the state of your resources. You can use these metrics to assess the overall health of Azure Digital Twins service and the resources connected to it.
 
@@ -18,7 +20,7 @@ Azure Digital Twins collects [metrics](troubleshoot-metrics.md) for your service
 
 ## Turn on alerts
 
-Here is how to enable alerts for your Azure Digital Twins instance:
+Here's how to enable alerts for your Azure Digital Twins instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
@@ -28,9 +30,9 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 3. On the *Create alert rule* page that follows, you can follow the prompts to define conditions, actions to be triggered, and alert details.     
     * **Scope** details should fill automatically with the details for your instance
-    * You will define **Condition** and **Action group** details to customize alert triggers and responses
+    * You'll define **Condition** and **Action group** details to customize alert triggers and responses
     * In the **Alert rule details** section, enter a name and optional description for your rule. 
-        - You can select the _Enable alert rule upon creation_ checkbox if you want the alert to become active as soon as it is created.
+        - You can select the _Enable alert rule upon creation_ checkbox if you want the alert to become active as soon as it's created.
         - You can select the _Automatically resolve alerts_ checkbox if you want to resolve the alert when the condition isn't met anymore.
         - This section is also where you select a _subscription_, _resource group_, and _Severity_ level.
 
@@ -42,11 +44,11 @@ For a guided walkthrough of filling out these fields, see [Overview of alerts in
 
 ### Select conditions
 
-Here is an excerpt from the *Select condition* process illustrating what types of alert signals are available for Azure Digital Twins. On this page you can filter the type of signal, and select the signal that you want from a list.
+Here's an excerpt from the *Select condition* process illustrating what types of alert signals are available for Azure Digital Twins. On this page you can filter the type of signal, and select the signal that you want from a list.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot of the Azure portal showing the first Configure Signal Logic page. There are highlights around the Signal type box and the list of metrics.":::
 
-After selecting a signal, you'll be asked to configure the logic of the alert. You can filter on a dimension, set a threshold value for your alert, and set the frequency of checks for the condition. Here is an example of setting up an alert for when the average Routing Failure Rate metric goes above 5%.
+After selecting a signal, you'll be asked to configure the logic of the alert. You can filter on a dimension, set a threshold value for your alert, and set the frequency of checks for the condition. Here's an example of setting up an alert for when the average Routing Failure Rate metric goes above 5%.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot of the Azure portal showing the second Configure Signal Logic page.":::
 
@@ -54,7 +56,7 @@ After selecting a signal, you'll be asked to configure the logic of the alert. Y
 
 After setting up alerts, they'll show up back on the *Alerts* page for your instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot of the Azure portal showing the Alerts page and button to add. There is one alert configured." lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot of the Azure portal showing the Alerts page and button to add. There's one alert configured." lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## Next steps
 

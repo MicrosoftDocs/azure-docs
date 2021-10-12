@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: DTDL models
 titleSuffix: Azure Digital Twins
-description: Understand how Azure Digital Twins uses custom models to describe entities in your environment.
+description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/25/2021
+ms.date: 10/7/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -15,19 +15,17 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand twin models in Azure Digital Twins
+# Learn about twin models and how to define them in Azure Digital Twins
 
-A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided **models**. You can think of models as the nouns in a description of your world. 
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided **models**. You can think of models as the nouns in a description of your world. Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**. 
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you'll use these models to create [digital twins](concepts-twins-graph.md) that represent specific entities that meet this type description.
-
-Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for models
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL). 
 
-You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). This page includes detailed DTDL reference and examples to help you get started writing your own DTDL models.
 
 DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
 

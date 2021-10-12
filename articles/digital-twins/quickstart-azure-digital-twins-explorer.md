@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Quickstart - Get started with Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Quickstart - Use the Azure Digital Twins Explorer sample to visualize and explore a prebuilt scenario.
+description: Learn how to use the Azure Digital Twins Explorer by following this demo, where you'll be using models to instantiate twins and interacting with the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/27/2021
+ms.date: 10/4/2021
 ms.topic: quickstart
 ms.service: digital-twins
 
@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer
 
-With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as **digital twins**. Then you connect them into a knowledge **graph** that can respond to live events and be queried for information.
+In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This tool allows you to visualize and interact with your Azure Digital Twins data within the Azure portal.
 
-In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This is a tool that allows you to visualize and interact with your Azure Digital Twins data within the Azure portal.
+With Azure Digital Twins, you can create and interact with live models of your real-world environments, which can include wider IoT solutions. First, you model individual elements as **digital twins**. Then you connect them into a knowledge **graph** that can respond to live events and be queried for information.
 
 You'll complete the following steps:
 
@@ -29,7 +29,7 @@ You'll complete the following steps:
 1. Make changes to the graph.
 1. Review your learnings from the experience.
 
-The sample graph you'll be working with represents a building with two floors and two rooms. Floor0 contains Room0, and Floor1 contains Room1. The graph will look like this image:
+The Azure Digital Twins example graph you'll be working with represents a building with two floors and two rooms. Floor0 contains Room0, and Floor1 contains Room1. The graph will look like this image:
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
 
