@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 05/19/2021
+ms.date: 09/22/2021
 
 ---
 # Azure Functions runtime versions overview
@@ -69,23 +69,18 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
 
-To migrate an app from 3.x to 4.x:
+To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
-- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- For Windows function apps, the runtime requires .NET 6.0 to be enabled with the following Azure CLI command:
-
-    ```bash
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### Breaking changes between 3.x and 4.x
 
-The following are some changes to be aware of before upgrading a 3.x app to 4.x. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22).
+The following are some changes to be aware of before upgrading a 3.x app to 4.x. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
 
 #### Runtime
 
@@ -96,6 +91,13 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 - Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps.
+
+- Application Insights is no longer included by default in 4.x. It is now available as a separate extension.
+    - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
+    - For isolated .NET apps:
+        - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
+        - Update the [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) packages to the latest versions.
+    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available.
 
 #### Languages
 

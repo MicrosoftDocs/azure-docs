@@ -68,6 +68,10 @@ Microsoft has many products and services that enable you to customize your IT en
 
    * [Security baseline (FINAL) for Windows 10 v1909 and Windows Server v1909](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/security-baseline-final-for-windows-10-v1909-and-windows-server/ba-p/1023093)
 
+   * [Security baseline for Windows 11](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/windows-11-security-baseline/ba-p/2810772)
+   
+   * [Security baseline for Windows Server 2022](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/windows-server-2022-security-baseline/ba-p/2724685)
+   
 * On-premises environments
 
    * [Microsoft Defender for Identity architecture](/defender-for-identity/architecture)
@@ -153,7 +157,7 @@ As part of an Azure hybrid environment, the following should be baselined and in
 
 * **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/how-to-connect-syncservice-features.md).
 
-* **Password Protection DC agent** – Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see ../authentication/concept-password-ban-bad-on-premises.md.
+* **Password Protection DC agent** – Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
 * **Password Filter DLL** – The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 

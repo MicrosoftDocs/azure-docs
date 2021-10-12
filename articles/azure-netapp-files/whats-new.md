@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.author: b-juche
 ---
 
@@ -21,7 +21,29 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+    
+## October 2021
+
+* [Standard network features](configure-network-features.md) (Preview)
+
+    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability has been made possible by innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through a variety of features for a seamless and consistent experience along with security posture of all their workloads including Azure NetApp Files.
+    
+    You can now choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
+    * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) to and from Azure NetApp Files delegated subnets
+    * Connectivity over Active/Active VPN gateway setup
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
+
+    This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update](https://azure.microsoft.com/updates/) as more regions and features become available.  
+ 
+    To learn more, see [Configure network features for an Azure NetApp Files volume](configure-network-features.md).
+
 ## September 2021
+
+* [Azure NetApp Files backup](backup-introduction.md) (Preview)
+
+    Azure NetApp Files online snapshots are now enhanced with backup of snapshots. With this new backup capability, you can vault your Azure NetApp Files snapshots to cost efficient and ZRS-enabled Azure storage in a fast and cost-effective way, further protecting your data from accidental deletion. Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots, however, are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can now choose to keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data recovery needs, and build up a longer history of snapshots at a lower cost for long-term retention purposes in the Azure NetApp Files backup vault. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details.
 
 * [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (Preview)
 

@@ -211,7 +211,7 @@ $PolicyParameterInfo = @(
   }
 )
 
-New-GuestConfigurationPolicy
+New-GuestConfigurationPolicy `
   -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'Audit Windows Service.' `

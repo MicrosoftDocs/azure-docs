@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 09/23/2021
 ms.author: duau
 ---
 
@@ -55,6 +55,9 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 Yes, Azure Route Server propagates the route with the BGP communities as is.
 
+### What is the BGP timer setting of Azure Route Server?
+The Keep-alive timer is set to 60 seconds and the Hold-down timer 180 seconds.
+
 ### What Autonomous System Numbers (ASNs) can I use?
 
 You can use your own public ASNs or private ASNs in your network virtual appliance. You can't use the ranges reserved by Azure or IANA.
@@ -70,9 +73,13 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
-### Can I configure a User Defined Route (UDR) in the AzureRouteServer Subnet?
+### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
 
-No, Azure Route Server doesn't support configuring a UDR in the AzureRouteServer subnet.
+No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet.
+
+### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
+
+No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
 
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 

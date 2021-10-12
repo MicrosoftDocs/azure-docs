@@ -577,15 +577,15 @@ To move source files to another location post-processing, first select "Move" fo
 
 If you have a source path with wildcard, your syntax will look like this below:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 You can specify "from" as
 
-```/data/sales```
+`/data/sales`
 
 And "to" as
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
@@ -634,9 +634,8 @@ Examples:
 
 Parameters are also supported through expression builder, for example:
 
-```mkdir -p {$tempPath}/commands/c1/c2```
-```mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2```
-
+`mkdir -p {$tempPath}/commands/c1/c2`
+`mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2`
 
 By default, folders are created as user/root. Refer to the top level container with ‘/’.
 

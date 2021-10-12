@@ -149,7 +149,7 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 - For strong and bounded staleness, reads are done against two replicas in a four replica set (minority quorum) to provide consistency guarantees. Session, consistent prefix and eventual do single replica reads. The result is that, for the same number of request units, read throughput for strong and bounded staleness is half of the other consistency levels.
 
-- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
+- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels. For strong consistency, changes need to be committed in every region (global majority) while for all other consistency levels, local majority (three replicas in a four replica set) is being used. 
 
 |**Consistency Level**|**Quorum Reads**|**Quorum Writes**|
 |--|--|--|

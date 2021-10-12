@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "S P initiated S A M L 2.0" section with the "Set up" button selected.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-4. In **SP Initiated SAML 2.0** popup window perform the following steps:
+4. In the **SP Initiated SAML 2.0** pop-up window, perform the following steps:
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 

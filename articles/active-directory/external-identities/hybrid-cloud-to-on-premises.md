@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Grant B2B users in Azure AD access to your on-premises applications
 
-As an organization that uses Azure Active Directory (Azure AD) B2B collaboration capabilities to invite guest users from partner organizations to your Azure AD, you can now provide these B2B users access to on-premises apps. These on-premises apps can use SAML-based authentication or Integrated Windows Authentication (IWA) with Kerberos constrained delegation (KCD).
+As an organization that uses Azure Active Directory (Azure AD) B2B collaboration capabilities to invite guest users from partner organizations to your Azure AD, you can now provide these B2B users access to on-premises apps. These on-premises apps can use SAML-based authentication or integrated Windows authentication (IWA) with Kerberos constrained delegation (KCD).
 
 ## Access to SAML apps
 
@@ -36,13 +36,13 @@ When you've completed the steps above, your app should be up and running. To tes
 
 ## Access to IWA and KCD apps
 
-To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
+To provide B2B users access to on-premises applications that are secured with integrated Windows authentication and Kerberos constrained delegation, you need the following components:
 
 - **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 - **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]
-   > When you configure the Azure AD Application Proxy, ensure that **Delegated Logon Identity** is set to **User principal name** (default) in the single sign-on configuration for Integrated Windows Authentication (IWA).
+   > When you configure the Azure AD Application Proxy, ensure that **Delegated Logon Identity** is set to **User principal name** (default) in the single sign-on configuration for integrated Windows authentication (IWA).
 
    For the B2B user scenario, there are two methods available that you can use to create the guest user objects that are required for authorization in the on-premises directory:
 

@@ -1,10 +1,8 @@
 ---
 title: Quickstart - Set and retrieve a secret from Azure Key Vault
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -44,7 +42,7 @@ az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "Exampl
 
 ## Retrieve a secret from Key Vault
 
-You can now reference this password that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** to get the current version.
+You can now reference this password that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** to get the current version.
 
 To view the value contained in the secret as plain text, use the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show) command:
 

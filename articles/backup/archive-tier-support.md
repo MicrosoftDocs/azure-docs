@@ -2,13 +2,13 @@
 title: Archive Tier support
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Archive Tier support
 
-Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
+Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
 
@@ -227,8 +227,8 @@ Stop protection and delete data deletes all the recovery points. For recovery po
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure VM | South Central US, North Central US, West Europe | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South | None |
+| SQL Server in Azure VM | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South. | None |
 
 ## Error codes and troubleshooting steps
 

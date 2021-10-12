@@ -1,5 +1,6 @@
 ---
-title: Secure hybrid access with Azure AD and Datawiza
+title: Secure hybrid access with Datawiza
+titleSuffix: Azure AD
 description: In this tutorial, learn how to integrate Datawiza with Azure AD for secure hybrid access 
 services: active-directory
 author: gargi-sinha

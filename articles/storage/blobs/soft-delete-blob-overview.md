@@ -1,6 +1,6 @@
 ---
 title: Soft delete for blobs
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Soft delete for blobs protects your data so that you can more easily recover your data when it is erroneously modified or deleted by an application or by another storage account user.
 services: storage
 author: tamram
@@ -156,7 +156,7 @@ This table shows how this feature is supported in your account and the impact on
 
 <sup>2</sup>    Feature is supported at the preview level.
 
-<sup>3</sup>    See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). These issues apply to all accounts that have the hierarchical namespace feature enabled.
+<sup>3</sup>    For more information, see [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). These issues apply to all accounts that have the hierarchical namespace feature enabled.
 
 ## Pricing and billing
 

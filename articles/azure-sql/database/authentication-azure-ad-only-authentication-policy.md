@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 09/22/2021
 ---
 
 # Azure Policy for Azure Active Directory only authentication with Azure SQL

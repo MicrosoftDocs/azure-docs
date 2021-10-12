@@ -22,7 +22,7 @@ Unfamiliar with relevance concepts? The following video segment fast-forwards to
 
 ## What is a scoring profile?
 
-A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. The purpose a scoring profile is to boost or amplify matching documents based on criteria you provide. 
+A scoring profile is part of the index definition and is composed of weighted fields, functions and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
 
 The following definition shows a simple profile named 'geo'. This one boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
@@ -70,7 +70,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries, for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
 > [!Tip]
 > You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
