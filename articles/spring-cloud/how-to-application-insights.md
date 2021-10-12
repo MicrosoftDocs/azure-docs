@@ -50,6 +50,9 @@ Enable the Java In-Process Agent by using the following procedure.
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
+> [!Note]
+> Do not use the same AI in different Azure Spring Cloud instances, or else you will see mixed data.
+
 ## Using the Application Insights feature
 
 When the **Application Insights** feature is enabled, you can:
