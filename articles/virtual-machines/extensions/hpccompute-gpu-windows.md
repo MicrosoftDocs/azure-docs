@@ -77,6 +77,29 @@ The following JSON shows the schema for the extension.
 
 ## Deployment
 
+### Azure Portal
+
+Azure Nvidia VM extensions can be deployed with the Azure portal.
+
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
+
+2. In the portal, browse to Virtual machine where you want to install the driver.
+
+3. Select **extension** 
+![Select VM extension for selected VM](./media/nvidia-ext-portal/extension-tab-portal.png)
+
+4. Then click **add**
+![Add VM extension for selected VM](./media/nvidia-ext-portal/extension-tab-add.png)
+
+5. Scroll till you find the **Nvidia GPU driver Extension** then click **next**
+![Select Nvidia GPU driver](./media/nvidia-ext-portal/extension-nvidia-select.png)
+
+6. Press **Review + Create**  and wait for few minutes till the driver gets deployed.
+![Review and create deployment](./media/nvidia-ext-portal/extension-create.png)
+
+7. Once you finish the previous steps successfully you will the extension has been added to the list of installed extensions.
+![Extension added to list](./media/nvidia-ext-portal/extension-added.png)
+
 ### Azure Resource Manager Template 
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
