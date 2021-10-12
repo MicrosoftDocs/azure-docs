@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 10/12/2021
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: 
@@ -39,6 +39,10 @@ The following diagram shows the general workflow of a workload exchanging a fore
 
 
 ## Next steps
-Learn how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another identity provider to get a token.
+Learn more about how workload identify federation works and:
+- how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another identity provider to get a token.
+- how to create, delete, get, update, or list [federated identity credentials](/en-us/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta) using Microsoft Graph.
 
-Learn how to *deploy a web app to Azure App Service using GitHub Actions*.
+Learn how to access Azure or Microsoft Graph resources from:
+- [GitHub Actions](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- [Kubernetes](https://azure.github.io/azure-workload-identity/)
