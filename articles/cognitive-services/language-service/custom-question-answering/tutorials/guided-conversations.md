@@ -6,11 +6,8 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-<<<<<<< HEAD
-ms.date: 10/11/2021
-=======
 ms.date: 11/02/2021
->>>>>>> df13e5601fc417df61b77fd2f132b94ad5b76956
+
 ---
 
 # Add guided conversations with multi-turn prompts
