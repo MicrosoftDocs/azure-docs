@@ -20,7 +20,7 @@ To complete the steps in this article, you need to:
   - [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
-    
+
     The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in [Enable ONVIF discovery feature](#enable-onvif-discovery-feature).
   
 > [!NOTE]
@@ -49,27 +49,31 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
 1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
 1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
 1. Click on Set modules and select the Video Analyzer edge module.
-1. Select **Container Create Options** and add the following:
+1. Select **Container Create Options** and add the following JSON entries to the respective sections:
 
-    ```JSON
-    { 
-        "NetworkingConfig": {  
-            "EndpointsConfig": {  
-            "host": {}  
-            }  
-        }, 
-        "HostConfig": { 
-            "NetworkMode": "host" 
-                } 
-    } 
-    ```
-3. Click **Update** at the bottom.
-4. Click **Review + create**.
-5. Click **Create**.
+    - In the JSON entry box, after the first `{` enter the following:
+  
+        ```JSON
+        "NetworkingConfig": {
+        "EndpointsConfig": {
+            "host": {}
+            }
+        },
+        ```
+
+    - In the `HostConfig` JSON object:
+
+        ```JSON
+        "NetworkMode": "host",
+        ```
+
+1. Click **Update** at the bottom.
+1. Click **Review + create**.
+1. Click **Create**.
 
 ## Use direct method calls
 
-Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
+The Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
 The following steps apply to both the `onvifDeviceDiscover` and the `onvifDeviceGet` sections below:
 
 1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
@@ -78,16 +82,17 @@ The following steps apply to both the `onvifDeviceDiscover` and the `onvifDevice
 
 ### onvifDeviceDiscover
 
-Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
+This direct method lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
 
 > [!NOTE]
 > The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
 
 1. In the method name enter:
 
-    ```
+    ```JSON
     onvifDeviceDiscover
     ```
+
 1. In the payload enter:
 
     ```JSON
@@ -138,18 +143,19 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 1. In the method name enter:
 
-    ```
+    ```JSON
     onvifDeviceGet
     ```
+
 1. In the payload enter:
 
     ```JSON
-    { 
-        "@apiVersion": "1.1",  
-        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
-        "username": "{USER_NAME}", 
-        "password": "{PASSWORD}" 
-    } 
+    {
+        "@apiVersion": "1.1",
+        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}",
+        "username": "{USER_NAME}",
+        "password": "{PASSWORD}"
+    }
     ```
 
     In the above payload:
@@ -255,14 +261,14 @@ This section covers some troubleshooting steps:
 
     :::image type="content" source="./media/camera-discovery/five-zero-four-error-fix.png" alt-text="Screenshot that shows the 504 error fix.":::
 
-- If the direct method `Results` field displays "{"status":200,"payload":{"value":[]}} 
+- If the direct method `Results` field displays "{"status":200,"payload":{"value":[]}}
 
     :::image type="content" source="./media/camera-discovery/result-status-two-hundred-null.png" alt-text="The message return is displayed in the direct method `Results` field":::
 
     Adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 - The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 - Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF-compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
-- Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast. This also requires that port 3702 is available. 
+- Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast. This also requires that port 3702 is available.
 
 ## Next steps
 

@@ -164,7 +164,7 @@
   - name: Troubleshoot
     href: edge/troubleshoot.md
   - name: Camera discovery
-    href: camera-discovery.md
+    href: edge/camera-discovery.md
 - name: Reference 
   items:
   - name: Access policies
