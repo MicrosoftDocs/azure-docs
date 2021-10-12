@@ -26,33 +26,32 @@ Azure Sentinel uses Fusion, a correlation engine based on scalable machine learn
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
 
+## Fusion for emerging threats
 
-## Configuration for advanced multistage attack detection
+The volume of security events continues to grow, and the scope and sophistication of attacks are ever increasing. We can define the known attack scenarios, but how about the emerging and unknown threats in your environment?  
 
-### Enable fusion rule
+Azure Sentinel's extended Fusion ML detection capability can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
 
-This detection is enabled by default in Azure Sentinel. To check or change its status, use the following instructions:
+With this extended capability, our ML detections are no longer limited to the known attack scenarios. The Fusion ML algorithm constantly learns from existing attacks, applies analysis based on how the real security analysts think, and finds the threats we have not seen previously from millions of anomalous behaviors and suspicious activities across the kill-chain in your environment to help you stay one step ahead of the attackers.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and enter **Azure Sentinel**.
+Fusion collects data on anomalous behaviors from the following sources:
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
-
-1. Select the **Active rules** tab, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
-
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}" lightbox="./media/fusion/selecting-fusion-rule-type.png":::
-
-1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
-
-1. In the **General** tab of the **Analytics rule wizard**, note the status (Enabled/Disabled), or change it if you want.
-
-To further configure the Fusion detection rule, select **Next: Configure Fusion**. If you changed the status but have no further changes to make, select the **Review and update** tab
-
-1. Configure source signals for Fusion detection
+- [Built-in anomaly detections](soc-ml-anomalies.md)
+- Alerts from Microsoft products:
+    - Azure Active Directory Identity Protection
+    - Azure Defender
+    - Azure Defender for IoT
+    - Microsoft 365 Defender
+    - Microsoft Cloud App Security
+    - Microsoft Defender for Endpoint
+    - Microsoft Defender for Identity
+    - Microsoft Defender for Office 365
+- Alerts from scheduled analytics rules, both [built-in](detect-threats-built-in.md) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information to be used by Fusion.
 
 > [!NOTE]
 > Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
 
-### Configure scheduled analytics rules for fusion detections
+## Fusion for scheduled analytics rules
 
 > [!IMPORTANT]
 >
@@ -79,6 +78,10 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
 1. Review the **tactics** in your analytics rule details. The Fusion ML algorithm uses MITRE ATT&CK tactic information for detecting multi-stage attacks, and the tactics you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
 
 1. Adjust **alert threshold** as needed. Fusion generates incidents based on the alerts raised from your scheduled analytics rules. If you'd like to reduce the number of Fusion incidents for a specific analytics rule, adjust the alert threshold as needed. You can also disable the specific analytics rule if you do not want to receive any incidents based on that rule.
+
+## Fusion configuration UI
+
+You can now configure all your Fusion detections in one centralized place, giving you more control over your environment.
 
 ## Attack detection scenarios
 
