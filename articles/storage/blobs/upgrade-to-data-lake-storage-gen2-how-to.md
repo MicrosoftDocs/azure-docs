@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.author: normesta
 
 ---
@@ -152,7 +152,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 8. After your account has been successfully validated, start the upgrade by running the following command.
    
    ```powershell
-   $result Invoke-AzStorageAccountHierarchicalNamespaceUpgrade -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" -RequestType Upgrade -AsJob -Force
+   $result = Invoke-AzStorageAccountHierarchicalNamespaceUpgrade -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" -RequestType Upgrade -AsJob -Force
    ```
 
    Like the validation example above, this example uses the `asJob` switch to run the command in a background job. The `Force` switch overrides prompts to confirm the upgrade.  If you don't use the `AsJob` switch, you don't have to use the `Force` switch because you can just respond to the prompts.
@@ -171,6 +171,14 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 ### [Azure CLI](#tab/azure-cli)
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Verify that the version of Azure CLI that have installed is `2.29.0` or higher by using the following command.
+
+   ```azurecli
+    az --version
+   ```
+
+   If your version of Azure CLI is lower than `2.29.0`, then install the latest version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 2. If your identity is associated with more than one subscription, then set your active subscription.
 
