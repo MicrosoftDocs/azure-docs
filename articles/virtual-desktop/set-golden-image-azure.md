@@ -13,7 +13,7 @@ manager:
 ## Introduction
 This article will walk you through the process of creating a custom image from an Azure VM for use with Azure Virtual Desktop. This image is known as a 'golden image' and will contain the applications and customizations needed for your session hosts.
 
-There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Endpoint Manager](https://docs.microsoft.com/mem/intune/fundamentals/azure-virtual-desktop-multi-session) or automating your image build using tools like [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-virtual-desktop) with [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops). The strategy you decide upon will depend on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
+There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Endpoint Manager](memdocs/memdocs/intune/fundamentals/azure-virtual-desktop-multi-session.md) or automating your image build using tools like [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-virtual-desktop) with [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops). The strategy you decide upon will depend on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
 
 ## Create an image from an Azure VM
 
