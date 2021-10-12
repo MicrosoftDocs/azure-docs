@@ -10,7 +10,7 @@ ms.date: 10/22/2021
 
 # Create replication tasks to forward events from Azure resources using Azure Logic Apps (preview)
 
-To reduce the impact that unpredictable events can have on your Azure resources, you can replicate these resources to help you maintain [*business continuity (BC)*](https://en.wikipedia.org/wiki/Business_continuity_planning). You can create a *replication task* to copy a resource into another region and forward events so that you can have the target resource readily available if you need to switch over.
+To reduce the impact that unpredictable events can have on your Azure resources, you can replicate these resources to help you maintain [*business continuity (BC)*](https://en.wikipedia.org/wiki/Business_continuity_planning). You can create a *replication task* to copy a resource into another region and forward events so that you can have the target resource readily available if you need to switch over. Currently, replication tasks are available only for Azure Event Hubs instances and Azure Service Bus namespaces.
 
 This article shows how to create example replication tasks for Azure Event Hubs and Azure Service Bus. Each replication task is powered by a stateless workflow in a Standard logic app resource type, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
@@ -46,7 +46,7 @@ When you create a replication task, charges start incurring immediately. Underne
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Based on the template that you choose, the source and target Azure resources, specifically:
+* Based on the template that you choose, the source and target Azure resources, which should exist in different Azure regions, specifically:
 
   | Replication task template | Resources |
   |---------------------------|-----------|
@@ -55,9 +55,18 @@ When you create a replication task, charges start incurring immediately. Underne
   | Copy new messages from Service Bus queue to Storage container | The source Service Bus queue and the target Blob Storage container. You can also create the storage container when you create the replication task. |
   |||
 
-* An Office 365 account if you want to follow along with the example, which sends you email by using Office 365 Outlook.
-
 <a name="create-replication-task"></a>
 
 ## Create a replication task
 
+1. In the [Azure portal](https://portal.azure.com), find the Azure resource that you want to replicate.
+
+   Currently, replication tasks are available only for Event Hubs instances and Service Bus namespaces.
+
+1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
+
+On the **Tasks** pane, select **Add task** or **Add a task** so that you can select a task template.
+
+1. On the **Add a Task** pane, under **Select a template**, select the template for the replication task that you want to create. If the next page doesn't appear, select **Next: Authenticate**.
+
+1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
