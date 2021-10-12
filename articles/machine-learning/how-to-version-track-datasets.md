@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: nibaccam
-ms.date: 03/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 

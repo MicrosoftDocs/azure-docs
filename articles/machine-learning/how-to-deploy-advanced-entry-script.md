@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/21/2021
 ms.reviewer: larryfr
 ms.custom: deploy
 ---

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 

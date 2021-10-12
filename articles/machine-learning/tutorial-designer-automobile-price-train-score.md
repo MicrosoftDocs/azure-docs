@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 

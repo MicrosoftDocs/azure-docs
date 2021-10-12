@@ -10,7 +10,7 @@ ms.custom: how-to, managed online endpoints, devplatv2, studio
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: laobri
-ms.date: 09/10/2021
+ms.date: 10/21/2021
 ---
 
 # Create and use managed online endpoints (preview) in the studio

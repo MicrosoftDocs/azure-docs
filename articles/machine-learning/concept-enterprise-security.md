@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/22/2021
+ms.date: 10/21/2021
 ---
 
 # Enterprise security and governance for Azure Machine Learning

@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 07/08/2021
+ms.date: 10/21/2021
 ---
 
 # Azure Machine Learning Curated Environments
