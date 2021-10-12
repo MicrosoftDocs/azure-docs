@@ -92,8 +92,6 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Visualize input data
 
-### From JSONL files
-
 Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format, you can visualize the ground truth bounding boxes for an image. To do so, be sure you have `matplotlib` installed.
 
 ```
@@ -180,34 +178,6 @@ jsonl_file = "./odFridgeObjects/train_annotations.jsonl"
 plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
-### From Azure Machine Learning dataset
-
-You can also visualize the ground truth bounding boxes for an image, when you have the input image data in Azure ML Dataset format.
-
-Load the dataset into a pandas dataframe.
-
-```python
-import azureml.dataprep as dprep
-
-from azureml.core import Dataset
-from azureml.dataprep.api.functions import get_portable_path
-
-# Get existing dataset
-dataset = Dataset.get_by_name(ws, "odFridgeObjectsTrainingDataset")
-
-# Get pandas dataframe from the dataset
-dflow = dataset._dataflow.add_column(get_portable_path(dprep.col("image_url")),
-                                     "portable_path", "image_url")
-dataset_pd = dflow.to_pandas_dataframe(extended_types=True)
-```
-
-For any given image, you can run the following code to display the bounding boxes. The image file should be downloaded locally before running this step.
-
-```python
-image_file = "./odFridgeObjects/images/31.jpg"
-plot_ground_truth_boxes_dataset(image_file, dataset_pd)
-```
-
 ## Upload data and create dataset
 
 In order to use the data for training, upload it to your workspace via a datastore. The datastore provides a mechanism for you to upload or download data, and interact with it from your remote compute targets.
@@ -239,6 +209,30 @@ else:
     training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
 
 print("Training dataset name: " + training_dataset.name)
+```
+
+### Visualize dataset
+
+You can also visualize the ground truth bounding boxes for an image from this dataset.
+
+Load the dataset into a pandas dataframe.
+
+```python
+import azureml.dataprep as dprep
+
+from azureml.dataprep.api.functions import get_portable_path
+
+# Get pandas dataframe from the dataset
+dflow = training_dataset._dataflow.add_column(get_portable_path(dprep.col("image_url")),
+                                              "portable_path", "image_url")
+dataset_pd = dflow.to_pandas_dataframe(extended_types=True)
+```
+
+For any given image, you can run the following code to display the bounding boxes.
+
+```python
+image_file = "./odFridgeObjects/images/31.jpg"
+plot_ground_truth_boxes_dataset(image_file, dataset_pd)
 ```
 
 ## Configure your object detection experiment
