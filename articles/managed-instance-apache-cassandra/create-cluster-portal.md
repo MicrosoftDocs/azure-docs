@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 09/08/2021
+ms.date: 10/11/2021
 ms.custom: references_regions, devx-track-azurecli
 
 ---
@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Confirm Cassandra admin password** - Reenter your password.
 
    > [!NOTE]
-   > Currently, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, and Australia East* regions.
+   > Currently, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, Central India and Australia East* regions.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 

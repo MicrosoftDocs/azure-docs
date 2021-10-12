@@ -17,7 +17,9 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
-Example use cases include: confidential multiparty data sharing, fraud detection, confidential databases, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
+[!NOTE] Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+
+Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
 ## Configuration
 
@@ -46,7 +48,6 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 - Create DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 - DCsv2-series VMs are [Generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in the regions listed in [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-- Next generation of DC-series VMs: [Join the Preview Program](https://aka.ms/intelgen3)
 
 ## More sizes and information
 
