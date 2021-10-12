@@ -113,6 +113,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+        -text: Choose the right tools for migration to Azure Database for MySQL
+          url: how-to-decide-on-right-migration-tools.md
         - text: Azure Database for MySQL migration guide
           url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
         - text: dbForge Studio for MySQL
