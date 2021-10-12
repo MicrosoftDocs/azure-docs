@@ -4,8 +4,8 @@ description: Walk through the steps to set up a golden image from scratch in Azu
 author: cshea15, emmclare 
 ms.topic: how-to
 ms.date: 10/12/2021
-ms.author: 
-manager: 
+ms.author: chashea
+manager: bterkaly
 ---
 
 # Create an AVD Golden Image in Azure
@@ -13,7 +13,7 @@ manager:
 ## Introduction
 This article will walk you through the process of creating a custom image from an Azure VM for use with Azure Virtual Desktop. This image is known as a 'golden image' and will contain the applications and customizations needed for your session hosts.
 
-There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Endpoint Manager](/mem/intune/fundamentals/azure-virtual-desktop-multi-session.md) or automating your image build using tools like [Azure Image Builder](/azure/virtual-machines/windows/image-builder-virtual-desktop.md) with [Azure DevOps](/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops.md). The strategy you decide upon will depend on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
+There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Endpoint Manager](/mem/intune/fundamentals/azure-virtual-desktop-multi-session.md) or automating your image build using tools like [Azure Image Builder](/azure/virtual-machines/windows/image-builder-virtual-desktop.md) with [Azure DevOps](/azure/devops/pipelines/get-started/key-pipelines-concepts.md). The strategy you decide upon will depend on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
 
 ## Create an image from an Azure VM
 
@@ -49,7 +49,7 @@ Once the sysprep has completed and the VM is shutdown in the portal, click the C
 
 When you capture the VM, you have an option to add it to a shared image gallery or capture it as a managed image. 
 
-The [Shared Image Gallery](azure/virtual-machines/shared-image-galleries.md) adds features to replicate images to other regions, make the images highly available, allows for easy image versioning and able to deploy at scale.  Managed images are standalone images so are suitable for simpler deployments. 
+The [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries.md) adds features to replicate images to other regions, make the images highly available, allows for easy image versioning and able to deploy at scale.  Managed images are standalone images so are suitable for simpler deployments. 
 
 > [!Important]
 > Shared Image Gallery is recommended for Production environments because of the enhanced capabilities, such as replication and image versioning. 
