@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Redirect hard-coded links for apps published with Azure Active Directory Application Proxy
