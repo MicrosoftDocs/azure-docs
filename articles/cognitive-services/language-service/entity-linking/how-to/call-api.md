@@ -81,4 +81,4 @@ Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguag
 
 ## See also
 
-* [What is the Text Analytics API](../overview.md)
+* [Entity linking overview](../overview.md)

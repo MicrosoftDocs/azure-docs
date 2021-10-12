@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/08/2021
 ms.author: aahi
-keywords: text mining, language detection, text analytics
+keywords: text mining, language detection
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 

@@ -18,7 +18,7 @@ This tutorial will walk through the process of creating knowledge bases in multi
 To be able to create a knowledge base in more than one language, the language setting must be set at the creation of the first Knowledge Base (KB) of the QnA service.
 
 > [!NOTE]
-> The option to enable adding knowledge bases in multiple languages to a service is only available as part of Custom Question Answering which is a feature of Text Analytics.
+> The option to enable adding knowledge bases in multiple languages to a service is only available as part of Custom Question Answering.
 >
 > If you are using the GA version of QnA Maker, a separate QnA Maker resource would need to be created for each distinct language.
 

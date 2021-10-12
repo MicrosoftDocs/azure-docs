@@ -15,7 +15,7 @@ ms.author: aahi
 # Entity linking language support 
 
 > [!NOTE]
-> Languages are added as new model versions are released for specific Text Analytics features. The current model version for Entity Linking is `2020-02-01`.
+> Languages are added as new model versions are released for specific features. The current model version for Entity Linking is `2020-02-01`.
 
 | Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
