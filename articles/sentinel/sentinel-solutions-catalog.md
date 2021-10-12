@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.author: bagol
 ---
 # Azure Sentinel content hub catalog

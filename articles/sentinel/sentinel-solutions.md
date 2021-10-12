@@ -4,7 +4,7 @@ description: This article describes the Azure Sentinel solutions experience, sho
 services: sentinel
 cloud: na
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 
 ms.assetid:
@@ -14,45 +14,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.author: yelevin
+ms.date: 10/12/2021
+ms.author: bagol
 ---
 # About Azure Sentinel content and solutions
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel content hub and solutions is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Sentinel **Content hub** and solutions are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability, deployment, and enablement, and by [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
 
 ## What is Azure Sentinel content?
 
-The Azure Sentinel **Content hub** provides access to the following types of Azure Sentinel content:
+Azure Sentinel *content* is Security Information and Event Management (SIEM) content that enables customers to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services in Azure Sentinel.
 
-- **Data connectors**, some with accompanying **parsers**
-- **Workbooks**
-- **Analytics rules**
-- **Hunting queries**
-- **Notebooks**
-- **Watchlists**
-- **Playbooks**
-- **Logic App Connectors**
+Content in Azure Sentinel includes any of the following types:
 
-You can either customize built-in content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+- [Data connectors](connect-data-sources.md) provide log ingestion from different sources into Azure Sentinel
+- [Parsers](normalization-about-parsers.md) provide log formatting/transformation into [ASIM](normalization.md) formats, supporting usage across various Azure Sentinel content types and scenarios
+- [Workbooks](get-visibility.md) provide monitoring, visualization, and interactivity with data in Azure Sentinel, highlighting meaningful insights for users
+- [Analytic rules](detect-threats-built-in.md) provide alerts that point to relevant SOC actions via incidents
+- [Hunting queries](hunting.md) are used by SOC teams to proactively hunt for threats in Azure Sentinel
+- [Notebooks](notebooks.md) help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
+- [Watchlists](watchlists.md) support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
+- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide the ability to run automated investigations, remediations, and response scenarios in Azure Sentinel
 
-## Discover and manage Azure Sentinel solutions
+Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Azure Sentinel.
 
-The **Content hub** provides access to Azure Sentinel solutions, which are content packs that deliver value for a product, domain, or vertical within Azure Sentinel.
+> [!TIP]
+> You can either customize built-in content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+>
+## Discover and manage Azure Sentinel content
 
-Use solutions to deploy packaged content in a single step, often ready to start immediately. Providers and partners can also create their own solutions to deliver combined product or domain vertical value and to productize investments.
+Use the Azure Sentinel **Content hub** to centrally discover and install built-in, or out-of-the-box content.
 
-Discover the solutions that will help support your organizations needs. For more information, see:
+- In the **Content hub**, filter by [categories](#content-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+
+- Customize built-in content for your own needs, or create custom content, including analytics rules, hunting queries, notebooks, workbooks, and more, via either the [Azure Sentinel API](/rest/api/securityinsights/) or the Azure Sentinel **Repositories** area.
+
+Manage [updates for built-in content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Azure Sentinel **Content hub**, and for custom content via the **Repositories** page.
+
+### Why solutions?
+
+Azure Sentinel *solutions* provide packaged content and integrations that deliver end-to-end product value for one or more domain or vertical scenarios.
+
+- **Packaged content** are collections of one or more pieces of Azure Sentinel content, such as data connectors, workbooks, analytics rules, playbooks, hunting queries, watchlists, parsers, and more.
+
+- **Integrations** include services or tools built using Azure Sentinel or Azure Log Analytics APIs that support integrations between Azure and existing customer applications, or migrate data, queries, and more from those applications into Azure Sentinel.
+
+Solutions also provide the ability to install packages of content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
+
+For more information, see:
 
 - [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel Content hub catalog](sentinel-solutions-catalog.md)
-- [Azure Sentinel data connectors](connect-data-sources.md)
-- [Find your Azure Sentinel data connector](data-connectors-reference.md)
-
 
 ## Content categories
 
@@ -60,65 +76,63 @@ Azure Sentinel content can be applied with one or more of the following categori
 
 ### Domain categories
 
-:::row:::
-   :::column span="":::
-      - Application
-      - Cloud Provider
-      - Compliance
-      - Identity
-      - IT Operations
-   :::column-end:::
-   :::column span="":::
-      - Platform
-      - Storage
-      - Networking
-      - User Behavior (UEBA)
-   :::column-end:::
-   :::column span="":::
-      - Devops
-      - Internet of Things (IoT)
-      - Training and Tutorials
-      - Migration
-   :::column-end:::
-:::row-end:::
-
-### Security categories
-
-:::row:::
-   :::column span="":::
-      - Security - Threat protection. Includes threat protection, email protection, XDR, and endpoint protection.
-      - Security - Information protection
-      - Security - Threat intelligence
-      - Security - Network
-      - Security - Vulnerability management
-   :::column-end:::
-   :::column span="":::
-      - Security - Automation (SOAR)
-      - Security - Insider Threat
-      - Security - 0-day Vulnerability
-      - Security - Cloud security
-      - Security - Others
-   :::column-end:::
-:::row-end:::
+| Category name  | Description |
+| ---------- | ----------------------- |
+| **Application**  | Web, server-based, SaaS, database, communications, or productivity workload          |
+| **Cloud Provider**  | Cloud service|
+| **Compliance**   | Compliance product, services, and protocols  |
+| **DevOps**       | Development operations tools and services    |
+| **Identity**     | Identity service providers and integrations     |
+| **Internet of Things (IoT)**    | IoT, OT devices and infrastructure, industrial control services                   |
+| **IT Operations**| Products and services managing IT   |
+| **Migration**    | Migration enablement products, services, and               |
+| **Networking**   | Network products, services, and tools    |
+| **Platform**     | Azure Sentinel generic or framework components, Cloud infrastructure and platform|
+| **Security - Others**   | Other security products and services with no other clear category           |
+| **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products and services        |
+| **Security - Threat Protection**   | Threat protection, email protection, and XDR and endpoint protection products and services     |
+| **Security – 0-day Vulnerability**   | Specialized solutions for 0-day vulnerability attacks like [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise) |
+| **Security – Automation (SOAR)**   | Security automations, SOAR (Security Operations and Automated Responses), security operations, and incident response products and services.   |
+| **Security – Cloud Security** | CASB (Cloud Access Service Broker), CWPP (Cloud workload protection platforms), CSPM (Cloud security posture management and other Cloud Security products and services |
+| **Security – Information Protection**   | Information protection and document protection products and services|
+| **Security – Insider Threat**  | Insider threat and user and entity behavioral analytics (UEBA) for security products and services                |
+| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention) and network packet capture   |
+| **Security – Vulnerability Management** | Vulnerability management products and  services                    |
+| **Storage**      | File stores and file sharing products and services                 |
+| **Training and Tutorials**  | Training, tutorials, and onboarding assets |
+| **User Behavior (UEBA)**    | User behavior analytics products and services|
 
 ### Industry vertical categories
 
-- Healthcare
-- Finance
-- Retail
-- Education
-- Manufacturing
-- Aeronautics
+| Category name  | Description |
+| ---------- | ----------------------- |
+| **Aeronautics**  | Products, services, and content specific for the aeronautics industry |
+| **Education**    | Products, services, and content specific for the education industry   |
+| **Finance**      | Products, services, and content specific for the finance industry     |
+| **Healthcare**   | Products, services, and content specific for the healthcare industry  |
+| **Manufacturing** | Products, services, and content specific for the manufacturing industry |
+| **Retail**       | Products, services, and content specific for the retail industry       |
 
 ## Azure Sentinel solution support models
 
-Both Microsoft and other organizations author Azure Sentinel solutions. Each solution has one of the following support types:
+Both Microsoft and other organizations author Azure Sentinel built-in content and solutions. Each piece of content or solution has one of the following support types:
 
-| Support type| Description|
-|-------------|------------|
-|**Microsoft-supported**|Applies to:<ul><li>Solutions where Microsoft is the data provider, where relevant, and author.</li><li>Some Microsoft-authored solutions for non-Microsoft data sources.</li></ul>Microsoft supports and maintains solutions in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support solutions that are authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to solutions authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that solution.<br><br>For any issues with a partner-supported solution, contact the specified solution support contact.|
-|**Community-supported**|Applies to solutions authored by Microsoft or partner developers that don't have listed contacts for solution support and maintenance on the specified solution page in Azure Sentinel.<br><br>For questions or issues with these solutions, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
+- **Microsoft-supported**: Applies to:
+
+    - Content/solutions where Microsoft is the data provider, where relevant, and author.
+    - Some Microsoft-authored content/solutions for non-Microsoft data sources.
+
+    Microsoft supports and maintains content/solutions in this support model in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview). Partners or the Community support content/solutions that are authored by any party other than Microsoft.
+
+- **Partner-supported**: Applies to content/solutions authored by parties other than Microsoft.
+
+    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that content/solutions.
+
+    For any issues with a partner-supported solution, contact the specified support contact.
+
+- **Community-supported**: Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Azure Sentinel.
+
+    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).
 
 
 ## Next steps
