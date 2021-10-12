@@ -8,7 +8,7 @@ ms.author: chashea
 manager: bterkaly
 ---
 
-# Create a Golden Image for Azure
+# Create a Golden Image in Azure
 
 ## Introduction
 This article will walk you through the process of creating a custom image from an Azure VM for use with Azure Virtual Desktop. This image is known as a 'golden image' and will contain the applications and customizations needed for your session hosts.
