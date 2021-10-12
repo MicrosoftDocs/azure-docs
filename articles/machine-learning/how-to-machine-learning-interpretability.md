@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to understand & explain how your machine learning model makes predictions during training & inferencing using the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: mithigpe

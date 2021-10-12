@@ -89,7 +89,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
-            url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
       - linkListType: quickstart
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
@@ -117,7 +117,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pipeline and activities
-            url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            url: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context
       - linkListType: quickstart
         links:
           - text: Transform data

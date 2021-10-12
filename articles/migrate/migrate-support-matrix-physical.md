@@ -29,6 +29,10 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Physical server deployment:** The physical server can be standalone, or deployed in a cluster.
 
+**Type of servers:** Bare metal servers, virtualized servers running on-premises or other clouds like AWS, GCP, Xen etc.
+>[!Note]
+> Currently, Azure Migrate does not support the discovery of para-virtualized servers. 
+
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
 **Permissions:**
@@ -41,7 +45,7 @@ Set up an account that the appliance can use to access the physical servers.
 - The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
 - If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
 - The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed [here.](migrate-appliance.md#collected-data---physical)
-- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation) to enable the required permissions.
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-error-occurs-when-you-connect-to-physical-servers-during-validation) to enable the required permissions.
 
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.

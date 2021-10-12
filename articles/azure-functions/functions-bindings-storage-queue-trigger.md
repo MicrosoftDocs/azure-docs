@@ -464,7 +464,8 @@ The algorithm uses the following logic:
 
 For local development the maximum polling interval defaults to two seconds.
 
-In regard to billing, time spent polling by the runtime is "free" and not counted against your account.
+> [!NOTE]
+> In regards to billing when hosting function apps in the Consumption plan, you are not charged for time spent polling by the runtime.
 
 ## Concurrency
 

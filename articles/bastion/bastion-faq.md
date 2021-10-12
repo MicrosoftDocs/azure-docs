@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -121,6 +121,9 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
+
+### Does Bastion support connectivity to Azure Virtual Desktop?
+No, Bastion connectivity to Azure Virtual Desktop is not supported.
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 

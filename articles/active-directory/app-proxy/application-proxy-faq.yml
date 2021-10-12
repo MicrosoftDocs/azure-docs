@@ -170,7 +170,7 @@ sections:
               Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap. If you are interested in a preview that enables adding this to responses, reach out to aadapfeedback@microsoft.com for details.
 
       - question: |
-         Integrated Windows Authentication
+         Integrated Windows authentication
         answer: |
 
       - question: |

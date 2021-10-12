@@ -28,7 +28,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 - Review the documentation on how to [enable connectivity in different Azure subscriptions](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
-- A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure, which is _circuit 1_ for peering.
+- A separate, functioning ExpressRoute circuit for connecting on-premises environments to Azure, which is _circuit 1_ for peering.
 
 - Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
@@ -73,7 +73,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 
 ## Verify on-premises network connectivity
 
-You should now see in your **on-premises edge router** where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
+In your **on-premises edge router**, you should now see where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
 
 >[!IMPORTANT]
 >Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  

@@ -103,8 +103,9 @@ For optimal performance, configure your DNS server to handle client-facing clust
 
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
-![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-cluster-config/fxt-rrdns-diagram.png)
-[detailed text description](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="Diagram showing cluster round-robin DNS configuration.":::
+   <The diagram shows connections among three categories of elements: a single vserver (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "vserver1" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the vserver circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "vs1-client-IP-10", the circle with IP 10.0.0.11 is connected to "vs1-client-IP-11", and the circle with IP 10.0.0.12 is connected to "vs1-client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+:::image-end:::
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
 

@@ -2,7 +2,7 @@
 title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
 description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 01/30/2020
 ms.topic: conceptual

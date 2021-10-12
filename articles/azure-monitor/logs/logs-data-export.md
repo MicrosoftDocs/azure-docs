@@ -28,16 +28,45 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration currently can be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
+- Configuration can currently be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
 - The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables currently are limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables currently aren't supported.
-- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
+- Supported tables are limited those specified in the [supported tables](#supported-tables) section below. 
+- The existing custom log tables won’t be supported in export. A new custom log version available in March 2022 will be supported.
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table becomes supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- Data export will be available in all regions, but currently not available in the following: Switzerland North, Switzerland West, Germany West Central, Australia Central 2, UAE Central, UAE North, Japan West, Brazil Southeast, Norway East, Norway West, France South, South India, Korea South, Jio India Central, Jio India West, Canada East, West US 3, Sweden Central, Sweden South, Government clouds, China.
-- You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
+- You can define up to 10 enabled rules in your workspace. Additional rules are allowed when disabled. 
 - Destination must be unique across all export rules in your workspace.
-- The destination storage account or event hub must be in the same region as the Log Analytics workspace.
-- Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters for an event hub. Tables with longer names will not be exported.
+- Destinations must be in the same region as the Log Analytics workspace.
+- Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
+- Data export will be available in all regions, but currently supported in: 
+    - Australia Central
+    - Australia East
+    - Australia Southeast
+    - Brazil South
+    - Canada Central
+    - Central India
+    - Central US
+    - East Asia
+    - East US
+    - East US 2
+    - France Central
+    - Germany West Central
+    - Japan East
+    - Korea Central
+    - North Central US
+    - North Europe
+    - South Africa North
+    - South Central US
+    - Southeast Asia
+    - Switzerland North
+    - Switzerland West
+    - UAE North
+    - UK South
+    - UK West
+    - West Central US
+    - West Europe
+    - West US
+    - West US 2
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
@@ -47,33 +76,41 @@ Currently, there are no additional charges for the data export feature. Pricing 
 
 ## Export destinations
 
+Data export destination must be created before creating the export rule in your workspace. The destination does not have to be in the same subscription as your workspace. When using Azure Lighthouse, it is also possible to have data sent to a destination in another Azure Active Directory tenant.
+
 ### Storage account
-Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. The data export configuration creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
 
-The storage account blob path is *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such a case would be PT1H_#.json, where # is the incremental blob count.
+You need to have 'write' permissions to both workspace and destination to configure data export rule. You shouldn't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data and prevent reaching storage ingestion rate limit and throttling. 
 
-The storage account data format is [JSON lines](../essentials/resource-logs-blob-format.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
+To send data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article including enabling protected append blobs writes.
+
+The storage account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
+
+Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. The export rule setting creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
+
+Starting 15-October 2021, blobs are stored in 5 minutes folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such case would be PT05M_#.json*, where # is the incremental blob count.
+
+The storage account data format is in [JSON lines](../essentials/resource-logs-blob-format.md). This means that each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
-
 ### Event hub
-Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
+
+You need to have 'write' permissions to both workspace and destination to configure data export rule. The shared access policy for the event hub namespace defines the permissions that the streaming mechanism has. Streaming to event hub requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
+
+The event hub namespace needs to be in the same region as your workspace.
+
+Data is sent to your event hub as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 > [!IMPORTANT]
 > The [number of supported event hubs per 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, either split the tables between several export rules to different event hub namespaces, or provide event hub name in the export rule and export all tables to that event hub.
 
-Considerations:
-1. The 'Basic' event hub SKU supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and some logs in your workspace can exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
+Considerations for event hub namespace:
+1. The 'Basic' event hub SKU supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and some logs in your workspace might exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
 2. The volume of exported data often increases over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
-## Prerequisites
-The following prerequisites must be completed before configuring Log Analytics data export:
-
-- Destinations must be created prior to the export rule configuration and should be in the same region as your Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
-- The storage account must be StorageV1 or above. Classic storage is not supported.
-- If you have configured your storage account to allow access from selected networks, you need to add an exception in your storage account settings to allow Azure Monitor to write to your storage.
+> [!NOTE]
+> Azure Monitor data export can't access event hub resources when virtual networks are enabled. You have to enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub, so that Azure Monitor data export is granted access to your Event Hubs resources. 
 
 ## Enable data export
 The following steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
@@ -534,7 +571,7 @@ N/A
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
-If the data export rule includes a table that doesn't exist, it will fail with the error "Table <tableName> does not exist in the workspace".
+If the data export rule includes a table that doesn't exist, it will fail with the error "Table \<tableName\> does not exist in the workspace".
 
 
 ## Supported tables
@@ -630,11 +667,7 @@ Supported tables are currently limited to those specified below. All data from t
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
 | DatabricksWorkspace |  |
-| DeviceFileEvents |  |
-| DeviceNetworkEvents |  |
 | DeviceNetworkInfo |  |
-| DeviceProcessEvents |  |
-| DeviceRegistryEvents |  |
 | DnsEvents |  |
 | DnsInventory |  |
 | DummyHydrationFact |  |
@@ -694,8 +727,8 @@ Supported tables are currently limited to those specified below. All data from t
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
-| Operation | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| Operation | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
+| Perf | Partial support – only Windows perf data is currently supported. The Linux perf data is missing in export currently. |
 | PowerBIDatasetsWorkspace |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
@@ -705,7 +738,7 @@ Supported tables are currently limited to those specified below. All data from t
 | SecurityBaselineSummary |  |
 | SecurityCef |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export.2 |
+| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected through storage while this path isn’t supported in export.2 |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -732,9 +765,9 @@ Supported tables are currently limited to those specified below. All data from t
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export.2 |
+| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected through storage while this path isn’t supported in export.2 |
 | ThreatIntelligenceIndicator |  |
-| Update | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| Update | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Usage |  |
@@ -743,7 +776,7 @@ Supported tables are currently limited to those specified below. All data from t
 | Watchlist |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| WireData | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |

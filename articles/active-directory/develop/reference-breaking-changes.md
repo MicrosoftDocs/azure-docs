@@ -12,7 +12,7 @@ ms.topic: reference
 ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # What's new for authentication?

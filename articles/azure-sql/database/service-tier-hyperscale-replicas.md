@@ -22,8 +22,8 @@ As described in [Distributed functions architecture](service-tier-hyperscale.md)
 Secondary replicas are always read-only, and can be of three different types:
 
 - High Availability replica
-- Named replica (in Preview)
-- Geo-replica (in Preview)
+- Named replica (in [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+- Geo-replica (in [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
 
 Each type has a different architecture, feature set, purpose, and cost. Based on the features you need, you may use just one or even all of the three together.
 

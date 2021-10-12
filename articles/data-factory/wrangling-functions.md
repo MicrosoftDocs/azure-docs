@@ -4,6 +4,7 @@ description: An overview of available Data Wrangling functions in Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
 ---
@@ -13,9 +14,6 @@ ms.date: 04/16/2021
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Data Wrangling in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale by translating Power Query ```M``` scripts into Data Flow script. ADF integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query ```M``` functions available for data wrangling via Spark execution using the data flow Spark infrastructure. 
-
-> [!NOTE]
-> Power Query in ADF is currently available in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
@@ -129,19 +127,42 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 ## M script workarounds
 
-### For ```SplitColumn``` there is an alternate for split by length and by position
+### ```SplitColumn```
+
+An alternate for split by length and by position is listed below
 
 * Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
 * Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
 
 This option is accessible from the Extract option in the ribbon
 
-![Power Query Add Column](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Add Column":::
 
-### For ```Table.CombineColumns```
+### ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
 
+### Pivots
+
+* Select Pivot transformation from the PQ editor and select your pivot column
+
+![Power Query Pivot Common](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* Next, select the value column and the aggregate function
+
+![Power Query Pivot Selector](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* When you click OK, you will see the data in the editor updated with the pivoted values
+* You will also see a warning message that the transformation may be unsupported
+* To fix this warning, expand the pivoted list manually using the PQ editor
+* Select Advanced Editor option from the ribbon
+* Expand the list of pivoted values manually
+* Replace List.Distinct() with the list of values like this:
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
 
 ## Next steps
 

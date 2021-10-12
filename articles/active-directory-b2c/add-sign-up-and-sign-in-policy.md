@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,6 +31,10 @@ Sign-up and sign-in policy lets users:
 
 ![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
 
+Watch this video to learn how the user sign-up and sign-in policy works. 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
+
 ## Prerequisites
 
 If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
@@ -42,11 +46,12 @@ If you haven't already done so, [register a web application in Azure Active Dire
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![User flows page in portal with New user flow button highlighted](./media/add-sign-up-and-sign-in-policy/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/add-sign-up-and-sign-in-policy/sign-up-sign-in-user-flow.png)
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 

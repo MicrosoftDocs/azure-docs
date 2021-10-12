@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 09/02/2021
 ms.author: jeedes
 
 ---
@@ -33,8 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-* vonage supports **SP and IDP** initiated SSO
+* vonage supports **SP and IDP** initiated SSO.
+* vonage supports [Automated user provisioning](vonage-provisioning-tutorial.md).
 
 ## Adding vonage from the gallery
 
@@ -46,7 +46,6 @@ To configure the integration of vonage into Azure AD, you need to add vonage fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **vonage** in the search box.
 1. Select **vonage** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for vonage
 
@@ -67,13 +66,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **vonage** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `wso2is-<ENVIRONMENT>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -94,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up vonage** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -142,11 +142,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Phone System > Users > Add New**.
 
-    ![add user page](./media/vonage-tutorial/add-user.png)
+    ![Add user page](./media/vonage-tutorial/add-user.png)
 
-1. Add the required fields in the following page and click on **Save**.
+1. Add the required fields in the following page and click **Save**.
 
-    ![add user form page](./media/vonage-tutorial/add-user-2.png)
+    ![Add user form page](./media/vonage-tutorial/add-user-2.png)
+
+> [!NOTE]
+> vonage also supports automatic user provisioning, you can find more details [here](./vonage-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -154,15 +157,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to vonage Sign on URL where you can initiate the login flow.  
+* Click **Test this application** in Azure portal. This will redirect to vonage Sign on URL where you can initiate the login flow.  
 
 * Go to vonage Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the vonage for which you set up the SSO 
+* Click **Test this application** in Azure portal and you should be automatically signed in to the vonage for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the vonage tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the vonage for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the vonage tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the vonage for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

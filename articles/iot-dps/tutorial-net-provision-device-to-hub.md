@@ -13,7 +13,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
 
-In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using both **_Individual Enrollment_** and **_Enrollment Groups_**. This tutorial shows you how to:
+In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning Service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using both **_Individual Enrollment_** and **_Enrollment Groups_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Enroll the device
@@ -218,17 +218,17 @@ When the device is successfully enrolled, you should see it displayed in the por
 
 At this point, the following setup is ready for device registration:
 
-1. Your device or group of devices are enrolled to your Device Provisioning service, and 
+1. Your device or group of devices are enrolled to your Device Provisioning Service, and 
 2. Your device is ready with the security configured and accessible through the application using the Device Provisioning Service client SDK.
 
-Start the device to allow your client application to start the registration with your Device Provisioning service.  
+Start the device to allow your client application to start the registration with your Device Provisioning Service.  
 
 
 ## Verify the device is registered
 
 Once your device boots, the following actions should take place. See the [Provisioning Device Client Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) for more details. 
 
-1. The device sends a registration request to your Device Provisioning service.
+1. The device sends a registration request to your Device Provisioning Service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 
 3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID, and the encrypted key back to the device. 
 4. The IoT Hub client application on the device then connects to your hub. 

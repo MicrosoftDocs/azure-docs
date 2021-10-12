@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 06/25/2021
+ ms.date: 09/09/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -22,7 +22,7 @@
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
-| Web application firewall IP address ranges per match condition | 600 |
+| Web application firewall IP address ranges per custom rule | 600 |
 | Web application firewall string match values per match condition | 10 |
 | Web application firewall string match value length | 256 |
 | Web application firewall POST body parameter name length | 256 |
@@ -50,7 +50,7 @@
 | URLs in a single cache purge call | 100 | 100 |
 | Custom web application firewall rules per policy | 100 | 100 |
 | Web application firewall match conditions per custom rule | 10 | 10 |
-| Web application firewall IP address ranges per match condition | 600 | 600 |
+| Web application firewall IP address ranges per custom rule | 600 | 600 |
 | Web application firewall string match values per match condition | 10 | 10 |
 | Web application firewall string match value length | 256 | 256 |
 | Web application firewall POST body parameter name length | 256 | 256 |
@@ -83,3 +83,6 @@
 * Maximum HTTP response header size from health probe URL - 4,096 bytes - Specified the maximum length of all the response headers of health probes. 
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
+* Maximum ETag header size: 128 bytes
+
+For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

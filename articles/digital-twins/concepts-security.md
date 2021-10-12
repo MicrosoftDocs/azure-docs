@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand security best practices with Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/18/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -85,7 +85,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)](troubleshoot-error-403.md).
 
-## Managed identity for accessing other resources (preview)
+## Managed identity for accessing other resources
 
 Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 

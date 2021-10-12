@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 08/12/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
@@ -35,11 +35,13 @@ If you're not able to make the internal and external URLs match, it's not as imp
 
 There are several options for setting up your DNS configuration, depending on your requirements:
 
+
 ### Same internal and external URL, different internal and external behavior 
 
 If you don't want your internal users to be directed through the Application Proxy, you can set up a *split-brain DNS*. A split DNS infrastructure directs internal hosts to an internal domain name server, and external hosts to an external domain name server, for name resolution. 
 
 ![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+
 
 ### Different internal and external URLs 
 

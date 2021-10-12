@@ -236,7 +236,7 @@
       "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
@@ -266,7 +266,7 @@
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
       "branch": "master",
       "branch_mapping": {}
-    },     
+    },
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
@@ -336,7 +336,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "release-ignite-cogserv-speech-service",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
@@ -354,6 +354,12 @@
     {
       "path_to_root": "media-services-v3-dotnet",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-core-functions-integration",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -782,6 +788,12 @@
       "url": "https://github.com/dotnet/samples",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-docs-bicep-samples",
+      "url": "https://github.com/Azure/azure-docs-bicep-samples/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -805,13 +817,17 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.iot-hub.json",
+    ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
-    ".openpublishing.redirection.key-vault.json",
+    ".openpublishing.redirection.synapse-analytics.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
+    "articles/communication-services/.openpublishing.redirection.communication-services.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
     "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
@@ -821,11 +837,14 @@
     "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
     "articles/iot-central/.openpublishing.redirection.iot-central.json",
+    "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
+    "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
     "articles/purview/.openpublishing.redirection.purview.json",
-    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
-    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json"
+    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
   ]
 }

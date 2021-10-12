@@ -11,11 +11,11 @@ ms.subservice: data-lake-storage-gen2
 
 # Tutorials that use Azure services with Azure Data Lake Storage Gen2
 
-This article contains links to tutorials that show you how to use various Azure services with Data Lake Storage Gen2. 
+This article contains links to tutorials that show you how to use various Azure services with Data Lake Storage Gen2.
 
 ## List of tutorials
 
-| Azure service | Step-by-step guide | 
+| Azure service | Step-by-step guide |
 |---------------|-------------------|
 | Azure Synapse Analytics | [Get Started with Azure Synapse Analytics](../../synapse-analytics/get-started.md) |
 | Azure Data Factory | [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |

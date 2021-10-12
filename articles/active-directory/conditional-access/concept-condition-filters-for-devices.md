@@ -10,7 +10,7 @@ ms.date: 06/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -139,6 +139,9 @@ Filters for devices (preview) condition in Conditional Access evaluates policy b
 | Include/exclude mode with negative operators (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) and use of any attributes excluding extensionAttributes1-15 | Registered device | Yes, if criteria are met |
 | Include/exclude mode with negative operators (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) and use of any attributes including extensionAttributes1-15 | Registered device managed by Intune | Yes, if criteria are met |
 | Include/exclude mode with negative operators (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) and use of any attributes including extensionAttributes1-15 | Registered device not managed by Intune | Yes, if criteria are met and if device is compliant or Hybrid Azure AD joined |
+
+> [!IMPORTANT]
+> For unregistered devices, the only device information passed is the Operating System, Operating System Version, and the Browser.  This means for unregistered devices and Conditional Access policies using negative operators for filters for device, any value outside of these will be evaluated with an blank value.  For example, if an unregistered device was being evaluated with the following: **device.displayName -notContains *Example***. Since the unregistered device will pass a blank display name, which is not the value of *Example*, the resulting condition will be true.
 
 ## Next steps
 

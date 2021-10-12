@@ -154,7 +154,17 @@ Provide the images and other technical properties associated with this plan.
 
 ### Reuse technical configuration
 
-If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
+This option allows you to use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the reuse technical configuration option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
+
+Some common reasons for reusing the technical configuration settings from another plan include:
+
+1. The same images are available for both *Pay as you go* and *BYOL*.
+2. To reuse the same technical configuration from a public plan for a private plan with a different price. 
+3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
+
+Leverage [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
+
+If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
 
 ### Operating system
 
@@ -176,21 +186,21 @@ Add open public or private ports on a deployed virtual machine.
 
 Here is a list of properties that can be selected for your VM.
 
-- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](https://go.microsoft.com/fwlink/?linkid=2155616).
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
 
 - **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
 
-- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](https://go.microsoft.com/fwlink/?linkid=2128218).
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
 
-- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](https://go.microsoft.com/fwlink/?linkid=2155371).
+- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](../automanage/automanage-hotpatch.md).
 
-- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](https://go.microsoft.com/fwlink/?linkid=2155372).
+- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](./azure-vm-create-certification-faq.yml#vm-extensions).
 
 - **Is a network virtual appliance**: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
 
-- **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](https://go.microsoft.com/fwlink/?linkid=2155374).
+- **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
 
-- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](https://go.microsoft.com/fwlink/?linkid=2155274).
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### Generations
 
@@ -213,6 +223,9 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+
+> [!NOTE]
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
 
 ### VM images
 

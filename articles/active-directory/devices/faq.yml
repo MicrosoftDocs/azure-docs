@@ -7,10 +7,10 @@ metadata:
   ms.service: active-directory
   ms.subservice: devices
   ms.topic: troubleshooting
-  ms.date: 06/28/2019
+  ms.date: 09/02/2021
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
     
@@ -61,7 +61,7 @@ sections:
           - User disables the device from the My Apps portal. 
           - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
           - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-          - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](../hybrid/reference-connect-device-disappearance.md).
+          - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
           
           
           See below on how these actions can be rectified.
@@ -124,22 +124,7 @@ sections:
           >[!NOTE] 
           >For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
           
-          
-          
-      - question: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
-        answer: |
-          Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
-          
-          >[!NOTE]
-          >A device can also change from having a registered state to "Pending"
-          >* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
-          >* If a device is removed from a sync scope on Azure AD Connect and added back.
-          >
-          >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
-          
-          
-          
-      - question: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
+      - question: I can't add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
         answer: |
           Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
           
@@ -162,7 +147,7 @@ sections:
           
           
           
-      - question: Can a disabled or deleted user sign in to an Azure AD joined devices
+      - question: Can a disabled or deleted user sign in to an Azure AD joined device?
         answer: |
           Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. 
           
@@ -269,7 +254,7 @@ sections:
           
           
           
-      - question: What happens if a user changes their password and tries to login to their Windows 10 hybrid Azure AD joined device outside the corporate network?
+      - question: What happens if a user changes their password and tries to sign in to their Windows 10 hybrid Azure AD joined device outside the corporate network?
         answer: |
           If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies. This issue doesn't occur if you use Windows Hello for Business. 
           
@@ -288,7 +273,7 @@ sections:
           > This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.
           
           
-      - question: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
+      - question: How can I block users from adding more work accounts (Azure AD registered) on my corporate Windows 10 devices?
         answer: |
           Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
           

@@ -14,18 +14,18 @@ ms.reviewer: jrasnick
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll find a collection of best practices for using serverless SQL pool. Serverless SQL pool is a resource in Azure Synapse Analytics.
+In this article, you'll find a collection of best practices for using serverless SQL pool. Serverless SQL pool is a resource in Azure Synapse Analytics. If you're working with dedicated SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
 
-Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
+Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. All files that the queries target are external to serverless SQL pool. Everything related to reading files from storage may have an impact on query performance.
 
 Some generic guidelines are:
 - Make sure that your client applications are collocated with the serverless SQL pool.
-  - If you are using client applications outside of Azure (for example Power BI Desktop, SSMS, ADS), make sure that you are using the serverless pool in some region that is close to your client computer.
+  - If you are using client applications outside of Azure (for example Power BI Desktop, SSMS, ADS), make sure that you are using the serverless pool in a region that is close to your client computer.
 - Make sure that the storage (Azure Data Lake, Cosmos DB) and serverless SQL pool are in the same region.
 - Try to [optimize storage layout](#prepare-files-for-querying) using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you are returning a large number of results, make sure that you are using SSMS or ADS and not Synapse Studio. Synapse Studio is a web tool that is not designed for large result-sets. 
-- If you are filtering results by string column, try to use some `BIN2_UTF8` collation.
-- Try to cache the results on the client side by using Power BI Import mode or Azure Analysis Services, and periodically refresh them. The serverless SQL pools cannot provide interactive experience in Power BI Direct Query mode if you are using complex queries or processing a large amount of data.
+- If you are filtering results by string column, try to use a `BIN2_UTF8` collation.
+- Try to cache the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. The serverless SQL pools cannot provide interactive experience in Power BI Direct Query mode if you are using complex queries or processing a large amount of data.
 
 ## Client applications and network connections
 
@@ -122,7 +122,7 @@ EXEC sp_describe_first_result_set N'
 Here's the result set:
 
 |is_hidden|column_ordinal|name|system_type_name|max_length|
-|----------------|---------------------|----------|--------------------|-------------------||
+|----------------|---------------------|----------|--------------------|-------------------|
 |0|1|vendor_id|varchar(8000)|8000|
 |0|2|pickup_datetime|datetime2(7)|8|
 |0|3|passenger_count|int|4|

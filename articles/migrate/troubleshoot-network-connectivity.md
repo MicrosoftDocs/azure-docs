@@ -6,7 +6,7 @@ ms.author: v-ssudhir
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 08/19/2021
 
 ---
 
@@ -45,7 +45,7 @@ The private endpoint details and private link resource FQDNs' information is ava
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
-- Enter _nslookup<storage-account-name>_.blob.core.windows.net.  Replace <storage-account-name> with the name of the storage account used for Azure Migrate.  
+- Enter _nslookup ```<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 
@@ -228,7 +228,7 @@ In addition to the URLs above, the appliance needs access to the following URLs 
 |*.portal.azure.com | Navigate to the Azure portal
 |*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
 |management.azure.com | For triggering Azure Resource Manager deployments
-|*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring
+|*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 |aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services
 |download.microsoft.com/download | Allow downloads from Microsoft download center    
 
@@ -262,3 +262,33 @@ If the DNS resolution is incorrect, follow these steps:
 3. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
 
 After you’ve verified the connectivity, retry the discovery process.
+
+### Import/export request fails with the error "403: This request is not authorized to perform this operation" 
+
+The export/import/download report request fails with the error *"403: This request is not authorized to perform this operation"* for projects with private endpoint connectivity.
+
+#### Possible causes: 
+This error may occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Migrate service (Azure virtual network) over a private network. 
+
+#### Remediation
+**Option 1** *(recommended)*:
+  
+To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can open the Azure portal in your on-premises network or your appliance VM and retry the operation. 
+
+**Option 2**:
+
+The import/export/download request makes a connection to a storage account for uploading/downloading reports. You can also change the networking settings of the storage account used for the import/export/download operation and allow access to the storage account via other networks (public networks).  
+
+To set up the storage account for public endpoint connectivity,
+
+1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix *usa*. 
+
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
+
+2. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks. 
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Snapshot of storage account networking properties.":::
+
+3. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure portal.  
+
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::

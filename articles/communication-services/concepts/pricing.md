@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios
@@ -72,10 +72,6 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 - 1 participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
-
-> [!Note]
-> Azure Communication Services direct routing leg is not charged until 08/01/2021.
-
 
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
@@ -189,10 +185,10 @@ The following prices include required communications taxes and fees:
 
 ### SMS
 
-SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
 
 The following prices include required communications taxes and fees:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|
-|USA (Toll-free)    |$0.0075/msg   | $0.0075/msg |
+|USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |

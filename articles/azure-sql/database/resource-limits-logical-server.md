@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/28/2021
+ms.date: 10/01/2021
 ---
 
 # Resource management in Azure SQL Database
@@ -23,7 +23,7 @@ For specific resource limits per pricing tier (also known as service objective) 
 > [!TIP]
 > For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
 >
-> For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits) and [memory and concurrency limits](/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits).
+> For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) and [memory and concurrency limits](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 
 ## Logical server limits
 
@@ -31,7 +31,7 @@ For specific resource limits per pricing tier (also known as service objective) 
 | :--- | :--- |
 | Databases per [logical server](logical-servers.md) | 5000 |
 | Default number of logical servers per subscription in a region | 20 |
-| Max number of logical servers per subscription in a region | 200 |
+| Max number of logical servers per subscription in a region | 250 |
 | DTU / eDTU quota per logical server | 54,000 |
 | vCore quota per logical server | 540 |
 | Max elastic pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|

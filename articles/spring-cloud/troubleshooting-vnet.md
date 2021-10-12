@@ -41,4 +41,4 @@ This problem occurs if your virtual network is configured with custom DNS settin
 
 ## Other issues
 
-[Troubleshoot common Azure Spring Cloud issues](./troubleshoot.md).
+[Troubleshoot common Azure Spring Cloud issues](./troubleshoot.md)

@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 09/14/2021
 ms.author: memildin
 ---
 
@@ -24,7 +24,7 @@ The extension can also protect Kubernetes clusters on other cloud providers, alt
 |--------|---------|
 | Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
-| Pricing | Requires [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md) |
+| Pricing | Free (during preview) |
 | Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limitations | Azure Arc enabled Kubernetes and the Azure Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Azure Defender is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
 | Environments and regions | Availability for this extension is the same as [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
@@ -41,9 +41,19 @@ This diagram shows the interaction between Azure Defender for Kubernetes and the
 
 ## Prerequisites
 
-- Azure Defender for Kubernetes is [enabled on your subscription](enable-azure-defender.md)
-- Your Kubernetes cluster is [connected to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- You've met the pre-requisites listed under the [generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
+Before deploying the extension, ensure you:
+- [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- Complete the [pre-requisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
+- Have [Helm 3](https://helm.sh/docs/intro/install) version 3.7.0 or newer
+- Configure **port 443** on the following endpoints for outbound access:
+    - For clusters on Azure Government cloud:
+        - *.ods.opinsights.azure.us
+        - *.oms.opinsights.azure.us
+        - :::no-loc text="login.microsoftonline.us":::
+    - For clusters on other Azure cloud deployments:
+        - *.ods.opinsights.azure.com
+        - *.oms.opinsights.azure.com
+        - :::no-loc text="login.microsoftonline.com":::
 
 ## Deploy the Azure Defender extension
 
@@ -100,7 +110,7 @@ A dedicated recommendation in Azure Security Center provides:
 
     | Property | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces) |
+    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces) |
     | auditLogPath |**Optional**. The full path to the audit log files.<br>When not provided, the default path ``/var/log/kube-apiserver/audit.log`` will be used.<br>For AKS Engine, the standard path is ``/var/log/kubeaudit/audit.log`` |
 
     The below command shows an example usage of all optional fields:
@@ -113,7 +123,7 @@ A dedicated recommendation in Azure Security Center provides:
 
 ### Use Azure Resource Manager to deploy the Azure Defender extension
 
-To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
@@ -124,7 +134,7 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### Use REST API to deploy the Azure Defender extension 
 
-To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 > [!TIP]
 > The simplest way to use the API to deploy the Azure Defender extension is with the supplied **Postman Collection JSON** example from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
@@ -145,7 +155,7 @@ To use the REST API to deploy the Azure Defender extension, you'll need a Log An
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
-    ```az account get-access-token --subscription <your-subscription-id>```
+    `az account get-access-token --subscription <your-subscription-id>`
     Use the following structure for the body of your message:
     ```json
     { 

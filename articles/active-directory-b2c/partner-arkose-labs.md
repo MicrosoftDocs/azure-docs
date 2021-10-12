@@ -153,7 +153,7 @@ To redeploy the local instance during testing, repeat steps 1 to 4.
 
 This sample protects the web API endpoint using [HTTP Basic authentication](https://tools.ietf.org/html/rfc7617).
 
-Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) file for more information.
+Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) file for more information.
 
 1. Create a local.settings.json file in your root folder
 

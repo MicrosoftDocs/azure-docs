@@ -49,6 +49,8 @@ items:
 - name: Resources
   expanded: true
   items:
+    - name: API versioning for DICOM service
+      href: api-versioning-dicom-service.md 
     - name: DICOM Conformance Statement
       href: dicom-services-conformance-statement.md
     - name: FAQs

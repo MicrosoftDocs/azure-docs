@@ -86,4 +86,4 @@ If you're detecting faces from a video feed, you may be able to improve performa
 
 Now that you're familiar with face detection concepts, learn how to write a script that detects faces in a given image.
 
-* [Detect faces in an image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Call the detect API](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

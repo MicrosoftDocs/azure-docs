@@ -113,7 +113,7 @@ $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable 
 $rule = New-AzApplicationGatewayFirewallCustomRule -Name blockEvilBot -Priority 2 -RuleType MatchRule -MatchCondition $condition -Action Block
  
 # Create a geo-match custom rule
-$var2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$var2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
 $condition2 = New-AzApplicationGatewayFirewallCondition -MatchVariable $var2 -Operator GeoMatch -MatchValue "US"  -NegationCondition $False
 $rule2 = New-AzApplicationGatewayFirewallCustomRule -Name allowUS -Priority 14 -RuleType MatchRule -MatchCondition $condition2 -Action Allow
 

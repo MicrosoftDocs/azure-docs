@@ -89,7 +89,7 @@ cluster = Cluster.builder()
 
 If the value for `withLocalDc()` doesn't match the contact point datacenter, you might experience an intermittent error: `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)`.
 
-Implement the [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/package/src/main/java/com/microsoft/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java). To make it work, you might need to upgrade DataStax by using the following code:
+Implement the [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/driver-3/src/main/java/com/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java). To make it work, you might need to upgrade DataStax by using the following code:
 
 ```java
 LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder().withWriteDC("West US").withReadDC("West US").build();
@@ -99,7 +99,7 @@ LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder(
 
 When you run `select count(*) from table` or similar for a large number of rows, the server times out.
 
-If you're using a local CQLSH client, change the `--connect-timeout` or `--request-timeout` settings. See [cqlsh: the CQL shell](https://cassandra.apache.org/doc/latest/tools/cqlsh.html).
+If you're using a local CQLSH client, change the `--connect-timeout` or `--request-timeout` settings. See [cqlsh: the CQL shell](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html).
 
 If the count still times out, you can get a count of records from the Azure Cosmos DB back-end telemetry by going to the metrics tab in the Azure portal, selecting the metric `document count`, and then adding a filter for the database or collection (the analog of the table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
 

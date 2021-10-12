@@ -8,10 +8,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
+
+#customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
 ---
 
 # Manage app consent policies

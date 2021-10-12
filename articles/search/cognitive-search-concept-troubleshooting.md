@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 09/16/2021
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 

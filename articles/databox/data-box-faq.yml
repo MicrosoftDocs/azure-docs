@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 07/21/2021
+  ms.date: 08/31/2021
   ms.author: alkohli
   ms.custom: references_regions
     
@@ -57,7 +57,7 @@ sections:
       - question: |
           Which regions can I store data in with Data Box?
         answer: |
-          Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
+          Data Box is supported for all regions within the US, Canada, the EU, the UK, Australia, Singapore, Hong Kong, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
           
       - question: |
           How can I import source data at my location in a particular country to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?
@@ -155,7 +155,7 @@ sections:
   - name: Configure and connect
     questions:
       - question: |
-          How do I unlock the Data Box? 
+          How do I unlock the Data Box?
         answer: |
           In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
           
@@ -205,6 +205,11 @@ sections:
           Is port channel configuration supported on Data Box? How about MPIO?
         answer: |
           We don't support port channel configuration, Multipath IO (MPIO) configuration, or vLAN configuration on Data Box.
+
+      - question: |
+          When do the automatically generated self-signed certificates on my device expire?
+        answer: |
+          [!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)] For more information, see [Use your own certificates](data-box-bring-your-own-certificates.md).     
 
   - name: Track status
     questions:

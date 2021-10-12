@@ -3,13 +3,15 @@ title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create a .NET Core C# application to send messages to and receive messages from a Service Bus queue.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 08/01/2021
+ms.date: 08/16/2021
 ms.custom: contperf-fy21q4
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
 This quickstart shows how to send messages to and receive messages from a Service Bus queue using the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET library.
 
+> [!NOTE]
+> You can find more .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## Prerequisites
 
@@ -18,7 +20,7 @@ This quickstart shows how to send messages to and receive messages from a Servic
 - **Create a Service Bus namespace and a queue**. Follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a Service Bus namespace and a queue. 
 
     > [!IMPORTANT]
-    > Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created. You'll use them later in this tutorial. 
+    > Note down the [**primary connection string**](./service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string) for your Service Bus namespace and the name of the **queue** you created. You'll use them later in this tutorial. 
 
 
 ## Send messages
@@ -52,11 +54,11 @@ This section shows you how to create a .NET Core console application to send mes
 ### Add code to send messages to the queue
 
 1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.  
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the `CreateSender` method on the `ServiceBusClient` object to create a `ServiceBusSender` object for the specific Service Bus queue.     
-    1. Creates a `ServiceBusMessageBatch` object by using the `ServiceBusSender.CreateMessageBatchAsync` method.
-    1. Add messages to the batch using the `ServiceBusMessageBatch.TryAddMessage`. 
-    1. Sends the batch of messages to the Service Bus queue using the `ServiceBusSender.SendMessagesAsync` method.
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the primary connection string to the namespace. 
+    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.     
+    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
+    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
+    1. Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
     
         For more information, see code comments.
     
@@ -127,7 +129,7 @@ This section shows you how to create a .NET Core console application to send mes
             }
         }   
         ``` 
-1. Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
+1. Replace `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
 1. Build the project, and ensure that there are no errors. 
 1. Run the program and wait for the confirmation message.
     
@@ -175,11 +177,11 @@ In this section, you'll add code to retrieve messages from the queue.
 
 1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.
     Here are the important steps from the code:
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the `CreateProcessor` method on the `ServiceBusClient` object to create a `ServiceBusProcessor` object for the specified Service Bus queue. 
-    1. Specifies handlers for the `ProcessMessageAsync` and `ProcessErrorAsync` events of the `ServiceBusProcessor` object. 
-    1. Starts processing messages by invoking the `StartProcessingAsync` on the `ServiceBusProcessor` object. 
-    1. When user presses a key to end the processing, invokes the `StopProcessingAsync` on the `ServiceBusProcessor` object. 
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the primary connection string to the namespace. 
+    1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
+    1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object. 
+    1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object. 
+    1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object. 
 
         For more information, see code comments.
 
@@ -265,7 +267,7 @@ In this section, you'll add code to retrieve messages from the queue.
             }
         }
         ```
-1. Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue. 
+1. Replace `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue. 
 1. Build the project, and ensure that there are no errors.
 1. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application. 
 

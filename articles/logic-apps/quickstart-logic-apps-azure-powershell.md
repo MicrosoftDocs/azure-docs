@@ -26,7 +26,7 @@ If you're new to Azure Logic Apps, you can also learn how to create your first l
 Validate your environment before you begin:
 
 * Sign in to the Azure portal and check that your subscription is active by running [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
-* Check your version of Azure PowerShell by running `Get-InstalledModule -Name Az`. For the latest version, see the [latest release notes](https://aka.ms/azps-migration-latest).
+* Check your version of Azure PowerShell by running `Get-InstalledModule -Name Az`. For the latest version, see the [latest release notes](/powershell/azure/migrate-az-6.0.0).
   * If you don't have the latest version, update your installation by following [Update the Azure PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
 
 ### Example - create resource group

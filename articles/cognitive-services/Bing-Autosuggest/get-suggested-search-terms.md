@@ -3,14 +3,14 @@ title: What is Bing Autosuggest?
 titleSuffix: Azure Cognitive Services
 description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
-ms.author: scottwhi
+
 ---
 # What is Bing Autosuggest?
 

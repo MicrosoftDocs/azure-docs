@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
@@ -73,7 +73,6 @@ Use the following tools:
 #### Azure Arc-enabled SQL Managed Instance
 
 - Automated backup and point-in-time restore is in preview.
-
 - Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
 - A database can be restored to any point-in-time where the transactions took place.
@@ -100,10 +99,11 @@ Use the following tools:
 
 #### Data controller
 
-- When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
+- When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any Azure Arc-enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
+- At this time, PosgreSQL Hyperscale can't be used on Kubernetes version 1.22 and higher. 
 - Backup and restore operations no longer work in the July 30 release. This is a temporary limitation. Use the June 2021 release for now if you need to do to back up or restore. This will be fixed in a future release.
 
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
@@ -136,7 +136,7 @@ Use the following tools:
 
 ##### Point-in-time restore(PITR) supportability and limitations:
 	
--  Doesn't support restore from one Azure Arc-enabled SQL managed instance to another Azure Arc enabled SQL managed instance.  The database can only be restored to the same Arc-enabled SQL Managed Instance where the backups were created.
+-  Doesn't support restore from one Azure Arc-enabled SQL managed instance to another Azure Arc-enabled SQL managed instance.  The database can only be restored to the same Azure Arc-enabled SQL Managed Instance where the backups were created.
 -  Renaming of a databases is currently not supported, for point in time restore purposes.
 -  Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
 -  No support for restoring a TDE enabled database.
@@ -150,10 +150,13 @@ Use the following tools:
 -  System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
 -  Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
 -  Only `ONLINE` user databases are backup up.
+-  Default recovery point objective (RPO): 5 minutes. Can not be modified in current release.
+-  Backups are retained indefinitely. To recover space, manually delete backups.
 
 ##### Other limitations
 - Transaction replication is currently not supported.
--  Log shipping is currently blocked
+- Log shipping is currently blocked.
+- Only SQL Server Authentication is supported.
 
 ## June 2021
 
@@ -181,7 +184,7 @@ To update your scripts for managed instance, replace `azdata arc sql mi...` with
 
 For Azure Arc-enabled PostgreSQL Hyperscale, replace `azdata arc sql postgres...` with `az postgres arc-server...`.
 
-In addition to the parameters that have historically existed on the `azdata` commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--k8s-namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Arc-enabled data services target only the Kubernetes API.
+In addition to the parameters that have historically existed on the `azdata` commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--k8s-namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Azure Arc-enabled data services target only the Kubernetes API.
 
 Some of the short forms of the parameter names (e.g. `--core-limit` as `-cl`) have either been removed or changed. Use the new parameter short names or the long name.
 
@@ -197,7 +200,7 @@ The OpenDistro security pack has been removed. Log in to Kibana is now done thro
 
 #### CRD version bump to `v1beta1`
 
-All CRDs have had the version bumped from `v1alpha1` to `v1beta1` for this release. Be sure to delete all CRDs as part of the uninstall process if you have deployed a version of Arc-enabled data services prior to the June 2021 release. The new CRDs deployed with the June 2021 release will have v1beta1 as the version.
+All CRDs have had the version bumped from `v1alpha1` to `v1beta1` for this release. Be sure to delete all CRDs as part of the uninstall process if you have deployed a version of Azure Arc-enabled data services prior to the June 2021 release. The new CRDs deployed with the June 2021 release will have v1beta1 as the version.
 
 #### Azure Arc-enabled SQL Managed Instance
 
@@ -211,13 +214,13 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 
 #### Data controller
 
-- Streamlined user experience for deploying a data controller in the direct connected mode from the Azure portal. Once a Kubernetes cluster has been Arc-enabled, you can deploy the data controller entirely from the portal with the Arc data controller create wizard in one motion. This deployment also creates the custom location and Arc-enabled data services extension (bootstrapper). You can also pre-create the custom location and/or extension and configure the data controller deployment to use them.
+- Streamlined user experience for deploying a data controller in the direct connected mode from the Azure portal. Once a Kubernetes cluster has been Azure Arc-enabled, you can deploy the data controller entirely from the portal with the Arc data controller create wizard in one motion. This deployment also creates the custom location and Azure Arc-enabled data services extension (bootstrapper). You can also pre-create the custom location and/or extension and configure the data controller deployment to use them.
 - New `Infrastructure` property is a required property when you deploy an Arc data controller. This property will be required for billing purposes. More information will be provided at general availability.
 - Various usability improvements in the data controller user experience in the Azure portal including the ability to better see the deployment status of resources that are in the deployment process on the Kubernetes cluster.
 - Data controller automatically uploads logs (optionally) and now also metrics to Azure in direct connected mode.
 - The monitoring stack (metrics and logs databases/dashboards) has now been packaged into its own custom resource definition (CRD) - `monitors.arcdata.microsoft.com`. When this custom resource is created the monitoring stack pods are created. When it is deleted the monitoring stack pods are deleted. When the data controller is created the monitor custom resource is automatically created.
 - New regions supported for direct connected mode (preview): East US 2, West US 2, South Central US, UK South, France Central, Southeast Asia, Australia East.
-- The custom location resource chart on the overview blade now shows Arc-enabled data services resources that are deployed to it.
+- The custom location resource chart on the overview blade now shows Azure Arc-enabled data services resources that are deployed to it.
 - Diagnostics and solutions have been added to the Azure portal for data controller.
 - Added new `Observed Generation` property to all Arc related custom resources.
 - Credential manager service is now included and handles the automated distribution of certificates to all services managed by the data controller.
@@ -228,7 +231,7 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 - Azure Arc PostgreSQL Hyperscale deployments now supports Kubernetes pods to nodes assignments strategies with nodeSelector, nodeAffinity and anti-affinity.
 - You can now configure compute parameters (vCore & memory) per role (Coordinator or Worker) when you deploy a PostgreSQL Hyperscale server group or after deployment from Azure Data Studio and from the Azure portal.
 - From the Azure portal, you can now view the list of PostgreSQL extensions created on your PostgreSQL Hyperscale server group.
-- From the Azure portal, you can delete Arc-enabled PostgreSQL Hyperscale groups on a data controller that is directly connected to Azure.
+- From the Azure portal, you can delete Azure Arc-enabled PostgreSQL Hyperscale groups on a data controller that is directly connected to Azure.
 
 
 #### Azure Arc-enabled SQL Managed Instance
@@ -266,7 +269,7 @@ As a preview feature, the technology presented in this article is subject to [Su
 
 - Create and delete data controller, SQL managed instance, and PostgreSQL Hyperscale server groups from Azure portal.
 - Validate portal actions when deleting Azure Arc data services. For instance, the portal alerts when you attempt to delete the data controller when there are SQL Managed Instances deployed using the data controller.
-- Create custom configuration profiles to support custom settings when you deploy Arc-enabled data controller using the Azure portal.
+- Create custom configuration profiles to support custom settings when you deploy Azure Arc-enabled data controller using the Azure portal.
 - Optionally, automatically upload your logs to Azure Log analytics workspace in the directly connected mode.
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
@@ -280,7 +283,7 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc-enabled SQL Managed Instance
 
-- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc-enabled SQL Managed Instance has the same commands as `az sql mi-arc <command>`. All Arc-enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Azure Arc-enabled SQL Managed Instance has the same commands as `az sql mi-arc <command>`. All Azure Arc-enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
    To add the extension:
 
@@ -479,7 +482,7 @@ This release introduces the following breaking changes:
 
 ## September 2020
 
-Azure Arc-enabled data services is released for public preview. Arc-enabled data services allow you to manage data services anywhere.
+Azure Arc-enabled data services is released for public preview. Azure Arc-enabled data services allow you to manage data services anywhere.
 
 - SQL Managed Instance
 - PostgreSQL Hyperscale

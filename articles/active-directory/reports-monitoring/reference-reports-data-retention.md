@@ -69,8 +69,11 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 | Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Users at risk  | 7 days        | 30 days             | 90 days             |
+| Risky users    | no limit      | no limit            | no limit            |
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
+
+> [!NOTE]
+> Risky users are not deleted until the risk has been remediated.
 
 ---
 

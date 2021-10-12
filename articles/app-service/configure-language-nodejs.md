@@ -11,7 +11,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -25,7 +25,7 @@ To show the current Node.js version, run the following command in the [Cloud She
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -59,7 +59,7 @@ To set your app to a [supported Node.js version](#show-nodejs-version), run the 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
 ```
 
-This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation.
+This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation. This setting only recognizes major minor versions, the _LTS_ moniker is not supported.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
@@ -115,7 +115,7 @@ app.listen(port, () => {
 
 ## Customize build automation
 
-If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
@@ -237,7 +237,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git, or through Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
+By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git, or through Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -347,7 +347,7 @@ if (req.secure) {
 
 ## Monitor with Application Insights
 
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)
 
 This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md). 
 
@@ -366,6 +366,23 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
 
+::: zone pivot="platform-windows"
+
+#### You do not have permission to view this directory or page
+
+After deploying your Node.js code to a native Windows app in App Service, you may see the message `You do not have permission to view this directory or page.` in the browser when navigating to your app's URL. This is most likely because you don't have a *web.config* file (see the [template](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) and an [example](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config)).
+
+If you deploy your files by using Git, or by using ZIP deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine generates a *web.config* in the web root of your app (`%HOME%\site\wwwroot`) automatically if one of the following conditions is true:
+
+- Your project root has a *package.json* that defines a `start` script that contains the path of a JavaScript file.
+- Your project root has either a *server.js* or an *app.js*.
+
+The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly. 
+
+If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az_webapp_up) uses ZIP deployment with build automation enabled.
+
+::: zone-end
+
 ::: zone pivot="platform-linux"
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
@@ -383,3 +400,7 @@ When a working Node.js app behaves differently in App Service or has errors, try
 > [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

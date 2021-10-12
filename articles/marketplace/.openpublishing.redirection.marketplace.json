@@ -1851,6 +1851,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/private-offers.md",
+            "redirect_url": "/azure/marketplace/private-plans",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/promote-your-business-with-microsoft.md",
             "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
             "redirect_document_id": false

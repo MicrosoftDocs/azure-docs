@@ -55,12 +55,12 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Chain of custody reporting**            | No  | Yes                        | No  | Yes                            |
 | **Support for alternate data streams**    | No  | Yes                        | Yes | No                             |
 | **Scheduling for migration**              | No  | Yes                        | Yes | Yes                            |
-| **Preserving ACL**                        | No  | Yes                        | Yes | Yes                            |
+| **Preserving ACL**                        | Yes  | Yes                        | Yes | Yes                            |
 | **DACL support**                          | Yes | Yes                        | Yes | Yes                            |
 | **SACL support**                          | Yes | Yes                        | Yes | No                             |
 | **Preserving access time**                | Yes | Yes                        | Yes | Yes                            |
 | **Preserving modified time**              | Yes | Yes                        | Yes | Yes                            |
-| **Preserving creation time**              | No  | Yes                        | Yes | Yes                            |
+| **Preserving creation time**              | Yes  | Yes                        | Yes | Yes                            |
 | **Azure Data Box support**       | Yes | Yes                        | No  | No                             |
 | **Migration of snapshots**                | No  | Manual                     | Yes | No                             |
 | **Symbolic link support**                 | No  | Yes                        | No  | Yes                            |
@@ -96,6 +96,9 @@ The following comparison matrix shows basic functionality of different tools tha
 ### Azure File Sync
 
 - Internal hash validation
+
+> [!TIP]
+> Azure File Sync is meant as a permanent, hybrid solution for on-premises caching / sync of a number of Azure file shares. In that function, it provides zero-downtime cloud migration. If you do not plan on caching your Azure file shares on-premises, Azure File Sync is not a recommended migration tool. Refer to the [Azure file share migration overview](../../../files/storage-files-migration-overview.md) or the other partner tools described in this article.
 
 ### Datadobi DobiMigrate
 
@@ -144,4 +147,4 @@ The following comparison matrix shows basic functionality of different tools tha
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
-- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](https://aka.ms/AzReplicate)
+- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/samples/azure/azreplicate/azreplicate/)

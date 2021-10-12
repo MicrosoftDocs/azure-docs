@@ -250,6 +250,7 @@ Description of status code referenced in `BatchUsageEvent` API response:
 | `Error` | Error code. |
 | `ResourceNotFound` | The usage resource provided is invalid. |
 | `ResourceNotAuthorized` | You are not authorized to provide usage for this resource. |
+| `ResourceNotActive` | The resource is suspended or was never activated. |
 | `InvalidDimension` | The dimension for which the usage is passed is invalid for this offer/plan. |
 | `InvalidQuantity` | The quantity passed is lower or equal to 0. |
 | `BadArgument` | The input is missing or malformed. |

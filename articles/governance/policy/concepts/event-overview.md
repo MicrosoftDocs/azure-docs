@@ -1,7 +1,7 @@
 ---
 title: Reacting to Azure Policy state change events
 description: Use Azure Event Grid to subscribe to App Policy events, which allow applications to react to state changes without the need for complicated code.
-ms.date: 03/29/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Reacting to Azure Policy state change events
@@ -56,7 +56,7 @@ Additional information about the usage of Event Grid event properties is documen
 | `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
 | `data` | object | Azure Policy event data. |
-| `data.timestamp` | string | The time (in UTC) that the resource was scanned by Azure Policy. For ordering events, use this property instead of the top-level `eventTime` or `time` properties. |
+| `data.timestamp` | string | The time (in UTC) that the resource was scanned by Azure Policy. For ordering events, use this property instead of the top level `eventTime` or `time` properties. |
 | `data.policyAssignmentId` | string | The resource ID of the policy assignment. |
 | `data.policyDefinitionId` | string | The resource ID of the policy definition. |
 | `data.policyDefinitionReferenceId` | string | The reference ID for the policy definition inside the initiative definition, if the policy assignment is for an initiative. May be empty. |

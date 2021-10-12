@@ -34,7 +34,7 @@ Starting with version 1.13.0, an in-app alert will be displayed once a version i
 
 This table describes the release date and the end of support date for each release of Azure Storage Explorer.
 
-| Storage Explorer version  | Release date	     | End of support date |
+| Storage Explorer version  | Release date         | End of support date |
 |:-------------------------:|:------------------:|:-------------------:|
 | v1.20.1                   | July 23, 2021      | July 23, 2022       |
 | v1.20.0                   | June 25, 2021      | June 25, 2022       |
@@ -51,7 +51,7 @@ This table describes the release date and the end of support date for each relea
 | v1.14.0                   | June 24, 2020      | July 14, 2021       |
 | v1.13.1                   | May 18, 2020       | July 14, 2021       |
 | v1.13.0                   | May 1, 2020        | July 14, 2021       |
-| v1.12.0                   | January 16, 2020	 | July 14, 2021       |
+| v1.12.0                   | January 16, 2020     | July 14, 2021       |
 | v1.11.2                   | December 17, 2019  | July 14, 2021       |
 | v1.11.1                   | November 20, 2019  | July 14, 2021       |
 | v1.11.0                   | November 4, 2019   | July 14, 2021       |
@@ -64,11 +64,11 @@ This table describes the release date and the end of support date for each relea
 | v1.6.2                    | January 8, 2019    | July 14, 2021       |
 | v1.6.1                    | December 18, 2018  | July 14, 2021       |
 | v1.6.0                    | December 4, 2018   | July 14, 2021       |
-| v1.5.0                    | October 29, 2018	 | July 14, 2021       |
+| v1.5.0                    | October 29, 2018     | July 14, 2021       |
 | v1.4.4                    | October 15, 2018   | July 14, 2021       |
 | v1.4.2                    | September 24, 2018 | July 14, 2021       |
 | v1.4.1                    | August 28, 2018    | July 14, 2021       |
 | v1.3.1                    | July 11, 2018      | July 14, 2021       |
 | v1.2.0                    | June 12, 2018      | July 14, 2021       |
 | v1.1.0                    | May 9, 2018        | July 14, 2021       |
-| v1.0.0 (and older)        | April 16, 2018	 | July 14, 2021       |
+| v1.0.0 (and older)        | April 16, 2018     | July 14, 2021       |

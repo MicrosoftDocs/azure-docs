@@ -15,7 +15,7 @@ ms.date: 06/01/2021
 
 You can move Azure VMware Solution resources to a different region for several reasons. For example, deploy features or services available in specific regions only, meet policy and governance requirements, or respond to capacity planning requirements. 
 
-This article helps you plan and migrate Azure VMware Solution from one Azure region to another Azure region, for example, from Azure region A to Azure region B. 
+This article helps you plan and migrate Azure VMware Solution from one Azure region to another, such as Azure region A to Azure region B.
 
 
 The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
@@ -43,9 +43,9 @@ In this article, we'll walk you through the steps to:
 
 ## Prerequisites
 
-- Ensure that the [VMware HCX appliance is upgraded to the latest patch](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html) to avoid migration issues, if any.
+- [VMware HCX appliance is upgraded to the latest patch](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html) to avoid migration issues if any.
 
-- Ensure that the source's local content library is a [published content library](https://docs.vmware.com/en/VMware-Validated-Design/services/deployment-of-vrealize-suite-2019-on-vmware-cloud-foundation-310/GUID-59E0CBA1-2CF6-488D-AA58-C97C76FD8159.html?hWord=N4IghgNiBcIA4FcBGECWBnAFgAgMYHsA7AFwFMTs0kAnMagTxAF8g).
+- Source's local content library is a [published content library](https://docs.vmware.com/en/VMware-Validated-Design/services/deployment-of-vrealize-suite-2019-on-vmware-cloud-foundation-310/GUID-59E0CBA1-2CF6-488D-AA58-C97C76FD8159.html?hWord=N4IghgNiBcIA4FcBGECWBnAFgAgMYHsA7AFwFMTs0kAnMagTxAF8g).
 
 ## Prepare
 
@@ -71,7 +71,7 @@ Back up the Azure VMware Solution (source) configuration that includes VC, NSX-T
 
 - **Compute:** Export existing inventory configuration. For Inventory backup, you can use RVtool (an open-source app).
 
-- **Network and firewall policies and rules:** On the Azure VMware Solution target, create the network segments the same as the source environment.
+- **Network and firewall policies and rules:** On the Azure VMware Solution target, create the same network segments as the source environment.
 
 Azure VMware Solution supports all backup solutions. You'll need CloudAdmin privileges to install, backup data, and restore backups. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
@@ -117,7 +117,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 ### Peer between private clouds
 
-Now that you have the ExpressRoute circuit IDs and authorization keys for both environments, you can peer the source to the target. You use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+Now that you have the ExpressRoute circuit IDs and authorization keys for both environments, you can peer the source to the target. You'll use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
  
 1. From the target, sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the source’s ExpressRoute circuit.
 
@@ -131,13 +131,13 @@ Now that you have the ExpressRoute circuit IDs and authorization keys for both e
 
 ### Create a site pairing between private clouds
 
-After you establish connectivity, you'll create a VMware HCX site pairing between the private clouds to facilitate the migration of your VMs. You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector in your datacenter. 
+After you establish connectivity, you'll create a VMware HCX site pairing between the private clouds to facilitate the migration of your VMs. You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector in your data center. 
 
 1. Sign in to your source's vCenter, and under **Home**, select **HCX**.
 
-1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
+1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen). 
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
@@ -275,7 +275,7 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 ### Migrate the VMs from the source 
 
-In this step, you'll use VMware HCX to migrate the VMs from the source to the target. You'll be given the option to do a Layer-2 extension from the source and use HCX to vMotion the VMs from the source to the target with minimal interruption. 
+In this step, you'll use VMware HCX to migrate the VMs from the source to the target. You'll have the option to do a Layer-2 extension from the source and use HCX to vMotion the VMs from the source to the target with minimal interruption. 
 
 Besides vMotion, other methods, like Bulk and Cold vMotion, are also recommended.  Learn more about:
 

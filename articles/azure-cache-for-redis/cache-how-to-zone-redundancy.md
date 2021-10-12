@@ -46,7 +46,7 @@ To create a cache, follow these steps:
    
     :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Availability zones":::
 
-1. Leave other options in their default settings. 
+1. Configure your settings for clustering and/or RDB persistence.  
 
     > [!NOTE]
     > Zone redundancy doesn't support AOF persistence or work with geo-replication currently.
@@ -57,7 +57,7 @@ To create a cache, follow these steps:
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
    
     > [!NOTE]
-    > Availability zones can't be changed after a cache is created.
+    > Availability zones can't be changed or enabled after a cache is created. 
     >
 
 ## Zone Redundancy FAQ

@@ -6,7 +6,7 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 9/06/2020
+ms.date: 08/18/2021
 ms.author: allensu
 ---
 
@@ -78,6 +78,12 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 3. Select **Add**.
 
 4. Select **Configure origin** to set the origin path for all origins:
+
+    The Origin path is used to rewrite the URL that Microsoft CDN uses when constructing the request forwarded to the origin. It will also carry all the remaining parts of the incoming request. By default, this path isn't provided. As such, Microsoft CDN will use the incoming URL path in the request to the origin.
+
+    Origin path: `/fwd/`
+
+    Incoming URL path: `/foo/a/b/image1.jpg` </br> URL from Microsoft CDN to origin: `fwd/foo/a/b/image1.jpg.`
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configure origin path" border="true":::
 

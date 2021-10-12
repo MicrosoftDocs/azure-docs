@@ -1,7 +1,7 @@
 ---
-title: Governance of Azure DevTest Labs infrastructure - Resource
+title: Governance of Azure DevTest Labs infrastructure
 description: This article addresses the alignment and management of resources for Azure DevTest Labs within your organization. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---

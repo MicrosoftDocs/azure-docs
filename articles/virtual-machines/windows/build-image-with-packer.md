@@ -13,6 +13,10 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # PowerShell: How to use Packer to create virtual machine images in Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
+
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
 This article was last tested on 8/5/2020 using [Packer](https://www.packer.io/docs/install) version 1.6.1.

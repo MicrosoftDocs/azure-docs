@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
 ---
 
@@ -65,9 +65,9 @@ Some Azure-attached services are only available when they can be directly reache
 |**Container images**|Microsoft Container Registry -> Customer|Required|No|Indirect or direct|Container images are the method for distributing the software.  In an environment which can connect to the Microsoft Container Registry (MCR) over the Internet, the container images can be pulled directly from MCR.  In the event that the deployment environment doesn’t have direct connectivity, you can pull the images from MCR and push them to a private container registry in the deployment environment.  At creation time, you can configure the creation process to pull from the private container registry instead of MCR. This will also apply to automated updates.|
 |**Resource inventory**|Customer environment -> Azure|Required|No|Indirect or direct|An inventory of data controllers, database instances (PostgreSQL and SQL) is kept in Azure for billing purposes and also for purposes of creating an inventory of all data controllers and database instances in one place which is especially useful if you have more than one environment with Azure Arc data services.  As instances are provisioned, deprovisioned, scaled out/in, scaled up/down the inventory is updated in Azure.|
 |**Billing telemetry data**|Customer environment -> Azure|Required|No|Indirect or direct|Utilization of database instances must be sent to Azure for billing purposes. |
-|**Monitoring data and logs**|Customer environment -> Azure|Optional|Maybe depending on data volume (see [Azure Monitor pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/))|Indirect or direct|You may want to send the locally collected monitoring data and logs to Azure Monitor for aggregating data across multiple environments into one place and also to use Azure Monitor services like alerts, using the data in Azure Machine Learning, etc.|
+|**Monitoring data and logs**|Customer environment -> Azure|Optional|Maybe depending on data volume (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))|Indirect or direct|You may want to send the locally collected monitoring data and logs to Azure Monitor for aggregating data across multiple environments into one place and also to use Azure Monitor services like alerts, using the data in Azure Machine Learning, etc.|
 |**Azure Role-based Access Control (Azure RBAC)**|Customer environment -> Azure -> Customer Environment|Optional|No|Direct only|If you want to use Azure RBAC, then connectivity must be established with Azure at all times.  If you don’t want to use Azure RBAC then local Kubernetes RBAC can be used.|
-|**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can us Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
+|**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can use Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
 |**Backup and restore**|Customer environment -> Customer environment|Required|No|Direct or indirect|The backup and restore service can be configured to point to local storage classes. **Pending availability in directly connected mode**|
 |**Azure backup - long term retention (Future)**| Customer environment -> Azure | Optional| Yes for Azure storage | Direct only |You may want to send backups that are taken locally to Azure Backup for long-term, off-site retention of backups and bring them back to the local environment for restore. **Pending availability in directly connected mode**|
 |**Azure Defender security services (Future)**|Customer environment -> Azure -> Customer environment|Optional|Yes|Direct only|**Pending availability in directly connected mode**|
@@ -97,6 +97,34 @@ The Kubernetes kubelet on each of the Kubernetes nodes pulling the container ima
 #### Connection target
 
 `mcr.microsoft.com`
+
+#### Protocol
+
+HTTPS
+
+#### Port
+
+443
+
+#### Can use proxy
+
+Yes
+
+#### Authentication
+
+None
+
+### Helm chart used to create data controller in direct connected mode
+
+The helm chart used to provision the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry.
+
+#### Connection source
+
+The Kubernetes kubelet on each of the Kubernetes nodes pulling the container images.
+
+#### Connection target
+
+`arcdataservicesrow1.azurecr.io`
 
 #### Protocol
 
@@ -190,4 +218,3 @@ Azure Active Directory
 > For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
-

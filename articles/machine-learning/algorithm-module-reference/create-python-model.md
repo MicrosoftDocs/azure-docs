@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 06/18/2020
+ms.date: 08/18/2021
 ---
 # Create Python Model module
 
@@ -41,6 +41,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
 > [!NOTE]
 > Please pay extra attention to the comments in sample code of the script and make sure your script strictly follows the requirement, including the class name, methods as well as method signature. Violation will lead to exceptions. 
+> **Create Python Model** only supports creating sklearn based model to be trained using **Train Model**.
 
    The following sample code of the two-class Naive Bayes classifier uses the popular *sklearn* package:
 

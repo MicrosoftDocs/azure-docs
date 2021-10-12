@@ -1,20 +1,12 @@
 ---
 title: FAQs About Azure NetApp Files | Microsoft Docs
 description: Review frequently asked questions about Azure NetApp Files, such as networking, security, performance, capacity management, and data migration/protection.
-services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2021
+author: b-juche
 ms.author: b-juche
+ms.date: 09/29/2021
 ---
 # FAQs About Azure NetApp Files
 
@@ -48,6 +40,10 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 ### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
 
 No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
+
+### Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
+
+No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
  
 ## Security FAQs
 
@@ -96,6 +92,10 @@ For the complete list of API operations, see [Azure NetApp Files REST API](/rest
 Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
 However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+
+### When I delete an Azure NetApp Files volume, is the data deleted safely? 
+
+Deletion of an Azure NetApp Files volume is performed programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
 ## Performance FAQs
 
@@ -222,6 +222,10 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
 
+### Can the SMB share permissions be changed?   
+
+No, the share permissions cannot be changed. However, the NTFS permissions of the `root` volume can be changed using the [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure. 
+
 ## Capacity management FAQs
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
@@ -260,7 +264,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
 * [Resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Remove older snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) to free up space in the hosting volume. 
+* [Remove older snapshots](snapshots-delete.md) to free up space in the hosting volume. 
 
 ### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
@@ -300,7 +304,7 @@ By default, your data stays within the region where you deploy your Azure NetApp
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
 
-The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
@@ -320,7 +324,78 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
 
+## Azure NetApp Files backup FAQs
+
+This section answers questions about the [Azure NetApp Files backup](backup-introduction.md) feature. 
+
+### When do my backups occur?   
+
+Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing cannot be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
+
+### What happens if a backup operation encounters a problem?
+
+If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup will report the failure of the operation.
+
+### Can I change the location or storage tier of my backup vault?
+
+No, Azure NetApp Files automatically manages the backup data location within Azure storage, and this location or Azure storage tier cannot be modified by the user.
+
+### What types of security are provided for the backup data?
+
+Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
+
+### What happens to the backups when I delete a volume or my NetApp account? 
+
+ When you delete an Azure NetApp Files volume, the backups are retained. If you don’t want the backups to be retained, disable the backups before deleting the volume. When you delete a NetApp account, the backups are still retained and displayed under other NetApp accounts of the same subscription, so that it’s still available for restore. If you delete all the NetApp accounts under a subscription, you need to make sure to disable backups before deleting all volumes under all the NetApp accounts.
+
+### What’s the system’s maximum backup retries for a volume?  
+
+The system makes ten retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
+
+## Application resilience FAQs
+
+This section answers questions about application resilience.
+
+### What do you generally recommend for application timeouts to best handle potential application disruptions due to storage service maintenance events?
+
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are usually non-disruptive, as long as the application can handle the IO pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds. The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds, so ensure that you are aware of the application’s resiliency settings to cope with the storage service maintenance events. For human interactive applications leveraging the SMB protocol,  the standard protocol settings are usually sufficient. 
+
+### Do I need to take special precautions for specific SMB-based applications?
+
+Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). 
+
+### I am running IBM MQ on Azure NetApp Files. I have experienced application disruptions due to storage service maintenance despite using the NFS protocol. Do I need to take special precautions?
+
+Yes, if you are running the [IBM MQ application in a shared files configuration](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-sharing-mq-files), where the IBM MQ data and logs are stored on an Azure NetApp Files volume, the following considerations are recommended to improve resilience during storage service maintenance events:
+
+* You must use NFS v4.1 protocol only.
+* For High Availability, you should use an [IBM MQ multi-instance configuration using shared NFS v4.1 volumes](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=manager-create-multi-instance-queue-linux). 
+* You should verify the functionality of the [IBM multi-instance configuration using shared NFS v4.1 volumes](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior). 
+* You should implement a scale-out IBM MQ architecture instead of using one large multi-instance IBM MQ configuration. By spreading message processing load across multiple IBM MQ multi-instance pairs, the chance of service interruption might be decreased because each MQ multi-instance pair would be processing fewer messages.
+
+> [!NOTE] 
+> The number of messages that each MQ multi-instance pair should process is highly dependent on your specific environment. You need to decide how many MQ multi-instance pairs would be needed, or what the scale-up or scale-down rules would be.
+
+The scale-out architecture would be comprised of multiple IBM MQ multi-instance pairs deployed behind an Azure Load Balancer. Applications configured to communicate with IBM MQ would then be configured to communicate with the IBM MQ instances via Azure Load Balancer. For support related to IBM MQ on shared NFS volumes, you should obtain vendor support at IBM.
+
+### I am running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. I have experienced disruptions due to storage service maintenance events despite using the *NFS* protocol. Do I need to take special precautions?
+
+Yes, if you are running the Apache ActiveMQ, it is recommended to deploy [ActiveMQ High Availability with Pluggable Storage Lockers](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq). 
+
+ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, simply called "lock". There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the "slave" isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ's control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
+
+Because the majority of the problems with this HA solution stem from inaccurate OS-level file locking, the ActiveMQ community [introduced the concept of a pluggable storage locker](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq) in version 5.7 of the broker. This approach allows a user to take advantage of a different means of the shared lock, using a row-level JDBC database lock as opposed to an OS-level filesystem lock. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
+
+>[!NOTE]
+> This section contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
+### I am running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. I have experienced disruptions due to storage service maintenance event despite using the *SMB* protocol. Do I need to take special precautions?
+
+The general industry recommendation is to [not run your KahaDB shared storage on CIFS/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you are having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
+
 ## Product FAQs
+
+This section provides information about products related to Azure NetApp Files. 
 
 ### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
@@ -328,7 +403,7 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
 ### Does Azure NetApp Files work with Azure Policy?
 

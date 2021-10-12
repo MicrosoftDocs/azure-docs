@@ -8,15 +8,25 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
+
+#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
 ---
 
 # Configure group owner consent to apps accessing group data
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
+
+## Prerequisites
+
+To complete the tasks in this guide, you need the following:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Global Administrator role.
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
 
 ## Manage group owner consent to apps
 

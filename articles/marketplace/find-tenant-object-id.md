@@ -52,14 +52,15 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 1. Sign in to the [Office 365 Admin Portal](https://portal.office.com/adminportal/home) with an account in the desired tenant with the appropriate administrative rights.
 2. In the left-side menu, expand the **Admin Centers** section at the bottom and then select the Azure Active Directory option to launch the admin console in a new browser window.
 3. Select **Users**.
-4. Browse to or search for the desired user, then select the account name to view the user account’s profile information.
+4. Browse to or search for the desired user, then select the account name to view the user account's profile information.
 5. The Object ID is located in the Identity section on the right.
 
     :::image type="content" source="media/tenant-and-object-id/azure-ad-admin-center.png" alt-text="Azure Active Directory admin center.":::
 
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments for Azure resources.":::
+    :::image type="content" source="../role-based-access-control/media/role-assignments-portal/rg-role-assignments.png" alt-text="Role assignments for Azure resources.":::
+
 
 ## Find IDs for debugging
 

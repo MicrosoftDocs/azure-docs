@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/03/2021
 ms.author: aersoy
 ---
 
@@ -42,7 +42,7 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
 1. Search **Recent resources** and select your DICOM service instance.
-1. Copy the **Service URL** of your DICOM service.
+1. Copy the **Service URL** of your DICOM service. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
 In your application, install the following NuGet packages:
 

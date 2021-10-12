@@ -27,7 +27,7 @@ This content covers the technical aspects of planning for a verifiable credentia
 
 Supporting technologies that are not specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment is not covered in detail.
 
-As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) for information covering these topics.
+As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for information covering these topics.
 
 ## Components of the solution
 
@@ -132,11 +132,11 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
 #### Additional elements 
 
-**Relying party web front end**: This is the web front end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
 **User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
-**Other back-end services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
+**Other backend services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
 
 #### Design Considerations
 
@@ -164,9 +164,9 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 #### Additional elements 
 
-**Relying party web front end**: This is the web front end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
-**User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
+**User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions.
 
 **Other backend services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
 
@@ -346,4 +346,3 @@ Implement Verifiable Credentials
    * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
 
 [FAQs](verifiable-credentials-faq.md)
-

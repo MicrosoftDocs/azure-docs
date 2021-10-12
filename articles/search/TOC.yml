@@ -126,6 +126,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Analyzers
+    href: search-analyzers.md
   - name: Semantic search
     href: semantic-search-overview.md
   - name: Relevance scoring
@@ -143,7 +145,7 @@
       href: knowledge-store-concept-intro.md
     - name: Projections
       href: knowledge-store-projection-overview.md
-    - name: Incremental enrichment
+    - name: Enrichment cache
       href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
@@ -182,8 +184,6 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
-    - name: Troubleshoot issues with creating Shared Private Link Resources
-      href: troubleshoot-shared-private-link-resources.md
   - name: Security
     items:
     - name: Data encryption
@@ -202,6 +202,8 @@
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
     - name: Outbound security (indexers)  
       items:
       - name: Data access over an IP range
@@ -266,8 +268,6 @@
       href: index-sql-relational-data.md
   - name: Analyzers
     items:
-    - name: Adding analyzers
-      href: search-analyzers.md
     - name: Add a language analyzer
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
@@ -362,7 +362,7 @@
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Define a skillset
+    - name: Create a skillset
       href: cognitive-search-defining-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
@@ -372,7 +372,9 @@
       href: cognitive-search-concept-image-scenarios.md
     - name: Cache (incremental) enrichment
       href: search-howto-incremental-index.md
-    - name: Use Custom skills
+    - name: Design tips
+      href: cognitive-search-concept-troubleshooting.md
+    - name: Custom skills
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
@@ -388,18 +390,18 @@
         href: cognitive-search-tutorial-aml-custom-skill.md
       - name: Example - Azure Machine Learning Designer
         href: cognitive-search-tutorial-aml-designer-custom-skill.md
-    - name: Design tips
-      href: cognitive-search-concept-troubleshooting.md
     - name: Knowledge store
       items:
-      - name: Create using REST and Postman
+      - name: Create using REST
         href: knowledge-store-create-rest.md
+      - name: Shaping data
+        href: knowledge-store-projection-shape.md
+      - name: Define projections
+        href: knowledge-store-projections-examples.md 
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md  
-      - name: Projection examples
-        href: knowledge-store-projections-examples.md  
+        href: knowledge-store-connect-power-bi.md 
   - name: Queries
     items:
     - name: Create a basic query
@@ -440,8 +442,6 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: Facet filters
-      href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Troubleshoot collection filters
@@ -606,8 +606,6 @@
     href: search-data-sources-terms-of-use.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: Feedback Forum (UserVoice)
-    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Documentation links (AI enrichment)

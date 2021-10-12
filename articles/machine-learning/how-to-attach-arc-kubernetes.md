@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to 
 ---
@@ -22,7 +22,7 @@ Azure Arc enabled machine learning lets you to configure and use an Azure Arc en
 
 Azure Arc enabled machine learning supports the following training scenarios:
 
-* Train models with 2.0 CLI
+* Train models with CLI (v2)
   * Distributed training
   * Hyperparameter sweeping
 * Train models with Azure Machine Learning Python SDK
@@ -43,7 +43,7 @@ Azure Arc enabled machine learning supports the following training scenarios:
 
 ## Deploy Azure Machine Learning extension
 
-Azure Arc enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure policy, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for training.
+Azure Arc enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for training.
 
 Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
 
@@ -304,11 +304,11 @@ else:
 
 ## Next steps
 
-- [Train models with 2.0 CLI](how-to-train-cli.md)
+- [Train models with CLI (v2)](how-to-train-cli.md)
 - [Configure and submit training runs](how-to-set-up-training-targets.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
 - [Train a model using Scikit-learn](how-to-train-scikit-learn.md)
 - [Train a TensorFlow model](how-to-train-tensorflow.md)
 - [Train a PyTorch model](how-to-train-pytorch.md)
 - [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)

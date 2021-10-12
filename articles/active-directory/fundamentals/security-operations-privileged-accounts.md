@@ -27,7 +27,7 @@ You are entirely responsible for all layers of security for your on-premises IT 
 
 * For more information on securing access for privileged users, visit [Securing Privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 
-* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/).
+* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
 ## Where to look
 
@@ -35,7 +35,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
 
@@ -133,13 +133,13 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 | Sign-in failure, bad password threshold | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold, and then monitor and adjust to suite your organizational behaviors and limit false alerts from being generated. |
 | Failure due to CA requirement |High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = blocked by CA | This can be an indication an attacker is trying to get into the account |
 | Privileged accounts that don't follow naming policy.| | Azure Subscription | [List Azure role assignments using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where sign in name doesn't match your organizations format. For example, ADM_ as a prefix. |
-| Interrupt |  High/Medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong Auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure Reason = Authentication failed during strong authentication request | This can be an indication an attacker has the password for the account but can't pass the MFA challenge. |   |   |
+| Interrupt |  High/Medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong Auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure Reason = Authentication failed during strong authentication request | This can be an indication an attacker has the password for the account but can't pass the MFA challenge. | 
 | Privileged accounts that don't follow naming policy.| High | Azure AD directory | [List Azure AD role assignments](../roles/view-assignments.md)| List roles assignments for Azure AD roles alert where UPN doesn't match your organizations format. For example, ADM_ as a prefix. |
-| Discover privileged accounts not registered for MFA. | High | Azure AD Graph API| Query for IsMFARegistered eq false for administrator accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http) | Audit and investigate to determine if intentional or an oversight. |
+| Discover privileged accounts not registered for MFA. | High | Azure AD Graph API| Query for IsMFARegistered eq false for administrator accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if intentional or an oversight. |
 | Account lockout | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50053 | Define a baseline threshold, and then monitor and adjust to suite your organizational behaviors and limit false alerts from being generated. |
 | Account disabled/blocked for sign-ins | Low | Azure AD Sign-ins log | Status = Failure<br>-and-<br>Target = user UPN<br>-and-<br>error code = 50057 | This could indicate someone is trying to gain access to an account once they have left an organization. Although the account is blocked, it's still important to log and alert on this activity. |
-| MFA fraud alert/block | High | Azure AD Sign-ins log | Succeeded = false<br>-and-<br>Result detail = MFA denied<br>-and-<br>Target = user | Privileged user has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account. |
-| Privileged account sign-ins outside of expected controls. |  | Azure AD Sign-ins log | Status = failure<br>UserPricipalName = <Admin account><br>Location = <unapproved location><br>IP Address = <unapproved IP><br>Device Info= <unapproved Browser, Operating System> | Monitor and alert on any entries that you have defined as unapproved. |
+| MFA fraud alert/block | High | Azure AD Sign-ins log/Azure Log Anaylitics | Succeeded = false<br>-and-<br>Result detail = MFA denied<br>-and-<br>Target = user | Privileged user has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account. |
+| Privileged account sign-ins outside of expected controls. |  | Azure AD Sign-ins log | Status = failure<br>UserPricipalName = \<Admin account\><br>Location = \<unapproved location\><br>IP Address = \<unapproved IP\><br>Device Info= \<unapproved Browser, Operating System\> | Monitor and alert on any entries that you have defined as unapproved. |
 | Outside of normal sign in times | High | Azure AD Sign-ins log | Status =success<br>-and-<br>Location =<br>-and-<br>Time = outside of working hours | Monitor and alert if sign-ins occur outside of expected times. It is important to find the normal working pattern for each privileged account and to alert if there are unplanned changes outside of normal working times. Sign-ins outside of normal working hours could indicate compromise or possible insider threats. | 
 | Identity protection risk | High | Identity Protection logs | Risk state = at risk<br>-and-<br>Risk level = low/medium/high<br>-and-<br>Activity = Unfamiliar sign-in/TOR, etc. | This indicates there is some abnormality detected with the sign in for the account and should be alerted on. | 
 | Password change | High | Azure AD Audit logs | Activity Actor = admin/self service<br>-and-<br>Target = user<br>-and-<br>Status = success/failure | Alert on any administrator account password changes, especially for Global admins, user admins, subscription admins, and emergency access accounts. Write a query targeted at all privileged accounts. | 
@@ -182,7 +182,7 @@ Investigate changes to privileged accounts' authentication rules and privileges,
 
 For more information on how to monitor for exceptions to Conditional Access policies, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-For more information on discovering unused privileged accounts, see [Create an access review of Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md)
+For more information on discovering unused privileged accounts, see [Create an access review of Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
 
  
 ## Assignment and elevation
@@ -239,7 +239,7 @@ You can monitor privileged account changes using Azure AD Audit logs and Azure M
 | Approvals and deny elevation| Low| Azure AD Audit Logs| Service = Access Review<br>-and-<br>Category = UserManagement<br>-and-<br>Activity Type = Request Approved/Denied<br>-and-<br>Initiated actor = UPN| Monitor all elevations as it could give a clear indication of timeline for an attack. |
 | Changes to PIM settings| High| Azure AD Audit Logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Update role setting in PIM<br>-and-<br>Status Reason = MFA on activation disabled (example)| One of these actions could reduce the security of the PIM elevation and make it easier for attackers to acquire a privileged account. |
 | Elevation not occurring on SAW/PAW| High| Azure AD Sign In logs| Device ID​<br>-and-<br>Browser<br>-and-<br>OS<br>-and-<br>Compliant/Managed<br>Correlate with:<br>Service = PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type – Add member to role completed (PIM activation)<br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| If this is configured, any attempt to elevate on a non-PAW/SAW device should be investigated immediately as it could indicate an attacker trying to use the account. |
-| Elevation to manage all Azure subscriptions| High| Azure Monitor| Activity Log/Directory Activity<br>Assigns the caller to user access administrator<br>-and-<br>Status = succeeded, success, fail<br>-and-<br>Event initiated by| This should be investigated immediately if not a planned change. This setting could allow an attacker access to Azure subscriptions in your environment. |
+| Elevation to manage all Azure subscriptions| High| Azure Monitor| Activity Log Tab <br>Directory Activity Tab <br> Operations Name=Assigns the caller to user access administrator <br> -and- <br> Event Category=administrative <br> -and-<br>Status = succeeded, start, fail<br>-and-<br>Event initiated by| This should be investigated immediately if not a planned change. This setting could allow an attacker access to Azure subscriptions in your environment. |
 
 
 For more information about managing elevation, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). For information on monitoring elevations using information available in the Azure AD logs, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md), which is part of the Azure Monitor documentation.

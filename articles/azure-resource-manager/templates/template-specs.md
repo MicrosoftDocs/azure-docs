@@ -18,6 +18,10 @@ To deploy the template spec, you use standard Azure tools like PowerShell, Azure
 > [!NOTE]
 > To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
+### Microsoft Learn
+
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs) on **Microsoft Learn**.
+
 ## Why use template specs?
 
 Template specs provide the following benefits:

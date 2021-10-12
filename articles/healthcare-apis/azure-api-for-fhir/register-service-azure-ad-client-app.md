@@ -1,12 +1,11 @@
 ---
 title: Register a service app in Azure AD - Azure API for FHIR
 description: Learn how to register a service client application in Azure Active Directory. 
-services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/10/2021
 ms.author: cavoeg
 ---
 
@@ -22,7 +21,7 @@ Follow these steps to create a new service client.
 
 2. Select **App registrations**.
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+    ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
 3. Select **New registration**.
 
@@ -34,24 +33,10 @@ Follow these steps to create a new service client.
 
 ## API permissions
 
-Now that you have registered your application, you'll need to select which API permissions this application should be able to request on behalf of users:
+Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
-1. Select **API permissions**.
-1. Select **Add a permission**.
-
-    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. 
-
-    If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
-
-    :::image type="content" source="media/service-client-app/service-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/service-client-app/service-client-org-api-expanded.png":::
-
-1. Select scopes (permissions) that the confidential application should be able to ask for on behalf of a user:
-
-    :::image type="content" source="media/service-client-app/service-client-add-permission.png" alt-text="Service client. Delegated Permissions":::
-
-1. Grant consent to the application. If you don't have the permissions required, check with your Azure Active Directory administrator:
-
-    :::image type="content" source="media/service-client-app/service-client-grant-permission.png" alt-text="Service client. Grant Consent":::
+>[!NOTE]
+>Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 ## Application secret
 
@@ -60,7 +45,7 @@ The service client needs a secret (password) to obtain a token.
 1. Select **Certificates & secrets**.
 2. Select **New client secret**.
 
-    ![Azure portal. Service Client Secret](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-SECRET.png)
+    ![Azure portal. Service Client Secret](media/add-azure-active-directory/portal-aad-register-new-app-registration-service-client-secret.png)
 
 3. Provide a description and duration of the secret (either 1 year, 2 years or never).
 
@@ -71,4 +56,4 @@ The service client needs a secret (password) to obtain a token.
 In this article, you've learned how to register a service client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access the FHIR service using Postman](./../use-postman.md)

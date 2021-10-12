@@ -1,7 +1,7 @@
 ---
-title: Create an image factory in Azure DevTest Labs | Microsoft Docs
+title: Create an image factory
 description: This article shows you how to set up a custom image factory by using sample scripts available in the Git repository (Azure DevTest Labs). 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
