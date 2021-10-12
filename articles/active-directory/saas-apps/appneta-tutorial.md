@@ -106,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **App roles** in the left pane. The following screen will appear:
 
-   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
+   ![Screenshot that shows the App Roles with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
 
 1. Click **Create App role**.
 1. On the **Create app role** screen, follow these steps:
