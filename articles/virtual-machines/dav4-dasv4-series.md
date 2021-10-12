@@ -18,6 +18,8 @@ The Dav4-series and Dasv4-series are new sizes utilizing AMD's 2.35Ghz EPYC<sup>
 
 ## Dav4-series
 
+Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
+
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
@@ -27,9 +29,6 @@ The Dav4-series and Dasv4-series are new sizes utilizing AMD's 2.35Ghz EPYC<sup>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
-
-
-Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
@@ -46,6 +45,8 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ## Dasv4-series
 
+Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -55,8 +56,6 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
-
-Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max burst cached and temp storage throughput: IOPS / MBps<sup>1</sup> | Max uncached disk throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|
@@ -69,7 +68,7 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_D64as_v4           | 64 | 256 | 512 | 32 | 128000 / 1020 (1600) | 128000/2000 | 80000 / 1200 | 80000/2000 | 8 | 32000 | 
 | Standard_D96as_v4           | 96 | 384 | 768 | 32 | 192000 / 1020 (2400) | 192000/2000 | 80000 / 1200 | 80000/2000 | 8 | 40000 |
 
-<sup>1</sup>  Dasv4-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup>  Dasv4-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC.
 
 

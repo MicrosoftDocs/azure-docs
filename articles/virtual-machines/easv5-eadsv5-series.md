@@ -75,8 +75,8 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processors that can
 | Standard_E64ads_v5<sup>3</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 (1600) | 80000/1200   | 80000/1800 | 8 | 32000 |
 | Standard_E96ads_v5<sup>3</sup> | 96 | 672 | 2400 | 32 | 450000 / 4000 (1600) | 80000/1600   | 80000/2000 | 8 | 40000 |
 
-<sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-<sup>2</sup> Accelerated networking can only be applied to a single NIC.
+<sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
+<sup>2</sup> Accelerated networking can only be applied to a single NIC.<br>
 <sup>3</sup> [Constrained core sizes available](constrained-vcpu.md).
 
 

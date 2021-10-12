@@ -71,7 +71,7 @@ Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processors that can
 | Standard_D64ads_v5            | 64 | 256 | 2400 | 32 | 300000 / 3872 (1600) | 80000/1200 | 80000/1800 | 8 | 32000 |
 | Standard_D96ads_v5            | 96 | 384 | 2400 | 32 | 450000 / 3872 (1600) | 80000/1600 | 80000/2000 | 8 | 40000 |
 
-<sup>1</sup> Dadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup> Dadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC.
 
 
