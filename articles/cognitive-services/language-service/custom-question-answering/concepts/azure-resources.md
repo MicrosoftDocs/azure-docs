@@ -27,7 +27,7 @@ Typically there are three parameters you need to consider:
 
 * **The throughput you need**:
     * Question answering is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
-    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
+    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
@@ -59,12 +59,12 @@ Your custom question answering feature deals with two kinds of keys: **authoring
 Use these keys when making requests to the service through APIs.
 
 > [!div class="mx-imgBorder"]
-> ![Key management managed preview](../../../qnamaker/media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
+> ![Screenshot of key management managed preview.](../../../qnamaker/media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
 
 |Name|Location|Purpose|
 |--|--|--|
 |Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the [QnA Maker management service APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
-|Azure Cognitive Search Admin Key|[Azure portal](../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure cognitive search with the Custom question answering (Preview) feature, the admin key is automatically passed on to the QnA Maker service. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
+|Azure Cognitive Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure cognitive search with the Custom question answering (Preview) feature, the admin key is automatically passed on to the QnA Maker service. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
@@ -114,6 +114,4 @@ With custom question answering, you have a choice to set up your service for kno
 
 ## Next steps
 
-* Learn about the QnA Maker [knowledge base](../How-To/manage-knowledge-bases.md)
-* Understand a [knowledge base life cycle](development-lifecycle-knowledge-base.md)
-* Review service and knowledge base [limits](../limits.md)
+* Learn about the QnA Maker [knowledge base](../How-To/manage-knowledge-base.md)
