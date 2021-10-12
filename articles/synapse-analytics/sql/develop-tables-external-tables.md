@@ -394,7 +394,7 @@ error.json file contains json array with encountered errors related to rejected 
 | Error     | Reason why row is rejected.                                  |
 | Row       | Rejected row ordinal number in file.                         |
 | Column    | Rejected column ordinal number.                              |
-| Value     | Rejected column value. If value is larger than 100 characters, only first 100 characters will be present. |
+| Value     | Rejected column value. If the value is larger than 100 characters, only the first 100 characters will be displayed. |
 | File      | Path to file that row belongs to.                            |
 
 #### TABLE_OPTIONS
