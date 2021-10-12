@@ -230,7 +230,7 @@ automl_config = AutoMLConfig(task = 'regression',
 > For classification tasks, stratified sampling is used. <br>
 > Forecasting does not currently support specifying a test dataset using a train/test split.
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of your experiment. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-the-best-model-preview).
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of your experiment. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
 
 ## Next steps
 
