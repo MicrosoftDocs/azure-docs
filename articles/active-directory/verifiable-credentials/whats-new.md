@@ -20,8 +20,9 @@ In this document you can find the latest features, improvements, and changes in 
 
 **Public Preview of the Request Service API.**
 
-Developers can start using the new [Request Service API](get-started-request-api.md) to easily build applications that can issue, verify credentials, or do both from any programming language of choice. This new REST API provides an improved abstraction layer and integration to the Azure AD Verifiable Credentials Service.
-With the release of the Request Service API, we are moving away from our initial NodeJS-based SDK, and we highly recommend you to start using the API as we’ll be deprecating the NodeJS SDK in the following months. Our documentation and samples have been refreshed to use the Request Service API. Learn more about the [request service API](get-started-request-api.md)
+- Developers can start using the new [Request Service API](get-started-request-api.md) to easily build applications that can issue, verify credentials from any programming language of choice. This new REST API provides an improved abstraction layer and integration to the Azure AD Verifiable Credentials Service.
+
+- With the release of the Request Service API, we are moving away from our initial NodeJS-based SDK, and we highly recommend you to start using the API as we’ll be deprecating the NodeJS SDK in the following months. Our documentation and samples have been refreshed to use the Request Service API. Learn more about the [request service API](get-started-request-api.md)
 
 ## April 2021
 
