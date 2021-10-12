@@ -60,62 +60,65 @@ The database designer allows you to fully customize any of the tables in your da
 
 ### General
 The **General** tab contains information specific to the table itself.
-    - **Name** the name of the table. This can be customized to any unique value within the database. Multiple tables with the same name are not allowed.
-    - **Inherited from** (optional) this value will be present if the table was created from a database template. It cannot be edited and tells the user which template table it was derived from.
-    - **Description** a description of the table. If the table was created from a database template, this will contain a description of the concept represented by this table. This field is editable and can be changed to match the description that matches your business requirements.
-    - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
+   - **Name** the name of the table. This can be customized to any unique value within the database. Multiple tables with the same name are not allowed.
+   - **Inherited from** (optional) this value will be present if the table was created from a database template. It cannot be edited and tells the user which template table it was derived from.
+   - **Description** a description of the table. If the table was created from a database template, this will contain a description of the concept represented by this table. This field is editable and can be changed to match the description that matches your business requirements.
+   - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
 ![Screenshot of the General tab](./media/modify-lake-database/general-tab.png)
 In addition, there is a collapseable section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
-    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
-      - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.
+   - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
+      - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.     
       - **Input folder** the folder in ADLS where the data loaded to this table will live. This can be edited via the file browser.
       - **Data format** the data format of the data in the **Input folder** Lake databases in Synapse support parquet and delimited text as the storage formats for data. If the data format does not match the data in the folder, queries to the table will fail.
-      - For a **Data format** of Delimited text, there are additional settings:
+   - For a **Data format** of Delimited text, there are additional settings:
         - **Row headers** check this box if the data has row headers.
         - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
         - **Data compression** the compression type used on the data.
         - **Delimiter** the field delimiter used in the data files. Supported values are: Comma (,), tab (\t), and pipe (|). 
-      - For Parquet data, there is the following setting:
+   - For Parquet data, there is the following setting:
         - **Data compression** the compression type used on the data.
 
 ### Columns
 The **Columns** tab is where the columns for the table are listed and can be modified. On this tab are two lists of columns: **Standard columns** and **Partition columns**. **Standard columns** are any column that stores data, is a primary key, and otherwise is not used for the partitioning of the data. **Partition columns** store data as well, but are used to partition the underlying data into folders based on the values contained in the column. Each column has the following properties.
 ![Screenshot of the Columns tab](./media/modify-lake-database/columns-tab.png)
-    - **Name** the name of the column. Must be unique within the table.
-    - **PK** or primary key. Indicates whether the column is a primary key for the table. Not applicable to partition columns.
-    - **Description** a description of the column. If the column was created from a database template, this will contain a description of the concept represented by this column. This field is editable and can be changed to match the description that matches your business requirements.
-    - **Nullability** indicates whether there can be null values in this column. Not applicable to partition columns.
-    - **Data type** sets the data type for the Column based on the available list of Spark data types. 
-    - **Format / Length** allows for customizing the format or maximum length of the column, depending on the data type. Date and timestamp data types have format dropdowns, and other types like string have a maximum length field. Not all data types have a value as some types are fixed length.
+   - **Name** the name of the column. Must be unique within the table.
+   - **PK** or primary key. Indicates whether the column is a primary key for the table. Not applicable to partition columns.
+   - **Description** a description of the column. If the column was created from a database template, this will contain a description of the concept represented by this column. This field is editable and can be changed to match the description that matches your business requirements.
+   - **Nullability** indicates whether there can be null values in this column. Not applicable to partition columns.
+   - **Data type** sets the data type for the Column based on the available list of Spark data types. 
+   - **Format / Length** allows for customizing the format or maximum length of the column, depending on the data type. Date and timestamp data types have format dropdowns, and other types like string have a maximum length field. Not all data types have a value as some types are fixed length.
 At the top of the **Columns** tab is a command bar that can be used to interact with the columns.
-    - **Filter by keyword** filters the list of columns to items that match the keyword specified.
-    - **+ Column** lets you add a new column. There are 3 possible options.
+   - **Filter by keyword** filters the list of columns to items that match the keyword specified.
+   - **+ Column** lets you add a new column. There are 3 possible options.
       - **New column** creates a new custom standard column.
       - **From template** opens the exploration pane and lets you identify columns from a database template to include on your table. If your database was not created using a database template, this option will not appear.
       - **Partition column** adds a new custom partition column.
-    - **Clone** duplicates the selected column. Cloned columns are always of the same type as the selected column.
-    - **Convert type** is used to change the selected **standard column** to a **partition column** or vice versa. This option will be grayed out if you have selected multiple columns of different types or the selected column is ineligible to be converted due to a **PK** or **Nullability** flag set on the column.
-    - **Delete** deletes the selected columns from the table. This action is irreversible. 
+   - **Clone** duplicates the selected column. Cloned columns are always of the same type as the selected column.
+   - **Convert type** is used to change the selected **standard column** to a **partition column** or vice versa. This option will be grayed out if you have selected multiple columns of different types or the selected column is ineligible to be converted due to a **PK** or **Nullability** flag set on the column.
+   - **Delete** deletes the selected columns from the table. This action is irreversible. 
 
 #### Partition Columns
 Partition columns are used to partition the physical data in your database based on values in those columns. Partition columns allow an easy way to distribute data on disk into more performant chunks. Partition columns in Synapse are always at the end of the table schema. In addition, they are used from top to bottom when creating the partition folders. For example, if your partition columns were Year and Month, you would end up with a structure in ADLS like this:
+
 ![Screenshot showing hierarchy of folders from partitioning: 2020 -> Jan, Feb -> files](./media/modify-lake-database/partition-example.png)
+
 Where each of file1 and file2 contained all the rows where the values of Year and Month were 2020 and Jan respectively. As more partition columns are added to a table, the more files are added to this hierarchy, making the overall file size of the partitions smaller.
+
 Synapse does not enforce or create this hierarchy by adding partition columns to a table. Data must be loaded into the table using either Synapse Pipelines or a Spark notebook in order for the partition structure to be created. 
 
 ### Relationships
 The relationships tab lets you specify relationships between tables in the database. Relationships in the database designer are informational, and do not enforce any constraints on the underlying data. They are read by other Microsoft applications can be used to accelerate transformations or provide business users insight into how tables are connected. The relationships pane has the following info.
 ![Screenshot of the Relationships tab](./media/modify-lake-database/relationships-tab.png)
-    - **Relationships from (Table)** is when one or more tables have foreign keys connected to this table. This is sometimes called a parent relationship.
-    - **Relationships to (Table)** is when a table which has foreign key and is connected to other table. This is sometimes called a child relationship.
-    - Both relationship types have the following properties.
+   - **Relationships from (Table)** is when one or more tables have foreign keys connected to this table. This is sometimes called a parent relationship.
+   - **Relationships to (Table)** is when a table which has foreign key and is connected to other table. This is sometimes called a child relationship.
+   - Both relationship types have the following properties.
       - **From table** the parent table in the relationship, or the "one" side.
       - **From column** the column in the parent table the relationship is based on.
       - **To table** the child table in the relationship, or the "many" side.
       - **To column** the column in the child table the relationship is based on.
 At the top of the **Relationships** tab is the command bar that can be used to interact with the relationships
-    - **Filter by keyword** filters the list of columns to items that match the keyword specified.
-    - **+ Relationship** lets you add a new relationship. There are 2 options.
+   - **Filter by keyword** filters the list of columns to items that match the keyword specified.
+   - **+ Relationship** lets you add a new relationship. There are 2 options.
       - **From table** creates a new relationship from the table you are working on to a different table.
       - **To table** creates a new relationship from a different table to the one you are working on.
       - **From template** opens the exploration pane and lets you pick from relationships in the database template to include in your database. If your database was not created using a database template, this option will not appear.
