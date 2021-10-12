@@ -24,7 +24,6 @@ With SQL Server on Azure VMs, the distributed network name (DNN) routes traffic 
 
 This article teaches you to configure a DNN listener to replace the VNN listener and route traffic to your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR).
 
-The DNN listener feature is currently only available starting with SQL Server 2019 CU8 on Windows Server 2016 and later.
 
 For an alternative connectivity option, consider a [VNN listener and Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead.
 
@@ -41,7 +40,7 @@ Use the DNN listener to replace an existing VNN listener, or alternatively, use 
 
 Before you complete the steps in this article, you should already have:
 
-- SQL Server 2019 on CU8 or later, on Windows Server 2016 and later
+- SQL Server starting with either [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) and later, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) and later, or [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) and later on Windows Server 2016 and later.
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
