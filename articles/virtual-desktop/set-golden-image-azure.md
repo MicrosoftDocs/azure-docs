@@ -27,7 +27,8 @@ Login to the VM and start customizing your VM with applications, updates or anyt
 
 Install Windows updates if needed before you take the final snapshot. Any required cleanup operations such as cleaning up Temp files, defragmenting disks and removing user profiles should also be done at this stage.
 
-> [!NOTE] If you are adding an Anti-Virus application, it could cause issues during Sysprep. You will need to stop these services before initiating Sysprep.
+> [!NOTE] 
+> If you are adding an Anti-Virus application, it could cause issues during Sysprep. You will need to stop these services before initiating Sysprep.
 
 ### Take final snapshot
 When you are done installing your applications to the image VM, take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new base VM with your applications already installed from this snapshot. 
@@ -35,7 +36,8 @@ When you are done installing your applications to the image VM, take a final sna
 ### Sysprep
 Generalize the VM by running [sysprep](https://docs.microsoft.com/azure/virtual-machines/generalize#windows). 
 
-> [!NOTE] Some optional things you can do before running Sysprep:
+> [!NOTE] 
+> Some optional things you can do before running Sysprep:
 > - Reboot once
 > - Cleanup Temp files - System-Storage
 > - Optimize drivers (defrag)
@@ -49,7 +51,8 @@ When you capture the VM, you have an option to add it to a shared image gallery 
 
 The [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries) adds features to replicate images to other regions, make the images highly available, allows for easy image versioning and able to deploy at scale.  Managed images are standalone images so are suitable for simpler deployments. 
 
-> [!Important] Shared Image Gallery is recommended for Production environments because of the enhanced capabilities, such as replication and image versioning. 
+> [!Important] 
+> Shared Image Gallery is recommended for Production environments because of the enhanced capabilities, such as replication and image versioning. 
 
 When configuring the capture, choose the option to delete the VM, as it will no longer be usable after capture. Do not try and capture it again if there is an issue with the capture, create a new VM from the latest Snapshot and repeat the Sysprep steps. 
 
