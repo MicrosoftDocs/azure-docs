@@ -45,6 +45,7 @@ The supported languages for conversation projects are:
 
 When you enable multiple languages in a project, you can add data in multiple languages to your project. You can also train the project in one language and immediately predict it in other languages. The quality of predictions may vary between languages – and certain language groups work better than others with respect to multilingual predictions.
 
+
 ## Supported languages for orchestration workflow projects
 
 |Language| Language code |
