@@ -52,8 +52,8 @@ Dasv5-series VMs utilize AMD's 3rd Generation EPYC<sup>TM</sup> processors that 
 Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processors that can achieve a boosted maximum frequency of 3.7GHz. The Dadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. The new VMs have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Dav4/Dasv4](dav4-dasv4-series.md) sizes with [Gen2](generation-2.md) VMs. Data disk storage is billed separately from virtual machines.
 
 [ACU](acu.md): 230 - 260 <br>
-[Premium Storage](premium-storage-performance.md): Not Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Not Supported <br>
+[Premium Storage](premium-storage-performance.md): Supported <br>
+[Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
