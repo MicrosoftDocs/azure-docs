@@ -14,6 +14,8 @@ ms.date: 09/22/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Data flow script (DFS) is the underlying metadata, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly. The script is visible and editable from ADF by clicking on the "script" button on the top ribbon of the browser UI.
 
 :::image type="content" source="media/data-flow/scriptbutton.png" alt-text="Script button":::
@@ -96,7 +98,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## DFS fundamentals
-The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script with start with one or more sources followed by many transformations and ending with one or more sinks.
+The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script will start with one or more sources followed by many transformations and ending with one or more sinks.
 
 Sources all have the same basic construction:
 ```

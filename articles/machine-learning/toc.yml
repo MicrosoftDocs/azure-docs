@@ -280,7 +280,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -294,6 +294,8 @@
               - name: Use Resource Manager template
                 displayName: arm
                 href: how-to-create-workspace-template.md
+              - name: Use Terraform
+                href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
@@ -309,7 +311,7 @@
               - name: Upgrade host OS
                 displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
                 href: how-to-compute-cluster-instance-os-upgrade.md
-              - name: Azure Arc enabled machine learning
+              - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
               - name: Azure Kubernetes Service
@@ -367,12 +369,17 @@
       items: 
         - name: Label data
           items: 
-            - name: Get data labeled
-              displayName: data, dataset, labeling
-              href: how-to-create-labeling-projects.md
+            - name: Set up image labeling
+              displayName: data, dataset
+              href: how-to-create-image-labeling-projects.md
+            - name: Set up text labeling
+              displayName: data, dataset
+              href: how-to-create-text-labeling-projects.md
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Outsource labeling tasks
+              href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
@@ -568,16 +575,11 @@
           href: how-to-deploy-azure-container-instance.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
-        - name: Azure App Service
-          displayName: web app
-          href: how-to-deploy-app-service.md
+        - name: Azure Cognitive Search
+          href: how-to-deploy-model-cognitive-search.md
         - name: Azure Functions
           displayName: functions app
           href: how-to-deploy-functions.md
-        - name: Azure Cognitive Search
-          href: how-to-deploy-model-cognitive-search.md
-        - name: IoT Edge
-          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Prebuilt Docker images

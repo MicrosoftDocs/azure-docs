@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
 
@@ -18,7 +18,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 - Windows 10
 - Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
-- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
@@ -50,12 +50,12 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\pnp
+    cd azure-iot-sdk-node\device\samples\javascript\pnp
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node/device/samples/javascript/pnp
     ```
 
 1. Install the Azure IoT Node.js SDK and necessary dependencies:

@@ -1,15 +1,15 @@
 ---
-title: Register and scan a Power BI tenant (preview)
+title: Register and scan a Power BI tenant
 description: Learn how to use the Azure Purview portal to register and scan a Power BI tenant. 
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/27/2021
 ---
 
-# Register and scan a Power BI tenant (preview)
+# Register and scan a Power BI tenant
 
 This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
@@ -125,7 +125,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 1. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell**, and then select **Run as administrator**.
 
 
 3. Install and import module in your machine if it has not been installed yet.
@@ -224,7 +224,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 -   For cross-tenant scenario, no UX experience currently available to register and scan cross Power BI tenant.
 -   By Editing the Power BI cross tenant registered with PowerShell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
--   Review [Power BI Metadata scanning limitations](https://docs.microsoft.com/power-bi/admin/service-admin-metadata-scanning#considerations-and-limitations).
+-   Review [Power BI Metadata scanning limitations](/power-bi/admin/service-admin-metadata-scanning).
 
         
 ## Next steps

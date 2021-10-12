@@ -129,7 +129,11 @@ items:
   - name: Concepts
     items:
     - name: Storage accounts
-      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      items:
+      - name: Overview
+        href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Performance tiers
+        href: storage-blob-performance-tiers.md
     - name: Authorization
       items:
       - name: Authorizing data operations
@@ -202,14 +206,12 @@ items:
         href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access and performance tiers
+    - name: Blob access tiers and lifecycle management
       items:
-      - name: Access tiers
-        href: storage-blob-storage-tiers.md
-      - name: Rehydrate data from archive tier
+      - name: Overview
+        href: access-tiers-overview.md
+      - name: Blob rehydration from archive tier
         href: archive-rehydrate-overview.md
-      - name: Performance tiers
-        href: storage-blob-performance-tiers.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
     - name: Object replication
@@ -291,6 +293,8 @@ items:
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Upgrading to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
   - name: How to
@@ -346,9 +350,11 @@ items:
         href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
-        - name: Authorize with a managed identity
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authorize from an application
+        - name: Get an access token for authorization with Azure AD
+          href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize from an application running in Azure
+          href: authorize-managed-identity.md
+        - name: Authorize from a native or web application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorize with Shared Key
         items:
@@ -376,6 +382,8 @@ items:
           href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Define a stored access policy
           href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Create a SAS expiration policy
+          href: ../common/sas-expiration-policy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage anonymous read access to blob data
         items:
         - name: Configure anonymous read access for containers and blobs
@@ -546,6 +554,8 @@ items:
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2-how-to.md
     - name: Monitor
       items:
       - name: Scenarios and best practices
@@ -736,8 +746,6 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
-    - name: Processing big data
-      href: data-lake-storage-data-scenarios.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
@@ -874,8 +882,6 @@ items:
         href: data-lake-storage-use-hdfs-data-lake-storage.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-    - name: Optimize performance
-      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET

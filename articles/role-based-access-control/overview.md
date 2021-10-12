@@ -45,7 +45,7 @@ A *security principal* is an object that represents a user, group, service princ
 
 ### Role definition
 
-A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
+A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
 ![Diagram showing role definition example for a role assignment](./media/shared/rbac-role-definition.png)
 
@@ -55,7 +55,7 @@ This video provides a quick overview of built-in roles and custom roles.
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account.
+Azure has data actions that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account.
 
 For more information, see [Understand Azure role definitions](role-definitions.md).
 

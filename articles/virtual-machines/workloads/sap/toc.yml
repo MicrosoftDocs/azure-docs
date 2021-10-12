@@ -154,6 +154,8 @@
       items:    
       - name: About SAP HANA database backup in Azure VMs
         href: ../../../backup/sap-hana-db-about.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Azure Backup architecture for SAP HANA backup
+        href: ../../../backup/azure-backup-architecture-for-sap-hana-backup.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Tutorial - back up SAP HANA databases in Azure VMs
         href: ../../../backup/tutorial-backup-sap-hana-db.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: FAQ for database backups

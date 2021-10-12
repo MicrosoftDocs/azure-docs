@@ -12,7 +12,6 @@ ms.date: 08/17/2021
 
 # Troubleshoot connector and format issues in mapping data flows in Azure Data Factory
 
-
 This article explores troubleshooting methods related to connector and format for mapping data flows in Azure Data Factory (ADF).
 
 ## Azure Blob Storage

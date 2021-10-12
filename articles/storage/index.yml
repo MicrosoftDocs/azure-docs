@@ -150,7 +150,7 @@ additionalContent:
         # Card
         - title: Control costs
           links:
-          - url: ./blobs/storage-blob-storage-tiers.md
+          - url: ./blobs/access-tiers-overview.md
             text: Tier blob data in cost-effective manner (hot, cool, archive)
         # Card
         - title: Share your data

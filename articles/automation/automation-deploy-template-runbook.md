@@ -3,7 +3,7 @@ title: Deploy an Azure Resource Manager template in an Azure Automation PowerShe
 description: This article describes how to deploy an Azure Resource Manager template stored in Azure Storage from a PowerShell runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2021
+ms.date: 09/23/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to use Runbooks to deploy ARM templates so that I can increase efficiency.
@@ -186,9 +186,15 @@ param (
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+$AzureContext = (Connect-AzAccount -Identity).context
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
+    -Name $userAssignedManagedIdentity `
+    -DefaultProfile $AzureContext
+$AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -DefaultProfile $AzureContext
 
 #Set the parameter values for the Resource Manager template
 $Parameters = @{

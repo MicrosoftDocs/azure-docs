@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/06/2021
+ms.date: 09/24/2021
 
 #Customer intent:
 
@@ -131,7 +131,7 @@ Here is what the condition looks like in code:
 
 ## Step 4: Add a condition
 
-1. On the **Condition** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**.
 
     ![Screenshot of Add role assignment condition page for a new condition.](./media/storage-auth-abac-portal/condition-add-new.png)
 

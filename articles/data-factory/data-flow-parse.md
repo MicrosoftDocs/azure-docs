@@ -13,6 +13,8 @@ ms.date: 05/10/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]

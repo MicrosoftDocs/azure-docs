@@ -12,7 +12,7 @@ ms.date: 08/13/2021
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 
 * Clone the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)
-* Follow the instructions in the [README in the **src/video-player** folder](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/readme.md)
+* Follow the instructions in the [README in the **src/video-player** folder](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/README.md)
 
 ## Get Started
 After following the README instructions and the app is running on http://localhost:3000/

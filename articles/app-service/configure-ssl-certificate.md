@@ -65,6 +65,7 @@ The free certificate comes with the following limitations:
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
 - Is not exportable.
+- Is not supported on App Service not publicly accessible.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.
 - If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.

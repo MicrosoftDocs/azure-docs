@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using JavaScript (latest)
 description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs package. 
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 

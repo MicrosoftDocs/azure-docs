@@ -1357,6 +1357,34 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+# Owner: lizross
+- id: iot-dps-set1
+  title: Choose a programming language
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  # Owner: lizross
+- id: iot-dps-set2
+  title: Choose a programming language
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 # Owner: alkohli
 - id: azure-stack-edge-device-deployment
   title: Azure Stack Edge device deployment
@@ -1366,3 +1394,14 @@ groups:
     title: Single node device
   - id: two-node
     title: Two node cluster
+# Owner: timlt
+- id: iot-develop-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-mplab
+    title: MPLAB
