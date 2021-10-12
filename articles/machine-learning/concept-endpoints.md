@@ -10,7 +10,7 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.date: 06/17/2021
+ms.date: 10/12/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -102,13 +102,13 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 
 ## Managed online endpoints vs AKS online endpoints (preview)
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **AKS online endpoints** (preview). The following table highlights some of their key differences.
+There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). The following table highlights some of their key differences.
 
-|  | Managed online endpoints | AKS online endpoints |
+|  | Managed online endpoints | Kubernetes online endpoints |
 |-|-|-|
-| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can self-manage infrastructure requirements |
+| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
-| **Compute type** | Managed (AmlCompute) | AKS |
+| **Compute type** | Managed (AmlCompute) | Kubernetes cluster |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
 | **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
 | **Application Insights** | Supported | Supported |

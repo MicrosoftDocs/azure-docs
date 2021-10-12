@@ -1,21 +1,21 @@
 ---
-title: Deploy an ML model by using a managed online endpoint (preview)
+title: Deploy an ML model by using an online endpoint (preview)
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model as a web service that's automatically managed by Azure.
+description: Learn to deploy your machine learning model as a web service that's to Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 10/12/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
 
-# Deploy and score a machine learning model by using a managed online endpoint (preview)
+# Deploy and score a machine learning model by using an online endpoint (preview)
 
-Learn how to use a managed online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. 
+Learn how to use an online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
