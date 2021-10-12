@@ -35,7 +35,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for running pipeline jobs, including [pipeline job YAML schema](reference-yaml-job-pipeline.md)
   - Added support for job input literals and input data URIs for all job types
   - Added support for job outputs for all job types
-  - Changed the context reference syntax from `{ <context> }` to `${{ <context> }}`. For more information, see [Context syntax for configuring Azure ML jobs](reference-yaml-core-syntax.md#TODO)
+  - Changed the context reference syntax from `{ <context> }` to `${{ <context> }}`. For more information, see [Context syntax for configuring Azure ML jobs](reference-yaml-core-syntax.md)
 - `az ml environment`
   - Updated [environment YAML schema](reference-yaml-environment.md)
   - Added support for creating environments from Docker build context
@@ -47,7 +47,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Updated [dataset YAML schema](reference-yaml-dataset.md)
 - `az ml online-endpoint`
   - `az ml endpoint` subgroup split into two separate groups: `az ml online-endpoint` and `az ml batch-endpoint`
-  - Updated [online endpoint YAML schema](reference-yaml-endpoint-online.md)
+  - Updated [online endpoint YAML schema](reference-yaml-endpoint-managed-online.md)
 - `az ml online-deployment`
   - `az ml deployment` subgroup split into two separate groups: `az ml online-deployment` and `az ml batch-deployment`
   - Updated [managed online deployment YAML schema](reference-yaml-endpoint-managed-online.md)
