@@ -66,13 +66,13 @@ The `Billing` setting specifies the endpoint URI of the _Language Services_ reso
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Text Analytics containers don't use input or output mounts to store training or service data. 
+The Language service containers don't use input or output mounts to store training or service data. 
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host computer's mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Text Analytics containers do not use this.|
+|Not allowed| `Input` | String | Language service containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Next steps

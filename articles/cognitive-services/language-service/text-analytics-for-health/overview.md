@@ -28,7 +28,7 @@ This documentation contains the following types of articles:
 
 ## Features
 
-[!INCLUDE [Text Analytics for Text Analytics for health](includes/features.md)]
+[!INCLUDE [Text Analytics for health](includes/features.md)]
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 

@@ -66,7 +66,7 @@ namespace Example
 
             await foreach (AnalyzeHealthcareEntitiesResultCollection documentsInPage in healthOperation.Value)
             {
-                Console.WriteLine($"Results of Azure Text Analytics \"Healthcare Async\" Model, version: \"{documentsInPage.ModelVersion}\"");
+                Console.WriteLine($"Results of Azure Text Analytics for health async model, version: \"{documentsInPage.ModelVersion}\"");
                 Console.WriteLine("");
 
                 foreach (AnalyzeHealthcareEntitiesResult entitiesInDoc in documentsInPage)
@@ -128,7 +128,7 @@ namespace Example
 ### Output
 
 ```console
-Results of Azure Text Analytics "Healthcare Async" Model, version: "2021-05-15"
+Results of Azure Text Analytics for health async model, version: "2021-05-15"
 
   Entity: 100mg
   Category: Dosage

@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-keywords: text mining, health, text analytics
+keywords: text mining, health, text analytics for health
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 

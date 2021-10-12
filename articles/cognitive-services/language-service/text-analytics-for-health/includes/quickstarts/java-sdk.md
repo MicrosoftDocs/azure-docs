@@ -102,7 +102,7 @@ public class Example {
         for (AnalyzeHealthcareEntitiesResultCollection resultCollection : syncPoller.getFinalResult()) {
             // Model version
             System.out.printf(
-                    "Results of Azure Text Analytics \"Analyze Healthcare Entities\" Model, version: %s%n",
+                    "Results of Azure Text Analytics for health entities\" Model, version: %s%n",
                     resultCollection.getModelVersion());
 
             for (AnalyzeHealthcareEntitiesResult healthcareEntitiesResult : resultCollection) {
@@ -137,7 +137,7 @@ public class Example {
 Poller status: IN_PROGRESS.
 Operation created time: 2021-08-24T16:05:15Z, expiration time: 2021-08-25T16:05:15Z.
 Poller status: SUCCESSFULLY_COMPLETED.
-Results of Azure Text Analytics "Analyze Healthcare Entities" Model, version: 2021-05-15
+Results of Azure Text Analytics for health entities Model, version: 2021-05-15
 Document ID = 0
 Document entities: 
 	Text: 100mg, normalized name: null, category: Dosage, subcategory: null, confidence score: 1.000000.
