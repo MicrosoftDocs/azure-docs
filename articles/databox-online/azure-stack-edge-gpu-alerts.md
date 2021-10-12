@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.author: alkohli
 ---
 # Review alerts on Azure Stack Edge
@@ -28,6 +28,9 @@ You can drill down to see individual alerts at each severity level.
 
 ![Screenshot of the Alerts blade, with alert details displayed, in the Azure portal for an Azure Stack Edge device.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary.png)
 
+Alternate graphic: Summary and detail view in one.
+
+[ ![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png) ](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png#lightbox)
 
 ### Alert severity levels
 
@@ -39,7 +42,7 @@ Alerts have different severity levels, depending on the impact of the alert situ
 
 ### Configure alert notifications
 
-You can manage alert notifications for events on Azure Stack Edge devices by creating action rules. The action rules can be used to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or on a device. They also determine who receives the alerts. For more information, see [Using action rules to manage alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+You can also send alert notifications by email for events on your Azure Stack Edge devices. To manage these alert notifications, you create action rules. The action rules can trigger or suppress alert notifications for device events within a resource group, an Azure subscription, or on a device. For more information, see [Using action rules to manage alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
 
 ## Alerts quick-reference
 
