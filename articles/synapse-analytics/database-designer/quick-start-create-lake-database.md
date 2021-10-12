@@ -1,23 +1,27 @@
 ---
-title: Azure Synapse lake database concepts
+title: Azure Synapse lake database Quick Start
 description: Learn how database templates in Azure Synapse help to define database schema from standardized templates. 
-author: prlangad
-ms.author: prlangad
+author: gesaur
+ms.author: gesaur
 ms.service: synapse-analytics
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 12/10/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Quick Start to create a lake database
+# Quick Start 
 
-Within this quick start we will use a very common Retail example to show you the power of the common data models in Synapse. Start by creating a new Synapse Database. This can be launched directly from the main page of synapse. 
+This quick start gives you a run through of an end-2-end scenario how you can leverage the database templates to create a lake database , align data to your new model and use the integrated experience to analyze the data. 
 
-@@ Select the industry template you want to use 
+## Prerequisits
 
-The first step is to select the corresponding tables from the database template for your project. 
+This quickstart assumes you have already created a Synapse Analytics workspace. 
 
-For our scenario we will use the following entities
+## Create a lake database from database templates
+
+Use the new database templates (preview) functionallity to create a lake database that you can use to configure your data model for the database. 
+
+For our scenario we will use the Retail database templates and select the following entities: 
  - **Product** - A product is anything that can be offered to a market that might satisfy a want or need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
  - **Transaction** - The lowest level of executable work or customer activity.
 A transaction consists of one or more discrete events.
@@ -27,11 +31,24 @@ A transaction consists of one or more discrete events.
  - **Channel** - A channel is a means by which products or services are sold and/or distributed.
 The easiest way to find them is by using the search box above the different business areas that contain the tables. 
  
-After all the necessary tables have been selected, you can press the “Create Database” button which will bring you back to the Data hub where the new Database is now created. 
-After you have created the database make sure the storage account & filepath is set to a location where you wish to save the data. This will default to the primary storage account. 
+ [[media/quick-start-create-lake-database/model-example.jpg]]
+ 
+ 
+ ## Configure lake database
+ 
+After you have created the database make sure the storage account & filepath is set to a location where you wish to store the data. This will default to the primary storage account within Synapse analytics but can be change to your needs. 
   
+ [[media/quick-start-create-lake-database/lake-database-example.jpg]]
+ 
+To save your layout and make it avaialble within Synapse Publish all changes. This step completes the setup of the lake database and makes it avaialble to all components within Synapse Analytics and outside. 
 
-After this step, Click the “Publish” button to publish the database. 
-This step completes the setup of the database. It is now ready to use but does not have any data in it. 
 
-@@ Avaialbilty with SQL/ Spark / PowerBI
+## Query the data
+
+
+@@code SQL 
+
+
+@@code Spark
+
+
