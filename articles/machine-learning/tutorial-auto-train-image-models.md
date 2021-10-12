@@ -29,7 +29,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 > * Download and transform data
 > * Train an automated machine learning object detection model
 > * Specify hyperparameter values for your model
-> * Perform a hyperparameter sweep 
+> * Perform a hyperparameter sweep
 > * Deploy your model
 > * Visualize detections
 
@@ -41,7 +41,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
-* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. 
+* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). To get the required packages,
 * Run `pip install azureml`
@@ -49,14 +49,14 @@ This tutorial is also available on [GitHub](https://github.com/Azure/MachineLear
 
 ## Compute target setup
 
-You first need to set up a compute target to use for your automated ML model training. Automated ML models for image tasks require GPU SKUs. 
+You first need to set up a compute target to use for your automated ML model training. Automated ML models for image tasks require GPU SKUs.
 
 This tutorial uses the NCsv3-series (with V100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
 
-The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`. 
+The following code creates a GPU compute of size Standard _NC24s_v3 with four nodes that are attached to the workspace, `ws`.
 
-> [! WARNING] 
-> Ensure your subscription has sufficient quota for the compute target you wish to use. 
+> [!WARNING]
+> Ensure your subscription has sufficient quota for the compute target you wish to use.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -68,26 +68,114 @@ try:
     print('Found existing compute target.')
 except KeyError:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='Standard_NC24s_v3', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='Standard_NC24s_v3',
                                                            idle_seconds_before_scaledown=1800,
-                                                           min_nodes=0, 
+                                                           min_nodes=0,
                                                            max_nodes=4)
 
     compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
-    
+
 #If no min_node_count is provided, the scale settings are used for the cluster.
 compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 ## Experiment setup
-Next, create an `Experiment` in your workspace to track your model training runs. 
+Next, create an `Experiment` in your workspace to track your model training runs.
 
 ```python
 
 from azureml.core import Experiment
 
-experiment_name = 'automl-image-object-detection' 
+experiment_name = 'automl-image-object-detection'
 experiment = Experiment(ws, name=experiment_name)
+```
+
+## Visualize input data
+
+Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format, you can visualize the ground truth bounding boxes for an image. To do so, be sure you have `matplotlib` installed.
+
+```
+%pip install --upgrade matplotlib
+```
+```python
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+from PIL import Image as pil_image
+import numpy as np
+import json
+import os
+
+def plot_ground_truth_boxes(image_file, ground_truth_boxes):
+    # Display the image
+    plt.figure()
+    img_np = mpimg.imread(image_file)
+    img = pil_image.fromarray(img_np.astype("uint8"), "RGB")
+    img_w, img_h = img.size
+
+    fig,ax = plt.subplots(figsize=(12, 16))
+    ax.imshow(img_np)
+    ax.axis("off")
+
+    label_to_color_mapping = {}
+
+    for gt in ground_truth_boxes:
+        label = gt["label"]
+
+        xmin, ymin, xmax, ymax =  gt["topX"], gt["topY"], gt["bottomX"], gt["bottomY"]
+        topleft_x, topleft_y = img_w * xmin, img_h * ymin
+        width, height = img_w * (xmax - xmin), img_h * (ymax - ymin)
+
+        if label in label_to_color_mapping:
+            color = label_to_color_mapping[label]
+        else:
+            # Generate a random color. If you want to use a specific color, you can use something like "red".
+            color = np.random.rand(3)
+            label_to_color_mapping[label] = color
+
+        # Display bounding box
+        rect = patches.Rectangle((topleft_x, topleft_y), width, height,
+                                 linewidth=2, edgecolor=color, facecolor="none")
+        ax.add_patch(rect)
+
+        # Display label
+        ax.text(topleft_x, topleft_y - 10, label, color=color, fontsize=20)
+
+    plt.show()
+
+def plot_ground_truth_boxes_jsonl(image_file, jsonl_file):
+    image_base_name = os.path.basename(image_file)
+    ground_truth_data_found = False
+    with open(jsonl_file) as fp:
+        for line in fp.readlines():
+            line_json = json.loads(line)
+            filename = line_json["image_url"]
+            if image_base_name in filename:
+                ground_truth_data_found = True
+                plot_ground_truth_boxes(image_file, line_json["label"])
+                break
+    if not ground_truth_data_found:
+        print("Unable to find ground truth information for image: {}".format(image_file))
+
+def plot_ground_truth_boxes_dataset(image_file, dataset_pd):
+    image_base_name = os.path.basename(image_file)
+    image_pd = dataset_pd[dataset_pd['portable_path'].str.contains(image_base_name)]
+    if not image_pd.empty:
+        ground_truth_boxes = image_pd.iloc[0]["label"]
+        plot_ground_truth_boxes(image_file, ground_truth_boxes)
+    else:
+        print("Unable to find ground truth information for image: {}".format(image_file))
+```
+
+Using the above helper functions, for any given image, you can run the following code to display the bounding boxes.
+
+```python
+image_file = "./odFridgeObjects/images/31.jpg"
+jsonl_file = "./odFridgeObjects/train_annotations.jsonl"
+
+plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
 ## Upload data and create dataset
@@ -99,9 +187,9 @@ ds = ws.get_default_datastore()
 ds.upload(src_dir='./odFridgeObjects', target_path='odFridgeObjects')
 ```
 
-Once uploaded to the datastore, you can create an Azure Machine Learning dataset from the data. Datasets package your data into a consumable object for training. 
+Once uploaded to the datastore, you can create an Azure Machine Learning dataset from the data. Datasets package your data into a consumable object for training.
 
-The following code creates a dataset for training. Since no validation dataset is specified, by default 20% of your training data is used for validation. 
+The following code creates a dataset for training. Since no validation dataset is specified, by default 20% of your training data is used for validation.
 
 ``` python
 from azureml.core import Dataset
@@ -119,19 +207,43 @@ else:
         set_column_types={"image_url": DataType.to_stream(ds.workspace)},
     )
     training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
-    
+
 print("Training dataset name: " + training_dataset.name)
+```
+
+### Visualize dataset
+
+You can also visualize the ground truth bounding boxes for an image from this dataset.
+
+Load the dataset into a pandas dataframe.
+
+```python
+import azureml.dataprep as dprep
+
+from azureml.dataprep.api.functions import get_portable_path
+
+# Get pandas dataframe from the dataset
+dflow = training_dataset._dataflow.add_column(get_portable_path(dprep.col("image_url")),
+                                              "portable_path", "image_url")
+dataset_pd = dflow.to_pandas_dataframe(extended_types=True)
+```
+
+For any given image, you can run the following code to display the bounding boxes.
+
+```python
+image_file = "./odFridgeObjects/images/31.jpg"
+plot_ground_truth_boxes_dataset(image_file, dataset_pd)
 ```
 
 ## Configure your object detection experiment
 
 To configure automated ML runs for image-related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space to find the optimal model.
 
-In this example, we use the `AutoMLImageConfig` to train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories. 
+In this example, we use the `AutoMLImageConfig` to train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories.
 
 ### Hyperparameter sweeping for image tasks
 
-You can perform a hyperparameter sweep over a defined parameter space to find the optimal model. 
+You can perform a hyperparameter sweep over a defined parameter space to find the optimal model.
 
 The following code, defines the parameter space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the parameter space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
 
@@ -139,7 +251,7 @@ For the tuning settings, use random sampling to pick samples from this parameter
 
 The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
 
-```python 
+```python
 from azureml.train.hyperdrive import RandomParameterSampling
 from azureml.train.hyperdrive import BanditPolicy, HyperDriveConfig
 from azureml.train.hyperdrive import choice, uniform
@@ -163,14 +275,14 @@ parameter_space = {
 }
 
 tuning_settings = {
-    'iterations': 20, 
-    'max_concurrent_iterations': 4, 
-    'hyperparameter_sampling': RandomParameterSampling(parameter_space),  
+    'iterations': 20,
+    'max_concurrent_iterations': 4,
+    'hyperparameter_sampling': RandomParameterSampling(parameter_space),
     'policy': BanditPolicy(evaluation_interval=2, slack_factor=0.2, delay_evaluation=6)
 }
 ```
 
-Once the parameter space and tuning settings are defined, you can pass them into your `AutoMLImageConfig` object and then submit the experiment to train an image model using your training dataset. 
+Once the parameter space and tuning settings are defined, you can pass them into your `AutoMLImageConfig` object and then submit the experiment to train an image model using your training dataset.
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
@@ -214,10 +326,10 @@ In this tutorial, we deploy the model as a web service in AKS.
     ```python
     from azureml.core.compute import ComputeTarget, AksCompute
     from azureml.exceptions import ComputeTargetException
-    
+
     # Choose a name for your cluster
     aks_name = "cluster-aks-gpu"
-    
+
     # Check to see if the cluster already exists
     try:
         aks_target = ComputeTarget(workspace=ws, name=aks_name)
@@ -225,23 +337,23 @@ In this tutorial, we deploy the model as a web service in AKS.
     except ComputeTargetException:
         print('Creating a new compute target...')
         # Provision AKS cluster with GPU machine
-        prov_config = AksCompute.provisioning_configuration(vm_size="STANDARD_NC6", 
+        prov_config = AksCompute.provisioning_configuration(vm_size="STANDARD_NC6",
                                                             location="eastus2")
         # Create the cluster
-        aks_target = ComputeTarget.create(workspace=ws, 
-                                          name=aks_name, 
+        aks_target = ComputeTarget.create(workspace=ws,
+                                          name=aks_name,
                                           provisioning_configuration=prov_config)
         aks_target.wait_for_completion(show_output=True)
     ```
 
 1. Define the inference configuration that describes how to set up the web-service containing your model. You can use the scoring script and the environment from the training run in your inference config.
-    
+
     > [!NOTE]
     > To change the model's settings, open the downloaded scoring script and modify the model_settings variable before deploying the model.
-    
+
     ```python
     from azureml.core.model import InferenceConfig
-    
+
     best_child_run.download_file('outputs/scoring_file_v_1_0_0.py', output_file_path='score.py')
     environment = best_child_run.get_environment()
     inference_config = InferenceConfig(entry_script='score.py', environment=environment)
@@ -250,17 +362,17 @@ In this tutorial, we deploy the model as a web service in AKS.
 1. You can then deploy the model as an AKS web service.
 
     ```python
-    
+
     from azureml.core.webservice import AksWebservice
     from azureml.core.webservice import Webservice
     from azureml.core.model import Model
     from azureml.core.environment import Environment
-    
-    aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,                                                    
+
+    aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                     cpu_cores=1,
                                                     memory_gb=50,
                                                     enable_app_insights=True)
-    
+
     aks_service = Model.deploy(ws,
                                models=[model],
                                inference_config=inference_config,
@@ -301,7 +413,7 @@ resp = requests.post(scoring_uri, data, headers=headers)
 print(resp.text)
 ```
 ## Visualize detections
-Now that you have scored a test image, you can visualize the bounding boxes for this image. To do so, be sure you have matplotlib installed. 
+Now that you have scored a test image, you can visualize the bounding boxes for this image. To do so, be sure you have matplotlib installed.
 
 ```
 %pip install --upgrade matplotlib
@@ -326,7 +438,7 @@ fig,ax = plt.subplots(1, figsize=(15,15))
 # Display the image
 ax.imshow(img_np)
 
-# draw box and label for each detection 
+# draw box and label for each detection
 detections = json.loads(resp.text)
 for detect in detections['boxes']:
     label = detect['label']
@@ -336,12 +448,12 @@ for detect in detections['boxes']:
         ymin, xmin, ymax, xmax =  box['topY'],box['topX'], box['bottomY'],box['bottomX']
         topleft_x, topleft_y = x * xmin, y * ymin
         width, height = x * (xmax - xmin), y * (ymax - ymin)
-        print('{}: [{}, {}, {}, {}], {}'.format(detect['label'], round(topleft_x, 3), 
-                                                round(topleft_y, 3), round(width, 3), 
+        print('{}: [{}, {}, {}, {}], {}'.format(detect['label'], round(topleft_x, 3),
+                                                round(topleft_y, 3), round(width, 3),
                                                 round(height, 3), round(conf_score, 3)))
 
         color = np.random.rand(3) #'red'
-        rect = patches.Rectangle((topleft_x, topleft_y), width, height, 
+        rect = patches.Rectangle((topleft_x, topleft_y), width, height,
                                  linewidth=3, edgecolor=color,facecolor='none')
 
         ax.add_patch(rect)
@@ -369,9 +481,9 @@ In this automated machine learning tutorial, you did the following tasks:
 
 > [!div class="checklist"]
 > * Configured a workspace and prepared data for an experiment.
-> * Trained an automated object detection model 
+> * Trained an automated object detection model
 > * Specified hyperparameter values for your model
-> * Performed a hyperparameter sweep 
+> * Performed a hyperparameter sweep
 > * Deployed your model
 > * Visualized detections
 
