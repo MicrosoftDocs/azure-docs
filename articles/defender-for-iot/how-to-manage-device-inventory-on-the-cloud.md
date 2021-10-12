@@ -1,7 +1,7 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 08/19/2021
+ms.date: 10/12/2021
 ms.topic: how-to
 ---
 
@@ -13,50 +13,39 @@ The device inventory can be used to view device systems, and network information
 
 Some of the benefits of the device inventory include:
 
-- Group devices by site, device type, vendor.
+- Identify all devices that are not communicating, and requires troubleshooting.
 
-- Gain visibility into each device and their details.
+- Group, and filter devices by site, last activity time, and OS.
 
-- Export the entire device inventory to CSV for your reports.
+- Gain visibility into each device, and their details.
+
+- Export the entire device inventory to a CSV file for your reports.
 
 ## Device inventory overview
 
-You can see all devices in your inventory through the main indicators on the top of the screen.
-
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-indicators.png" alt-text="A quick view of all of the devices in your inventory along with their statuses.":::
-
-Here you can see the:
-
-- The total number of devices.
-
-- The number of new devices.
-
-- A number of the devices by class.
-
-- A number of the devices by type.
+The Device inventory gives you an overview of all devices within your environment. Here you can see the individual details of each device and filter, and order your search by various options.
 
 The following table describes the different parameters in the device inventory.
 
-| Parameter | Description |
-|--|--|
-| **Site** | The site that contains this device. |
-| **IP Address** | The IP address of the device. |
-| **Device Name** | The name of the device as the sensor discovered it, or as entered by the user. |
-| **Last Activity** | The last activity that the device performed. |
-| **Device Type**| The type of device, such as communication, and industrial. |
-| **Device subtype**| The subtype of the device, such as speaker and smart tv.
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **Device model**| The devices' model number. |
-| **MAC Address** | The MAC address of the device. |
-| **OS platform** | The OS of the device, if detected. |
-| **First seen** | The date and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Last update time** | The date and time the device was last updated. Presented in format MM/DD/YYYY HH:MM:SS AM/PM.|
-| **Data source** | The source of the data, such as Micro Agent,  OtSensor, and Mde. |
-| **Firmware vendor** | The vendor that supplied the firmware. |
-| **Device category** | The category of the device. |
-| **OS architecture** | The architecture of the operating system. |
-| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku.|
-| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1.|
+| Parameter | Description | Default value |
+|--|--|--|
+| **Data source** | The source of the data, such as Micro Agent,  OtSensor, and Mde. | MicroAgent |
+| **Device class** | The class of the device. | IoT |
+| **Device model** | The device's model. | - |
+| **Device name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
+| **Device subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
+| **Device Type** | The type of device, such as communication, and industrial. | Miscellaneous |
+| **First seen** | The date and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **IP Address** | The IP address of the device. | - |
+| **Last Activity** | The date and time the device was last seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Last update time** | The date and time the device was last updated. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **MAC Address** | The MAC address of the device. | - |
+| **OS architecture** | The architecture of the operating system. | - |
+| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
+| **OS platform** | The OS of the device, if detected. | - |
+| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
+| **Site** | The site that contains this device. | - |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
 
 **To view the device inventory**:
 
@@ -94,28 +83,7 @@ If you want to reset the device inventory to the default settings, in the Edit c
 
 You can search, and filter the device inventory to define what information the table displays.
 
-Below is a list of filters that can be applied to the device inventory table.
-
-| Filter name | Filter type |
-|--|--|
-| **Device name** | contains |
-| **Class** | list |
-| **Device type** | contains |
-| **Device subtype** | list |
-| **Device model** | list |
-| **Firmware vendor** | contains |
-| **OS distribution** | list |
-| **OS version** | contains |
-| **IP address** | contains |
-| **MAC address** | contains |
-| **Site** | list |
-| **Last activity** | contains |
-| **Vendor**| list |
-| **OS platform**| contains |
-| **First seen** | list |
-| **Last update time** | list |
-| **Data source** | list |
-| **OS architecture** | contains |
+For a list of filters that can be applied to the device inventory table, see the [Device inventory overview](#device-inventory-overview).
 
 **To filter the device inventory**:
 
@@ -144,5 +112,29 @@ To view a specific devices information, select the device and the device informa
 You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
+
+## How to identify all devices that have not communicated recently
+
+If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified number of days.
+
+**To identify all devices that have not communicated recently**:
+
+1. Open the [Azure portal](https://ms.portal.azure.com).
+
+1. Navigate to **Defender for IoT** > **Device inventory**.
+
+1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
+
+1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
+
+1. Select **Last Activity**.
+
+1. Select **Save**
+
+1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
+
+1. Select **XXXXX** to add a filter on the Last activity column.
+
+1. Enter a custom date range.
 
 ## See next
