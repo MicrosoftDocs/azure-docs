@@ -115,4 +115,7 @@ Check the [public voices available](./language-support.md#neural-voices). You ca
 4.  Configure your client to fail over to the secondary region. See sample code in C#: [GitHub: custom voice failover to secondary region](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L920).
 
 ### Speaker Recognition
-Speaker Recognition supports automatic failover. The stored speaker enrollment audio and voice signature will failover to another region following [Azure paired regions](/azure/best-practices-availability-paired-regions).
+
+Speaker Recognition uses [Azure paired regions](/azure/best-practices-availability-paired-regions) to automaticly failover operations. Speaker enrollments and voice signitures are backed up regularly to prevent data loss and are used in case of an outage.
+
+In the event of an outage, Speaker Recognition service will automatically failover to a paired region and use the backed up data to coninue processing requests until the main region is back online.
