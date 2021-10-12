@@ -38,7 +38,7 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
 
 [CORS (Cross Origin Resource Sharing)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
 
-:::image type="content" source="../media/sas-tokens/storage_cors.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+:::image type="content" source="../media/quickstarts/storage_cors_example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
 1. Select the CORS blade for the storage account.
 2. Start by creating a new CORS entry in the Blob service.
