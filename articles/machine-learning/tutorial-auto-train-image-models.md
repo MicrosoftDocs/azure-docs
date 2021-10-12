@@ -92,6 +92,8 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Visualize data
 
+### From JSONL files
+
 Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format, you can visualize the ground truth bounding boxes for an image. To do so, be sure you have `matplotlib` installed.
 
 ```
@@ -158,6 +160,15 @@ def plot_ground_truth_boxes_jsonl(image_file, jsonl_file):
                 break
     if not ground_truth_data_found:
         print("Unable to find ground truth information for image: {}".format(image_file))
+
+def plot_ground_truth_boxes_dataset(image_file, dataset_pd):
+    image_base_name = os.path.basename(image_file)
+    image_pd = dataset_pd[dataset_pd['portable_path'].str.contains(image_base_name)]
+    if not image_pd.empty:
+        ground_truth_boxes = image_pd.iloc[0]["label"]
+        plot_ground_truth_boxes(image_file, ground_truth_boxes)
+    else:
+        print("Unable to find ground truth information for image: {}".format(image_file))
 ```
 
 Using the above helper functions, for any given image, you can run the following code to display the bounding boxes.
@@ -169,6 +180,33 @@ jsonl_file = "./odFridgeObjects/train_annotations.jsonl"
 plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
+### From Azure Machine Learning dataset
+
+You can also visualize the ground truth bounding boxes for an image, when you have the input image data in dataset format.
+
+Load the dataset into a pandas dataframe.
+
+```python
+import azureml.dataprep as dprep
+
+from azureml.core import Dataset
+from azureml.dataprep.api.functions import get_portable_path
+
+# Get existing dataset
+dataset = Dataset.get_by_name(ws, "odFridgeObjectsTrainingDataset")
+
+# Get pandas dataframe from the dataset
+dflow = dataset._dataflow.add_column(get_portable_path(dprep.col("image_url")),
+                                     "portable_path", "image_url")
+dataset_pd = dflow.to_pandas_dataframe(extended_types=True)
+```
+
+For any given image, you can run the following code to display the bounding boxes. The image file should be downloaded locally before running this step.
+
+```python
+image_file = "./odFridgeObjects/images/31.jpg"
+plot_ground_truth_boxes_dataset(image_file, dataset_pd)
+```
 
 ## Upload data and create dataset
 
