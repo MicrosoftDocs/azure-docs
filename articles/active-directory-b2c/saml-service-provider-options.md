@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 10/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -222,16 +222,16 @@ To enable IdP-initiated flow, set the `IdpInitiatedProfileEnabled` metadata item
 
 To sign in or sign up a user through IdP-initiated flow, use the following URL:
 
-```
-https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=app-identifier-uri&RelayState=relay-state
+```http
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=<app-identifier-uri>&RelayState=<relay-state> 
 ```
 
 Replace the following values:
 
 * Replace `<tenant-name>` with your tenant name.
 * Replace `<policy-name>` with the name of your SAML relying party policy.
-* Replace `app-identifier-uri` with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
-* Replace `relay-state` (optional) with a value for the `RelayState` parameter. This parameter contains additional information about the authentication request. Upon successful sign-in, Azure AD B2C passes the `RelayState` parameter with the SAML response to the relaying party application.
+* Replace `<app-identifier-uri>` with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
+* [Optional] replace `<relay-state>` with a value included in the authorization request that also is returned in the token response. The `relay-state` parameter is used to encode information about the user's state in the app before the authentication request occurred, such as the page they were on.
 
 ### Sample policy
 

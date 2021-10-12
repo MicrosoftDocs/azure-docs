@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -282,9 +282,9 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
-| state | No | If a `state` parameter is included in the request, the same value will be sent in the response towards the `post_logout_redirect_uri`. The application should verify that the `state` values in the request and response are identical. |
+| state | No | If a `state` parameter is included in the authorization request, the same value will be returned in the response to the `post_logout_redirect_uri`. The application should verify that the `state` values in the request and response are identical. |
 
-Note that sending a sign-out request in this way doesn't only sign the user out of Azure AD B2C, but it also triggers *single sign-out* across all applications with an active user session. This happens for applications using OpenID Connect/OAuth2 as well as those using the SAML protocol (in both cases only for applications that use [custom policies](custom-policy-overview.md) however). For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
+Upon a sign-out request, Azure AD B2C invalidates the Azure AD B2C cookie-based session, and attempts to sign out from federated identity providers. For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### Secure your logout redirect
 

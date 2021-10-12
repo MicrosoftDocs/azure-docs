@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -369,18 +369,16 @@ Using the SAML test application as an example, you'd set the `url` property of `
 
 #### Override or set the logout URL (optional)
 
-You can configure the logout URL to which Azure AD B2C will send the user after a logout request. The logout URL can be configured within the application manifest.
-
-The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
+The logout URL defines where to redirect the user after a logout request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://samltestapp2.azurewebsites.net/logout" ResponseLocation="https://samltestapp2.azurewebsites.net/logout" />
 
-</IDPSSODescriptor>
+</SPSSODescriptor>
 ```
 
-If the application's metadata `SingleLogoutService` element is missing, or you want to override it, configure the application registration manifest `logoutUrl` property. Azure AD B2C uses the `logoutURL` to redirect users after they're signed out using the `HTTP-Redirect` binding type.
+If the application's metadata `SingleLogoutService` element is missing, configure the application registration manifest `logoutUrl` property. Azure AD B2C uses the `logoutURL` to redirect users after they're signed out using the `HTTP-Redirect` binding type.
 
 Using the SAML test application as an example, you'd set the `logoutUrl` property to `https://samltestapp2.azurewebsites.net/logout`:
 
