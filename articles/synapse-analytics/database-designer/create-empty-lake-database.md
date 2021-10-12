@@ -46,7 +46,7 @@ In this article, you will learn how to create an empty [lake database](TODO) in 
     - **External table name** the name you want to give the table you are creating.
     - **Linked service** the linked service containing the Azure Data Lake Storage location where your data file lives.
     - **Input file or folder** use the file browser to navigate to and select a file on your lake you want to create a table using.
-    - ![Screenshot showing the options on the create external table from data lake pane]()
+    - ![Screenshot showing the options on the create external table from data lake pane](./media/create-empty-lake-database/create-from-lake.png)
     - On the next screen, Synapse will preview the file and detect the schema.
     - You will land on the **New external table** page where you can update any settings related to the data format, as well as **Preview Data** to check if Synapse identified the file correctly.
     - When you are happy with the settings, select **Create**.
