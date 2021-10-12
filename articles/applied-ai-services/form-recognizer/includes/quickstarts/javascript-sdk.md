@@ -81,7 +81,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 * Recognizing form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
 * Recognizing form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
-* Recognizing common fields from US receipts, business cards, invoices, and identity documents using a pre-trained model on the Form Recognizer service.
+* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -184,11 +184,11 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 > [!TIP]
 > You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. 
 
-## Analyze identity documents
+## Analyze ID documents
 
 This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
-To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromUrl` method.
+To analyze ID documents from a URL use the `beginRecognizeIdDocumentsFromUrl` method.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_id)]
 

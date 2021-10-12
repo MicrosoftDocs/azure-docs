@@ -8,17 +8,17 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Purview account
+  - name: Create an Azure Purview account
     items:
-    - name: Create Purview account - Portal
+    - name: Create an account - Azure portal
       href: create-catalog-portal.md
-    - name: Create Purview account - PowerShell
+    - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
-    - name: Create Purview account - .NET SDK
+    - name: Create an account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create Purview account - Python
+    - name: Create an account - Python
       href: create-purview-python.md
-  - name: Create a collection - Portal
+  - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
@@ -26,17 +26,17 @@ items:
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Purview MSI configuration at scale
+    - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Onboard an on-prem SQL Server
+  - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Use REST APIs for Purview data planes
+  - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
-  - name: Using REST APIs for Collection Management
+  - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
-  - name: Use Purview Studio
+  - name: Use Azure Purview Studio
     href: use-purview-studio.md
   - name: Best practices and guidelines
     items:
@@ -44,9 +44,11 @@ items:
         href: deployment-best-practices.md
       - name: Collections architecture
         href: concept-best-practices-collections.md
-      - name: Purview pricing guidelines 
+      - name: Pricing guidelines 
         href: concept-guidelines-pricing.md
-  - name: Purview permissions
+      - name: Network architecture
+        href: concept-best-practices-network.md       
+  - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -68,7 +70,7 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
-  - name: Upgraded Purview accounts
+  - name: Upgraded Azure Purview accounts
     href: concept-account-upgrade.md
 - name: How-to guides
   items:
@@ -80,9 +82,9 @@ items:
       href: purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
-    - name: Manage Credentials
+    - name: Manage credentials
       href: manage-credentials.md
-      displayName: Create and manage Credentials
+      displayName: Create and manage credentials
   - name: Sources
     items: 
     - name: Azure Multiple Source

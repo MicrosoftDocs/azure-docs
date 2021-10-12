@@ -59,7 +59,31 @@ Limitations include:
 - No interactivity with dashboard data.
 - Limited contextual drill-down.
 
+## Grafana
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards and visualizing performance and availability data. It's useful for detecting, isolating, and triaging operational incidents. Grafana includes built-in support for Azure Monitor and includes the [Azure Monitor plugin](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/) out of the box. It supports visualizing data from three Azure services:
+- Azure Monitor Metrics for numeric time series data from data from Azure resources. 
+- Azure Monitor Logs for log and performance data from Azure resources that enables you to query using the powerful Kusto Query Language (KQL).
+- Azure Resource Graph to quickly query and identify Azure resources across subscriptions.
 
+Grafana works with a wide range of data sources and allows you to create dashboards and panels combining monitoring data from resources in Azure, on premises or other clouds. 
+
+![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
+
+> [!IMPORTANT]
+> Internet Explorer 11 is only fully supported in Grafana versions prior v6.0 See [Supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+
+Advantages of Grafana include:
+
+- Rich visualizations.
+- A rich ecosystem of data sources, including support for non-Azure data sources.
+- Data interactivity, including zoom-in.
+- Annotations that allow event data to be integrated into graphs.
+- Support for parameters, including [Azure Monitor variables](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/template-variables/).
+
+Limitations include:
+
+- You can't manage dashboards and models through Azure Resource Manager.
+- The cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
 
@@ -81,26 +105,6 @@ Limitations include:
 - Limited result size and refresh.
 - Limited data refresh (eight times per day).
 
-
-## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents. You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
-
-![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
-
-> [!IMPORTANT]
-> The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana. You must use a Chromium-based browser, including Microsoft Edge. See [Supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
-
-Advantages of Grafana include:
-
-- Rich visualizations.
-- A rich ecosystem of data sources.
-- Data interactivity, including zoom-in.
-- Support for parameters.
-
-Limitations include:
-
-- No Azure integration. You can't manage dashboards and models through Azure Resource Manager.
-- The cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 
 ## Azure Monitor partners
 Some Azure Monitor partners provide visualization functionality. For a list of partners that Microsoft has evaluated, see [Azure Monitor partner integrations](./partners.md). 
