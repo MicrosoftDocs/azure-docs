@@ -22,7 +22,7 @@ This quickstart assumes you have already created a Synapse Analytics workspace.
 Use the new database templates (preview) functionallity to create a lake database that you can use to configure your data model for the database. 
 
 For our scenario we will use the Retail database templates and select the following entities: 
- - **Product** - A product is anything that can be offered to a market that might satisfy a want or need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
+ - **RetailProduct** - A product is anything that can be offered to a market that might satisfy a want or need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
  - **Transaction** - The lowest level of executable work or customer activity.
 A transaction consists of one or more discrete events.
  - **TransactionLineItem** - The components of a Transaction broken down by Product and Quantity, one per line item.
