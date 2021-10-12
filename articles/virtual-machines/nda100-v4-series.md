@@ -1,12 +1,10 @@
 ---
 title: ND A100 v4-series 
 description: Specifications for the ND A100 v4-series VMs.
-author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.author: iafinder
 ---
 
 # ND A100 v4-series

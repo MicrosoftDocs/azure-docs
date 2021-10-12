@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/30/2021
+ms.date: 10/11/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -51,7 +51,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
-| **AzureArcInfrastructure** | Azure Arc enabled servers, Azure Arc enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
+| **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
 | **AzureAttestation** | Azure Attestation.<br/><br/>*Note: This tag is not currently configurable via Azure Portal* | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
@@ -63,7 +63,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDatabricks** | Azure Databricks. | Both | No | No |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
-| **AzureDeviceUpdate** | Device update for IoT Hub. | Both | No | Yes |
+| **AzureDeviceUpdate** | Device Update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Note: This tag is not currently configurable via Azure Portal*| Inbound | No | Yes |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Note:* This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. *This tag is not currently configurable via Azure Portal* | Inbound | No | Yes |
@@ -82,6 +82,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | No |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
+| **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. </br> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes | 
+| **AzureStack** | Azure Stack Bridge services. </br> This tag represents the Azure Stack Bridge service endpoint per region. </br> *Note: This tag is not currently configurable via Azure Portal.* | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
 | **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>*Note:* This tag provides access to Windows Update metadata services. To successfully download updates you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul>*This tag is not currently configurable via Azure Portal*| Outbound | No | No |  
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
@@ -101,6 +103,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>*Note:* This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **PowerBI** | PowerBi. *Note: This tag is not currently configurable via Azure Portal.* | Both | No | No|
+| **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. *Note: This tag is not currently configurable via Azure Portal.* | Outbound | No | No |
 | **PowerQueryOnline** | Power Query Online. | Both | No | No |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Note:* This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET (endpoint eg. https:// westus.servicefabric.azure.com) | Both | No | No |
