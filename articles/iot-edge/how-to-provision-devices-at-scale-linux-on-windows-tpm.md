@@ -12,16 +12,16 @@ services: iot-edge
 monikerRange: "=iotedge-2018-06"
 ---
 
-# Create and provision an IoT Edge for Linux on Windows device at-scale by using a TPM
+# Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-This article provides end-to-end instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
+This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
 - Autoprovision a Linux on Windows device with physical TPM hardware.
-- Autoprovision a Linux on Windows device by using a simulated TPM. This methodology is recommended only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
+- Autoprovision a Linux on Windows device by using a simulated TPM. We recommend this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
 
 The tasks are as follows:
 
@@ -283,7 +283,7 @@ The IoT Edge for Linux on Windows VM has a TPM feature that can be enabled or di
 
 To provision your device, you need to gather information from your TPM chip and provide it to your instance of the device provisioning service so that the service can recognize your device when it tries to connect.
 
-First, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a **Registration ID** for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+First, you need to determine the Endorsement key, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a Registration ID for your device. You can derive a unique Registration ID for your TPM device by, for example, creating an SHA-256 hash of the Endorsement key.
 
 IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. To use the script, follow these steps on your device:
 
@@ -347,7 +347,7 @@ When you create an enrollment in the device provisioning service, you have the o
 
    1. Provide the **Endorsement key** and **Registration ID** that you copied from your VM or physical device.
 
-   1. Provide an ID for your device if you want. If you don't provide a device ID, the registration ID is used.
+   1. Provide an ID for your device if you want. If you don't provide a device ID, the Registration ID is used.
 
    1. Select **True** to declare that your VM or physical device is an IoT Edge device.
 
