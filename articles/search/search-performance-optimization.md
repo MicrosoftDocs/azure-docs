@@ -29,6 +29,10 @@ For each individual search service, Microsoft guarantees at least 99.9% availabi
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
+## Data Residency
+
+By default, Azure Cognitive Search is configured to store customer data only in a single region. Azure Cognitive Search will not replicate your data to another region without your authorization.
+
 <a name="availability-zones"></a>
 
 ## Availability Zones
