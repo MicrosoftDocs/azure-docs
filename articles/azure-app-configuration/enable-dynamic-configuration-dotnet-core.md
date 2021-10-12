@@ -39,7 +39,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 Before you continue, finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) first.
 
-## Activity-based configuration refresh 
+## Activity-driven configuration refresh
 
 Open *Program.cs* and update the code as following.
 
