@@ -125,7 +125,7 @@ After a department is created, the EA admin can add department administrators an
 - Download usage details
 - View the monthly usage and charges <sup>1</sup>
 
- <sup>1</sup> An EA admin must grant the permissions. If you have permission to view department monthly usage and charges, but can't see them, contact your partner.
+ <sup>1</sup> An EA admin must grant the permissions.
 
 ### To add a department administrator
 
