@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 The premium performance tier makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
-This tier is ideal for workloads that require fast and consistent response times and/or require a high number of input output operations per second (IOP). Storage costs are higher, but transaction costs are lower. This means that if your workloads execute a large number of transactions, this tier can be economical. 
+This tier is ideal for workloads that require fast and consistent response times and/or have a high number of input output operations per second (IOP). Storage costs are higher, but transaction costs are lower. This means that if your workloads execute a large number of transactions, this tier can be economical. 
 
 The premium performance tier is available for block blob, page blob, and file shares. This article focuses on premium performance tier in a block blob storage account. 
 
@@ -54,7 +54,9 @@ For example, assuming that your account is in the East US 2 region, the number o
 
 ## Premium scenarios
 
-This section highlights the following real-world examples of how Azure Storage customers use the premium performance tier. 
+This section contains real-world examples of how Azure Storage customers use the premium performance tier. Some of these customers also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios. 
+
+This section contains the following examples:
 
 - [Fast data hydration](#fast-data-hydration)
 - [Interactive editing applications](#interactive-editing-applications)
@@ -68,7 +70,7 @@ This section highlights the following real-world examples of how Azure Storage c
 
 ### Fast data hydration
 
-The premium performance tier can help you *hydrate* or bring up your environment quickly. In industries such as banking, certain regulatory requirements might require companies regularly tear down their environments, and then bring them back up from scratch. The data used to hydrate their environment must load quickly. 
+The premium performance tier can help you *hydrate* or bring up your environment quickly. In industries such as banking, certain regulatory requirements might require companies to regularly tear down their environments, and then bring them back up from scratch. The data used to hydrate their environment must load quickly. 
 
 One of our customers stores a copy of their MongoDB instance each week to an account that uses the premium performance tier. The system is then torn down. To get the system back online quickly again, the latest copy of the MangoDB instance is read and loaded. For audit purposes, previous copies are maintained in cloud storage for a period of time.
 
@@ -80,7 +82,7 @@ One of our customers develops video editing software. Any update that a user mak
 
 ### Data visualization software
 
-Data analysts can be far more productive with data visualization software if rendering time is quick. 
+Users can be far more productive with data visualization software if rendering time is quick. 
  
 One of our customers is in the mapping industry. They use a mapping editor to detect issues with maps. The editor uses data that is generated from customer Global Positioning System (GPS) data. To create map overlaps, the editing software renders small sections of a map by quickly performing key looks-ups. 
 
@@ -88,21 +90,21 @@ Before using the premium performance tier, they used HDInsight with HBase backed
 
 ### E-commerce businesses
 
-In addition to supporting their customer facing stories, e-commerce businesses also provide data warehousing and analytics solutions to internal teams. One of our customers uses the premium performance tier to support the low latency requirements by these data warehousing and analytics solutions. Their catalog team maintains a data warehousing application for data that pertains to offers, pricing, ship methods, suppliers, inventory, and logistics. Information is queried, scanned, extracted, and mined for multiple use cases. The team runs analytics on this data to provide various merchandising teams with relevant insights and information. 
+In addition to supporting their customer facing stores, e-commerce businesses might also provide data warehousing and analytics solutions to internal teams. One of our customers uses the premium performance tier to support the low latency requirements by these data warehousing and analytics solutions. Their catalog team maintains a data warehousing application for data that pertains to offers, pricing, ship methods, suppliers, inventory, and logistics. Information is queried, scanned, extracted, and mined for multiple use cases. The team runs analytics on this data to provide various merchandising teams with relevant insights and information. 
 
 ### Interactive analytics
 
 In almost every industry, there is a need for enterprises to query and analyze their data interactively. 
 
-Data scientists, analysts, and developers can derive time-sensitive insights faster by running queries on data that is stored in an account that uses the premium performance tier. Executives can load their dashboards much more quickly when the data that appears in those dashboards come from a storage account that uses the premium performance tier instead of the standard performance tier. 
+Data scientists, analysts, and developers can derive time-sensitive insights faster by running queries on data that is stored in an account that uses the premium performance tier. Executives can load their dashboards much more quickly when the data that appears in those dashboards comes from a storage account that uses the premium performance tier instead of the standard performance tier. 
 
 One of our customers uses Presto and Spark to produce insights from hive tables. They must analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. They scale storage and compute independently to allow for petabyte scale data and point access to their data. 
 
 Storing data in SQL databases is expensive. To reduce cost, and to increase queryable surface area, they use an Azure Data Lake Storage Gen2 enabled account that uses the premium performance tier and perform computation in Presto and Spark. This way, even rarely accessed data has all of the power of compute that frequently accessed data has. 
 
-To close the gap between SQL's subsecond performance and Presto input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. The premium performance tier when used in a Data Lake Storage Gen2 enabled account, has repeatedly demonstrated a 3X performance improvement over the standard performance tier in this scenario. Queries executed fast enough to feel local to the compute machine. 
+To close the gap between SQL's subsecond performance and Presto's input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. The premium performance tier when used in a Data Lake Storage Gen2 enabled account, has repeatedly demonstrated a 3X performance improvement over the standard performance tier in this scenario. Queries executed fast enough to feel local to the compute machine. 
 
-Another customer stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled account that uses the premium performance tier. End users query and search this data by using Azure Data Explorer. This customer chose this tier to reduce cost, increase stability, and increase the performance of interactive queries. The customer also sets the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
+Another customer stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled account that uses the premium performance tier. End users query and search this data by using Azure Data Explorer. This customer chose this tier to increase stability and increase the performance of interactive queries. The customer also sets the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
 
 ### Data processing pipelines
 
@@ -116,11 +118,11 @@ One of our customers uses multiple storage accounts to stores data from various 
 
 IoT has become a significant part of our daily lives. IoT is used to track car movements, control lights, and monitor our health. It also has industrial applications. For example, companies use IoT to enable their smart factory projects, improve agricultural output, and on oil rigs for predictive maintenance. The premium performance tier adds significant value to these scenarios.
  
-One of our customers is in the mining industry. They use a Data Lake Storage Gen2 enable account and the premium performance tier along with HDInsight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. The premium performance tier has helped to satisfy their need to for high sample rate ingestion. It's also very cost effective, because the premium performance tier is cost optimized for workloads that produce a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).  
+One of our customers is in the mining industry. They use a Data Lake Storage Gen2 enable account and the premium performance tier along with HDInsight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. The premium performance tier has helped to satisfy their need  for high sample rate ingestion. It's also cost effective, because the premium performance tier is cost optimized for workloads that perform a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).  
 
 ### Machine Learning
 
-In many cases, a lot of data has to be processed to train a machine learning model. To complete this processing, compute machines must run for a long time. Compared to storage costs, compute costs usually account for a much larger percentage of your bill, so it makes a lot of sense to reduce the amount of time that your compute machines run. The low latency that you get by using the premium performance tier can significantly reduce this time and your bill.
+In many cases, a lot of data has to be processed to train a machine learning model. To complete this processing, compute machines must run for a long time. Compared to storage costs, compute costs usually account for a much larger percentage of your bill, so reducing the amount of time that your compute machines run can lead to a significant savings. The low latency that you get by using the premium performance tier can significantly reduce this time and your bill.
 
 One of our customers deploys data processing pipelines to spark clusters where they run machine learning training and inference. They store spark tables (parquet files) and checkpoints to a storage account that uses the premium performance tier. Spark checkpoints can create a huge number of nested files and folders. Their directory listing operations are fast because they combined the low latency of the premium performance tier with the hierarchical data structure made available with Data Lake Storage Gen2. 
 
