@@ -10,9 +10,9 @@ ms.date: 09/22/2020
 ms.author: JenCook
 ---
 
-# Confidential computing on Azure
+# What is confidential computing?
 
-Azure confidential computing allows you to isolate your sensitive data while it's being processed in the cloud. Many industries use confidential computing to protect their data by using confidential computing to:
+Confidential computing allows you to isolate your sensitive data while it's being processed. Many industries use confidential computing to protect their data by using confidential computing to:
 
 - Secure financial data
 - Protect patient information
@@ -32,7 +32,7 @@ We know that securing your cloud data is important. We hear your concerns. Here'
 - How do I prevent security threats from privileged admins inside my company?
 - What are more ways that I can prevent third-parties from accessing sensitive customer data?
 
-Microsoft Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
+Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 ## Introduction to confidential computing 
 
@@ -71,25 +71,9 @@ Azure confidential computing allows you to leverage confidential computing capab
 
 **Isolated processing**: Offer a new wave of products that remove liability on private data with blind processing. User data cannot even be retrieved by the service provider. 
 
-## Get Started
-### Azure Compute
-Build applications on top of confidential compute IaaS offerings in Azure.
-- Virtual Machines (VMs): [DCsv2-Series](confidential-computing-enclaves.md)
-- Azure Kubernetes (AKS): [Orchestrate confidential containers](confidential-nodes-aks-overview.md)
-
-### Azure Security 
-Ensure your workloads are secure through verification methods and hardware-bound key management. 
-- Attestation: [Microsoft Azure Attestation (Preview)](../attestation/overview.md)
-- Key Management: Managed-HSM
-
-### Develop
-Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.
-- Write applications to run on DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
-- Confidential ML models in ONNX runtime: [Confidential inferencing (beta)](https://aka.ms/confidentialinference)
-
 ## Next steps
 
-Deploy a DCsv2-Series virtual machine and install the OE SDK on it.
+Learn about all the confidential computing products on Azure.
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential computing VM in Azure Marketplace](quick-create-marketplace.md)
+> [Overview of Azure confidential computing services](overview-azure-products.md)
