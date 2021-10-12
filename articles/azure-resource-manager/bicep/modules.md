@@ -4,14 +4,14 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ---
 
 # Use Bicep modules
 
-Bicep enables you to break down a complex solution into modules. A Bicep module is just a Bicep file that is deployed from another Bicep file. You can encapsulate complex details of the resource declaration in a module, which improves readability of files that use the module. You can reuse these modules, and share them with other people. Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
+This article describes how to add modules to your Bicep file. A module is just a Bicep file that is deployed from another Bicep file. By using modules, you can encapsulate complex details of your deployment. You can reuse modules in different deployments and share them with other people.
 
-This article describes how to add modules to your Bicep file.
+Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
 
 ## Definition syntax
 
@@ -26,27 +26,33 @@ module <module-symbolic-name> '<path-to-file>' = {
 }
 ```
 
-The [path](#path-to-module) can be either a local file or an external file in a Bicep module registry.
+So, a simple, real-world example would look like:
 
-The symbolic name is just like the symbolic name for a resource. Use the symbolic name to reference the module in another part of the Bicep file.
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
+
+Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module.
+
+For more information about setting the path, see [Path to module](#path-to-module).
 
 The **name** property is required when defining a module. It becomes the name of the nested deployment resource in the generated template.
 
-If you need to specify a scope that is different than the scope for the main file, add the scope property.
+If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/scope-definition.bicep" highlight="4" :::
 
-To conditionally deploy a module, add the `if` expression. The use is similar to [conditionally deploying a resource](conditional-resource-deployment.md).
+To **conditionally deploy a module**, add the `if` expression. The use is similar to [conditionally deploying a resource](conditional-resource-deployment.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-To deploy more than one instance of a module, add the `for` expression:
+To deploy a module, add the `for` expression:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="2" :::
 
 For more information, see [Module iteration in Bicep](loop-modules.md).
 
 ## Path to module
+
+The file for the module can be either a local file or an external file in a Bicep module registry. The syntax for both options are shown below.
 
 ### Local file
 
@@ -58,7 +64,7 @@ For example to deploy a file that is up one level in the directory from your mai
 
 ### File in registry
 
-If the module is in a Bicep module registry, provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
+If you have [published a module to a registry](bicep-cli.md#publish), you can link to that module instead of a local file. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
 module <module-symbolic-name> 'br/<registry-name>.azurecr.io/<module-path>:<tag>'
@@ -136,88 +142,21 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 Output is used to pass values to the parent Bicep files.
 
-## Consume modules
-
-
 Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
 
 To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
 
-You can conditionally deploy a module. Use the same **if** syntax as you would use when 
-```bicep
-param deployZone bool
-
-module dnsZone 'dnszones.bicep' = if (deployZone) {
-  name: 'myZoneModule'
-}
-```
-
-## Configure module scopes
+## Set module scope
 
 When declaring a module, you can set a scope for the module that is different than the scope for the containing Bicep file. Use the `scope` property to set the scope for the module. When the scope property isn't provided, the module is deployed at the parent's target scope.
 
-The following Bicep file shows how to create a resource group and deploy a module to the resource group:
+The following Bicep file creates a resource group and a storage account in that resource group. The file is deployed to the subscription, but the module is scoped to the resource group.
 
-```bicep
-// set the target scope for this file
-targetScope = 'subscription'
-
-@minLength(3)
-@maxLength(11)
-param namePrefix string
-
-param location string = deployment().location
-
-var resourceGroupName = '${namePrefix}rg'
-resource myResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: resourceGroupName
-  location: location
-  scope: subscription()
-}
-
-module stgModule './storageAccount.bicep' = {
-  name: 'storageDeploy'
-  scope: myResourceGroup
-  params: {
-    storagePrefix: namePrefix
-    location: location
-  }
-}
-
-output storageEndpoint object = stgModule.outputs.storageEndpoint
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/rg-and-storage.bicep" highlight="2,12,19" :::
 
 The next example deploys to existing resource groups.
 
-```bicep
-targetScope = 'subscription'
-
-resource firstRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
-  name: 'demogroup1'
-}
-
-resource secondRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
-  name: 'demogroup2'
-}
-
-module storage1 'storageAccount.bicep' = {
-  name: 'westusdeploy'
-  scope: firstRG
-  params: {
-    storagePrefix: 'stg1'
-    location: 'westus'
-  }
-}
-
-module storage2 'storageAccount.bicep' = {
-  name: 'eastusdeploy'
-  scope: secondRG
-  params: {
-    storagePrefix: 'stg2'
-    location: 'eastus'
-  }
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/scope-two-resource-groups.bicep" highlight="1,13,22" :::
 
 The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. Or, you can use the scope functions to get a valid scope.
 
@@ -230,14 +169,7 @@ Those functions are:
 
 The following example uses the `managementGroup` function to set the scope.
 
-```bicep
-param managementGroupName string
-
-module  'module.bicep' = {
-  name: 'deployToMG'
-  scope: managementGroup(managementGroupName)
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/function-scope.bicep" highlight="5" :::
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ---
 # Bicep CLI commands
 
@@ -53,6 +53,8 @@ The module with reference "br/exampleregistry.azurecr.io/bicep/modules/storage:v
 ```
 
 When you get this error, either run the `build` command without the `--no-restore` switch or run `bicep restore` first.
+
+To use the `--no-restore` switch, you must have Bicep CLI version **x.xx or later**.
 
 ## decompile
 
@@ -112,7 +114,9 @@ The command returns an array of available versions.
 
 ## publish
 
-The `publish` command adds a module to an external registry. The Azure container registry must exist and be configured with the correct registry permissions.
+The `publish` command adds a module to an external registry. The Azure container registry must exist and be configured with the correct registry permissions. After publishing the module, you can [link to it in a module](modules.md#file-in-registry).
+
+You must have Bicep CLI version **x.xx or later** to use the publish command.
 
 To publish a module to a registry, use:
 
@@ -134,6 +138,8 @@ The `publish` command doesn't recognize aliases you've defined in a **bicepconfi
 ## restore
 
 The `restore` command gets a copy of a module from an external registry and stores it in a local cache. You typically don't need to run `restore` because it's called automatically by `build`. The external module must exist in the local cache before the Bicep file can be built.
+
+You must have Bicep CLI version **x.xx or later** to use the publish command.
 
 To manually restore an external module, use:
 
