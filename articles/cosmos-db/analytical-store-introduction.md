@@ -173,7 +173,7 @@ df = spark.read\
 
 * Azure Synapse Spark now supports properties with whitespaces in their names.
 
-### Schema representation types
+### Schema representation
 
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
