@@ -33,13 +33,13 @@ After selecting orchestration, you need to provide the following details:
 - Text primary language: The primary language of your project. Your training data should be mainly be in this language.
 - Enable multiple languages: Whether you would like to enable your project to support multiple languages at once.
 
-:::image type="content" source="../media/orchestration-project-modal.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/orchestration-project-modal.png":::
-
 Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. The intent needs to have a **name**, a **project type** (LUIS, custom question answering (QnA), or CLU), and then selecting the project you want to connect to by name. 
 
 The list of projects you can connect to are **only projects that are owned by the same TA resource you are using to create the orchestration project**.
 
 This step is optional and you will still have the option to add intent connections after you create the project.
+
+:::image type="content" source="../media/orchestration-project-detail.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/orchestration-project-detail.png":::
 
 ## Import a project
 
