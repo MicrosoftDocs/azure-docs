@@ -77,28 +77,33 @@ The following JSON shows the schema for the extension.
 
 ## Deployment
 
-### Azure Portal
+### Azure portal
 
-Azure Nvidia VM extensions can be deployed with the Azure portal.
+You can deploy Azure Nvidia VM extensions in the Azure portal.
 
-1. From your browser, go to the [Azure portal](https://portal.azure.com).
+1. In a browser, go to the [Azure portal](https://portal.azure.com).
 
-2. In the portal, browse to Virtual machine where you want to install the driver.
+2. Go to the virtual machine on which you want to install the driver.
 
-3. Select **extension** 
-![Select VM extension for selected VM](./media/nvidia-ext-portal/extension-tab-portal.png)
+3. In the left menu, select **Extensions**.
 
-4. Then click **add**
-![Add VM extension for selected VM](./media/nvidia-ext-portal/extension-tab-add.png)
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu":::
 
-5. Scroll till you find the **Nvidia GPU driver Extension** then click **next**
-![Select Nvidia GPU driver](./media/nvidia-ext-portal/extension-nvidia-select.png)
+4. Select **Add**.
 
-6. Press **Review + Create**  and wait for few minutes till the driver gets deployed.
-![Review and create deployment](./media/nvidia-ext-portal/extension-create.png)
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension.png" alt-text="Screenshot that shows adding a V M extension for the selected V M":::
 
-7. Once you finish the previous steps successfully you will the extension has been added to the list of installed extensions.
-![Extension added to list](./media/nvidia-ext-portal/extension-added.png)
+5. Scroll to find **NVIDIA GPU Driver Extension**, and then select **Next**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Screenshot that shows selecting NVIDIA G P U driver":::
+
+6. Select **Review + create**, and then wait for a few minutes for the driver to be deployed.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Screenshot that shows selecting the review and create button.":::
+  
+   The extension is added to the list of installed extensions.
+
+    :::image type="content" source="./media/nvidia-ext-portal/display-extensions.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 ### Azure Resource Manager Template 
 
