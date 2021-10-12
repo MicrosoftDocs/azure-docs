@@ -77,7 +77,8 @@ OPENROWSET
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
-    [ <bulk_options> ] }  
+    [ <bulk_options> ]
+    [ , <reject_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
@@ -93,7 +94,17 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
+<<<<<<< HEAD
 [ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+=======
+
+<reject_options> ::=  
+{  
+    | MAXERRORS = reject_value,  
+    | ERRORFILE_DATA_SOURCE = <data source name>,
+    | ERRORFILE_LOCATION = '/REJECT_Directory'
+}  
+>>>>>>> 86b2692251f279299ecfa8a84bf15b67657e3fb8
 ```
 
 ## Arguments
@@ -249,9 +260,45 @@ CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
 Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
 
+<<<<<<< HEAD
 ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is useful option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file.md#querying-appendable-files) section.
+=======
+Reject Options 
+
+> [!NOTE]
+> Rejected rows feature is in Public Preview.
+> Please note that rejected rows feature works for delimited text files and PARSER_VERSION 1.0.
+
+
+You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if actual data types don't match the column definitions of the external table.
+
+When you don't specify or change reject options, service uses default values. Service will use the reject options to determine the number of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
+
+
+MAXERRORS = *reject_value* 
+
+Specifies the number of rows that can be rejected before the query fails. MAXERRORS must be an integer between 0 and 2,147,483,647.
+
+ERRORFILE_DATA_SOURCE = *data source*
+
+Specifies data source where rejected rows and the corresponding error file should be written.
+
+ERRORFILE_LOCATION = *Directory Location*
+
+Specifies the directory within the DATA_SOURCE, or ERROR_FILE_DATASOURCE if specified, that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, service will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. Within this directory, there's a folder created based on the time of load submission in the format YearMonthDay_HourMinuteSecond_StatementID (Ex. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). You can use statement id to correlate folder with query that generated it. In this folder, two files are written: error.json file and the data file. 
+
+error.json file contains json array with encountered errors related to rejected rows. Each element representing error contains following attributes:
+
+| Attribute | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Reason why row is rejected.                                  |
+| Row       | Rejected row ordinal number in file.                         |
+| Column    | Rejected column ordinal number.                              |
+| Value     | Rejected column value. If value is larger than 100 characters, only first 100 characters will be present. |
+| File      | Path to file that row belongs to.                            |
+>>>>>>> 86b2692251f279299ecfa8a84bf15b67657e3fb8
 
 ## Fast delimited text parsing
 
