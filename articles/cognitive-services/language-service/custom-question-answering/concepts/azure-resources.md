@@ -36,10 +36,10 @@ Typically there are three parameters you need to consider:
 
     With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://language.azure.com/).
 
-> [!IMPORTANT]
-> You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+    > [!IMPORTANT]
+    > You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
-For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
+    For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
 
 * **Number of documents as sources**: question answering is a free feature, and there are no limits to the number of documents you can add as sources. 
 
@@ -51,7 +51,7 @@ The following table gives you some high-level guidelines.
 | **Dev/Test Environment**   |Basic        | Publish Up to 14 KBs, 2 GB size    |
 | **Production Environment** |Standard     | Publish Up to 49 KBs, 25 GB size |
 
-## Recommended Settings
+## Recommended settings
 
 Custom question answering is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
 
@@ -75,13 +75,13 @@ You can view and reset your authoring keys from the Azure portal, where you adde
 
 1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of question answering resource list.](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of question answering resource list.](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
 
 2. Go to **Keys and Endpoint**:
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of subscription key.](../../../qnamaker/media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of subscription key.](../../../qnamaker/media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 ### Management service region
 
