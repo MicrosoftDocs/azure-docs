@@ -16,6 +16,9 @@ The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, e
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
+> [!NOTE]
+> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs). [Learn more](opentelemetry-overview.md).
+
 ## Get started
 
 Complete the following tasks to set up monitoring for an app or service.
