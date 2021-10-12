@@ -39,7 +39,7 @@ Managed identity provides the below benefits:
 >[!NOTE]
 > System-assigned managed identity is also referred to as 'Managed identity' elsewhere in the documentation and in the Data Factory Studio and Synapse Studio UI for backward compatibility purpose. We will explicitly mention 'User-assigned managed identity' when referring to it. 
 
-#### <a name="generate-managed-identity"></a> Generate system-assigned managed identity
+### <a name="generate-managed-identity"></a> Generate system-assigned managed identity
 
 System-assigned managed identity is generated as follows:
 
@@ -60,12 +60,14 @@ If you find your service instance doesn't have a managed identity associated fol
 >- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
 >- When you delete a service instance, the associated managed identity will be deleted along.
 
-##### Generate system-assigned managed identity using PowerShell
+#### Generate system-assigned managed identity using PowerShell
+
+# [Azure Data Factory](#tab/data-factory)
 
 Call **Set-AzDataFactoryV2** command, then you see "Identity" fields being newly generated:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -75,9 +77,39 @@ Tags              : {}
 Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentity
 ProvisioningState : Succeeded
 ```
+# [Azure Synapse](#tab/synapse-analytics)
 
-##### Generate system-assigned managed identity using REST API
+Call **New-AzSynapseWorkspace** command, then you see "Identity" fields being newly generated:
 
+```powershell
+PS C:\> $creds = New-Object System.Management.Automation.PSCredential ("ContosoUser", $password)
+PS C:\> New-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName> -Location <region> -DefaultDataLakeStorageAccountName <storageAccountName> -DefaultDataLakeStorageFileSystem <fileSystemName> -SqlAdministratorLoginCredential $creds
+
+DefaultDataLakeStorage           : Microsoft.Azure.Commands.Synapse.Models.PSDataLakeStorageAccountDetails
+ProvisioningState                : Succeeded
+SqlAdministratorLogin            : ContosoUser
+VirtualNetworkProfile            :
+Identity                         : Microsoft.Azure.Commands.Synapse.Models.PSManagedIdentity
+ManagedVirtualNetwork            :
+PrivateEndpointConnections       : {}
+WorkspaceUID                     : <workspaceUid>
+ExtraProperties                  : {[WorkspaceType, Normal], [IsScopeEnabled, False]}
+ManagedVirtualNetworkSettings    :
+Encryption                       : Microsoft.Azure.Commands.Synapse.Models.PSEncryptionDetails
+WorkspaceRepositoryConfiguration :
+Tags                             :
+TagsTable                        :
+Location                         : <region>
+Id                               : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/
+                                   Microsoft.Synapse/workspaces/<workspaceName>
+Name                             : <workspaceName>
+Type                             : Microsoft.Synapse/workspaces
+```
+---
+
+#### Generate system-assigned managed identity using REST API
+
+# [Azure Data Factory](#tab/data-factory)
 Call the API below with the "identity" section in the request body:
 
 ```
@@ -114,13 +146,56 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
         "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
         "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
     },
-    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
     "type": "Microsoft.DataFactory/factories",
     "location": "<region>"
 }
 ```
+# [Azure Synapse](#tab/synapse-analytics)
+Call the API below with the "identity" section in the request body:
 
-##### Generate system-assigned managed identity using an Azure Resource Manager template
+```
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2021-06-01
+```
+
+**Request body**: add "identity": { "type": "SystemAssigned" }.
+
+```json
+{
+    "name": "<workspaceName>",
+    "location": "<region>",
+    "properties": {},
+    "identity": {
+        "type": "SystemAssigned"
+    }
+}
+```
+
+**Response**: managed identity is created automatically, and "identity" section is populated accordingly.
+
+```json
+{
+    "name": "<workspaceName>",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "loggingStorageAccountKey": "**********",
+        "createTime": "2021-09-26T04:10:01.1135678Z",
+        "version": "2021-06-01"
+    },
+    "identity": {
+        "type": "SystemAssigned",
+        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
+        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Synapse/workspaces/<workspaceName>",
+    "type": "Microsoft.Synapse/workspaces",
+    "location": "<region>"
+}
+```
+---
+
+#### Generate system-assigned managed identity using an Azure Resource Manager template
 
 **Template**: add "identity": { "type": "SystemAssigned" }.
 
@@ -140,8 +215,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-##### Generate system-assigned managed identity using SDK
+#### Generate system-assigned managed identity using SDK
 
+# [Azure Data Factory](#tab/data-factory)
 Call the create_or_update function with Identity=new FactoryIdentity(). Sample code using .NET:
 
 ```csharp
@@ -152,8 +228,28 @@ Factory dataFactory = new Factory
 };
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
+# [Azure Synapse](#tab/synapse-analytics)
+```csharp
+Workspace workspace = new Workspace
+{
+    Identity = new ManagedIdentity
+    {
+        Type = ResourceIdentityType.SystemAssigned
+    },
+    DefaultDataLakeStorage = new DataLakeStorageAccountDetails
+    {
+        AccountUrl = <defaultDataLakeStorageAccountUrl>,
+        Filesystem = <DefaultDataLakeStorageFilesystem>
+    },
+    SqlAdministratorLogin = <SqlAdministratorLoginCredentialUserName>
+    SqlAdministratorLoginPassword = <SqlAdministratorLoginCredentialPassword>,
+    Location = <region>
+};
+client.Workspaces.CreateOrUpdate(resourceGroupName, workspaceName, workspace);
+```
+---
 
-#### <a name="retrieve-managed-identity"></a> Retrieve system-assigned managed identity
+### <a name="retrieve-managed-identity"></a> Retrieve system-assigned managed identity
 
 You can retrieve the managed identity from Azure portal or programmatically. The following sections show some samples.
 
@@ -173,10 +269,11 @@ When granting permission, in Azure resource's Access Control (IAM) tab -> Add ro
 
 #### Retrieve system-assigned managed identity using PowerShell
 
+# [Azure Data Factory](#tab/data-factory)
 The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows. Use the **PrincipalId** to grant access:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
@@ -186,7 +283,7 @@ PrincipalId                          TenantId
 You can get the application ID by copying above principal ID, then running below Azure Active Directory command with principal ID as parameter.
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
@@ -194,9 +291,33 @@ DisplayName           : ADFV2DemoFactory
 Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
+# [Azure Synapse](#tab/synapse-analytics)
+The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows. Use the **PrincipalId** to grant access:
+
+```powershell
+PS C:\> (Get-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName>).Identity
+
+IdentityType   PrincipalId                          TenantId                            
+------------   -----------                          --------                            
+SystemAssigned cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
+```
+
+You can get the application ID by copying above principal ID, then running below Azure Active Directory command with principal ID as parameter.
+
+```powershell
+PS C:\> Get-AzADServicePrincipal -ObjectId cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05
+
+ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
+DisplayName           : <workspaceName>
+Id                    : cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05
+Type                  : ServicePrincipal
+```
+---
 
 #### Retrieve managed identity using REST API
 
+# [Azure Data Factory](#tab/data-factory)
 The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows.
 
 Call below API in the request:
@@ -249,6 +370,75 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     }
 }
 ```
+# [Azure Synapse](#tab/synapse-analytics)
+The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows.
+
+Call below API in the request:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2021-06-01
+```
+
+**Response**: You will get response like shown in below example. The "identity" section is populated accordingly.
+
+```json
+{
+  "properties": {
+    "defaultDataLakeStorage": {
+      "accountUrl": "https://exampledatalakeaccount.dfs.core.windows.net",
+      "filesystem": "examplefilesystem"
+    },
+    "encryption": {
+      "doubleEncryptionEnabled": false
+    },
+    "provisioningState": "Succeeded",
+    "connectivityEndpoints": {
+      "web": "https://web.azuresynapse.net?workspace=%2fsubscriptions%2{subscriptionId}%2fresourceGroups%2f{resourceGroupName}%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2f{workspaceName}",
+      "dev": "https://{workspaceName}.dev.azuresynapse.net",
+      "sqlOnDemand": "{workspaceName}-ondemand.sql.azuresynapse.net",
+      "sql": "{workspaceName}.sql.azuresynapse.net"
+    },
+    "managedResourceGroupName": "synapseworkspace-managedrg-f77f7cf2-XXXX-XXXX-XXXX-c4cb7ac3cf4f",
+    "sqlAdministratorLogin": "sqladminuser",
+    "privateEndpointConnections": [],
+    "workspaceUID": "e56f5773-XXXX-XXXX-XXXX-a0dc107af9ea",
+    "extraProperties": {
+      "WorkspaceType": "Normal",
+      "IsScopeEnabled": false
+    },
+    "publicNetworkAccess": "Enabled",
+    "cspWorkspaceAdminProperties": {
+      "initialWorkspaceAdminObjectId": "3746a407-XXXX-XXXX-XXXX-842b6cf1fbcc"
+    },
+    "trustedServiceBypassEnabled": false
+  },
+  "type": "Microsoft.Synapse/workspaces",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}",
+  "location": "eastus",
+  "name": "{workspaceName}",
+  "identity": {
+    "type": "SystemAssigned",
+    "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47",
+    "principalId": "cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05"
+  },
+  "tags": {}
+}
+```
+
+> [!TIP] 
+> To retrieve the managed identity from an ARM template, add an **outputs** section in the ARM JSON:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.Synapse/workspaces', parameters('<workspaceName>')), '2021-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
+```
+---
 
 ## User-assigned managed identity
 
