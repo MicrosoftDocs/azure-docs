@@ -317,6 +317,8 @@ items:
       href: custom-question-answering/how-to/manage-resources.md
   - name: Concepts
     items:
+    - name: Resource planning
+      href: custom-question-answering/concepts/azure-resources.md
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
     - name: Development lifecycle
