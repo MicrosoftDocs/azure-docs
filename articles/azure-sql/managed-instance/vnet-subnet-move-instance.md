@@ -37,7 +37,7 @@ To deploy a managed instance, or move it to another subnet, the destination subn
 
 ### Subnet readiness 
 
-Before you move your managed instance, confirm the subnet is marked as **Ready for Managed Instance** or **other** as both designations indicate the subnet can support a managed instance. 
+Before you move your managed instance, confirm the subnet is marked as **Ready for Managed Instance** or **Other** as both designations indicate the subnet can support a managed instance. 
 
 In the **Virtual network** UI of the Azure portal, virtual networks that meet the prerequisites for a managed instance are categorized as **Ready for Managed Instance**. Virtual networks that have subnets with managed instances already deployed to them display an icon before the virtual network name. Empty subnets that are ready for a managed instance do not have an icon. 
 
@@ -52,15 +52,13 @@ Subnets marked as **Invalid** cannot be used for new or existing managed instanc
 Depending on the subnet state and designation, the following adjustments may be made to the destination subnet: 
 
 - **Ready for Managed Instance (contains existing SQL Managed Instance)**: No adjustments are made. These subnets already contain managed instances, and making any change to the subnet could impact existing instances. 
-- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and adds any rules that are necessary but missing. 
-- **Other**: The subnet is prepared and all relevant rules are created according to the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and adds any rules that are necessary but missing. <sup>1</sup>
+- **Other**: The subnet is prepared and all relevant rules are created according to the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). <sup>1</sup>
 
 > [!Note]
-> Azure portal only: in case of subnets categorized as **Other** and **Ready for Managed Instance (empty)** destination subnet is additionaly adjusted in order to match source subnet configuration:
-> - Depending on the instance configuration (public endpoint, connection type for private endpoint), extra rules may be deployed.
+> <sup>1</sup> Azure portal only: Destination subnets that are categorized as **Ready for Managed Instance (empty)** and **Other**  may be adjusted to match the source subnet configuration: 
+> - Extra rules may be deployed depending on the instance configuration (such as public endpoint, connection type for private endpoint, etc.). 
 > - Custom rules added to the source subnet configuration are copied to the destination subnet.
-
-
 
 
 ### Destination subnet limitations 
@@ -70,8 +68,6 @@ Consider the following limitations when choosing a destination subnet for an exi
 - The destination subnet must be in the same virtual network as the source subnet. 
 - The DNS zone of the destination subnet must match the DNS zone of the source subnet as changing the DNS zone of a managed instance is not currently supported. 
 - Instances running on Gen4 hardware must be upgraded to a newer hardware generation before moving to another subnet since Gen4 is deprecated. 
-
-
 
 
 ## Operation steps
@@ -86,7 +82,7 @@ The following table details the operation steps that occur during the instance m
 |Seeding database files / attaching database files |Depending on the service tier, either the database is seeded or the database files are attached. |
 |Preparing failover and failover |After data has been seeded or database files reattached, the system prepares for failover. When everything is ready, the system performs a failover **with a short downtime**, usually less than 10 seconds.  |
 |Old SQL instance cleanup |Removes the old SQL process from the source virtual cluster.  |
-|Virtual cluster deletion |If it's the last instance within the source subnet, the final step deletes the virtual cluster synchronously. Otherwise, asynchronous defragmentation of the virtual cluster will be triggered. |
+|Virtual cluster deletion |If it's the last instance within the source subnet, the final step deletes the virtual cluster synchronously. Otherwise, the virtual cluster is asynchronously defragmentated.  |
 
 A detailed explanation of the operation steps can be found in the [overview of Azure SQL Managed Instance management operations](management-operations-overview.md#management-operations-steps)
 
@@ -135,7 +131,7 @@ $sqlMIResourceVnetName = 'vnet-name-of-sql-mi'
 $destinationSubnetName = 'name-of-the-destination-subnet-for-sql-mi'
 ```
 
-Skip this command if your subnet already has instances deployed to it. If you are using a new subnet, use the following PowerShell command to prepare your subnet: 
+Skip this command if your subnet already has instances deployed to it. If you are using a new subnet, use the following Azure PowerShell command to prepare your subnet: 
 
 ```powershell-interactive
 ### PART 2 - PREPARE DESTINATION SUBNET
@@ -158,7 +154,7 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delega
 > [!Note]
 > To learn more about the script that prepares the subnet, see [Configure an existing virtual network for Azure SQL Managed Instance](vnet-existing-add-subnet.md). 
 
-The following PowerShell command moves the instance to the source subnet: 
+The following Azure PowerShell command moves the instance to the source subnet: 
 
 ```powershell-interactive
 ### PART 3 - MOVE INSTANCE TO THE NEW SUBNET
@@ -167,7 +163,7 @@ Set-AzSqlInstance -Name $sqlMIName -ResourceGroupName $sqlMIResourceGroupName `
 -SubnetId "/subscriptions/$currentSubscriptionID/resourceGroups/$sqlMIResourceGroupName/providers/Microsoft.Network/virtualNetworks/$sqlMIResourceVnetName/subnets/$destinationSubnetName"
 ```
 
-The following PowerShell command moves the instance, and also provides a way to monitor progress: 
+The following Azure PowerShell command moves the instance, and also provides a way to monitor progress: 
 
 ```powershell-interactive
 ###PART 3 EXTENDED - MOVE INSTANCE AND MONITOR PROGRESS
