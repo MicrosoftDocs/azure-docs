@@ -22,8 +22,10 @@ The single most important part of your application is its security. If your appl
 
 > [!IMPORTANT]
 > Azure Maps provides two methods of authentication.
+>
 > * Subscription key-based authentication
 > * Azure Active Directory authentication
+>
 > Use Azure Active Directory in all production applications.
 > Subscription key-based authentication is simple and what most mapping platforms use as a light way method to measure your usage of the platform for billing purposes. However, this is not a secure form of authentication and should only be used locally when developing apps. Some platforms provide the ability to restrict which IP addresses and/or HTTP referrer is in requests, however, this information can easily be spoofed. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
 > Azure Active Directory is an enterprise identity service that has a large selection of security features and settings for all sorts of application scenarios. Microsoft recommends that all production applications using Azure Maps use Azure Active Directory for authentication.
@@ -59,7 +61,7 @@ Similarly, when the map initially loads often it is desired to load data on it a
 
 ### Lazy load the Azure Maps Web SDK
 
-If the map isn't needed right away, lazy load the Azure Maps Web SDK until it is needed. This will delay the loading of the JavaScript and CSS files used by the Azure Maps Web SDK until needed. A common scenario where this occurs is when the map is loaded in a tab or flyout panel that isn't displayed on page load.
+If the map isn't needed right away, lazy load the Azure Maps Web SDK until it is needed. This delays the loading of the JavaScript and CSS files used by the Azure Maps Web SDK until needed. A common scenario where this occurs is when the map is loaded in a tab or flyout panel that isn't displayed on page load.
 The following code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed.
 
 <br/>
@@ -71,11 +73,11 @@ The following code sample shows how to delay the loading the Azure Maps Web SDK 
 
 ### Add a placeholder for the map
 
-If the map takes a while to load due to network limitations or other priorities within your application, consider adding a small background image to the map `div` as a placeholder for the map. This will fill the void of the map `div` while it is loading.
+If the map takes a while to load due to network limitations or other priorities within your application, consider adding a small background image to the map `div` as a placeholder for the map. This fills the void of the map `div` while it is loading.
 
 ### Set initial map style and camera options on initialization
 
-Often apps want to load the map to a specific location or style. Sometimes developers will wait until the map has loaded (or wait for the `ready` event), and then use the `setCemer` or `setStyle` functions of the map. This will often take longer to get to the desired initial map view since many resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
+Often apps want to load the map to a specific location or style. Sometimes developers will wait until the map has loaded (or wait for the `ready` event), and then use the `setCemer` or `setStyle` functions of the map. This often takes longer to get to the desired initial map view since many resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
 
 ## Optimize data sources
 
@@ -127,7 +129,7 @@ If your dataset contains features that aren't going to be used in your app, remo
 * Reduces the number of features that need to be looped through when rendering the data.
 * Can sometimes help simplify or remove data-driven expressions and filters, which mean less processing required at render time.
 
-When features have a lot of properties or content, it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server-side, a service can be used to retrieve it asynchronously, which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
+When features have numerous properties or content, it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server-side, a service can be used to retrieve it asynchronously, which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
 
 Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It is not uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meter, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and will only require the user to download more data for no added benefit.
 
@@ -214,7 +216,7 @@ Symbol layers have collision detection enabled by default. This collision detect
 * `allowOverlap` - specifies if the symbol will be visible if it collides with other symbols.
 * `ignorePlacement` - specifies if the other symbols are allowed to collide with the symbol.
 
-Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations will run on each frame of the animation, which can slow down the animation and make it look less fluid. To smooth the animation out, set these options to `true`.
+Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations will run on each frame of the animation, which can slow down the animation and make it look less fluid. To smooth out the animation, set these options to `true`.
 
 The following code sample a simple way to animate a symbol layer.
 
@@ -292,7 +294,7 @@ Learn more in the [Clustering and heat maps in this document](clustering-point-d
 
 ### Keep image resources small
 
-Images can be added to the maps image sprite for rendering icons in a symbol layer or patterns in a polygon layer. Keep these images small to minimize the amount of data that has to be downloaded and the amount of space they take up in the maps image sprite. When using a symbol layer that scales the icon using the `size` option, use an image that is the maximum size your plan to display on the map and no bigger. This will ensure the icon is rendered with high resolution while minimizing the resources it uses. Additionally, SVG's can also be used as a smaller file format for simple icon images.
+Images can be added to the maps image sprite for rendering icons in a symbol layer or patterns in a polygon layer. Keep these images small to minimize the amount of data that has to be downloaded and the amount of space they take up in the maps image sprite. When using a symbol layer that scales the icon using the `size` option, use an image that is the maximum size your plan to display on the map and no bigger. This ensures the icon is rendered with high resolution while minimizing the resources it uses. Additionally, SVG's can also be used as a smaller file format for simple icon images.
 
 ## Optimize expressions
 
@@ -303,7 +305,7 @@ Images can be added to the maps image sprite for rendering icons in a symbol lay
 Filters loop over all data in a data source and check to see if each filter matches the logic in the filter. If filters become complex, this can cause performance issues. Some possible strategies to address this include the following.
 
 * If using vector tiles, break up the data into different source layers.
-* If using the `DataSource` class, break that data up into separate data sources. Try to balance the number of data sources with the complexity of the filter. Too many data sources can cause performance issues too, so you might need to do some testing to find out what works best for your scenario.
+* If using the `DataSource` class, break up that data into separate data sources. Try to balance the number of data sources with the complexity of the filter. Too many data sources can cause performance issues too, so you might need to do some testing to find out what works best for your scenario.
 * When using a complex filter on a layer, consider using multiple layers with style expressions to reduce the complexity of the filter. Avoid creating a bunch of layers with hardcoded styles when style expressions can be used as a large number of layers can also cause performance issues.
 
 ### Make sure expressions don't produce errors
@@ -413,7 +415,7 @@ Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Mic
 
 * For all other Azure Maps services, contact [Azure support](https://azure.com/support).
 
-* For question or comments on specific Azure Maps Features use the [Azure Maps developer forums](/answers/topics/azure-maps.html).
+* For question or comments on specific Azure Maps Features, use the [Azure Maps developer forums](/answers/topics/azure-maps.html).
 
 ## Next steps
 
