@@ -200,7 +200,7 @@ For Instance Segmentation, we only support polygon as input and output, no masks
       {
          "label":"class_name",
          "isCrowd":"isCrowd",
-         "polygon":[["x1", "y1", "x2", "y2", "x3", "y3", "..." "xn", "yn"]]
+         "polygon":[["x1", "y1", "x2", "y2", "x3", "y3", "...", "xn", "yn"]]
       }
    ]
 }
@@ -288,13 +288,13 @@ Following is the input format needed to generate predictions on any task using t
 ```python
 # input image for inference
 sample_image = './test_image.jpg'
-# Load image data
+# load image data
 data = open(sample_image, 'rb').read()
-# Set the content type
+# set the content type
 headers = {'Content-Type': 'application/octet-stream'}
-# If authentication is enabled, set the authorization header
+# if authentication is enabled, set the authorization header
 headers['Authorization'] = f'Bearer {key}'
-# Make the request and display the response
+# make the request and display the response
 response = requests.post(scoring_uri, data, headers=headers)
 ```
 ### Output format
