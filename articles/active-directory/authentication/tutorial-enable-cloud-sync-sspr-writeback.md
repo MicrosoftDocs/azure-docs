@@ -21,6 +21,8 @@ ms.custom: contperf-fy20q4
 
 Password writeback can synchronize password changes in Azure AD back to an on-premises Active Directory Domain Services (AD DS) domain in real time. The public preview of Azure AD Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in thne cloud back to an on-premises directory. 
 
+This is especially suited for disconnected domain sceanrios. 
+
 ## Prerequisites 
 
 - An Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled. If needed, create one for free. 
@@ -39,6 +41,8 @@ Password writeback can synchronize password changes in Azure AD back to an on-pr
 1. [Enable password writeback for SSPR](#enable-password-writeback-for-sspr)
  
 ### Configure Azure AD Connect cloud sync service account permissions 
+
+<!---Move to troubleshooting and point to permissions.---> 
 
 The Azure AD Connect cloud sync group managed service account (gMSA) should have the following permissions set to writeback the passwords by default: 
 
@@ -68,12 +72,16 @@ For passwords to be changed immediately, Minimum password age must be set to 0. 
 
 For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
 
-### Enable password writeback in Azure AD Connect cloud sync 
+### Enable password writeback in Azure AD Connect cloud sync
+
+<!---Optional for preview, will be done automatically for GA--->
 
 Enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
 
-Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
-Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential) 
+```powershell
+Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
+Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
+``` 
 
 ### Enable password writeback for SSPR 
 
