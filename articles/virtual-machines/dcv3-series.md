@@ -19,7 +19,7 @@ The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality an
 
 These machines are backed by the latest 3rd Generation Intel Xeon Scalable processors, and leverage Intel Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios for processing sensitive data securely. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios. 
 
 [!NOTE] Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
 
