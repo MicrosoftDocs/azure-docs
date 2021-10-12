@@ -95,7 +95,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
         * `/var/media`
     
         Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
-
+        
 1. [Set up the edge device](../../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
 
     > [!Important]
@@ -125,7 +125,7 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) for the Standard S1 tier either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
+You need to create an Azure resource of type [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) for the **Standard S1 tier** either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
@@ -172,6 +172,9 @@ A key is used to start the spatial-analysis container, and is available on the A
 ## Set up deployment template
 
 Look for the deployment file in /src/edge/deployment.spatialAnalysis.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+
+> [!Note]
+> This document focusses on deployment steps using the **Azure Stack Edge** device. To deploy the modules on your desktop or Azure VM, please follow the steps mentioned in the [Getting Started Quickstart](get-started-detect-motion-emit-events-portal.md#deploy-edge-modules).
 
 There are a few things you need to pay attention to in the deployment template file:
 
