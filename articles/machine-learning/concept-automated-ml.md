@@ -299,6 +299,8 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+   
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 
 + Configure the settings for automatic training experiments
@@ -307,6 +309,8 @@ How-to articles provide additional detail into what functionality automated ML o
 
 +  Learn how to [train forecasting models with time series data](how-to-auto-train-forecast.md).
 
++  Learn how to [train computer vision models with Python](how-to-auto-train-image-models.md).
+   
 ### Jupyter notebook samples 
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
