@@ -81,4 +81,4 @@ The following example shows how to create a queue in a new storage account from 
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-manage-identity.md)
+- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md)

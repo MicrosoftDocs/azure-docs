@@ -28140,8 +28140,8 @@
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
-      "redirect_url": "/azure/storage/blobs/authorize-with-manage-identity",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
