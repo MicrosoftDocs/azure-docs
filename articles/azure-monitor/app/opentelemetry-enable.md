@@ -170,7 +170,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-The following code demonstrates enabling OpenTelemetry in a C# console application. For auto-collection of telemetry, check out [instrumentation libraries](#instrumentation-libraries) section.
+The following code demonstrates enabling OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For Asp.Net Core, it is done typically in the `ConfigureServices` method of application `Startup` class. For ASP.NET applications, it is done typically in `Global.aspx.cs`.
 
 ```csharp
 using System.Diagnostics;
