@@ -32,7 +32,7 @@ For example, if you publish the path `https://yourapp/app` but the application c
 
 ## Connector errors
 
-If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Windows Logs\Application\ ** (filter by Source = "Microsoft AAD Application Proxy Connector" , or run the following Windows PowerShell command:
+If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Windows Logs\Application** (filter by Source = "Microsoft AAD Application Proxy Connector" , or run the following Windows PowerShell command:
 
 ```powershell
 Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
