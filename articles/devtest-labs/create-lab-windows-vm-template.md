@@ -55,7 +55,7 @@ On the **Creates a lab in Azure DevTest Labs with a Windows Server VM** screen:
    :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Screenshot of the Create a lab page.":::
 
 ## Validate the deployment
-1. During the deployment, you can select **Notifications** at the top of your screen and select **Deployment in progress** to see the deployment **Overview** page. Deployment, especially creating a VM, takes some time to complete.
+1. During the deployment, you can select **Notifications** at the top of your screen. Select **Deployment in progress** to see the deployment **Overview** page. Deployment, especially creating a VM, takes awhile.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Screenshot showing the deployment in progress.":::
 
@@ -63,11 +63,7 @@ On the **Creates a lab in Azure DevTest Labs with a Windows Server VM** screen:
 
    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Screenshot that shows deployment complete and the Go to resource button.":::
 
-1. On the **Resource group** page, you see the list of resources in the resource group. Confirm that you see your lab of type: `DevTest Lab` in the resources. You also see the dependent resources such as virtual network and virtual machine in the resource group. 
-
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Resource group's home page":::
-
-1. On the home page for your lab, confirm that you see the Windows Server 2019 Datacenter VM in the **My virtual machines** list. In the following image, the **Essentials** section is minimized. 
+1. On the home page for your lab, confirm that you see the Windows Server 2019 Datacenter VM in the **My virtual machines** list. In the following screenshot, the **Essentials** section is minimized. 
 
     :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Screenshot that shows the home page for the lab.":::
 
