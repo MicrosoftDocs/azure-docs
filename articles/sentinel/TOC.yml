@@ -109,8 +109,6 @@
       href: resource-context-rbac.md
   - name: Migrate to Azure Sentinel
     href: migration.md
-  - name: Manage Azure Sentinel content
-    href: sentinel-solutions-deploy.md
   - name: Collect data
     items:
     - name: Connect your data source
@@ -156,8 +154,10 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Create content in your repository
-    href: ci-cd.md
+  - name: Manage Azure Sentinel content
+    items:
+    - name: Discover and deploy solutions
+      href: sentinel-solutions-deploy.md
   - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
