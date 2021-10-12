@@ -1,6 +1,6 @@
 ---
 title: Add guided conversations with multi-turn prompts
-description: In this tutorial learn how to make guided conversations with multi-turn prompts.
+description: In this tutorial, learn how to make guided conversations with multi-turn prompts.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
@@ -22,11 +22,11 @@ In this tutorial, you learn how to:
 
  In this tutorial, we use [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) to create a knowledge base.
 
-If you have never created a question answering project before we recommend starting with the the [getting started](../how-to/create-test-deploy.md) article which will take you step-by-step through the process.
+If you have never created a question answering project before we recommend starting with the [getting started](../how-to/create-test-deploy.md) article, which will take you step-by-step through the process.
 
 ## View question answer pair context
 
-For this example let's assume that users are asking for additional details about the Surface Pen product, particularly how to troubleshoot their Surface Pen, but they are not getting the correct answers. So, we add more prompts to support additional scenarios and guide the users to the correct answers using multi-turn prompts.
+For this example, let's assume that users are asking for additional details about the Surface Pen product, particularly how to troubleshoot their Surface Pen, but they are not getting the correct answers. So, we add more prompts to support additional scenarios and guide the users to the correct answers using multi-turn prompts.
 
 Multi-turn prompts that are associated with question and answer pairs, can be viewed by selecting **Show columns** > **Context**. By default this should already be enabled on the **Edit knowledge base** page in the Language Studio question answering interface.
 
@@ -66,7 +66,7 @@ We then add a follow-up prompt to the newly created question pair by choosing **
 We provide **Check Compatibility** as the “Display text” for the prompt and try to link it to a QnA. Since, no related QnA pair is available to link to the prompt, when we search “Check your Surface Pen Compatibility”, we create a new question pair by clicking on **Create link to new pair** and select **Done**. Then select **Save changes**.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of a question and answer about checking your surface pen compatibility]( ../media/guided-conversations/compatability-check.png) ]( ../media/guided-conversations/compatibility-check.png#lightbox)
+> [ ![Screenshot of a question and answer about checking your surface pen compatibility]( ../media/guided-conversations/compatability-check.png) ]( ../media/guided-conversations/compatability-check.png#lightbox)
 
 Similarly, we add another prompt **Check Pen Settings** to help the user troubleshoot the Surface Pen and add question pair to it.
 
@@ -76,17 +76,17 @@ Similarly, we add another prompt **Check Pen Settings** to help the user trouble
 **Step 2**: Add another follow-up prompt to the newly created prompt. We now add “Replace Pen tips’ as a follow-up prompt to the previously created prompt “Check Pen Settings”.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of a question and answer about checking your surface pen settings with a red box around information regarding replacing pen tips]( ../media/guided-conversations/replace-pen.png) ]( ../media/guided-conversations/replace-pen.png#lightbox)
+> [ ![Screenshot of a question and answer about creating a follow-up prompt for replacing pen tips]( ../media/guided-conversations/replace-pen.png) ]( ../media/guided-conversations/replace-pen.png#lightbox)
 
 We finally save the changes and test these prompts in the Test pane:
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of a question and answer about checking your surface pen settings with a red box around information regarding replacing pen tips]( ../media/guided-conversations/save-changes.png) ]( ../media/guided-conversations/save-changes.png#lightbox)
+> [ ![Screenshot of question answer UI with save changes highlighted in a red box]( ../media/guided-conversations/save-changes.png) ]( ../media/guided-conversations/save-changes.png#lightbox)
 
 For a user query **Issues with Surface Pen**, the system returns an answer and presents the newly added prompts to the user. The user then selects one of the prompts **Check Pen Settings** and the related answer is returned to the user with another prompt **Replace Pen Tips**, which when selected further provides the user with more information. So, multi-turn is used to help and guide the user to the desired answer.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of a question and answer about checking your surface pen settings with a red box around information regarding replacing pen tips]( ../media/guided-conversations/test.png) ]( ../media/guided-conversations/test.png#lightbox)
+> [ ![Screenshot of chat test UI]( ../media/guided-conversations/test.png) ]( ../media/guided-conversations/test.png#lightbox)
 
 ## Next steps
 
