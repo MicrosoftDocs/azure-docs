@@ -10,10 +10,10 @@ metadata:
   ms.service: app-service
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 09/16/2021
+  ms.date: 10/12/2021
 
 landingContent:
-  - title: About Container Apps
+  - title: About Azure Container Apps
     linkLists:
       - linkListType: overview
         links:
@@ -25,3 +25,35 @@ landingContent:
         links:
           - text: Deploy your first container app
             url: ./get-started.md
+      - linkListType: concept
+        links:
+          - text: Environments
+            url: environment.md
+          - text: Containers
+            url: containers.md
+          - text: Scaling
+            url: scale-app.md
+          - text: Building microservices
+            url: microservices.md
+          - text: Application lifecycle management
+            url: application-lifecycle-management.md
+          - text: Networking
+            url: networking.md
+  - title: Common tasks
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Secure an app
+            url: secure-app.md
+          - text: Monitor an app
+            url: monitor.md
+          - text: Manage revisions
+            url: overview.md
+  - title: Build microservices
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Build background processing microservice
+            url: background-processing.md
+          - text: Build microservices with Dapr
+            url: microservices-dapr.md
