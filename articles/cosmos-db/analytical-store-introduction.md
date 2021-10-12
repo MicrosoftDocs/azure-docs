@@ -182,7 +182,7 @@ There are two types of schema representation in the analytical store. These type
 
 #### Full fidelity schema for SQL API accounts
 
-It is possible to use Full Fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+It is possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
  * It is not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
