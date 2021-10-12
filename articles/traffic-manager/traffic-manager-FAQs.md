@@ -445,7 +445,7 @@ If no custom host header setting is provided, the host header used by Traffic Ma
 
 ### What are the IP addresses from which the health checks originate?
 
-Click [here](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to learn how to retrieve the lists of IP addresses from which Traffic Manager health checks can originate. You can use REST API, Azure CLI, or Azure PowerShell to retrieve the latest list. Review the IPs listed to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+See [this article](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to learn how to retrieve the lists of IP addresses from which Traffic Manager health checks can originate. You can use REST API, Azure CLI, or Azure PowerShell to retrieve the latest list. Review the IPs listed to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 Example using Azure PowerShell:
 
