@@ -45,24 +45,6 @@
     items:
     - name: Manual QoS capacity pool
       href: manual-qos-capacity-pool-introduction.md
-  - name: Data protection 
-    items:
-    - name: How Azure NetApp Files snapshots work
-      href: snapshots-introduction.md
-    - name: Azure NetApp Files backup
-      items: 
-      - name: Understand Azure NetApp Files backup
-        href: backup-introduction.md  
-      - name: Requirements and considerations for Azure NetApp Files backup
-        href: backup-requirements-considerations.md
-    - name: Cross-region replication
-      items: 
-      - name: Understand cross-region replication
-        href: cross-region-replication-introduction.md
-      - name: Requirements and considerations for cross-region replication
-        href: cross-region-replication-requirements-considerations.md
-    - name: What is Azure Application Consistent Snapshot Tool
-      href: azacsnap-introduction.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
@@ -91,6 +73,24 @@
         href: azure-netapp-files-smb-performance.md
       - name: Azure virtual machine SKUs best practices
         href: performance-virtual-machine-sku.md 
+  - name: Data protection 
+    items:
+    - name: How Azure NetApp Files snapshots work
+      href: snapshots-introduction.md
+    - name: Azure NetApp Files backup
+      items: 
+      - name: Understand Azure NetApp Files backup
+        href: backup-introduction.md  
+      - name: Requirements and considerations for Azure NetApp Files backup
+        href: backup-requirements-considerations.md
+    - name: Cross-region replication
+      items: 
+      - name: Understand cross-region replication
+        href: cross-region-replication-introduction.md
+      - name: Requirements and considerations for cross-region replication
+        href: cross-region-replication-requirements-considerations.md
+    - name: What is Azure Application Consistent Snapshot Tool
+      href: azacsnap-introduction.md
   - name: Solutions
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -109,23 +109,23 @@
     items:
           - name: Networking FAQs
             href: faq-networking.md
-          - name: Security FAQs
-            href: faq-security.md
-          - name: Performance FAQs
-            href: faq-performance.md
+          - name: Capacity management FAQs
+            href: faq-capacity-management.md
           - name: NFS FAQs
             href: faq-nfs.md
           - name: SMB FAQs
             href: faq-smb.md
-          - name: Capacity management FAQs
-            href: faq-capacity-management.md
+          - name: Performance FAQs
+            href: faq-performance.md
+          - name: Application resilience FAQs
+            href: faq-application-resilience.md
           - name: Data migration and protection FAQs
             href: faq-data-migration-protection.md
           - name: Azure NetApp Files backup FAQs
             href: faq-backup.md
-          - name: Application resilience FAQs
-            href: faq-application-resilience.md
-          - name: Product FAQs
+          - name: Security FAQs
+            href: faq-security.md
+          - name: Integration FAQs
             href: faq-integration.md
 - name: How-to guides
   items: 
