@@ -24,23 +24,24 @@ Spatial Analysis is an AI service that helps organizations maximize the value of
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## What it does
-
-The core operations of Spatial Analysis are built on a system that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
+The core operations of Spatial Analysis are built on a system that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest. All operations give insights from a single cameras field of view. 
 
 ### People counting
-Count the number of people in a designated zone over time using the PersonCount operation. This operation works for a zone within a single cameras field of view. It generates an independent count for each frame processed without attempting to track people across frames.
+This operation counts the number of people in a designated zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It's useful to get an overall estimate of the number of people in a given space or to generate alerts when people appear. 
 
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
 ### Enter/exit spaces
-Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more. 
+Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more.
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and facemask detection 
-Understand how well people follow social distancing and facemask guidance using video.
+Understand how well a space allows people follow social distancing requirements using video. With teh PersonDistance operation the camera automatically calibrates itself as people walk around in the space and identifies when people violate a specific distance threshold (6 ft or 10 ft).
 
 ![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
+
+Spatial Analysis can also be configured to detect if a person is wearing a protective face covering such as a mask. A mask classifier can be enabled for the personcount, personcrossingline and personcrossingpolygon operations by configuring the ENABLE_FACE_MASK_CLASSIFIER parameter.
 
 ![Spatial Analysis classifies whether people have facemasks in the elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
