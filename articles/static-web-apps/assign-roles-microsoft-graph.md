@@ -19,7 +19,7 @@ In this tutorial, you learn to:
 - Deploy a static web app.
 - Create an Azure Active Directory app registration.
 - Set up custom authentication with Azure Active Directory.
-- Configure an [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles.
+- Configure a [serverless function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles.
 
 > [!NOTE]
 > This tutorial requires you to [use a function to assign roles](authentication-authorization.md?tabs=function#role-management). Function-based role management is currently in preview.
@@ -27,6 +27,7 @@ In this tutorial, you learn to:
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- You must have sufficient permissions to create an Azure Active Directory application.
 
 ## Create a GitHub repository
 
@@ -85,9 +86,6 @@ In this tutorial, you learn to:
 
 ## Create an Azure Active Directory application
 
-  > [!NOTE]
-  > You must have sufficient permissions to create an Azure Active Directory application.
-
 1. In the Azure portal, search for and navigate to *Azure Active Directory*.
 
 1. In the menu bar, select **App registrations**.
@@ -115,6 +113,8 @@ In this tutorial, you learn to:
 1. In the *Implicit grant and hybrid flows* section, select **ID tokens (used for implicit and hybrid flows)**.
 
     :::image type="content" source="media/assign-roles-microsoft-graph/enable-id-tokens.png" alt-text="Enable ID tokens":::
+    
+    This configuration is required by Static Web Apps to authenticate your users.
 
 1. Select **Save**.
 
@@ -129,7 +129,7 @@ In this tutorial, you learn to:
 1. Leave the default of _6 months_ for the *Expires* field.
 
     > [!NOTE]
-    > You must rotate the secret before the expiration date.
+    > You must rotate the secret before the expiration date by generating a new secret and updating your app with its value.
 
 1. Select **Add**.
 
@@ -162,13 +162,16 @@ In this tutorial, you learn to:
     },
     ```
 
+    > [!NOTE]
+    > To obtain an access token for Microsoft Graph, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`.
+
 1. Select the **Edit** button to update the file.
 
 1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run is triggered to update the static web app.
+1. A GitHub Actions run triggers to update the static web app.
 
 1. Navigate to your static web app resource in the Azure portal.
 
@@ -191,7 +194,7 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
 
 1. Click the **Edit** button.
 
-1. Update the object with group IDs from your Azure Active Directory.
+1. Update the object with group IDs from your Azure Active Directory tenant.
 
     For instance, if you have groups with IDs `6b0b2fff-53e9-4cff-914f-dd97a13bfbd6` and `b6059db5-9cef-4b27-9434-bb793aa31805`, you would update the object to:
 
@@ -208,13 +211,13 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run is triggered to update the static web app.
+1. A GitHub Actions run triggers to update the static web app.
 
 1. When the deployment is complete, you can verify your changes by navigating to the app's URL.
 
 1. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, the sample app displays the list of roles that you are assigned. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
+1. When you are logged in, the sample app displays the list of roles that you are assigned based on your identity's Active Directory group membership. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
 
 ## Clean up resources
 
