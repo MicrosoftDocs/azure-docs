@@ -13,26 +13,29 @@ ms.author: mmcrey
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-[!NOTE] DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
+> [!NOTE] 
+> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
 
 The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
 
 These machines are backed by the latest 3rd Generation Intel® Xeon Scalable processors, and leverage Intel® Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios for processing sensitive data securely. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios. 
 
-[!NOTE] Hyperthreading is disabled for added security posture. With Hyperthreading turned off, 1 Physical Core will deliver roughly 2 Virtual Cores in performance terms depending on workload; pricing reflects these security and performance enhancements.
+> [!NOTE]
+> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
 
 We are offering two variants dependent on whether the workload benefits from a local disk or not. Whether you choose a VM with a local disk or not, you can attach remote persistent disk storage to all VMs. Remote disk options (such as for the VM boot disk) are billed separately from the VMs in any case, as always. 
 
 ## Configuration
 
-[CPU]: 3rd Generation Intel® Xeon® Platinum 8370C<br>
+[CPU]: 3rd Generation Intel® Xeon Scalable Processor 8370C<br>
 [Base All-Core Frequency]: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
 [Premium Storage and Caching]: Supported<br>
 [Ultra-Disk Storage]: Supported<br>
+[Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
 [Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
 [Live Migration]: Not Supported<br>
 [Memory Preserving Updates]: Not Supported<br>
@@ -44,27 +47,27 @@ We are offering two variants dependent on whether the workload benefits from a l
 
 | Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory (GB) |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
-| Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | TBD     |  4                 |
-| Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | TBD     |  8                 |
-| Standard_DC4s_v3 | 4              | 32          | N/A                    | 16             | TBD     |  16                |
-| Standard_DC8s_v3 | 8              | 64          | N/A                    | 32             | TBD     |  32                |
-| Standard_DC16s_v3  | 16           | 128         | N/A                    | 32             | TBD     |  64                |
-| Standard_DC24s_v3  | 24           | 192         | N/A                    | 32             | TBD     |  128               |
-| Standard_DC32s_v3  | 32           | 256         | N/A                    | 32             | TBD     |  192               |
-| Standard_DC48s_v3  | 48           | 384         | N/A                    | 32             | TBD     |  256               |
+| Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | 2     |  4                 |
+| Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | 2     |  8                 |
+| Standard_DC4s_v3 | 4              | 32          | N/A                    | 16             | 4     |  16                |
+| Standard_DC8s_v3 | 8              | 64          | N/A                    | 32             | 8     |  32                |
+| Standard_DC16s_v3  | 16           | 128         | N/A                    | 32             | 8     |  64                |
+| Standard_DC24s_v3  | 24           | 192         | N/A                    | 32             | 8     |  128               |
+| Standard_DC32s_v3  | 32           | 256         | N/A                    | 32             | 8     |  192               |
+| Standard_DC48s_v3  | 48           | 384         | N/A                    | 32             | 8     |  256               |
 
 ## DCdsv3-series Technical specifications
 
 | Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory (GB) |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
-| Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | TBD     |  4                 |
-| Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | TBD     |  8                 |
-| Standard_DC4ds_v3 | 4              | 32          | 300                    | 16             | TBD     |  16                |
-| Standard_DC8ds_v3 | 8              | 64          | 600                    | 32             | TBD     |  32                |
-| Standard_DC16ds_v3  | 16           | 128         | 1200                    | 32             | TBD     |  64                |
-| Standard_DC24ds_v3  | 24           | 192         | 1800                    | 32             | TBD     |  128               |
-| Standard_DC32ds_v3  | 32           | 256         | 2400                    | 32             | TBD     |  192               |
-| Standard_DC48ds_v3  | 48           | 384         | 2400                    | 32             | TBD     |  256               |
+| Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | 2     |  4                 |
+| Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | 2     |  8                 |
+| Standard_DC4ds_v3 | 4              | 32          | 300                    | 16             | 4     |  16                |
+| Standard_DC8ds_v3 | 8              | 64          | 600                    | 32             | 8     |  32                |
+| Standard_DC16ds_v3  | 16           | 128         | 1200                    | 32             | 8     |  64                |
+| Standard_DC24ds_v3  | 24           | 192         | 1800                    | 32             | 8     |  128               |
+| Standard_DC32ds_v3  | 32           | 256         | 2400                    | 32             | 8     |  192               |
+| Standard_DC48ds_v3  | 48           | 384         | 2400                    | 32             | 8     |  256               |
 
 ## Get started
 
