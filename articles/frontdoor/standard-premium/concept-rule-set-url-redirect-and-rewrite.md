@@ -70,6 +70,12 @@ You can configure URL redirect via Rule Set.
 
 Source pattern is the URL path in the source request to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (/) as the source pattern value.
 
+For URL rewrite source pattern, only the path after the route configuration “patterns to match” is considered. For example, you have the following incoming URL format 
+`<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>`, only `/<Rule-URL-Rewrite-Source-pattern>` will be considered by the rule engine as the source pattern to be rewritten. Therefore, when there is a URL rewrite rule with source pattern match, the format for the outgoing URL will be  
+`<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>`.
+
+For scenarios, where `/<route-patterns-to-match-path` segment of the URL path must be removed, set the Origin path of the Origin group in route configuration to "/".
+
 ### Destination
 
 You can define the destination path to use in the rewrite. The destination path overwrites the source pattern.
