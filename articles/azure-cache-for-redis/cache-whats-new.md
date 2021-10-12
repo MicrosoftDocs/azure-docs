@@ -15,7 +15,7 @@ ms.date: 10/11/2021
 
 ### Azure Cache for Redis 6.0 GA
 
-Azure Cache fore Redis 6.0 is now generally available. The new version includes:
+Azure Cache for Redis 6.0 is now generally available. The new version includes:
 
 - Redis Streams, a new data type
 - performance enhancements
