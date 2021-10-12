@@ -107,7 +107,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: source code
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-code.yml":::
 
 ## YAML: literal inputs
 
