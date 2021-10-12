@@ -18,8 +18,8 @@ This article provides instructions for autoprovisioning an Azure IoT Edge for Wi
 
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
-1. Autoprovision a Windows device with physical TPM hardware.
-1. Autoprovision a Windows device running a simulated TPM. We recommend this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
+- Autoprovision a Windows device with physical TPM hardware.
+- Autoprovision a Windows device running a simulated TPM. We recommend this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
 
 Instructions differ based on your methodology, so make sure you're on the correct tab going forward.
 
