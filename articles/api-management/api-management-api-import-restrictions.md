@@ -13,7 +13,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/24/2021
+ms.date: 10/12/2021
 ms.author: danlep
 ---
 
@@ -33,30 +33,44 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 ### <a name="open-api-general"> </a>General
 
+#### URL template requirements
 - Required parameters across both path and query must have unique names.
-    - In OpenAPI, a parameter name only needs to be unique within a location, for example path, query, header. 
-    - In API Management, we allow operations to be discriminated by both path and query parameters. 
-        - Since OpenAPI doesn't support this, we require parameter names to be unique within the entire URL template.
-- When imported inline to API Management, an OpenAPI specification can be up to 4 MB in size. 
-    - The size limit doesn't apply when an OpenAPI document is provided via a URL to a location accessible from your API Management service.
+  - In OpenAPI, a parameter name only needs to be unique within a location, for example path, query, header. 
+  - In API Management, we allow operations to be discriminated by both path and query parameters. 
+    - OpenAPI doesn't support this, so we require parameter names to be unique within the entire URL template.
+- A defined URL parameter needs to be part of the URL template.
+- Available source file URL is applied to relative server URLs.
 - `\$ref` pointers can't reference external files.
-- The only supported extensions are:
-    - `x-ms-paths` 
-    - `x-servers` 
-- Custom extensions:
-    - Ignored on import.
-    - Aren't saved or preserved for export.
-- Security definitions are ignored.
+
+#### OpenAPI specifications
+When imported inline to API Management, an OpenAPI specification can be up to 4 MB in size. When an OpenAPI document is provided via a URL to a location accessible from your API Management service, the size limit doesn't apply.
+
+#### Supported extensions
+The only supported extensions are:
+- `x-ms-paths` 
+    - Allows you to define paths that are differentiated by query parameters in the URL.
+    - Covered in the [autorest docs](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).
+- `x-servers` 
+    - A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2.
+
+#### Unsupported extensions
 - `Recursion`: 
     - API Management doesn't support definitions defined recursively.
     - For example, schemas referring to themselves.
-- `server` object isn't supported on the API operation level.
+- `Server` object isn't supported on the API operation level.
 - `Produces` keyword (which describes MIME types returned by an API) isn't supported. 
-- Available source file URL is applied to relative server URLs.
-- Inline schema definitions for API operations aren't supported. Schema definitions:
+
+#### Custom extensions
+- Are ignored on import.
+- Aren't saved or preserved for export.
+
+#### Unsupported definitions 
+Inline schema definitions for API operations aren't supported. Schema definitions:
     - Are defined in the API scope.
     - Can be referenced in API operations request or response scopes.
-- A defined URL parameter needs to be part of the URL template.
+
+#### Ignored definitions
+Security definitions are ignored.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
@@ -64,10 +78,15 @@ OpenAPI version 2 support is limited to JSON format only.
 
 ### <a name="open-api-v3"> </a>OpenAPI version 3
 
--   If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
+#### HTTPS URLs
+- If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
 - If there aren't any HTTPS URLs, the server URL will be empty.
-- `Examples` isn't supported, but `example` is.
-- The following fields are included in OpenAPI version 3.x, but are not supported:
+
+#### Supported
+- While `Examples` isn't supported, `example` is.
+
+#### Unsupported
+The following fields are included in OpenAPI version 3.x, but are not supported:
     - `explode`
     - `style`
     - `allowReserved`
