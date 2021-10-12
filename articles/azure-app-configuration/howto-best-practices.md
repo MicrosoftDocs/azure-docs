@@ -27,7 +27,7 @@ App Configuration provides two options for organizing keys:
 
 You can use either one or both options to group your keys.
 
-*Key prefixes* are the beginning parts of keys. You can logically group a set of keys by using the same prefix in their names. Prefixes can contain multiple components connected by a delimiter, such as `/`, similar to a URL path, to form a namespace. Such hierarchies are useful when you're storing keys for many applications, component services, and environments in one App Configuration store.
+*Key prefixes* are the beginning parts of keys. You can logically group a set of keys by using the same prefix in their names. Prefixes can contain multiple components connected by a delimiter, such as `/`, similar to a URL path, to form a namespace. Such hierarchies are useful when you're storing keys for many applications and microservices in one App Configuration store.
 
 An important thing to keep in mind is that keys are what your application code references to retrieve the values of the corresponding settings. Keys shouldn't change, or else you'll have to modify your code each time that happens.
 
@@ -53,6 +53,10 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
 
+## References to external data
+
+App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may better live in other sources. For example, you would store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database. You can still take advantage of App Configuration by saving a reference to external data in a key-value. When your application reads a reference, it loads the data from the referenced source. The App Configuration [Key Vault reference](use-key-vault-references-dotnet-core.md) feature is an example in this case. When you need to change to a new version of a secret or even a secret from a different Key Vault, you only need to update the Key Vault reference in App Configuration instead of updating and redeploying your entire application. Your application always refers to the secret in the name you configured in App Configuration with proper namespaces regardless of how the secret is named in Key Vault.
+
 ## App Configuration bootstrap
 
 To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
@@ -61,7 +65,7 @@ A better option is to use the managed identities feature in Azure Active Directo
 
 ## App or function access to App Configuration
 
-You can provide access to App Configuration for web apps or functions by using any of the following methods:
+You can provide access to App Configuration for Web Apps or Azure Functions by using any of the following methods:
 
 * Through the Azure portal, enter the connection string to your App Configuration store in the Application settings of App Service.
 * Store the connection string to your App Configuration store in Key Vault and [reference it from App Service](../app-service/app-service-key-vault-references.md).
@@ -80,7 +84,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](./concept-github-action.md) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your repo in GitHub or Azure DevOps, you can use our [GitHub Action](./concept-github-action.md) or [Azure Pipeline Push Task](./push-kv-devops-pipeline.md) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
 
 ## Multi-region deployment in App Configuration
 
