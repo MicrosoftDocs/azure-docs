@@ -23,7 +23,7 @@ az bicep build --file main.bicep
 The next example saves _main.json_ to a different directory.
 
 ```azurecli
- az bicep build --file main.bicep --outdir c:\jsontemplates
+az bicep build --file main.bicep --outdir c:\jsontemplates
 ```
 
 The next example specifies the name and location of the file to create.
