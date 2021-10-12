@@ -28,16 +28,16 @@ sections:
       - question: |
           What happens during the build process?
         answer: |
-          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx). It builds your app's frontend and API.
+          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx), which builds your app's frontend and API.
 
-          When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it will install packages using npm or Yarn. Then it will run the `build` or `build:azure` script provided in your app's _package.json_ file.
+          When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it installs packages using npm or Yarn. Then,  it runs the `build` or `build:azure` script provided in your app's _package.json_ file.
 
       - question: |
           Can I customize the build process?
         answer: |
           If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. You can then use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
-          `skip_app_build` is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
+          The `skip_app_build` command is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
 
       - question: |
           Can I deploy my app without using GitHub Actions or Azure DevOps?
@@ -98,7 +98,7 @@ sections:
       - question: |
           Can I use pre-production environments if I deploy with Azure Pipelines?
         answer: |
-          [Pre-production environments](review-publish-pull-requests.md) are currently only supported for GitHub pull requests.
+          [Pre-production environments](review-publish-pull-requests.md) are currently only supported for GitHub Actions.
 
   - name: Hosting
     questions:
@@ -110,7 +110,7 @@ sections:
       - question: |
           How do I ensure my app is deployed to a specific Azure region?
         answer: |
-          Azure Static Web Apps is a global service. Your app's static assets are globally distributed. When you create your app, you select a region that your managed Azure Functions app will be deployed to. If you need your function app in a region that doesn't support managed functions, you can use the [Bring your own function app](functions-bring-your-own.md) feature with a function app you deploy separately.
+          Azure Static Web Apps is a global service. Your app's static assets are globally distributed. When you create your app, you select a region where the managed Azure Functions app is deployed. If you need your Functions app in a region that doesn't support managed functions, you can use the [Bring your own Functions app](functions-bring-your-own.md) feature with a Functions app you deploy separately.
 
       - question: |
           How do I configure my static web app behind Azure Application Gateway or a CDN like Azure Front Door?
@@ -128,12 +128,12 @@ sections:
         answer: |
           For assets with file extensions of popular text formats, such as `.html`, `.css`, and `.js`, Azure Static Web Apps automatically serves [Gzip](https://en.wikipedia.org/wiki/Gzip)- or [Brotli](https://en.wikipedia.org/wiki/Brotli)-compressed versions of your static assets if the client supports it.
           
-          For other file types, Static Web Apps allows you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version will be served automatically if a client that supports Brotli requests `app.wasm`.
+          For other file types, Static Web Apps allows you to include a Brotli-compressed version of your file with a `.br` extension. For example, if you have an uncompressed file named `app.wasm`, you can add a compressed version named `app.wasm.br` to your app. This version is automatically served if a client that supports Brotli requests `app.wasm`.
 
       - question: |
           Why does my static web app return a 404 error when I access a route that exists?
         answer: |
-          Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it will return a 404 error because the route doesn't exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
+          Most frontend frameworks like React, Angular, or Blazor WebAssembly use client-side routing to handle navigation. Client-side routes are only known to the app running in the browser. If you request a client-side route from Static Web Apps, it returns a 404 error because the route doesn't exist in your app's deployed assets. To fix this problem, add a fallback route to your app's [configuration file](configuration.md#fallback-routes).
 
   - name: Configuration
     questions:
@@ -147,7 +147,7 @@ sections:
         answer: |
           Static Web Apps supports managed identity, but it's only used to [retrieve authentication secrets](key-vault-secrets.md) from Key Vault.
           
-          If you need managed identity or Key Vault references in your API, use the [bring your own function app](functions-bring-your-own.md) feature to use a separate function app that uses managed identity.
+          If you need managed identity or Key Vault references in your API, use the [bring your own Functions app](functions-bring-your-own.md) feature to use a separate Functions app that uses managed identity.
 
   - name: Authentication
     questions:
@@ -173,19 +173,19 @@ sections:
       - question: |
           How do I write my APIs using a language or language version that Static Web Apps doesn’t support?
         answer: |
-          Static Web Apps' managed function apps don't support all languages or language versions that Azure Functions supports. You can use the bring your own function app feature to link a separate function app to your Static Web App.
+          Static Web Apps' managed function apps don't support all languages or language versions that Azure Functions supports. You can use the  [bring your own Functions app](functions-bring-your-own.md)  feature to link a separate Functions app to your Static Web App.
 
       - question: |
-          How do I use triggers in my function app that aren't HTTP?
+          How do I create serverless functions that respond to events other than HTTP?
         answer: |
-          The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as timer or Durable Functions, you can use the bring your own function app](functions-bring-your-own.md) feature to link a separate function app to your Static Web App.
+          The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as timer or Durable Functions, you can use the bring your own Functions app](functions-bring-your-own.md) feature to link a separate Functions app to your Static Web App.
 
   - name: General
     questions:
       - question: |
           What are the limitations of the Free plan?
         answer: |
-          Many small and medium apps will run great on the Free plan. The Free plan includes many of the same features as the Standard plan such as global distribution, custom domains, free TLS certificates, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
+          The Free plan includes many of the same features as the Standard plan such as global distribution, custom domains, free TLS certificates, managed API functions, and more. However, if you need more bandwidth, a service level agreement (SLA), or advanced features, you should consider the Standard plan. To learn more, see [Hosting plans](plans.md) and [Quotas](quotas.md).
     
       - question: |
           Can I change the hosting plan after I create my app?
@@ -195,7 +195,7 @@ sections:
       - question: |
           Can I develop my static web app locally without deploying it?
         answer: |
-          Most frontend frameworks provide a development server for running your app locally. However, if you want to use authentication or API functions, it can be difficult to test all the features of your app without deploying it to Azure. To run your app locally, you can use the [Static Web Apps command line interface (CLI)](https://www.npmjs.com/package/@azure/static-web-apps-cli), which emulates the cloud experience, including authentication, and integrates with the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) to run your API functions. There's also a [Static Web Apps Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) that can be used to deploy your app to Azure.
+          Most frontend frameworks provide a development server for running your app locally. However, if you want to use authentication or API functions, it can be difficult to test all the features of your app without deploying it to Azure. To run your app locally, you can use the [Static Web Apps command line interface (CLI)](https://www.npmjs.com/package/@azure/static-web-apps-cli), which emulates the cloud experience, including authentication, and integrates with the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) to run your API functions. There's also a [Static Web Apps Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) that you can use to deploy your app to Azure.
 
       - question: |
           How can I get help or suggest a new feature?
