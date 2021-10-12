@@ -42,18 +42,17 @@ Password writeback can synchronize password changes in Azure AD back to an on-pr
 
 The Azure AD Connect cloud sync group managed service account (gMSA) should have the following permissions set to writeback the passwords by default: 
 
-Reset password 
-
-Write permissions on lockoutTime 
-
-Write permissions on pwdLastSet 
-
-Extended rights for "Unexpire Password" on the root object of each domain in that forest, if not already set. 
+- Reset password
+- Write permissions on lockoutTime
+- Write permissions on pwdLastSet
+- Extended rights for "Unexpire Password" on the root object of each domain in that forest, if not already set. 
 
 If these permissions are not set, you can set the PasswordWriteBack permission on the service account by using the Set-AADCloudSyncPermissions cmdlet and on-premises enterprise administrator credentials: 
 
+```powershell
 Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
-Set-AADCloudSyncPermissions -PermissionType PasswordWriteBack -EACredential $(Get-Credential) 
+Set-AADCloudSyncPermissions -PermissionType PasswordWriteBack -EACredential $(Get-Credential)
+```
 
 After you have updated the permissions, it may take up to an hour or more for these permissions to replicate to all the objects in your directory. 
 
@@ -67,7 +66,7 @@ If you update the group policy, wait for the updated policy to replicate, or use
 
 For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
 
-For more information on how to validate or set up the appropriate permissions refer to this link. 
+For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
 
 ### Enable password writeback in Azure AD Connect cloud sync 
 
