@@ -30,7 +30,7 @@ You can drill down to see individual alerts at each severity level.
 
 Alternate graphic: Summary and detail view in one.
 
-[ ![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png) ](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png#lightbox)
+[ ![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-detail.png) ](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png#lightbox)
 
 ### Alert severity levels
 
@@ -51,14 +51,14 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
 * [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga)
-* [Local Azure Resource Manager alerts](#local-azure-resource-manager-alerts)
+* [Local Azure Resource Manager alerts](#local-azure-resource-manager-arm-alerts)
 * [Performance alerts](#performance-alerts)
 * [Storage alerts](#storage-alerts)
 * [Security alerts](#security-alerts)
 * [Key vault alerts](#key-vault-alerts)
 * [Hardware alerts](#hardware-alerts)
 * [Update alerts](#update-alerts)
-* [Clustering alerts](#cluster-alerts)
+* [Clustering alerts](#clustering-alerts)
 * [Virtual machine alerts](#virtual-machine-alerts)
 
 
@@ -67,7 +67,7 @@ In the alert tables below:
 - Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.
 
 
-### Cloud connectivity alerts
+## Cloud connectivity alerts
 
 | Alert text                       | Severity | Description / Recommended action |
 |----------------------------------|----------|----------------------------------|
@@ -75,7 +75,7 @@ In the alert tables below:
 | Lost heartbeat from your device. | Critical | If your device is offline, then the device is not able to communicate with the Azure service. This could be due to one of the following reasons:<ul><li>The Internet connectivity is broken.<br>Check your internet connection. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**. Run the diagnostic tests. Resolve the reported issues.</li><li>The device is turned off or paused on the hypervisor. Turn on your device! For more information, go to [Manage power](..\databox-gateway\data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).</li><li>Your device could have rebooted due to an update. Wait a few minutes and try to reconnect.</li></ul>|
 
 
-### Edge compute alerts
+## Edge compute alerts
 
 The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga).  
 
@@ -103,7 +103,7 @@ The Edge compute alerts in the following table are raised on Azure Stack Edge Pr
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-### Edge compute alerts for FPGA
+## Edge compute alerts for FPGA
 
 The Edge compute alerts in the following table occur only on Azure Stack Edge Pro with FPGA devices.
 
@@ -120,7 +120,7 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-### Local Azure Resource Manager (ARM) alerts
+## Local Azure Resource Manager (ARM) alerts
 
 The following alerts are raised by the local Azure Resource Manager (ARM), which is used to connect to the local APIs on Azure Stack Edge devices.
 
@@ -137,7 +137,7 @@ The following alerts are raised by the local Azure Resource Manager (ARM), which
 |VM service is not running on the device. |Critical |If you see this alert, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 
-### Performance alerts
+## Performance alerts
 
 The following alerts indicate performance issues related to storage or to CPU, memory, or disk usage on an Azure Stack Edge device.
 
@@ -159,7 +159,7 @@ The following alerts indicate performance issues related to storage or to CPU, m
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-### Storage alerts
+## Storage alerts
 
 The following alerts are for issues that occur when accessing or uploading data to Azure Storage.
 
@@ -178,7 +178,7 @@ The following alerts are for issues that occur when accessing or uploading data 
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-### Security alerts
+## Security alerts
 
 The following alerts signal access issues related to passwords, certificates, or keys, or report attempts to access an Azure Stack Edge device.
 
@@ -194,7 +194,7 @@ The following alerts signal access issues related to passwords, certificates, or
 |A support session has started. |Informational |This is an information alert to ensure that administrators can ensure that the support session is legitimate. No action is needed. |
 
 
-### Key Vault alerts
+## Key Vault alerts
 
 The following alerts relate to your Azure Key Vault configuration.
 
@@ -208,7 +208,7 @@ The following alerts relate to your Azure Key Vault configuration.
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-### Hardware alerts
+## Hardware alerts
 
 The following alerts indicate an issue with a hardware component, such as physical disk, NIC, or power supply unit, on an Azure Stack Edge device.
 
@@ -252,7 +252,7 @@ The following alerts indicate an issue with a hardware component, such as physic
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
 
-### Update alerts
+## Update alerts
 
 The following alerts relate to Microsoft updates and firmware updates for physical device components.
 
@@ -272,7 +272,7 @@ The following alerts relate to Microsoft updates and firmware updates for physic
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
 
 
-### Clustering alerts
+## Clustering alerts
 
 The following alerts are raised for clustering issues on Azure Stack Edge devices.
 
@@ -291,7 +291,7 @@ The following alerts are raised for clustering issues on Azure Stack Edge device
 |Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |
 
 
-### Virtual machine alerts
+## Virtual machine alerts
 
 The following alerts are raised for virtual machines on an Azure Stack Edge device.
 
