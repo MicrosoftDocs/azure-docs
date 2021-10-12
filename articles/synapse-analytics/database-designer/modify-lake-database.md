@@ -12,33 +12,33 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How-to: Create an empty lake database
 
-In this article, you will learn how to create an empty [lake database](TODO) in Azure Synapse using the database designer. The database designer allows you to easily create and deploy a database without writing any code. 
+In this article, you will learn how to modify an existing [lake database](TODO) in Azure Synapse using the database designer. The database designer allows you to easily create and deploy a database without writing any code. 
 
 
 ## Prerequisites
 
-- At least Synapse User role permissions are required for exploring an lake database template from Gallery.
 - Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
 - Storage Blob Data Contributor permissions are required on data lake.
 
-## Create lake database from database template
+## Modify database properties
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. This will open the **Data** tab where you can see the list of databases that already exist in your workspace.
-2. Hover over the **Databases** section and select the ellipsis **...**, then choose **Lake database (preview)**.
-   1. ![Screenshot showing create empty lake database]()
-3. The database designer tab will open with an empty database.
-4. The database designer has **Properties** on the right that need to be configured.
-    - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
+2. Hover over the **Databases** section and select the ellipsis **...** next to the database you want to modify, then choose **Open (preview)**.
+   1. ![Screenshot showing how to open an existing database]()
+3. The database designer tab will open with your selected database loaded on the canvas.
+4. The database designer has **Properties** pane that can be opened by selecting the **Properties** icon in the upper right of the tab.
+    - ![Screenshot showing the location of the properties icon]()
+    - **Name** Names cannot be edited after the database is published, so make sure the name you choose is correct.
     - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
-    - **Storage settings for database** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. You will then set the default container and folder path within that linked service using the file browser.
-      - **Date format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
-> [!NOTE]
-> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
+    - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
+    - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
+    - **Input folder** used to set the default container and folder path within that linked service using the file browser.
+    - **Data format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
 5. To add a table to the database, select the **+ Table** button. 
     - **Custom** will add a new table to the canvas.
     - **From template** will open the gallery and let you select a database template to use when adding a new table. See [Create lake database from database template](TODO) for more information
     - **From data lake** lets you import a table schema using data already in your lake.
 6. Select **Custom**. A new table will appear on the canvas called Table_1.
-7. You can then customize Table_1, including the table name, description, storage settings, columns, and relationships. See [Modify a lake database](TODO) for more details.
+7. You can then customize Table_1, including the table name, description, storage settings, columns, and relationships. See the Customize tables within a database section below.
 8. Add a new table from the data lake by selecting **+ Table** and then **From data lake**.
 9. The **Create external table from data lake** pane will appear. Fill out the pane with the below details and select **Continue**.
     - **External table name** the name you want to give the table you are creating.
@@ -54,7 +54,57 @@ In this article, you will learn how to create an empty [lake database](TODO) in 
     - ![Screenshot of the validation pane showing validation errors in the database](/media/create-lake-database-from-lake-database-template/validation-errors.png)
     - Publishing will create your database schema in the Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
-11. You have now created an empty lake database in Synapse, and added tables to it using the **Custom** and **From data lake** options.
+
+## Customize tables within a database
+The database designer allows you to fully customize any of the tables in your database. When you select a table there are three tabs available, each containing settings pertaining to the table's schema or metadata.
+
+### General
+The **General** tab contains information specific to the table itself.
+    - **Name** the name of the table. This can be customized to any unique value within the database. Multiple tables with the same name are not allowed.
+    - **Inherited from** (optional) this value will be present if the table was created from a database template. It cannot be edited and tells the user which template table it was derived from.
+    - **Description** a description of the table. If the table was created from a database template, this will contain a description of the concept represented by this table. This field is editable and can be changed to match the description that matches your business requirements.
+    - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
+
+In addition, there is a collapseable section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
+    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
+      - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.
+      - **Input folder** the folder in ADLS where the data loaded to this table will live. This can be edited via the file browser.
+      - **Data format** the data format of the data in the **Input folder** Lake databases in Synapse support parquet and delimited text as the storage formats for data. If the data format does not match the data in the folder, queries to the table will fail.
+      - For a **Data format** of Delimited text, there are additional settings:
+        - **Row headers** check this box if the data has row headers.
+        - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
+        - **Data compression** the compression type used on the data.
+        - **Delimiter** the field delimiter used in the data files. Supported values are: Comma (,), tab (\t), and pipe (|). 
+      - For Parquet data, there is the following setting:
+        - **Data compression** the compression type used on the data.
+      - ![Screenshot of the General tab]()
+
+### Columns
+The **Columns** tab is where the columns for the table are listed and can be modified. On this tab are two lists of columns: **Standard columns** and **Partition columns**. **Standard columns** are any column that stores data, is a primary key, and otherwise is not used for the partitioning of the data. **Partition columns** store data as well, but are used to partition the underlying data into folders based on the values contained in the column. Each column has the following properties.
+    - **Name** the name of the column. Must be unique within the table.
+    - **PK** or primary key. Indicates whether the column is a primary key for the table. Not applicable to partition columns.
+    - **Description** a description of the column. If the column was created from a database template, this will contain a description of the concept represented by this column. This field is editable and can be changed to match the description that matches your business requirements.
+    - **Nullability** indicates whether there can be null values in this column. Not applicable to partition columns.
+    - **Data type** sets the data type for the Column based on the available list of Spark data types. 
+    - **Format / Length** allows for customizing the format or maximum length of the column, depending on the data type. Date and timestamp data types have format dropdowns, and other types like string have a maximum length field. Not all data types have a value as some types are fixed length.
+At the top of the **Columns** tab is a command bar that can be used to interact with the columns.
+    - **Filter by keyword** filters the list of columns to items that match the keyword specified.
+    - **+ Column** lets you add a new column. There are 3 possible options.
+      - **New column** creates a new custom standard column.
+      - **From template** opens the exploration pane and lets you identify columns from a database template to include on your table. If your database was not created using a database template, this option will not appear.
+      - **Partition column** adds a new custom partition column.
+    - **Clone** duplicates the selected column. Cloned columns are always of the same type as the selected column.
+    - **Convert type** is used to change the selected **standard column** to a **partition column** or vice versa. This option will be grayed out if you have selected multiple columns of different types or the selected column is ineligible to be converted due to a **PK** or **Nullability** flag set on the column.
+    - **Delete** deletes the selected columns from the table. This action is irreversible. 
+
+### Relationships
+The relationships tab lets you specify relationships between tables in the database. Relationships in the database designer are informational, and do not enforce any constraints on the underlying data. They are read by other Microsoft applications can be used to accelerate transformations or provide business users insight into how tables are connected. The relationships pane has the following info.
+    - **Relationships from (Table)** is when one or more tables have foreign keys connected to this table. This is sometimes called a parent relationship.
+    - **Relationships to (Table)** is when a table which has foreign key and is connected to other table. This is sometimes called a child relationship.
+    - Both relationship types have the following properties.
+      - **From table** the parent table in the relationship, or the "one" side.
+      - **From column** the column in the parent table the relationship is based on.
+      - **To table** the child table in the relationship, or the "many" side.
 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below. 

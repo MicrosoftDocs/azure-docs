@@ -57,22 +57,24 @@ In this article, you will learn how to leverage the Synapse database templates t
 9. The database designer has additional **Properties** on the right that need to be configured.
     - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
     - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
-    - **Storage settings for database** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. You will then set the default container and folder path within that linked service using the file browser.
-      - **Date format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
+    - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
+    - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
+    - **Input folder** used to set the default container and folder path within that linked service using the file browser.
+    - **Data format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
 
 ![Screenshot showing the database designer with the properties panel open](/media/create-lake-database-from-lake-database-template/designer-overview.png)
 
 
-10.   You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as desired in the database. For more information on modifying a lake database, see [Modify a lake database.](TODO)
+1.    You can begin to customize tables, columns, and relationships inherited from the database template. You can also add custom tables, columns, relationships as desired in the database. For more information on modifying a lake database, see [Modify a lake database.](TODO)
 
-11.   With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [link]() If you are using Synapse Live mode, you can click "publish".
+2.    With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [link]() If you are using Synapse Live mode, you can click "publish".
     - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
     - ![Screenshot of the validation pane showing validation errors in the database](/media/create-lake-database-from-lake-database-template/validation-errors.png)
     - Publishing will create your database schema in the Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
-12. You have now created a lake database using a lake database template in Azure Synapse. 
+3.  You have now created a lake database using a lake database template in Azure Synapse. 
 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below. 

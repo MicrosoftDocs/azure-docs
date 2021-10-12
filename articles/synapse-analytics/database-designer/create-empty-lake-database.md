@@ -29,8 +29,10 @@ In this article, you will learn how to create an empty [lake database](TODO) in 
 4. The database designer has **Properties** on the right that need to be configured.
     - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
     - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
-    - **Storage settings for database** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. You will then set the default container and folder path within that linked service using the file browser.
-      - **Date format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
+    - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
+    - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
+    - **Input folder** used to set the default container and folder path within that linked service using the file browser.
+    - **Data format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
 5. To add a table to the database, select the **+ Table** button. 
