@@ -247,8 +247,6 @@ Data Labeling Project should be exported as an Azure ML Dataset, which can then 
 
 For popular vision data formats (like VOC or COCO), we provide scripts to generate JSONL files for training and validation data. Please refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
 
-For example, VOC and COCO data formats for Object detection are frequently used in computer vision. We provide scripts to convert data from raw files to JSON Lines text files for training and validation sets.
-
 ### Custom script
 If your dataset doesn't follow any of the previously mentioned raw formats, you can use your own script to generate JSON Lines files based on schema defined in the first section.
 
