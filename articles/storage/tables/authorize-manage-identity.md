@@ -1,5 +1,5 @@
 ---
-title: Authorize access to table data with a managed identity
+title: Authorize access to table data with a managed identity (preview)
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize table data access from applications running in Azure VMs, function apps, and others.
 services: storage
@@ -14,11 +14,14 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Authorize access to table data with managed identities for Azure resources
+# Authorize access to table data with managed identities for Azure resources (preview)
 
 Azure Table Storage supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to table data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
 
 This article shows how to authorize access to table data from an Azure VM using managed identities for Azure Resources.
+
+> [!IMPORTANT]
+> Authorization with Azure AD for tables is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Enable managed identities on a VM
 
@@ -39,7 +42,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or table.
 
-## Use a managed identity to create a table
+## Use a managed identity to create a table in .NET
 
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
 
@@ -51,17 +54,24 @@ The following code example shows how to get the authenticated token credential a
 public static void CreateTable(string accountName, string tableName)
 {
     // Construct the table endpoint from the arguments.
-    string tableEndpoint = string.Format("https://{0}.table.core.windows.net/{1}",
-                                                accountName,
-                                                tableName);
+    string tableEndpoint = string.Format("https://{0}.table.core.windows.net/",
+                                                accountName);
 
     // Get a token credential and create a service client object for the table.
     TableClient tableClient = new TableClient(new Uri(tableEndpoint), 
                                                 tableName, 
                                                 new DefaultAzureCredential());
 
-    // Create the table.
-    tableClient.CreateIfNotExists();
+    try
+    {
+        // Create the table.
+        tableClient.Create();
+
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine("Exception: {0}", e.Message);
+    }
 }
 ```
 

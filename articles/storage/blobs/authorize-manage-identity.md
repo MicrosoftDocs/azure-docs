@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/11/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -39,7 +39,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 
-## Use a managed identity to create a block blob
+## Use a managed identity to create a block blob in .NET
 
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
 
@@ -88,5 +88,5 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ## Next steps
 
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
-- [Use Azure AD with storage applications](../common/storage-auth-aad-app.md)
+- [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md)
 - [Tutorial: Access storage from App Service using managed identities](../../app-service/scenario-secure-app-access-storage.md)

@@ -39,7 +39,7 @@ When an Azure AD security principal attempts to access data in an Azure Storage 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
 
-## Use a managed identity to create a queue
+## Use a managed identity to create a queue in .NET
 
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). When you use the Azure Identity client library to get an access token, you can use the same code to acquire the token whether your application is running in the development environment or in Azure. For more information, see [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md).
 
@@ -59,8 +59,15 @@ public static void CreateQueue(string accountName, string queueName)
     QueueClient queueClient = new QueueClient(new Uri(queueEndpoint), 
                                                 new DefaultAzureCredential());
 
-    // Create the queue.
-    queueClient.CreateIfNotExists();
+    try
+    {
+        // Create the queue.
+        queueClient.CreateIfNotExists();
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine("Exception: {0}", e.Message);
+    }
 }
 ```
 
@@ -70,6 +77,4 @@ public static void CreateQueue(string accountName, string queueName)
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Choose how to authorize access to queue data in the Azure portal](authorize-data-operations-portal.md)
-- [Run PowerShell commands with Azure AD credentials to access queue data](authorize-data-operations-powershell.md)
-- [Choose how to authorize access to queue data with Azure CLI](authorize-data-operations-cli.md)
+- [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md)

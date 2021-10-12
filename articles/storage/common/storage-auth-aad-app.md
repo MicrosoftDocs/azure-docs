@@ -1,5 +1,5 @@
 ---
-title: Acquire a token from Azure AD for authorizing requests from a client application
+title: Authorize access to blob or queue data from a native or web application
 titleSuffix: Azure Storage
 description: Use Azure Active Directory to authenticate from within a client application, acquire an OAuth 2.0 token, and authorize requests to Azure Blob storage and Queue storage.
 services: storage
@@ -7,13 +7,13 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: "devx-track-csharp"
 ---
 
-# Acquire a token from Azure AD for authorizing requests from a client application
+# Authorize access to blob or queue data from a native or web application
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
@@ -290,4 +290,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Microsoft identity platform](../../active-directory/develop/index.yml)
 - [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
-- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
+- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-manage-identity.md)

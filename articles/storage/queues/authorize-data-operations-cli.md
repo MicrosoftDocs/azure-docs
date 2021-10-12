@@ -107,4 +107,4 @@ You can specify authorization parameters in environment variables to avoid inclu
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to blob and queue data with managed identities for Azure resources](../common/storage-auth-aad-msi.md)
+- [Authorize access to queue data with managed identities for Azure resources](authorize-manage-identity.md)
