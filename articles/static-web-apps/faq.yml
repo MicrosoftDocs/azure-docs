@@ -20,7 +20,7 @@ sections:
           Static Web Apps can automatically build:
 
           * Popular single-page applications (SPA), including: React, Vue.js, Angular, Blazor WebAssembly
-	        * Commonly used static site generators, including: Next.js, Nuxt.js, Gatsby, Hugo, Jekyll, Eleventy
+          * Commonly used static site generators, including: Next.js, Nuxt.js, Gatsby, Hugo, Jekyll, Eleventy
           
           To learn more, see [Configure frontend frameworks](front-end-frameworks.md).
 
