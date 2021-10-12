@@ -42,10 +42,6 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
-    - name: CLI (v2) 
-      items: 
-        - name: Train models with CLI (v2)
-          href: how-to-train-cli.md
     - name: Jupyter Notebooks
       items:
         - name: Image classification (MNIST data)
@@ -110,7 +106,7 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
-    - name: Example repository
+    - name: Examples repository
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
@@ -118,8 +114,6 @@
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
-    - name: Open Datasets (public)
-      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Concepts
   items: 
     - name: Train models
@@ -325,12 +319,12 @@
                 href: how-to-create-attach-compute-studio.md
     - name: Set up an environment
       items: 
-        - name: Install and set up the CLI (v2)
-          displayName: azurecli, mlops
-          href: how-to-configure-cli.md
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
+        - name: Install and set up the CLI (v2)
+          displayName: azurecli, mlops
+          href: how-to-configure-cli.md
         - name: Set up studio environment
           items:
             - name: Manage environments in studio
@@ -432,10 +426,6 @@
               href: how-to-export-delete-data.md
     - name: Train models
       items: 
-        - name: Train with the CLI (v2)
-          href: how-to-train-cli.md
-        - name: Train with the REST API
-          href: how-to-train-with-rest.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
@@ -491,6 +481,10 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
+        - name: Train with the CLI (v2)
+          href: how-to-train-cli.md
+        - name: Train with the REST API
+          href: how-to-train-with-rest.md
         - name: Manage environments with the CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
@@ -719,11 +713,11 @@
           href: how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
-    - name: REST API
-      href: /rest/api/azureml/
     - name: Python SDK
       displayName: api, core, package, python, class
       href: /python/api/overview/azure/ml/intro
+    - name: REST API
+      href: /rest/api/azureml/
     - name: CLI (v2)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
