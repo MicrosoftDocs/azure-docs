@@ -1,7 +1,8 @@
 ---
 title: Set up an Golden Image 
 description: Walk through the steps to set up a golden image from scratch in Azure.
-author: cshea15, emmclare 
+author: cshea15
+author: emmclare 
 ms.topic: how-to
 ms.date: 10/12/2021
 ms.author: chashea
