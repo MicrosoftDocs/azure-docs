@@ -44,34 +44,30 @@ The following snippet creates the autoscale profile:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
 
-<!-- ```azurecli
-RESOURCE_ID=$(az ml endpoint show -n $ENDPOINT_NAME -o tsv --query "id")
-
-az monitor autoscale create \
-  --resource $RESOURCE_ID
-  --name my-scale-settings
-  --min-count 2 \
-  --max-count 5 \
-  --count 2
-``` -->
-
 > [!NOTE]
 > For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
+In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
 
-    :::image type="content" source="media/how-to-autoscale-endpoints/select-azure-monitor.png" alt-text="Screenshot of Azure Monitor in the menu and on the page":::
+:::image type="content" source="media/how-to-autoscale-endpoints/select-azure-monitor.png" alt-text="Screenshot of Azure Monitor in the menu and on the page":::
 
-1. From the left side of the Azure Monitor page, select __Autoscale__ and then select the deployed endpoint. You can use the selections at the top of the page to filter the list of resources.
+From the left side of the Azure Monitor page, select __Autoscale__ and then select the deployed endpoint. You can use the selections at the top of the page to filter the list of resources.
 
-    :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of the list of items that can be used with autoscale":::
+:::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of the list of items that can be used with autoscale":::
 
-1. On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
+On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
 
-    :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+For the default scale condition, use the following values:
 
+* Set __Scale mode__ to __Scale based on a metric__.
+* Set __Minimum__ to __2__.
+* Set __Maximum__ to __5__.
+* Set __Default__ to __2__.
+
+
+:::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
 ---
 
 ## Create a rule to scale out
@@ -80,12 +76,7 @@ A common scaling out rule is one that increases the number of VM instances when 
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az monitor autoscale rule create \
-  --autoscale-name my-scale-settings \
-  --condition "Percentage CPU > 70 avg 5m" \
-  --scale out 2
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
 The rule is part of the `my-scale-settings` profile (`autoscale-name` matches the `name` of the profile). The value of its `condition` argument says the rule should trigger when "The average CPU consumption among the VM instances exceeds 70% for five minutes." When that condition is satisfied, two more VM instances are allocated. 
 
@@ -94,20 +85,16 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 
 # [Portal](#tab/azure-portal)
 
-1. In the __Scale mode__ section, select __Scale based on a metric__. In the __Instance limits__ section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
+In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
 
-    :::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
+* Set __Metric name__ to __CPU Utilization Percentage__.
+* Set __Operator__ to __Greater than__ and set the __Metric threshold__ to __70__.
+* Set __Duration (minutes)__ to 5. Leave the __Time grain statistic__ as __Average__.
+* Set __Operation__ to __Increase count by__ and set __Instance count__ to __2__.
 
-1. In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
+Finally, select the __Add__ button to create the rule.
 
-    * Set __Metric name__ to __CPU Utilization Percentage__.
-    * Set __Operator__ to __Greater than__ and set the __Metric threshold__ to __70__.
-    * Set __Duration (minutes)__ to 5. Leave the __Time grain statistic__ as __Average__.
-    * Set __Operation__ to __Increase count by__ and set __Instance count__ to __2__.
-    
-    Finally, select the __Add__ button to create the rule.
-
-    :::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
 
 ---
 
@@ -117,12 +104,7 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az monitor autoscale rule create \
-  --autoscale-name my-scale-settings \
-  --condition "Percentage CPU < 30 avg 5m" \
-  --scale in 1
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # [Portal](#tab/azure-portal)
 
@@ -144,47 +126,47 @@ If you have both scale out and scale in rules, your rules will look similar to t
 --- 
 
 ## Create a rule for endpoint metrics
-{>> TODO 2021-10-07 Write the walkthrough <<}
-The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. 
+
+The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. In this example, if the request latency is greater than an average of 70 for 5 minutes, allocate an additional node.
 
 # [Azure CLI](#tab/azure-cli)
-{>> TODO 2021-10-07: Needs example code from Sethu <<}
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 # [Portal](#tab/azure-portal)
 
-To create an endpoint-focused rule: 
+From the bottom of the page, select __+ Add a scale condition__.
 
-* Choose "+ Add a scale condition" 
-* Choose "Scale based on metric"
-* Set Metric source to 'Other resource' (this is key difference from previous)
-* Set Resource type to 'Machine learning online endpoints'
-* Select your resource
-* Set necessary params as in
+Select __Scale based on metric__, and then select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
+
+* Set __Metric source__ to __Other resource__.
+* Set __Resource type__ to __Machine Learning online endpoints__.
+* Set __Resource__ to your endpoint.
+* Set __Metric name__ to __Request latency__.
+* Set __Operator__ to __Greater than__ and set __Metric threshold__ to __70__.
+* Set __Duration (minutes)__ to __5__.
+* Set __Operation__ to __Increase count by__ and set __Instance count__ to 1
 
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing endpoint metrics rules":::
-
-{>> TODO / Notes
-
-Use https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Monitoring=azureML#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/autoscale if necessary. (Note that you have to use feature flags.
-
-The endpoint-rule.png has a little pii in the Resource `laobri-canary-ws` 
-
-<<}
 
 ---
 
 ## Create a schedule-based rule
-{>> TODO 2021-10-07 <<}
-blah blah 
+
+You can also create rules that apply only on certain days or at certain times. In this example, the node count is set to 2 on the weekend.
 
 # [Azure CLI](#tab/azure-cli)
-{>> TODO 2021-10-07: Needs example from Sethu <<}
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # [Portal](#tab/azure-portal)
 
-* Choose "+ Add a scale condition" 
-* Choose "Scale to a specific instance count" (this is key difference from others)
-* Set params as in
+From the bottom of the page, select __+ Add a scale condition__. On the new scale condition, use the following information to populate the fields:
+ 
+* Select __Scale to a specific instance count__.
+* Set the __Instance count__ to __2__.
+* Set the __Schedule__ to __Repeat specific days__.
+* Set the schedule to __Repeat every__ __Saturday__ and __Sunday__.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="Screenshot showing schedule-based rules":::
 
