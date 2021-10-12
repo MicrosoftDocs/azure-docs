@@ -35,7 +35,7 @@ A typical database templates addresses the core requirements of a specific indus
 
 
 
-# Avaialbe database templates 
+# Available database templates 
 
 Currently there are 6 dataase templates avaialable that customers can leverage to start creating their lake database. 
 
