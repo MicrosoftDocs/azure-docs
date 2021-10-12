@@ -73,17 +73,13 @@ On the **Branding** pane, you can update your publisher domain for the applicati
 
 ![Permissions part1.](./media/AadPermissions.png)
 
-### Step 5: Enable a custom Teams endpoint experience for the application
-
-To enable the custom Teams endpoint experience for the application, the Azure AD Administrator [completes and submits this form](https://forms.office.com/r/B8p5KqCH19) .
-
-### Step 6: Create or select a Communication Services resource
+### Step 5: Create or select a Communication Services resource
 
 Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user tokens for Teams access tokens. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane.
 
 If you want to create new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
 
-### Step 7: Set up a Communication Services service principal
+### Step 6: Set up a Communication Services service principal
 
 To enable a custom Teams endpoint experience in the Fabrikam tenant, the Fabrikam Azure AD Administrator must set up a service principal named Azure Communication Services with application ID *1fd5118e-2576-4263-8130-9503064c837a*. If you don't see this application on your **Enterprise applications** pane in Azure Active Directory, you'll need to add it manually.
 
@@ -111,7 +107,7 @@ After you connect and authenticate to the Azure portal, set up the Communication
 New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
-### Step 8: Provide Administrator consent
+### Step 7: Provide Administrator consent
 
 If the Contoso application isn't verified, the Azure AD Administrator must grant permission to the Contoso application for Communication Services VoIP. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
 
