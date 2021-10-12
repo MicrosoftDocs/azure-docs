@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/20/2021
 ms.author: helohr
 ---
 # Connections to Azure AD-joined VMs
@@ -36,6 +36,7 @@ If you come across an error saying **The logon attempt failed** on the Windows S
 - You are on a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host OR
 - You are on a device running Windows 10 2004 or later that is Azure AD registered to the same Azure AD tenant as the session host
 - The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host
+- [Per-user MFA is disabled](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) for the user account as it's not supported for Azure AD-joined VMs.
 
 ### The sign-in method you're trying to use isn't allowed
 

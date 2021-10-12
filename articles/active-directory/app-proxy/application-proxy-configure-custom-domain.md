@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Configure custom domains with Azure AD Application Proxy

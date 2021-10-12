@@ -79,6 +79,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+        - name: Manage with Azure CLI
+          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -87,6 +89,8 @@
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
+    - name: Log Analytics clusters
+      href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
     - name: SQL insights
@@ -97,10 +101,14 @@
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Monitor Logs in Azure CLI
+    href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -115,6 +123,8 @@
     items:
     - name: Log data
       href: logs/data-security.md
+    - name: Azure AD Authentication for Logs
+      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -227,10 +237,10 @@
         items:
         - name: Azure portal
           href: logs/quick-create-workspace.md 
-        - name: Azure CLI
-          href: logs/quick-create-workspace-cli.md
         - name: PowerShell
           href: logs/powershell-workspace-configuration.md
+        - name: Resource Manager template
+          href: logs/resource-manager-workspace.md
       - name: Design a workspace deployment
         href: logs/design-logs-deployment.md
       - name: Monitor a workspace
@@ -248,6 +258,8 @@
         href: logs/service-providers.md
       - name: Dedicated clusters
         href: logs/logs-dedicated-clusters.md
+      - name: Availability zones
+        href: logs/availability-zones.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -312,8 +324,6 @@
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-      - name: Send to Power BI
-        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -733,8 +743,17 @@
       - name: Azure VM and virtual machine scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
-        displayname: App Service, web app, PaaS, Azure web app
-        href: app/azure-web-apps.md
+        items: 
+        - name: Overview
+          href: app/azure-web-apps.md
+        - name: ASP.NET Core
+          href: app/azure-web-apps-net-core.md
+        - name: ASP.NET 
+          href: app/azure-web-apps-net.md
+        - name: Java 
+          href: app/azure-web-apps-java.md
+        - name: Node.js 
+          href: app/azure-web-apps-nodejs.md
       - name: Azure Cloud Services
         displayname: cloud, cloud services, PaaS
         href: app/cloudservices.md
@@ -743,32 +762,6 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: Standalone - any environment
-        items:  
-          - name: Java
-            items:
-            - name: Overview
-              href: app/java-in-process-agent.md
-            - name: Configuration options
-              href: app/java-standalone-config.md
-            - name: Advanced configurations
-              items:
-              - name: JMX metrics
-                href: app/java-jmx-metrics-configuration.md
-              - name: Sampling overrides
-                href: app/java-standalone-sampling-overrides.md
-              - name: Telemetry processors
-                items:
-                - name: Overview
-                  href: app/java-standalone-telemetry-processors.md
-                - name: Examples
-                  href: app/java-standalone-telemetry-processors-examples.md
-            - name: JVM arguments setup
-              href: app/java-standalone-arguments.md
-            - name: Upgrade from 2.x SDK
-              href: app/java-standalone-upgrade-from-2x.md
-            - name: Troubleshooting
-              href: app/java-standalone-troubleshoot.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -788,6 +781,38 @@
           href: app/java-on-premises.md
     - name: OpenTelemetry
       items: 
+      - name: Overview
+        href: app/opentelemetry-overview.md 
+      - name: .NET
+        href: app/opentelemetry-enable.md?tabs=net
+      - name: Node.js
+        href: app/opentelemetry-enable.md?tabs=nodejs
+      - name: Java
+        items:
+        - name: Overview
+          href: app/java-in-process-agent.md
+        - name: Configuration options
+          href: app/java-standalone-config.md
+        - name: Advanced configurations
+          items:
+            - name: JMX metrics
+              href: app/java-jmx-metrics-configuration.md
+            - name: Sampling overrides
+              href: app/java-standalone-sampling-overrides.md
+            - name: Telemetry processors
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
+        - name: JVM arguments setup
+          href: app/java-standalone-arguments.md
+        - name: Upgrade from 2.x SDK
+          href: app/java-standalone-upgrade-from-2x.md
+        - name: Troubleshooting
+          href: app/java-standalone-troubleshoot.md
+      - name: Python
+        href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)
@@ -1002,10 +1027,6 @@
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export to Stream Analytics
-        href: app/export-stream-analytics.md
-      - name: Export to SQL using Stream Analytics
-        href: app/code-sample-export-sql-stream-analytics.md
       - name: Export data model
         href: app/export-data-model.md
     - name: Visual Studio
@@ -1096,7 +1117,7 @@
         href: containers/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: containers/container-insights-enable-existing-clusters.md
-      - name: Enable for Arc enabled cluster
+      - name: Enable for Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: containers/container-insights-hybrid-setup.md
@@ -1181,7 +1202,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-preview
+        href: /azure/azure-monitor/faq#sql-insights-(preview)
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1330,7 +1351,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: visualize/powerbi.md
+        href: logs/log-powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards

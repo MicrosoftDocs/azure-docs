@@ -2,18 +2,22 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.author: larryfr
 ---
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. When creating the user-defined routes for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+When using Azure Machine Learning __compute instance__ (with a public IP) or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. Compute instance with no public IP (preview) does not require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
 > [!IMPORTANT]
-> Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](/azure/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+> Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+
+> [!TIP]
+> While a compute instance without a public IP (a preview feature) does not need a UDR for this inbound traffic, you will still need these UDRs if you also use a compute cluster or a compute instance with a public IP.
+
 
 # [IP Address routes](#tab/ipaddress)
 
-For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../articles/best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
 To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
 
@@ -58,4 +62,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-For information on configuring UDR, see [Route network traffic with a routing table](/azure/virtual-network/tutorial-create-route-table-portal.md).
+For information on configuring UDR, see [Route network traffic with a routing table](/azure/virtual-network/tutorial-create-route-table-portal).

@@ -150,7 +150,6 @@ az network application-gateway create \
   --resource-group myResourceGroupAG \
   --capacity 2 \
   --sku Standard_v2 \
-  --http-settings-cookie-based-affinity Enabled \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \

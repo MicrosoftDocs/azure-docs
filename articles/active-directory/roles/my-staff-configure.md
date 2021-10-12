@@ -19,7 +19,7 @@ ms.custom: oldportal;it-pro;
 
 My Staff enables you to delegate permissions to a figure of authority, such as a store manager or a team lead, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a local team manager. With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
 
-Before you configure My Staff for your organization, we recommend that you review this documentation as well as the [user documentation](../user-help/my-staff-team-manager.md) to ensure you understand how it works and how it impacts your users. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
+Before you configure My Staff for your organization, we recommend that you review this documentation as well as the [user documentation](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd) to ensure you understand how it works and how it impacts your users. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
 
 ## How My Staff works
 
@@ -67,7 +67,7 @@ You'll see the service principal when you create a Conditional Access policy tha
 
 ## Using My Staff
 
-When a user goes to My Staff, they are shown the names of the [administrative units](administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an administrative unit scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an administrative unit to view the users in that unit, and select a user to open their profile.
+When a user goes to My Staff, they are shown the names of the [administrative units](administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an administrative unit scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an administrative unit to view the users in that unit, and select a user to open their profile.
 
 ## Reset a user's password
 
@@ -123,5 +123,5 @@ You can view audit logs for actions taken in My Staff in the Azure Active Direct
 
 ## Next steps
 
-[My Staff user documentation](../user-help/my-staff-team-manager.md)
+[My Staff user documentation](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)
 [Administrative units documentation](administrative-units.md)

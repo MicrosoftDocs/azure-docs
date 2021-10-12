@@ -62,7 +62,7 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
@@ -116,7 +116,7 @@ The example host.json file below contains only the settings for version 5.0.0 an
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "retryOptions":{
+            "clientRetryOptions":{
                 "mode": "exponential",
                 "tryTimeout": "00:01:00",
                 "delay": "00:00:00.80",

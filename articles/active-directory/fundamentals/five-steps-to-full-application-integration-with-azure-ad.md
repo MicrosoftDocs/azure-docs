@@ -70,7 +70,7 @@ A good place to start is by evaluating your use of Active Directory Federation S
 
 ![Diagram shows on-premises apps, line of business apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
-You can upgrade this configuration by [replacing ADFS with Azure AD as the center](../manage-apps/migrate-adfs-apps-to-azure.md) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](../user-help/my-apps-portal-end-user-access.md), in addition to the other benefits mentioned above.
+You can upgrade this configuration by [replacing ADFS with Azure AD as the center](../manage-apps/migrate-adfs-apps-to-azure.md) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), in addition to the other benefits mentioned above.
 
 ![Diagram shows on-premises apps via Active Directory and AD FS, line of business apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-2.png)
 

@@ -81,5 +81,8 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 

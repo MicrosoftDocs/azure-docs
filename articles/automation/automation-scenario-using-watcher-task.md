@@ -163,4 +163,4 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## Next steps
 
-To learn more about authoring your own runbook, see [Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+To learn more about authoring your own runbook, see [Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).

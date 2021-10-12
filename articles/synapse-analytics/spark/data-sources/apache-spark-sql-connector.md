@@ -8,6 +8,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/19/2020 
+ms.custom: has-adal-ref
 ---
 
 # Azure SQL Database and SQL Server connector for Apache Spark

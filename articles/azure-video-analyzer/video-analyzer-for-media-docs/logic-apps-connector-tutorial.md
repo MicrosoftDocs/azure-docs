@@ -1,12 +1,8 @@
 ---
 title: The Azure Video Analyzer for Media (formerly Video Indexer) connectors with Logic App and Power Automate tutorial.
 description: This tutorial shows how to unlock new experiences and monetization opportunities Azure Video Analyzer for Media (formerly Video Indexer) connectors with Logic App and Power Automate.
-author: anzaman
-manager: johndeu
 ms.author: alzam
 ms.topic: tutorial #Required
-ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer-media
 ms.date: 09/21/2020
 ---
 

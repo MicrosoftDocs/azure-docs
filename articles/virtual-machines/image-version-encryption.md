@@ -1,17 +1,17 @@
 ---
 title: Create an image version encrypted with your own keys 
 description: Create an image version in a shared image gallery, by using customer-managed encryption keys.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.author: olayemio 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Preview: Use customer-managed keys for encrypting images
+# Use customer-managed keys for encrypting images
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Images in a shared image gallery are stored as snapshots, so they're automatically encrypted through server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
@@ -23,7 +23,7 @@ Server-side encryption through customer-managed keys uses Azure Key Vault. You c
 
 This article requires you to already have a disk encryption set in each region where you want to replicate your image:
 
-- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation).
+- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
 
 - To use both platform-managed and customer-managed keys (for double encryption), see the articles about enabling double encryption at rest by using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 
@@ -93,7 +93,7 @@ New-AzGalleryImageVersion `
 
 ### Create a VM
 
-You can create a virtual machine (VM) from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version-powershell.md) or [specialized](vm-specialized-image-version-powershell.md) VM from an image. Use the extended parameter set and add `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` to the VM configuration.
+You can create a virtual machine (VM) from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM from an image. Use the extended parameter set and add `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` to the VM configuration.
 
 For data disks, add the `-DiskEncryptionSetId $setID` parameter when you use [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 
@@ -137,7 +137,7 @@ az sig image-version create \
 
 ### Create the VM
 
-You can create a VM from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version-cli.md) or [specialized](vm-specialized-image-version-cli.md) VM from an image. Just add the `--os-disk-encryption-set` parameter with the ID of the encryption set. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
+You can create a VM from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM from an image. Just add the `--os-disk-encryption-set` parameter with the ID of the encryption set. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
 
 
 ## Portal

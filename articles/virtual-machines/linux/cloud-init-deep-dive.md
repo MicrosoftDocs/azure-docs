@@ -11,6 +11,9 @@ ms.subservice: cloud-init
 ---
 
 # Diving deeper into cloud-init
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 To learn more about [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) or troubleshoot it at a deeper level, you need to understand how it works. This document highlights the important parts, and explains the Azure specifics.
 
 When cloud-init is included in a generalized image, and a VM is created from that image, it will process configurations and run through 5 stages during the initial boot. These stages matter, as it shows you at what point cloud-init will apply configurations. 

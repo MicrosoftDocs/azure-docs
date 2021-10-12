@@ -1,7 +1,7 @@
 ---
-title: Update Azure Machine Learning Studio (classic) models using Azure Data Factory 
+title: Update Azure Machine Learning Studio (classic) models
+description: Describes how to create predictive pipelines using Azure Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Describes how to create predictive pipelines using Azure Data Factory and Azure Machine Learning Studio (classic)
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -9,25 +9,25 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 09/09/2021
 ---
 
 # Update Azure Machine Learning Studio (classic) models by using Update Resource activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article complements the main Azure Data Factory - Azure Machine Learning Studio (classic) integration article: [Create predictive pipelines using Azure Machine Learning Studio (classic) and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
+This article complements the main Azure Machine Learning Studio (classic) integration article: [Create predictive pipelines using Azure Machine Learning Studio (classic)](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
 
 ## Overview
 As part of the process of operationalizing Azure Machine Learning Studio (classic) models, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
 
 Models you create using Azure Machine Learning Studio (classic) are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. 
 
-Retraining may occur frequently. With Batch Execution activity and Update Resource activity, you can operationalize the Azure Machine Learning Studio (classic) model retraining and updating the predictive Web Service using Data Factory.
+Retraining may occur frequently. With Batch Execution activity and Update Resource activity, you can operationalize the Azure Machine Learning Studio (classic) model retraining and updating the predictive Web Service.
 
 The following picture depicts the relationship between training and predictive Web Services.
 
-![Web services](./media/update-machine-learning-models/web-services.png)
+:::image type="content" source="./media/update-machine-learning-models/web-services.png" alt-text="Web services":::
 
 ## Azure Machine Learning Studio (classic) update resource activity
 
@@ -67,14 +67,14 @@ The following JSON snippet defines an Azure Machine Learning Studio (classic) Ba
 
 The entire process of operationalizing retraining a model and update the predictive Web Services involves the following steps:
 
-- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning Studio (classic) and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is an iLearner file that you can use to update the predictive Web Service.
+- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning Studio (classic) and the Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is an iLearner file that you can use to update the predictive Web Service.
 - Invoke the **update resource endpoint** of the **predictive Web Service** by using the **Update Resource activity** to update the Web Service with the newly trained model.
 
 ## Azure Machine Learning Studio (classic) linked service
 
 For the above mentioned end-to-end workflow to work, you need to create two Azure Machine Learning Studio (classic) linked services:
 
-1. An Azure Machine Learning Studio (classic) linked service to the training web service, this linked service is used by Batch Execution activity in the same way as what's mentioned in [Create predictive pipelines using Azure Machine Learning Studio (classic) and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). Difference is the output of the training web service is an iLearner file, which is then used by Update Resource activity to update the predictive web service.
+1. An Azure Machine Learning Studio (classic) linked service to the training web service, this linked service is used by Batch Execution activity in the same way as what's mentioned in [Create predictive pipelines using Azure Machine Learning Studio (classic) and the Batch Execution activity](transform-data-using-machine-learning.md). Difference is the output of the training web service is an iLearner file, which is then used by Update Resource activity to update the predictive web service.
 2. An Azure Machine Learning Studio (classic) linked service to the update resource endpoint of the predictive web service. This linked service is used by Update Resource activity to update the predictive web service using the iLearner file returned from above step.
 
 For the second Azure Machine Learning Studio (classic) linked service, the configuration is different when your Azure Machine Learning Studio (classic) Web Service is a classic Web Service or a new Web Service. The differences are discussed separately in the following sections.
@@ -121,7 +121,7 @@ Here is a sample linked service definition:
 }
 ```
 
-The following scenario provides more details. It has an example for retraining and updating Azure Machine Learning Studio (classic) models from an Azure Data Factory pipeline.
+The following scenario provides more details. It has an example for retraining and updating Azure Machine Learning Studio (classic) models from a pipeline.
 
 
 ## Sample: Retraining and updating an Azure Machine Learning Studio (classic) model
@@ -170,7 +170,7 @@ In **Azure Machine Learning Studio (classic)**, do the following to get values f
 2. Click the **training web service** in the list of web services.
 3. Click copy next to **API key** text box. Paste the key in the clipboard into the Data Factory JSON editor.
 4. In the **Azure Machine Learning Studio (classic)**, click **BATCH EXECUTION** link.
-5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.
+5. Copy the **Request URI** from the **Request** section and paste it into the JSON editor.
 
 ### Linked service for Azure Machine Learning Studio (classic) updatable scoring endpoint:
 The following JSON snippet defines an Azure Machine Learning Studio (classic) linked service that points to updatable endpoint of the scoring web service.

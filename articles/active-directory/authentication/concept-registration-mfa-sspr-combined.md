@@ -29,7 +29,7 @@ This article outlines what combined security registration is. To get started wit
 
 ![My Account showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
-Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/security-info-setup-signin.md) to prepare your users for the new experience and help to ensure a successful rollout.
+Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
 Azure AD combined security information registration is available for Azure US Government but not Azure Germany or Azure China 21Vianet.
 

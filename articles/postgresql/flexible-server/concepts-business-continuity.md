@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/24/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 **Business continuity** in Azure Database for PostgreSQL - Flexible Server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, flexible server will handle the disruptive events happens that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that cannot be handled automatically such as:
 
@@ -54,7 +53,7 @@ Unplanned downtimes can occur as a result of unforeseen disruptions such as unde
 ### Unplanned downtime: failure scenarios and service recovery
 Below are some unplanned failure scenarios and the recovery process. 
 
-| **Scenario** | **Recovery process [non-HA]** | **Recovery process [HA]** |
+| **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA] | **Recovery process** <br> [Servers configured with Zone-redundant HA] |
 | ---------- | ---------- | ------- |
 | <B>Database server failure | If the database server is down, Azure will attempt to restart the database server. If that fails, the database server will be restarted on another physical node.  <br /> <br /> The recovery time (RTO) is dependent on various factors including the activity at the time of fault such as large transaction and the volume of recovery to be performed during the database server startup process. <br /> <br /> Applications using the PostgreSQL databases need to be built in a way that they detect and retry dropped connections and failed transactions. | If the database server failure is detected, the server is failed over to the standby server, thus reducing downtime. For more information, see [HA concepts page](./concepts-high-availability.md). RTO is expected to be 60-120s, with zero data loss. |
 | <B>Storage failure | Applications do not see any impact for any storage-related issues such as a disk failure or a physical block corruption. As the data is stored in three copies, the copy of the data is served by the surviving storage. The corrupted data block is automatically repaired and a new copy of the data is automatically created. | For any rare and non-recoverable errors such as the entire storage is inaccessible, the flexible server is failed over to the standby replica to reduce the downtime. For more information, see [HA concepts page](./concepts-high-availability.md). |

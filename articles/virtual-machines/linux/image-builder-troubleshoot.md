@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Image Builder Service
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
 
 ## Prerequisites
@@ -530,6 +533,25 @@ Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the bui
 
 #### Solution
 Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](./image-builder-networking.md).
+
+### JWT errors in log early in the build
+
+#### Error
+Early in the build process, the build fails and the log indicates a JWT error:
+
+```text
+PACKER OUT Error: Failed to prepare build: "azure-arm"
+PACKER ERR 
+PACKER OUT 
+PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
+PACKER OUT 1 error(s) occurred:
+```
+
+#### Cause
+The `buildTimeoutInMinutes` value in the template is set to between 1 and 5 minutes.
+
+#### Solution
+As described in [Create an Azure Image Builder template](./image-builder-json.md), the timeout must be set to 0 to use the default or above 5 minutes to override the default.  Change the timeout in your template to 0 to use the default or to a minimum of 6 minutes.
 
 ## DevOps task 
 

@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 08/13/2021
+ms.date: 10/12/2021
 ---
 
 # Private plans in the Microsoft commercial marketplace
@@ -40,10 +40,10 @@ Private plans are components of an offer and are only visible and purchasable by
 
 Private plans can reuse the base images and/or offer metadata already published for a public plan. This option lets publishers create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Azure Virtual Machine and Azure application offers only, when a private plan shares a base image with a public plan, any changes to the offer's base image will propagate across all public and private plans using that base image.
 
-For *new offers that only include private plans*, publishers can create their offers as any other offer, and then mark the plans as private. The offers that only have private plans will not be discoverable or accessible in [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers who are not associated with the offer.
+For *new offers that only include private plans*, publishers can create their offers as any other offer, and then mark the plans as private. The offers that only have private plans will not be discoverable or accessible in the [Azure portal](https://azure.microsoft.com/features/azure-portal/) or [Microsoft AppSource](https://appsource.microsoft.com/) by customers who are not associated with the offer.
 
 >[!NOTE]
->An offer that contains only private plans will not be visible in the public Azure Marketplace or AppSource.
+>An offer that contains only private plans will not be visible in the public Azure Marketplace.
 
 ## Target customers with private plans
 
@@ -58,14 +58,14 @@ Once signed into the Azure portal, customers can follow these steps to select yo
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Under **Azure services**, select **Create a resource**.
 1. On the **New** page, next to **Azure Marketplace**, select **See all**. The Marketplace page appears.
-1. In the left navigation, select **Private Plans**.
+1. In the left navigation, select **Private products**.
 
 > [!NOTE]
-> Private plans are only discoverable in [Azure portal](https://azure.microsoft.com/features/azure-portal/). They are not visible in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Introduction to listing options](./determine-your-listing-type.md).
+> Private plans are only discoverable in the [Azure portal](https://azure.microsoft.com/features/azure-portal/) or [Microsoft AppSource](https://appsource.microsoft.com/). They are not visible in [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Introduction to listing options](./determine-your-listing-type.md).
 
 Private plans will also appear in search results and can be deployed via command line and Azure Resource Manager templates, like any other offers.
 
-[![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
+[![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
 >[!Note]
 >Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.

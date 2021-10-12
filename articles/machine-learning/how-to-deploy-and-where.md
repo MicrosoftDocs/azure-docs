@@ -5,8 +5,6 @@ description: 'Learn how and where to deploy machine learning models. Deploy to A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
@@ -175,7 +173,10 @@ An inference configuration describes the Docker container and files to use when 
 
 The inference configuration below specifies that the machine learning deployment will use the file `echo_score.py` in the `./source_dir` directory to process incoming requests and that it will use the Docker image with the Python packages specified in the `project_environment` environment.
 
-You can use any [Azure Machine Learning curated environment](./resource-curated-environments.md) as the base Docker image when creating your project environment. We will install the required dependencies on top and store the resulting Docker image into the repository that is associated with your workspace.
+You can use any [Azure Machine Learning inference curated environments](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference) as the base Docker image when creating your project environment. We will install the required dependencies on top and store the resulting Docker image into the repository that is associated with your workspace.
+
+> [!NOTE]
+> Azure machine learning [inference source directory](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) upload does not respect **.gitignore** or **.amlignore**
 
 # [Azure CLI](#tab/azcli)
 

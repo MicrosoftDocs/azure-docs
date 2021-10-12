@@ -1,7 +1,7 @@
 --- 
-title: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
+title: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
-description: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
+description: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -13,7 +13,7 @@ ms.topic: how-to
 ---
 
  
-# Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
+# Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
 

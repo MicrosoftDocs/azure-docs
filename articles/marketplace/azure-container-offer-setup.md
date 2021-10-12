@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/21/2021
+ms.date: 09/27/2021
 ---
 
 # Create an Azure Container offer
@@ -21,6 +21,25 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 
 ## Create a new offer
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select **+ New offer** > **Azure Container**.
+
+    [ ![The left pane menu options and the 'New offer' button.](./media/azure-container/new-offer-azure-container-workspaces.png) ](./media/azure-container/new-offer-azure-container-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.
+
+#### [Current view](#tab/current-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Azure Container**.
@@ -29,6 +48,8 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.
+
+---
 
 ## New offer
 
@@ -58,5 +79,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure offer properties](azure-container-properties.md)
+- [Configure offer properties](azure-container-properties.md) 
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

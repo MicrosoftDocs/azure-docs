@@ -31,7 +31,7 @@ This tutorial uses Azure PowerShell. To learn about using other tools/SDKs to cr
 ## End-to-end workflow
 In this scenario, we have a number of tables in Azure SQL Database that we want to copy to Azure Synapse Analytics. Here is the logical sequence of steps in the workflow that happens in pipelines:
 
-![Workflow](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
 * The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 

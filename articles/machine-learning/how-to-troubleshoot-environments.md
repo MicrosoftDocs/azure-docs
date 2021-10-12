@@ -160,6 +160,14 @@ RUN apt-get update && \
 
 Running this command installs the correct module dependencies to configure your environment. 
 
+### Build failure when using Spark packages
+
+Configure the environment to not precache the packages. 
+
+```python
+env.spark.precache_packages = False
+```
+
 ## Service-side failures
 
 See the following scenarios to troubleshoot possible service-side failures.
@@ -203,9 +211,6 @@ If you're using default Docker images and enabling user-managed dependencies, us
 
  For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
 
-### You need to create an ICM
-
-When you're creating/assigning an ICM to Metastore, include the CSS support ticket so that we can better understand the issue.
 
 ## Next steps
 

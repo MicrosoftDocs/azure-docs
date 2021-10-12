@@ -27,20 +27,22 @@ Before you subscribe, you should have a sense of how many devices you would like
 Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days.
 See [Azure Defender pricing](https://azure.microsoft.com/pricing/details/azure-defender/) information on committed device prices.
 
-### Before you begin
+## Requirements
 
 Before you onboard a subscription, verify that:
+
 - Your Azure account is set up.
 - You have the required Azure user permissions.
-#### Azure account setup
 
-To get started with Azure Defender for IoT, you must have a Microsoft Azure subscription. If you do not have a subscription, you can sign up for a free account. If you already have access to an Azure subscription, but it isn't listed when subscribing, check your account details and confirm your permissions with the subscription owner.
+### Azure account subscription requirements
 
-- If have an account: https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+To get started with Azure Defender for IoT, you must have a Microsoft Azure account subscription.
 
-- If you don’t have an account: https://azure.microsoft.com/free/.
+If you do not have a subscription, you can sign up for a free account. For more information see, https://azure.microsoft.com/free/.
 
-#### User permission requirements
+If you already have access to an Azure subscription, but it isn't listed when subscribing to Defender for IoT, check your account details and confirm your permissions with the subscription owner. See https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+
+### User permission requirements
 
 Azure **Subscription Owners** and **Subscription Contributor**s can onboard, update, and offboard Azure Defender for IoT subscriptions.
 

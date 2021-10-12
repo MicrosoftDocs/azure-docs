@@ -132,7 +132,7 @@ Output:
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
 7023a314-6148-4d7b-b33f-6c775572879a EMS E5 – Licensed users  EMSPREMIUM
-cf41f428-3b45-490b-b69f-a349c8a4c38e PowerBi - Licensed users POWER\_BI\_STANDARD
+cf41f428-3b45-490b-b69f-a349c8a4c38e PowerBi - Licensed users POWER_BI_STANDARD
 962f7189-59d9-4a29-983f-556ae56f19a5 O365 E3 - Licensed users ENTERPRISEPACK
 c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM,EMSPREMIUM}
 ```

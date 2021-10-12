@@ -50,7 +50,7 @@ As mentioned, shared device mode is a feature of Azure Active Directory that ena
 
 ### Build applications that support frontline workers
 
-You can support frontline workers in your applications by using the Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) to enable a device state called *shared device mode*. When a device is in shared device mode, Microsoft provides your application with information to allow it to modify its behavior based on the state of the user on the device, protecting user data.
+You can support frontline workers in your applications by using the Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to enable a device state called *shared device mode*. When a device is in shared device mode, Microsoft provides your application with information to allow it to modify its behavior based on the state of the user on the device, protecting user data.
 
 Supported features are:
 
@@ -69,7 +69,7 @@ For details on how to modify your applications to support shared device mode, se
 
 Once your applications support shared device mode and include the required data and security changes, you can advertise them as being usable by frontline workers.
 
-An organization's device administrators are able to deploy their devices and your applications to their stores and workplaces through a mobile device management (MDM) solution like Microsoft Intune. Part of the provisioning process is marking the device as a *Shared Device*. Administrators configure shared device mode by deploying the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and setting shared device mode through configuration parameters. After performing these steps, all applications that support shared device mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and organization.
+An organization's device administrators are able to deploy their devices and your applications to their stores and workplaces through a mobile device management (MDM) solution like Microsoft Intune. Part of the provisioning process is marking the device as a *Shared Device*. Administrators configure shared device mode by deploying the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) and setting shared device mode through configuration parameters. After performing these steps, all applications that support shared device mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and organization.
 
 ## Next steps
 

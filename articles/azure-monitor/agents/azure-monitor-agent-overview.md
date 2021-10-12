@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
 ---
 
@@ -30,9 +30,10 @@ When compared with the existing agents, this new agent doesn't yet have full par
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
 	- No support for Azure Private Links.
-	- No support for collecting custom logs or IIS logs.
+	- No support for collecting file based logs or IIS logs.
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
 	- No support for Event Hubs and Storage accounts as destinations.
+	- No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -58,23 +59,28 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
   A deprecation date will be published for the Log Analytics agents in August 2021. The current agents will be supported for several years after deprecation begins.
 
 ## Supported resource types
-Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
+Azure virtual machines, virtual machine scale sets, and Azure Arc-enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
 
 ## Supported regions
-The Azure Monitor agent is available in all public regions that support Log Analytics. Government regions and clouds aren't currently supported.
+Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
+
+## Supported operating systems
+For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
+
 ## Supported services and features
 The following table shows the current support for the Azure Monitor agent with other Azure services.
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows Event Forwarding (WEF): Private preview</li><li>Windows Security Events: [Public preview](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent) </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
-| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://forms.office.com/r/jmyE821tTy) |
+| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| [Connect using private links or AMPLS](../logs/private-link-security.md) | Private preview for AMA | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
@@ -98,18 +104,15 @@ There's no cost for the Azure Monitor agent, but you might incur charges for the
 ## Data sources and destinations
 The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 
-The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics workspace supporting Azure Monitor Logs.
+The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
 
 | Data source | Destinations | Description |
 |:---|:---|:---|
-| Performance        | Azure Monitor Metrics<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
+| Performance        | Azure Monitor Metrics (preview)<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
 | Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system |
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
 
-<sup>1</sup> There's a limitation today on the Azure Monitor agent for Linux. Using Azure Monitor Metrics as the *only* destination isn't supported. Using it along with Azure Monitor Logs works. This limitation will be addressed in the next extension update.
-
-## Supported operating systems
-For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
@@ -121,12 +124,15 @@ The Azure Monitor agent supports Azure service tags. Both AzureMonitor and Azure
 
 The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
 
+> [!IMPORTANT]
+> Proxy configuration is not supported for [Azure Monitor Metrics (preview)](../essentials/metrics-custom-overview.md) as a destination. As such, if you are sending metrics to this destination, it will use the public internet without any proxy.
+
 1. Use this flowchart to determine the values of the *setting* and *protectedSetting* parameters first.
 
    ![Flowchart to determine the values of setting and protectedSetting parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 
-1. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
+2. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
 
 	| Parameter | Value |
 	|:---|:---|

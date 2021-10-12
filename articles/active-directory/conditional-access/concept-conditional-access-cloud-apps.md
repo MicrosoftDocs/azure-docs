@@ -10,7 +10,7 @@ ms.date: 06/15/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
-- Dynamics CRM Online
+- Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
@@ -45,12 +45,12 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Cloud App Security
 - Microsoft Commerce Tools Access Control Portal
 - Microsoft Commerce Tools Authentication Service
-- Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - [Microsoft Intune Enrollment](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
+- Microsoft Power Automate
 - Microsoft Search in Bing
 - Microsoft StaffHub
 - Microsoft Stream
@@ -82,7 +82,6 @@ Administrators can exclude specific apps from policy if they wish, including the
 
 The following key applications are included in the Office 365 client app:
 
-   - Microsoft Flow
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
@@ -95,7 +94,8 @@ The following key applications are included in the Office 365 client app:
    - Office Online
    - Office.com
    - OneDrive
-   - PowerApps
+   - Power Automate
+   - Power Apps
    - Skype for Business Online
    - Sway
 
@@ -172,7 +172,7 @@ Administrators can select published authentication contexts in their Conditional
 
 For more information about authentication context use in applications, see the following articles.
 
-- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 

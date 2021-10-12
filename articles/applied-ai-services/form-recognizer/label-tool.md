@@ -18,7 +18,7 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the sample labeling tool
 
-In this article, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
+In this article, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -195,12 +195,16 @@ The following value types and variations are currently supported:
 
 * `number`
   * default, `currency`
+  * Formatted as a Floating point value. 
+  * Example:1234.98 on the document will be formatted into 1234.98 on the output
 
 * `date`
   * default, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
+  * Formatted as a Integer value. 
+  * Example:1234.98 on the document will be formatted into 123498 on the output
 * `selectionMark`
 
 > [!NOTE]

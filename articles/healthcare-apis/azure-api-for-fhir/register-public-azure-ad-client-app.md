@@ -1,12 +1,11 @@
 ---
 title: Register a public client app in Azure AD - Azure API for FHIR
 description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
-services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 09/10/2021
 ms.author: cavoeg
 ---
 
@@ -50,20 +49,10 @@ To configure your [desktop](../../active-directory/develop/scenario-desktop-app-
 
 ## API permissions
 
-Similarly to the [confidential client application](register-confidential-azure-ad-client-app.md), you'll need to select which API permissions this application should be able to request on behalf of users:
+Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
-1. Open the **API permissions**.
-
-    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses**. You will only be able to find this if you have already [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
-
-    
-    If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
-
-    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-application/api-permissions.png)
-
-
-2. Select the permissions that you would like the application to be able to request:
-    ![Azure portal. App permissions](media/public-client-application/app-permissions.png)
+>[!NOTE]
+>Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 ## Validate FHIR server authority
 If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
@@ -75,4 +64,4 @@ If you configure your client application in a different Azure AD tenant from you
 In this article, you've learned how to register a public client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access the FHIR service using Postman](./../use-postman.md)

@@ -2,7 +2,7 @@
 title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 08/13/2021
+ms.date: 08/18/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 # Run container applications on Azure Batch
@@ -69,7 +69,7 @@ These images are only supported for use in Azure Batch pools and are geared for 
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
-For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://www.docker.com/blog/docker-enterprise-edition/).
 
 Additional considerations for using a custom Linux image:
 
@@ -245,6 +245,37 @@ ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
     userName: "myUserName",
     password: "myPassword");
+
+// Create container configuration, prefetching Docker images from the container registry
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
+
+// VM configuration
+VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
+    imageReference: imageReference,
+    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
+
+// Create pool
+CloudPool pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
+    virtualMachineConfiguration: virtualMachineConfiguration);
+...
+```
+
+### Managed identity support for ACR
+
+When accessing containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry), either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity, first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the `AcrPull` role assigned for the container registry you wish to access. Then, simply tell Batch which identity to use when authenticating with ACR.
+
+```csharp
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration();
