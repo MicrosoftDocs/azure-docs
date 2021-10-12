@@ -72,7 +72,7 @@ Source pattern is the URL path in the source request to replace. Currently, sour
 
 For URL rewrite source pattern, only the path after the route configuration “patterns to match” is considered. For example, you have the following incoming URL format `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>`, only `/<Rule-URL-Rewrite-Source-pattern>` will be considered by the rule engine as the source pattern to be rewritten. Therefore, when you have a URL rewrite rule using source pattern match, the format for the outgoing URL will be `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>`.
 
-For scenarios, where `/<route-patterns-to-match-path` segment of the URL path must be removed, set the Origin path of the Origin group in route configuration to "/".
+For scenarios, where `/<route-patterns-to-match-path` segment of the URL path must be removed, set the Origin path of the Origin group in route configuration to `/`.
 
 ### Destination
 
