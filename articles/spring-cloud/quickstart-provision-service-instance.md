@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -87,7 +87,7 @@ You can provision an instance of the Azure Spring Cloud service using the Azure 
 
 ## Prerequisites
 
-* [Install JDK 8 or JDK 11](/java/azure/jdk/)
+* [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with the command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
