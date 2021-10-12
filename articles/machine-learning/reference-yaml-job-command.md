@@ -141,7 +141,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
-## YAML: basic R model training with local Docker context
+## YAML: basic R model training with local Docker build context
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/r/iris/job.yml":::
 
