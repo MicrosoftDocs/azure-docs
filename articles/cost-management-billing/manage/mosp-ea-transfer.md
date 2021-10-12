@@ -41,14 +41,14 @@ You must have one of the following roles to create an EA account owner. For more
 - Enterprise Administrator
 - Department Administrator
 
-### Set EA authentication Level
+### Set EA authentication level
 
 EAs have an authentication level set that determines which types of users can be added as EA account owners for the enrollment. There are four authentication levels available, as described at [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
 
 Ensure that the authentication level set for the EA allows you to create a new EA account owner using the subscription account administrator noted previously. For example:
 
-- If the subscription account administrator has an e-mail address domain of `@outlook.com`, then the EA must have its authentication level set to either **Microsoft Account Only** or **Mixed Account**.
-- If the subscription account administrator has an e-mail address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authentication level set to either **Work or School Account** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's e-mail address domain.
+- If the subscription account administrator has an email address domain of `@outlook.com`, then the EA must have its authentication level set to either **Microsoft Account Only** or **Mixed Account**.
+- If the subscription account administrator has an email address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authentication level set to either **Work or School Account** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's email address domain.
 
 > [!NOTE]
 > When set correctly, changing the authentication level doesn't impact the transfer process. For more information, see [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
@@ -63,11 +63,11 @@ As described in the [prerequisites](#access-to-the-destination-ea) section, you 
 
 1. Sign in to the EA portal at https://ea.azure.com as either an enterprise or department administrator.
 1. To create a new department, see [Create an Azure Enterprise department](ea-portal-administration.md#create-an-azure-enterprise-department).
-1. To create the EA account owner, see [Add an account](ea-portal-administration.md#add-an-account). When asked for the **Account Owner E-Mail** enter the e-mail address of the subscription **Account Admin** that you identified previously.
+1. To create the EA account owner, see [Add an account](ea-portal-administration.md#add-an-account). When asked for the **Account Owner E-Mail** enter the email address of the subscription **Account Admin** that you identified previously.
     > [!NOTE]
     > If the EA Authentication Level is set incorrectly, the EA account owner creation fails and an error is shown in the EA portal.
 
-After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an e-mail from the Azure EA portal. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an e-mail mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an e-mail mailbox is advised for future notifications about the subscription.
+After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an email from the Azure EA portal. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an email mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an email mailbox is advised for future notifications about the subscription.
 
 ### Complete the subscription transfer
 
@@ -81,7 +81,7 @@ The first time a new EA account owner signs in to the EA portal, they see the fo
 ```
 WARNING
 
-You are about to associate your account (e-mail address) to the following enrollment:
+You are about to associate your account (email address) to the following enrollment:
 
 Enrollment Name: <EnrollmentName>
 Enrollment Number: <EnrollmentNumber>
