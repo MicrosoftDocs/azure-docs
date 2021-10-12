@@ -112,7 +112,7 @@ var job = await client.CreateJobAsync(
     {
         new (
             key: "Location", 
-            @operator: RequirementOperator.Equal, 
+            @operator: LabelOperator.Equal, 
             value: "Edmonton")
     });
 ```
