@@ -336,7 +336,7 @@ You can define the model algorithms and hyperparameters to sweep in the paramete
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `hyperparameter_sampling` parameter:
 
 * [Random sampling](how-to-tune-hyperparameters.md#random-sampling)
-* [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
+* [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) (not supported for conditional spaces)
 * [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) (not supported for conditional spaces)
 
 
