@@ -31,7 +31,7 @@ When a BYOI user joins a Teams meeting, they're treated as an anonymous external
 
 As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users displayed in Teams is configurable via the Communication Services Calling SDK and they're labeled as “external” to let Teams users know they haven't been authenticated using Azure Active Directory.
 
-During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting. Anonymous Communication Services users cannot add additional participants to the meeting and they cannot record the meeting.
+During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting. Anonymous Communication Services users cannot add additional participants to the meeting and they cannot start recording or transcription for the meeting.
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
@@ -47,6 +47,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants.
 - With [Cloud Video Interop for Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 - Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
+- The Calling SDK does not currently support closed captions for Teams meetings.
 
 ## Next steps
 
