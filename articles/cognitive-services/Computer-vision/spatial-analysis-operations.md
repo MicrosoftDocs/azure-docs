@@ -229,7 +229,7 @@ You can configure the speed computation through the tracker node parameter setti
 ```
 | Name | Type| Description|
 |---------|---------|---------|
-| `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to true. It is highly recommended that we enable both speed and orientation to have the best estimated values |
+| `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to `True`. It is highly recommended that you enable both speed and orientation to have the best estimated values. |
 
 
 ## Spatial Analysis operations configuration and output
