@@ -155,7 +155,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 Call the API below with the "identity" section in the request body:
 
 ```
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2018-06-01
 ```
 
 **Request body**: add "identity": { "type": "SystemAssigned" }.
@@ -181,7 +181,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
         "provisioningState": "Succeeded",
         "loggingStorageAccountKey": "**********",
         "createTime": "2021-09-26T04:10:01.1135678Z",
-        "version": "2021-06-01"
+        "version": "2018-06-01"
     },
     "identity": {
         "type": "SystemAssigned",
@@ -197,6 +197,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
 #### Generate system-assigned managed identity using an Azure Resource Manager template
 
+# [Azure Data Factory](#tab/data-factory)
 **Template**: add "identity": { "type": "SystemAssigned" }.
 
 ```json
@@ -214,6 +215,25 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
     }]
 }
 ```
+# [Azure Synapse](#tab/synapse-analytics)
+**Template**: add "identity": { "type": "SystemAssigned" }.
+
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "resources": [{
+        "name": "<workspaceName>",
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.Synapse/workspaces",
+        "location": "<region>",
+        "identity": {
+            "type": "SystemAssigned"
+        }
+    }]
+}
+```
+---
 
 #### Generate system-assigned managed identity using SDK
 
@@ -376,7 +396,7 @@ The managed identity principal ID and tenant ID will be returned when you get a 
 Call below API in the request:
 
 ```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2018-06-01
 ```
 
 **Response**: You will get response like shown in below example. The "identity" section is populated accordingly.
@@ -433,7 +453,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "outputs":{
         "managedIdentityObjectId":{
             "type":"string",
-            "value":"[reference(resourceId('Microsoft.Synapse/workspaces', parameters('<workspaceName>')), '2021-06-01', 'Full').identity.principalId]"
+            "value":"[reference(resourceId('Microsoft.Synapse/workspaces', parameters('<workspaceName>')), '2018-06-01', 'Full').identity.principalId]"
         }
     }
 }
