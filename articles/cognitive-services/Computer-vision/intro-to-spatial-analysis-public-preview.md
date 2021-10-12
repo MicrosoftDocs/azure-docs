@@ -27,20 +27,26 @@ Spatial Analysis is an AI service that helps organizations maximize the value of
 
 The core operations of Spatial Analysis are built on a system that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
 
-### People Counting
+### People counting
 Count the number of people in a designated zone over time using the PersonCount operation. This operation works for a zone within a single cameras field of view. It generates an independent count for each frame processed without attempting to track people across frames.
 
-![count](https://user-images.githubusercontent.com/11428131/136633993-0fa00c08-4ca7-436f-9b82-4a4f1ef5fb0e.gif)
+![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
-### Enter/Exit Spaces
+
+
+### Enter/exit spaces
 Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more. 
 
-![space](https://user-images.githubusercontent.com/11428131/136633984-2fb7295c-cca8-4ab2-acff-25a85d833db0.gif)
+![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
-### Social Distancing and Facemask Detection 
+![Spatial Analysis visualizes orientation and speed of people in a store](https://user-images.githubusercontent.com/11428131/137017305-46c9b6c5-1a11-4d98-89ed-67c7e8d0bb12.gif)
+
+### Social distancing and facemask detection 
 Understand how well people follow social distancing and facemask guidance using video.
 
-![distance](https://user-images.githubusercontent.com/11428131/136633989-37e66623-58d8-43a4-8619-dffd1afb889f.gif)
+![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
+
+![Spatial Analysis classifies whether people have facemasks in the elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
 ## Get started
 
