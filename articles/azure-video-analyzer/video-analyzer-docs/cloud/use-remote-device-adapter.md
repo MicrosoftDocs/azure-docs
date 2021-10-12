@@ -7,8 +7,8 @@ ms.date: 11/01/2021
 ---
 
 # Connect cameras to the cloud using a remote device adapter
-Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using cloud pipelines.
-Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol. This approach is useful in the following scenarios:
+Azure Video Analyzer allows users to connect cameras directly to the cloud in order to capture and record video, using cloud pipelines.
+Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol. This approach is useful in the following scenarios:
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
@@ -35,7 +35,7 @@ The following are required for this how-to guide:
 * IoT Hub
   * User-assigned managed identity with **Contributor** role access
 * Video Analyzer account must be paired with IoT Hub
-* [IoT Edge with Video Analyzer edge module installed and configured manually](../edge/deploy-iot-edge-device.md)
+* [IoT Edge with Video Analyzer edge module installed and configured](../edge/deploy-iot-edge-device.md)
 * [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
   * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
 * IP camera(s) with RTSP Stream
@@ -59,7 +59,6 @@ To enable the edge module to act as a transparent gateway for video between the 
 * Device ID for the IoT device
 * Primary key for the IoT device
 * Camera's IP address
-* Camera's RTSP port (typically: **554**)
 
 In Azure Portal:
 1. Navigate to the IoT Hub
@@ -76,7 +75,7 @@ In Azure Portal:
    "name": "remoteDeviceAdapterCamera1",
    "properties": {
      "target": {
-       "host": "<Camera's IP address>:<Camera's RTSP port>"
+       "host": "<Camera's IP address>"
       },
      "iotHubDeviceConnection": {
       "deviceId": "<Device ID>",
@@ -84,8 +83,10 @@ In Azure Portal:
         "@type": "#Microsoft.VideoAnalyzer.SymmetricKeyCredentials",
         "key": "<Primary Key>"
        }
-    }
+     }
+   }
  }
+ 
 ```
 If successful, you will receive a response with a status code 201.
 
@@ -173,5 +174,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next Steps
-Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial]()<!-- TODO: add link to Keith's export to MP4 tutorial -->
+Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial]().<!-- TODO: add link to Keith's export to MP4 tutorial -->
 
