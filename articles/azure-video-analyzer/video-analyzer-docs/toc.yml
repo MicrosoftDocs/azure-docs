@@ -162,10 +162,9 @@
     - name: Embed player widget in Power BI
       href: embed-player-in-power-bi.md
   - name: Troubleshoot
-    href: troubleshoot.md
+    href: edge/troubleshoot.md
   - name: Connect cameras to cloud via remote device adapter
     href: cloud/use-remote-device-adapter.md
-    href: edge/troubleshoot.md
   - name: Camera discovery
     href: camera-discovery.md
 - name: Reference 
