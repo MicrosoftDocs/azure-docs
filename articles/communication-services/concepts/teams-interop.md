@@ -1,7 +1,7 @@
 ---
-title: Teams meeting interoperability
+title: Teams interoperability
 titleSuffix: An Azure Communication Services concept document
-description: Join Teams meetings
+description: Teams interoperability
 author: chpalm
 ms.author: chpalm
 ms.date: 06/30/2021
@@ -54,15 +54,9 @@ When an endpoint connects to a Teams meeting using a Teams identity via the Azur
 
 Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. The first scenario that has been enabled allows your application to join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts, the same as users that join using the Teams anonymous web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
-The ability for Communication Services users to join Teams meetings as anonymous users is controlled by the existing "allow anonymous meeting join" configuration, which also controls the existing Teams anonymous meeting join.  This setting can be updated in the [Teams admin center](https://admin.teams.microsoft.com/meetings/settings) or with the Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration). As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams.  The name of Communication Services users displayed in Teams is configurable via the Communication Services Calling SDK.
+For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
-External users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. Communication Services users can send and receive messages only while present in the Teams meeting and if the meeting is not scheduled for a channel. 
-
-The list of supported message types for Communication Services users can be found on our [chat concepts](./chat/concepts.md#message-types). Unsupported message types can be ignored.
-
-Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
-
-Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
+It is currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
 
 ## Microsoft 365 Teams identity
 The Azure Communication Services Calling SDK can be used with Microsoft 365 Teams identities to support Teams-like experiences for Teams interoperability. Microsoft 365 Teams identities are provided and authenticated by Azure Active Directory. Your app can make or accept calls with a regular Microsoft 365 identity. All attributes and details about the user are bound to the Azure Active Directory user.
