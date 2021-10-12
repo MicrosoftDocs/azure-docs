@@ -62,7 +62,7 @@ az monitor autoscale rule create \
 The rule is part of the `my-scale-settings` profile (`autoscale-name` matches the `name` of the profile). The value of its `condition` argument says the rule should trigger when "The average CPU consumption among the VM instances exceeds 70% for five minutes." When that condition is satisfied, two more VM instances are allocated. 
 
 > [!NOTE]
-> For more information on the CLI syntax, see [`az monitor autoscale`](../../cli/azure/monitor/autoscale.md).
+> For more information on the CLI syntax, see [`az monitor autoscale`](/cli/azure/monitor/autoscale).
 
 ## Create a rule to scale in
 
@@ -145,7 +145,7 @@ To create an endpoint-focused rule:
 * Select your resource
 * Set necessary params as in
 
-:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing schedule-based rules":::
+:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing endpoint metrics rules":::
 
 {>> TODO / Notes
 
