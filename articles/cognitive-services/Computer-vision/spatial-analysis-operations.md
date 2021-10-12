@@ -72,7 +72,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to the [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
-### Detector Node Parameter Settings
+### Detector node parameter settings
 This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.
 
 ```json
@@ -87,7 +87,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `gpu_index` | string| The GPU index on which this operation will run.|
 | `enable_breakpad`| bool | Indicates whether to enable breakpad, which is used to generate a crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.|
 
-### Camera Calibration Node Parameter Settings
+### Camera calibration node parameter settings
 This is an example of the `CAMERACALIBRATOR_NODE_CONFIG` parameters for all spatial analysis operations.
 
 ```
@@ -105,7 +105,7 @@ This is an example of the `CAMERACALIBRATOR_NODE_CONFIG` parameters for all spat
 | `enable_breakpad`| bool | Indicates whether to enable breakpad, which is used to generate a crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to `True`. |
 
-### Calibration Config
+### Calibration config
 This is an example of the `CALIBRATION_CONFIG` parameters for all spatial analysis operations.
 
 ```
@@ -220,7 +220,7 @@ Example of the zone placement info output visualized on a video frame:
 
 The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configuration](#camera-configuration) must still be followed for best results.
 
-### Speed Parameter Settings
+### Speed parameter settings
 You can configure the speed computation through the tracker node parameter settings.
 ```
 {
@@ -472,7 +472,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 See the [camera placement](spatial-analysis-camera-placement.md) guidelines to learn about more about how to configure zones and lines.
 
-## Spatial Analysis Operation Output
+## Spatial Analysis operation output
 
 The events from each operation are egressed to Azure IoT Hub on JSON format.
 
