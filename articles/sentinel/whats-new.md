@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ---
 
 # What's new in Azure Sentinel
@@ -37,7 +37,7 @@ Azure Sentinel's free trial continues to support new or existing Log Analytics w
 
 Now, in addition during the trial period:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics. 
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
 
     Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
@@ -45,15 +45,15 @@ Now, in addition during the trial period:
 
 For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
-### Content hub and 55+ new solutions
+### Content hub and new solutions (Public preview)
 
-Azure Sentinel now provides a Content Hub, a centralized location to find and deploy all Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
 :::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
 
-Newly supported solutions include the following, and more:
+The following list includes highlights of new solutions added to the Content hub:
 
 :::row:::
    :::column span="":::
@@ -92,11 +92,23 @@ Newly supported solutions include the following, and more:
       - Zero Trust
 :::row-end:::
 
-For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) and [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+For more information, see:
+
+- [About Azure Sentinel solutions](sentinel-solutions.md)
+- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
+- [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 
 >[!TIP]
 > We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
 >
+
+### Manage custom content in source control repositories (Public preview)
+
+Now, the new Azure Sentinel **Repositories** page provides you with the ability to store your custom content in GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspace.
+
+Store your custom content in an external repository in order to maintain it outside of Azure Sentinel. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspace, and visible from the various Azure Sentinel galleries, such as the **Analytics**, **Notebooks**, or **Workbooks** pages.
+
+For more information, see [Manage custom content in your own repository](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
