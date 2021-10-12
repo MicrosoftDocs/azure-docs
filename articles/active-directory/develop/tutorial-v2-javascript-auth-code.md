@@ -48,9 +48,9 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
+Then, to configure the downloaded code sample, start by creating a localhost server for your application as described in step 1 of [create your project](#create-your-project). Once done, skip to the [configuration step](#register-your-application).
 
-To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
+To continue with the tutorial and build the application yourself, move on to the next section, [Create your project](#create-your-project).
 
 ## Create your project
 
