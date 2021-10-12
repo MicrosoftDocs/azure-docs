@@ -31,24 +31,34 @@ A transaction consists of one or more discrete events.
  - **Channel** - A channel is a means by which products or services are sold and/or distributed.
 The easiest way to find them is by using the search box above the different business areas that contain the tables. 
  
- [[media/quick-start-create-lake-database/model-example.jpg]]
+![Database Template example](./media/quick-start-create-lake-database/model-example.png)
  
  
  ## Configure lake database
  
 After you have created the database make sure the storage account & filepath is set to a location where you wish to store the data. This will default to the primary storage account within Synapse analytics but can be change to your needs. 
   
- [[media/quick-start-create-lake-database/lake-database-example.jpg]]
+ ![Lake database example](./media/quick-start-create-lake-database/lake-database-example.png)
  
 To save your layout and make it avaialble within Synapse Publish all changes. This step completes the setup of the lake database and makes it avaialble to all components within Synapse Analytics and outside. 
 
 
 ## Query the data
 
+After the lake database is created there are different ways to query the data. This can be done over SQL-Ondemand within Synapse that automatically understands the newly created lake database format and exposes the data through it. 
 
-@@code SQL 
-
-
-@@code Spark
-
+```sql
+SELECT TOP (100) [ProductId]
+,[ProductName]
+,[ProductDescription]
+,[ProductInternalName]
+,[ItemSku]
+,[PrimaryBrandId]
+FROM [Retail_mil].[dbo].[RetailProduct]
+```
+The other way to access the data within Synapse is to open a new Spark notebook and use the integrated expeirence there: 
+```spark
+df = spark.sql("SELECT * FROM `Retail_mil`.`RetailProduct`")
+df.show(10)
+```
 
