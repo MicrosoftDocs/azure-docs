@@ -1,6 +1,6 @@
 ---
-title: About Azure Sentinel solutions | Microsoft Docs
-description: This article describes the Azure Sentinel solutions experience, showing how customers can easily find data analysis tools packaged together with data connectors, and displays the packages currently available.
+title: About Azure Sentinel content and solutions | Microsoft Docs
+description: This article describes Azure Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
 services: sentinel
 cloud: na
 documentationcenter: na

@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Sentinel solutions | Microsoft Docs
-description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors.
+title: Install Azure Sentinel content from the Content hub | Microsoft Docs
+description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors and other content.
 services: sentinel
 cloud: na
 documentationcenter: na
