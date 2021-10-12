@@ -121,7 +121,7 @@ Azure Machine Learning managed online endpoints have the following limits. Curre
 
 <sup>2</sup> If making request for a limit increase, make sure to also calculate and include all the other limit increases that you might need. E.g. if asking to increase the RPS limit, you might also want to ask for increasing the active connections and bandwidth limit as per your requirement.
 
-#### Azure Machine Learning pipelines
+### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |
