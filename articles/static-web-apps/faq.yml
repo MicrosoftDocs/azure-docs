@@ -17,11 +17,10 @@ sections:
       - question: |
           What frontend frameworks can be automatically built by Static Web Apps?
         answer: |
-          Most popular frontend frameworks, including:
-            - Node.js-based frameworks such as React, Angular, Vue.js, Next.js, and Gatsby.
-            - ASP.NET Blazor WebAssembly
-            - Hugo
-            - Jekyll
+          Static Web Apps can automatically build:
+
+          * Popular single-page applications (SPA), including: React, Vue.js, Angular, Blazor WebAssembly
+	        * Commonly used static site generators, including: Next.js, Nuxt.js, Gatsby, Hugo, Jekyll, Eleventy
           
           To learn more, see [Configure frontend frameworks](front-end-frameworks.md).
 
@@ -178,7 +177,7 @@ sections:
       - question: |
           How do I create serverless functions that respond to events other than HTTP?
         answer: |
-          The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as timer or Durable Functions, you can use the bring your own Functions app](functions-bring-your-own.md) feature to link a separate Functions app to your Static Web App.
+          The managed function apps in Static Web Apps are optimized for API scenarios and support only HTTP triggers. If you need to use other trigger types supported by Azure Functions such as for cron jobs or Durable Functions for stateful workflows, you can use the bring your own Functions app](functions-bring-your-own.md) feature to link a separate Functions app to your Static Web App.
 
   - name: General
     questions:
