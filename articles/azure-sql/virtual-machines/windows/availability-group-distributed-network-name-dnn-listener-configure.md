@@ -46,7 +46,6 @@ Before you complete the steps in this article, you should already have:
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover cluster instance.  No other connection can share the same port.
-- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 
 
 
@@ -141,7 +140,11 @@ A value of `1` for `is_distributed_network_name` indicates the listener is a dis
 
 ## Update connection string
 
-Update connection strings for applications so that they connect to the DNN listener. Connection strings for DNN listeners must provide the DNN port number. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it.
+Update the connection string for any application that needs to connect to the DNN listener. The connection string to the DNN listener must provide the DNN port number, and specify `MultiSubnetFailover=True` in the connection string. If the SQL client does not support the `MultiSubnetFailover=True` parameter, then it is not compatible with a DNN listener.  
+
+The following is an example of a connection string for listener name **DNN_Listener** and port 6789: 
+
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## Test failover
 
@@ -168,8 +171,8 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Limitations
 
-- Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later on Windows Server 2016 and later. 
 - DNN Listeners **MUST** be configured with a unique port.  The port cannot be shared with any other connection on any replica.
+- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 - There might be additional considerations when you're working with other SQL Server features and an availability group with a DNN. For more information, see [AG with DNN interoperability](availability-group-dnn-interoperability.md). 
 
 ## Port considerations
