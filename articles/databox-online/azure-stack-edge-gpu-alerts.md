@@ -20,17 +20,15 @@ This article describes how to view alerts and interpret alert severity for event
 
 The Alerts blade for an Azure Stack Edge device lets you review and clear Azure Stack Edge device–related alerts in real-time. From this blade, you can centrally monitor the health issues of your Azure Stack Edge devices and the overall Microsoft Azure Azure Stack Edge solution.
 
-The initial display is a high-level summary of alerts at each severity level.
-
-![Screenshot of the Alerts blade in the Azure portal for an Azure Stack Edge device. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary.png)
-
-You can drill down to see individual alerts at each severity level.
-
-![Screenshot of the Alerts blade, with alert details displayed, in the Azure portal for an Azure Stack Edge device.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary.png)
-
-Alternate graphic: Summary and detail view in one.
+The initial display is a high-level summary of alerts at each severity level. You can drill down to see individual alerts at each severity level.
 
 [ ![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-detail.png) ](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary-and-details.png#lightbox)
+
+
+<!--![Screenshot of the Alerts blade in the Azure portal for an Azure Stack Edge device. The Alerts menu item is highlighted.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary.png)-->
+
+<!--![Screenshot of the Alerts blade, with alert details displayed, in the Azure portal for an Azure Stack Edge device.](media/azure-stack-edge-gpu-alerts/azure-stack-edge-alerts-summary.png)-->
+
 
 ### Alert severity levels
 
