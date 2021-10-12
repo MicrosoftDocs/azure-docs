@@ -1,5 +1,5 @@
 ---
-title: Build with enclaves
+title: Build with SGX enclaves - Azure Virtual Machines
 description: Learn about Intel SGX hardware to enable your confidential computing workloads.
 author: JenCook
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.date: 11/1/2021
 ms.author: JenCook
 ---
 
-# Build with enclaves 
+# Build with SGX enclaves 
 
 [DCsv2-series](../virtual-machines/dcv2-series.md) and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md)* VMs are backed by [Intel® Software Guard Extensions](https://intel.com/sgx). 
 
