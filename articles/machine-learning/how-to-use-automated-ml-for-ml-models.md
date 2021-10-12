@@ -132,12 +132,30 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
     ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+
+
+1. The **[Optional] Validate and test** form allows you to, 
+
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    
+        1. Forecasting tasks only supports k-fold cross validation.
+    
+        > [!TIP]
+        > You can bring your own validation dataset (preview) separate from your training data. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+    1. Provide a test dataset (preview) to use to evaluate a model that automated ML generated for you. You can either provide your own test dataset or opt to use a percentage of your training dataset.
+    
+        >[!IMPORTANT]
+        > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+           
+        1. The schema of the test dataset should match the training dataset (The Target column is optional).
+        1. The test dataset should not be the same as training dataset or the validation dataset.
+        1. Forecasting runs do not support train/test split.
 
 ## Customize featurization
 
@@ -184,6 +202,10 @@ On the Data transformation tab, you can see a diagram of what data preprocessing
 > The Data transformation tab is in preview. This capability should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) and may change at any time.
 
 ![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+
+## Test your model (preview)
+After your experiment completes, you can test the model(s) that automated ML generates for you. If you provided a 
+
 
 ## Model explanations (preview)
 
