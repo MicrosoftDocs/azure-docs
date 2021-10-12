@@ -35,17 +35,16 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 
 ```xml
 <dependencies>
-...
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-communication-identity</artifactId>
         <version>1.0.0</version>
     </dependency>
     <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>msal4j</artifactId>
+      <version>1.11.0</version>
     </dependency>
-...
 </dependencies>
 ```
 
@@ -67,6 +66,9 @@ import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
 import com.azure.communication.identity.models.*;
 import com.azure.core.credential.*;
+import com.microsoft.aad.msal4j.IAuthenticationResult;
+import com.microsoft.aad.msal4j.InteractiveRequestParameters;
+import com.microsoft.aad.msal4j.PublicClientApplication;
 
 import java.io.IOException;
 import java.time.*;
@@ -74,7 +76,7 @@ import java.util.*;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException
+    public static void main( String[] args ) throws Exception
     {
         System.out.println("Azure Communication Services - Teams Access Tokens Quickstart");
         // Quickstart code goes here
@@ -96,7 +98,9 @@ PublicClientApplication pca = PublicClientApplication.builder(appId)
         .build();
 
 String redirectUri = "http://localhost";
-String scope = "https://auth.msft.communication.azure.com/VoIP";
+Set<String> scope = new HashSet<String>();
+scope.add("https://auth.msft.communication.azure.com/VoIP");
+
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))
                     .scopes(scope)
