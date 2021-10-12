@@ -4,7 +4,7 @@ description: In this quickstart, we deploy a Spring Cloud application to the Azu
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/08/2021
+ms.date: 10/12/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
@@ -19,7 +19,6 @@ This quickstart explains how to deploy a simple Azure Spring Cloud microservice 
 > Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 By following this quickstart, you'll learn how to:
-
 > [!div class="checklist"]
 > * Generate a basic Steeltoe .NET Core project
 > * Provision an Azure Spring Cloud service instance
@@ -69,7 +68,7 @@ az extension add --name spring-cloud
 
 ## Generate a Steeltoe .NET Core project
 
-In Visual Studio, create an ASP.NET Core Web application named as "hello-world" with API project template. Please notice there will be a auto generated WeatherForecastController which will be our test endpoint later on.
+In Visual Studio, create an ASP.NET Core Web application named as "hello-world" with API project template. Please notice there will be an auto-generated WeatherForecastController which will be our test endpoint later on.
 
 1. Create a folder for the project source code and generate the project.
 
@@ -305,7 +304,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 > [!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
-For advanced log analytics features, visit **Logs** tab in the menu on [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
+For advanced log analytics features, visit **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 [ ![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png) ](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
 ::: zone-end
 
