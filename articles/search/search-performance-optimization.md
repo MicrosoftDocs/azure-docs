@@ -31,7 +31,7 @@ No SLA is provided for the Free tier. For more information, see [SLA for Azure C
 
 ## Data Residency
 
-By default, Azure Cognitive Search is configured to store customer data only in a single region. Azure Cognitive Search will not replicate your data to another region without your authorization.
+Azure Cognitive Search will not store customer data outside the customer-specified region without your authorization.
 
 <a name="availability-zones"></a>
 
