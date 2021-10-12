@@ -49,7 +49,7 @@ var queue = await client.SetQueueAsync(
 The Job Router SDK will create a new queue or update an existing queue when the `SetQueue` or `SetQueueAsync` method is called.
 
 ```csharp
-var queue = client.SetQueueAsync(
+var queue = await client.SetQueueAsync(
     id: "XBOX_DEFAULT_QUEUE",
     name: "XBOX Default Queue",
     distributionPolicy: "Longest_Idle_45s_Min1Max10"
