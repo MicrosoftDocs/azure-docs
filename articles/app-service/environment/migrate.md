@@ -38,7 +38,7 @@ The App Service platform will review your App Service Environment to confirm mig
 
 ## Overview of migration process
 
-The migration consists of two steps. Before starting Step 1, you'll need to provide configuration information for your new App Service Environment. The migration tool will automatically enable or disable these options for you depending on whether or not they're supported. Note that an internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
+The migration consists of two steps. Before starting Step 1, you'll need to provide configuration information for your new App Service Environment. The migration tool will automatically enable or disable these options for you depending on whether or not they're supported. Note that internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
 
 - **App Service Environment Subnet**: At this time, the only supported configuration is to place your new App Service Environment in the existing [subnet](network-info.md#overview) used by the old environment.
 - **Zone Redundancy**: A migrated App Service Environment can be configured with [zone redundancy](zone-redundancy.md) if zone redundancy is [available in the selected region](overview.md#regions).
@@ -46,7 +46,7 @@ The migration consists of two steps. Before starting Step 1, you'll need to prov
 
 ### Step 1 of migration
 
-During this step, which begins after confirming the above configuration details, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls in preparation for the migration. You'll also have access to scale or modify you existing App Service Environment again if needed.
+During this step, which begins after confirming the above configuration details, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on in preparation for the migration. You'll also have access to scale or modify you existing App Service Environment again if needed.
 
 ### Step 2 of migration
 
@@ -69,3 +69,16 @@ Ensure you understand how migrating to an App Service Environment v3 will affect
 ### Migrating your App Service Environment
 
 ...(TBD, pending implementation of tooling)
+
+## Frequently asked questions
+
+- **What if migrating my App Service Environment is not currently supported**  
+  Support for other scenarios will roll out over the next few months. ](https://azure.gCheck back for updates on this page and look for announcements on the [App Service Blogithub.io/AppService/). <!--- Should I mention cloning or migrating manually here as alternatives? --->
+- **Will I experience downtime during the migration?**  
+  Yes, you should expect about two hours of downtime during Step 2 of the migration so please plan accordingly.
+- **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
+  No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No input is needed.
+- **What if my App Service Environment has a custom domain suffix?**  
+  While App Service Environment v1 and v2 support [custom domain suffixes](using-an-ase.md#dns-configuration), App Service Environment v3 currently doesn't. You won't be able to migrate at this time. Support for migrating App Service Environments with custom domain suffixes will be available in a future iteration. Check back here for updates.
+- **What properties of my App Service Environment will change?**  
+  You'll now be on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For IP addresses, for ILB App Service Environments, when they migrate, they'll keep the same ILB IP address. For internet facing App Service Environments, the public IP address and the outbound IP address will change. Note for internet facing App Service Environments, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
