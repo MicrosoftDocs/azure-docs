@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/11/2021
 ---
 
 
@@ -18,9 +18,8 @@ ms.date: 08/10/2021
 
 Projections are specified in a [knowledgeStore definition](knowledge-store-concept-intro.md), after you have defined enrichments and shaped the data using a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). For context, this article references an example skillset that defines the enrichments, including a Shaper skill that produces a shape suitable for a projection.
 
-## Enable caching
-
-When developing projections, [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any new Cognitive Services charges.
+> [!TIP]
+> When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments wherever possible. Without caching, simple edits to a projection specification will result in a full reprocessing of enriched content. But if you enable caching, you can make as many edits to projections as you want, without incurring any enrichment charges.
 
 ## Example enrichments
 
@@ -347,72 +346,86 @@ The `generatedKeyName` and `referenceKeyName` properties are used to relate data
 
 Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the `referenceKeyName` property on the parent table. One example would be to set the `generatedKeyName` as ID on the tblDocument table and the `referenceKeyName` as DocumentID. This would result in the column in the tblEntities and tblKeyPhrases tables containing the document ID being named DocumentID.
 
-## Projecting to objects
+## Define an object projection
 
-Object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
 
-To define an object projection, use the `objects` array in `projections`. You can generate a new shape using the Shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
+To define an object projection, use the `objects` array in the projections property.
 
-Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in this case, `projectionShape`). Inline shaping is useful if you are defining a shape that you do not plan to reuse.
+The source is the path to a node of the enrichment tree that is the root of the projection. Although it is not required, the node path is usually the output of a Shaper skill. This is because most skills do not output valid JSON objects on their own, which means that some form of shaping is necessary. In many cases, the same Shaper skill that creates a table projection can be used to generate an object projection. Alternatively, the source can also be set to a node with [an inline shaping](knowledge-store-projection-shape.md#inline-shape) to provide the structure.
 
-The projections property is an array. This example adds a new projection instance to the array, where the knowledgeStore definition contains inline projections. When using inline projections, you can omit the Shaper skill.
+The destination is always a blob container.
+
+The following example projects individual hotel documents, one hotel document per blob, into a container called `hotels`.
 
 ```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-            {
-            "tables": [ ],
-            "objects": [
-                {
-                    "storageContainer": "sampleobject",
-                    "source": null,
-                    "generatedKeyName": "myobject",
-                    "sourceContext": "/document",
-                    "inputs": [
-                        {
-                            "name": "metadata_storage_name",
-                            "source": "/document/metadata_storage_name"
-                        },
-                        {
-                            "name": "metadata_storage_path",
-                            "source": "/document/metadata_storage_path"
-                        },
-                        {
-                            "name": "content",
-                            "source": "/document/content"
-                        },
-                        {
-                            "name": "keyPhrases",
-                            "source": "/document/merged_content/keyphrases/*"
-                        },
-                        {
-                            "name": "entities",
-                            "source": "/document/merged_content/entities/*/name"
-                        },
-                        {
-                            "name": "ocrText",
-                            "source": "/document/normalized_images/*/text"
-                        },
-                        {
-                            "name": "ocrLayoutText",
-                            "source": "/document/normalized_images/*/layoutText"
-                        }
-                    ]
-
-                }
-            ],
-            "files": []
+"knowledgeStore": {
+  "storageConnectionString": "an Azure storage connection string",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+        "storageContainer": "hotels",
+        "source": "/document/objectprojection",
         }
-    ]
+      ]
+    },
+    {
+        "files": [ ]
+    }
+  ]
 }
 ```
 
-## Projecting to file
+The source is the output of a Shaper skill, named "objectprojection". Each blob will have a JSON representation of each field input.
 
-File projections are always images that are either extracted from the source document or outputs of enrichment that can be projected out of the enrichment process. File projections, similar to object projections, are implemented as blobs in Azure Storage, and contain the image. 
+```json
+    {
+      "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+      "name": "#3",
+      "description": null,
+      "context": "/document",
+      "inputs": [
+        {
+          "name": "HotelId",
+          "source": "/document/HotelId"
+        },
+        {
+          "name": "HotelName",
+          "source": "/document/HotelName"
+        },
+        {
+          "name": "Category",
+          "source": "/document/Category"
+        },
+        {
+          "name": "keyPhrases",
+          "source": "/document/HotelId/keyphrases/*"
+        },
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "targetName": "objectprojection"
+        }
+      ]
+    }
+```
 
-To generate a file projection, use the `files` array in the projection object. This example projects all images extracted from the document to a container called `myImages`.
+## Define a file projection
+
+File projections are always binary, normalized images, where normalization refers to potential resizing and rotation for use in skillset execution. File projections, similar to object projections, are created as blobs in Azure Storage, and contain the image.
+
+To define a file projection, use the `files` array in the projections property.
+
+The source is always `/document/normalized_images/*`. File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.
+
+The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container. 
+
+The following example projects all normalized images extracted from the document node of an enriched document, into a container called `myImages`.
 
 ```json
 "knowledgeStore" : {
