@@ -22,19 +22,18 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-By using Fusion technology based on machine learning, Azure Sentinel can automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
+Azure Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
-
 
 
 ## Configuration for advanced multistage attack detection
 
 ### Enable fusion rule
 
-This detection is enabled by default in Azure Sentinel. To check the status, or to disable it in the event that you are using an alternative solution to create incidents based on multiple alerts, use the following instructions:
+This detection is enabled by default in Azure Sentinel. To check or change its status, use the following instructions:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) and enter **Azure Sentinel**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and enter **Azure Sentinel**.
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
@@ -44,12 +43,14 @@ This detection is enabled by default in Azure Sentinel. To check the status, or 
 
 1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
 
-1. On the **Rule creation wizard** blade, the change of status is automatically selected for you, so select **Next: Review**, and then **Save**. 
+1. In the **General** tab of the **Analytics rule wizard**, note the status (Enabled/Disabled), or change it if you want.
 
- Since the **Fusion** rule type contains only one rule that can't be modified, rule templates are not applicable for this rule type.
+To further configure the Fusion detection rule, select **Next: Configure Fusion**. If you changed the status but have no further changes to make, select the **Review and update** tab
+
+1. Configure source signals for Fusion detection
 
 > [!NOTE]
-> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced Multistage Attack Detection** and in the **Status** column, select **Disable.**
+> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
 
 ### Configure scheduled analytics rules for fusion detections
 
@@ -112,6 +113,33 @@ This scenario is currently in **PREVIEW**.
 - **Sign-in event from an anonymous IP address leading to multiple VM creation activities**
 
 - **Sign-in event from user with leaked credentials leading to multiple VM creation activities**
+
+### Multiple VM creation activities following suspicious Azure Active Directory sign-in
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of VMs were created in a single session following a suspicious sign-in to an Azure AD account. This type of alert indicates, with a high degree of confidence, that the account noted in the Fusion incident description has been compromised and used to create new VMs for unauthorized purposes, such as running crypto mining operations.
+
+This scenario is currently in **PREVIEW**.
+
+   |  |  |
+   | ----- | ----- |
+   | **MITRE ATT&CK tactics** | Initial Access<br>Impact |
+   | **MITRE ATT&CK techniques** | Valid Account (T1078)<br>Resource Hijacking (T1496) |
+   |  |
+
+#### Correlated events
+
+| Events from<br>Azure Active Directory Identity Protection    | Correlated with | Events from<br>Microsoft Cloud App Security     |
+|---------|---------|---------|
+| <li>Impossible travel to an atypical location       | Correlated with | Multiple VM creation activities        |
+| <li>Sign-in event from an unfamiliar location       | Correlated with | Multiple VM creation activities        |
+| <li>Sign-in event from an infected device           | Correlated with | Multiple VM creation activities        |
+| <li>Sign-in event from an anonymous IP address      | Correlated with | Multiple VM creation activities        |
+| <li>Sign-in event from user with leaked credentials | Correlated with | Multiple VM creation activities        |
+|
+
+
+
+
 
 ## Credential access
 (New threat classification)
