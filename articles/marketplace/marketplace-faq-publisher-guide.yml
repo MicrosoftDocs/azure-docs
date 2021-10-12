@@ -21,7 +21,7 @@ sections:
         answer: |
           The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams through the co-sell program.
           
-          To learn more, go to the [Microsoft commercial marketplace hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
+          To learn more, see the [Microsoft commercial marketplace hub](https://aka.ms/commercialmarketplacehub).
           
       - question: |
           What's the difference between Microsoft AppSource and Azure Marketplace?
@@ -30,7 +30,7 @@ sections:
           
           Azure Marketplace includes IT and developer solutions that are built on Azure or used within Azure subscriptions themselves.
           
-          To learn more, go to the [buyer's guide](https://aka.ms/MarketplaceBuyerGuide).
+          To learn more, see the [Marketplace customer documentation](/marketplace/).
           
       - question: |
           Why should I make my software or services available in the Microsoft commercial marketplace?
@@ -371,7 +371,7 @@ sections:
           Here are some resources to get you started:
           
           - [What is the Microsoft commercial marketplace?](overview.md)
-          - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
+          - [Microsoft commercial marketplace hub](https://aka.ms/commercialmarketplacehub)
           
       - question: |
           How can I engage with Microsoft and other partners?

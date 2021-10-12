@@ -223,4 +223,3 @@ For audit scenarios please configure your server group to use the `pgaudit` exte
 ## Next steps
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
 - See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
-

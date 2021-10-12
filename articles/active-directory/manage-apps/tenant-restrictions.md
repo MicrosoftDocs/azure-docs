@@ -1,7 +1,7 @@
 ---
-title: Use tenant restrictions to manage access to SaaS apps - Azure AD
+title: Use tenant restrictions to manage access to SaaS apps
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
-services: active-directory
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 
-# Use tenant restrictions to manage access to SaaS cloud applications
+# Restrict access to a tenant in Azure Active Directory
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
@@ -78,7 +78,7 @@ The headers should include the following elements:
 > [!TIP]
 > You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 >
-> To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of <tenant> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
+> To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of \<tenant\> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.
 

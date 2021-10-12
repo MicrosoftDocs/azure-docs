@@ -27,12 +27,12 @@ Use these steps to update an offer that's been successfully published to Preview
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
+> [!IMPORTANT]
+> You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
+
 ## Changing offer type
 
 [!INCLUDE [change-offer-type](includes/change-offer-type.md)]
-
-> [!IMPORTANT]
-> You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
 ## Add a plan to an existing offer
 
@@ -52,6 +52,9 @@ Complete these steps to make changes to a plan for an offer that you've already 
 1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
 1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](review-publish-offer.md)** page opens and provides a completion status for your updates.
 1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
+
+> [!NOTE]
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
 
 ## Update image versions for an existing VM offer
 

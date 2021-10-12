@@ -138,7 +138,7 @@ Identity Secure Score is a set of recommended security controls that Microsoft p
 
 ## Enable password management
 
-If you have multiple tenants or you want to enable users to [reset their own passwords](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), it’s important that you use appropriate security policies to prevent abuse.
+If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
 **Detail**: Use the Azure AD [self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md) feature.

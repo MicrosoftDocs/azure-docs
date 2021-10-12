@@ -1,9 +1,7 @@
 ---
-title: Tutorial to verify data upload from Azure Data Box Disk to storage account| Microsoft Docs
+title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
@@ -83,9 +81,9 @@ After the data is uploaded to Azure, verify that your data is in the storage acc
 
 - Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+    - **For block blobs and page blobs**: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+    - **For Azure Files**: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2021
+ms.date: 08/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -109,12 +109,7 @@ The **OrchestrationStep** element can contain the following elements:
 
 Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. The `Preconditions` element contains a list of preconditions to evaluate. When the precondition evaluation is satisfied, the associated orchestration step skips to the next orchestration step. 
 
-Each precondition evaluates a single claim. There are two types of preconditions:
- 
-- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
-- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
-
-Azure AD B2C evaluates the preconditions in list order. The oder-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
+Azure AD B2C evaluates the preconditions in list order. The order-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
 
 The **Preconditions** element contains the following element:
 
@@ -137,6 +132,31 @@ The **Precondition** elements contains the following elements:
 | ------- | ----------- | ----------- |
 | Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
 | Action | 1:1 | The action that should be performed if the precondition evaluation is satisfied. Possible value: `SkipThisOrchestrationStep`. The associated orchestration step skips to the next one. |
+  
+Each precondition evaluates a single claim. There are two types of preconditions:
+ 
+- **ClaimsExist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
+- **ClaimEquals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`. 
+
+    If the claim is null or uninitialized, the precondition is ignored, whether the `ExecuteActionsIf` is `true`, or `false`. As a best practice, check both that the claim exists, and equals to a value.
+
+An example scenario would be to challenge the user for MFA if the user has `MfaPreference` set to `Phone`. To perform this conditional logic, check if the `MfaPreference` claim exists, and also check the claim value equals to `Phone`. The following XML demonstrates how to implement this logic with preconditions. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### Preconditions examples
 

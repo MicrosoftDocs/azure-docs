@@ -27,15 +27,11 @@ At the end of this tutorial, you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
-There is a more advanced version of the file upload app which can be found at [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py) in GitHub. To run this version, you must understand X.509 certificates, keys, and passphrases. Because this is not strictly necessary to upload a file, the code presented below does not use X.509.
-
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
-
-[!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -73,8 +69,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
     ```python
     import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.iot.device import IoTHubDeviceClient
     from azure.core.exceptions import AzureError
     from azure.storage.blob import BlobClient
 
@@ -87,7 +82,7 @@ In this section, you create the device app to upload a file to IoT hub.
 1. Create a function to upload the file to blob storage:
 
     ```python
-    async def store_blob(blob_info, file_name):
+    def store_blob(blob_info, file_name):
         try:
             sas_url = "https://{}/{}/{}{}".format(
                 blob_info["hostName"],
@@ -119,64 +114,54 @@ In this section, you create the device app to upload a file to IoT hub.
 1. Add the following code to connect the client and upload the file:
 
     ```python
-    async def main():
+    def run_sample(device_client):
+        # Connect the client
+        device_client.connect()
+
+        # Get the storage info for the blob
+        blob_name = os.path.basename(PATH_TO_FILE)
+        storage_info = device_client.get_storage_info_for_blob(blob_name)
+
+        # Upload to blob
+        success, result = store_blob(storage_info, PATH_TO_FILE)
+
+        if success == True:
+            print("Upload succeeded. Result is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], True, 200, "OK: {}".format(PATH_TO_FILE)
+            )
+
+        else :
+            # If the upload was not successful, the result is the exception object
+            print("Upload failed. Exception is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], False, result.status_code, str(result)
+            )
+
+    def main():
+        device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
         try:
-            print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-
-            conn_str = CONNECTION_STRING
-            file_name = PATH_TO_FILE
-            blob_name = os.path.basename(file_name)
-
-            device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-            # Connect the client
-            await device_client.connect()
-
-            # Get the storage info for the blob
-            storage_info = await device_client.get_storage_info_for_blob(blob_name)
-
-            # Upload to blob
-            success, result = await store_blob(storage_info, file_name)
-
-            if success == True:
-                print("Upload succeeded. Result is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], True, 200, "OK: {}".format(file_name)
-                )
-
-            else :
-                # If the upload was not successful, the result is the exception object
-                print("Upload failed. Exception is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], False, result.status_code, str(result)
-                )
-
-        except Exception as ex:
-            print("\nException:")
-            print(ex)
-
+            print ("IoT Hub file upload sample, press Ctrl-C to exit")
+            run_sample(device_client)
         except KeyboardInterrupt:
-            print ( "\nIoTHubDeviceClient sample stopped" )
-
+            print ("IoTHubDeviceClient sample stopped")
         finally:
-            # Finally, disconnect the client
-            await device_client.disconnect()
+            # Graceful exit
+            device_client.shutdown()
 
 
     if __name__ == "__main__":
-        asyncio.run(main())
-        #loop = asyncio.get_event_loop()
-        #loop.run_until_complete(main())
-        #loop.close()
+        main()
     ```
 
-    This code creates an asynchronous **IoTHubDeviceClient** and uses the following APIs to manage the file upload with your IoT hub:
+    This code creates an **IoTHubDeviceClient** and uses the following APIs to manage the file upload with your IoT hub:
 
     * **get_storage_info_for_blob** gets information from your IoT hub about the linked Storage Account you created previously. This information includes the hostname, container name, blob name, and a SAS token. The storage info is passed to the **store_blob** function (created in the previous step), so the **BlobClient** in that function can authenticate with Azure storage. The **get_storage_info_for_blob** method also returns a correlation_id, which is used in the **notify_blob_upload_status** method. The correlation_id is IoT Hub's way of marking which blob you're working on.
 

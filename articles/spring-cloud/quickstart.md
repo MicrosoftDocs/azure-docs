@@ -139,7 +139,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
 
    ```xml
    <ItemGroup>
-     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.1.0" />
      <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
@@ -165,7 +165,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
                    });
    ```
 
-1. In the *Startup.cs* file, add a `using` directive and code that uses the Steeltoe Service Discovery at the end of the `ConfigureServices` and `Configure` methods:
+1. In the *Startup.cs* file, add a `using` directive and code that uses the Steeltoe Service Discovery at the end of the `ConfigureServices` method:
 
    ```csharp
    using Steeltoe.Discovery.Client;
@@ -177,15 +177,6 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
        // Template code not shown.
 
        services.AddDiscoveryClient(Configuration);
-   }
-   ```
-
-   ```csharp
-   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-   {
-       // Template code not shown.
-
-       app.UseDiscoveryClient();
    }
    ```
 
@@ -343,10 +334,10 @@ To complete this quickstart:
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.3&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
 
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.3&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 The following image shows the recommended Initializr set up for this sample project. 
 
@@ -387,7 +378,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 4. On the Azure Spring Cloud page, select **Create**.
 
-    ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+    ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
 
@@ -417,22 +408,16 @@ The following procedure builds and deploys the application using the Azure CLI. 
    az account list -o table
    ```
 
-Use the following command to set the default subscription to use with the Azure CLI commands in this quickstart.
+   Use the following command to set the default subscription to use with the Azure CLI commands in this quickstart.
 
    ```azurecli
    az account set --subscription <Name or ID of a subscription from the last step>
-   
+   ```
 
 1. Build the project using Maven:
 
     ```console
     mvn clean package -DskipTests
-    ```
-
-1. (If you haven't already installed it) Install the Azure Spring Cloud extension for the Azure CLI:
-
-    ```azurecli
-    az extension add --name spring-cloud
     ```
 
 1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
@@ -444,7 +429,7 @@ Use the following command to set the default subscription to use with the Azure 
 1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>
     ```
 
 1. It takes a few minutes to finish deploying the application. To confirm that it has deployed, go to the **Apps** blade in the Azure portal. You should see the status of the application.

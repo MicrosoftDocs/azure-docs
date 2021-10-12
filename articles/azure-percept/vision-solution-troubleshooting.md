@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues with Azure Percept Vision and vision modules
+title: Troubleshoot Azure Percept Vision and vision modules
 description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Vision solution troubleshooting
+# Troubleshoot Azure Percept Vision and vision modules
 
 This article provides information on troubleshooting no-code vision solutions in Azure Percept Studio.
 

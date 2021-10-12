@@ -64,6 +64,9 @@ When complete, the restore creates a new database on the same server as the orig
 
 You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database or use it as a data source to update the original database.
 
+> [!IMPORTANT]
+> You can only run restore on the same server, cross-server restoration is not supported by Point-in-time restore.
+
 - **Database replacement**
 
   If you intend the restored database to be a replacement for the original database, you should specify the original database's compute size and service tier. You can then rename the original database and give the restored database the original name by using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command in T-SQL.

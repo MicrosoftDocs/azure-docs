@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure Active Directory (Azure AD) joined devices for federated domains so I can automatically create and manage device identities in Azure AD for my Active Directory domain-joined computers
@@ -192,6 +192,8 @@ Here are 3 ways to locate and verify the device state:
 2. Enter `dsregcmd /status`.
 3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
 4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
+
+For downlevel devices see the article [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
 
 ### Using the Azure portal
 

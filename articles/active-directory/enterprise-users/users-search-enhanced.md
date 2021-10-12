@@ -67,7 +67,6 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
-- Last sign-in: the date the user last signed in. This property is visible only to users with permission to read audit logs (Reporting_ApplicationAuditLogs_Read)
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 

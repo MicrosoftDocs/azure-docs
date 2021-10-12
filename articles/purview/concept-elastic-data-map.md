@@ -12,11 +12,11 @@ ms.custom: template-concept
 
 # Elastic data map in Azure Purview
 
-Azure Purview Data Map provides the foundation for data discovery and data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), and operation systems in the hybrid, on-premises, and multi-cloud environments. Purview Data Map automatically stays up to date with its built-in scanning and classification system. With the UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
+Azure Purview Data Map provides the foundation for data discovery and data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), and operation systems in hybrid, on-premises, and multi-cloud environments. Purview Data Map automatically stays up to date with its built-in scanning and classification system. With the UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
 
 ## Elastic data map
 
-All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). If you're working with very large datasets or a massive environment and need higher capacity, you can request a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
+All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). These limits should cover most data landscapes. However, if you need a higher capacity, [you can create a support ticket](#request-capacity).
 
 ## Data map capacity unit
 
@@ -43,11 +43,9 @@ The technical metadata includes schema, data type, columns, and so on, that are 
 
 - **Enhanced scanning & ingestion** – you can track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
 
-- **Advanced resource set** – you can reduce the size of the Data Map by processing partitioned files in a data lake such that it’s treated as a single data asset called as [resource set](concept-resource-sets.md). This is an optional feature that will impact pricing.
-
 ## Scenario
 
-Claudia is an Azure admin at Contoso who wants to provision a new Azure Purview account from Azure portal. While provisioning, she doesn’t know the required size of Purview DataMap to support the future state of the platform. However, she knows that the Purview Data Map is billed by Capacity Units, which is affected by storage and operations throughput. She wants to provision the smallest Data Map to keep the cost low and grow the Data Map size elastically based on consumption.  
+Claudia is an Azure admin at Contoso who wants to provision a new Azure Purview account from Azure portal. While provisioning, she doesn’t know the required size of Purview Data Map to support the future state of the platform. However, she knows that the Purview Data Map is billed by Capacity Units, which are affected by storage and operations throughput. She wants to provision the smallest Data Map to keep the cost low and grow the Data Map size elastically based on consumption.  
 
 Claudia can create a Purview account with the default Data Map size of 1 capacity unit that can automatically scale up and down. The autoscaling feature also allows for capacity to be tuned based on intermittent or planned data bursts during specific periods. Claudia follows the next steps in provisioning experience to set up network configuration and completes the provisioning.  
 
@@ -55,9 +53,9 @@ In the Azure monitor metrics page, Claudia can see the consumption of the Data M
 
 ## Data map billing
 
-Customers are billed for one capacity unit (25 ops/sec and 2 GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
+Customers are billed for one capacity unit (25 ops/sec and 2 GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The Data Map operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, a support ticket needs to be created.
 
-Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
+Data Map capacity units come with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
 |Data Map Capacity Unit  |Operations/Sec throughput   |Storage capacity in GB|
 |----------|-----------|------------|
@@ -92,7 +90,7 @@ The Data Map billing example below shows a Data Map with growing metadata storag
 
 :::image type="content" source="./media/concept-elastic-data-map/operations-and-metadata.png" alt-text="Chart depicting number of operations and growth of metadata over time.":::
 
-Each Data Map capacity unit supports 25 operations/second and 2GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
+Each Data Map capacity unit supports 25 operations/second and 2 GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
 
 The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example: 
 
@@ -103,7 +101,17 @@ Based on the Data Map operations/second and metadata storage consumption in this
 :::image type="content" source="./media/concept-elastic-data-map/billing-capacity-hours.png" alt-text="Table depicting number of CU hours over time.":::
 
 >[!Important]
->Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level of the elasticity window, support ticket needs to be created.
+>Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level of the elasticity window, a support ticket needs to be created.
+
+## Request capacity
+
+If you're working with very large datasets or a massive environment and need higher capacity for your elastic data map, you can request a larger capacity of elasticity window by [creating a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+Select **Service and subscription limits (quota)** and complete the on screen instructions by choosing the Purview account that you'd like to request larger capacity for.
+
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Screen showing the support case creation, with limit increase options selected.":::
+
+In the description, provide as much relevant information as you can about your environment and the additional capacity you would like to request.
 
 ## Summary
 

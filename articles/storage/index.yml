@@ -9,8 +9,8 @@ metadata:
   description: Azure Storage documentation hub page. Points to service documentation for cloud and hybrid storage solutions, and services to transfer, share, and back up data. 
   ms.service: storage
   ms.topic: hub-page
-  author: twooley
-  ms.author: twooley
+  author: tamram
+  ms.author: tamram
   ms.date: 04/14/2021
 
 
@@ -145,12 +145,12 @@ additionalContent:
           links:
           - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             text: Use the AzCopy command-line tool
-          - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
+          - url: ./blobs/quickstart-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
         # Card
         - title: Control costs
           links:
-          - url: ./blobs/storage-blob-storage-tiers.md
+          - url: ./blobs/access-tiers-overview.md
             text: Tier blob data in cost-effective manner (hot, cool, archive)
         # Card
         - title: Share your data

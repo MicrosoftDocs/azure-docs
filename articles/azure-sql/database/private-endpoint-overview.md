@@ -127,6 +127,10 @@ select client_net_address from sys.dm_exec_connections
 where session_id=@@SPID
 ````
 
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
+
+
 ## On-premises connectivity over private peering
 
 When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.

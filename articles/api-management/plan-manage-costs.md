@@ -2,7 +2,7 @@
 title: Plan and manage costs for Azure API Management
 description: Learn how to plan for and manage costs for Azure API Management by using cost analysis in the Azure portal.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to

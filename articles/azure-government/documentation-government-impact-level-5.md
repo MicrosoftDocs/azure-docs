@@ -1,20 +1,12 @@
 ---
 title: Azure Government isolation guidelines for Impact Level 5 
 description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
-services: azure-government
-cloud: gov
-documentationcenter: ''
-
 ms.service: azure-government
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: azure-government
+ms.topic: article
 ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
-ms.date: 07/28/2021
-#Customer intent: As a DoD mission owner, I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government.
+ms.date: 09/11/2021
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -29,7 +21,7 @@ Azure Government is available to US federal, state, local, and tribal government
 
 ## Principles and approach
 
-You need to address two key areas for Azure services in IL5 scope: compute isolation and storage isolation. We'll focus in this article on how Azure services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches for US Gov Arizona, US Gov Texas, and US Gov Virginia regions.** If an Azure service is available in Azure Government DoD regions and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government DoD regions are reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design.
+You need to address two key areas for Azure services in IL5 scope: compute isolation and storage isolation. We'll focus in this article on how Azure services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches for US Gov Arizona, US Gov Texas, and US Gov Virginia regions.** If an Azure service is available in Azure Government DoD regions and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government DoD regions are reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design. For more information, see [DoD in Azure Government](./documentation-government-overview-dod.md).
 
 > [!IMPORTANT]
 > You are responsible for designing and deploying your applications to meet DoD IL5 compliance requirements. In doing so, you should not include sensitive or restricted information in Azure resource names, as explained in **[Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).**
@@ -82,11 +74,11 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 - Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
+### [Cognitive Services: Face API](https://azure.microsoft.com/services/cognitive-services/face/)
 
 - Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/encrypt-data-at-rest.md).
 
-### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+### [Cognitive Services: Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
 - Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/encrypt-data-at-rest.md).
 
@@ -102,7 +94,7 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 - Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/encrypt-data-at-rest.md).
 
-### [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/)
+### [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
 - Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../cognitive-services/speech-service/speech-encryption-of-data-at-rest.md).
 
@@ -119,6 +111,11 @@ For Analytics services availability in Azure Government, see [Products available
 
 - Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For extra control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
+### [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
+
+- Azure HDInsight can be deployed to existing storage accounts that have enabled appropriate [Storage service encryption](#storage-encryption-with-key-vault-managed-keys), as discussed in the guidance for Azure Storage.
+- Azure HDInsight enables a database option for certain configurations. Ensure the appropriate database configuration for transparent data encryption (TDE) is enabled on the option you choose. This process is discussed in the guidance for [Azure SQL Database](#azure-sql-database).
+
 ### [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 - Configure encryption at rest of content in Azure Stream Analytics by [using customer-managed keys in Azure Key Vault](../stream-analytics/data-protection.md).
@@ -134,11 +131,6 @@ For Analytics services availability in Azure Government, see [Products available
 ### [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
 - Configure encryption at rest of content in Azure Event Hubs by [using customer-managed keys in Azure Key Vault](../event-hubs/configure-customer-managed-key.md).
-
-### [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-
-- Azure HDInsight can be deployed to existing storage accounts that have enabled appropriate [Storage service encryption](#storage-encryption-with-key-vault-managed-keys), as discussed in the guidance for Azure Storage.
-- Azure HDInsight enables a database option for certain configurations. Ensure the appropriate database configuration for transparent data encryption (TDE) is enabled on the option you choose. This process is discussed in the guidance for [Azure SQL Database](#azure-sql-database).
 
 
 ## Compute
@@ -209,12 +201,6 @@ For Containers services availability in Azure Government, see [Products availabl
 
 For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/)
-
-Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
-
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
-
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
 Azure Cache for Redis supports Impact Level 5 workloads in Azure Government with no extra configuration required.
@@ -230,6 +216,12 @@ Azure Cache for Redis supports Impact Level 5 workloads in Azure Government with
 ### [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) 
 
 - Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/concepts-data-encryption-postgresql.md).
+
+### [Azure Healthcare APIs](https://azure.microsoft.com/services/healthcare-apis/) (formerly Azure API for FHIR)
+
+Azure Healthcare APIs supports Impact Level 5 workloads in Azure Government with this configuration:
+
+- Configure encryption at rest of content in Azure Healthcare APIs [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
 
 ### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
@@ -281,12 +273,9 @@ For Management and governance services availability in Azure Government, see [Pr
 
 - By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
-> [!IMPORTANT]
-> See additional guidance below for **Log Analytics**, which is a feature of Azure Monitor.
-
 #### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 

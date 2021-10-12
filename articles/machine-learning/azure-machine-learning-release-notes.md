@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/18/2021
+ms.date: 10/04/2021
 ---
 
 # Azure Machine Learning release notes
@@ -17,6 +17,80 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2021-10-11
+
+### Azure Machine Learning SDK for Python v1.35.0
+  + **azureml-automl-core**
+    + Enable binary metrics calculation
+  + **azureml-contrib-fairness**
+    + Improve error message on failed dashboard download
+  + **azureml-core**
+    + Bug in specifying non-public clouds for Managed Identity authentication has been resolved.
+    + Dataset.File.upload_directory() and Dataset.Tabular.register_pandas_dataframe() experimental flags are now removed.
+    + Experimental flags are now removed in partition_by() method of TabularDataset class.
+  + **azureml-pipeline-steps**
+    + Experimental flags are now removed for the `partition_keys` parameter of the ParallelRunConfig class.
+  + **azureml-interpret**
+    + azureml-interpret package updated to intepret-community 0.20.*
+  + **azureml-mlflow**
+    + Made it possible to log artifacts and images with MLflow using subdirectories
+  + **azureml-responsibleai**
+    + Improve error message on failed dashboard download
+  + **azureml-train-automl-client**
+    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
+    + Enable binary metrics calculation
+  + **azureml-train-automl-runtime**
+    + Add TCNForecaster support to model test runs.
+    + Update the model test predictions.csv output format. The output columns now include the original target values and the features which were passed in to the test run. This can be turned off by setting `test_include_predictions_only=True` in `AutoMLConfig` or by setting `include_predictions_only=True` in `ModelProxy.test()`. If the user has requested to only include predictions then the output format looks like (forecasting is the same as regression): Classification => [predicted values] [probabilities] Regression => [predicted values] else (default): Classification => [original test data labels] [predicted values] [probabilities] [features] Regression => [original test data labels] [predicted values] [features] The `[predicted values]` column name = `[label column name] + "_predicted"`. The `[probabilities]` column names = `[class name] + "_predicted_proba"`. If no target column was passed in as input to the test run, then `[original test data labels]` will not be in the output.
+
+## 2021-09-07
+
+### Azure Machine Learning SDK for Python v1.34.0
+  + **azureml-automl-core**
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
+  + **azureml-automl-runtime**
+    + Add support to return predicted probabilities from a deployed endpoint of an AutoML classifier model.
+    + Added a forecasting option for users to specify that all predictions should be integers.
+    + Removed the target column name from being part of model explanation feature names for local experiments with training_data_label_column_name
+    + as dataset inputs.
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
+  + **azureml-core**
+    + Added support to set stream column type, mount and download stream columns in tabular dataset.
+    + New optional fields added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allow attaching KubernetesCompute with either SystemAssigned or UserAssigned identity. New identity fields will be included when calling print(compute_target) or compute_target.serialize(): identity_type, identity_id, principal_id, and tenant_id/client_id.
+  + **azureml-dataprep**
+    + Added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+  + **azureml-defaults**
+    + The dependency `azureml-inference-server-http==0.3.1` has been added to `azureml-defaults`.
+  + **azureml-mlflow**
+    + Allow pagination of list_experiments API by adding `max_results` and `page_token` optional params. For documentation, see MLflow official docs.
+  + **azureml-sdk**
+    + Replaced dependency on deprecated package(azureml-train) inside azureml-sdk.
+    + Add azureml-responsibleai to azureml-sdk extras
+  + **azureml-train-automl-client**
+    + Expose the `test_data` and `test_size` parameters in `AutoMLConfig`. These parameters can be used to automatically start a test run after the model 
+    + training phase has been 	completed. The test run will compute predictions using the best model and will generate metrics given these predictions.
+
+## 2021-08-24
+
+### Azure Machine Learning Experimentation User Interface
+  + **Run Delete**
+    + Run Delete is a new functionality that allows users to delete one or multiple runs from their workspace.
+    + This functionality can help users reduce storage costs and manage storage capacity by regularly deleting runs and experiments from the UI directly.
+  + **Batch Cancel Run**
+    + Batch Cancel Run is new functionality that allows users to select one or multiple runs to cancel from their run list. 
+    + This functionality can help users cancel multiple queued runs and free up space on their cluster.
+
+## 2021-08-18
+
+### Azure Machine Learning Experimentation User Interface
+  + **Run Display Name**
+    + The Run Display Name is a new, editable and optional display name that can be assigned to a run. 
+    + This name can help with more effectively tracking, organizing and discovering the runs. 
+    + The Run Display Name is defaulted to an adjective_noun_guid format (Example: awesome_watch_2i3uns). 
+    + This default name can be edited to a more customizable name. This can be edited from the Run details page in the Azure Machine Learning studio user interface.   
 
 ## 2021-08-02
 
@@ -116,7 +190,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-05-25
 
-### Announcing the 2.0 CLI (preview) for Azure Machine Learning
+### Announcing the CLI (v2) (preview) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
@@ -988,8 +1062,6 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
     + Added a new type of user exception  that is raised if the cache store contents have been tampered with
   + **azureml-automl-runtime**
     + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
-  + **azureml-contrib-itp**
-    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
   + **azureml-contrib-notebook**
     + Doc improvements to azureml-contrib-notebook package.
   + **azureml-contrib-pipeline-steps**

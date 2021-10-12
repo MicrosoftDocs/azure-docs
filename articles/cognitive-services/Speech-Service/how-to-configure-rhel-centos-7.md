@@ -74,10 +74,6 @@ This is a sample command set that illustrates how to configure RHEL/CentOS 7 x64
 First install all general dependencies:
 
 ```bash
-# Only run ONE of the following two commands
-# - for CentOS 7:
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-# - for RHEL 7:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 
 # Install development tools and libraries

@@ -61,8 +61,6 @@ If your disk pool becomes inaccessible to your Azure VMware Solution cloud for a
 - All VMware VMs hosted in this Azure VMware Solution cloud what is using the impacted datastores will be in an unhealthy state.
 - The health of clusters in this Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
 
-If you enter this state, follow these [steps](disks-pools-troubleshoot.md#recover-a-disk-pool-or-an-iscsi-target) to recover your disk pool.
-
 ## Next steps
 
 [Deploy a disk pool](disks-pools-deploy.md).

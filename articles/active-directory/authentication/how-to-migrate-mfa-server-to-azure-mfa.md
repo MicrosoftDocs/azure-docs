@@ -129,7 +129,7 @@ Check with the service provider for supported product versions and their capabil
 - Users must register for Azure AD MFA prior to using the NPS extension. Otherwise, the extension fails to authenticate the user, which can generate help desk calls.
 - When the NPS extension invokes MFA, the MFA request is sent to the user's default MFA method. 
   - Because the sign-in happens on 3rd party applications, it is unlikely that the user will see visual notification that MFA is required and that a request has been sent to their device.
-  - During the MFA requirement, the user must have access to their default authentication method to complete the MFA requirement. 
+  - During the MFA requirement, the user must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
   - Users can change their default MFA method in the Security Info page (aka.ms/mysecurityinfo).
 - Available MFA methods for RADIUS clients are controlled by the client systems sending the RADIUS access requests.
   - MFA methods that require user input after they enter a password can only be used with systems that support access-challenge responses with RADIUS. Input methods might include OTP, hardware OATH tokens or the Microsoft Authenticator application.

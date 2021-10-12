@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
@@ -32,20 +32,20 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Azure Synapse. 
 
     # [Azure Data Factory](#tab/data-factory)
-    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Switch to Edit tab":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Switch to Edit tab":::
 
 ---
     
 2. Select **Trigger** on the menu, then select **New/Edit**. 
 
-    ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="New trigger menu":::
 
 1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
 
-    ![Add triggers - new trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Add triggers - new trigger":::
 
 1. On the **New Trigger** page, do the following steps: 
 
@@ -61,30 +61,30 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
 
-        ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-01.png" alt-text="Trigger settings":::
 
-        ![Trigger settings for End Date](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Trigger settings for End Date":::
 
 1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
 
-    ![Trigger settings - Next button](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Trigger settings - Next button":::
 
 1. In the **New Trigger** window, review the warning message, then select **OK**.
 
-    ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-finish.png" alt-text="Trigger settings - Finish button":::
 
 1. Select **Publish all** to publish the changes. Until you publish the changes, the trigger doesn't start triggering the pipeline runs. 
 
-    ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Publish button":::
 
 1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
 
     # [Azure Data Factory](#tab/data-factory)
 
-    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs.png" alt-text="Monitor triggered runs":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Monitor triggered runs":::
     
 ---
 
@@ -92,10 +92,10 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Data Factory](#tab/data-factory)
 
-    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs.png" alt-text="Monitor trigger runs":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Monitor trigger runs":::
     
 ---
 

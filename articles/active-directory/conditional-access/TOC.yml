@@ -78,6 +78,8 @@
       href: howto-conditional-access-policy-compliant-device.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+  - name: Configure resilience defaults
+    href: resilience-defaults.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Configure report only mode
@@ -102,6 +104,8 @@
       href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
+    - name: Troubleshoot continuous access evaluation
+      href: howto-continuous-access-evaluation-troubleshoot.md
     - name: FAQ
       href: faqs.md
   - name: Migrate classic policies

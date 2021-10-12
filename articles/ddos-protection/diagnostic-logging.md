@@ -16,7 +16,7 @@ ms.author: yitoh
 
 # View and configure DDoS diagnostic logging
 
-Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 The following diagnostic logs are available for Azure DDoS Protection Standard: 
 
@@ -56,6 +56,39 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+
+### Query DDOS protection logs in log analytics workspace
+
+#### DDoSProtectionNotifications logs
+
+1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
+
+4. Under **General**, click on **Logs**
+
+5. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last 3 months. Then hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+#### DDoSMitigationFlowLogs
+
+1. Now change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+#### DDoSMitigationReports
+
+1. Now change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
 
 ### Log schemas
 
@@ -102,7 +135,7 @@ The following table lists the field names and descriptions:
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the report was created. |
 | **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **Category** | For notifications, this will be `DDoSMitigationReports`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
 | **Resource** | The name of your public IP address. |
@@ -130,7 +163,7 @@ This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/Po
 
 ### Azure Sentinel data connector
 
-You can connect logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
+You can connect logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
 
 ![Azure Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 

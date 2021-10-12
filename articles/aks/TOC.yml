@@ -124,8 +124,16 @@
         - name: JBoss EAP
           href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
           maintainContext: false
+        - name: Java web app containerization and migration
+          href: ../migrate/tutorial-app-containerization-java-kubernetes.md
+          maintainContext: false
+        - name: ASP.NET app containerization and migration
+          href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md
+          maintainContext: false
     - name: Supported Kubernetes version
       href: supported-kubernetes-versions.md
+    - name: Cloud Controller Manager (preview)
+      href: out-of-tree.md
     - name: Security Hardening in host OS
       href: security-hardened-vm-host-image.md
     - name: Azure Kubernetes Service Diagnostics overview
@@ -138,6 +146,8 @@
       items:
         - name: Scale an AKS cluster
           href: scale-cluster.md
+        - name: Stop/Deallocate nodes with Scale-down Mode (preview)
+          href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
@@ -197,6 +207,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files - Static
           href: azure-files-volume.md
+        - name: Azure HPC Cache
+          href: azure-hpc-cache.md
         - name: NFS Server - Static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
@@ -225,6 +237,8 @@
           href: load-balancer-standard.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
+        - name: Use an HTTP proxy (preview)
+          href: http-proxy.md
         - name: Ingress
           items:
             - name: Create a basic controller
@@ -353,7 +367,37 @@
         - name: About Service Meshes
           href: servicemesh-about.md
         - name: Open Service Mesh AKS add-on (preview)
-          href: servicemesh-osm-about.md
+          items:
+            - name: OSM overview
+              href: open-service-mesh-about.md
+            - name: Deploy the OSM AKS add-on
+              items:
+                - name: Use the Azure CLI
+                  href: open-service-mesh-deploy-addon-az-cli.md
+                - name: Use Bicep template
+                  href: open-service-mesh-deploy-addon-bicep.md
+            - name: Download the OSM client binary
+              href: open-service-mesh-binary.md
+            - name: OSM Tutorials
+              items:
+                - name: Manage a new application deployment
+                  href: open-service-mesh-deploy-new-application.md
+                - name: Manage an existing application deployment
+                  href: open-service-mesh-deploy-existing-application.md
+                - name: Using Azure Application Gateway Ingress
+                  href: open-service-mesh-azure-application-gateway-ingress.md
+                - name: Using NGINX Ingress
+                  href: open-service-mesh-nginx-ingress.md
+                - name: Configure observability using Prometheus, Grafana, and Jaeger
+                  href: open-service-mesh-open-source-observability.md
+                - name: Customize OSM CLI experience
+                  href: open-service-mesh-customize-add-on-experience.md
+            - name: Configure Azure Monitor
+              href: open-service-mesh-azure-monitor.md
+            - name: Troubleshoot OSM
+              href: open-service-mesh-troubleshoot.md
+            - name: Disable OSM
+              href: open-service-mesh-disable-add-on.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters

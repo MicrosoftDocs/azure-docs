@@ -40,11 +40,11 @@ Complete these steps to create a flexible server:
 
 4. On the **Basics** tab, enter the **subscription**, **resource group**, **region**, and **server name**.  With the default values, this will provision a PostgreSQL server of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, and 28 GiB storage. The backup retention is **seven** days. You can use **Development** workload to default to a lower-cost pricing tier.
 
-    :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png" alt-text="Screenshot that shows the Basics tab of the postgres flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/postgres-create-basics.png":::
+    :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png" alt-text="Screenshot that shows the Basics tab of the postgres flexible server page." lightbox="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png":::
 
 5. In the **Basics** tab, enter  a unique **admin username** and **admin password**.
 
-    :::image type="content" source="./media/quickstart-create-connect-server-vnet/db-administrator-account.png" alt-text="Screenshot that shows the admin user information page." lightbox="/media/quickstart-create-connect-server-vnet/db-administrator-account.png":::
+    :::image type="content" source="./media/quickstart-create-connect-server-vnet/db-administrator-account.png" alt-text="Screenshot that shows the admin user information page." lightbox="./media/quickstart-create-connect-server-vnet/db-administrator-account.png":::
 
 6.  Go to the **Networking** tab, and select **private access**. You can't change the connectivity method after you create the server. Select **Create virtual network** to create a new  virtual network **vnetenvironment1**. Select **OK** once you have provided the virtual network name and subnet information.
 
@@ -128,7 +128,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 You need to install the postgresql-client tool to be able to connect to the server.
 
 ```bash
-sude apt-getupdate
+sudo apt-getupdate
 sudo apt-get install postgresql-client
 ```
 

@@ -174,7 +174,7 @@ There's no action item for you to configure user provisioning in Kontiki. When a
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-After you set up single sign-on, when you select **Kontiki** in the My Apps portal, you are automatically signed in to Kontiki. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+After you set up single sign-on, when you select **Kontiki** in the My Apps portal, you are automatically signed in to Kontiki. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
