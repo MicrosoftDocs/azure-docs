@@ -41,7 +41,7 @@ Opinion Mining is a feature of Sentiment Analysis. Also known as Aspect-based Se
 
 For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate targets (aspects) in the text, and their associated assessments (opinions) and sentiments. Sentiment Analysis might only report a negative sentiment.
 
-:::image type="content" source="../../../text-analytics/media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../../../text-analytics/media/how-tos/opinion-mining.png":::
+:::image type="content" source="../media/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../media/opinion-mining.png":::
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
