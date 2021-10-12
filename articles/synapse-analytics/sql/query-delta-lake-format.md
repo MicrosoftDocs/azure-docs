@@ -2,13 +2,13 @@
 title: Query Delta Lake format using serverless SQL pool
 description: In this article, you'll learn how to query files stored in Apache Delta Lake format using serverless SQL pool.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 07/15/2021
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick, wiassaf
 ---
 
 # Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics
@@ -175,7 +175,8 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 ## Limitations
 
-Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+- This feature is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+- Currently, both the Spark pool and serverless SQL pool in Azure Synapse Analytics support Delta Lake format. Serverless SQL pools do not support updating Delta Lake files. Only tables in Parquet format are shared from Spark pools to a serverless SQL pool. For more information, see [Shared Spark tables](../metadata/table.md#shared-spark-tables).
 
 ## Next steps
 
