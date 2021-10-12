@@ -56,6 +56,9 @@ For example, assuming that your account is in the East US 2 region, the number o
 
 This section contains real-world examples of how Azure Storage customers use the premium performance tier. Some of these customers also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios. 
 
+> [!TIP]
+> If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with the premium performance tier. To learn about how to configure your account, see [Premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
+
 This section contains the following examples:
 
 - [Fast data hydration](#fast-data-hydration)
