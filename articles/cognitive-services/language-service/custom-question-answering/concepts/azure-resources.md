@@ -117,4 +117,4 @@ With custom question answering, you have a choice to set up your service for kno
 
 ## Next steps
 
-* Learn about the QnA Maker [knowledge base](../How-To/manage-knowledge-base.md)
+* Learn about the question answering [knowledge bases](../How-To/manage-knowledge-base.md)
