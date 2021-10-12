@@ -46472,6 +46472,11 @@
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-invoice",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
+      "redirect_url": "/articles/virtual-desktop/troubleshoot-set-up-overview.md",
+      "redirect_document_id": false
     }
   ]
 }
