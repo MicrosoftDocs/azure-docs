@@ -77,7 +77,7 @@ public class Example {
     static void summarizationExample(TextAnalyticsClient client) {
         List<String> documents = new ArrayList<>();
         documents.add(
-                "The extractive summarization feature in Text Analytics uses natural language processing techniques "
+                "The extractive summarization feature uses natural language processing techniques "
                 + "to locate key sentences in an unstructured text document. "
                 + "These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. "
                 + "They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. "
@@ -130,7 +130,7 @@ public class Example {
 ```console
 Extractive Summarization action results:
 	Extracted summary sentences:
-		 Sentence text: The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document., length: 156, offset: 0, rank score: 0.980000.
+		 Sentence text: The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured text document., length: 156, offset: 0, rank score: 0.980000.
 		 Sentence text: This feature is provided as an API for developers., length: 50, offset: 224, rank score: 0.990000.
 		 Sentence text: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases., length: 120, offset: 275, rank score: 1.000000.
 ```

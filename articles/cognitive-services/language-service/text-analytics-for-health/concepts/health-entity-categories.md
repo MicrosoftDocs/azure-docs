@@ -13,7 +13,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Supported Text Analytics for Text Analytics for health entity categories
+# Supported Text Analytics for health entity categories
 
 Text Analytics for health processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 

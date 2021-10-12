@@ -431,11 +431,11 @@ The following JSON is an example of the Text Analytics for health response body 
 
 ## Run the container with client library support
 
-Starting with container version `3.0.017010001-onprem-amd64` (or if you use the `latest` container), you can run the Text Analytics for health container to work with the Text Analytics [client library](../quickstart.md) health operation. To do so, add the following parameter to the `docker run` command:
+Starting with container version `3.0.017010001-onprem-amd64` (or if you use the `latest` container), you can run the Text Analytics for health container using the [client library](../quickstart.md). To do so, add the following parameter to the `docker run` command:
 
 `enablelro=true`
 
-Afterwards when you authenticate the Text Analytics client, use the endpoint that your container is running on:
+Afterwards when you authenticate the client object, use the endpoint that your container is running on:
 
 `http://localhost:5000`
 

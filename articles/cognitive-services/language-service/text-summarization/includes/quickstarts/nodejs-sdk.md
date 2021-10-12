@@ -66,7 +66,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCreden
 
 // Example method for summarizing text
 async function summarization_example(client) {
-    const documents = [`The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document. 
+    const documents = [`The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured text document. 
         These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. 
         They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. 
         In the public preview, extractive summarization supports several languages. It is based on pretrained multilingual transformer models, part of our quest for holistic representations. 
@@ -126,7 +126,7 @@ The analyze actions operation results will expire on Fri Sep 17 2021 13:12:31 GM
         Summary:
         - They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
         - This feature is provided as an API for developers.
-        - The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured 
+        - The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured 
 text document.
         - These sentences collectively convey the main idea of the document.
         - In the public preview, extractive summarization supports several languages.
