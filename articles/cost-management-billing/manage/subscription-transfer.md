@@ -38,7 +38,7 @@ As you begin to plan your product transfer, consider the information needed to a
 
 - Why is the product transfer required?
 - What's the wanted timeline for the product transfer?
-- What's the product's current offer type and what do you want to transfer it too?
+- What's the product's current offer type and what do you want to transfer it to?
   - Microsoft Online Service Program (MOSP), also known as Pay-As-You-Go (PAYG)
   - Previous Azure offer in CSP
   - New Azure offer in CSP, also referred to as Azure Plan with a Microsoft Partner Agreement (MPA)
