@@ -14,7 +14,7 @@ This article describes how to enable Application Insights for an [ASP.NET Core](
 The example we'll use here is an [MVC application](/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications. If you are using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
-> A preview [opentelemetry-based .NET offering](opentelemetry-enable.md?tabs=net). [Learn more](opentelemetry-overview.md).
+> A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
 
 ## Supported scenarios
 
