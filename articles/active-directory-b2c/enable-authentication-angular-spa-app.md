@@ -129,7 +129,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/api/tasks.read"],
   },
 }
 export const loginRequest = {
