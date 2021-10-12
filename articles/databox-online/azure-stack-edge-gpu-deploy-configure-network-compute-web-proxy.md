@@ -67,14 +67,26 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 ## Configure setup type
 
+::: zone pivot="single-node"
 1. Go to the **Get started** page.
 1. In the **Set up a single node device** tile, select **Start**.
+
+    ![Local web UI "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png)   
+
+::: zone-end
+
+
+::: zone pivot="two-node"
 
 1. In the local UI for one of the devices, go to the **Get started** page.
 1. In the **Set up a 2-node cluster** tile, select **Start**.
 
+    ![Local web UI "Set up a 2-node cluster" on "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-two-node-1.png) 
+
 1. In the local UI for the second device, go to the **Get started** page.
 1. In the **Prepare a node** tile, select **Start**.
+
+    ![Local web UI "Prepare a node" on "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-prepare-node-1.png) 
 
 ::: zone-end
 
@@ -139,24 +151,40 @@ You'll configure network on both nodes. These steps can be done in parallel. The
 
 To configure the network for a 2-node device, follow these steps on the first node of the device:
 
-1. In the local UI of the first node, go to the **Network** page. Choose the topology for cluster and the storage traffic between nodes from the following options: 
+1. In the local UI of the first node, in the **Network** tile, select **Needs setup**. 
+
+    ![Local web UI "Network" tile](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-1.png)
+
+1. In the **Network** page, choose the topology for cluster and the storage traffic between nodes from the following options: 
 
     - **Switchless**. Use this option when high-speed switches aren't available for storage and clustering traffic.
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/technologies/nic-teaming/nic-teaming).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
 
+    ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology with a device reset. Select **Yes** to confirm the network setting. The network setting takes a few minutes to apply and you see a notification when the network settings are successfully applied.
+
+    ![Local web UI "Confirm network setting" dialog](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
+
 1. Once the network settings are applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch is created at Port 2 and another virtual switch is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed NICs are then connected via switches.
+
+    ![Local web UI "Network" page updated](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
 ### Configure network on second node
 
 You'll now prepare the second node for clustering. You'll first need to configure the network. Follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
+
+    ![Local web UI "Network" tile on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-2.png)
+
 1. Make sure that the second node is cabled as per the topology you selected for the first node. In the **Network** page, choose and **Apply** the same topology that you selected for the first node.
+
+    ![Local web UI "Network" page with "Use switches and NIC teaming" option selected on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
+
 1. Select **Back to get started**.
 
 ## Get authentication token
@@ -164,9 +192,13 @@ You'll now prepare the second node for clustering. You'll first need to configur
 You'll now get the authentication token that will be needed when adding this node to form a cluster. Follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Get authentication token** tile, select **Prepare node**.
+
+    ![Local web UI "Get authentication token" tile with "Prepare node" option selected on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-get-authentication-token-1.png)
+
 1. Select **Get token**.
 1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
 
+    ![Local web UI "Get authentication token" on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/get-authentication-token-1.png)
 
 ## Configure cluster 
 
@@ -193,6 +225,9 @@ Follow these steps to configure the cluster witness.
 #### Configure cloud witness
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+
+    ![Local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
+
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Cloud.**
     1. Enter the **Azure Storage account name**.
@@ -200,25 +235,40 @@ Follow these steps to configure the cluster witness.
     1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
     1. Select **Apply**.
 
+    ![Local web UI "Cluster" page with cloud witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-cloud-1.png)
+
 #### Configure local witness
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
+
+    ![Local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
+
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Local.**
     1. Enter the file share path as *//server/fileshare* format.
     1. Select **Apply**. 
 
-### Add node to cluster
+    ![Local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
+
+### Add prepared node to cluster
 
 You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Existing nodes**, select **Add node**.
+
+    ![Local web UI "Cluster" page with "Add node" option selected for "Existing" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-node-1.png)
+
+
 1. In the **Add node** blade, input the following information for the incoming node: 
 
     1. Provide the serial number for the incoming node.
     1. Enter the authentication token for the incoming node.
 
-1. Select **Validate & add**. This step takes a few minutes. You see a notification when the node is successfully added to the cluster.
+1. Select **Validate & add**. This step takes a few minutes. 
+
+    ![Local web UI "Add node" page with "Add node" option selected for "Existing" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-node-2.png)
+
+You see a notification when the node is successfully added to the cluster.
 
 ## Configure virtual IPs
 
@@ -250,7 +300,7 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 1. Select **Apply**.
 
 > [!NOTE]
-> Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the Device settings in the next step.
+> Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
 
 ::: zone-end
 
@@ -302,7 +352,7 @@ Follow these steps to enable compute and configure compute network.
 You'll now configure the intent of the virtual switches that are created based on the network topology that you created.
 
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, select a virtual switch. In the Network settings blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use CRTL + Click to select more than one intent for your virtual switch. 
+1. In the **Virtual switch** section, select a virtual switch. In the **Network settings** blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use *CRTL + Click* to select more than one intent for your virtual switch. 
 1. For a virtual switch that is intended for compute, you can assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided.
