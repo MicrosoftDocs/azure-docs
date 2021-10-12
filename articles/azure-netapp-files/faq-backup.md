@@ -22,7 +22,7 @@ If a problem occurs during a backup operation, Azure NetApp Files backup automat
 
 ## Can I change the location or storage tier of my backup vault?
 
-No, Azure NetApp Files automatically manages the backup data location within Azure storage, and this location or Azure storage tier cannot be modified by the user.
+No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier cannot be modified by the user.
 
 ## What types of security are provided for the backup data?
 
@@ -34,7 +34,7 @@ Azure NetApp Files uses AES-256 bit encryption during the encoding of the receiv
 
 ## What’s the system’s maximum backup retries for a volume?  
 
-The system makes ten retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
+The system makes 10 retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
 
 ## Next steps  
 
