@@ -123,6 +123,9 @@ You can delete a connection by selecting the **Delete** icon for the authorizati
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Delete authorization key":::
 
 If you want to delete the connection but retain the authorization key, you can delete the connection from the connection page of the circuit.
+> [!NOTE]
+  > Connections redeemed in different subscriptions will not display in the circuit connection page.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Delete connection owning circuit":::
 
