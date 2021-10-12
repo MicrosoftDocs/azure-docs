@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/21/2021
+ms.date: 11/02/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
@@ -301,11 +301,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
-<<<<<<< HEAD
-        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
-=======
         [ , <reject_options> [ ,...n ] ] 
->>>>>>> 86b2692251f279299ecfa8a84bf15b67657e3fb8
     )  
 [;]  
 
@@ -337,10 +333,6 @@ CREATE EXTERNAL TABLE supports the ability to configure column name, data type, 
 
 When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
 
-<<<<<<< HEAD
-#### LOCATION
-=======
->>>>>>> 86b2692251f279299ecfa8a84bf15b67657e3fb8
 
 LOCATION = '*folder_or_filepath*'
 
@@ -348,20 +340,10 @@ Specifies the folder or the file path and file name for the actual data in Azure
 
 ![Recursive data for external tables](./media/develop-tables-external-tables/folder-traversal.png)
 
-<<<<<<< HEAD
-Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder. Hadoop tables will return all files within any subfolder.
- 
-Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
-
-#### DATA_SOURCE
-
-DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
-=======
 Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder. Hadoop tables will return all files within any sub-folder.
 
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
->>>>>>> 86b2692251f279299ecfa8a84bf15b67657e3fb8
 
 DATA_SOURCE = *external_data_source_name*
 
