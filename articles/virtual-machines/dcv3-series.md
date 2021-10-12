@@ -13,7 +13,8 @@ ms.author: mmcrey
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-[!NOTE] DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
+> [!NOTE] 
+> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
 
 The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
 
