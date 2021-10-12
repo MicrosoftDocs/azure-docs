@@ -147,7 +147,7 @@ In this section, you set up single sign-on for AnswerHub.
 
 6. On the **IDP Config** tab, select **Save** again.
 
-### Create an AnswerHub test user
+### Create AnswerHub test user
 
 To enable Azure AD users to sign in to AnswerHub, you need to add them in AnswerHub. In AnswerHub, this task is done manually.
 
