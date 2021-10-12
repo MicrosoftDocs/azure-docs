@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-js
 ---
 
@@ -17,7 +17,7 @@ The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, e
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
 > [!NOTE]
-> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs). [Learn more](opentelemetry-overview.md).
+> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
