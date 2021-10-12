@@ -47,4 +47,4 @@ The system makes 10 retries when processing a scheduled backup job. If the job f
 - [Capacity management FAQs](faq-capacity-management.md)
 - [Data migration and protection FAQs](faq-data-migration-protection.md)
 - [Application resilience FAQs](faq-application-resilience.md)
-- [Product FAQs](faq-product.md)
+- [Integration FAQs](faq-integration.md)

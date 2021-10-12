@@ -70,4 +70,4 @@ Deletion of an Azure NetApp Files volume is performed programmatically with imme
 - [Data migration and protection FAQs](faq-data-migration-protection.md)
 - [Azure NetApp Files backup FAQs](faq-backup.md)
 - [Application resilience FAQs](faq-application-resilience.md)
-- [Product FAQs](faq-product.md)
+- [Integration FAQs](faq-integration.md)

@@ -70,4 +70,4 @@ No, the share permissions cannot be changed. However, the NTFS permissions of th
 - [Data migration and protection FAQs](faq-data-migration-protection.md)
 - [Azure NetApp Files backup FAQs](faq-backup.md)
 - [Application resilience FAQs](faq-application-resilience.md)
-- [Product FAQs](faq-product.md)
+- [Integration FAQs](faq-integration.md)

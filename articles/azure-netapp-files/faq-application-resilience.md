@@ -60,5 +60,5 @@ The general industry recommendation is to [not run your KahaDB shared storage on
 - [Capacity management FAQs](faq-capacity-management.md)
 - [Data migration and protection FAQs](faq-data-migration-protection.md)
 - [Azure NetApp Files backup FAQs](faq-backup.md)
-- [Product FAQs](faq-product.md)
+- [Integration FAQs](faq-integration.md)
 
