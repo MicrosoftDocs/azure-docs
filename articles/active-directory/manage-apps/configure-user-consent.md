@@ -53,7 +53,7 @@ To configure user consent settings through the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0) module, to choose which app consent policy governs user consent for applications.
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module, to choose which app consent policy governs user consent for applications.
 
 #### Disable user consent
 
