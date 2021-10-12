@@ -101,7 +101,7 @@ This is an example of the `CAMERACALIBRATOR_NODE_CONFIG` parameters for all spat
 
 | Name | Type| Description|
 |---------|---------|---------|
-| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly. do_calibration is set by default to True. |
+| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly. `do_calibration` is set by default to `True`. |
 | `enable_breakpad`| bool | Indicates whether to enable breakpad, which is used to generate a crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to `True`. |
 
