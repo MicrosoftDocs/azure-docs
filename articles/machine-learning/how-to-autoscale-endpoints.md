@@ -49,7 +49,7 @@ The following snippet creates the autoscale profile:
 
 # [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
+In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this entry in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/select-azure-monitor.png" alt-text="Screenshot of Azure Monitor in the menu and on the page":::
 
@@ -72,7 +72,7 @@ For the default scale condition, use the following values:
 
 ## Create a rule to scale out
 
-A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following exapmle will allocate two more nodes (up to the maximum) if the CPU's average a load of greater than 70% for five minutes::
+A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -127,7 +127,7 @@ If you have both scale out and scale in rules, your rules will look similar to t
 
 ## Create a rule for endpoint metrics
 
-The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. In this example, if the request latency is greater than an average of 70 for 5 minutes, allocate an additional node.
+The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. In this example, if the request latency is greater than an average of 70 for 5 minutes, allocate another node.
 
 # [Azure CLI](#tab/azure-cli)
 
