@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics       
 ---

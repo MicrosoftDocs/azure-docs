@@ -6,7 +6,7 @@ manager: chrhoder
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 11/02/2021
 ms.author: v-jawe
 ---
 

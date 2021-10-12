@@ -4,7 +4,7 @@ description: This document outlines advanced configurations for custom question 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 ---
 
 # Configure custom question answering enabled resources

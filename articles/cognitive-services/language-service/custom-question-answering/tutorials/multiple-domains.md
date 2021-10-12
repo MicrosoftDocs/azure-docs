@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.author: diagarw
-ms.date: 03/31/2021
+ms.date: 11/02/2021
 ---
 
 # Add multiple domains to your FAQ bot

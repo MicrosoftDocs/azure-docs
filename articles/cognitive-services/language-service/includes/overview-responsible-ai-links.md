@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 09/30/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 * [Transparency note for Azure Cognitive Service for Language](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context)
