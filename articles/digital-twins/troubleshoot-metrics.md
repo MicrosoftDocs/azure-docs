@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting Azure Digital Twins: Metrics"
+title: "Troubleshooting: Metrics"
 titleSuffix: Azure Digital Twins
 description: Learn how to view Azure Digital Twins metrics in Azure Monitor to troubleshoot and oversee your instance.
 author: baanders

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting Azure Digital Twins: Resource health"
+title: "Troubleshooting: Resource health"
 titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders

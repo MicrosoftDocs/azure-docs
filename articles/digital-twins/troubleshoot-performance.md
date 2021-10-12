@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting Azure Digital Twins: Performance"
+title: "Troubleshooting: Performance"
 titleSuffix: Azure Digital Twins
 description: Tips for troubleshooting performance of an Azure Digital Twins instance.
 author: baanders
