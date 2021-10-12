@@ -193,7 +193,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ## Inventory run
 
-A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. If a run does not complete successfully, see if subsequent runs complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
+A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. If a run does not complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
 
 Inventory policies are read or written in full. Partial updates aren't supported.
 
@@ -343,7 +343,7 @@ This section describes limitations and known issues of the Azure Storage blob in
 
 ### Inventory job fails to complete for hierarchical namespace enabled accounts
 
-The inventory job may not complete within 2 days for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created.
+The inventory job might not complete within 2 days for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created. If a job does not complete successfully, check subsequent jobs to see if they complete before contacting support. The performance of a job can vary, so if a job doesn't complete, it's possible that subsequent jobs will.
 
 ### Inventory job cannot write inventory reports
 
