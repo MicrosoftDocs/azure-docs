@@ -2,7 +2,7 @@
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 09/10/2021
+ms.date: 10/05/2021
 
 ---
 
@@ -61,6 +61,9 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ApplicationAuditLogs|Application Audit Logs|Yes|
 |FarmManagementLogs|Farm Management Logs|Yes|
 |FarmOperationLogs|Farm Operation Logs|Yes|
+|InsightLogs|Insight Logs|Yes|
+|JobProcessedLogs|Job Processed Logs|Yes|
+|ModelInferenceLogs|Model Inference Logs|Yes|
 |ProviderAuthLogs|Provider Auth Logs|Yes|
 |SatelliteLogs|Satellite Logs|Yes|
 |WeatherLogs|Weather Logs|Yes|
@@ -95,6 +98,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ApplicationConsole|Application Console|No|
+|BuildLogs|Build Logs|Yes|
 |IngressLogs|Ingress Logs|Yes|
 |SystemLogs|System Logs|No|
 
@@ -226,8 +230,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational|Operational Authentication Logs|Yes|
-|CallDiagnosticsPRIVATEPREVIEW|Call Diagnostics Logs - PRIVATE PREVIEW|Yes|
-|CallSummaryPRIVATEPREVIEW|Call Summary Logs - PRIVATE PREVIEW|Yes|
+|CallDiagnostics|Call Diagnostics Logs|Yes|
+|CallSummary|Call Summary Logs|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
@@ -237,6 +241,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Audit|MCVP Audit Logs|Yes|
 |Logs|MCVP Logs|Yes|
 
 
@@ -638,6 +643,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditEvent|Audit Logs|No|
+|AzurePolicyEvaluationDetails|Azure Policy Evaluation Details|Yes|
 
 
 ## Microsoft.Kusto/Clusters
@@ -712,8 +718,9 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|PipelineDiagnostics|Pipeline Diagnostics Logs|Yes|
-|PipelineOperational|Pipeline Operational Logs|Yes|
+|Audit|Audit Logs|Yes|
+|Diagnostics|Diagnostics Logs|Yes|
+|Operational|Operational Logs|Yes|
 
 
 ## Microsoft.Network/applicationgateways
@@ -943,6 +950,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |MessagingLogs|Messaging logs for Azure Web PubSub Service.|Yes|
 
 
+## microsoft.singularity/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Execution|Execution Logs|Yes|
+
+
 ## Microsoft.Sql/managedInstances
 
 |Category|Category Display Name|Costs To Export|
@@ -1106,7 +1120,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AppServiceAppLogs|App Service Application Logs|No|
 |AppServiceAuditLogs|Access Audit Logs|No|
 |AppServiceConsoleLogs|App Service Console Logs|No|
-|AppServiceDiagnosticToolsLogs|Report Diagnostic Tools Logs|Yes|
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
 |AppServiceHTTPLogs|HTTP logs|No|
 |AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
