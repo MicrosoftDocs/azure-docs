@@ -9,7 +9,7 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 
 ---
 # Autoscale a managed online endpoint (preview)
@@ -79,46 +79,49 @@ The condition for this rule is that the five-minute average CPU consumption has 
 
 # [Portal](#tab/azure-portal)
 
-In Azure Machine Learning studio:
+1. In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
 
-1. Go to the "Endpoints" page
-1. Select the endpoint you're interested in
+    :::image type="content" source="media/how-to-autoscale-endpoints/select-azure-monitor.png" alt-text="Screenshot of Azure Monitor in the menu and on the page":::
 
-:::image type="content" source="media/how-to-autoscale-endpoints/endpoints-portal.png" alt-text="Screenshot showing Endpoints page of Azure Machine Learning studio":::
+1. From the left side of the Azure Monitor page, select __Autoscale__ and then select the deployed endpoint. You can use the selections at the top of the page to filter the list of resources.
 
-In the endpoint details screen, in the Details tab, select the deployment in which you're interested. In the deployment details section, select "Configure autoscaling" to open the autoscaling wizard.
+    :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of the list of items that can be used with autoscale":::
 
-:::image type="content" source="media/how-to-autoscale-endpoints/configure-autoscale.png" lightbox="media/how-to-autoscale-endpoints/configure-autoscale.png" alt-text="Screenshot showing link to configure autoscaling":::
+1. On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
 
-In the Scale Out page, choose the "Custom autoscale" option to begin the configuration. 
+    :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
 
-:::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+1. Use the following steps to create a __scale out__ rule. This rule will allocate two more nodes (up to the maximum) if the CPU's average a load of greater than 70% for five minutes:
 
-In the "Scale mode" section, select "Scale based on a metric." In the "Instance limits" section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
+    1. In the __Scale mode__ section, select __Scale based on a metric__. In the __Instance limits__ section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
+        :::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
 
-In the "Rules" section, choose "Add a rule". The "Scale rule" page will show.
+    1. In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
 
-1. Set the "Operator" to "Greater than" and set the "Metric threshold" to 70
-1. Set "Duration (minutes)" to 5. Leave the "Time grain statistic" as "Average"
-1. Set "Operation" to "Increase count by" and set "Instance count" to 2
-1. Choose the "Add" button to create the rule
+        * Set __Metric name__ to __CPU Utilization Percentage__.
+        * Set __Operator__ to __Greater than__ and set the __Metric threshold__ to __70__.
+        * Set __Duration (minutes)__ to 5. Leave the __Time grain statistic__ as __Average__.
+        * Set __Operation__ to __Increase count by__ and set __Instance count__ to __2__.
+        
+        Finally, select the __Add__ button to create the rule.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+        :::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
 
-You have specified that if the CPUs average a load of greater than 70% for five minutes, the system should allocate two more nodes up to the maximum set for autoscale.
+1. Use the following steps to create a __scale in__ rule. This rule will release a single node, down to a minimum of 2, if the CPU load is less than 30% for 5 minutes:
 
-Now create a rule for scaling in. Choose "New rule." In the "Scale rule" page:
+    1. In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
 
-1. Set the "Operator" to "Less than" and the "Metric threshold" to 30
-1. Set the "Duration (minutes)" to 5
-1. Set the "Operation" to "Decrease count by" and set "Instance count" to 1
-1. Choose the "Add" button to create the rule
+        * Set __Metric name__ to __CPU Utilization Percentage__.
+        * Set __Operator__ to __Less than__ and the __Metric threshold__ to __30__.
+        * Set __Duration (minutes)__ to __5__.
+        * Set __Operation__ to __Decrease count by__ and set __Instance count__ to __1__.
+        
+        Finally, select the __Add__ button to create the rule.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
+        :::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
 
-Once you have created both rules, your autoscale rules should look like the following image. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 more nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
+Once you have created both rules, your autoscale rules should be similar to the following screenshot. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 more nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
 
 :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
 
