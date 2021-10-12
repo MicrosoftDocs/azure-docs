@@ -299,7 +299,7 @@ For more information on how to filter events in Event Grid, see [How to filter e
 
 ## See also
 
-- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
 - [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

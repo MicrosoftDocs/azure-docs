@@ -208,7 +208,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
 
    ```
         {
-          "@apiVersion": "2.0",
+          "@apiVersion": "1.1",
           "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",

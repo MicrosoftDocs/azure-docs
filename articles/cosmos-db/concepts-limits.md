@@ -97,7 +97,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]

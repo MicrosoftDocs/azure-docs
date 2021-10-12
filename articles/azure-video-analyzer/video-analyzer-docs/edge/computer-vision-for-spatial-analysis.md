@@ -98,6 +98,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 1. [Set up the edge device](../../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
 
+    > [!Important]
+    > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#set-up-deployment-template)** file to deploy the required containers.
+
 1. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
@@ -122,17 +125,18 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
+You need to create an Azure resource of type [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) for the Standard S1 tier either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
-There are three primary parameters for all Cognitive Services' containers that are required, including the spatialanalysis container. The end-user license agreement (EULA) must be present with a value of accept. Additionally, both an Endpoint URI and API Key are needed.
+There are three primary parameters for all Cognitive Services' containers that are required, including the `spatialanalysis` container. The **end-user license agreement (EULA)** must be present with a value of accept. Additionally, both an **Endpoint URI** and **API Key** are needed.
 
 ### Keys and endpoint URI
 
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
 
-You will need this key and endpoint URI in your deployment manifest files to deploy the spatialanalysis container.
+> [!Note]
+> You will need this key and endpoint URI in your deployment manifest files to deploy the `spatialanalysis` container.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
@@ -186,9 +190,9 @@ There are a few things you need to pay attention to in the deployment template f
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds when using an Azure Stack Edge device.
 
-   1. [Connect to the SMB share](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) to the Local share.
+   1. [Connect to the SMB share](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample retail shop video file](https://lvamedia.blob.core.windows.net/public/retailshop-15fps.mkv) to the Local share.
 
-      > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
+      > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMIPP]
 
    1. See that the rtspsim module has the following configuration:
       ```
@@ -283,7 +287,7 @@ In operations.json:
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json"
       }
   },
   ```
@@ -296,12 +300,12 @@ In operations.json:
       "opParams": {
           "name": "Sample-Pipeline-1",
           "properties": {
-              "topologyName": "InferencingWithCVExtension",
+              "topologyName": "PersonZoneCrossingTopology",
               "description": "Sample pipeline description",
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/2018-03-05.10-27-03.10-30-01.admin.G329.mkv"
+                      "value": " rtsp://rtspsim:554/media/retailshop-15fps.mkv"
                   },
                   {
                       "name": "rtspUserName",
@@ -346,22 +350,23 @@ In operations.json:
             }
           ],
           "operation": {
-            "@type": "#Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation",
+            "@type": "Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation",
+            "trackerNodeConfiguration": "{ \"enable_speed\": true }",
+            "enableFaceMaskClassifier": "false",
             "zones": [
               {
                 "zone": {
                   "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
-                  "polygon": "[[0.37,0.43],[0.48,0.42],[0.53,0.56],[0.34,0.57],[0.34,0.46]]",
-                  "name": "stairlanding"
+                  "polygon": "[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]",
+                  "name": "retailstore"
                 },
                 "events": [
                   {
-                    "trigger": "event",
-                    "outputFrequency": "1",
-                    "threshold": "16",
-                    "focus": "bottomCenter"
+                    "eventType": "zonecrossing",
+                    "threshold": "5",
+                    "focus": "footprint"
                   }
-                ]
+                ]                
               }
             ]
           }
@@ -377,51 +382,115 @@ When a pipelineTopology is instantiated, you should see "MediaSessionEstablished
 
 The spatialanalysis module will also send out AI Insight events to Azure Video Analyzer and then to IoTHub, it will also show in **OUTPUT** window. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Azure Video Analyzer.
 
-Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperation` operation):
+Sample output for `SpatialAnalysisPersonZoneCrossingOperation` :
 
-```
+```json
 {
-  "timestamp": 145666725597833,
-  "inferences": [
-    {
-      "type": "entity",
-      "inferenceId": "8724dff43d3c4716936aa6c9a808ee2e",
-      "entity": {
-        "tag": {
-          "value": "person",
-          "confidence": 0.9980469
+  "body": {
+    "timestamp": 147026846756730,
+    "inferences": [
+      {
+        "type": "entity",
+        "inferenceId": "8e8269c1a9584b3a8f16a3cd7a2cd45a",
+        "entity": {
+          "tag": {
+            "value": "person",
+            "confidence": 0.9511422
+          },
+          "box": {
+            "l": 0.59845686,
+            "t": 0.35958588,
+            "w": 0.11951797,
+            "h": 0.50172085
+          }
         },
-        "box": {
-          "l": 0.3848941,
-          "t": 0.28569314,
-          "w": 0.092775516,
-          "h": 0.3819766
+        "extensions": {
+          "centerGroundPointY": "0.0",
+          "footprintY": "inf",
+          "centerGroundPointX": "0.0",
+          "mappedImageOrientation": "inf",
+          "groundOrientationAngle": "inf",
+          "footprintX": "inf",
+          "trackingId": "f54d4c8fb4f345a9afb944303b0f3b40",
+          "speed": "0.0"
         }
       },
-      "extensions": {
-        "footprintX": "inf",
-        "centerGroundPointY": "0.0",
-        "trackingId": "80eeb5bbb6f542b89b5b16a1e37c53c4",
-        "footprintY": "inf",
-        "centerGroundPointX": "0.0"
-      }
-    },
-    {
-      "type": "event",
-      "inferenceId": "0b0de3d228b640488fc0624950a6c9e8",
-      "relatedInferences": [
-        "8724dff43d3c4716936aa6c9a808ee2e"
-      ],
-      "event": {
-        "name": "personZoneEnterExitEvent",
-        "properties": {
-          "trackingId": "80eeb5bbb6f542b89b5b16a1e37c53c4",
-          "status": "Enter",
-          "zone": "door"
+      {
+        "type": "entity",
+        "inferenceId": "c54c9f92dd0d442b8d1840756715a5c7",
+        "entity": {
+          "tag": {
+            "value": "person",
+            "confidence": 0.92762595
+          },
+          "box": {
+            "l": 0.8098704,
+            "t": 0.47707137,
+            "w": 0.18019487,
+            "h": 0.48659682
+          }
+        },
+        "extensions": {
+          "footprintY": "inf",
+          "groundOrientationAngle": "inf",
+          "trackingId": "a226eda9226e4ec9b39ebceb7c8c1f61",
+          "mappedImageOrientation": "inf",
+          "speed": "0.0",
+          "centerGroundPointX": "0.0",
+          "centerGroundPointY": "0.0",
+          "footprintX": "inf"
+        }
+      },
+      {
+        "type": "event",
+        "inferenceId": "aad2778756a94afd9055fdbb3a370d62",
+        "relatedInferences": [
+          "8e8269c1a9584b3a8f16a3cd7a2cd45a"
+        ],
+        "event": {
+          "name": "personZoneEnterExitEvent",
+          "properties": {
+            "trackingId": "f54d4c8fb4f345a9afb944303b0f3b40",
+            "zone": "retailstore",
+            "status": "Enter"
+          }
+        }
+      },
+      {
+        "type": "event",
+        "inferenceId": "e30103d3af28485688d7c77bbe10b5b5",
+        "relatedInferences": [
+          "c54c9f92dd0d442b8d1840756715a5c7"
+        ],
+        "event": {
+          "name": "personZoneEnterExitEvent",
+          "properties": {
+            "trackingId": "a226eda9226e4ec9b39ebceb7c8c1f61",
+            "status": "Enter",
+            "zone": "retailstore"
+          }
         }
       }
-    }
-  ]
+    ]
+  },
+  "properties": {
+    "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/<your resource group>/providers/Microsoft.Media/videoAnalyzers/<your Video Analyzer account name>",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/processors/computerVisionExtension",
+    "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
+    "eventTime": "2021-10-07T18:33:50.630Z",
+    "dataVersion": "1.0"
+  },
+  "systemProperties": {
+    "iothub-connection-device-id": "<your Edge Device name>",
+    "iothub-connection-module-id": "avaedge",
+    "iothub-connection-auth-method": "{\"scope\":\"module\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "iothub-connection-auth-generation-id": "637691424603096064",
+    "iothub-enqueuedtime": 1633631631874,
+    "iothub-message-source": "Telemetry",
+    "messageId": "ccb98686-4d5a-4480-abe2-5d83d7f2fbc0",
+    "contentType": "application/json",
+    "contentEncoding": "utf-8"
+  }
 }
 ```
 
@@ -433,68 +502,47 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| zones                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| name                      | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| polygon                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
-| eventType                 | string  | For cognitiveservices.vision.spatialanalysis-personcrossingpolygon this should be zonecrossing or zonedwelltime.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| trigger                   | string  | The type of trigger for sending an event. Supported Values: "event": fire when someone enters or exits the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| focus                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
-| enableFaceMaskClassifier  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
-| detectorNodeConfiguration | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `zones`                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `name`                     | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `polygon`                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| `eventType`                 | string  | For cognitiveservices.vision.spatialanalysis-personcrossingpolygon this should be `zonecrossing` or `zonedwelltime`.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `trigger`                   | string  | The type of trigger for sending an event. Supported Values: "event": fire when someone enters or exits the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `focus`                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
+| `threshold`                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy.                                                                                                |
+| `enableFaceMaskClassifier`  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
+| `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### Output:
+### Tracker Node Parameter Settings
 
+You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
 ```json
 {
-  "timestamp": 145666725597833,
-  "inferences": [
-    {
-      "type": "entity",
-      "inferenceId": "8724dff43d3c4716936aa6c9a808ee2e",
-      "entity": {
-        "tag": {
-          "value": "person",
-          "confidence": 0.9980469
-        },
-        "box": {
-          "l": 0.3848941,
-          "t": 0.28569314,
-          "w": 0.092775516,
-          "h": 0.3819766
-        }
-      },
-      "extensions": {
-        "footprintX": "inf",
-        "centerGroundPointY": "0.0",
-        "trackingId": "80eeb5bbb6f542b89b5b16a1e37c53c4",
-        "footprintY": "inf",
-        "centerGroundPointX": "0.0"
-      }
-    },
-    {
-      "type": "event",
-      "inferenceId": "0b0de3d228b640488fc0624950a6c9e8",
-      "relatedInferences": ["8724dff43d3c4716936aa6c9a808ee2e"],
-      "event": {
-        "name": "personZoneEnterExitEvent",
-        "properties": {
-          "trackingId": "80eeb5bbb6f542b89b5b16a1e37c53c4",
-          "status": "Enter",
-          "zone": "door"
-        }
-      }
-    }
-  ]
+"enable_speed": true,
 }
+
 ```
+| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable_speed`                     | bool    | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to True. It is highly recommended that we enable both speed and orientation to have the best estimated values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+### Detector Node Parameter Settings
 
+You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
+```json
+{
+"enable_orientation": true,
+}
+
+```
+| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable_orientation`                     | bool    | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to True..                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 ### More operations:
-There are different operations that the `spatialAnalysis` module offers:
+There are additional operations that the `spatialAnalysis` module offers:
 
-- **personCount**
-- **personDistance**
 - **personCrossingLine**
-- **personZoneCrossing**
+- **personDistance**
+- **personCount**
 - **customOperation**
 <br></br>
 <details>
@@ -506,15 +554,19 @@ There are different operations that the `spatialAnalysis` module offers:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                   |
 | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| lines                     | list    | List of lines.                                                                                                                                                                                                                                                                |
-| name                      | string  | Friendly name for this line.                                                                                                                                                                                                                                                  |
-| line                      | string  | Each value pair represents the starting and ending point of the line. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size.                            |
-| outputFrequency           | int     | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.                                                       |
-| focus                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint. |
-| threshold                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy.                                                                                                |
-| enableFaceMaskClassifier  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.          |
-| detectorNodeConfiguration | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                      |
-
+| `lines`                     | list    | List of lines.                                                                                                                                                                                                                                                                |
+| `name`                      | string  | Friendly name for this line.                                                                                                                                                                                                                                                  |
+| `line`                      | string  | Each value pair represents the starting and ending point of the line. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size.                            |
+| `start`                      | value pair  | x, y coordinates for line's starting point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size.                            |
+| `end`                      | value pair  | x, y coordinates for line's ending point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size.                            |
+| `type`                     | string  | This should be `linecrossing`. |
+| `trigger`                     | string  | The type of trigger for sending an event. Supported Values: "event": fire when someone crosses the line.|
+| `outputFrequency`           | int     | The rate at which events are egressed. When outputFrequency = X, every X event is egressed, ex. outputFrequency = 2 means every other event is output. The outputFrequency is applicable to both event and interval.                                                       |
+| `focus`                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint. |
+| `threshold`                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy.                                                                                                |
+| `enableFaceMaskClassifier`  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.          |
+| `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                      |
+| `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### Output:
 
 ```json
@@ -567,19 +619,19 @@ There are different operations that the `spatialAnalysis` module offers:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| zones                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| name                      | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| polygon                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
-| outputFrequency           | int     | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.                                                                                                                                                                                                                                                                                                                                                     |
-| focus                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
-| threshold                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| outputFrequency           | int     | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.                                                                                                                                                                                                                                                                                                                                                     |
-| minimumDistanceThreshold  | float   | A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| maximumDistanceThreshold  | float   | A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| aggregationMethod         | string  | The method for aggregate persondistance result. The aggregationMethod is applicable to both mode and average.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| enableFaceMaskClassifier  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
-| detectorNodeConfiguration | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
+| `zones`                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `name`                      | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `polygon`                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| `trigger`           | string     | The type of trigger for sending an event. Supported values are event for sending events when the count changes or interval for sending events periodically, irrespective of whether the count has changed or not.                                                                                                                                                                                                                                                                                                                                                     |
+| `focus`                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
+| `threshold`                | float   | Events are egressed when the person is greater than this number of pixels inside the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `outputFrequency`           | int     | The rate at which events are egressed. When outputFrequency = X, every X event is egressed, ex. outputFrequency = 2 means every other event is output. The outputFrequency is applicable to both event and interval.                                                                                                                                                                                                                                                                                                                                                     |
+| `minimumDistanceThreshold`  | float   | A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `maximumDistanceThreshold`  | float   | A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `aggregationMethod`         | string  | The method for aggregate persondistance result. The aggregationMethod is applicable to both mode and average.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `enableFaceMaskClassifier`  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
+| `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### Output:
 
 ```json
@@ -612,16 +664,16 @@ There are different operations that the `spatialAnalysis` module offers:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| zones                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| name                      | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| polygon                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
-| outputFrequency           | int     | The rate at which events are egressed. When output_frequency = X, every X event is egressed, ex. output_frequency = 2 means every other event is output. The output_frequency is applicable to both event and interval.                                                                                                                                                                                                                                                                                                                                                     |
-| trigger                   | string  | The type of trigger for sending an event. Supported values are event for sending events when the count changes or interval for sending events periodically, irrespective of whether the count has changed or not.                                                                                                                                                                                                                                                                                                                                                           |
-| focus                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
-| threshold                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| enableFaceMaskClassifier  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
-| detectorNodeConfiguration | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
+| `zones`                     | list    | List of zones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `name`                      | string  | Friendly name for this zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `polygon`                   | string  | Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. threshold float Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy. |
+| `outputFrequency`           | int     | The rate at which events are egressed. When outputFrequency = X, every X event is egressed, ex. outputFrequency = 2 means every other event is output. The outputFrequency is applicable to both event and interval.                                                                                                                                                                                                                                                                                                                                                     |
+| `trigger`                   | string  | The type of trigger for sending an event. Supported values are event for sending events when the count changes or interval for sending events periodically, irrespective of whether the count has changed or not.                                                                                                                                                                                                                                                                                                                                                           |
+| `focus`                     | string  | The point location within person's bounding box used to calculate events. Focus's value can be footprint (the footprint of person), bottom_center (the bottom center of person's bounding box), center (the center of person's bounding box). The default value is footprint.                                                                                                                                                                                                                                                                                               |
+| `threshold`                 | float   | Events are egressed when the person is greater than this number of pixels inside the zone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `enableFaceMaskClassifier`  | boolean | true to enable detecting people wearing face masks in the video stream, false to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 "INPUT_VIDEO_WIDTH": 1920. The face mask attribute will not be return.                                                                                                                                                                                                                                                                                                        |
+| `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### Output:
 
 ```json
@@ -674,6 +726,7 @@ There are different operations that the `spatialAnalysis` module offers:
 | ---------------------- | ------ | ------------------------------------- |
 | extensionConfiguration | string | JSON representation of the operation. |
 
+See an example of [Custom Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json) from our GitHub sample.
 #### Output:
 
 ```json
@@ -727,7 +780,7 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
-1. You'll find a video listed with the name `personcount`. This is the name chosen in your pipeline topology file.
+1. You'll find a video listed with the name `personzonecrossing`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, click the **Play** icon
 
@@ -738,11 +791,14 @@ You can examine the Video Analyzer video resource that was created by the live p
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/spatial-analysis/sa-video-playback-bounding-boxes.png" alt-text="Screenshot of video playback with bounding boxes":::
+
 [!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Troubleshooting
 
-The spatialanalysis is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events.
+The `spatialanalysis` is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events. You will see events such as:
 
 ```JSON
 [IoTHubMonitor] [3:37:28 PM] Message received from [ase03-edge/avaedge]:
@@ -752,7 +808,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 [IoTHubMonitor] [3:37:30 PM] Message received from [ase03-edge/avaedge]:
 {
   "type": "video",
-  "location": "/videos/customoperation-05102021",
+  "location": "/videos/<your video name>",
   "startTime": "2021-05-10T18:37:27.931Z"
 }
 [IoTHubMonitor] [3:37:40 PM] Message received from [ase03-edge/avaedge]:
@@ -766,7 +822,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 [IoTHubMonitor] [3:38:18 PM] Message received from [ase03-edge/avaedge]:
 {
   "type": "video",
-  "location": "/videos/customoperation-05102021",
+  "location": "/videos/<your video name>",
   "startTime": "2021-05-10T18:37:27.931Z"
 }
 [IoTHubMonitor] [3:38:42 PM] Message received from [ase03-edge/avaedge]:
@@ -815,7 +871,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 ```
 
 > [!NOTE]
-> You might see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
+> You will see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
 ## Next steps
 
@@ -826,6 +882,3 @@ Try different operations that the `spatialAnalysis` module offers, please refer 
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
 - [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)
-
-> [!Tip]
-> Use a **[sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv)** that has more than one person in the frame.

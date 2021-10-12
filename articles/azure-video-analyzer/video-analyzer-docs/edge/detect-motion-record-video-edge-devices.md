@@ -79,7 +79,7 @@ Complete the following steps to use Video Analyzer to detect the motion of the c
    Executing operation pipelineTopologyList
    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
    {
-     "@apiVersion": "1.0"
+     "@apiVersion": "1.1"
    }
    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
    {
@@ -98,7 +98,7 @@ Complete the following steps to use Video Analyzer to detect the motion of the c
 
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "1.1",
        "name": "Sample-Pipeline-1",
        "properties": {
          "topologyName": "EVRToFilesOnMotionDetection",

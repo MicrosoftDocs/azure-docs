@@ -153,7 +153,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
     Executing operation pipelineTopologyList
     -----------------------  Request: pipelineTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "1.1"
     }
     ---------------  Response: pipelineTopologyList - Status: 200  ---------------
     {
@@ -170,7 +170,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "1.1",
           "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "CVRHttpExtensionObjectTracking",

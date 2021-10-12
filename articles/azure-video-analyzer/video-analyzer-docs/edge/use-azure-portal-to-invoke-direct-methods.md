@@ -40,7 +40,7 @@ Use the `livePipelineList` method call to retrieve a list of all the pipeline to
 1. Copy and paste the JSON below in the **Payload** field.
     ```json
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "1.1"
     }
     ```
 1. Select the **Invoke Method** button at the top of the page.<br><br>

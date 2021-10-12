@@ -177,7 +177,7 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
   }
 ```
 
-If you want to access the cluster, follow the steps [here][access-cluster].
+Update kubeconfig in order to access the cluster, follow the steps [here][access-cluster].
 
 ## Non-interactive sign in with kubelogin
 

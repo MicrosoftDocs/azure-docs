@@ -3,7 +3,7 @@ title: Use the Azure Video Analyzer player widget
 description: This reference article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 11/01/2021
 
 ---
 
@@ -98,18 +98,38 @@ Now that you have a client API endpoint URL, a token, and a video name, you can 
       videoName: document.getElementById("videoName").value
    } );
    ```
-1. Load the video into the player to begin.
+1. Load the video into the player to begin:
    ```javascript
    avaPlayer.load();
    ```
    
-## Add the Zone Drawer Component
+## Add the Zone Drawer component
+
+The Zone Drawer component allows you to draw lines and polygons on top of the Video Analyzer player. 
 
 1. Add an AVA-Zone-Drawer element to the document:
    ```html
-   <ava-zone-drawer width="720px" id="zoneDrawer"></ava-zone-drawer>
+   <ava-zone-drawer width="720px" id="zoneDrawer">
+        <ava-player id="videoPlayer2"></ava-player>
+   </ava-zone-drawer>
    ```
-1. Get a link to the Video Analyzer zone drawer that is in the page:
+1. Get a link to the Video Analyzer player widget that will play inside the zone drawer:
+   ```javascript
+   const avaPlayer2 = document.getElementById("videoPlayer2");
+   ```
+1. Configure the player that will play inside the zone drawer:
+   ```javascript
+   avaPlayer2.configure( {
+      token: document.getElementById("token").value,
+      clientApiEndpointUrl: document.getElementById("clientApiEndpointUrl").value,
+      videoName: document.getElementById("videoName").value
+   } );
+   ```
+1. Load the video into the player inside the zone drawer:
+   ```javascript
+   avaPlayer2.load();
+   ```
+1. Get a link to the zone drawer that is in the page:
    ```javascript
    const zoneDrawer = document.getElementById("zoneDrawer");
    ```
@@ -159,6 +179,14 @@ Combining the preceding web elements, you get the following static HTML page. Th
             videoName: document.getElementById("videoName").value
         } );
         avaPlayer.load();
+		
+		const avaPlayer2 = document.getElementById("videoPlayer2");
+        avaPlayer2.configure( {
+            token: document.getElementById("token").value,
+            clientApiEndpointUrl: document.getElementById("clientApiEndpointUrl").value,
+            videoName: document.getElementById("videoName").value
+        } );
+        avaPlayer2.load();
     
         const zoneDrawer = document.getElementById("zoneDrawer");
         zoneDrawer.load();
@@ -185,7 +213,7 @@ Video name: <input type="text" id="videoName" /><br><br>
 </div>
 <textarea rows="5" cols="100" id="zoneList"></textarea><br><br>
 <ava-zone-drawer width="720px" id="zoneDrawer">
-    <ava-player></ava-player>
+    <ava-player id="videoPlayer2"></ava-player>
 </ava-zone-drawer>
 </body>
 </html>
@@ -214,6 +242,18 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. From the video list, select a video name, and enter it into the **Video name** field.
 1. Select **Play video**.
 
+### Live Video Playback
+
+If your livePipeline is in an `activated` state and the video is being recorded, then the player automatically loads the **LIVE** view. This video playback is near real-time and will have a short latency of about 2 seconds.
+
+In the **LIVE** view, you will:
+1. See the video playback in near real-time.
+1. Not see the timeline.
+1. Clicking on the **Box** icon will display the bounding boxes, if they exist.
+
+> [!Tip]
+> To switch to the view where you can view all the previously recorded clips, click on the **LIVE** button.
+ 
 ### Capture Lines and Zones
 
 1. Navigate to the **Zone Drawer** player

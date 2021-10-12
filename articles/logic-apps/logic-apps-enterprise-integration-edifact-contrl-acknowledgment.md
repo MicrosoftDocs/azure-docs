@@ -12,7 +12,7 @@ ms.date: 07/25/2021
 
 # CONTRL acknowledgments and error codes for EDIFACT messages in Azure Logic Apps
 
-In Azure Logic Apps, you can create workflows that handle EDIFACT messages for Electronic Data Interchange (EDI) communication when you use **EDIFACT** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**EDIFACT Decode** action](logic-apps-enterprise-integration-edifact-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
+In Azure Logic Apps, you can create workflows that handle EDIFACT messages for Electronic Data Interchange (EDI) communication when you use **EDIFACT** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**EDIFACT Decode** action](logic-apps-enterprise-integration-edifact.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
 This topic provides a brief overview about the EDIFACT CONTRL ACK, the CONTRL ACK segments in an interchange, and the error codes used in those segments.
 
@@ -27,7 +27,7 @@ For EDIFACT-encoded messages, the CONTRL acknowledgment (ACK) works as both a te
 > Errors in received CONTRL messages must be reported by a means other than a CONTRL message. If one or more CONTRL messages are contained in an interchange that contains data messages, 
 > the CONTRL message that's generated as a response to that interchange is generated as if no CONTRL messages were contained in the received interchange.
 
-As a technical acknowledgment, the CONTRL message indicates that the interchange recipient received the subject interchange plus the following:
+As a technical acknowledgment, the CONTRL message indicates that the interchange recipient received the subject interchange and has the following responsibilities:
 
 * Checked parts of the interchange to confirm the syntactic accuracy of the data elements copied into the reporting Interchange Response (UCI) segment.
 * Accepts the responsibility to notify the sender about the acceptance or rejection of the other parts in the interchange.
@@ -39,7 +39,7 @@ As a technical acknowledgment, the CONTRL message indicates that the interchange
 > field in a TA1 acknowledgment. If part of the EDIFACT message is accepted, the CONTRL technical ACK reports `Accepted` status. In some scenarios, 
 > if part of the message is rejected, the CONTRL ACK still reports the `Accepted` status. In such scenarios, the UCI5 element might report the error.
 
-As a functional acknowledgment, the CONTRL message reports the status, such as the acceptance or rejection, for the received interchange, group, or message, including any any errors or unsupported functionality. The message also indicates that the interchange recipient:
+As a functional acknowledgment, the CONTRL message reports the status, such as the acceptance or rejection, for the received interchange, group, or message, including any errors or unsupported functionality. The message also indicates that the interchange recipient:
 
 * Received the referenced levels of the acknowledged interchange.
 * Checked that no fatal syntactic errors in the acknowledged referenced level prevent further interchange processing.
@@ -127,7 +127,7 @@ Based on whether the received interchange includes one or more groups, the struc
 
   SG loop tags don't exist in the native EDI message format.
 
-* If the interchange doesn't include a group, the ACK doesn't contain any UCF segments. Instead, the ACK includes one UCM segment per message. Each UCM segment include a series of UCS and UCD segments in tandem.
+* If the interchange doesn't include a group, the ACK doesn't contain any UCF segments. Instead, the ACK includes one UCM segment per message. Each UCM segment includes a series of UCS and UCD segments in tandem.
 
 * The XML form of the ACK message includes the following loop elements:
 
@@ -205,8 +205,8 @@ The following table lists the supported and supported error codes, as defined by
 | 18 | Unspecified error | Notification that an error has been identified, but the nature of the error is not reported. | No |
 | 19 | Invalid decimal notation | Notification that the character indicated as decimal notation in UNA is invalid, or the decimal notation used in a data element is not consistent with the one indicated in UNA. | No |
 | 20 | Character invalid as service character | Notification that a character advised in UNA is invalid as a service character. | No |
-| 21 | Invalid character(s) | Notification that one or more characters used in the interchange is not a valid character as defined by the syntax identifier indicated in the UNB segment. The invalid character is part of the referenced-level, or followed immediately after the identified part of the interchange. | Yes |
-| 22 | Invalid service character(s) | Notification that the service characters used in the interchange is not a valid service character as advised in the UNA segment or is not one of the default service characters. If the code is used in the UCS or UCD segment, the invalid character followed immediately after the identified part of the interchange. | No |
+| 21 | Invalid character(s) | Notification that one or more characters used in the interchange are not valid characters as defined by the syntax identifier indicated in the UNB segment. The invalid character is part of the referenced-level, or followed immediately after the identified part of the interchange. | Yes |
+| 22 | Invalid service character(s) | Notification that the service characters used in the interchange are not valid service characters as advised in the UNA segment or is not one of the default service characters. If the code is used in the UCS or UCD segment, the invalid character followed immediately after the identified part of the interchange. | No |
 | 23 | Unknown Interchange sender | Notification that the interchange sender (S002) is unknown. | No |
 | 24 | Too old | Notification that the received interchange or group is older than a limit specified in an IA or determined by the recipient. | No |
 | 25 | Test indicator not supported | Notification that test processing cannot be performed for the identified interchange, group, message, or package. | No |

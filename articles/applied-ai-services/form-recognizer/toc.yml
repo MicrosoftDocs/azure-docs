@@ -1,3 +1,4 @@
+items:
 - name: Azure Form Recognizer Documentation
   href: index.yml
 - name: Overview
@@ -13,16 +14,28 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with Azure Form Recognizer
-    href: quickstarts/get-started-with-form-recognizer.md
-  - name: Client libraries and REST API
-    href: quickstarts/client-library.md
+   - name: Form Recognizer v2.1
+     items:
+     - name: Form Recognizer labeling tool
+       href: quickstarts/try-sample-label-tool.md
+     - name: Client libraries and REST API
+       href: quickstarts/try-sdk-rest-api.md
+   - name: "Form Recognizer v3.0 | Preview"
+     items:
+       - name: Form Recognizer Studio (preview)
+         href: quickstarts/try-v3-form-recognizer-studio.md
+       - name: REST API (preview)
+         href: quickstarts/try-v3-rest-api.md
+       - name: C# SDK (preview)
+         href: quickstarts/try-v3-csharp-sdk.md
+       - name:  Python SDK (preview)
+         href: quickstarts/try-v3-python-sdk.md
 - name: Samples
   items:
   - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
   - name: "Java"
-    href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
   - name: "JavaScript"
@@ -41,16 +54,22 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Migrate to Form Recognizer v3.0 (preview)
+    href: v3-migration-guide.md
   - name: Generate SAS tokens for Azure Blob containers
-    href:  generate-sas-tokens.md
-  - name: Train a custom model with the sample labeling tool
-    href: label-tool.md
-  - name: Build a training data set
-    href: build-training-data-set.md
-  - name: Use table tags to train your custom model
-    href: supervised-table-tags.md
-  - name:   Deploy the sample labeling tool
-    href: deploy-label-tool.md
+    href:  generate-sas-tokens.md   
+  - name: Build and train a custom model
+    items:
+    - name: Assemble a training data set
+      href: build-training-data-set.md
+    - name:   Deploy the sample labeling tool
+      href: deploy-label-tool.md
+    - name: Train a custom model with the sample labeling tool
+      href: label-tool.md
+    - name: Use table tags to train your custom model
+      href: supervised-table-tags.md
+  - name: Compose custom models
+    href: compose-custom-models.md 
   - name: Use containers
     items:
     - name: Install and run containers
@@ -62,7 +81,6 @@
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
-      maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
   - name: Back up and recover models
     href: disaster-recovery.md
@@ -78,39 +96,47 @@
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
   items:
-  - name: Layout
+  - name: Model overview
+    href: concept-model-overview.md
+  - name: Form Recognizer Studio | preview
+    href: concept-form-recognizer-studio.md 
+  - name: General document model | preview
+    href: concept-general-document.md
+  - name: Layout model
     href: concept-layout.md
-  - name: Receipts
-    href: concept-receipts.md
-  - name: Business cards
-    href: concept-business-cards.md
-  - name: Invoices
-    href: concept-invoices.md
-  - name: Identity documents
-    href: concept-identification-cards.md
-  - name: Custom
+  - name: Invoice model
+    href: concept-invoice.md
+  - name: Receipt model
+    href: concept-receipt.md
+  - name: ID document model
+    href: concept-id-document.md
+  - name: Business card model
+    href: concept-business-card.md
+  - name: Custom model
     href: concept-custom.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"
-    expanded: true 
+    expanded: true
     items:
     - name:  Custom form processing workflow
       href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Business card processing workflow
       href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-    - name: Identity document processing workflow
+    - name: ID document processing workflow
       href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
     - name:  Invoice processing workflow
       href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Receipt processing workflow
-      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json 
+      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
   - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
+  - name: Error codes and messages v3.0 (preview) 
+    href: preview-error-guide.md 
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

@@ -1,5 +1,5 @@
 ---
-title: Save on Azure Synapse Analytics charges with Azure reserved capacity
+title: Save on Azure Synapse Analytics (data warehousing only) charges with Azure reserved capacity
 description: Learn how you save costs for Azure Synapse Analytics charges with reserved capacity to save money.
 author: bandersmsft
 ms.reviewer: primittal
@@ -10,13 +10,13 @@ ms.date: 09/15/2021
 ms.author: banders
 ---
 
-# Save costs for Azure Synapse Analytics charges with reserved capacity
+# Save costs for Azure Synapse Analytics (data warehousing only) charges with reserved capacity
 
-You can save money with Azure Synapse Analytics by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
+You can save money with Azure Synapse Analytics (data warehousing only) by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
 
 When you purchase a reservation, the Azure Synapse Analytics usage that matches the reservation attributes is no longer charged at the pay-as-you go rates.
 
-A reservation doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
+A reservation doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage, it only covers data warehousing usage.
 
 When the reserved capacity expires, Azure Synapse Analytics instances continue to run but are billed at the pay-as-you go rate. Reservations don't renew automatically.
 

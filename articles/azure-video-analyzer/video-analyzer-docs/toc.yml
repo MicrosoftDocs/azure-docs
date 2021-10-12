@@ -93,6 +93,8 @@
     href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
+  - name: Connect cameras to cloud
+    href: cloud/connect-cameras-to-cloud.md
   - name: Scenarios 
     items:
     - name: Analyze live videos
@@ -163,6 +165,9 @@
     href: troubleshoot.md
   - name: Connect cameras to cloud via remote device adapter
     href: cloud/use-remote-device-adapter.md
+    href: edge/troubleshoot.md
+  - name: Camera discovery
+    href: camera-discovery.md
 - name: Reference 
   items:
   - name: Access policies
