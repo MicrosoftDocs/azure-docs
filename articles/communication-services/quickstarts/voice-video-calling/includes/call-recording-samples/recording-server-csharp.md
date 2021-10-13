@@ -90,6 +90,21 @@ var startRecordingResponse = await callingServerClient.InitializeServerCall("<se
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
+## Start recording session with options using 'StartRecordingAsync' server API
+
+Use the server call ID received during initiation of a call.
+
+RecordingContent is used to pass the recording content type. Ex: audio/audiovideo.
+
+RecordingChannel is used to pass the recording channel type. Ex: mixed/unmixed.
+
+RecordingFormat is used to pass the format of the recording. Ex: mp4/mp3/wav.
+
+```csharp
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>").ConfigureAwait(false);
+```
+The `StartRecordingAsync` API response contains the recording ID of the recording session.
+
 ## Stop recording session using 'StopRecordingAsync' server API
 
 Use the recording ID received in response of  `StartRecordingAsync`.
