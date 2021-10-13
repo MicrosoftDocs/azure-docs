@@ -13,10 +13,19 @@ both for machines running in Azure and hybrid
 The feature can be used directly per-machine,
 or at-scale orchestrated by Azure Policy.
 
-Each task is performed by the guest configuration agent in Windows and Linux.
-The guest configuration extension, through the agent, manages settings such as:
+Configurations are distinct from policy definitions. Guest configuration
+utilizes Azure Policy to dynamically assign configurations
+to machines. You can also assign configurations to machines
+[manually](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
+or by using other Azure services such as
+[AutoManage](../../automanage/automanage-virtual-machines.md).
 
-- The configuration of the operating system
+Configuration resources in Azure are designed as an
+[extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
+You can imagine each configuration as an additional set of properties
+for the machine. Configurations can include settings such as:
+
+- Operating system settings
 - Application configuration or presence
 - Environment settings
 
