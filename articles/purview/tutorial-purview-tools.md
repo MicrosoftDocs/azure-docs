@@ -34,3 +34,11 @@ Here is a list of the various tools and utilities to make Purview Adoption smoot
 ## Feedback & Disclaimer
 Disclaimer: None of these tools come with an express warranty from Microsoft verifying their efficacy or guarantees of functionality, however, are certified to be free of any malicious activity or viruses, neither do they collect any private or PII data.
 Feedback: For any feedback about efficacy and functionality during usage please contact the respective tool owners/authors on the contact details mentioned on the corresponding github repo.
+
+
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Purview-API-PowerShell](https://aka.ms/purview-api-ps) 
+
+
