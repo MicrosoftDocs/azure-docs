@@ -14,10 +14,11 @@ ms.date: 10/22/2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To reduce the impact that unpredictable events can have on your Azure resources, you can replicate content in these resources to help you maintain [*business continuity (BC)*](https://en.wikipedia.org/wiki/Business_continuity_planning). You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a Standard logic app resource, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+To reduce the impact that unpredictable events can have on your Azure resources, you can replicate content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a Standard logic app resource, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 > [!NOTE]
-> Currently, [replication task templates](#replication-task-templates) are available for Azure Event Hubs and Azure Service Bus.
+> Currently, [replication task templates](#replication-task-templates) are available for 
+> [Azure Event Hubs](../event-hubs/event-hubs-about.md) and [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues.
 
@@ -37,8 +38,8 @@ The following table lists the replication task templates currently available in 
 
 | Resource type | Replication task templates |
 |---------------|----------------------------|
-| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | - **Replicate to Event Hubs instance**: Replicate content between two Event Hubs instances. <br>- **Replicate from Event Hubs instance to Service Bus queue** <br>- **Replicate from Event Hubs instance to Service Bus topic** <p>For more information about replication and federation, review the following documentation: <p>- [Multi-site and multi-region federation for Event Hubs](../event-hubs/event-hubs/event-hubs-federation-overview.md) <br>-  |
-| [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** <p>For more information about replication and federation, review the following documentation: <p>- [Message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md) <br>- [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md) |
+| Azure Event Hubs | - **Replicate to Event Hubs instance**: Replicate content between two Event Hubs instances. <br>- **Replicate from Event Hubs instance to Service Bus queue** <br>- **Replicate from Event Hubs instance to Service Bus topic** |
+| Azure Service Bus | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** |
 |||
 
 ## Replication task differences between Azure Logic Apps and Azure Functions
@@ -47,19 +48,31 @@ The following table lists the replication task templates currently available in 
 
 ### Replication topology for Event Hubs
 
+For more information about replication and federation in Azure Event Hubs with Azure Functions, review the following documentation:
+
+- [Multi-site and multi-region federation for Event Hubs](../event-hubs/event-hubs/event-hubs-federation-overview.md)
+- [Event replication tasks and applications with Azure Functions](../event-hubs/event-hubs-federation-replicator-functions.md)
+- [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
+
 ### Replication topology for Service Bus
+
+For more information about replication and federation in Azure Service Bus with Azure Functions, review the following documentation: 
+
+- [Message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
+- [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md)
+- [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
 <a name="pricing"></a>
 
 ## Pricing
 
-When you create a replication task, charges start incurring immediately. Underneath, a replication task is powered by a stateless workflow in a Standard logic app resource, which is hosted in single-tenant Azure Logic Apps. So, the [Standard pricing model](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/) applies to replication tasks. Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app workflow.
+Underneath, a replication task is powered by a stateless workflow in a Standard logic app resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follows the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
+- The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
 <a name="create-replication-task"></a>
 
