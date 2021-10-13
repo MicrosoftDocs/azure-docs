@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure App Service
+title: Migrate .NET apps to Azure App Service
 description: Discover various migration resources available to migrate to Azure App Service.
 author: msangapu-msft
 
@@ -9,9 +9,9 @@ ms.author: msangapu
 ms.custom: seodec18
 
 ---
-# Migration resources for Azure App Service
+# .NET migration resources for Azure App Service
 
-Azure App Services now provides easy to use tools to quickly discover web apps deployed on on-premises web servers, assess these web apps for readiness and migrate the web apps including content & supported config to App Service. 
+Azure App Services provides easy-to-use tools to quickly discover .NET web apps deployed on-premise web servers, assess for readiness and migrate apps including content & supported config to App Service. 
 
 These tools are developed to support wide variety of scenarios focused on scope of web app discovery, assessment, and migration. Following is the list of migration tools and recommended use cases. 
 
@@ -33,21 +33,21 @@ You may currently migrate ASP.Net web apps from single IIS server discovered via
 
 Intent: discover how to assess and migrate at scale. 
 
-Blog: [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azure.microsoft.com/en-us/blog/discover-and-assess-aspnet-apps-atscale-with-azure-migrate/)
+Blog: [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azure.microsoft.com/blog/discover-and-assess-aspnet-apps-atscale-with-azure-migrate/)
 
 Video: [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate) 
 
-How-to: [Discover software inventory on on-premises servers with Azure Migrate](https://docs.microsoft.com/en-us/azure/migrate/how-to-discover-applications) 
+How-to: [Discover software inventory on on-premises servers with Azure Migrate](../migrate/how-to-discover-applications) 
 
-How-to: [Discover web apps and SQL Server instances](https://docs.microsoft.com/en-us/azure/migrate/how-to-discover-sql-existing-project)
+How-to: [Discover web apps and SQL Server instances](../migrate/how-to-discover-sql-existing-project)
 
-How-to: [Create an Azure App Service assessment](https://docs.microsoft.com/en-us/azure/migrate/how-to-create-azure-app-service-assessment)
+How-to: [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment)
 
-How-to: Tutorial to assess web apps for migration to Azure App Service(https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-webapps) 
+How-to: Tutorial to assess web apps for migration to Azure App Service(../migrate/tutorial-assess-webapps) 
 
-FAQ: [Azure App Service assessments in Azure Migrate Discovery and assessment tool](https://docs.microsoft.com/en-us/azure/migrate/concepts-azure-webapps-assessment-calculation)
+FAQ: [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation)
  
-Best practices: [Assessment best practices in Azure Migrate Discovery and assessment tool](https://docs.microsoft.com/en-us/azure/migrate/best-practices-assessment)
+Best practices: [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment)
 
 ## Discovery, Assessment and Migration of ASP.Net Web Apps for an IIS Web Server 
 
@@ -81,6 +81,6 @@ Sometimes you have a web application that runs on the full .NET Framework and ha
 
 The App Containerization tool offers a point-and-containerize approach to repackage applications as containers with minimal to no code changes by using the running state of the application. The tool currently supports containerizing ASP.NET applications and Java web applications running on Apache Tomcat. 
 
-Blog: Accelerate application modernization with Azure Migrate: App Containerization(https://azure.microsoft.com/en-us/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) 
+Blog: Accelerate application modernization with Azure Migrate: App Containerization(https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) 
 
-How-to: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure App Service(https://docs.microsoft.com/en-us/azure/migrate/tutorial-app-containerization-aspnet-app-service)
+How-to: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure App Service(../migrate/tutorial-app-containerization-aspnet-app-service)
