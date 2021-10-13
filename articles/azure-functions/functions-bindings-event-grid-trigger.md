@@ -31,8 +31,6 @@ The code in this reference defaults to .NET Core syntax, used in Functions versi
 
 # [In-process](#tab/in-process)
 
-### CloudEvent type
-
 The following example shows a Functions version 3.x function that uses a `CloudEvent`  binding parameter:
 
 ```cs
@@ -56,37 +54,11 @@ namespace Company.Function
 }
 ```
 
-### EventGridEvent type
+The following example shows a Functions version 3.x function that uses an `EventGridEvent` binding parameter:
 
-The following example shows a Functions 3.x [C# function](functions-dotnet-class-library.md) that binds to an `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Azure.Messaging.EventGrid;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridEventTriggerFunction
-    {
-        [FunctionName("EventGridEventTriggerFunction")]
-        public static void Run(
-            ILogger logger,
-            [EventGridTrigger] EventGridEvent e)
-        {
-            logger.LogInformation("Event received {type} {subject}", e.EventType, e.Subject);
-        }
-    }
-}
-```
-
-The following example shows a C# function that uses an `EventGridEvent` binding parameter:
-
-```cs
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
@@ -104,9 +76,6 @@ namespace Company.Function
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
-
-### JObject type
 
 The following example shows a function that uses a  `JObject`  binding parameter:
 
@@ -159,8 +128,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-### EventGridEvent type
-
 Here's an example of a C# script function that uses an  `EventGridEvent` binding parameter:
 
 ```csharp
@@ -176,7 +143,6 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 
 For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
 
-### JObject type
 
 Here's an example of a C# script function that uses a `JObject` binding parameter:
 
