@@ -15,7 +15,7 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 ## Create an App Service plan
 
 > [!TIP]
-> If you have an App Service Environment, see [Create an App Service plan in an App Service Environment](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> If you wan't to create a plan in an App Service Environment, you can select it in the **Region** and follow the rest of the steps as described below.
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 

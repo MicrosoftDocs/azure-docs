@@ -513,7 +513,7 @@ If you are experiencing some unexpected performance issues, make sure that you a
 
 ## Delta Lake
 
-Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
+There are some limitations and known issues that you might see in Delta Lake support in serverless SQL pools.
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
@@ -744,7 +744,7 @@ There are some general system constraints that may affect your workload:
 | Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
 | Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
 | Max query duration | 30 min |
-| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max size of the result set | up to 200 GB (shared between concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ## Next steps
