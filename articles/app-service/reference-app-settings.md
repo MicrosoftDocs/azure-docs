@@ -69,8 +69,14 @@ The following table shows environment variables prefixes that App Service uses f
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `AZUREFILESSTORAGE_` | A connection string to a custom Azure file share for a container app. |
-| `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
+| `AZUREFILESSTORAGE_` | A connection string to a custom share for a container app in Azure Files. |
+| `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a container app in Azure Blob Storage. |
+| `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Signifies a connection string to an instance of Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Signifies a connection string to an event hub in Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Signifies a connection string to a database in Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Signifies a connection string to a cache in Azure Cache for Redis. |
+| `FILESHARESTORAGE_` | Signifies a connection string to a custom file share. |
 
 ## Deployment
 
@@ -566,6 +572,9 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAG_WHITELIST` | Read-only. Contains the tags in the notification registration. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
+
+>[!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

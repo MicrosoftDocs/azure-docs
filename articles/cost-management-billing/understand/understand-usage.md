@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 10/11/2021
 ms.author: banders
 ---
 
@@ -107,6 +107,8 @@ _<sup>**1**</sup> Fields used to build a unique ID for a single cost record._
 
 Note some fields may differ in casing and spacing between account types.
 Older versions of pay-as-you-go usage files have separate sections for the statement and daily usage.
+
+For customers with an MCA agreement, note that there are changes to values for the `PublisherType` field. For more information, see [Changes to Publisher type values](../costs/group-filter.md#publisher-type-value-changes).
 
 ### List of terms from older APIs
 The following table maps terms used in older APIs to the new terms. Refer to the above table for those descriptions.

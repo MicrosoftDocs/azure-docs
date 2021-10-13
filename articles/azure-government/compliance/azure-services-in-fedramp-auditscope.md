@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 09/07/2021
+ms.date: 09/24/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -144,13 +144,14 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | |
+| [Azure Sign-up portal](https://signup.azure.com/) | | | &#x2705; |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | |
 | [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; | |
+| [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) | | | &#x2705; |
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (incl. [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/)) | &#x2705; | &#x2705; | |
 | [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | |
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | |
 | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | |
-| [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | |
 | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | &#x2705; | &#x2705; | |
 | [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) | &#x2705; | &#x2705; | |
 | [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | |
@@ -176,7 +177,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | |
 | [Data Factory](https://azure.microsoft.com/services/data-factory/) | &#x2705; | &#x2705; | |
-| [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (formerly Common Data Service) | &#x2705; | &#x2705; | |
+| [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | &#x2705; | &#x2705; | |
 | [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | |
 | [Dynamics 365 Commerce](https://dynamics.microsoft.com/commerce/overview/)| &#x2705; | &#x2705; | |
 | [Dynamics 365 Customer Service](https://dynamics.microsoft.com/customer-service/overview/)| &#x2705; | &#x2705; | |
@@ -212,6 +213,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | |
 | [Power Apps Portal](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | |
+| [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | |
 | [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | &#x2705; | &#x2705; | |
 | [Power Data Integrator](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | |
 | [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | &#x2705; | &#x2705; | |
@@ -220,7 +222,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; | |
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | |
-| [Storage: Data Movement)](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
+| [Storage: Data Movement](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | |

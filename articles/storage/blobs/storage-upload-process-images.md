@@ -30,12 +30,12 @@ In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 
-> * Create a storage account
-> * Create a container and set permissions
-> * Retrieve an access key
-> * Deploy a web app to Azure
-> * Configure app settings
-> * Interact with the web app
+> - Create a storage account
+> - Create a container and set permissions
+> - Retrieve an access key
+> - Deploy a web app to Azure
+> - Configure app settings
+> - Interact with the web app
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To complete this tutorial, you need an Azure subscription. Create a [free accoun
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, run Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+To install and use the CLI locally, run Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -51,7 +51,7 @@ The following example creates a resource group named `myResourceGroup`.
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location southeastasia
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name myResourceGroup -Location southeastasia
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurecli
 az group create --name myResourceGroup --location southeastasia
@@ -136,7 +136,7 @@ az storage container create --name thumbnails \
 
 ---
 
-Make a note of your Blob storage account name and key. The sample app uses these settings to connect to the storage account to upload the images. 
+Make a note of your Blob storage account name and key. The sample app uses these settings to connect to the storage account to upload the images.
 
 ## Create an App Service plan
 
@@ -166,11 +166,11 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository.
 
-In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` isn't unique, you get the error message: *Website with given name `<web_app>` already exists.* The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
+In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` isn't unique, you get the error message: *Website with given name `<web_app>` already exists.* The default URL of the web app is `https://<web_app>.azurewebsites.net`.
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command.  
+Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command.
 
 ```powershell
 $webapp="<web_app>"
@@ -180,7 +180,7 @@ New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan my
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp) command.  
+Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp) command.
 
 ```azurecli
 webapp="<web_app>"

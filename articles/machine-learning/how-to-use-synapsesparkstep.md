@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Link your Azure Synapse Analytics workspace to your Azure machine learning pipeline to use Apache Spark for data manipulation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021

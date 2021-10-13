@@ -62,7 +62,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace <your-unique-keyvault-name> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurecli-interactive
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "eastus" --enabled-for-disk-encryption
