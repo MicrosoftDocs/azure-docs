@@ -274,6 +274,20 @@
         href: sap-high-availability-installation-wsfc-file-share.md              
       - name: Mlti-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+- name: Automation framework (Azure VMs)
+  items:
+  - name: About deployment automation framework
+    href: automation-deployment-framework.md
+  - name: Get started with automation framework
+    href: automation-get-started.md
+  - name: Download and prepare software media
+    href: automation-software.md
+  - name: Run automation framework on Cloud Shell
+    href: automation-run-from-cloud-shell.md
+  - name: Run automation framework on Linux
+    href: automation-run-from-linux.md
+  - name: Run automation framework on Windows
+    href: automation-run-from-windows.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
