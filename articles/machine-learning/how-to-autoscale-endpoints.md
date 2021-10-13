@@ -18,6 +18,8 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](/azure-monitor/autoscale/autoscale-overview.md).
 
+:::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
+
 Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
