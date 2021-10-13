@@ -135,6 +135,8 @@ page.
 
 * Learn how to [enable and manage private
   access](howto-hyperscale-private-access.md) (preview)
+* Follow a [tutorial](tutorial-hyperscale-private-access.md) to see
+  private access (preview) in action.
 * Learn about [private
   endpoints](/azure/private-link/private-endpoint-overview)
 * Learn about [virtual
