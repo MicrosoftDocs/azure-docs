@@ -519,6 +519,9 @@
           - name: Auto-train a forecast model
             displayName: time series
             href: how-to-auto-train-forecast.md
+          - name: Prep image data for computer vision models (Python)
+            displayName: SDK, automl, image, datasets, conversion scripts, schema
+            href: how-to-prepare-datasets-for-automl-images.md
           - name: Auto-train computer vision models (Python)
             displayName: SDK, automl, image
             href: how-to-auto-train-image-models.md
@@ -772,6 +775,9 @@
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
+    - name: Image data schemas for AutoML
+      displayName: automl, schema, data
+      href: reference-automl-images-schema.md
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
