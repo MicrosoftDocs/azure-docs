@@ -205,17 +205,3 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 Learn more about Azure Cache for Redis features.
 
 - [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
-
-<!-- IMAGES 
-
-[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-persistence/redis-cache-premium-pricing-tier.png
-
-[redis-cache-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-persistence.png
-
-[redis-cache-rdb-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-rdb-persistence.png
-
-[redis-cache-aof-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-aof-persistence.png
-
-[redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
-
--->
