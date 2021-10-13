@@ -198,7 +198,7 @@ conceptualContent:
                - itemType: quickstart
                  text: Try Form Recognizer (analyze ID)
                  url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
-      
+
                - title: Custom model
                  links:
                    - itemType: concept
@@ -223,6 +223,7 @@ conceptualContent:
                      text: Try Form Recognizer (analyze a custom form)
                      url: https://fott-2-1.azurewebsites.net/
 
+    
     # - title: Microsoft tech community
     #   linkLists:
     #     - itemType: reference
@@ -262,7 +263,7 @@ conceptualContent:
     #           url: https://fott-2-1.azurewebsites.net/
 
 
-   
+
     # - title: Get stated with the labeling tool
     #   linkLists:
     #     - itemType: how-to-guide
