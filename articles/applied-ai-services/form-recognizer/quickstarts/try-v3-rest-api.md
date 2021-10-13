@@ -11,7 +11,7 @@ ms.date: 10/07/2021
 ms.author: lajanuar
 ---
 
-# Quickstart: Form Recognizer REST API  | Preview
+# Quickstart: REST API  | Preview
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
