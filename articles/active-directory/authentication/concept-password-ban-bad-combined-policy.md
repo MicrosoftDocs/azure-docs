@@ -1,6 +1,6 @@
 ---
 title: Combined password policy and weak password check in Azure Active Directory
-description: Learn how to dynamically ban weak passwords from your environment with Azure Active Directory Password Protection
+description: Learn about the combined password policy and weak password check in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
