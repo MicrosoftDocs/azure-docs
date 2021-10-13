@@ -274,7 +274,7 @@ landingContent:
           - text: Support and help options
             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
   - title: About Azure Form Recognizer
-  linkLists:
+    linkLists:
     - linkListType: overview
       links:
         - text: What is Azure Form Recognizer?
