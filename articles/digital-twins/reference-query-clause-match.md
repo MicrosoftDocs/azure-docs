@@ -83,7 +83,7 @@ The building and sensor are both included in the query result.
 ```sql
 SELECT building, sensor FROM DIGITALTWINS 
 MATCH (building)-[]->(sensor) 
-WHERE building.$dtId= 'Building21' AND sensor.temp > 50  
+WHERE building.$dtId= 'Building21' AND sensor.temperature > 50  
 ```
 
 ## Specify relationship direction
@@ -132,34 +132,34 @@ MATCH (source_twin)-[]-(target_twin)
 
 ### Examples
 
-The first example shows a **left-to-right** directional traversal. This query finds twins T and C where...
-* T has a relationship targeting C (with any relationship name)
-* T's 'temp' value is greater than 50
-* C's `$dtId` is 'ABC'
+The first example shows a **left-to-right** directional traversal. This query finds twins *room* and *factory* where...
+* *room* targets *factory* (with any named type of relationship)
+* *room* has a temperature value that's greater than 50
+* *factory* has a `$dtId` of 'ABC'
 
 ```sql
-SELECT T, C FROM DIGITALTWINS MATCH (T)-[]->(C) 
-WHERE T.temp > 50 AND C.$dtId = 'ABC' 
+SELECT room, factory FROM DIGITALTWINS MATCH (room)-[]->(factory) 
+WHERE room.temperature > 50 AND factory.$dtId = 'ABC' 
 ```
 
-The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between T and C is reversed. This query finds twins T and C where...
-* C has a relationship targeting T (with any relationship name)
-* C's `$dtId` is 'ABC'
-* T's 'temp' value is greater than 50
+The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between *room* and *factory* is reversed. This query finds twins *room* and *factory* where...
+* *factory* targets *room* (with any named type of relationship)
+* *factory* has a `$dtId` of 'ABC'
+* *room* has a temperature value that's greater than 50
 
 ```sql
-SELECT T, C FROM DIGITALTWINS MATCH (T)<-[]-(C) 
-WHERE C.$dtId = 'ABC' AND T.temp > 50  
+SELECT room, factory FROM DIGITALTWINS MATCH (room)<-[]-(factory) 
+WHERE factory.$dtId = 'ABC' AND room.temperature > 50  
 ```
 
-The following example shows a **non-directional** traversal. This query finds twins T and C where...
-* T and C share any type of relationship, going in either direction
-* T's `$dtId` is 'ABC'
-* C's humidity value is greater than 70
+The following example shows a **non-directional** traversal. This query finds twins *room* and *factory* where...
+* *room* and *factory* share any type of relationship, going in either direction
+* *factory* has a `$dtId` of 'ABC'
+* *room* has a humidity value that's greater than 70
 
 ```sql
-SELECT T, C FROM DIGITALTWINS MATCH (T)-[]-(C) 
-WHERE T.$tdid ='ABC'  AND C.humidity > 70 
+SELECT factory, room FROM DIGITALTWINS MATCH (factory)-[]-(room) 
+WHERE factory.$dtId ='ABC'  AND room.humidity > 70 
 ```
 
 ## Specify relationship name
@@ -204,34 +204,34 @@ MATCH (twin_1)-[]-(twin_2)
 
 ### Examples
 
-The following example shows a **single relationship name**. This query finds twins t and c where...
-* t has a 'contains' relationship to c (going in either direction)
-* t has a `$dtId` of ABC
+The following example shows a **single relationship name**. This query finds twins *building* and *sensor* where...
+* *building* has a 'contains' relationship to *sensor* (going in either direction)
+* *building* has a `$dtId` of 'Seattle21'
 
 ```sql
-SELECT t, c FROM DIGITALTWINS   
-MATCH (t)-[:contains]-(c)  
-WHERE t. $dtId = 'ABC'
+SELECT building, sensor FROM DIGITALTWINS   
+MATCH (building)-[:contains]-(sensor)  
+WHERE building.$dtId = 'Seattle21'
 ```
 
-The following example shows **multiple possible relationship names**. This query looks similar to the one above, but there are multiple possible relationship names that are included in the result. This query finds twins t and c where...
-* t has either a 'contains' or 'isAssociatedWith' relationship to c (going in either direction)
-* t has a `$dtId` of ABC
+The following example shows **multiple possible relationship names**. This query looks similar to the one above, but there are multiple possible relationship names that are included in the result. This query finds twins *building* and *sensor* where...
+* *building* has either a 'contains' or 'isAssociatedWith' relationship to *sensor* (going in either direction)
+* *building* has a `$dtId` of 'Seattle21'
 
 ```sql
-SELECT t, c FROM DIGITALTWINS   
-MATCH (t)-[:contains|isAssociatedWith]-(c)  
-WHERE t. $dtId = 'ABC'
+SELECT building, sensor FROM DIGITALTWINS   
+MATCH (building)-[:contains|isAssociatedWith]-(sensor)  
+WHERE building.$dtId = 'Seattle21'
 ```
 
-The following example has **no specified relationship name**. As a result, relationships with any name will be included in the query result. This query finds twins t and c where...
-* t has a relationship to c with any name (and going in either direction)
-* t has a `$dtId` of ABC
+The following example has **no specified relationship name**. As a result, relationships with any name will be included in the query result. This query finds twins *building* and *sensor* where...
+* *building* has a relationship to *sensor* with any name (and going in either direction)
+* *building* has a `$dtId` of 'Seattle21'
 
 ```sql
-SELECT t, c FROM DIGITALTWINS   
-MATCH (t)-[]-(c)  
-WHERE t. $dtId = 'ABC'
+SELECT building, sensor FROM DIGITALTWINS   
+MATCH (building-[]-(sensor)  
+WHERE building.$dtId = 'Seattle21'
 ```
 
 ## Specify number of hops
@@ -284,7 +284,7 @@ MATCH (twin_1)-[]-(twin_2)
 
 ### Examples
 
-The following example specifies an **exact number of hops**. The query will only return relationships between twins r and c that are exactly 3 hops.
+The following example specifies an **exact number of hops**. The query will only return relationships between twins *r* and *c* that are exactly 3 hops.
 
 ```sql
 SELECT * FROM DIGITALTWINS 
@@ -292,7 +292,7 @@ MATCH (r)-[*3]-(c)
 WHERE r.$dtId = '0'
 ```
 
-The following example specifies a **range of hops**. The query will return relationships between twins r and c that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
+The following example specifies a **range of hops**. The query will return relationships between twins *r* and *c* that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
 
 ```sql
 SELECT * FROM DIGITALTWINS 
@@ -300,7 +300,7 @@ MATCH (r)-[*1..3]-(c)
 WHERE r.$dtId = '0'
 ```
 
-You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins r and c that are at most 2 hops (meaning the number of hops is either 1 or 2).
+You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins *r* and *c* that are at most 2 hops (meaning the number of hops is either 1 or 2).
 
 ```sql
 SELECT * FROM DIGITALTWINS 
@@ -340,7 +340,7 @@ MATCH (twin_1)-[relationship_variable]-(twin_2>)
 
 ### Examples
 
-The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship r should have a length property that's equal to 10.
+The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship *r* should have a length property that's equal to 10.
 
 ```sql
 SELECT t, c, r FROM DIGITALTWINS   
@@ -388,12 +388,12 @@ WHERE twin_or_twin_collection.$dtId = 'twin_ID'
 
 ### Examples
 
-Here's an example that combines **relationship direction, relationship name, and number of hops**. The following query finds twins t and c, where the relationship between t and c meets these conditions:
-* the relationship is left-to-right, with t as the source and c as the target
+Here's an example that combines **relationship direction, relationship name, and number of hops**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* meets these conditions:
+* the relationship is left-to-right, with *t* as the source and *c* as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops
 
-The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
@@ -401,12 +401,12 @@ MATCH (t)-[:contains|isAssociatedWith*3..5]->(c)
 WHERE t.$dtId = 'thermostat-15'
 ```
 
-Here is an example that combines **relationship direction, relationship name, and a named query variable for the relationship**. The following query finds twins t and c, where the relationship between t and c is assigned to a query variable r and meets these conditions:
-* the relationship is left-to-right, with t as the source and c as the target
+Here is an example that combines **relationship direction, relationship name, and a named query variable for the relationship**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* is assigned to a query variable *r* and meets these conditions:
+* the relationship is left-to-right, with *t* as the source and *c* as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
-* the relationship, which is given a query variable r, has a length property equal to 10
+* the relationship, which is given a query variable *r*, has a length property equal to 10
 
-The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
@@ -414,30 +414,30 @@ MATCH (t)-[r:contains|isAssociatedWith]->(c)
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10
 ```
 
-The following example illustrates **chained** relationship conditions. The query finds twins t1, t2, and c, where...
-* the relationship between t1 and c meets these conditions:
-    - the relationship is left-to-right, with t as the source and c as the target
+The following example illustrates **chained** relationship conditions. The query finds twins *t1*, *t2*, and *c*, where...
+* the relationship between *t1* and *c* meets these conditions:
+    - the relationship is left-to-right, with *t* as the source and *c* as the target
     - the relationship has a name of either 'contains' or 'isAssociatedWith'
-    - the relationship, which is given query variable r, has a length property equal to 10
-* the relationship between c and t2 meets these conditions:
-    - the relationship is right-to-left, with t2 as the source and c as the target
+    - the relationship, which is given query variable *r*, has a length property equal to 10
+* the relationship between *c* and *t2* meets these conditions:
+    - the relationship is right-to-left, with *t2* as the source and *c* as the target
     - the relationship has a name of either 'has' or 'includes'
     - the relationship has up to 3 (so 1, 2, or 3) hops
 
-The query also specifies that twin t1 has a `$dtId` of 'thermostat-15' and twin t2 has a temperature of 55.
+The query also specifies that twin *t1* has a `$dtId` of 'thermostat-15' and twin *t2* has a temperature of 55.
 
 ```sql
 SELECT t1, t2, c FROM DIGITALTWINS    
 MATCH (t1)-[r:contains|isAssociatedWith]->(c)<-[has|includes*..3]-(t2)  
-WHERE t1.$dtId = 'thermostat-15'  AND r.length = 10 AND t2.temp = 55  
+WHERE t1.$dtId = 'thermostat-15'  AND r.length = 10 AND t2.temperature = 55  
 ```
 
-You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins t and c, where the relationship between t and c is assigned to a query variable r and meets these conditions:
-* the relationship is bi-directional, so it goes from t to c and also from c to t
+You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* is assigned to a query variable *r* and meets these conditions:
+* the relationship is bi-directional, so it goes from *t* to *c* and also from *c* to t
 * the relationship has a name of 'isAssociatedWith'
-* the relationship, given a variable name of r, has a length property of 10
+* the relationship, given a variable name of *r*, has a length property of 10
 
-The query also specifies that twin t has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 SELECT t, c FROM DIGITALTWINS    
