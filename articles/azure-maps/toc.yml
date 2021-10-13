@@ -285,6 +285,8 @@ items:
       href: power-bi-visual-add-bubble-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a heat map layer
+      href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer

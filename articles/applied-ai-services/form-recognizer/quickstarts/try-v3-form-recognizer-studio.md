@@ -205,4 +205,8 @@ To label for signature detection:
 
 ## Next steps
 
+* Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Explore our [**preview SDK quickstarts**](try-v3-python-sdk.md) to try the preview features in your applications using the new SDKs.
+* Refer to our [**preview REST API quickstarts**](try-v3-rest-api.md) to try the preview features using the new RESt API.
+
 [Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
