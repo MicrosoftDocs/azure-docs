@@ -301,7 +301,7 @@ Format:
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
     "error": {
-        "name": "NotFound|Forbidden|Timeout|InternalServerError",
+        "name": "Forbidden|InternalServerError|Duplicate|InvocationFailed",
         "message": "<error_detail>"
     }
 }
