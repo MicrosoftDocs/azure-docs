@@ -3,33 +3,35 @@
 - name: Overview
   items:
   - name: What is Azure Chaos Studio?
-    href: chaos-studio-overviews.md 
+    href: chaos-studio-overview.md 
   - name: What is chaos engineering?
     href: chaos-studio-chaos-engineering-overview.md
-- name: Quickstarts
-  items:
-  - name: Cause a DNS outage using the network security group fault
-    href: chaos-studio-quickstart-dns-outage.md
 - name: Tutorials
   items:
-  - name: Create and run an experiment that uses service-direct faults
-    href: chaos-studio-tutorial-service-direct.md
-  - name: Create and run an experiment that uses agent-based faults
-    href: chaos-studio-tutorial-agent-based.md
-  - name: Create and run an experiment that uses Chaos Mesh faults on AKS
-    href: chaos-studio-tutorial-aks.md
+  - name: Run and manage experiment
+    href: chaos-studio-run-experiment.md
+  - name: Cause a DNS outage using the network security group fault
+    href: chaos-studio-quickstart-dns-outage.md
 - name: Samples
   items:
   - name: Azure REST API 
     href: chaos-studio-samples-rest-api.md
 - name: Concepts
   items:
+  - name: Chaos experiments
+    href: chaos-studio-chaos-experiments.md
+  - name: Faults and actions
+    href: chaos-studio-faults-actions.md
   - name: What is chaos engineering?
     href: chaos-studio-chaos-engineering-overview.md
 - name: How-to guides
   items:
-  - name: Run and manage an experiment
-    href: chaos-studio-run-experiment.md
+  - name: Create and run experiment - Service-direct faults
+    href: chaos-studio-tutorial-service-direct.md
+  - name: Create and run experiment - Agent-based faults
+    href: chaos-studio-tutorial-agent-based.md
+  - name: Create and run experiment - Chaos Mesh faults on AKS
+    href: chaos-studio-tutorial-aks.md
 - name: Reference
   items:
   - name: Fault library
