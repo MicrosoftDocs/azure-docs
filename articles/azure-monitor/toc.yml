@@ -661,7 +661,7 @@
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
-    - name: Code-based monitoring
+    - name: Manual instrumentation
       items:
       - name: .NET
         items:
@@ -736,7 +736,7 @@
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
-    - name: Codeless monitoring
+    - name: Azure service integration
       items: 
       - name: Overview
         href: app/codeless-overview.md
@@ -762,7 +762,7 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: On-Premises servers
+      - name: Auto instrumentation
         items:
         - name: ASP.NET
           items:
