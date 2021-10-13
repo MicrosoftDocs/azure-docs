@@ -93,7 +93,7 @@ For most subscriptions, you can download your invoice in the Azure portal.
 1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
 1. In the navigation menu, select **Invoices**. The Invoices page shows all the invoices and credit memos generated for the last 12 months.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/invoices-page.png" alt-text="Screenshot showing the Invoices page." lightbox="./media/direct-ea-azure-usage-charges-invoices/invoices-page.png" :::
-    .png
+    
 1. On the invoice page, find the row of the invoice that you want to download. To the right of the row, select the ellipsis (**…**) symbol.
 1. In the context menu, select **Download**.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-context-menu.png" alt-text="Screenshot showing the Download context menu."  :::
