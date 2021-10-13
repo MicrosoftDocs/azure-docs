@@ -44,11 +44,11 @@ This tutorial uses the following library:
 
 ## Get the completed code sample
 
-Prefer to download this tutorial's completed sample project instead? To run the project by using a local web server, such as Node.js, clone the [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) repository:
+Prefer to download this tutorial's completed sample project instead? Clone the [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) repository. 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-Then, to configure the downloaded code sample, start by creating a localhost server for your application as described in step 1 of [create your project](#create-your-project). Once done, skip to the [configuration step](#register-your-application).
+To run the downloaded project on your local development environment, start by creating a localhost server for your application as described in step 1 of [create your project](#create-your-project). Once done, you can configure the code sample by skipping to the [configuration step](#register-your-application).
 
 To continue with the tutorial and build the application yourself, move on to the next section, [Create your project](#create-your-project).
 
