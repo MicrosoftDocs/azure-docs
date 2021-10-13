@@ -109,7 +109,8 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 
     The response that the "http://httpbin.org/headers" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
   
-> [!NOTE] It can be important to understand how the host for the backend API you are integrating with handles trailing slashes on an operation URL. For more information, please see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
+>[!NOTE] 
+> It can be important to understand how the host for the backend API you are integrating with handles trailing slashes on an operation URL. For more information, please see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
