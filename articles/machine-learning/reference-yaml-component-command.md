@@ -9,11 +9,13 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) command component YAML schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -86,19 +88,15 @@ ms.reviewer: laobri
 
 The `az ml component` commands can be used for managing Azure Machine Learning components.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Command component examples are available in the examples GitHub repository. Select examples for are shown below.
 
-# [JSON](#tab/json)
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipeline-with-components). Several are shown below.
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/commandJob.schema.json":::
+## Hello world command component
 
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/commandJob.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
 
 ## Next steps
 

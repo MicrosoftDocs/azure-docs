@@ -9,7 +9,7 @@ ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
-ms.date: 10/01/2021
+ms.date: 10/21/2021
 ms.custom: how-to, studio, managed-batch-endpoints
 ---
 

@@ -2,7 +2,7 @@
 title: Manage Azure file share backups
 description: This article describes common tasks for managing and monitoring the Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 10/08/2021
 ---
 
 # Manage Azure file share backups
@@ -25,31 +25,65 @@ To open the **Backup Jobs** page:
 
 ## Monitor using Azure Backup reports
 
-Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md).These resources help you get rich insights into your backups. You can leverage these reports to gain visibility into Azure Files backup items, jobs at item level and details of active policies. Using the Email Report feature available in Backup Reports, you can create automated tasks to receive periodic reports via email.[Learn](/azure/backup/configure-reports#get-started) how to configure and view Azure Backup reports.
+Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights into your backups. You can leverage these reports to gain visibility into Azure Files backup items, jobs at item level and details of active policies. Using the Email Report feature available in Backup Reports, you can create automated tasks to receive periodic reports via email.[Learn](/azure/backup/configure-reports#get-started) how to configure and view Azure Backup reports.
 
 ## Create a new policy
 
 You can create a new policy to back up Azure file shares from the **Backup policies** section of the Recovery Services vault. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
 
+To create a new backup policy, follow these steps:
+
+1. In the **Backup policies** pane of the Recovery Services vault, select **+ Add**.
+
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="Screenshot showing the option to start creating a new backup policy.":::
+
+1. In the **Add** pane, select **Azure File Share** as the **Policy Type**.
+
+   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Screenshot showing to select Azure File Share as the policy type.":::
+
+1. As the **Backup policy** pane for **Azure File Share** opens, specify the policy name.
+
+1. In **Backup schedule**,  select an appropriate frequency for the backups - **Daily** or **Hourly**.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="Screenshot showing the frequency types for backups.":::
+
+   - **Daily**: Triggers one backup per day. For daily frequency, select the appropriate values for:
+
+     - **Time**: The timestamp when the backup job needs to be triggered.
+     - **Time zone**: The corresponding time zone for the backup job.
+
+   - **Hourly**: Triggers multiple backups per day. For hourly frequency, select the appropriate values for:
+   
+     - **Schedule**: The time interval (in hours) between the consecutive backups.
+     - **Start time**: The time when the first backup job of the day needs to be triggered.
+     - **Duration**: Represents the backup window (in hours), that is, the time span in which the backup jobs need to be triggered as per the selected schedule.
+     - **Time zone**: The corresponding time zone for the backup job.
+     
+     For example, you’ve the RPO (recovery point objective) requirement of 4 hours and your working hours are 9 AM to 9 PM. To meet these requirements, the configuration for backup schedule would be:
+    
+     - Schedule: Every 4 hours
+     - Start time: 9 AM 
+     - Duration: 12 hours 
+     
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="Screenshot showing an example of hourly backup frequency values.":::
+
+     Based on your selection, the backup job details (the time stamps when backup job would be triggered) display on the backup policy blade.
+
+1. In **Retention range**, specify appropriate retention values for backups - tagged as daily, weekly, monthly, or yearly.
+
+1. After defining all attributes of the policy, click **Create**.
+  
+### View policy
+
 To view the existing backup policies:
 
 1. Open the Recovery Services vault you used to configure the backup for the file share. On the Recovery Services vault menu, select **Backup policies** under the **Manage** section. All the backup policies configured in the vault appear.
 
-   ![All backup policies](./media/manage-afs-backup/all-backup-policies.png)
+   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="Screenshot showing the all backup policies.":::
 
 1. To view policies specific to **Azure File Share**, select **Azure File Share** from the drop-down list on the upper right.
 
-   ![Select Azure File Share](./media/manage-afs-backup/azure-file-share.png)
-
-To create a new backup policy:
-
-1. In the **Backup policies** pane, select **+ Add**.
-
-   ![New backup policy](./media/manage-afs-backup/new-backup-policy.png)
-
-1. In the **Add** pane, select **Azure File Share** as the **Policy Type**. The **Backup policy** pane for **Azure File Share** opens. Specify the policy name, backup frequency, and retention range for the recovery points. After you define the policy, select **OK**.
-
-   ![Define the backup policy](./media/manage-afs-backup/define-backup-policy.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Screenshot showing the process to select Azure File Share.":::
 
 ## Modify policy
 
@@ -126,7 +160,7 @@ To resume protection for the Azure file share:
 
 ## Delete backup data
 
-You can delete the backup of a file share during the **Stop backup** job, or any time after you stop protection. It might be beneficial to wait days or even weeks before you delete the recovery points. When you delete backup data, you can't choose specific recovery points to delete. If you decide to delete your backup data, you delete all recovery points associated with the file share.
+You can delete the backup of a file share during the **Stop backup** job, or anytime after you stop protection. It might be beneficial to wait days or even weeks before you delete the recovery points. When you delete backup data, you can't choose specific recovery points to delete. If you decide to delete your backup data, you delete all recovery points associated with the file share.
 
 The following procedure assumes that the protection was stopped for the file share.
 

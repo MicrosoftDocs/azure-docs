@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/08/2021
+ms.date: 10/21/2021
 ---
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning

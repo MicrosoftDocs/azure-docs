@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/14/2020
+ms.date: 10/21/2021
 ---
 
 # Open-source integration with Azure Machine Learning projects

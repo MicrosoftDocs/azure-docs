@@ -9,11 +9,13 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) compute instance YAML schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -40,27 +42,13 @@ ms.reviewer: laobri
 
 The `az ml compute` command can be used for managing Azure Machine Learning compute instances.
 
-### Minimal
+## YAML: minimal
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
 
-### Basic
+## YAML: basic
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-basic.yml":::
-
-## Schema
-
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json. The schema is provided below in JSON and YAML formats for convenience.
-
-# [JSON](#tab/json)
-
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/computeInstance.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/computeInstance.schema.yml":::
-
----
 
 ## Next steps
 

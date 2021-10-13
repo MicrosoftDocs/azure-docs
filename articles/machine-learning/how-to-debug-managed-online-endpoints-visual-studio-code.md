@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: luisquintanilla
 ms.author:  luquinta
-ms.date: 09/03/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a machine learning engineer, I want to test and debug managed online endpoints locally using Visual Studio Code before deploying them Azure.

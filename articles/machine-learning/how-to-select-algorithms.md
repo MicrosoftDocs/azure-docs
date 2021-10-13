@@ -9,7 +9,7 @@ ms.topic: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 05/07/2020
+ms.date: 10/21/2021
 ---
 # How to select algorithms for Azure Machine Learning
 

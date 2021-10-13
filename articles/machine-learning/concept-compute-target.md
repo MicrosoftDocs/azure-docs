@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -161,7 +161,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

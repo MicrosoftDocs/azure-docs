@@ -9,7 +9,7 @@ ms.topic: sample
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/14/2020
+ms.date: 10/21/2021
 ms.custom: designer
 ---
 # Example pipelines & datasets for Azure Machine Learning designer

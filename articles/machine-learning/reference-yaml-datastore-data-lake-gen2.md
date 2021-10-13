@@ -9,11 +9,13 @@ ms.topic: reference
 
 author: ynpandey
 ms.author: yogipandey
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) Azure Data Lake Gen2 YAML schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -41,19 +43,17 @@ ms.reviewer: laobri
 
 The `az ml datastore` command can be used for managing Azure Machine Learning datastores.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: identity-based access
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/azureDataLakeGen2.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2-credless.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: tenant ID, client ID, client secret
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/azureDataLakeGen2.schema.yml":::
-
----
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen2.yml":::
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 09/30/2021
+ms.date: 10/21/2021
 ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
