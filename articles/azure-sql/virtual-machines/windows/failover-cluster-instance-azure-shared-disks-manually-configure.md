@@ -106,7 +106,7 @@ Follow the steps to add the Azure Shared Disks that were attached to the VM to W
 3. Select **Storage** and select **Disks**. 
 4. Right click **Disks** and select **Add Disk**
     ![Add Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-add-disk.png)
-5. In **Add Disks to a Cluster** window ensure the Azure Shared Disks are selected. Select **Ok**.
+5. In **Add Disks to a Cluster** window ensure the Azure shared disks are selected. Select **Ok**.
     ![Select Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-select-shared-disk.png)
 6. Once the shared disk is added you should be able to see it in Failover Cluster Manager.
     ![Cluster Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-shared-disk.png)
@@ -134,10 +134,10 @@ After you've configured the failover cluster and all cluster components, includi
 
 8. In **Cluster Network Configuration**, if all the SQL Server VMs are in single subnet, enter the IP address that will be [added to Azure Load Balancer](/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure)
 
-9. In **Cluster Network Configuration**,if all the SQL Server VMs that will be part of FCI are in multiple subnet, enter the VM's secondary IP that was dedicated for SQL Server FCI.
+9. In **Cluster Network Configuration**,if all the SQL Server VMs that will be part of FCI are in multiple subnet, enter the first node's secondary IP that was dedicated for SQL Server FCI.
     ![Cluster Network Secondary IP](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm1.png)
 
-10. In **Database Engine Configuration** ensure the database directories are on Azure Shared Disk. 
+10. In **Database Engine Configuration** ensure the database directories are on Azure shared disk. 
 
 11. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
 
@@ -145,7 +145,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 13. Open the **SQL Server Installation Center**, and then select **Installation**.
 
-14. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
+14. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the node to the FCI.
 
 15. For multi subnet scenario, in **Cluster Network Configuration**, enter the second node's secondary IP that was dedicated for SQL Server FCI.
     ![Cluster Network Secondary IP](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm2.png)
@@ -186,7 +186,7 @@ You can configure a virtual network name, or a distributed network name for a fa
 
 ## Next steps
 
-If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+If you haven't already done so, configure connectivity to your single subnet FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 If Azure shared disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
