@@ -21,11 +21,11 @@ This article helps you understand managed identity (formerly known as Managed Se
 
 ## Overview
 
-Managed identities in data factories eliminate the need for data engineers to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Azure AD tokens.
+Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Azure AD tokens.
 
 There are two types of supported managed identities: 
 
-- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you.
+- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you. Azure Synapse Analytics requires that a system-assigned managed identity must be created along with the Synapse workspace.
 - **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory or Synapse workspace. In user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 Managed identity provides the below benefits:
@@ -44,7 +44,7 @@ Managed identity provides the below benefits:
 System-assigned managed identity is generated as follows:
 
 - When creating a data factory or Synapse workspace through **Azure portal or PowerShell**, managed identity will always be created automatically.
-- When creating data factory or Synapse workspace through **SDK**, managed identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example in [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- When creating data factory through **SDK**, managed identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example in [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - When creating data factory or Synapse workspace through **REST API**, managed identity will be created only if you specify "identity" section in request body. See example in [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 If you find your service instance doesn't have a managed identity associated following [retrieve managed identity](#retrieve-managed-identity) instruction, you can explicitly generate one by updating it with identity initiator programmatically:
@@ -57,7 +57,7 @@ If you find your service instance doesn't have a managed identity associated fol
 >[!NOTE]
 >
 >- Managed identity cannot be modified. Updating a service instance which already has a managed identity won't have any impact, and the managed identity is kept unchanged.
->- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
+>- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory or workspace objects or without specifying "identity" section in REST request body, you will get an error.
 >- When you delete a service instance, the associated managed identity will be deleted along.
 
 #### Generate system-assigned managed identity using PowerShell

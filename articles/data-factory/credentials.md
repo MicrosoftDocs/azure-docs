@@ -49,11 +49,11 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 1. If you do not have a user-assigned managed identity created in Azure, first create one in the Azure portal [Managed Identities](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities) page.
 
-1. Associate the user-assigned managed identity to the data factory instance using Azure portal, SDK, PowerShell, REST API. The screenshot below used Azure portal (data factory blade) to associate the user-assigned managed identity.
+1. Associate the user-assigned managed identity to the workspace using Azure portal, SDK, PowerShell, REST API. The screenshot below used Azure portal (Identity blade) to associate the user-assigned managed identity.
 
    :::image type="content" source="media/credentials/synapse-uami-azure-portal.png" alt-text="Screenshot showing how to use Azure portal to associate an user-assigned managed identity.":::
 
-1. Create a **Credential** in data factory user interface interactively. You can select the user-assigned managed identity associated with the data factory in Step 1. 
+1. Create a **Credential** in Synapse Studio interactively. You can select the user-assigned managed identity associated with the workspace in Step 1.
 
    :::image type="content" source="media/credentials/synapse-create-new-credential.png" alt-text="Screenshot showing the creation of new credentials.":::
 
