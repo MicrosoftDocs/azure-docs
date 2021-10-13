@@ -1,5 +1,5 @@
 ---
-title: Install Azure Sentinel content from the Content hub | Microsoft Docs
+title: Centrally discover and deploy Azure Sentinel built-in content and solutions | Microsoft Docs
 description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors and other content.
 services: sentinel
 cloud: na
@@ -17,7 +17,7 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
-# Discover and deploy Azure Sentinel solutions (Public preview)
+# Centrally discover and deploy Azure Sentinel built-in content and solutions (Public preview)
 
 > [!IMPORTANT]
 >
@@ -42,7 +42,7 @@ This article describes how to install solutions in your Azure Sentinel workspace
 
     Filter the list displayed, either by entering any part of a solution name in the **Search** field, or by selecting specific values from the filters. Note that the search functionality only recognizes whole words.
 
-    For more information, see [Content categories](sentinel-solutions.md#content-categories).
+    For more information, see [Azure Sentinel built-in content and solution categories](sentinel-solutions.md#azure-sentinel-built---in-content-and-solution-categories).
 
     > [!TIP]
     > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
