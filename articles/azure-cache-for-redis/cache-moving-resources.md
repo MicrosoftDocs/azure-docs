@@ -12,7 +12,7 @@ ms.date: 8/27/2021
 
 # Move Azure Cache for Redis instances to different regions
 
-In this article, you will learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
+In this article, you'll learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
 - To take advantage of a new Azure region.
 - To deploy features or services available in specific regions only.
 - To meet internal policy and governance requirements.
@@ -105,7 +105,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 Once your new cache in the targeted region is populated with all necessary data, you can remove the link between the two caches and delete the original instance.
 
-1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left .
+1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Unlink caches":::
 
