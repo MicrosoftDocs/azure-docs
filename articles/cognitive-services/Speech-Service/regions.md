@@ -33,7 +33,7 @@ Keep in mind the following points when considering regions:
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Speech-to-text, text-to-speech, translation and speaker recognition
+### Speech-to-text, text-to-speech, and translation
 
 The speech customization portal is available here: https://speech.microsoft.com
 
@@ -85,7 +85,9 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities throug
 | India         | Central India    | `centralindia`       |
 
 ### Speaker Recognition
+
 Available regions for **Speaker Recognition** are the following:
+
 | Geography | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Americas     | Central US   | `centralus` |
@@ -131,5 +133,5 @@ For text-to-speech reference documentation, see [Text-to-speech REST API](rest-t
 
 ### Speaker Recognition
 
-For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
+For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
 
