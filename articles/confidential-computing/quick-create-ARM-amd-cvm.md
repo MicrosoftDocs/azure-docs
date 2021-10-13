@@ -13,9 +13,9 @@ ms.author: RunCai
 
 # Quickstart: Deploy an Azure Confidential virtual machine with Azure Resource Manager template
 
-Get started with Azure confidential computing by using Azure CLI to create a Confidential virtual machine (VM) backed by AMD SEV-SNP to achieve VM memory encryption and isolation. 
+Get started with Azure confidential computing by using Azure CLI to create a confidential virtual machine (VM) backed by AMD SEV-SNP to achieve VM memory encryption and isolation. 
 
-This tutorial is recommended for you if you're interested in deploying a confidential virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md).
+This tutorial is recommended if you're interested in deploying a confidential virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md).
 
 
 ## Prerequisites
@@ -25,29 +25,29 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > [!NOTE]
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
-## Deploy the template
+## Deploy the template through Azure Portal
 
 * Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    [![Deploy to Azure](/media/quick-create-ARM-amd-cvm/ARM-deploy.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fcvmprivatepreviewsa.blob.core.windows.net%2Fcvmpublicpreviewcontainer%2FdeploymentTemplate%2FdeployCPSCVM.json)
+    [![Deploy to Azure](/media/quick-create-ARM-amd-cvm/ARM-deploy.png)](https://aka.ms/deploycvmazure)
 
     - **Subscription**: select an Azure subscription.
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    - **Region**: select a location.  For example, **Central US**.
-    - **VM name**: put your Confidential virtual machine name.
-    - **VM location**: select Confidential virtual machine location. Current supported location includes **West US** and **North Europe**.
-    - **VM size**: select the size to use for the VM.
-    - **OS Image name**: select Guest OS image for your Confidential virtual machine.
+    - **Region**: select a location.  For example, **West US**.
+    - **VM name**: type in your confidential virtual machine name.
+    - **VM location**: select a confidential virtual machine location. Currently supported locations include **West US** and **North Europe**.
+    - **VM size**: select the size of your VM.
+    - **OS Image name**: select the OS image for your VM.
     - **OS disk Type**: select OS disk type.
     - **Admin username**: provide a username, such as *azureuser*.
     - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-    - **Boot Diagnostics**: select whether VM wants to have boot diagnostics capability. False is by default setting.
-    - **Security Type**: select whether OS disk encryption before VM deployment is required or not. **VMGuestStateOnly** is without OS disk encryption before VM deployment. **DiskWithVMGuestState** is to enable full OS disk encryption with platform-managed key before VM deployment.
-    - **Secure Boot Enabled**: choose true if VM wants to have secure boot enabled.
+    - **Boot Diagnostics**: select whether you want the boot diagnostics capability for your VM. False is the default setting.
+    - **Security Type**: select whether you want full OS disk encryption prior to VM deployment. **VMGuestStateOnly** does not offer OS disk encryption. **DiskWithVMGuestState** enable full OS disk encryption using platform-managed keys.
+    - **Secure Boot Enabled**: select true to ensure that only properly signed boot components can load.
 * Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
-## Deploy Confidential virtual machine with Resource Manager template via Azure CLI 
-* CVM Azuredeploy.json file (https://aka.ms/CVMTemplate)
+## Deploy the template through Azure Command-Line Interface
+* Use this confidential VM template file: CVM Azuredeploy.json (https://aka.ms/CVMTemplate)
 * Create a JSON file (for example, Azuredeploy.parameters.json) and copy/paste the following file examples for either Linux or Windows. Edit the parameter file as needed (for example, osImageName, adminUsername, etc.). Reference previous Parameter list for descriptions and allowed values.
 * Linux parameter file example:
 ```bash
