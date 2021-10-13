@@ -42,14 +42,16 @@ If you need more background before getting started, review [this check list](kno
 
 ## Projection requirements
 
-All projections have source and destination properties. The source is from an enrichment tree created during skillset execution. The destination is the name of the object that will be created in Azure Storage.
+All projections have source and destination properties. The source is content from an enrichment tree created during skillset execution. The destination is the name of the object that will be created and loaded in Azure Storage.
 
 With the exception of file projections, which store binary files, the source must be:
 
 + Valid JSON
 + A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
 
-While a node might be a single field, a more common representation is a reference to a complex data shape. Complex data shapes are created through a shaping methodology, either a Shaper skill or inline definition.
+While a node might resolve to a single field, a more common representation is a reference to a complex data shape. Complex data shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill.
+
+Shaper skills are favored because most skills do not output valid JSON objects on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
 
 Given source input requirements, knowing how to [shape data](knowledge-store-projection-shape.md) becomes a practical requirement for projection definition, especially if you are working with tables.
 
@@ -57,7 +59,7 @@ Given source input requirements, knowing how to [shape data](knowledge-store-pro
 
 Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI or workloads that consume data frames. The tables definition is a list of tables that you want to project.
 
-A table projection has three required properties:
+To define a table projection, use the `tables` array in the projections property. A table projection has three required properties:
 
 | Property | Description |
 |----------|-------------|
@@ -84,7 +86,7 @@ The schema of a table is specified partly by the projection (table name and key)
 ]
 ```
 
-Columns provided by an enriched shape like the one shown below will be the HotelId, HotelName, Category, Description.
+Columns are derived from the "source". The following data shape containing HotelId, HotelName, Category, and Description will result in creation of those columns in the table.
 
 ```json
 {
@@ -119,13 +121,18 @@ Columns provided by an enriched shape like the one shown below will be the Hotel
 }
 ```
 
-### Multiple table example
+### Multiple table (slicing) example
 
-A common pattern for table projections is to have multiple tables. All tables are created with partitionKey and rowKey columns to support cross-table relationships.
+A common pattern for table projections is to have multiple related tables, where system-generated partitionKey and rowKey columns are created to support cross-table relationships. Creating multiple tables can be useful for analysis, where you can control if and how related data is aggregated.
 
-The following example shows table projections for enrichments that include Key Phrases and Entity Recognition. Because key phrases and entities are not directly correlated, you would model these projections as separate tables, with a main table that contains a representation of the main document. 
+When projecting to multiple tables, the complete shape is projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection results in the child node being sliced out of the parent node and projected into the new yet related table. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
 
-For example, if you are generating key phrases and location entities from a hotel catalog, the main table would include fields that describe the hotel (ID, name, description, address, category).
+The pattern for multiple tables consists of:
+
++ One table as the parent or main table
++ Additional tables to contain slices of the enriched content
+
+For example, assume a Shaper skills outputs an "EnrichedShape" that contains hotel information, plus enriched content like key phrases, locations, and organizations. The main table would include fields that describe the hotel (ID, name, description, address, category). Key phrases would get the key phrase column. Entities would get the entity columns.
 
 ```json
 "projections" : [
@@ -139,8 +146,6 @@ For example, if you are generating key phrases and location entities from a hote
 ]
 ```
 
-The enrichment node specified in "source" can be sliced to project into multiple tables. Within "EnrichedShape", there are nodes for KeyPhrases and Entities. As you can see from the example above, you can define tables that contain a subset of columns. As noted earlier, generated values provide the basis for table relationships.
-
 ### Naming relationships
 
 The `generatedKeyName` and `referenceKeyName` properties are used to relate data across tables or even across projection types. Each row in the child table has a property pointing back to the parent. The name of the column or property in the child is the `referenceKeyName` from the parent. When the `referenceKeyName` is not provided, the service defaults it to the `generatedKeyName` from the parent. 
@@ -151,11 +156,13 @@ Power BI relies on these generated keys to discover relationships within the tab
 
 Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
 
-To define an object projection, use the `objects` array in the projections property.
+To define an object projection, use the `objects` array in the projections property. An object projection has three required properties:
 
-The source is the path to a node of the enrichment tree that is the root of the projection. Although it is not required, the node path is usually the output of a Shaper skill. This is because most skills do not output valid JSON objects on their own, which means that some form of shaping is necessary. In many cases, the same Shaper skill that creates a table projection can be used to generate an object projection. Alternatively, the source can also be set to a node with [an inline shaping](knowledge-store-projection-shape.md#inline-shape) to provide the structure.
-
-The destination is always a blob container.
+| Property | Description |
+|----------|-------------|
+| storageContainer | Determines the name of a new container created in Azure Storage.  |
+| generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
+| source | A path to a node in an enrichment tree that is the root of the projection. The node is usually a reference to a complex data shape that determines blob structure.|
 
 The following example projects individual hotel documents, one hotel document per blob, into a container called `hotels`.
 
@@ -220,9 +227,13 @@ The source is the output of a Shaper skill, named "objectprojection". Each blob 
 
 File projections are always binary, normalized images, where normalization refers to potential resizing and rotation for use in skillset execution. File projections, similar to object projections, are created as blobs in Azure Storage, and contain the image.
 
-To define a file projection, use the `files` array in the projections property.
+To define a file projection, use the `files` array in the projections property. A files projection has three required properties:
 
-The source is always `/document/normalized_images/*`. File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.
+| Property | Description |
+|----------|-------------|
+| storageContainer | Determines the name of a new container created in Azure Storage.  |
+| generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
+| source | A path to a node in an enrichment tree that is the root of the projection. For images files, the  source is always `/document/normalized_images/*`.  File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.|
 
 The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container. 
 
@@ -245,10 +256,11 @@ The following example projects all normalized images extracted from the document
 
 ## Projecting to multiple types
 
-A more complex scenario might require you to project content across projection types. For example, projecting key phrases and entities to tables, saving OCR results of text and layout text as objects, and then projecting the images as files. 
+A more complex scenario might require you to project content across projection types. For example, projecting key phrases and entities to tables, saving OCR results of text and layout text as objects, and then projecting the images as files.
 
 Steps for multiple projection types:
 
+1. Create data shapes to use for each projection.
 1. Create a table with a row for each document.
 1. Create a table related to the document table with each key phrase identified as a row in this table.
 1. Create a table related to the document table with each entity identified as a row in this table.
@@ -256,9 +268,9 @@ Steps for multiple projection types:
 1. Create a file projection, projecting each extracted image.
 1. Create a cross-reference table that contains references to the document table, object projection with the layout text, and the file projection.
 
-### Shape data for cross-projection
+### Step 1: Shape data for cross-projection
 
-To get the shapes needed for these projections, start by adding a new Shaper skill that creates a shaped object called `crossProjection`. 
+To get the shapes needed for table, object, and file projections, start by adding a new Shaper skill that creates a shaped object called `crossProjection`. 
 
 ```json
 {
@@ -327,7 +339,7 @@ To get the shapes needed for these projections, start by adding a new Shaper ski
 }
 ```
 
-### Define table, object, and file projections
+### Step 2: Define table, object, and file projections
 
 From the consolidated crossProjection object, slice the object into multiple tables, capture the OCR output as blobs, and then save the image as files (also in Blob storage).
 
