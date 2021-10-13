@@ -42,7 +42,7 @@ A hub-and-spoke is a network topology in which you have a virtual network select
 
 In this network topology, you'll have extra settings you can enable such as *Transitivity* for connectivity between spoke virtual networks, *Global mesh* for cross region connectivity between spokes and *Gateway* transit through the hub virtual network. 
 
-### <a name="transitivity"> Transitivity
+### <a name="transitivity"></a> Transitivity
 
 Enabling *Transitivity* creates a [*connected group*](#connectedgroup) between all spokes virtual network in the network group with the same region. This connectivity only is established for virtual networks in the same network group. 
 
