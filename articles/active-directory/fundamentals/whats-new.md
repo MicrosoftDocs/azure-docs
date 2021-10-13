@@ -1,12 +1,9 @@
 ---
 title: What's new? Release notes - Azure Active Directory | Microsoft Docs
 description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-services: active-directory
 author: ajburnle
-manager: daveba
 featureFlags:
  - clicktale
- 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -117,7 +114,7 @@ This feature allows Azure AD users to manage their work or school accounts withi
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-New APIs for role management to MS Graph v1.0 endpoint are generally available. Instead of old [directory roles](https://docs.microsoft.com/graph/api/resources/directoryrole?view=graph-rest-1.0), use [unifiedRoleDefinition](https://docs.microsoft.com/graph/api/resources/unifiedroledefinition?view=graph-rest-1.0) and [unifiedRoleAssignment](https://docs.microsoft.com/graph/api/resources/unifiedroleassignment?view=graph-rest-1.0).
+New APIs for role management to MS Graph v1.0 endpoint are generally available. Instead of old [directory roles](/graph/api/resources/directoryrole?view=graph-rest-1.0&preserve-view=true), use [unifiedRoleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-1.0&preserve-view=true) and [unifiedRoleAssignment](/graph/api/resources/unifiedroleassignment?view=graph-rest-1.0&preserve-view=true).
  
 ---
 
