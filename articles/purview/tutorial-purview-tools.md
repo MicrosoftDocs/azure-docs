@@ -11,7 +11,7 @@ ms.date: 10/10/2021
 ---
 
 # Azure Purview Open-Source Tools & Utilities
-This page lists several open-source tools and utilities (command line, python, and PowerShell interfaces) that help you get started quickly on Azure Purview service in a matter of minutes! These tools are developed by collective effort of the Azure Purview Product Group and the open-source community; and are intended to make learning, starting up, regular usage and long-term adoption of Purview breezy and super fast.
+This page lists several open-source tools and utilities (command-line, python, and PowerShell interfaces) that help you get started quickly on Azure Purview service in a matter of minutes! These tools have been authored & developed by collective effort of the Azure Purview Product Group and the open-source community. The objective of such tools is to make learning, starting up, regular usage, and long-term adoption of Purview breezy and super fast.
 
 ### Intended Audience
 - Azure Purview community including customers, developers, ISVs, partners, evangelists, and enthusiasts. 
