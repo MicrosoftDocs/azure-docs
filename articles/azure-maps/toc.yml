@@ -327,8 +327,6 @@ items:
       href: /rest/api/maps/elevation
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility services
-      href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
     - name: Render service V2
