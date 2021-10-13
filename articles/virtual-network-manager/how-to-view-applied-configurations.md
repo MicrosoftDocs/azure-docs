@@ -53,9 +53,13 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
     :::image type="content" source="./media/how-to-view-applied-configurations/network-interface.png" alt-text="Screenshot of effective routes button from a VM network interface card.":::
 
-1. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or spokes in a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
+1. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Transitivity*](concept-connectivity-configuration.md#transitivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-rules.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes.":::
+
+    > [!NOTE]
+    > The hub virtual network address space is also **included** in the *ConnectedGroup*. Therefore, if virtual network peering fails between the hub and spoke virtual networks, they can still communicate with each other because they're in a connected group.
+    > 
 
 ## Activity Log
 
