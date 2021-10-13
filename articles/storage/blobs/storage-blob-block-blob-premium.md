@@ -14,23 +14,19 @@ ms.topic: conceptual
 
 # Premium block blob storage accounts
 
-Premium block blob storage accounts make data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
+Premium block blob storage accounts make data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. File transfer is much faster because data is stored on instantly accessible memory chips.All parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
+
+## High performance workloads
 
 This type of account is ideal for workloads that require fast and consistent response times and/or have a high number of input output operations per second (IOP). Example workloads include:
 
-- **Interactive workloads**. These workloads require instant updates and user feedback, such as e-commerce and mapping applications. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in a premium block blob storage account.
+- **Interactive workloads**. Highly interactive and real-time applications that must write data quickly. E-commerce and mapping applications often require instant updates and user feedback. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.  
 
 - **IoT/ streaming analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
 
 - **Artificial intelligence/machine learning (AI/ML)**. AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis.
 
 - **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
-
-## Performance characteristics
-
-Data is stored on instantly accessible memory chips and that makes file transfer much faster. This type of storage makes all parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
-
-Low latency is critical to various industries and to various types of applications. Highly interactive and real-time applications that must write data quickly. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.
 
 ## Cost effectiveness
   
@@ -146,9 +142,9 @@ Companies in the media and entertainment industry can generate a large number of
 
 Data is uploaded into multiple premium performance Blob Storage accounts. Each account is connected to an Event Grid and Event Hub resource. ADX retrieves the data from Blob Storage, performs any required transformations to normalize the data (For example: decompressing zip files or converting from JSON to CSV). Then, the data is made available for query through ADX and dashboards displayed in Grafana. Grafana dashboards are used by operators, executives, and other users. The customer retains their original logs in premium performance storage, or they copy them to a general-purpose v2 storage account where they can be stored in the hot or cool access tier for long-term retention and future analysis.
 
-## Migrate from standard to premium
+## Migrating to premium
 
-You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a premium block blob account, and migrate the data to the new account. 
+You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. 
 
 To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
