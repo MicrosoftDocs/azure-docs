@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 This quick start gives you a run through of an end-2-end scenario on how you can leverage the database templates to create a lake database, align data to your new model and use the integrated experience to analyze the data. 
 
-## Prerequisits
+## Prerequisites
 
 This quickstart assumes you have already created a Synapse Analytics workspace. 
 
@@ -66,7 +66,7 @@ SELECT TOP (100) [ProductId]
 ,[PrimaryBrandId]
 FROM [Retail_mil].[dbo].[RetailProduct]
 ```
-The other way to access the data within Synapse is to open a new Spark notebook and use the integrated expeirence there: 
+The other way to access the data within Synapse is to open a new Spark notebook and use the integrated experience there: 
 ```spark
 df = spark.sql("SELECT * FROM `Retail_mil`.`RetailProduct`")
 df.show(10)
