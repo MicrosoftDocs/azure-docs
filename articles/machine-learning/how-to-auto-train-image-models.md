@@ -64,7 +64,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
-If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. 
+If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the [sample notebooks to convert the data to JSONL](how-to-prepare-datasets-for-automl-images.md). 
 
 > [!Warning]
 > Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
@@ -358,7 +358,7 @@ You can control the resources spent on your hyperparameter sweep by specifying t
 
 Parameter | Detail
 -----|----
-`iterations` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parametr to 1.
+`iterations` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
 `max_concurrent_iterations`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 
