@@ -40,7 +40,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Issue verifiable credentials
-            url: verifiable-credentials/verifiable-credentials-configure-issuer.md
+            url: verifiable-credentials-configure-issuer.md
 
   # Card
   - title: Build Verifiable Credentials Solutions
