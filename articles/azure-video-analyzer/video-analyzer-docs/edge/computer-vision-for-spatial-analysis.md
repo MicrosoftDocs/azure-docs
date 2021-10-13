@@ -170,7 +170,6 @@ A key is used to start the spatial-analysis container, and is available on the A
    ```
 
 ## Configure deployment template
-
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 Look for the deployment file in /src/edge/deployment.spatialAnalysis.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
 
