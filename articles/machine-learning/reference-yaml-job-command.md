@@ -137,6 +137,10 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
 
+## YAML: Notebook via papermill
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-notebook.yml":::
+
 ## YAML: basic Python model training
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
