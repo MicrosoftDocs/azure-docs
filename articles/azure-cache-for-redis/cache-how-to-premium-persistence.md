@@ -149,7 +149,7 @@ Yes, you'll be charged for the storage being used as per the pricing model of th
 
 ### How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?
 
-RDB and AOF persistence can write to your blobs as frequently as every hour, every few minutes, or every second. Also, enabling soft delete on a storage account means Azure Cache for Redis cannot minimize storage costs by deleting the old backup data. Soft delete can quickly become expensive with the typical data sizes of a cache and write operations every second. Soft delete is not recommended. For more information on soft delete costs, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview).
+Soft delete is not recommended. RDB and AOF persistence can write to your blobs as frequently as every hour, every few minutes, or every second. Also, enabling soft delete on a storage account means Azure Cache for Redis cannot minimize storage costs by deleting the old backup data. Soft delete can quickly become expensive with the typical data sizes of a cache and write operations every second. For more information on soft delete costs, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview).
 
 ### Can I change the RDB backup frequency after I create the cache?
 
