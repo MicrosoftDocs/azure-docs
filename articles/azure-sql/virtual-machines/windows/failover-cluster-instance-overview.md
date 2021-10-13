@@ -112,7 +112,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported SQL version**: SQL Server 2012 and later   
 
 **Benefits:** 
-- Only shared storage solution for virtual machines spread over multiple availability zones. 
+- Shared storage solution for virtual machines spread over multiple availability zones. 
 - Fully managed file system with single-digit latencies and burstable I/O performance. 
 
 **Limitations:**
