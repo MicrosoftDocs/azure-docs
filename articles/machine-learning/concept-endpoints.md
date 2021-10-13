@@ -103,11 +103,13 @@ However [managed online endpoints](#managed-online-endpoints-preview-vs-aks-web-
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
 
-:::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Image showing that autoscale flexibly provides between min and max instances, depending on rules":::
+:::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Screenshot showing that autoscale flexibly provides between min and max instances, depending on rules":::
 
 ### Visual Studio Code debugging
 
-::::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
+Visual Studio Code enables you to interactively debug endpoints.
+
+:::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
 ## Managed online endpoints (preview) vs AKS web service
 
@@ -134,19 +136,19 @@ Managed online endpoints can help streamline your deployment process. Managed on
     - Automatically updates and patches the underlying host OS image
     - Automatic node recovery if there's a system failure
 
-:::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
-
 - Monitoring and logs
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
     - Debug deployments using the logs and native integration with Azure Log Analytics.
 
+    :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
+
 - Managed identity
     -  Use [managed identities to access secured resources from scoring script](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 
-:::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
-
 - View costs 
     - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
+    
+    :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
 
@@ -154,7 +156,7 @@ For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to
 
 **Batch endpoints** (preview) are endpoints that are used to do batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
-:::image type="content" source="media/concept-endpoints/batch-endpoint.png" alt-text="Schematic showing that a single batch endpoint may route requests to multiple deployments, one of which is the default.":::
+:::image type="content" source="media/concept-endpoints/batch-endpoint.png" alt-text="Diagram showing that a single batch endpoint may route requests to multiple deployments, one of which is the default.":::
 
 ### Batch deployment requirements
 
