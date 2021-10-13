@@ -4,8 +4,8 @@
   items:
     - name: What is Azure Managed Instance for Apache Cassandra?
       href: introduction.md
-    - name: 
-      href: .md
+    - name: Management operations
+      href: management-operations.md
 - name: Quickstarts
   items:
     - name: Create a cluster - portal
