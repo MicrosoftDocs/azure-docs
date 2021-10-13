@@ -35,7 +35,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Configure an existing VNet and subnet](vnet-existing-add-subnet.md):
   Verify network requirements and configure your existing virtual network and subnet to deploy SQL Managed Instance.
 - [Configure service endpoint policies for Azure Storage (Preview)](service-endpoint-policies-configure.md):
-  Secure your subnet against erroneous or malicious data exfiltration into wrong Azure Storage accounts.
+  Secure your subnet against erroneous or malicious data exfiltration into unathorized Azure Storage accounts.
 - [Configure custom DNS](custom-dns-configure.md):
   Configure custom DNS to grant external resource access to  custom domains from SQL Managed Instance via a linked server of db mail profiles. 
 - [Sync network configuration](azure-app-sync-network-configuration.md):

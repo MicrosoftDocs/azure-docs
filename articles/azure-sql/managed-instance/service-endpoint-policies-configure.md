@@ -3,7 +3,7 @@ title: Configure Azure Storage service endpoint policies
 description: Learn how to protect Azure SQL Managed Instance against exfiltration to invalid Azure Storage accounts.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: sercurity
+ms.subservice: security
 ms.custom:
 ms.devlang: 
 ms.topic: how-to
@@ -20,13 +20,13 @@ Virtual Network (VNet) Azure Storage [service endpoint policies](../../virtual-n
 
 ## Key benefits
 
-Configuring Virtual network Azure storage service endpoint policies for your Azure SQL Managed Instance provides the following benefits:
+Configuring Virtual network Azure Storage service endpoint policies for your Azure SQL Managed Instance provides the following benefits:
 
 - __Improved security for your Azure SQL Managed Instance traffic to Azure Storage__: Endpoint policies establish a security control that prevents erroneous or malicious exfiltration of business-critical data. Traffic can be limited to only those storage accounts that are compliant with your data governance requirements.
 
 - __Granular control over which storage accounts can be accessed__: Service endpoint policies can permit traffic to storage accounts at a subscription, resource group, and individual storage account level. Administrators can use service endpoint policies to enforce adherence to the organization's data security architecture in Azure.
 
-- __System traffic remains unaffected__: Service endpoint policies never obstruct access to storage that is required Azure SQL Managed Instance to function. This includes the storage of backups, data files and transaction log files, and similar.
+- __System traffic remains unaffected__: Service endpoint policies never obstruct access to storage that is required for Azure SQL Managed Instance to function. This includes the storage of backups, data files, transaction log files, and other assets.
 
 > [!IMPORTANT]
 > Service endpoint policies only control traffic that originates from the SQL Managed Instance subnet and terminates in Azure storage. The policies do not affect, for example, exporting the database to an on-prem BACPAC file, Azure Data Factory integration, the collection of diagnostic information via Azure Diagnostic Settings, or other mechanisms of data extraction that do not directly target Azure Storage.
@@ -42,9 +42,9 @@ Enabling service endpoint policies for your SQL Managed Instance has the followi
 
 ## Prepare storage inventory
 
-Before you begin configuring service endpoint policies on a subnet, compose a list of storage accounts that should be accessible by the managed instances in that subnet. 
+Before you begin configuring service endpoint policies on a subnet, compose a list of storage accounts that should be accessible by the managed instances in that subnet.
 
-The following is a list of workflows that may contact Azure Storage: 
+The following is a list of workflows that may contact Azure Storage:
 
 - [Auditing](auditing-configure.md) to Azure Storage.
 - Performing a [copy-only backup](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) to Azure Storage.
@@ -60,17 +60,16 @@ Note the account name, resource group, and subscription for any storage account 
 
 ## Configure policies
 
-You'll first need to create your service endpoint policy, and then associate the policy with the SQL Managed Instance subnet. Modify the workflow in this section to suit your business needs. 
+You'll first need to create your service endpoint policy, and then associate the policy with the SQL Managed Instance subnet. Modify the workflow in this section to suit your business needs.
 
 
 > [!NOTE]
 > - SQL Managed Instance subnets require policies to contain the /Services/Azure/ManagedInstance service alias (See step 4). 
-> - Managed instances deployed to a subnet that already contains service endpoitn policies will be automatically upgraded the /Services/Azure/ManagedInstance service alias.
-
+> - Managed instances deployed to a subnet that already contains service endpoint policies will be automatically upgraded the /Services/Azure/ManagedInstance service alias.
 
 ### Create a service endpoint policy
 
-To create a service endpoint policy, follow these steps: 
+To create a service endpoint policy, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Select **+ Create a resource**. 
@@ -106,13 +105,13 @@ To create a service endpoint policy, follow these steps:
 1.	Select **Review + Create**. Validate the information and select **Create**. To make further edits, select **Previous**.
 
    > [!TIP]
-   > First, configure policies to allow access to the storage accounts. Validate the configuration by ensuring that all workflows operate normally. Then you can reconfigure policies to allow individual storage accounts, or accounts in a resource group. To do so, select **Single account** or **All accounts in resource group** in the _Scope:_ field instead and fill in the other fields accordingly.
+   > First, configure policies to allow access to entire subscriptions. Validate the configuration by ensuring that all workflows operate normally. Then you can reconfigure policies to allow individual storage accounts, or accounts in a resource group. To do so, select **Single account** or **All accounts in resource group** in the _Scope:_ field instead and fill in the other fields accordingly.
 
 ### Associate policy with subnet
 
-After your service endpoint policy is created, associate the policy with your SQL Managed Instance subnet. 
+After your service endpoint policy is created, associate the policy with your SQL Managed Instance subnet.
 
-To associate your policy, follow these steps: 
+To associate your policy, follow these steps:
 
 1. In the _All services_ box in the Azure portal, search for _virtual networks_. Select **Virtual networks**.
 1. Locate and select the virtual network hosting your managed instance.
@@ -130,8 +129,9 @@ To associate your policy, follow these steps:
 > `Details: Service endpoint policies on subnet are missing definitions`
 > To resolve this, update all the policies on the subnet to include the `/Services/Azure/ManagedInstance` alias.
 
-
 ## Next steps
 
-- 
-
+- Learn how to [configure Advanced Threat Protection](threat-detection-configure.md).
+- Get started with [auditing](auditing-configure.md).
+- Use [Server Trust Groups](server-trust-group-overview.md) to set up and manage trust between SQL Managed Instances.
+- Learn more about [SQL Managed Instance's connectivity architecture](connectivity-architecture-overview.md).
