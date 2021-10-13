@@ -14,7 +14,7 @@ This article explains how to configure common settings for web apps, mobile back
 
 ## Configure app settings
 
-In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart. App setting names cannot contain periods ("."), if an app setting contains a period it will be replaced with an underscore in the container.
 
 In the [Azure portal], search for and select **App Services**, and then select your app. 
 
