@@ -34,7 +34,7 @@ conceptualContent:
            - title: 🆕Form Recognizer Studio (preview)
              links:
                - itemType: concept
-                 text: Studio
+                 text: Studio overview
                  url: concept-form-recognizer-studio.md
                - itemType: quickstart
                  text: Using the General document model (preview)
@@ -61,7 +61,7 @@ conceptualContent:
            - title: 🆕General document model
              links:
                - itemType: concept
-                 text: Extract data from documents
+                 text: General document model overview
                  url: concept-general-document.md?
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -82,7 +82,7 @@ conceptualContent:
            - title: Layout model
              links:
               - itemType: concept
-                text: Extract data an structure from documents
+                text: Layout model overview
                 url: concept-layout.md?
               - itemType: quickstart
                 text: Using the .NET SDK
@@ -106,7 +106,7 @@ conceptualContent:
            - title: Receipt model
              links:
                - itemType: concept
-                 text: Extract data from receipts
+                 text: Receipt model overview
                  url: concept-receipt.md?
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -130,7 +130,7 @@ conceptualContent:
            - title: Business card model
              links:
                - itemType: concept
-                 text: Business cards
+                 text: Business card model overview
                  url: concept-business-card.md
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -154,7 +154,7 @@ conceptualContent:
            - title: Invoice model
              links:
                - itemType: concept
-                 text: Invoices
+                 text: Invoice model overview
                  url: concept-invoice.md
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -178,7 +178,7 @@ conceptualContent:
            - title: ID document model
              links:
                - itemType: concept
-                 text: ID documents
+                 text: ID document model overview
                  url: concept-id-document.md
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -199,29 +199,29 @@ conceptualContent:
                  text: Try Form Recognizer (analyze ID)
                  url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 
-               - title: Custom model
-                 links:
-                   - itemType: concept
-                     text: Custom
-                     url: concept-custom
-                   - itemType: quickstart
-                     text: Using the .NET SDK
-                     url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-                   - itemType: quickstart
-                     text: Using the Python SDK
-                     url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-                   - itemType: quickstart
-                     text: Using the Java SDK
-                     url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-                   - itemType: quickstart
-                     text: Using the JavaScript SDK
-                     url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-                   - itemType: quickstart
-                     text: Using the REST API (cURL)
-                     url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-                   - itemType: quickstart
-                     text: Try Form Recognizer (analyze a custom form)
-                     url: https://fott-2-1.azurewebsites.net/
+              #  - title: Custom model
+              #    links:
+              #      - itemType: concept
+              #        text: Custom model overview
+              #        url: concept-custom
+              #      - itemType: quickstart
+              #        text: Using the .NET SDK
+              #        url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+              #      - itemType: quickstart
+              #        text: Using the Python SDK
+              #        url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+              #      - itemType: quickstart
+              #        text: Using the Java SDK
+              #        url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+              #      - itemType: quickstart
+              #        text: Using the JavaScript SDK
+              #        url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+              #      - itemType: quickstart
+              #        text: Using the REST API (cURL)
+              #        url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+              #      - itemType: quickstart
+              #        text: Try Form Recognizer (analyze a custom form)
+              #        url: https://fott-2-1.azurewebsites.net/
 
     
     # - title: Microsoft tech community
