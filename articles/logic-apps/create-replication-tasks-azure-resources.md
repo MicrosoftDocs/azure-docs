@@ -11,8 +11,7 @@ ms.date: 10/22/2021
 # Create replication tasks to forward events from Azure resources using Azure Logic Apps (preview)
 
 > [!IMPORTANT]
-> This capability is in preview, is not recommended for production workloads, and is excluded from service level agreements. 
-> Certain features might not be supported or might have constrained capabilities. For more information, see 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To reduce the impact that unpredictable events can have on your Azure resources, you can replicate these resources to help you maintain [*business continuity (BC)*](https://en.wikipedia.org/wiki/Business_continuity_planning). You can create a *replication task* that copies a resource into a different region and forwards content from the source resource to the target resource. That way, you can have the target resource readily available if the source goes offline and the target has to take over.
