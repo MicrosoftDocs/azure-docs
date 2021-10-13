@@ -37,7 +37,7 @@ Azure Sentinel's free trial continues to support new or existing Log Analytics w
 
 Now, in addition during the trial period:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+- **For new Log Analytics workspaces**, including workspaces that are less than three days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
 
     Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
