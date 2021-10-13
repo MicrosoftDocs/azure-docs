@@ -11,6 +11,15 @@ ms.date: 11/02/2021
 
 # Enrich your knowledge base with active learning
 
+In this tutorial, you learn how to:
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Download an active learning test file
+> * Import the test file to your existing project
+> * Accept/reject active learning suggestions
+> * Add alternate questions
+
 This tutorial shows you how to enhance your knowledge base with active learning. If you notice that customers are asking questions, which are not part of your knowledge base. There are often variations of questions that are paraphrased differently.
 
 These variations when added as alternate questions to the relevant question answer pair, help to optimize the knowledge base to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
