@@ -2683,6 +2683,8 @@
         href: talentech-provisioning-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-provisioning-tutorial.md
+      - name: Teamgo
+        href: teamgo-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
