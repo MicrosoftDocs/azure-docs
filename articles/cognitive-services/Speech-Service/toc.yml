@@ -1,3 +1,4 @@
+items:
 - name: Speech service documentation
   href: index.yml
 - name: Overview
@@ -318,10 +319,49 @@
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
       href: get-started-speaker-recognition.md
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note
+        items:
+        - name: Use cases for Speaker Recognition
+          href: /legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: Characteristics and limitations
+          href: /legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Integration and responsible use
+        items:
+        - name: Limited access
+          href: /legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: General guidelines
+          href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      
     - name: Reference
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-speaker-namespace
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: /java/api/com.microsoft.cognitiveservices.speech
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: /objectivec/cognitive-services/speech/
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: /python/api/azure-cognitiveservices-speech/
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+
 - name: Keyword recognition
   items:
     - name: Keyword recognition overview
