@@ -1,6 +1,6 @@
 ---
-title: How to configure your consulting service offer properties in Microsoft Partner Center
-description: Learn how to configure the properties for your consulting service offer in the Microsoft commercial marketplace using Partner Center.
+title: Configure consulting service offer properties for the commercial marketplace
+description: Configure consulting service offer properties in the commercial marketplace using Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ---
 
-# How to configure your consulting service offer properties
+# Configure consulting service offer properties
 
-This article describes how to configure the properties of your consulting service offer in the Microsoft commercial marketplace.
+This article describes how to configure the properties of a consulting service offer in the Microsoft commercial marketplace.
 
 On the **Properties** tab of your offer in Partner Center, you’ll define the primary product at the core of your consulting service, the service type, and the applicable industries. You’ll also indicate the relevant Microsoft competencies you earned. The information in this tab ensures your consulting service is displayed correctly in the commercial marketplace and offered to the right set of customers.
 
