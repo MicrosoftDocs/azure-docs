@@ -68,7 +68,7 @@ Each ASE is configured with 500 GB of storage. This space is used across all the
 The database holds the information that defines the environment, as well as the details about the apps that are running within it. This too is a part of the Azure-held subscription. It's not something that you have a direct ability to manipulate. If you're making adjustments to your virtual network routing or security, you need to still allow access to SQL Azure--or the ASE cannot function.
 
 ### Network
-The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your VNet, then you need to create your ASE using a resource manager template.
+The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your VNet, then you need to create your ASE using an Azure Resource Manager template.
 
 There are some restrictions on the virtual network that is used for an ASE:
 

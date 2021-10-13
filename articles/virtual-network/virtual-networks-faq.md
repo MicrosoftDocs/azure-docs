@@ -398,7 +398,7 @@ To reach the Azure service, NSGs need to allow outbound connectivity. If your NS
 Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
-### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
+### Can I filter virtual network traffic to Azure services, allowing only specific Azure service resources, over VNet service endpoints? 
 
 Virtual network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services. You can learn more about the service endpoint policies [here](virtual-network-service-endpoint-policies-overview.md).
 
