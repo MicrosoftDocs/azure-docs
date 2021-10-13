@@ -3,9 +3,6 @@ title: Pricing scenarios for Calling (Voice/Video) and Chat
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
-
 ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -117,7 +114,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 
 ## Call Recording
 
-Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/call-recording-sample).
+Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
 
 ### Price
 
