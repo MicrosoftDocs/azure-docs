@@ -1,40 +1,42 @@
 ---
-title: 'Quickstart: Get started analyzing with Data Explorer pools (Preview)'
-description: In this quickstart, you'll learn to analyze data with Data Explorer.
+title: 'Quickstart: Get started ingesting data with pipelines (Preview)'
+description: In this quickstart, you'll learn to ingest data to Data Explorer pools using Azure Synapse Pipelines.
 ms.topic: quickstart
 ms.date: 09/30/2021
 author: shsagir
 ms.author: shsagir
-ms.reviewer: shsagir
+ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Quickstart: Analyze with Data Explorer (Preview)
+# Quickstart: Ingest data using Azure Synapse Pipelines (Preview)
 
-In this article, you'll learn the basic steps to load and analyze data with Data Explorer for Azure Synapse.
+In this article, you'll learn how to set up a Azure Synapse Analytics Linked service to ingest data using Sy.
 
-## Create a Data Explorer pool
+## Prerequisites
+
+Create a Data Explorer pool using [Synapse Studio](../data-explorer-create-pool-studio.md) or [the Azure portal](../data-explorer-create-pool-portal.md)
+
+## Before you start
+
+Use these steps to get the Query and Data Ingestion endpoints for use with external services, tools, or SDKs.
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Data Explorer pools**.
-1. Select **New**, and then enter the following details on the **Basics** tab:
+1. Select the Data Explorer pool you want to use to view its details.
 
-    | Setting | Suggested value | Description |
-    |--|--|--|
-    | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
-    | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
+    :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool-properties-endpoints.png" alt-text="Screenshot of the Data Explorer pools screen, showing the list of existing pools.":::
 
-    > [!IMPORTANT]
-    > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain lowercase letters and numbers only, must be between 4 and 15 characters, and must start with a letter.
+1. Make a note of the Query and Data Ingestion endpoints. You'll need them later.
 
-1. Select **Review + create** > **Create**. Your Data Explorer pool will start the provisioning process.
+    :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool-properties-endpoints.png" alt-text="Screenshot of the Data Explorer pools properties pane, showing the Query and Data Ingestion URI addresses.":::
 
 ## Create a Data Explorer database
 
 1. In Synapse Studio, on the left-side pane, select **Data**.
 1. Select **&plus;** (Add new resource) > **Data Explorer pool**, and paste the following information:
+
 
     | Setting | Suggested value | Description |
     |--|--|--|
@@ -44,6 +46,31 @@ In this article, you'll learn the basic steps to load and analyze data with Data
     | Default cache period | *31* | The time span (in days) for which to keep frequently queried data available in SSD storage or RAM, rather than in longer-term storage. |
 
 1. Select **Create** to create the database. Creation typically takes less than a minute.
+
+## Add a linked service
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **Linked services**.
+1. Select **&plus; New**.
+
+    :::image type="content" source="../media/ingest-data-pipeline/add-new-data-explorer-linked-service.png" alt-text="Screenshot of the Linked services screen, showing the list of existing services and highlighting the add new button.":::
+
+1. Select **Azure Data Explorer** service.
+
+    :::image type="content" source="../media/ingest-data-pipeline/select-new-data-explorer-linked-service.png" alt-text="Screenshot of the new Linked services pane, showing the list of available services and highlighting the add new Azure Data Explorer service.":::
+
+1. Paste the following information:
+
+    | Setting | Suggested value | Description |
+    |--|--|--|
+    | Name | *contosodataexplorerlinkedservice* | The name for the new Azure Data Explorer linked service. |
+    | Authentication method | *Managed Identity* | The authentication method for the new service. |
+    | Account selection method | *Enter manually* | The method for specifying the Query endpoint. |
+    | Endpoint | *https:\/\/contosodataexplorer.contosoanalytics.dev.kusto.windows.net* | The Query endpoint you made a [note of earlier](#before-you-start). |
+    | Database | *TestDatabase* | The database where you want to ingest data. |
+
+    :::image type="content" source="../media/ingest-data-pipeline/create-new-data-explorer-linked-service.png" alt-text="Screenshot of the new Linked services details pane, showing the fields that need to be completed for the new service.":::
+
+1. Select **Test connection** to verify the linked service is working, and then select **Create** to finish.
 
 ## Ingest sample data and analyze with a simple query
 
