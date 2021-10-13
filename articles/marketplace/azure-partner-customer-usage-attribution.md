@@ -4,7 +4,7 @@ description: Get an overview of tracking customer usage for Azure Applications o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 10/04/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
@@ -258,7 +258,7 @@ View step-by-step instructions with screenshots at [Using Technical Presales and
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 
 ## Report
-Reporting for Azure usage tracked via customer usage attribution is not available today for ISV partners. Adding reporting to the Commercial Marketplace Program in Partner Center to cover customer usage attribution is targeted for the second half of 2021.
+Reporting for Azure usage tracked via customer usage attribution is not available today for ISV partners. Adding reporting to the Commercial Marketplace Program in Partner Center to cover customer usage attribution is targeted for the second half of 2022.
 
 ## FAQ
 

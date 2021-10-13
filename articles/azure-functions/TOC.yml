@@ -158,8 +158,10 @@
   items:
     - name: Best practices
       items:
-        - name: Performance and reliability
+        - name: General best practices
           href: functions-best-practices.md
+        - name: Performance and reliability
+          href: performance-reliability.md
           displayName: best practices
         - name: Manage connections
           href: manage-connections.md
@@ -184,14 +186,16 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Event-driven scaling
-          href: event-driven-scaling.md
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
+        - name: Event-driven scaling
+          href: event-driven-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
+        - name: Concurrency
+          href: functions-concurrency.md
         - name: Designing for identical input
           href: functions-idempotent.md
     - name: Triggers and bindings
@@ -259,6 +263,8 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
+    - name: High availability 
+      href: azure-functions-az-redundancy.md
 - name: How-to guides
   items:
     - name: Develop

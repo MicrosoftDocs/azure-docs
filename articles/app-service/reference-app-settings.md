@@ -69,8 +69,14 @@ The following table shows environment variables prefixes that App Service uses f
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `AZUREFILESSTORAGE_` | A connection string to a custom Azure File storage for a container app. |
-| `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
+| `AZUREFILESSTORAGE_` | A connection string to a custom share for a container app in Azure Files. |
+| `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a container app in Azure Blob Storage. |
+| `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Signifies a connection string to an instance of Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Signifies a connection string to an event hub in Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Signifies a connection string to a database in Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Signifies a connection string to a cache in Azure Cache for Redis. |
+| `FILESHARESTORAGE_` | Signifies a connection string to a custom file share. |
 
 ## Deployment
 
@@ -84,7 +90,7 @@ The following environment variables are related to app deployment. For variables
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting is not applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
-| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `false`) is a legacy mode that's no longer fully supported. |
+| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | Set to `1` ensure that REST API calls to update `site` and `siteconfig` are completely applied to all instances before returning. The default is `1` if deploying with an ARM template, to avoid race conditions with subsequent ARM calls. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | In an ARM template deployment, set to `1` in the ARM template to pre-start the Kudu app as part of app creation. |
 | `WEBSITE_START_SCM_WITH_PRELOAD` | For Linux apps, set to `true` to force preloading the Kudu app when Always On is enabled by pinging its URL. The default is `false`. For Windows apps, the Kudu app is always preloaded. |
@@ -266,7 +272,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
  -->
 
-## TSL/SSL
+## TLS/SSL
 
 For more information, see [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md).
 
@@ -481,8 +487,8 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_DecryptionKey` setting. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_ValidationKey` setting. ||
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_DecryptionKey` setting. |
+| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_ValidationKey` setting. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -566,6 +572,9 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAG_WHITELIST` | Read-only. Contains the tags in the notification registration. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
+
+>[!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

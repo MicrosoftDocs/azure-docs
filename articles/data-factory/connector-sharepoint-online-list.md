@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -57,7 +57,7 @@ The SharePoint List Online connector uses service principal authentication to co
         </AppPermissionRequests>
         ```
 
-        ![sharepoint grant permission](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="sharepoint grant permission":::
 
     3. Click "Trust It" for this app.
 
@@ -73,21 +73,19 @@ Use the following steps to create a linked service to a SharePoint Online List i
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for SharePoint and select the SharePoint Online List connector.
 
-    :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-list-connector.png" alt-text="Select the SharePoint Online List connector.":::    
+    :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-list-connector.png" alt-text="Screenshot of the SharePoint Online List connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-sharepoint-online-list/configure-sharepoint-online-list-linked-service.png" alt-text="Configure a linked service to a SharePoint Online List.":::
+    :::image type="content" source="media/connector-sharepoint-online-list/configure-sharepoint-online-list-linked-service.png" alt-text="Screenshot of linked service configuration for a SharePoint Online List.":::
 
 ## Connector configuration details
 
@@ -230,7 +228,7 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
 
-![sharepoint copy file flow](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
 1. Follow the [Prerequisites](#prerequisites) section to create AAD application and grant permission to SharePoint Online. 
 

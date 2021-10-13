@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 08/26/2021
+ms.date: 09/21/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -47,7 +47,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Built-in functions](/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [BULK INSERT statement](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Yes, but just from Azure Blob storage as a source. | Yes, but just from Azure Blob Storage as a source - see [differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificates and asymmetric keys](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Yes, without access to file system for `BACKUP` and `CREATE` operations. | Yes, without access to file system for `BACKUP` and `CREATE` operations - see [certificate differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
-| [Change data capture - CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
+| [Change data capture - CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Yes (Preview) for S3 tier and above. Basic, S0, S1, S2 are not supported. | Yes |
 | [Collation - server/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, default server collation `SQL_Latin1_General_CP1_CI_AS` is always used. | Yes, can be set when the [instance is created](../managed-instance/create-template-quickstart.md) and can't be updated later. |
 | [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, Business Critical, and HyperScale tiers](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes, but without access to file system in `CREATE ASSEMBLY` statement - see [CLR differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
@@ -61,7 +61,7 @@ The following table lists the major features of SQL Server and provides informat
 | [DDL statements](/sql/t-sql/statements/statements) | Most - see individual statements | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [DDL triggers](/sql/relational-databases/triggers/ddl-triggers) | Database only |  Yes |
 | [Distributed partition views](/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Yes |
-| [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) |  No - see [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration. |
+| [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) | No - see [Elastic transactions](elastic-transactions-overview.md) |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No |
@@ -110,7 +110,7 @@ The following table lists the major features of SQL Server and provides informat
 | Time zone choice | No | [Yes](../managed-instance/timezones-overview.md), and it must be configured when the SQL Managed Instance is created. |
 | [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No | Yes, but only limited set of global trace flags. See [DBCC differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Yes, [Transactional and snapshot replication subscriber only](migrate-to-database-from-sql-server.md) | Yes, in [public preview](/sql/relational-databases/replication/replication-with-sql-database-managed-instance). See the constraints [here](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication). |
-| [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes - General Purpose and Business Critical service tiers only| [Yes](transparent-data-encryption-tde-overview.md) |
+| [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes - General Purpose, Business Critical, and Hyperscale (in preview) service tiers only| [Yes](transparent-data-encryption-tde-overview.md) |
 | Windows authentication | No | No |
 | [Windows Server Failover Clustering](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | No. Other techniques that provide [high availability](high-availability-sla.md) are included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). | No. Other techniques that provide [high availability](high-availability-sla.md) are included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). |
 

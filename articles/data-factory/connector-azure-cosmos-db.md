@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -54,13 +54,11 @@ Use the following steps to create a linked service to Azure Cosmos DB in the Azu
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for Cosmos and select the Azure Cosmos DB (SQL API) connector.
 
@@ -68,7 +66,7 @@ Use the following steps to create a linked service to Azure Cosmos DB in the Azu
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-cosmos-db/configure-azure-cosmos-db-linked-service.png" alt-text="Configure a linked service to Azure Cosmos DB.":::
+    :::image type="content" source="media/connector-azure-cosmos-db/configure-azure-cosmos-db-linked-service.png" alt-text="Screenshot of linked service configuration for Azure Cosmos DB.":::
 
 ## Connector configuration details
 

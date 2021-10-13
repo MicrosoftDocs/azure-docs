@@ -31,9 +31,10 @@ An Azure Monitor Private Link Scope connects private endpoints (and the VNets th
 
 ![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
 
+* An Azure Monitor Private Link connects a Private Endpoint to a set of Azure Monitor resources - Log Analytics workspaces and Application Insights resources. That set is called an Azure Monitor Private Link Scope (AMPLS).
 * The Private Endpoint on your VNet allows it to reach Azure Monitor endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Monitor resources without opening your VNet to unrequired outbound traffic. 
 * Traffic from the Private Endpoint to your Azure Monitor resources will go over the Microsoft Azure backbone, and not routed to public networks.
-* You can configure your Azure Monitor Private Link Scope (or specific networks) to use the preferred access mode - either allow traffic only to Private Link resources, or allow traffic to both Private Link resources and non-Private-Link resources (resources out of the AMPLS)
+* You can configure your Azure Monitor Private Link Scope (or specific networks connecting to it) to use the preferred access mode - either allow traffic only to Private Link resources, or allow traffic to both Private Link resources and non-Private-Link resources (resources out of the AMPLS)
 * You can configure each of your workspaces or components to allow or deny ingestion and queries from public networks. That provides a resource-level protection, so that you can control traffic to specific resources.
 
 > [!NOTE]
@@ -56,10 +57,10 @@ All Log Analytics endpoints except the Query endpoint, are workspace-specific. S
 
 
 > [!NOTE]
-> Create only a single AMPLS for all networks that share the same DNS. Creaing multiple AMPLS resources will cause Azure Monitor DNS endpoints to override each other, and break existing environments.
+> Create only a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS zones to override each other, and break existing environments.
 
 ### Private Link access modes: Private Only vs Open
-As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns)), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
+As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
 
 For Private Links created before September 2021, that means - 
 * Log ingestion works only for resources in the AMPLS. Ingestion to all other resources is denied (across all networks that share the same DNS), regardless of subscription or tenant.
@@ -70,6 +71,9 @@ However, this behavior proved to be too restrictive for some customers (since it
 Therefore, Private Links created starting September 2021 have new mandatory AMPLS settings, that explicitly set how Private Links should affect network traffic. When creating a new AMPLS resource, you're now required to select the desired access modes, for ingestion and queries separately. 
 * Private Only mode - allows traffic only to Private Link resources
 * Open mode - uses Private Link to communicate with resources in the AMPLS, but also allows traffic to continue to other resources as well. See [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) to learn more.
+
+> [!NOTE]
+> Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
 
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)

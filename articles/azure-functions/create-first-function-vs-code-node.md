@@ -115,8 +115,8 @@ In this section, you create a function app and related resources in your Azure s
             context.log('JavaScript HTTP trigger function processed a request.');
     
             // Read incoming data
-            const name = req.query.name;
-            const sport = req.query.sport;
+            const name = (req.query.name || (req.body && req.body.name));
+            const sport = (req.query.sport || (req.body && req.body.sport));
         
             // fail if incoming data is required
             if (!name || !sport) {

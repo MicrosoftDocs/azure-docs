@@ -1,14 +1,14 @@
 ---
 title: Overview of Azure Dedicated Hosts for virtual machines
 description: Learn more about how Azure Dedicated Hosts can be used for deploying virtual machines.
-author: cynthn
+author: brittanyrowe
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
-ms.author: cynthn
-ms.reviewer: zivr
+ms.author: brittanyrowe
+ms.reviewer: brittanyrowe
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
@@ -77,7 +77,6 @@ Host groups that are enabled for automatic placement do not require all the VMs 
 
 Known issues and limitations when using automatic VM placement:
 
-- You will not be able to apply Azure Hybrid Benefits on your dedicated hosts.
 - You will not be able to redeploy your VM.
 - You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts
 
@@ -173,7 +172,7 @@ Azure monitors and manages the health status of your hosts. The following states
 
 ## Next steps
 
-- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
+- To deploy a dedicated host, see [Deploy VMs and scale sets to dedicated hosts](./dedicated-hosts-how-to.md).
 
 - There is a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 

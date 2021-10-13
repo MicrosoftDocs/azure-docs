@@ -33,6 +33,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Load balance multiple IP configurations
+    href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
@@ -150,8 +152,6 @@
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:
-    - name: Portal
-      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
@@ -170,6 +170,32 @@
     href: howto-load-balancer-imds.md
   - name: Outbound only load balancer configuration
     href: egress-only.md
+  - name: IPv6
+    items:
+    - name: Standard public
+      items: 
+      - name: Standard Public Load Balancer with IPv6 - PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      - name: Standard Public Load Balancer with IPv6 - Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      - name: Standard Public Load Balancer with IPv6 - ARM template
+        href: ipv6-configure-standard-load-balancer-template-json.md
+    - name: Standard internal
+      items:
+      - name: Standard Internal Load Balancer with IPv6 - PowerShell
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+    - name: Basic public
+      items:
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - ARM template
+        href: ipv6-configure-template-json.md
+    - name: Add IPv6 to an IPv4 application- PowerShell
+      href: ipv6-add-to-existing-vnet-powershell.md
+    - name: Add IPv6 to an IPv4 application - Azure CLI
+      href: ipv6-add-to-existing-vnet-cli.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

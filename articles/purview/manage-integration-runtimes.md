@@ -4,9 +4,9 @@ description: This article explains the steps to create and manage Integration Ru
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 09/27/2021
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -19,13 +19,36 @@ This article describes how to create and manage a self-hosted integration runtim
 > [!IMPORTANT]
 > If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
+## Prerequisites
+
+- The supported versions of Windows are:
+  - Windows 8.1
+  - Windows 10
+  - Windows Server 2012
+  - Windows Server 2012 R2
+  - Windows Server 2016
+  - Windows Server 2019
+
+Installation of the self-hosted integration runtime on a domain controller isn't supported.
+
+- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
+- If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
+- You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
+- Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage go up during peak times.
+- Tasks might fail during extraction of data in Parquet, ORC, or Avro formats.
+
+## Setting up a self-hosted integration runtime
+
+To create and set up a self-hosted integration runtime, use the following procedures.
+
 ## Create a self-hosted integration runtime
 
-1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.
+1. On the home page of the [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Click on IR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Select on IR.":::
 
 3. On the **Integration runtime setup** page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
 
@@ -93,13 +116,13 @@ Based on your sources, you may also need to allow the domains of other Azure or 
 
 ## Manage a self-hosted integration runtime
 
-You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then clicking on edit. You can now update the description, copy the key, or regenerate new keys.
+You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then selecting edit. You can now update the description, copy the key, or regenerate new keys.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="edit IR.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
-You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then clicking on **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
+You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
 
 ## Next steps
 

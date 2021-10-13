@@ -379,7 +379,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 ## Token cache
 
 > [!IMPORTANT]
-> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
+> The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
 > For security and performance reasons, it's important to ensure that for web apps and web APIs there is one token cache per user account. You must serialize the token cache for each account.
 
 # [ASP.NET Core](#tab/aspnetcore)
@@ -417,13 +417,13 @@ For details about the token-cache providers, see also Microsoft.Identity.Web's [
 
 # [ASP.NET](#tab/aspnet)
 
-The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
+The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
 
 The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
 
 
 First, to use these implementations:
-- add the Microsoft.Identity.Web Nuget package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
+- add the Microsoft.Identity.Web NuGet package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
 - In your code, use the Microsoft.Identity.Web namespace:
 
   ```csharp

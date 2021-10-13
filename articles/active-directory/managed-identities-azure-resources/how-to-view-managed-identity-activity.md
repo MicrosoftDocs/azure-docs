@@ -111,5 +111,5 @@ System-assigned identity:
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)
-* [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
-* [Azure Active Directory sign-ins log](/azure/active-directory/reports-monitoring/concept-sign-ins )
+* [Azure Activity log](../../azure-monitor/essentials/activity-log.md)
+* [Azure Active Directory sign-ins log](../reports-monitoring/concept-sign-ins.md)

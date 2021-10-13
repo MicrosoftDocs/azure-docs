@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Azure Form Recognizer REST API"
 description: Use the Form Recognizer REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -33,7 +32,7 @@ ms.author: lajanuar
 * A URL for an **image of a receipt**. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
 * A URL for an **image of a business card**. You can use a [sample image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 * A URL for an **image of an invoice**. You can use a [sample document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
-* A URL for an **image of an identity document**. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg)
+* A URL for an **image of an ID document**. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg)
 
 ## Analyze layout
 
@@ -965,7 +964,7 @@ This JSON content has been shortened for readability. See the [full sample outpu
 
 ## Analyze identity (ID) documents
 
-To start analyzing an identification document, use the cURL command below. For more information about identity document analysis, see the [Identity documents conceptual guide](../../concept-identification-cards.md). To start analyzing an identity document, you call the **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing an identification document, use the cURL command below. For more information about ID document analysis, see the [ID documents conceptual guide](../../concept-identification-cards.md). To start analyzing an ID document, you call the **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your ID document URL}` with the URL address of a receipt image.
@@ -974,7 +973,7 @@ To start analyzing an identification document, use the cURL command below. For m
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your identity document URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your ID document URL}'}"
 ```
 
 #### Operation-Location
@@ -1007,10 +1006,10 @@ curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyz
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script until you receive  the `succeeded` value. We recommend an interval of one second or more between calls.
 
-* The `"readResults"` field contains every line of text that was extracted from the identity document.
+* The `"readResults"` field contains every line of text that was extracted from the ID document.
 * The `"documentResults"` field contains an array of objects, each representing an ID document detected in the input document.
 
-Below is a sample identity document and  its corresponding JSON output
+Below is a sample ID document and  its corresponding JSON output
 
 * :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="sample driver's license":::
 
@@ -1567,7 +1566,7 @@ You'll receive a `204` success response, indicating that your model is marked fo
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API to train models and analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API to analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

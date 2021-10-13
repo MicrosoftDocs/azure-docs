@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 09/24/2021
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -96,7 +96,7 @@ This table provides a quick comparison for the change in terminology:
 - [Distributed database transactions spanning multiple Azure SQL Managed Instances](https://azure.microsoft.com/updates/distributed-database-transactions-spanning-multiple-azure-sql-managed-instances/) - Distributed database transactions spanning multiple Azure SQL Managed Instances have been added to enable frictionless migration of existing applications, as well as development of modern multi-tenant applications relying on vertically or horizontally partitioned database architecture (Public Preview).
 - [Configurable Backup Storage Redundancy option for Azure SQL Managed Instance](https://azure.microsoft.com/updates/configurable-backup-storage-redundancy-option-for-azure-sql-managed-instance-2/) - Locally redundant storage (LRS) and zone-redundant storage (ZRS) options have been added to backup storage redundancy, providing more flexibility and choice. 
 - [Backup storage cost savings for Azure SQL Database and Managed Instance](https://azure.microsoft.com/updates/backup-storage-cost-savings-for-azure-sql-database-and-managed-instance/) - User can set the PITR backup retention period & automated compression of backups for databases with transparent data encryption(TDE) is now up to 30 percent more efficient in backup storage space consumption.
-- [Azure AD authentication features for Azure SQL MI](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - hese features help automate user creation using Azure AD applications and allow individual Azure AD guest users to be created in SQL Managed Instance (Public Preview).
+- [Azure AD authentication features for Azure SQL MI](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - These features help automate user creation using Azure AD applications and allow individual Azure AD guest users to be created in SQL Managed Instance (Public Preview).
 - [Global virtual network peering support for Azure SQL Managed Instance](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)
 - [Hosting catalog databases for all supported versions of SSRS in Azure SQL Managed Instance](https://azure.microsoft.com/updates/hosting-catalog-databases-for-all-supported-versions-of-ssrs-in-azure-sql-managed-instance/) - Azure SQL Managed Instance can host catalog databases for all supported versions of SQL Server Reporting Services (SSRS).
 - [Major performance improvements for Azure SQL Database Managed Instances](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) 
@@ -128,6 +128,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
@@ -161,6 +162,18 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
+
+### Misleading error message on Azure portal suggesting recreation of the Service Principal
+
+_Active Directory admin_ blade of Azure portal for Azure SQL Managed Instance may be showing the following error message even though Service Principal already exists:
+
+"Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal"
+
+You can neglect this error message if Service Principal for the managed instance already exists, and/or AAD authentication on the managed instance works. 
+
+To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, click _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
+
+If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](./authentication-aad-configure.md?tabs=azure-powershell#powershell).
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
@@ -201,7 +214,7 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### Cannot create SQL Managed Instance with the same name as logical server previously deleted
 
-After [logical server](./logical-servers.md) is deleted, there is a treshold period of 7 days before the name is released from the records. In that period, SQL Managed Instance with the same name cannot be created. As a workaround you would need to use different name for the SQL Managed Instance or create a support ticket for releasing a logical server name.
+After [logical server](./logical-servers.md) is deleted, there is a threshold period of 7 days before the name is released from the records. In that period, SQL Managed Instance with the same name cannot be created. As a workaround you would need to use different name for the SQL Managed Instance or create a support ticket for releasing a logical server name.
 
 ### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
@@ -328,7 +341,7 @@ In the initial phase, a user can access the empty database and even create table
 
 **Workaround**: Do not access the database that you are restoring until you see that restore is completed.
 
-### TEMPDB structure and content is re-created
+### Tempdb structure and content is re-created
 
 The `tempdb` database is always split into 12 data files, and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
 

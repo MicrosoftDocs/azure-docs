@@ -12,17 +12,31 @@
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: System prerequisites
     displayName: firewall, proxy, open ports
     href: quickstart-system-prerequisites.md
   - name: Get started with Azure Defender for IoT
-    displayName: getting started, registration, onboarding, activation, threat intelligence 
+    displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
-- name: Tutorial
+- name: Tutorials
   expanded: false
   items:
+  - name: Azure Defender for IoT trial setup
+    href: tutorial-onboarding.md
+  - name: Integrate ClearPass
+    href: tutorial-clearpass.md
+  - name: Integrate CyberArk
+    href: tutorial-cyberark.md
+  - name: Integrate Forescout
+    href: tutorial-forescout.md
+  - name: Integrate Fortinet
+    href: tutorial-fortinet.md
+  - name: Integrate Palo Alto
+    href: tutorial-palo-alto.md
+  - name: Integrate Qradar
+    href: tutorial-qradar.md
   - name: Integrate Splunk
     href: tutorial-splunk.md
   - name: Integrate ServiceNow
@@ -30,7 +44,10 @@
 - name: Concepts
   items:  
     - name: Key concepts
-      href: concept-key-concepts.md    
+      href: concept-key-concepts.md
+    - name: Supported protocols
+      displayName: protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary
+      href: concept-supported-protocols.md    
 - name: How-to guides
   items:
   - name: Prepare your network
@@ -39,10 +56,13 @@
         displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
         href: how-to-identify-required-appliances.md
       - name: Set up your network
-        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, tunnel, monitoring, tuning, QOS, QoS, Quality of Service
+        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel
         href: how-to-set-up-your-network.md
+      - name: Deploy certificates
+        displayName: SSL, TLS, PKI, Locally-signed, CA-signed
+        href: how-to-deploy-certificates.md
       - name: Install software
-        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
+        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
         href: how-to-install-software.md
       - name: Connect sensors with a proxy
         displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
@@ -71,7 +91,7 @@
   - name: Manage users and user access
     items:
     - name: Create and manage users
-      displayName: Active Directory, roles, permissions, password
+      displayName: Active Directory, roles, permissions, password, LDAP
       href: how-to-create-and-manage-users.md
     - name: Define global user access control
       href: how-to-define-global-user-access-control.md
@@ -173,16 +193,6 @@
   - name: Set up SNMP MIB monitoring
     href: how-to-set-up-snmp-mib-monitoring.md
     displayName: health
-  - name: Integrate with partners
-    items:
-    - name: Forescout integration
-      href: integration-forescout.md
-    - name: Fortinet integration
-      href: integration-fortinet.md
-    - name: Palo Alto integration
-      href: integration-palo-alto.md
-    - name: Qradar integration
-      href: integration-qradar.md
 - name: Reference
   items:
   - name: Work with Defender for IoT APIs

@@ -8,7 +8,7 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ---
 
 # Create Event Grid custom topic with PowerShell

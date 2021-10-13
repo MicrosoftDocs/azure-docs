@@ -40,7 +40,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## Validate CEF connectivity
 
-After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](connect-cef-solution-config.md), use the steps in this section to verify connectivity between your security solution and Azure Sentinel.
+After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Azure Sentinel.
 
 1. Make sure that you have the following prerequisites:
 
@@ -266,15 +266,15 @@ Use the following sections to check your CEF or Syslog data connector prerequisi
 
 If you're using an Azure Virtual Machine as a Syslog collector, verify the following:
 
-- While you are setting up your Syslog data connector, make sure to turn off your [Azure Security Center auto-provisioning settings](/azure/security-center/security-center-enable-data-collection) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
+- While you are setting up your Syslog data connector, make sure to turn off your [Azure Security Center auto-provisioning settings](../security-center/security-center-enable-data-collection.md) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
 
     You can turn them back on after your data connector is completely set up.
 
-- Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
+- Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
 - Make sure that Azure Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
 
-    For more information, see [Step 1: Deploy the log forwarder](connect-cef-agent.md).
+    For more information, see [Step 1: Deploy the log forwarder](./connect-log-forwarder.md).
 
 - Make sure that your machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
 
@@ -296,7 +296,7 @@ The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the
 
 Make sure to add details about the facilities and severity log levels that you want to be ingested into Azure Sentinel. The configuration process may take about 20 minutes.
 
-For more information, see [Deployment script explained](connect-cef-agent.md#deployment-script-explained) and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog.md).
+For more information, see [Deployment script explained](./connect-log-forwarder.md#deployment-script-explained) and [Configure Syslog in the Azure portal](../azure-monitor/agents/data-sources-syslog.md).
 
 
 **For example, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
@@ -501,11 +501,11 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see logs being written to the local log file, either **/var/log/messages** or **/var/log/syslog**
 
-- Make sure that you can see data packets flowing on port 25524, 25526, or both
+- Make sure that you can see data packets flowing on port 25224, 25226, or both
 
-- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](/azure/azure-monitor/agents/log-analytics-agent#network-requirements)
+- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
 
-- Make sure that you have access to required URLs from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent##firewall-requirements).
+- Make sure that you have access to required URLs from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 

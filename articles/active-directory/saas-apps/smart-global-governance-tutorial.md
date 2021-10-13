@@ -141,7 +141,7 @@ Work with the [Smart Global Governance support team](mailto:support.tech@smartg
 
 In this section, you'll test your Azure AD SSO configuration by using Access Panel.
 
-When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

@@ -2,7 +2,7 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 06/24/2021
+ms.date: 09/14/2021
 ms.author: larryfr
 ---
 
@@ -11,7 +11,7 @@ ms.author: larryfr
 > * Azure Storage Account
 > * Azure Search
 >
-> Since these services are created in your Azure subscription, it means that you are charged for these service instances. 
+> Since these services are created in your Azure subscription, it means that you are charged for these service instances. If your subscription does not have enough quota for the Azure Cosmos DB service, a failure will occur. For more information on quotas, see [Azure Cosmos DB service quotas](/azure/cosmos-db/concepts-limits)
 >
 > The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created in this resource group. This VNet is used to secure communication between the services in this resource group and your Azure Machine Learning workspace.
 > 

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/17/2021
 ms.author: tisande
 ---
 
@@ -94,9 +94,31 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 The dedicated gateway has the following limitations during the public preview:
 
 - Dedicated gateways are only supported on SQL API accounts.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
+- You can't connect to a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
+- You can't connect to a dedicated gateway in an Azure Cosmos DB account in a [Virtual Network (Vnet)](how-to-configure-vnet-service-endpoint.md)
+- You can't connect to a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
+
+## Supported regions
+
+The dedicated gateway is in public preview and isn't supported in every Azure region yet. Throughout the public preview, we'll be adding new capacity. We won't have region restrictions when the dedicated gateway is generally available.
+
+Current list of supported Azure regions:
+
+| **Americas** | **Europe and Africa**  | **Asia Pacific**  |
+| ------------ | -------- | ----------- | 
+| Brazil South      | France Central    | Australia Central |
+| Canada Central  | France South    | Australia Central 2 |
+| Canada East     | Germany North   | Australia Southeast |
+| Central US     | Germany West Central   | Central India |
+| East US     | North Europe   | East Asia |
+| East US 2     | Switzerland North   | Japan West |
+| North Central US     | UK South   | Korea Central |
+| South Central US     | UK West   | Korea South |
+| West Central US     | West Europe   | Southeast Asia |
+| West US     |   | UAE Central |
+| West US 2     |    | West India |
+
 
 ## Next steps
 

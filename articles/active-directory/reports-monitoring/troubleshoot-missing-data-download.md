@@ -40,5 +40,5 @@ You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up
 
 ## Next steps
 
-* [Azure Active Directory reports FAQ](reports-faq.md)
+* [Azure Active Directory reports FAQ](reports-faq.yml)
 

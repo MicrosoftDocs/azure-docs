@@ -39,10 +39,7 @@ In development and test environments, snapshots provide a quick and simple optio
 
 For more information on creating snapshots, see:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](./windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](./linux/snapshot-copy-managed-disk.md)
-
-
+* [Create copy of VHD stored as a Managed Disk](./windows/snapshot-copy-managed-disk.md)
 
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).

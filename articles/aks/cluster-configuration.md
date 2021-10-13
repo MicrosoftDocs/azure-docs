@@ -14,62 +14,11 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS now supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters in kubernetes versions higher than 1.18 For versions below 1.18, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18 and higher, the default base is AKS Ubuntu 18.04.
-
-> [!IMPORTANT]
-> Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
-> 
-> It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-
-### Use AKS Ubuntu 18.04 (GA) on new clusters
-
-Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the cluster or node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-To create a cluster using `AKS Ubuntu 18.04` node image, simply create a cluster running kubernetes v1.18 or greater as shown below
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### Use AKS Ubuntu 18.04 (GA) on existing clusters
-
-Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the cluster or node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-If your clusters or node pools are ready for `AKS Ubuntu 18.04` node image, you can simply upgrade them to a v1.18 or higher as below.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-If you just want to upgrade just one node pool:
-
-```azurecli
-az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### Test AKS Ubuntu 18.04 (GA) on existing clusters
-
-Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to upgrading your production node pools.
-
-To create a node pool using `AKS Ubuntu 18.04` node image, simply create a node pool running kubernetes v1.18 or greater. Your cluster control plane needs to be at least on v1.18 or greater as well but your other node pools can remain on an older kubernetes version.
-Below we are first upgrading the control plane and then creating a new node pool with v1.18 that will receive the new node image OS version.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
-
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
+AKS supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters.
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater, and Docker is used for node pools using Kubernetes 1.18 and earlier. For Windows Server 2019 node pools, `containerd` is available in preview and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is available in preview and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 

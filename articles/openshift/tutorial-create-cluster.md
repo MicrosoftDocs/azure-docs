@@ -38,7 +38,7 @@ ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
 During this tutorial, you will create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
 
-You will also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest user assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guest users](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) for more details.
+You will also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest user assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guest users](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) for more details.
 
 ### Register the resource providers
 

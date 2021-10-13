@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -30,30 +30,36 @@ Azure NetApp Files volume replication is supported between various [Azure region
 
 ### Azure regional pairs
 
-* East US and West US
-* East US 2 and Central US
-* Australia East and Australia Southeast
-* Canada Central and Canada East
-* South India and Central India 
-* Germany West Central and Germany North
-* Japan East and Japan West
-* North Europe and West Europe
-* UK South and UK West
-* UAE North and UAE Central
-* Norway East and Norway West
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia | Australia East | Australia Southeast |
+| Canada | Canada Central | Canada East |
+| Europe | North Europe | West Europe |
+| Germany | Germany West Central | Germany North |
+| India | Central India |South India |
+| Japan | Japan East | Japan West |
+| North America | East US | West US |
+| North America | East US 2 | Central US |
+| North America | North Central US | South Central US|
+| Norway | Norway East | Norway West |
+| UK | UK South | UK West |
+| United Arab Emirates | UAE North | UAE Central |
+| US Government | US Gov Virginia | US Gov Texas |
 
 ### Azure regional non-standard pairs
 
-*	West US 2 and East US
-*	South Central US and Central US
-*	South Central US and East US
-*	South Central US and East US 2
-*	East US and East US 2
-*	East US 2 and West US 2
-*	Australia East and Southeast Asia 
-*	Germany West Central and UK South
-*	Germany West Central and West Europe
-*	Germany West Central and France Central
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia/Southeast Asia | Australia East | Southeast Asia |
+| Germany/UK | Germany West Central | UK South |
+| Germany/Europe | Germany West Central | West Europe | 
+| Germany/France | Germany West Central | France Central |
+| North America | East US | East US 2 |
+| North America | East US 2| West US 2 |
+| North America | South Central US | East US |
+| North America | South Central US | East US 2 |
+| North America | South Central US | Central US |
+| North America | West US 2 | East US |
 
 ## Service-level objectives
 

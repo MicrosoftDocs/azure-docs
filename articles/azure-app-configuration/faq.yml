@@ -107,6 +107,7 @@ sections:
           - East US
           - East US 2
           - West US 2
+          - West US 3
           - Canada Central
           - France Central
           - Germany West Central
@@ -129,17 +130,20 @@ sections:
           You'll receive an HTTP status code 429 response under these circumstances:
           
           * Exceeding the daily request limit for a store in the Free tier.
-          * Temporary throttling due to a high request rate for a store in the Standard tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests†.
           * Excessive bandwidth usage.
-          * Attempting to create or modify a key when the storage quote is exceeded.
+          * Attempting to create or modify a key when the storage quota is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
+          
+          †A configuration store may experience momentary throttling if it receives a large burst of requests. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
           When a standard tier App Configuration store is deleted the name is reserved for seven days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
 
-          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
+          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
 
           Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` command detailed [here](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
 

@@ -28,27 +28,33 @@ ms.author: shpathak
 
 **Redis-benchmark** documentation can be [found here](https://redis.io/topics/benchmarks).
 
-The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test. A windows compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
+The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test. A Windows-compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
 
 ## Redis-benchmark examples
 
 **Pre-test setup**:
 Prepare the cache instance with data required for the latency and throughput testing:
 
-```azurecli
+```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024
 ```
 
 **To test latency**:
 Test GET requests using a 1k payload:
 
-```azurecli
+```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 ```
 
 **To test throughput:**
 Pipelined GET requests with 1k payload:
 
-```azurecli
+```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 ```
+
+## Next steps
+
+- [Development](cache-best-practices-development.md)
+- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
+- [Failover and patching for Azure Cache for Redis](cache-failover.md)

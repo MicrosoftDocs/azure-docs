@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -56,13 +56,13 @@ Use the following steps to create an Azure SQL Database linked service in the Az
 
    # [Azure Data Factory](#tab/data-factory)
 
-   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-   # [Synapse Analytics](#tab/synapse-analytics)
+   # [Azure Synapse](#tab/synapse-analytics)
 
-   :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+   :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-   ---
+   
 
 2. Search for SQL and select the Azure SQL Database connector.
 
@@ -70,7 +70,7 @@ Use the following steps to create an Azure SQL Database linked service in the Az
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Configure Azure SQL Database linked service.":::
+    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Screenshot of configuration for Azure SQL Database linked service.":::
 
 ## Connector configuration details
 
@@ -514,7 +514,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 
 The Azure SQL Database connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, copy activity runs parallel queries against your Azure SQL Database source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure SQL Database.
 
@@ -575,7 +575,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
-![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Sql query result":::
 
 ## Best practice for loading data into Azure SQL Database
 
@@ -600,7 +600,7 @@ Copy activity currently doesn't natively support loading data into a database te
 
 As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Database staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
 
@@ -697,7 +697,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask the service to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
-![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Stored procedure":::
 
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
@@ -712,7 +712,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - Serializable
 - None (ignore isolation level)
 
-![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
 ### Sink transformation
 
@@ -720,7 +720,7 @@ Settings specific to Azure SQL Database are available in the **Settings** tab of
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
 
-![Key Columns](media/data-flow/keycolumn.png "Key Columns")
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Key Columns":::
 
 The column name that you pick as the key here will be used by the service as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
@@ -736,11 +736,11 @@ You can parameterize the key column used here for updating your target Azure SQL
 
 **Use TempDB:** By default, the service will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask the service to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
 
-![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="Use Temp DB":::
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
 
 ### Error row handling
 
@@ -758,7 +758,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-![Error row handling](media/data-flow/sql-error-row-handling.png "Error row handling")
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Error row handling":::
 
 
 ## Data type mapping for Azure SQL Database

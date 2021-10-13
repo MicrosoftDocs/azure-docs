@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.author: sgilley
 author: sdgilley
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020

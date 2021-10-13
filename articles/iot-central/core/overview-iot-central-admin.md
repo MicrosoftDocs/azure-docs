@@ -19,6 +19,7 @@ An IoT Central application lets you monitor and manage millions of devices throu
 In IoT Central, an administrator:
 
 - Manages users and roles in the application.
+- Creates and manages organizations.
 - Manages security such as device authentication.
 - Configures application settings.
 - Upgrades applications.
@@ -30,6 +31,12 @@ In IoT Central, an administrator:
 IoT Central uses a role-based access control system to manage user permissions within an application. IoT Central has three built-in roles for administrators, solution builders, and operators. An administrator can create custom roles with specific sets of permissions. An administrator is responsible for adding users to an application and assigning them to roles.
 
 To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
+
+## Organizations
+
+Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
+
+To learn more, see [Create an IoT Central organization](howto-create-organizations.md).
 
 ## Application security
 

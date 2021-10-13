@@ -52,7 +52,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 | Category                | Description |
 |:---|:---|
-| cluster-autoscale       | Understand why the AKS cluster is scaling up or down, which may not be expected. This information is also useful to correlate time intervals where something interesting may have happened in the cluster. |
+| cluster-autoscaler       | Understand why the AKS cluster is scaling up or down, which may not be expected. This information is also useful to correlate time intervals where something interesting may have happened in the cluster. |
 | guard                   | Managed Azure Active Directory and Azure RBAC audits. For managed Azure AD, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. |
 | kube-apiserver          | Logs from the API server. |
 | kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. |
@@ -94,4 +94,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## See also
 
 - See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

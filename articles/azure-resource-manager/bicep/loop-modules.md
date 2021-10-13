@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/30/2021
 ---
 
 # Module iteration in Bicep
@@ -13,6 +13,10 @@ ms.date: 08/27/2021
 This article shows you how to deploy more than one instance of a [module](modules.md) in your Bicep file. You can add a loop to a `module` declaration and dynamically set the number of times to deploy that module. You avoid repeating syntax in your Bicep file.
 
 You can also use a loop with [resources](loop-resources.md), [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
+
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Syntax
 
@@ -141,6 +145,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
 ```
 
 For purely sequential deployment, set the batch size to 1.
+
+The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
 ## Next steps
 

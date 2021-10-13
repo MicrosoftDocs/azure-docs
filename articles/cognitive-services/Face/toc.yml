@@ -36,19 +36,6 @@ items:
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
   - name: Migrate face data
     href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-  - name: Use the Face container
-    items:
-    - name: Containers overview
-      href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-    - name: Install and run containers
-      href: face-how-to-install-containers.md
-    - name: Configure containers
-      href: face-resource-container-config.md
-    - name: Use container instances
-      href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-    - name: All Cognitive Services containers documentation
-      href: ../containers/index.yml
-      maintainContext: true
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks

@@ -2,7 +2,7 @@
 title: Deploy SAP continuous threat monitoring | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel solution for SAP environments.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
@@ -132,7 +132,7 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 1. Use the following command as an example, inserting the values for your resource group and VM name:
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. On your new VM, install:
@@ -167,26 +167,29 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
       --resource-group $kvgp
     ```
 
-1. Assign an access policy, including GET, LIST, and SET permissions to the VM's managed identity.
+1. Assign an access policy, including GET, LIST, and SET permissions to the VM's managed identity, using one of the following methods:
 
-    In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
+    - **Via the Azure portal**:
 
-    For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
+        In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
-1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
+        For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
 
-    ```azurecli
-    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-    ```
+    - **Via the Azure CLI**:
 
-    Your principal ID is displayed for you to use in the following step.
+        1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 
-1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from the previous step.
+            ```azurecli
+            VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
+            ```
 
-    ```azurecli
-    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
-    ```
+            Your principal ID is displayed for you to use in the following step.
 
+        1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from  the previous step.
+
+            ```azurecli
+            az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
+            ```
 ## Deploy your SAP data connector
 
 The Azure Sentinel SAP data connector deployment script installs [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector), storing credentials in your [dedicated key vault](#create-key-vault-for-your-sap-credentials).
@@ -286,23 +289,13 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
-1. Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. Run:
+Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Run:
 
-1. Run the following command on your SAP data connector machine:
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Restart the Docker container:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 The SAP data connector Docker container on your machine is updated. 
 

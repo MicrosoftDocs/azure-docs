@@ -3,6 +3,7 @@ title: Copy data to/from Azure Synapse Analytics
 description: Learn how to copy data to/from Azure Synapse Analytics using Azure Data Factory
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang

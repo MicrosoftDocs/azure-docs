@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -18,7 +18,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 # What is the Azure Face service?
 
 > [!WARNING]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](https://go.microsoft.com/fwlink/?linkid=2164191) and will use this service in accordance with it.
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](../cognitive-services-apis-create-account-cli.md#prerequisites) and will use this service in accordance with it.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -54,7 +54,7 @@ Modern enterprises and apps can use the the Face identification and Face verific
 
 ### Identification
 
-Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
+Face identification can address "one-to-many" matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
@@ -64,7 +64,11 @@ After you create and train a group, you can do identification against the group 
 
 ### Verification
 
-The verification operation answers the question, "Do these two faces belong to the same person?". Verification is also called "one-to-one" matching because the probe face data is compared to only a single enrolled face. Verification is used in the identification scenario to double-check that a given match is accurate. 
+The verification operation answers the question, "Do these two faces belong to the same person?". 
+
+Verification is also "one-to-one" matching of one face in an image to one face in a secure repository or photo
+
+Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card).
 
 For more information about identity verification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 

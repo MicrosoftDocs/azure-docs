@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 ## Install the Speech SDK
@@ -72,6 +72,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -93,6 +94,9 @@ This sample code does the following:
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

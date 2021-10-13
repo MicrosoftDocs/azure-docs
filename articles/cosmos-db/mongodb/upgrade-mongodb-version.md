@@ -58,6 +58,8 @@ When upgrading from 3.2, the database account endpoint suffix will be updated to
 
 If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the new API version**. The previous 3.2 endpoint should have the suffix `.documents.azure.com`.
 
+When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.md) are now required to perform sort operations on multiple fields to ensure stable, high performance for these queries. Ensure that these compound indexes are created so that your multi-field sorts succeed. 
+
 >[!Note]
 > This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
 

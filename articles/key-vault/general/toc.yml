@@ -93,13 +93,7 @@
   - name: Authorize access
     items:
     - name: Assign an access policy
-      items:
-      - name: CLI
-        href: assign-access-policy-cli.md
-      - name: PowerShell
-        href: assign-access-policy-powershell.md
-      - name: Portal
-        href: assign-access-policy-portal.md
+      href: assign-access-policy.md
     - name: Azure RBAC permission model
       items:
       - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
@@ -118,6 +112,8 @@
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
     items:
+    - name: Monitoring Key Vault
+      href: monitor-key-vault.md
     - name: Event Grid Notifications
       items:
       - name: Receive notifications via Logic Apps 
@@ -126,12 +122,16 @@
         href: event-grid-tutorial.md
     - name: Enable logging
       href: howto-logging.md
-    - name: Configure monitoring and alerting for Azure Key Vault with Azure Monitor
+    - name: Monitoring Azure Key Vault
+      href: monitor-key-vault.md
+    - name: Configure alerts for Azure Key Vault
       href: alert.md
     - name: Recovery management with soft-delete and purge protection
       href: key-vault-recovery.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
+    - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
+      href: troubleshoot-azure-policy-for-key-vault.md
     - name: Back up Individual Key Vault Objects
       href: backup.md
   - name: Secure
@@ -158,6 +158,8 @@
   items:
   - name: What's new
     href: whats-new.md
+  - name: Monitoring Key Vault data reference
+    href: monitor-key-vault-reference.md
   - name: Client libraries
     href: client-libraries.md
   - name: REST API error codes

@@ -34,7 +34,7 @@ The following platforms are supported:
 
 ## See Also
 
-- You can also refer [Azure Video Analyzer APIs](https://docs.microsoft.com/rest/api/videoanalyzer/)
+- You can also refer [Azure Video Analyzer APIs](/rest/api/videoanalyzer/)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md

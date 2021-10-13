@@ -56,6 +56,9 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
+> [!NOTE]
+> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
 > [!NOTE]
@@ -176,6 +179,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
 
 > [!NOTE] 
+> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
 > If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
 > 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
 > 1. Disable and then re-enable FastPath on the target connection.

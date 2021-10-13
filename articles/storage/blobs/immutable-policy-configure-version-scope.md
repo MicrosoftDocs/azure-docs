@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 09/10/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ---
 
 # Configure immutability policies for blob versions (preview)
@@ -42,6 +42,8 @@ Keep in mind that enabling version-level immutability support for a container do
 
 To use a version-level immutability policy, you must first explicitly enable support for version-level WORM on the container. You can enable support for version-level WORM either when you create the container, or when you add a version-level immutability policy to an existing container.
 
+#### [Portal](#tab/azure-portal)
+
 To create a container that supports version-level immutability in the Azure portal, follow these steps:
 
 1. Navigate to the **Containers** page for your storage account in the Azure portal, and select **Add**.
@@ -50,11 +52,56 @@ To create a container that supports version-level immutability in the Azure port
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-container-version-level-immutability.png" alt-text="Screenshot showing how to create a container with version-level immutability enabled":::
 
+#### [PowerShell](#tab/azure-powershell)
+
+To create a container that supports version-level immutability with PowerShell, first install the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview), version 3.10.1-preview.
+
+Next, call the **New-AzRmStorageContainer** command with the `-EnableImmutableStorageWithVersioning` parameter, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+# Create a container with version-level immutability support.
+$container = New-AzRmStorageContainer -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -EnableImmutableStorageWithVersioning
+
+# Verify that version-level immutability support is enabled for the container
+$container.ImmutableStorageWithVersioning
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To create a container that supports version-level immutability with Azure CLI, first install Azure CLI version 2.27 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+Next, call the [az storage container-rm create](/cli/azure/storage/container-rm#az_storage_container_rm_create) command, specifying the `--enable-vlw` parameter. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+# Create a container with version-level immutability support.
+az storage container-rm create \
+    --name <container> \
+    --storage-account <storage-account> \
+    --resource-group <resource-group> \
+    --enable-vlw
+
+# Verify that version-level immutability support is enabled for the container
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.enabled]' \
+    --output tsv
+```
+
+---
+
 ### Migrate an existing container to support version-level immutability
 
 To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed.
 
-An existing container must be migrated regardless of whether it has a container-level time-based retention policy configured. If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
+To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
+
+If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
+
+#### [Portal](#tab/azure-portal)
 
 To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
 
@@ -63,9 +110,96 @@ To migrate a container to support version-level immutable storage in the Azure p
 1. Under **Immutable blob storage**, select **Add policy**.
 1. For the **Policy type** field, choose *Time-based retention*, and specify the retention interval.
 1. Select **Enable version-level immutability**.
-1. Select **OK** to begin the migration.
+1. Select **OK** to create a container-level policy with the specified retention interval and then begin the migration to version-level immutability support.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
+
+While the migration operation is underway, the scope of the policy on the container shows as *Container*.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-in-process.png" alt-text="Screenshot showing container migration in process":::
+
+After the migration is complete, the scope of the policy on the container shows as *Version*. The policy shown is a default policy on the container that automatically applies to all blob versions subsequently created in the container. The default policy can be overridden on any version by specifying a custom policy for that version.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To migrate a container to support version-level immutable storage with PowerShell, first make sure that a container-level time-based retention policy exists for the container. To create one, call [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy).
+
+```azurepowershell
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+   -StorageAccountName <storage-account> `
+   -ContainerName <container> `
+   -ImmutabilityPeriod <retention-interval-in-days>
+```
+
+Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+
+```azurepowershell
+$migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration `
+    -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -AsJob
+```
+
+To check the status of the long-running operation, read the operation's **JobStateInfo.State** property.
+
+```azurepowershell
+$migrationOperation.JobStateInfo.State
+```
+
+If the container does not have an existing time-based retention policy when you attempt to migrate to version-level immutability, then the operation fails. The following example checks the value of the **JobStateInfo.State** property and displays the error message if the operation failed because the container-level policy does not exist.
+
+```azurepowershell
+if ($migrationOperation.JobStateInfo.State -eq "Failed") {
+Write-Host $migrationOperation.Error
+}
+The container <container-name> must have an immutability policy set as a default policy
+before initiating container migration to support object level immutability with versioning.
+```
+
+After the migration is complete, check the **Output** property of the operation to see that support for version-level immutability is enabled.
+
+```azurepowershell
+$migrationOperation.Output
+```
+
+For more information about PowerShell jobs, see [Run Azure PowerShell cmdlets in PowerShell Jobs](/powershell/azure/using-psjobs).
+
+#### [Azure CLI](#tab/azure-cli)
+
+To migrate a container to support version-level immutable storage with Azure CLI, first make sure that a container-level time-based retention policy exists for the container. To create one, call [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create).
+
+```azurecli
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period <retention-interval-in-days>
+```
+
+Next, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command to migrate the container. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+
+```azurecli
+az storage container-rm migrate-vlw \
+    --resource-group <resource-group> \
+    --storage-account <storage-account> \
+    --name <container> \
+    --no-wait
+```
+
+To check the status of the long-running operation, read the value of the **migrationState** property.
+
+```azurecli
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.migrationState]' \
+    --output tsv
+```
+
+---
 
 ## Configure a time-based retention policy on a container
 
@@ -73,9 +207,15 @@ Once a container is enabled for version-level immutability, you can specify a de
 
 The default policy is not automatically applied to blob versions that existed before the default policy was configured.
 
+If you migrated an existing container to support version-level immutability, then the container-level policy that was in effect before the migration is migrated to a default version-level policy for the container.
+
 ### Configure a default time-based retention policy on a container
 
-To apply a default version-level immutability policy to a container in the Azure portal, follow these steps:
+To configure a default version-level immutability policy for a container, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs. Make sure that you have enabled support for version-level immutability for the container, as described in [Enable support for version-level immutability on a container](#enable-support-for-version-level-immutability-on-a-container).
+
+#### [Portal](#tab/azure-portal)
+
+To configure a default version-level immutability policy for a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
 1. Select the **More** button to the right of the container name, and choose **Access policy**.
@@ -85,6 +225,32 @@ To apply a default version-level immutability policy to a container in the Azure
 1. Select **OK** to apply the default policy to the container.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To configure a default version-level immutability policy for a container with PowerShell, call the [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy) command.
+
+```azurepowershell
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+   -StorageAccountName <storage-account> `
+   -ContainerName <container> `
+   -ImmutabilityPeriod <retention-interval-in-days> `
+   -AllowProtectedAppendWrite $true
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To configure a default version-level immutability policy for a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) command.
+
+```azurecli
+az storage container immutability-policy create \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period <retention-interval-in-days> \
+    --allow-protected-append-writes true
+```
+
+---
 
 ### Determine the scope of a retention policy on a container
 
@@ -110,9 +276,13 @@ You have three options for configuring a time-based retention policy for a blob 
 - Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
 - Option 3: You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
-### Configure a retention policy on the current version of a blob
+For more information on blob versioning, see [Blob versioning](versioning-overview.md).
 
-The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. For more information on blob versioning, see [Blob versioning](versioning-overview.md).
+### [Portal](#tab/azure-portal)
+
+The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. You can access a list of previous versions by selecting the **More** button for a blob and choosing **View previous versions**.
+
+### Configure a retention policy on the current version of a blob
 
 To configure a time-based retention policy on the current version of a blob, follow these steps:
 
@@ -143,6 +313,49 @@ To configure a time-based retention policy on a previous version of a blob, foll
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-previous-version.png" alt-text="Screenshot showing how to configure retention policy for a previous blob version in Azure portal":::
 
+### [PowerShell](#tab/azure-powershell)
+
+To configure a time-based retention policy on a blob version with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command.
+
+The following example shows how to configure an unlocked policy on the current version of a blob. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName <resource-group> `
+        -Name <storage-account>).Context
+
+Set-AzStorageBlobImmutabilityPolicy -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -ExpiresOn "2021-09-01T12:00:00Z" `
+    -PolicyMode Unlocked
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To configure a time-based retention policy on a blob version with Azure CLI, you must first install the *storage-blob-preview* extension, version 0.6.1 or later.
+
+```azurecli
+az extension add --name storage-blob-preview
+```
+
+For more information about installing Azure CLI extensions, see [How to install and manage Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+
+Next, call the **az storage blob immutability-policy set** command to configure the time-based retention policy. The following example shows how to configure an unlocked policy on the current version of a blob. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-09-20T08:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+---
+
 ## Configure a time-based retention policy when uploading a blob
 
 When you use the Azure portal to upload a blob to a container that supports version-level immutability, you have several options for configuring a time-based retention policy for the new blob:
@@ -159,20 +372,76 @@ To configure a time-based retention policy when you upload a blob, follow these 
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-blob-upload.png" alt-text="Screenshot showing options for configuring retention policy on blob upload in Azure portal":::
 
-## Modify an unlocked retention policy
+## Modify or delete an unlocked retention policy
 
 You can modify an unlocked time-based retention policy to shorten or lengthen the retention interval. You can also delete an unlocked policy. Editing or deleting an unlocked time-based retention policy for a blob version does not affect policies in effect for any other versions. If there is a default time-based retention policy in effect for the container, then the blob version with the modified or deleted policy will no longer inherit from the container.
 
-To modify an unlocked time-based retention policy, follow these steps:
+### [Portal](#tab/azure-portal)
 
-1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, locate the existing unlocked policy. Select the **More** button, then select **Edit** from the menu.
+To modify an unlocked time-based retention policy in the Azure portal, follow these steps:
+
+1. Locate the target container or version. Select the **More** button and choose **Access policy**.
+1. Locate the existing unlocked immutability policy. Select the **More** button, then select **Edit** from the menu.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/edit-existing-version-policy.png" alt-text="Screenshot showing how to edit an existing version-level time-based retention policy in Azure portal":::
 
 1. Provide the new date and time for the policy expiration.
 
-To delete an unlocked policy, follow steps 1 through 4, then select **Delete** from the menu.
+To delete the unlocked policy, select **Delete** from the **More** menu.
+
+### [PowerShell](#tab/azure-powershell)
+
+To modify an unlocked time-based retention policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command on the blob version with the new date and time for the policy expiration. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+$containerName = "<container>"
+$blobName = "<blob>"
+
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+# Extend the retention interval by five days.
+$blobVersion = $blobVersion |
+    Set-AzStorageBlobImmutabilityPolicy -ExpiresOn (Get-Date).AddDays(5) `
+
+# View the new policy parameters.
+$blobVersion.BlobProperties.ImmutabilityPolicy
+```
+
+To delete an unlocked retention policy, call the **Remove-AzStorageBlobImmutabilityPolicy** command.
+
+```azurepowershell
+$blobVersion = $blobVersion | Remove-AzStorageBlobImmutabilityPolicy
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To modify an unlocked time-based retention policy with PowerShell, call the **az storage blob immutability-policy set** command on the blob version with the new date and time for the policy expiration. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-0T18:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+To delete an unlocked retention policy, call the **az storage blob immutability-policy delete** command.
+
+```azurecli
+az storage blob immutability-policy delete \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+---
 
 ## Lock a time-based retention policy
 
@@ -180,19 +449,58 @@ When you have finished testing a time-based retention policy, you can lock the p
 
 After a policy is locked, you cannot delete it. However, you can delete the blob after the retention interval has expired.
 
-To lock a policy, follow these steps:
+### [Portal](#tab/azure-portal)
 
-1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
+To lock a policy in the Azure portal, follow these steps:
+
+1. Locate the target container or version. Select the **More** button and choose **Access policy**.
 1. Under the **Immutable blob versions** section, locate the existing unlocked policy. Select the **More** button, then select **Lock policy** from the menu.
 1. Confirm that you want to lock the policy.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/lock-policy-portal.png" alt-text="Screenshot showing how to lock a time-based retention policy in Azure portal":::
 
+### [PowerShell](#tab/azure-powershell)
+
+To lock a policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command and set the **PolicyMode** parameter to *Locked*.
+
+The following example shows how to lock a policy by specifying the same retention interval that was in effect for the unlocked policy. You can also change the expiry at the time that you lock the policy.
+
+```azurepowershell
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+$blobVersion = $blobVersion |
+    Set-AzStorageBlobImmutabilityPolicy `
+        -ExpiresOn $blobVersion.BlobProperties.ImmutabilityPolicy.ExpiresOn `
+        -PolicyMode Locked
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To lock a policy with PowerShell, call the **az storage blob immutability-policy set** command and set the `--policy-mode` parameter to *Locked*. You can also change the expiry at the time that you lock the policy.
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-0T18:00:00Z \
+    --policy-mode Locked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+---
+
 ## Configure or clear a legal hold
 
 A legal hold stores immutable data until the legal hold is explicitly cleared. To learn more about legal hold policies, see [Legal holds for immutable blob data](immutable-legal-hold-overview.md).
 
-To configure a legal hold on a blob version, follow these steps:
+#### [Portal](#tab/azure-portal)
+
+To configure a legal hold on a blob version with the Azure portal, follow these steps:
 
 1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
 1. Under the **Immutable blob versions** section, select **Add policy**.
@@ -203,6 +511,48 @@ The following image shows a current version of a blob with both a time-based ret
 :::image type="content" source="media/immutable-policy-configure-version-scope/configure-legal-hold-blob-version.png" alt-text="Screenshot showing legal hold configured for blob version":::
 
 To clear a legal hold, navigate to the **Access policy** dialog, select the **More** button, and choose **Delete**.
+
+#### [PowerShell](#tab/azure-powershell)
+
+To configure or clear a legal hold on a blob version with PowerShell, call the **Set-AzStorageBlobLegalHold** command.
+
+```azurepowershell
+# Set a legal hold
+Set-AzStorageBlobLegalHold -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -EnableLegalHold
+
+# Clear a legal hold
+Set-AzStorageBlobLegalHold -Container <container> `
+    -Blob <blob-version> `
+    -Context $ctx `
+    -DisableLegalHold
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To configure or clear a legal hold on a blob version with Azure CLI, call the **az storage blob set-legal-hold** command.
+
+```azurecli
+# Set a legal hold
+az storage blob set-legal-hold \
+    --legal-hold \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+
+# Clear a legal hold
+az storage blob set-legal-hold \
+    --legal-hold false \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+```
+
+---
 
 ## Next steps
 

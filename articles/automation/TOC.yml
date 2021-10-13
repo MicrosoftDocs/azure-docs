@@ -6,32 +6,27 @@
     href: automation-intro.md
   - name: FAQ
     href: automation-faq.md
-  - name: What's new
+  - name: What's new?
     href: whats-new.md
   - name: Archive for What's new
     href: whats-new-archive.md
 - name: Quickstarts
   items:
-    - name: Create Automation account - Portal
-      href: automation-quickstart-create-account.md
-    - name: Create a PowerShell runbook
-      href: automation-quickstart-create-runbook.md
+    - name: Create Automation account - Azure portal
+      href: quickstarts/create-account-portal.md
+    - name: Enable managed identities - Azure portal
+      href: quickstarts/enable-managed-identity.md    
     - name: Enable Desired State Configuration for a machine
-      href: automation-quickstart-dsc-configuration.md
+      href: quickstarts/dsc-configuration.md
 - name: Tutorials
   items:
-    - name: Create a graphical runbook
-      href: learn/automation-tutorial-runbook-graphical.md
-    - name: Create a PowerShell runbook
-      href: learn/automation-tutorial-runbook-textual-powershell.md
+    - name: Create PowerShell runbook using managed identity
+      href: learn/powershell-runbook-managed-identity.md 
     - name: Create a PowerShell Workflow runbook
       href: learn/automation-tutorial-runbook-textual.md
-    - name: Create a Python runbook
-      href: learn/automation-tutorial-runbook-textual-python2.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
-    - name: Use managed identity with PowerShell runbook
-      href: learn/powershell-runbook-managed-identity.md 
+
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -67,6 +62,8 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account - Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Disable local authentication
+          href: disable-local-authentication.md
         - name: Managed identity
           items:
             - name: Using system-assigned managed identity
@@ -169,15 +166,19 @@
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Work with a Hybrid Runbook Worker
           items:
-            - name: Deploy Windows Hybrid Runbook Worker
+            - name: Deploy extension-based worker
+              href: extension-based-hybrid-runbook-worker-install.md
+            - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
-            - name: Deploy Linux Hybrid Runbook Worker
+            - name: Deploy agent-based Linux worker
               href: automation-linux-hrw-install.md
             - name: Run runbooks on Hybrid Runbook Worker
               href: automation-hrw-run-runbooks.md
             - name: Use Azure Policy to enforce job execution
               href: enforce-job-execution-hybrid-worker.md
-            - name: Troubleshoot Hybrid Runbook Worker issues
+            - name: Troubleshoot extension-based worker issues
+              href: troubleshoot/extension-based-hybrid-runbook-worker.md
+            - name: Troubleshoot agent-based worker issues
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Use source control integration
           href: source-control-integration.md
@@ -187,6 +188,8 @@
           items:
             - name: Overview
               href: automation-dsc-overview.md
+            - name: Configure Linux desired state - PowerShell
+              href: dsc-linux-powershell.md
             - name: Get started with State Configuration
               href: automation-dsc-getting-started.md
             - name: Enable State Configuration

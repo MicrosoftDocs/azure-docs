@@ -115,7 +115,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob’s access tier to hot with standard priority.
+# Change the blob's access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
@@ -125,12 +125,12 @@ $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 To change a blob's tier from archive to hot or cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
-az storage blob set-tier /
-    --container-name <container> /
-    --name <archived-blob> /
-    --tier Hot /
-    --account-name <account-name> /
-    --rehydrate-priority High /
+az storage blob set-tier \
+    --container-name <container> \
+    --name <archived-blob> \
+    --tier Hot \
+    --account-name <account-name> \
+    --rehydrate-priority High \
     --auth-mode login
 ```
 
@@ -184,7 +184,7 @@ az storage blob show \
 
 ## See also
 
-- [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 - [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
 - [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

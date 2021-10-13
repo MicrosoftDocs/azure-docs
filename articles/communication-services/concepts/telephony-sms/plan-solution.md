@@ -8,9 +8,10 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
 

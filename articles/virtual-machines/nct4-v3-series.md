@@ -37,7 +37,7 @@ Nvidia NVLink Interconnect: Not Supported<br>
 | Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8 / 32000  |
 
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## Supported operating systems and drivers
 
@@ -47,7 +47,9 @@ To install Nvidia GPU drivers manually, see [N-series GPU driver setup for Windo
 
 The Azure Nvidia GPU driver extension will deploy CUDA drivers on the NCasT4_v3-series VMs. For graphics and visualization workloads manually install the GRID drivers supported by Azure.
 
-## Other sizes
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -55,6 +57,10 @@ The Azure Nvidia GPU driver extension will deploy CUDA drivers on the NCasT4_v3-
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

@@ -6,6 +6,7 @@ metadata:
   ms.author: weetok
   ms.reviewer: jburchel
   ms.service: data-factory
+  ms.subservice: v1
   ms.topic: conceptual
   ms.date: 01/10/2018
     
@@ -77,7 +78,7 @@ sections:
         answer: |
           Yes. Use the **Move** button on your data factory blade as shown in the following diagram:
           
-          ![Move data factory](media/data-factory-faq/move-data-factory.png)
+          :::image type="content" source="media/data-factory-faq/move-data-factory.png" alt-text="Move data factory":::
           
       - question: |
           What are the compute environments supported by Data Factory?

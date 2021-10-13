@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 10/05/2021
 ms.author: b-juche
 ---
 
@@ -21,13 +21,41 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+    
+## October 2021
+
+* [Standard network features](configure-network-features.md) (Preview)
+
+    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability has been made possible by innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through a variety of features for a seamless and consistent experience along with security posture of all their workloads including Azure NetApp Files.
+    
+    You can now choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
+    * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) to and from Azure NetApp Files delegated subnets
+    * Connectivity over Active/Active VPN gateway setup
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
+
+    This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update](https://azure.microsoft.com/updates/) as more regions and features become available.  
+ 
+    To learn more, see [Configure network features for an Azure NetApp Files volume](configure-network-features.md).
+
+## September 2021
+
+* [Azure NetApp Files backup](backup-introduction.md) (Preview)
+
+    Azure NetApp Files online snapshots are now enhanced with backup of snapshots. With this new backup capability, you can vault your Azure NetApp Files snapshots to cost efficient and ZRS-enabled Azure storage in a fast and cost-effective way, further protecting your data from accidental deletion. Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots, however, are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can now choose to keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data recovery needs, and build up a longer history of snapshots at a lower cost for long-term retention purposes in the Azure NetApp Files backup vault. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details.
+
+* [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (Preview)
+
+    The Active Directory connections page now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
+
 ## August 2021
 
 * Support for [enabling Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 
     You can already enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can now also enable SMB CA on an existing SMB volume. See [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md).
 
-* [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
+* [Snapshot policy](snapshots-manage-policy.md) now generally available (GA)  
 
     The snapshot policy feature is now generally available. You no longer need to register the feature before using it.
 
@@ -144,7 +172,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2020
 
-* [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+* [Snapshot revert](snapshots-revert-volume.md)
 
     The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume.
 
@@ -188,15 +216,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies). It is currently in preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
 
-* [Volume snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (Preview) 
+* [Volume snapshot policy](snapshots-manage-policy.md) (Preview) 
 
-    Azure NetApp Files allows you to create point-in-time snapshots of your volumes. You can now create a snapshot policy to have Azure NetApp Files automatically create volume snapshots at a frequency of your choice. You can schedule the snapshots to be taken in hourly, daily, weekly, or monthly cycles. You can also specify the maximum number of snapshots to keep as part of the snapshot policy. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in preview. You can register for the feature preview by following the [volume snapshot policy documentation](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+    Azure NetApp Files allows you to create point-in-time snapshots of your volumes. You can now create a snapshot policy to have Azure NetApp Files automatically create volume snapshots at a frequency of your choice. You can schedule the snapshots to be taken in hourly, daily, weekly, or monthly cycles. You can also specify the maximum number of snapshots to keep as part of the snapshot policy. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in preview. You can register for the feature preview by following the [volume snapshot policy documentation](snapshots-manage-policy.md).
 
 * [NFS root access export policy](azure-netapp-files-configure-export-policy.md)
 
     Azure NetApp Files now allows you to specify whether the root account can access the volume. 
 
-* [Hide snapshot path](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)
+* [Hide snapshot path](snapshots-edit-hide-path.md)
 
     Azure NetApp Files now allows you to specify whether a user can see and access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
 

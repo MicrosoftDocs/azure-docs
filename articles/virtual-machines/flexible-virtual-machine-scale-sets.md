@@ -49,9 +49,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 
 ### Azure portal
 
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
+1. Log into the Azure portal at https://portal.azure.com.
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
@@ -81,6 +79,12 @@ Feature registration can take up to 15 minutes. To check the registration status
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ### Azure CLI 2.0
 Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
@@ -97,6 +101,11 @@ Feature registration can take up to 15 minutes. To check the registration status
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ## Get started with Flexible orchestration mode
 
@@ -118,6 +127,11 @@ Virtual machine scale sets with Flexible orchestration works as a thin orchestra
 
     When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
+Flexible orchestration mode can be used with VM SKUs that support [memory preserving updates or live migration](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), which includes 90% of all IaaS VMs that are deployed in Azure. Broadly this includes general purpose size families such as B-, D-, E- and F-series VMs. Currently, the Flexible mode cannot orchestrate over VM SKUs or families which do not support memory preserving updates, including G-, H-, L-, M-, N- series VMs. You can use the [Compute Resource SKUs API](/rest/api/compute/resource-skus/list) to determine whether a specific VM SKU is supported.
+
+```azurecli-interactive
+az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
+```
 
 ## Explicit Network Outbound Connectivity required 
 
@@ -132,7 +146,7 @@ With single instance VMs and Virtual machine scale sets with Uniform orchestrati
 
 Common scenarios that will require explicit outbound connectivity include: 
 
-- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
+- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
 - Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](../private-link/private-link-overview.md). 
 
 See [Default outbound access in Azure](https://aka.ms/defaultoutboundaccess) for more details on defining secure outbound connections.
@@ -191,12 +205,12 @@ The following table lists the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration (Preview) |
 |-|-|
 | Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
-| Maximum Instance Count | 1000 |
+| Maximum Instance Count (with FD availability guarantee) | 1000 |
 | SKUs supported | D series, E series, F series, A series, B series, Intel, AMD |
 | Availability Zones | Optionally specify all instances land in   a single availability zone |
 | Fault Domain - Max spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain - Fixed spreading | 2-3 FDs (depending on regional maximum FD Count), 1 FD for zonal deployments |
-| Update Domains | None (platform maintenance performed FD by FD) |
+| Update Domains | Deprecated, platform maintenance performed FD by FD |
 | Availability SLA | None (during preview) |
 | Full control over VM, NICs, Disks | Yes |
 | Assign VM to a Specific Fault Domain | Yes |
@@ -215,7 +229,7 @@ The following table lists the Flexible orchestration mode features and links to 
 | Automatic Scaling | Yes |
 | Remove NICs and Disks when deleting VM instances | Yes |
 | Upgrade Policy (VM scale sets) | No |
-| Automatic OS Updates (VM scale sets) | No |
+| Automatic image based OS Updates | No |
 | Infiniband  | No |
 | Write Accelerator  | No |
 | Azure Dedicated Hosts  | No |
@@ -225,7 +239,6 @@ The following table lists the Flexible orchestration mode features and links to 
 | Azure Alerts | No |
 | VM Insights | No |
 | Azure Site Recovery |  Yes, via PowerShell |
-| Add/remove existing VM to the group | No |
 | Service Fabric | No |
 | Azure Kubernetes Service (AKS) | No |
 | Trusted Virtual Machines (preview) | Yes |
@@ -235,7 +248,7 @@ The following table lists the Flexible orchestration mode features and links to 
 ### Unsupported parameters
 
 The following virtual machine scale set parameters are not currently supported during Virtual Machine Scale Set Flexible Orchestration Public Preview:
-- Single placement group - ou must choose `singlePlacementGroup=False`.
+- Single placement group - you must choose `singlePlacementGroup=False`.
 - Multi-zone deployment - deployments can either be regional or all VMs in a single zone
 - Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - VMSS Overprovisioning

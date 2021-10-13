@@ -26,8 +26,12 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
-  - name: Migrate manually
-    href: manual-migration.md
+  - name: Migrate your deployment
+    items:
+      - name: Migrate automatically 
+        href: automatic-migration.md
+      - name: Migrate manually
+        href: manual-migration.md
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -130,8 +134,12 @@
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
-  - name: Install language packs
-    href: language-packs.md
+  - name: Install language packages
+    items:
+    - name: Windows 10 multi-session images
+      href: language-packs.md
+    - name: Windows 11 Enterprise images
+      href: windows-11-language-packs.md
   - name: Use Azure Advisor
     href: azure-advisor.md
   - name: Resolve recommendations
@@ -272,8 +280,8 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: Microsoft 365 roadmap
-    href: https://aka.ms/wvdroadmap
+  - name: Azure update roadmap
+    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings

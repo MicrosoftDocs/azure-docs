@@ -210,7 +210,7 @@ Your template must be submitted to the service, this will download any dependent
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -apiversion "2020-02-14" `
+   -ApiVersion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```

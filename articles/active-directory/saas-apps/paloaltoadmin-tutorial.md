@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
 author: jeevansd
@@ -9,31 +9,30 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI
+# Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI
 
-In this tutorial, you learn how to integrate Palo Alto Networks - Admin UI with Azure Active Directory (Azure AD).
-Integrating Palo Alto Networks - Admin UI with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Palo Alto Networks - Admin UI with Azure Active Directory (Azure AD). When you integrate Palo Alto Networks - Admin UI with Azure AD, you can:
 
-* You can control in Azure AD who has access to Palo Alto Networks - Admin UI.
-* You can enable your users to be automatically signed-in to Palo Alto Networks - Admin UI (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Palo Alto Networks - Admin UI.
+* Enable your users to be automatically signed-in to Palo Alto Networks - Admin UI with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Palo Alto Networks - Admin UI, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Palo Alto Networks - Admin UI single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Palo Alto Networks - Admin UI single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Palo Alto Networks - Admin UI supports **SP** initiated SSO
-* Palo Alto Networks - Admin UI supports **Just In Time** user provisioning
+* Palo Alto Networks - Admin UI supports **SP** initiated SSO.
+* Palo Alto Networks - Admin UI supports **Just In Time** user provisioning.
 
 ## Adding Palo Alto Networks - Admin UI from the gallery
 
@@ -46,7 +45,7 @@ To configure the integration of Palo Alto Networks - Admin UI into Azure AD, you
 1. In the **Add from the gallery** section, type **Palo Alto Networks - Admin UI** in the search box.
 1. Select **Palo Alto Networks - Admin UI** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO
+## Configure and test Azure AD SSO for Palo Alto Networks - Admin UI
 
 In this section, you configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI based on a test user called **B.Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Palo Alto Networks - Admin UI needs to be established.
@@ -54,10 +53,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Palo Alto Networks - Admin UI SSO](#configure-palo-alto-networks---admin-ui-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Palo Alto Networks - Admin UI test user](#create-palo-alto-networks---admin-ui-test-user)** - to have a counterpart of B.Simon in Palo Alto Networks - Admin UI that is linked to the Azure AD representation of user.
+    1. **[Create Palo Alto Networks - Admin UI test user](#create-palo-alto-networks---admin-ui-test-user)** - to have a counterpart of B.Simon in Palo Alto Networks - Admin UI that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -72,17 +71,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<Customer Firewall FQDN>/php/login.php`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://<Customer Firewall FQDN>:443/SAML20/SP`
 
-    c. In the **Reply URL** text box, type the Assertion Consumer Service (ACS) URL in the following format:
+    b. In the **Reply URL** text box, type the Assertion Consumer Service (ACS) URL in the following format:
     `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
 
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<Customer Firewall FQDN>/php/login.php`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 	>
 	> Port 443 is required on the **Identifier** and the **Reply URL** as these values are hardcoded into the Palo Alto Firewall. Removing the port number will result in an error during login if removed.
 
@@ -119,7 +118,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -150,15 +148,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select the **Device** tab.
 
-    ![The Device tab](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![Screenshot shows the Device tab.](./media/paloaltoadmin-tutorial/device.png)
 
 3. In the left pane, select **SAML Identity Provider**, and then select **Import** to import the metadata file.
 
-    ![The Import metadata file button](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
+    ![Screenshot shows the Import metadata file button.](./media/paloaltoadmin-tutorial/admin.png)
 
 4. In the **SAML Identify Provider Server Profile Import** window, do the following:
 
-    ![The "SAML Identify Provider Server Profile Import" window](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
+    ![Screenshot shows the "SAML Identify Provider Server Profile Import" window.](./media/paloaltoadmin-tutorial/profile.png)
 
     a. In the **Profile Name** box, provide a name (for example, **AzureAD Admin UI**).
 
@@ -172,11 +170,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. In the left pane, select **SAML Identity Provider**, and then select the SAML Identity Provider Profile (for example, **AzureAD Admin UI**) that you created in the preceding step.
 
-    ![The SAML Identity Provider Profile](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+    ![Screenshot shows the SAML Identity Provider Profile](./media/paloaltoadmin-tutorial/azure.png)
 
 6. In the **SAML Identity Provider Server Profile** window, do the following:
 
-    ![The "SAML Identity Provider Server Profile" window](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+    ![Screenshot shows the "SAML Identity Provider Server Profile" window.](./media/paloaltoadmin-tutorial/server.png)
   
     a. In the **Identity Provider SLO URL** box, replace the previously imported SLO URL with the following URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
   
@@ -188,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 9. In the **Admin Role Profile** window, in the **Name** box, provide a name for the administrator role (for example, **fwadmin**). The administrator role name should match the SAML Admin Role attribute name that was sent by the Identity Provider. The administrator role name and value were created in **User Attributes** section in the Azure portal.
 
-    ![Configure Palo Alto Networks Admin Role](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+    ![Configure Palo Alto Networks Admin Role.](./media/paloaltoadmin-tutorial/role.png)
   
 10. On the Firewall's Admin UI, select **Device**, and then select **Authentication Profile**.
 
@@ -196,7 +194,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 12. In the **Authentication Profile** window, do the following: 
 
-    ![The "Authentication Profile" window](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+    ![Screenshot shows the "Authentication Profile" window.](./media/paloaltoadmin-tutorial/authentication.png)
 
     a. In the **Name** box, provide a name (for example, **AzureSAML_Admin_AuthProfile**).
 
@@ -204,26 +202,26 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **IdP Server Profile** drop-down list, select the appropriate SAML Identity Provider Server profile (for example, **AzureAD Admin UI**).
 
-    c. Select the **Enable Single Logout** check box.
+    d. Select the **Enable Single Logout** check box.
 
-    d. In the **Admin Role Attribute** box, enter the attribute name (for example, **adminrole**).
+    e. In the **Admin Role Attribute** box, enter the attribute name (for example, **adminrole**).
 
-    e. Select the **Advanced** tab and then, under **Allow List**, select **Add**.
+    f. Select the **Advanced** tab and then, under **Allow List**, select **Add**.
 
-    ![The Add button on the Advanced tab](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+    ![Screenshot shows the Add button on the Advanced tab.](./media/paloaltoadmin-tutorial/allowlist.png)
 
-    f. Select the **All** check box, or select the users and groups that can authenticate with this profile.  
+    g. Select the **All** check box, or select the users and groups that can authenticate with this profile.  
     When a user authenticates, the firewall matches the associated username or group against the entries in this list. If you don’t add entries, no users can authenticate.
 
-    g. Select **OK**.
+    h. Select **OK**.
 
 13. To enable administrators to use SAML SSO by using Azure, select **Device** > **Setup**. In the **Setup** pane, select the **Management** tab and then, under **Authentication Settings**, select the **Settings** ("gear") button.
 
-	![The Settings button](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+	![Screenshot shows the Settings button.](./media/paloaltoadmin-tutorial/setup.png)
 
 14. Select the SAML Authentication profile that you created in the Authentication Profile window(for example, **AzureSAML_Admin_AuthProfile**).
 
-	![The Authentication Profile field](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+	![Screenshot shows the Authentication Profile field.](./media/paloaltoadmin-tutorial/settings.png)
 
 15. Select **OK**.
 
@@ -241,8 +239,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Palo Alto Networks - Admin UI Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Palo Alto Networks - Admin UI tile in the My Apps, you should be automatically signed in to the Palo Alto Networks - Admin UI for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Palo Alto Networks - Admin UI tile in the My Apps, you should be automatically signed in to the Palo Alto Networks - Admin UI for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

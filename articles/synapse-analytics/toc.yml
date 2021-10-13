@@ -78,6 +78,8 @@ items:
     - name: Connect to Azure Data Explorer
       href: quickstart-connect-azure-data-explorer.md
       displayName: quickstart
+    - name: Partner solutions 
+      href: ./partner/browse-partners.md
     -name: 
   # - name: Tutorials
   #   items:
@@ -107,7 +109,7 @@ items:
     - name: Source control
       href: ./cicd/source-control.md
     - name: Continuous integration and delivery
-      href: ./cicd/continuous-integration-deployment.md
+      href: ./cicd/continuous-integration-delivery.md
     - name: Security
       items:
       - name: Security baseline
@@ -142,6 +144,8 @@ items:
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
+        - name: Conditional Access
+          href: ./security/workspace-conditional-access.md
       - name: Access control
         items:
         - name: Overview
@@ -228,10 +232,6 @@ items:
       href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
-    - name: Best practices serverless SQL pool
-      href: sql/best-practices-serverless-sql-pool.md
-    - name: Best practices dedicated SQL pools
-      href: sql/best-practices-dedicated-sql-pool.md
   - name: Quickstarts
     items:
     - name: Use serverless SQL pool
@@ -293,8 +293,10 @@ items:
       items:
       - name: Overview
         href: sql/develop-overview.md
-      - name: Best practices
-        href: sql/develop-best-practices.md
+      - name: Best practices serverless SQL pool
+        href: sql/best-practices-serverless-sql-pool.md
+      - name: Best practices dedicated SQL pools
+        href: sql/best-practices-dedicated-sql-pool.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
@@ -480,6 +482,8 @@ items:
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
         - name: Convert resource classes to workload groups
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
+        - name: Troubleshooting a missed classification
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-troubleshoot-missed-classification.md?context=/azure/synapse-analytics/context/context
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
@@ -615,7 +619,7 @@ items:
       href: ./spark/apache-spark-notebook-concept.md
     - name: Package management
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Monitoring tools
+    - name: Monitor Apache Spark applications 
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
@@ -661,14 +665,18 @@ items:
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Monitor Spark pools
+      - name: Monitor Apache Spark pools
         href: monitoring/how-to-monitor-spark-pools.md
-      - name: Connect and monitor Azure Synapse Spark Application level metrics
+      - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-      - name: Monitor Apache Spark application level metrics with Prometheus and Grafana
+      - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
         href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-      - name: Use Azure Log Analytics to collect and visualize metrics and logs (preview)
-        href: ./spark/apache-spark-azure-log-analytics.md      
+      - name: Monitor your Apache Spark applications with Azure Log Analytics (preview)
+        href: ./spark/apache-spark-azure-log-analytics.md 
+      - name: Collect Apache Spark applications logs and metrics with Azure Storage account
+        href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
+      - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
+        href: ./spark//azure-synapse-diagnostic-emitters-azure-eventhub.md         
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
@@ -683,6 +691,8 @@ items:
           href: ./spark/data-sources/apache-spark-sql-connector.md
         - name: JSON
           href: how-to-analyze-complex-schema.md
+        - name: External Hive Metastore
+          href: ./spark/apache-spark-external-metastore.md
 - name: Synapse Link
   items:
   - name: Overview
@@ -776,7 +786,7 @@ items:
       - name: Data flow overview
         href: concepts-data-flow-overview.md
       - name: Debug mode
-        href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Schema drift
         href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Column patterns
@@ -784,7 +794,18 @@ items:
       - name: Data flow monitoring
         href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Data flow performance
-        href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        items:
+          - name: Overview
+            href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: ../data-factory/concepts-data-flow-performance-sources.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing sinks
+            href: ../data-factory/concepts-data-flow-performance-sinks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing transformations
+            href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Using data flows in pipelines
+            href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Integration Runtime performance
         href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
       - name: Manage graph
@@ -807,6 +828,10 @@ items:
         href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon Marketplace Web Service
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Amazon RDS for Oracle
+        href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
+      - name: Amazon RDS for SQL Server
+        href: ../data-factory/connector-amazon-rds-for-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon Redshift
         href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3
@@ -1016,7 +1041,7 @@ items:
       - name: Delete files using delete activity
         href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Copy Data tool
-        href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/copy-data-tool.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Format and compression support
         href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Copy activity performance
@@ -1166,6 +1191,10 @@ items:
       items:
       - name: Pipeline runs
         href: monitoring/how-to-monitor-pipeline-runs.md
+      - name: Send email from a pipeline
+        href: ../data-factory/how-to-send-email.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Send Microsoft Teams notifications from a pipeline
+        href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Create integration runtime
       items:
       - name: Azure integration runtime
@@ -1187,11 +1216,48 @@ items:
       - name: Activity troubleshooting
         href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Connector troubleshooting
-        href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        items:
+        - name: Overview and general copy activity errors
+          href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          displayName: polybase, timeout
+        - name: Azure Blob Storage
+          href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Cosmos DB (including SQL API)
+          href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Lake (Gen1 and Gen2)
+          href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure database for PostgreSQL
+          href: ../data-factory/connector-troubleshoot-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure files
+          href: ../data-factory/connector-troubleshoot-azure-files.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+          href: ../data-factory/connector-troubleshoot-synapse-sql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Table Storage
+          href: ../data-factory/connector-troubleshoot-azure-table-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: DB2
+          href: ../data-factory/connector-troubleshoot-db2.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Delimited text format
+          href: ../data-factory/connector-troubleshoot-delimited-text.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
+          href: ../data-factory/connector-troubleshoot-dynamics-dataverse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: FTP, SFTP and HTTP
+          href: ../data-factory/connector-troubleshoot-ftp-sftp-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Oracle
+          href: ../data-factory/connector-troubleshoot-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: ORC format
+          href: ../data-factory/connector-troubleshoot-orc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Parquet format
+          href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: REST
+          href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SharePoint Online list
+          href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: XML format
+          href: ../data-factory/connector-troubleshoot-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Continuous Integration and Deployment
         href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Security and access control
-        href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Self-hosted Integration Runtimes troubleshooting
         href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
 - name: Machine Learning
@@ -1267,6 +1333,8 @@ items:
       href: ./catalog-and-governance/quickstart-connect-azure-purview.md
   - name: How-to guides
     items:
+    - name: Access a secured Azure Purview account
+      href: ./catalog-and-governance/how-to-access-secured-purview-account.md
     - name: Discover, connect and explore data in Synapse using Azure Purview
       href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: How-to
@@ -1331,14 +1399,14 @@ items:
   - name: Partners
     items:
     - name: Business intelligence
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/business-intelligence.md
     - name: Data integration
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/data-integration.md
     - name: Data management
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/data-management.md
     - name: Machine learning and AI
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/machine-learning-ai.md
     - name: System integration
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/system-integration.md
     - name: Compatibility issues with third-party applications
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/compatibility-issues.md

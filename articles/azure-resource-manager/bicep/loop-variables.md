@@ -5,18 +5,32 @@ description: Use Bicep variable loop to iterate when creating a variable.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/30/2021
 ---
 
 # Variable iteration in Bicep
 
-This article shows you how to create more than one value for a variable in your Bicep file. You can add a loop to the `variables` section and dynamically set the number of items for a variable during deployment. You also avoid repeating syntax in your Bicep file.
+This article shows you how to create more than one value for a variable in your Bicep file. You can add a loop to the `variables` declaration and dynamically set the number of items for a variable. You avoid repeating syntax in your Bicep file.
 
 You can also use copy with [modules](loop-modules.md), [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
+
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Syntax
 
 Loops can be used to declare multiple variables by:
+
+- Using a loop index.
+
+  ```bicep
+  var <variable-name> = [for <index> in range(<start>, <stop>): {
+    <properties>
+  }]
+  ```
+
+  For more information, see [Loop index](#loop-index).
 
 - Iterating over an array.
 
@@ -27,18 +41,12 @@ Loops can be used to declare multiple variables by:
 
   ```
 
-- Iterating over the elements of an array.
+  For more information, see [Loop array](#loop-array).
+
+- Iterating over an array and index.
 
   ```bicep
   var <variable-name> = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- Using a loop index.
-
-  ```bicep
-  var <variable-name> = [for <index> in range(<start>, <stop>): {
     <properties>
   }]
   ```
@@ -47,7 +55,7 @@ Loops can be used to declare multiple variables by:
 
 The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
 
-## Variable iteration
+## Loop index
 
 The following example shows how to create an array of string values:
 
@@ -117,23 +125,69 @@ The output returns an array with the following values:
 ]
 ```
 
-## Example templates
+## Loop array
 
-The following examples show common scenarios for creating more than one value for a variable.
+The following example loops over an array that is passed in as a parameter. The variable constructs objects in the required format from the parameter.
 
-|Template  |Description  |
-|---------|---------|
-|[Loop variables](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | Demonstrates how to iterate on variables. |
-|[Multiple security rules](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json). |
+```bicep
+@description('An array that contains objects with properties for the security rules.')
+param securityRules array = [
+  {
+    name: 'RDPAllow'
+    description: 'allow RDP connections'
+    direction: 'Inbound'
+    priority: 100
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.0.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '3389'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+  {
+    name: 'HTTPAllow'
+    description: 'allow HTTP connections'
+    direction: 'Inbound'
+    priority: 200
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.1.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '80'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+]
+
+
+var securityRulesVar = [for rule in securityRules: {
+  name: rule.name
+  properties: {
+    description: rule.description
+    priority: rule.priority
+    protocol: rule.protocol
+    sourcePortRange: rule.sourcePortRange
+    destinationPortRange: rule.destinationPortRange
+    sourceAddressPrefix: rule.sourceAddressPrefix
+    destinationAddressPrefix: rule.destinationAddressPrefix
+    access: rule.access
+    direction: rule.direction
+  }
+}]
+
+resource netSG 'Microsoft.Network/networkSecurityGroups@2020-11-01' = {
+  name: 'NSG1'
+  location: resourceGroup().location
+  properties: {
+    securityRules: securityRulesVar
+  }
+}
+```
 
 ## Next steps
 
 - For other uses of loops, see:
-  - [Resource iteration in Bicep files](loop-resources.md)
-  - [Property iteration in Bicep files](loop-properties.md)
-  - [Output iteration in Bicep files](loop-outputs.md)
-- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
-- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+  - [Resource iteration in Bicep](loop-resources.md)
+  - [Module iteration in Bicep](loop-modules.md)
+  - [Property iteration in Bicep](loop-properties.md)
+  - [Output iteration in Bicep](loop-outputs.md)
 - To set dependencies on resources that are created in a loop, see [Set resource dependencies](./resource-declaration.md#set-resource-dependencies).
-- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
-- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).

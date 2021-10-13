@@ -19,6 +19,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 9.45.6096.1 | 5.1.6952.0 | 9.45.6096.1 | 5.1.6952.0 | 2.0.9237.0
 [Rollup 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
 [Rollup 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [Rollup 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
@@ -28,6 +29,17 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (September 2021)
+
+### Update Rollup 58
+
+[Update rollup 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
 
 ## Updates (August 2021)
 
@@ -40,10 +52,10 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 > To setup the preview experience, you will have to perform a fresh setup and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
 
 This public preview covers a complete overhaul of the current architecture for pretecting VMware machines.
-- [Learn](https://docs.microsoft.com/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
-- Check the pre-requisites and setup the ASR replication appliance by following [these steps](https://docs.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
-- [Enable replication](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview) for your VMware machines.
-- Check out the [automatic upgrade](https://docs.microsoft.com/azure/site-recovery/upgrade-mobility-service-preview) and [switch](https://docs.microsoft.com/azure/site-recovery/switch-replication-appliance-preview) capability for ASR replication appliance.
+- [Learn](./vmware-azure-architecture-preview.md) about the new architecture and the changes introduced.
+- Check the pre-requisites and setup the ASR replication appliance by following [these steps](./deploy-vmware-azure-replication-appliance-preview.md).
+- [Enable replication](./vmware-azure-set-up-replication-tutorial-preview.md) for your VMware machines.
+- Check out the [automatic upgrade](./upgrade-mobility-service-preview.md) and [switch](./switch-replication-appliance-preview.md) capability for ASR replication appliance.
 
 
 ### Update rollup 56
