@@ -235,7 +235,7 @@ If you have a variable in the name or a high-cardinality dimension, the followin
 
 If the metric name or dimension value is populated with an identifier or high cardinality dimension by mistake, you can easily fix it by removing the variable part.
 
-But if high cardinality is essential for your scenario, the aggregated metrics are probably not the right choice. Switch to using custom logs (that is, trackMetric API calls with [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent). However, consider that logs do not aggregate values so every single entry will be stored. As a result, if you have a large volume of logs in a small time period (1 million a second for example), it can cause throttling and ingestion delays. 
+But if high cardinality is essential for your scenario, the aggregated metrics are probably not the right choice. Switch to using custom logs (that is, trackMetric API calls with [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). However, consider that logs do not aggregate values so every single entry will be stored. As a result, if you have a large volume of logs in a small time period (1 million a second for example), it can cause throttling and ingestion delays. 
 
 ## Next steps
 Use custom metrics from various services: 
