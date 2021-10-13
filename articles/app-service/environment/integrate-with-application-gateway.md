@@ -166,7 +166,7 @@ After the Application Gateway had been created, there is a health probe had been
 
 `Cannot connect to backend server. Check whether any NSG/UDR/Firewall is blocking access to the server. Check if application is running on correct port.`
 
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobeerror.png" alt-text="appgw-healthprobeerror":::
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobeerror.png" alt-text="Application Gateway health probe error":::
 
 ### Configure virtual network links with private DNS zone
 
@@ -198,7 +198,7 @@ You can recreate the health probe to replace the default health probe when Appli
 
 Click Test button to test the backend health. Once the status is green, add to the Application Gateway.
 
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobestatus.png" alt-text="Application Gateway health probe error":::
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobestatus.png" alt-text="Application Gateway health probe status":::
 
 * Also confirm the backend health status from **Backend health** in the Application Gateway plane.
 
