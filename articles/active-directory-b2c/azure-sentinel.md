@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
+#Customer intent: As an IT professional, I want to gather logs and audit data by using Azure Sentinel and Azure Monitor so that I can secure my applications that use Azure Active Directory B2C.
 ---
 
 # Tutorial: Configure security analytics for Azure Active Directory B2C data with Azure Sentinel
