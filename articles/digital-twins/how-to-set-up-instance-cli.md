@@ -29,7 +29,7 @@ This version of this article goes through these steps manually, one by one, usin
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Set up Cloud Shell session
+### Set up Cloud Shell session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## Create the Azure Digital Twins instance
