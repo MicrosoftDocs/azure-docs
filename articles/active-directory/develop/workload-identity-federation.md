@@ -35,7 +35,7 @@ While the scenarios differ, the method for exchanging a foreign token for an acc
 
 The following diagram shows the general workflow of a workload exchanging a foreign token for an access token and then accessing Azure resources.
 
-:::image type="content" source="media/workload-identity-federation/workflow.png" alt-text="Shows a foreign token exchanged for an access token and accessing Azure" border="false":::
+:::image type="content" source="media/workload-identity-federation/workflow.svg" alt-text="Shows a foreign token exchanged for an access token and accessing Azure" border="false":::
 
 
 ## Next steps
