@@ -18,6 +18,7 @@ ms.reviewer: azmetadatadev
             "type": "edgeZone",
             "location": "microsoftlosangeles"
         },
+        "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
         "licenseType":  "Windows_Client",
         "location": "westus",
@@ -37,6 +38,7 @@ ms.reviewer: azmetadatadev
         },
         "platformFaultDomain": "36",
         "platformUpdateDomain": "42",
+        "priority": "Regular",
         "publicKeys": [{
                 "keyData": "ssh-rsa 0",
                 "path": "/home/user/.ssh/authorized_keys0"
@@ -156,6 +158,7 @@ ms.reviewer: azmetadatadev
             "type": "edgeZone",
             "location": "microsoftlosangeles"
         },
+        "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
         "licenseType":  "",
         "location": "westus",
@@ -175,6 +178,7 @@ ms.reviewer: azmetadatadev
         },
         "platformFaultDomain": "36",
         "platformUpdateDomain": "42",
+        "priority": "Regular",
         "publicKeys": [{
                 "keyData": "ssh-rsa 0",
                 "path": "/home/user/.ssh/authorized_keys0"
