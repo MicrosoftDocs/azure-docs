@@ -7,15 +7,15 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/10/2021
-# Customer intent: As an Azure Purview administrator, I want to kickstart and be up and running with Azure Purview service in a matter of minutes; additionally, I want to perform and set up automations, batch mode API executions and scripts that help me run Purview smoothly and effectively for the long term on a regular basis.
+# Customer intent: As an Azure Purview administrator, I want to kickstart and be up and running with Azure Purview service in a matter of minutes; additionally, I want to perform and set up automations, batch mode API executions and scripts that help me run Purview smoothly and effectively for the long-term on a regular basis.
 ---
 
 # Azure Purview Open-Source Tools & Utilities
-This page lists several open-source tools and utilities (command line, python, and powershell interfaces) that help you get kickstarted on various stages of your journey with Azure Purview service in a matter of minutes. These tools are developed by collective effort of the Azure Purview Product Group and the open-source community; and are intended to make learning, starting up, regular usage and long-term adoption of Purview breezy and super fast.
+This page lists several open-source tools and utilities (command line, python, and powershell interfaces) that help you get started very quickly on Azure Purview service in a matter of minutes! These tools are developed by collective effort of the Azure Purview Product Group and the open-source community; and are intended to make learning, starting up, regular usage and long-term adoption of Purview breezy and super fast.
 
 ### Intended Audience
 - Azure Purview community including customers, developers, ISVs, partners, evangelists, and enthusiasts. 
-- Azure Purview catalog is based on [Apache Atlas](https://atlas.apache.org/) and extends full support for Apache Atlas APIs. We welcome Apache Atlas community, enthusiasts, and developers to whole-heartedly build on and evangelize Azure Purview.
+- Azure Purview catalog is based on [Apache Atlas](https://atlas.apache.org/) and extends full support for Apache Atlas APIs. We welcome Apache Atlas community, enthusiasts, and developers to wholeheartedly build on and evangelize Azure Purview.
 
 ### Purview Customer Journey Stages
 - *Purview Learners*: Learners who are starting fresh with Azure Purview (Microsoft Cloud marquee Data Governance service) and are keen to understand and explore how a multi-cloud unified data governance solution works. A section of learners includes users who want to compare and contrast Purview with other competing solutions in the data governance market and try it before adopting for long-term usage.
@@ -29,7 +29,7 @@ This page lists several open-source tools and utilities (command line, python, a
 
 1. [Purview-API-via-Powershell](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/README.md) 
 - *Recommended Customer Journey Stages: Learners (Interactive Mode); Innovators, Enthusiasts, Adopters, Long-Term Regular Users (Batch Mode).*
-- **Description**: This utility is based on and covers the entire set of [Azure Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use Powershell interface. Use and automate Purview APIs for regular and long term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
+- **Description**: This utility is based on and covers the entire set of [Azure Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use Powershell interface. Use and automate Purview APIs for regular and long-term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
 
 2. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts*
