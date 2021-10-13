@@ -32,7 +32,7 @@ In this article, you'll learn about how Azure Virtual Network Manager uses the c
 > Azure Virtual Network Manager requires all child resources to be removed before it can be deleted.
 >
 
-## Scope
+## <a name="scope"></a> Scope
 
 A *scope* within Azure Virtual Network Manager is a set of resources where features can be applied to. When specifying a scope, you're limiting the access to which Network Manager can manage resources for. The value for the scope can be at the management group level or at the subscription level. See [Azure management groups](../governance/management-groups/overview.md), to learn how to manage your resource hierarchy. When you select a management group as the scope, all child resources are included within the scope. 
 
@@ -40,7 +40,7 @@ A *scope* within Azure Virtual Network Manager is a set of resources where featu
 > Creating multiple Network Manager with an overlapping scope of the same hierarchy is not supported.
 > 
 
-## Scope Access
+## <a name="features"></a> Scope Access
 
 The scope access is a list of features that you can allow the Network Manager to manage. Azure Virtual Network Manager currently has two feature scopes, which are *Connectivity* and *SecurityAdmin*. You can enable both feature scopes on the same Network Manager instance. 
 
