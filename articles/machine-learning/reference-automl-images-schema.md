@@ -22,10 +22,7 @@ Learn how to format your JSONL files for data consumption in automated ML experi
 
 Azure Machine Learning AutoML for Images requires input image data to be prepared in [JSONL](https://jsonlines.org/) (JSON Lines) format. This section describes input data formats or schema for image classification multi-class, image classification multi-label, object detection, and instance segmentation. We'll also provide a sample of final training or validation JSON Lines file.
 
-### Image Classification (binary/multi-class)
-
-![Image classification binary or multiclass image example](./media/reference-automl-images-schema/multiclass-predictions.jpg)
-
+### Image classification (binary/multi-class)
 
 **Input data format/schema in each JSON Line:**
 ```json
@@ -60,11 +57,11 @@ Example of a JSONL file for multi-class image classification:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
 
-### Image Classification Multi-label
+### Image classification multi-label
 
-![Image classification multilabel image example](./media/reference-automl-images-schema/multilabel-predictions.jpg)
+The following is an example of input data format/schema in each JSON Line for image classification.
 
-**Input data format/schema in each JSON Line:**
+
 ```json
 {
    "image_url":"AmlDatastore://data_directory/../Image_name.image_format",
@@ -105,11 +102,9 @@ Example of a JSONL file for Image Classification Multi-label:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": ["carton","milk_bottle","water_bottle"]}
   ```
 
-### Object Detection
+### Object detection
 
-![Object detection image example](./media/reference-automl-images-schema/object-detect-predictions.jpg)
-
-**Input data format/schema in each JSON Line:**
+The following is an example JSONL file for object detection.
 
 ```json
 {
@@ -177,9 +172,8 @@ Example of a JSONL file for object detection:
   ```
 
 ### Instance segmentation
-For instance segmentation, automated ML only support polygon as input and output, no masks.
 
-![Instance segmentation image example](./media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
+For instance segmentation, automated ML only support polygon as input and output, no masks.
 
 The following is an example JSONL file for instance segmentation.
 
@@ -225,12 +219,13 @@ Example of a JSONL file for Instance Segmentation:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.084, 0.599, 0.080, 0.585, 0.080, 0.539, 0.082, 0.536, 0.092, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.380, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
 
-## Data format for Inference
+## Data format for inference
+
 In this section, we document the input data format required to make predictions when using a deployed model. Any aforementioned image format is accepted with content type `application/octet-stream`.
 
 ### Input format
 
-Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
 ```python
 # input image for inference
@@ -248,9 +243,10 @@ response = requests.post(scoring_uri, data, headers=headers)
 
 Predictions made on model endpoints follow different structure depending on the task type. This section explores the output data formats for multi-class, multi-label image classification, object detection, and instance segmentation tasks.  
 
-#### Image Classification
+#### Image classification
 
-Endpoint for Image classification returns all the labels in the dataset and their probability scores for the input image in the following format.
+Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.
+
 ```json
 {
    "filename":"/tmp/tmppjr4et28",
@@ -268,8 +264,11 @@ Endpoint for Image classification returns all the labels in the dataset and thei
    ]
 }
 ```
-#### Image Classification Multi-label
-For Image Classification Multi-label, model endpoint returns labels and their probabilities.
+
+#### Image classification multi-label
+
+For image classification multi-label, model endpoint returns labels and their probabilities.
+
 ```json
 {
    "filename":"/tmp/tmpsdzxlmlm",
@@ -288,9 +287,10 @@ For Image Classification Multi-label, model endpoint returns labels and their pr
 }
 ```
 
-#### Object Detection
+#### Object detection
 
 Object detection model returns multiple boxes with their scaled top-left and bottom-right coordinates along with box label and confidence score.
+
 ```json
 {
    "filename":"/tmp/tmpdkg2wkdy",
@@ -328,8 +328,9 @@ Object detection model returns multiple boxes with their scaled top-left and bot
    ]
 }
 ```
-#### Instance Segmentation
-In Instance Segmentation, output consists of multiple boxes with their scaled top-left and bottom-right coordinates, labels, confidence scores, and polygons (not masks). Here, the polygon values are in the same format that we discussed in the schema section.
+#### Instance segmentation
+
+In instance segmentation, output consists of multiple boxes with their scaled top-left and bottom-right coordinates, labels, confidence scores, and polygons (not masks). Here, the polygon values are in the same format that we discussed in the schema section.
 
 ```json
 {
