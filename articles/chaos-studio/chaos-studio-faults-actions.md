@@ -16,7 +16,7 @@ In Chaos Studio, every activity that happens as part of an experiment is called 
 ## Experiment actions
 
 An action is any activity that is orchestrated as part of a chaos experiment. Actions are organized into steps and branches, enabling actions to be run either sequentially or in parallel. Every action has the following properties:
-* **Name** - The specific action that takes place. This usually takes the form of a URN for the action, for example, `urn:
+* **Name** - The specific action that takes place. A name usually takes the form of a URN for the action, for example, `urn:
 * **Type** - The way that the action executes. Actions can be either *continuous*, meaning that the action runs nonstop over a period of time (for example, applying CPU pressure for 10 minutes), or *discrete*, meaning that the action occurs only once (for example, rebooting a Redis Cache instance).
 
 ## Types of actions
