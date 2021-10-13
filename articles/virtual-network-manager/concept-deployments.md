@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 10/13/2021
 ms.custom: template-concept
 ---
 
@@ -20,15 +20,21 @@ In this article, you'll learn about how configurations are applied to your netwo
 
 ## Deployment
 
-*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Changes made to network groups, connectivity, and security admin configuration won't take effect unless a deployment has been committed. When committing a deployment, you select the region(s) to which the configuration will be applied. When a deployment request is sent to AVNM, it will calculate the [goal state](#goalstate) of network resources and request the necessary changes to your infrastructure. The changes can take up to 15 minutes depending on how large the configuration is.
+*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Changes made to network groups, connectivity, and security admin configuration won't take effect unless a deployment has been committed. When committing a deployment, you select the region(s) to which the configuration will be applied. When a deployment request is sent to Azure Virtual Newtork Manager, it will calculate the [goal state](#goalstate) of network resources and request the necessary changes to your infrastructure. The changes can take about 15-20 minutes depending on how large the configuration is.
 
 ## <a name="deployment"></a>Deployment against network group membership types
 
 Deployment updates are different for static and dynamic group members in a network group. When you have dynamic group members, a goal state model is used. Azure Virtual Network Manager will automatically determine if the dynamic members meet the requirements of the configuration and adjust without you needing to deploy the configuration again. However, if you have virtual networks that are added as static members, you'll need to deploy the configuration again for the changes to apply. For example, if you add a new virtual network as a static member you'll need to deploy the configuration again to take effect.
 
+## Deployment status
+
+When you commit a configuration deployment, the API does a POST operation and you won't see the completion of the deployment afterward. Once the deployment request has been made, Azure Virtual Network Manager will calculate the goal state of your networks and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
+
+:::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
+
 ## <a name = "goalstate"></a> Goal state model
 
-When you commit a deployment of configuration(s), you're describing the goal state configuration(s) you want as an end result. For example, when you commit configurations named *Config1* and *Config2* into a region, these two configurations gets applied. If you decided to commit configuration named *Config1* and *Config3* into the same region, *Config2* would then be removed and *Config3* would be added. To remove all configurations, you would deploy a **None** configuration against region(s) you no longer wish to have any configurations applied.
+When you commit a deployment of configuration(s), you're describing the goal state of the configuration you want as an end result. For example, when you commit configurations named *Config1* and *Config2* into a region, these two configurations gets applied. If you decided to commit configuration named *Config1* and *Config3* into the same region, *Config2* would then be removed and *Config3* would be added. To remove all configurations, you would deploy a **None** configuration against the region(s) you no longer wish to have any configurations applied.
 
 ## Next steps
 
