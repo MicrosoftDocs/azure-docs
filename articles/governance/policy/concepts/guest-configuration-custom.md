@@ -252,9 +252,9 @@ following known compatibility issues.
 The "nx" resources for Linux that were included in the
 [DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers)
 repo were written in a combination of the languages C and Python. Because the path
-forward for DSC on Linux is to use PowerShell, none of the existing "nx" resources
-can be used with DSCv3. Until a new module containing supported resources for Linux
-is available, it is required to author custom resources.
+forward for DSC on Linux is to use PowerShell, the existing "nx" resources
+aren't compatible with DSCv3. Until a new module containing supported resources for Linux
+is available, it's required to author custom resources.
 
 ## Coexistance with DSC version 3 and previous versions
 
