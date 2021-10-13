@@ -188,8 +188,8 @@ Azure ultra disks deliver high throughput, high IOPS, and consistent low latency
 As you create an ultra disk, you have three dimensions you can define:
 
 - The capacity of the disk. Ranges are from 4 GiB to 65,536 GiB
-- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
-- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
+- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
+- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
 
 The cost of a single disk is determined by the three dimensions you can define for the particular disks separately. 
 
