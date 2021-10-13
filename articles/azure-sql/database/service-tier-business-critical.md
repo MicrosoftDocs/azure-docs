@@ -52,6 +52,19 @@ The key reasons why you should choose Business Critical service tier instead of 
 - **Advanced data corruption protection**. Business Critical tier leverages database replicas behind-the-scenes for business continuity purposes, and so the service also then leverages automatic page repair, which is the same technology used for SQL Server database [mirroring and availability groups](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). In the event that a replica cannot read a page due to a data integrity issue, a fresh copy of the page will be retrieved from another replica, replacing the unreadable page without data loss or customer downtime. This functionality is applicable in General Purpose tier if the database has geo-secondary replica.
 - **Higher availability** - Business Critical tier in Multi-AZ configuration guarantees 99.995% availability, compared to 99.99% of General Purpose tier.
 - **Fast geo-recovery** - Business Critical tier configured with geo-replication has a guaranteed Recovery point objective (RPO) of 5 sec and Recovery time objective (RTO) of 30 sec for 100% of deployed hours.
+ 
+## Compare products
+
+The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the business critical service tier. 
+
+|  | Azure SQL Database | Azure SQL Managed Instance |
+| **Compute size**| 1 - 80 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores| 
+| **Storage type** | Remote storage | Remote storage| 
+| **Database size** | 1 GB - 4 TB | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only|
+| **Storage size** | 1 GB - 4 TB | 32 GB - 8 TB| 
+| **TempDB size** | 32 GB per vCore | 23 GB per vCore |
+| **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
+| **Availability** | 99.99% | 
 
 ## Next steps
 

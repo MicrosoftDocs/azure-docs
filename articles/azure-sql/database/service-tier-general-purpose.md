@@ -47,6 +47,22 @@ Whenever the database engine or operating system is upgraded, some part of under
 
 The General Purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with 99.99% SLA with storage latency between 5 and 10 ms that match SQL Server on an Azure virtual machine in most of the cases, the General Purpose tier is the option for you.
 
+## Compare products
+
+The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the general purpose service tier. 
+
+|  | Azure SQL Database | Azure SQL Managed Instance |
+| **Compute size**| 1 - 80 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores| 
+| **Storage type** | Remote storage | Remote storage| 
+| **Database size** | 1 GB - 4 TB | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only|
+| **Storage size** | 1 GB - 4 TB | 32 GB - 8 TB| 
+| **TempDB size** | 32 GB per vCore | 23 GB per vCore |
+| **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
+| **Availability** | 99.99% | 
+
+
+
+
 ## Next steps
 
 - Find resource characteristics (number of cores, I/O, memory) of the General Purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).

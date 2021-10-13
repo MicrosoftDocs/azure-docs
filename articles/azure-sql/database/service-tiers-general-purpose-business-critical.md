@@ -3,7 +3,7 @@ title: General purpose and business critical service tiers
 titleSuffix: Azure SQL Database 
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model used by Azure SQL Database. 
 services: sql-database
-ms.service: sql-datbase
+ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
