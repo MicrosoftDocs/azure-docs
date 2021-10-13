@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
-
+ms.date: 09/30/2021
+ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
@@ -34,7 +34,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 
@@ -94,6 +94,10 @@ Now that you have access to the data you want to have labeled, create your label
     
     Select **Next** to continue creating the project.
 
+### Add workforce (optional)
+
+Select **Next** to continue.  You won't be using an external workforce for this tutorial.
+
 ### Select or create a dataset
 
 1.   On the **Select or create a dataset** form, select the second choice, **Create a dataset**, then select the link **From datastore**.
@@ -101,7 +105,8 @@ Now that you have access to the data you want to have labeled, create your label
 1. Use the following input for the **Create dataset from datastore** form:
 
     1. On the **Basic info** form, add a name, here we'll use **images-for-tutorial**.  Add a description if you wish.  Then select **Next**.
-    1. On the **Datastore selection** form, use the dropdown to select your **Previously created datastore**, for example **tutorial_images (Azure Blob Storage)**
+    1. On the **Datastore selection** form, select **Previously created datastore**, then click on the datastore name and select **Select datastore**.
+    1. On the next page, verify that the currently selected datastore is correct. If not, select **Previously created datastore** and repeat the prior step.
     1. Next, still on the **Datastore selection** form, select **Browse** and then select **MultiClass - DogsCats**.  Select **Save** to use **/MultiClass - DogsCats** as the path.
     1. Select **Next** to confirm details and then **Create** to create the dataset.
     1. Select the circle next to the dataset name in the list, for example **images-for-tutorial**.
@@ -205,7 +210,5 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 
 ## Next steps
 
-In this tutorial, you labeled images.  Now use your labeled data:
-
 > [!div class="nextstepaction"]
-> [Train a machine learning image recognition model](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Train a machine learning image recognition model](how-to-use-labeled-dataset.md).

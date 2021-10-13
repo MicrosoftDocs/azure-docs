@@ -1,14 +1,14 @@
 ---
-title: Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)
+title: Use managed identities to access Event Hub from an Azure Stream Analytics job
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Event Hubs input and output.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 07/07/2021
 ---
 
-# Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)
+# Use managed identities to access Event Hub from an Azure Stream Analytics job
 
 Azure Stream Analytics supports Managed Identity authentication for both Azure Event Hubs input and output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 
@@ -55,6 +55,9 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
 1. Select **Save** and wait a minute or so for changes to propagate.
 
 You can also grant this role at the Event Hub Namespace level, which will naturally propagate the permissions to all Event Hubs created under it. That is, all Event Hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
+
+> [!NOTE]
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
 
 ## Create an Event Hub input or output  
 

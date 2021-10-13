@@ -1,6 +1,6 @@
 ---
-title: How to plan a consulting service offer for the Microsoft commercial marketplace 
-description: How to plan a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center.
+title: Plan a consulting service offer for the commercial marketplace 
+description: Plan a new consulting service offer for Microsoft AppSource or Azure Marketplace using Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ---
 
-# How to plan a consulting service offer in the commercial marketplace
+# Plan a consulting service offer in the commercial marketplace
 
 This article introduces the different options and requirements for publishing consulting service offers to the Microsoft commercial marketplace. Read this article to prepare your offer for publishing with Partner Center.
 
@@ -22,10 +22,49 @@ Consulting service offers are published as **Contact me** listings. This means t
 
 ## Primary products and online stores
 
-Each consulting service offer should focus on a Microsoft product, called **primary product**. The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+Each consulting service must focus on one of these Microsoft products, called the **primary product** of the offer:
 
-* If the primary product of your consulting service is Azure, the offer will be listed in Azure Marketplace.
-* If the primary product is not Azure, the offer will be listed in AppSource.
+:::row:::
+    :::column:::
+        Azure
+
+        Dynamics 365 Business Central
+
+        Dynamics 365 Commerce
+
+        Dynamics 365 Customer Insights
+
+        Dynamics 365 Customer Service
+
+        Dynamics 365 Field Service
+
+        Dynamics 365 Finance
+
+        Dynamics 365 Marketing
+    :::column-end:::
+    :::column:::
+        Dynamics 365 Project Service Automation
+
+        Dynamics 365 Sales
+
+        Dynamics 365 Supply Chain Management
+
+        Microsoft 365
+
+        Power Apps
+
+        Power Automate
+
+        Power BI
+
+        Power Virtual Agents
+    :::column-end:::
+:::row-end:::
+
+The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+
+* If the primary product of your consulting service is Azure, the offer will be listed on Azure Marketplace.
+* If the primary product is not Azure, the offer will be listed on AppSource.
 
 To learn more about the differences between AppSource and Azure Marketplace, see [Commercial marketplace online stores](./overview.md#commercial-marketplace-online-stores).
 
@@ -46,7 +85,7 @@ The commercial marketplace supports five types of consulting service:
 * **Proof of concept**: a limited-scope implementation to determine whether a solution meets the customer’s requirements.
 * **Workshop**: an interactive engagement conducted on the customer’s premises. It can involve training, briefings, assessments, or demos built on the customer’s data or environment.
 
-Your service should have a fixed and predetermined duration of up to 10 weeks. The service duration must be made explicit in the offer listing.
+Your service should have a predetermined duration of up to 12 months. The service duration must be explicitly defined in the offer listing.
 
 ## Customer leads
 
@@ -86,6 +125,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 |Getting Started with Azure IoT in Manufacturing |Manufacturing IoT: 2-Day Assessment |
 |Workshop on Smart Toasters |Smart Toasters: 1-Week Workshop |
 |SQL Server Migration PoC by Contoso |SQL Migration: 3-Wk Proof of Concept |
+| | |
 
 **Search results summary**: Describe the purpose or goal of your offer in 200 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
@@ -100,6 +140,7 @@ When writing the description, follow these criteria, according to your service t
 |Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
+| | |
 
 Here are some tips for writing your description:
 
@@ -114,7 +155,7 @@ You can use HTML tags to format your description. You can enter up to 2,000 char
 
 **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**.
 
-**Duration**: your consulting service offer must have a predetermined duration of up to 10 weeks.
+**Duration**: your consulting service offer must have a predetermined duration of up to 12 months.
 
 **Contact information**: in Partner Center, you’ll be asked to provide name, email address, and phone number of two people in your company (you can be one of the two contacts). We'll use this information to communicate with you about your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
 
@@ -137,6 +178,11 @@ Follow these guidelines for your logos:
 **Marketplace media – screenshots**: Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
 
 **Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+
+## Pricing and availability
+
+Your consulting service offer can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
+
 
 ## Next steps
 

@@ -16,11 +16,15 @@
 - name: Concepts
   items:
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
 - name: Tutorials
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
   - name: Reliability
@@ -58,9 +62,9 @@
   - name: REST API
     href: /rest/api/advisor/
   - name: Azure CLI
-    href: /cli/azure/advisor?view=azure-cli-latest
+    href: /cli/azure/advisor
   - name: PowerShell
-    href: /powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/
 - name: Resources
   items:
   - name: Azure Roadmap

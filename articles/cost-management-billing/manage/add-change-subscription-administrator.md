@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 06/27/2021
 ms.author: banders
 
 ---
@@ -39,29 +39,12 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 ### To assign a user as an administrator
 
-1. Sign in to the Azure portal as the subscription owner and open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+- Assign the Owner role to a user at the subscription scope.  
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Click the subscription where you want to grant access.
+## Need help? Contact support
 
-1. Click **Access control (IAM)**.
-
-1. Click the **Role assignments** tab to view all the role assignments for this subscription.
-
-    ![Screenshot that shows role assignments](./media/add-change-subscription-administrator/role-assignments.png)
-
-1. Click **Add** > **Add role assignment** to open the **Add role assignment** pane.
-
-    If you don't have permissions to assign roles, the option will be disabled.
-
-1. In the **Role** drop-down list, select the **Owner** role.
-
-1. In the **Select** list, select a user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display names and email addresses.
-
-    ![Screenshot that shows the Owner role selected](./media/add-change-subscription-administrator/add-role.png)
-
-1. Click **Save** to assign the role.
-
-    After a few moments, the user is assigned the Owner role at the subscription scope.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Next steps
 
@@ -69,7 +52,3 @@ If you're not sure who the account administrator is for a subscription, use the 
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrator role permissions in Azure Active Directory](../../active-directory/roles/permissions-reference.md)
-
-## Need help? Contact support
-
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

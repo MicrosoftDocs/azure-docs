@@ -1,12 +1,11 @@
 ---
 title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
+author: Sharmistha-Rai
+ms.author: sharrai
 ---
 
 
@@ -23,6 +22,9 @@ This article summarizes the supported components and settings for disaster recov
 --- | ---
 Hyper-V with Virtual Machine Manager <br> <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
+
+> [!NOTE]
+> Configuring both Azure Backup and Azure Site Recovery on the same Hyper-V host can cause issue with replication and is not supported.
 
 ## On-premises servers
 
@@ -91,7 +93,7 @@ Accelerated Networking | No | No
 ## Hyper-V host storage
 
 **Storage** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
---- | --- | --- 
+--- | --- | ---
 NFS | NA | NA
 SMB 3.0 | Yes | Yes
 SAN (ISCSI) | Yes | Yes
@@ -127,6 +129,7 @@ Multi-path (MPIO) | Yes | Yes
 Locally redundant storage | Yes | Yes
 Geo-redundant storage | Yes | Yes
 Read-access geo-redundant storage | Yes | Yes
+Zone-redundant storage | No | No
 Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
@@ -138,14 +141,15 @@ Standard storage | Yes | Yes
 Import/Export service | No | No
 Azure Storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
-Secure transfer option | Yes
-
+Secure transfer option | Yes | Yes
+UEFI Secure boot | No | No
 
 ## Azure compute features
 
 **Feature** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---
 Availability sets | Yes | Yes
+Availability zones | No | No
 HUB | Yes | Yes  
 Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
 
@@ -185,8 +189,8 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 To make sure your deployment is compatible with settings in this article, make sure you're running the latest provider and agent versions.
 
 **Name** | **Description** | **Details**
---- | --- | --- 
-Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+--- | --- | ---
+Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| [Latest features and fixes](./site-recovery-whats-new.md)
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 
 

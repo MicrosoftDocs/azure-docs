@@ -1,9 +1,6 @@
 ---
 title: Add additional Azure Storage accounts to HDInsight 
 description: Learn how to add additional Azure Storage accounts to an existing HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -96,7 +93,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Observe the keys that begin with `fs.azure.account.key`. The account name will be a part of the key as seen in this sample image:
 
-   ![verification through Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
+   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verification through Apache Ambari":::
 
 ## Remove storage account
 
@@ -122,12 +119,11 @@ If you change the key for a storage account, HDInsight can no longer access the 
 
 Running the script action again **doesn't** update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it doesn't make any changes.
 
-To work around this problem:  
-1. Remove the storage account.
-1. Add the storage account.
+To work around this problem:
 
-> [!IMPORTANT]  
-> Rotating the storage key for the primary storage account attached to a cluster is not supported.
+* See [Update storage account access keys](hdinsight-rotate-storage-keys.md) on how to rotate the access keys.
+
+* You can also remove the storage account and then add back the storage account.
 
 ## Next steps
 

@@ -1,17 +1,32 @@
 ---
 title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
-author: cynthn
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Image Builder Service
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
+
+## Prerequisites
+When you're creating a build, please ensure your build meets the following prerequisites:
+	
+- The Image Builder Service communicates to the build VM using WinRM or SSH, DO NOT disable these settings as part of the build.
+- Image Builder will create resources as part of the build, please verify Azure Policy does not prevent AIB from creating or using necessary resources.
+  - Create IT_ resource group
+  - Create storage account without firewall
+- Verify Azure Policy does not install unintended features on the build VM such as Azure Extensions.
+-	Ensure Image Builder has the correct permissions to read/write images and to connect to Azure storage. Please review the permissions documentation for [CLI](./image-builder-permissions-cli.md) or [PowerShell](./image-builder-permissions-powershell.md).
+- Image Builder will fail the build if the script(s)/in-line commands fails with errors (non-zero exit codes), ensure you have tested and verified custom scripts run without error (exit code 0) or require user input. For more info, see the following [documentation](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 
 AIB failures can happen in 2 areas:
 - Image Template submission
@@ -321,7 +336,7 @@ Image Builder timed out waiting for the image to be added and replicated to the 
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
-    --api-version=2019-05-01-preview
+    --api-version=2020-02-14
 ```
 
 #### Solution
@@ -519,6 +534,25 @@ Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the bui
 #### Solution
 Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](./image-builder-networking.md).
 
+### JWT errors in log early in the build
+
+#### Error
+Early in the build process, the build fails and the log indicates a JWT error:
+
+```text
+PACKER OUT Error: Failed to prepare build: "azure-arm"
+PACKER ERR 
+PACKER OUT 
+PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
+PACKER OUT 1 error(s) occurred:
+```
+
+#### Cause
+The `buildTimeoutInMinutes` value in the template is set to between 1 and 5 minutes.
+
+#### Solution
+As described in [Create an Azure Image Builder template](./image-builder-json.md), the timeout must be set to 0 to use the default or above 5 minutes to override the default.  Change the timeout in your template to 0 to use the default or to a minimum of 6 minutes.
+
 ## DevOps task 
 
 ### Troubleshooting the task
@@ -555,7 +589,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
 2020-05-05T18:28:24.9609966Z ==============================================================================
-2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test(Preview)
+2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test
 2020-05-05T18:28:24.9611277Z Description  : Build images using Azure Image Builder resource provider.
 2020-05-05T18:28:24.9611608Z Version      : 1.0.18
 2020-05-05T18:28:24.9612003Z Author       : Microsoft Corporation
@@ -582,7 +616,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 
 If the build was not canceled by a user, it was canceled by Azure DevOps User Agent. Most likely the 1-hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
 
-For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### Solution
 
@@ -670,4 +704,4 @@ Support Subtopic: Azure Image Builder
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/22/2019    
 ---
 # Cognitive Services and machine learning
 
@@ -21,7 +21,6 @@ Cognitive Services provides machine learning capabilities to solve general probl
 |[Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.|
-||||
 
 Use Cognitive Services when you:
 
@@ -89,9 +88,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
-|[Form Recognizer](./form-recognizer/overview.md)||x||
-|[Immersive Reader](./immersive-reader/overview.md)|x|||
-|[Ink Recognizer](./Ink-recognizer/overview.md)|x|x||
+|[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -100,7 +97,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator](./translator/translator-overview.md)|x|||
 |[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
@@ -121,7 +118,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./custom-vision-service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 ## Learn more
 

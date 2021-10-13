@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
+ms.date: 03/25/2021
 ---
 # Exceptions and error codes for the designer
 
@@ -282,7 +282,7 @@ If the model was trained using any of the specialized training modules, connect 
 ## Error 0014  
  Exception occurs if the count of column unique values is greater than allowed.  
 
- This error occurs when a column contains too many unique values.  For example, you might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
+ This error occurs when a column contains too many unique values, like an ID column or text column. You might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
 
 The error of unique values is greater than allowed will occur if meeting **both** following conditions:
 
@@ -295,7 +295,9 @@ Open the module that generated the error, and identify the columns used as input
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
 
-Usually in this scenario, the column hitting the error is meaningless as a feature to train models. Hence, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
+For ID columns which is not meaningful features during training a model, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
+
+For text columns, you can use [Feature Hashing](../algorithm-module-reference/feature-hashing.md) or [Extract N-Gram Features from Text module](../algorithm-module-reference/extract-n-gram-features-from-text.md) to preprocess text columns.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1130,9 +1132,9 @@ The error message from Hive is normally reported back in the Error Log so that y
 
 See the following articles for help with Hive queries for machine learning:
 
-+ [Create Hive tables and load data from Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
-+ [Explore data in tables with Hive queries](../team-data-science-process/explore-data-hive-tables.md)
-+ [Create features for data in an Hadoop cluster using Hive queries](../team-data-science-process/create-features-hive.md)
++ [Create Hive tables and load data from Azure Blob Storage](/azure/architecture/data-science-process/move-hive-tables)
++ [Explore data in tables with Hive queries](/azure/architecture/data-science-process/explore-data-hive-tables)
++ [Create features for data in an Hadoop cluster using Hive queries](/azure/architecture/data-science-process/create-features-hive)
 + [Hive for SQL Users Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1283,7 +1285,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
  This error in Azure Machine Learning is produced if the following conditions are met: (a) the input dataset has at least one sparse column and (b) the final number of dimensions requested is the same as the number of input dimensions.  
 
 **Resolution:**
- Consider reducing the number of dimensions in the output to be fewer than the number of dimensions in the input. This is typical in applications of PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
+ Consider reducing the number of dimensions in the output to be fewer than the number of dimensions in the input. It is typical in applications of PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
 
 |Exception Messages|
 |------------------------|
@@ -1300,7 +1302,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Model could not be deserialized because it is likely serialized with an older serialization format. Please retrain and resave the model.|
+|Model could not be deserialized because it is likely serialized with an older serialization format. Retrain and resave the model.|
 
 
 ## Error 0083  
@@ -1358,7 +1360,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |------------------------|
 |The Hive table could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the module parameter.|
 |The Hive table "{table_name}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the module parameter.|
-|The Hive table "{table_name}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is "{cluster_name}".|
+|The Hive table "{table_name}" could not be created. For a HDInsight cluster, ensure the Azure storage account name associated with cluster is "{cluster_name}".|
 
 
 ## Error 0102  
@@ -1491,7 +1493,7 @@ Resolution:
 
   <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
 
- Sometimes transient loads can lead to this error. Machine support also changes over time. 
+ Sometimes transient loads can lead to such error. Machine support also changes over time. 
 
  Try using [Principal Component Analysis](principal-component-analysis.md) or one of the provided feature selection methods to reduce your dataset to a smaller set of more feature-rich columns: [Feature Selection](feature-selection-modules.md)  -->
 
@@ -1561,7 +1563,7 @@ Resolution:
 |Exception Messages|
 |------------------------------------------------------------|
 |Given TransformationDirectory is invalid.|
-|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Rerun training experiment, which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
 |TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
 
 
@@ -1588,3 +1590,28 @@ To get more help, we recommend that you post the detailed message that accompani
 |Library exception.|
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
+
+
+## Execute Python Script Module
+
+Search **in azureml_main** in **70_driver_logs** of **Execute Python Script Module** and you could find which line occurred error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
+
+## Distributed training
+
+Currently designer supports distributed training for and [Train PyTorch Model](train-pytorch-model.md) module.
+
+<!-- [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) module  -->
+
+If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+
+  The following example shows that the **Node count** of run settings is larger than available node count of compute cluster.
+  
+  [![Screenshot showing node count error](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
+
+  The following example shows that **Process count per node** is larger than **Processing Unit** of the compute.
+
+  [ ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is for master process.
+
+  [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)

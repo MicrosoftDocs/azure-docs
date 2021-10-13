@@ -1,205 +1,41 @@
 ---
-title: Windows Virtual Desktop MSIX app attach - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop.
+title: Configure Azure Virtual Desktop MSIX app attach PowerShell scripts - Azure
+description: How to create PowerShell scripts for MSIX app attach for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Set up MSIX app attach
+# Create PowerShell scripts for MSIX app attach
 
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
-
-## Requirements
-
-Before you get started, here's what you need to configure MSIX app attach:
-
-- Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-- The MSIX packaging tool.
-- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
-
-## Get the OS image
-
-First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
-
-### Get the OS image from the Azure portal
-
-To get the OS image from the Azure portal:
-
-1. Open the [Azure portal](https://portal.azure.com) and sign in.
-
-2. Go to **Create a virtual machine**.
-
-3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
-
-4. Follow the rest of the instructions to finish creating the virtual machine.
-
-     >[!NOTE]
-     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
-
-### Get the OS image from the Windows Insider portal
-
-To get the OS image from the Windows Insider Portal:
-
-1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
-
-     >[!NOTE]
-     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](/windows-insider/at-home/).
-
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** or later.
-
-3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
-
-     >[!NOTE]
-     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
-
-4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
-
-## Prepare the VHD image for Azure
-
-Next, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there.
-
-After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
-
-```cmd
-rem Disable Store auto update:
-
-reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 0 /f
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Automatic app update" /Disable
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" /Disable
-
-rem Disable Content Delivery auto download apps that they want to promote to users:
-
-reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v PreInstalledAppsEnabled /t REG_DWORD /d 0 /f
-
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
-
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mount-VHD command to stage and and Dismount-VHD to destage.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
->[!NOTE]
->This change will require that you restart the virtual machine.
-
-Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
-
-Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
-
-## Prepare the application for MSIX app attach
-
-If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) to convert the legacy application to an MSIX package.
-
-## Generate a VHD or VHDX package for MSIX
-
-Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
-
-To generate a VHD or VHDX package for MSIX:
-
-1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
-
-2. Unzip the msixmgr tool .zip folder.
-
-3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
-
-4. Run the following cmdlet in PowerShell to create a VHD:
-
-    ```powershell
-    New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
-    ```
-
-    >[!NOTE]
-    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
-
-5. Run the following cmdlet to mount the newly created VHD:
-
-    ```powershell
-    $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
-    ```
-
-6. Run this cmdlet to initialize the VHD:
-
-    ```powershell
-    $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
-    ```
-
-7. Run this cmdlet to create a new partition:
-
-    ```powershell
-    $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
-    ```
-
-8. Run this cmdlet to format the partition:
-
-    ```powershell
-    Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
-    ```
-
-9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
-
-### Expand MSIX
-
-After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
-
-1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
-
-2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
-
-    ```powershell
-    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
-    ```
-
-    The following message should appear once unpacking is done:
-
-    `Successfully unpacked and applied ACLs for package: <package name>.msix`
-
-    >[!NOTE]
-    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
-
-3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
-
-4. Unmount the VHD.
-
-## Configure Windows Virtual Desktop infrastructure
-
-By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
-
-Before you start, make sure your network share meets these requirements:
-
-- The share is SMB compatible.
-- The VMs that are part of the session host pool have NTFS permissions to the share.
-
-### Set up an MSIX app attach share
-
-In your Windows Virtual Desktop environment, create a network share and move the package there.
-
->[!NOTE]
-> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
+This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
 ## Install certificates
+
+You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab. Select that item to highlight the item, then select **Details**.
 3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. Select **Next** and **Finish**.
+
+## Enable Microsoft Hyper-V
+
+Microsoft Hyper-V must be enabled because the `Mount-VHD` command is needed to stage and `Dismount-VHD` is needed to destage.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>This change will require that you restart the virtual machine.
 
 ## Prepare PowerShell scripts for MSIX app attach
 
@@ -293,7 +129,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
@@ -358,6 +194,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
+>[!NOTE]
+>You can shut down the device even while the **$volumeGuid** point remains after executing the destage script.
+
 ## Set up simulation scripts for the MSIX app attach agent
 
 After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
@@ -368,6 +207,9 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logon script runs the register script.
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
+
+>[!NOTE]
+>You can run the task scheduler with the stage script. To run the script, set the task trigger to **When the computer starts**, then enable **Run with highest privileges**.
 
 ## Use packages offline
 
@@ -419,6 +261,6 @@ catch [Exception]
 
 ## Next steps
 
-This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+This feature isn't currently supported, but you can ask questions to the community at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

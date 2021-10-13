@@ -2,7 +2,8 @@
 title: Quickstart - Create a Windows VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
@@ -11,6 +12,8 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a Windows virtual machine in Azure with PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. You will also RDP to the VM and install the IIS web server, to show the VM in action.
 
@@ -48,6 +51,8 @@ New-AzVm `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 

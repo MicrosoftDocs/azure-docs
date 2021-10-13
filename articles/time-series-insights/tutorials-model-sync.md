@@ -8,7 +8,7 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/19/2021
 ms.custom: dpalled
 ---
 
@@ -26,7 +26,7 @@ Time Series ID is a unique identifier used to identify assets in Time Series Ins
 
 Contextualization of data (mostly spatial in nature) in Time Series Insights is achieved through asset hierarchies and the same is used for easy navigation of data through a tree view in Time Series Insights explorer. Time series types, and hierarchies are defined using Time Series Model (TSM) in Time Series Insights. Types in TSM help to define variables, while hierarchy levels and instance field values are used to construct the tree view in the Time Series Insights explorer. For more information on TSM, refer to [online Time Series Insights documentation](./concepts-model-overview.md).
 
-In Azure Digital Twins, connection among assets are expressed using twin relationships. Twin relationships are simply a graph of connected assets. However in Time Series Insight, relationships between assets are hierarchical in nature. That is, assets share a parent-child kind od relationship and is represented using a tree structure. To translate relationship information from Azure Digital Twins into Time Series Insights hierarchies, we need to choose relevant hierarchical relationships from Azure Digital Twins. Azure Digital Twins uses an open standard, modeling language called Digital Twin Definition Language (DTDL). In DTDL models are described using a variant of JSON called JSON-LD. Refer to [DTDL documentation](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for full details on the specification.
+In Azure Digital Twins, connection among assets are expressed using twin relationships. Twin relationships are simply a graph of connected assets. However in Time Series Insight, relationships between assets are hierarchical in nature. That is, assets share a parent-child kind of relationship and is represented using a tree structure. To translate relationship information from Azure Digital Twins into Time Series Insights hierarchies, we need to choose relevant hierarchical relationships from Azure Digital Twins. Azure Digital Twins uses an open standard, modeling language called Digital Twin Definition Language (DTDL). In DTDL models are described using a variant of JSON called JSON-LD. Refer to [DTDL documentation](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for full details on the specification.
 
 [![Connection between assets](media/tutorials-model-sync/asset-connection.png)](media/tutorials-model-sync/asset-connection.png#lightbox)
 

@@ -5,13 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: template
+ms.subservice: extensions
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with an Azure template
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -71,10 +74,10 @@ Let's use the sample template to create a scale set and apply the Custom Script 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -129,10 +132,10 @@ To update the Custom Script Extension definition, edit your template to referenc
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az group deployment create](/cli/azure/group/deployment). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
+Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az deployment group create](/cli/azure/deployment/group). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

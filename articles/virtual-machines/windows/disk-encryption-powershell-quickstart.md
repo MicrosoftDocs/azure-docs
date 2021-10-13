@@ -3,14 +3,17 @@ title: Create and encrypt a Windows VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create and encrypt a Windows virtual machine in Azure with PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to create a Windows virtual machine (VM), create a Key Vault for the storage of encryption keys, and encrypt the VM. 
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -24,6 +24,9 @@ You can use directory extensions to extend the schema in Azure Active Directory 
 ). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
 At present, no Microsoft 365 workload consumes these attributes.
+
+>[!IMPORTANT]
+>If you have exported a configuration that contains a custom rule used to synchronize directory extension attributes and you attempt to import this rule in to a new or existing installation of Azure AD Connect, the rule will be created during import, but the directory extension attributes will not be mapped.  You will need to re-select the directory extension attributes and re-associate them with the rule or recreate the rule entirely to fix this.
 
 ## Customize which attributes to synchronize with Azure AD
 
@@ -40,9 +43,8 @@ The installation shows the following attributes, which are valid candidates:
 * Single-valued attributes: String, Boolean, Integer, Binary
 * Multi-valued attributes: String, Binary
 
-
->[!NOTE]
-> Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
+> [!NOTE]
+> Not all features in Azure Active Directory support multi valued extension attributes. Please refer to the documentation of the feature in which you plan to use these attributes to confirm they are supported.
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 

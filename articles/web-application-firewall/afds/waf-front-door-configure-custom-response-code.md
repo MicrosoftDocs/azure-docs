@@ -6,8 +6,9 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 06/10/2020
-ms.author: victorh
-ms.reviewer: tyao
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
+
 ---
 
 # Configure a custom response for Azure Web Application Firewall (WAF)

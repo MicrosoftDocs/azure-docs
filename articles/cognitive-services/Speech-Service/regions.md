@@ -3,14 +3,14 @@ title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
 description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
-author: mahilleb-msft
+author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 07/01/2021
 ms.author: panosper
-ms.custom: seodec18
+ms.custom: seodec18,references_regions
 ---
 
 # Speech service supported regions
@@ -25,6 +25,9 @@ Keep in mind the following points when considering regions:
 * If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
+> [!NOTE]
+> Speech Services doesn't store/process customer data outside the region the customer deploys the service instance in.
+
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
@@ -38,7 +41,9 @@ The Speech service is available in these regions for **speech recognition**, **t
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region matches the region of your subscription.
+
+If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
 
 ### Intent recognition
 
@@ -63,17 +68,21 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](./direct-line-speech.md) in these regions:
 
-| Region         | Region identifier |
-| -------------- | -------------------- |
-| West US        | `westus`             |
-| West US 2      | `westus2`            |
-| East US        | `eastus`             |
-| East US 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| North Europe   | `northeurope`        |
-| Southeast Asia | `southeastasia`      |
+| Global region | Region           | Region identifier    |
+| ------------- | ---------------- | -------------------- |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | West Central US  | `westcentralus`      |
+| North America | South Central US | `southcentralus`     |
+| Europe        | West Europe      | `westeurope`         |
+| Europe        | North Europe     | `northeurope`        |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| India         | Central India    | `centralindia`       |
 
 ### Speaker Recognition
 Available regions for **Speaker Recognition** are the following:
@@ -121,4 +130,6 @@ For text-to-speech reference documentation, see [Text-to-speech REST API](rest-t
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### Speaker Recognition
+
 For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
+

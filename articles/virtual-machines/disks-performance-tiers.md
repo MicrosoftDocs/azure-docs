@@ -2,15 +2,17 @@
 title: Change the performance of Azure managed disks - CLI/PowerShell
 description: Learn how to change performance tiers for existing managed disks using either the Azure PowerShell module or the Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Change your performance tier using the Azure PowerShell module or the Azure CLI
+# Change your performance tier without downtime using the Azure PowerShell module or the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
@@ -18,8 +20,16 @@ ms.custom: references_regions, devx-track-azurecli
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## Create an empty data disk with a tier higher than the baseline tier
+## Prerequisites
+# [Azure CLI](#tab/azure-cli)
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account with [az login](/cli/azure/reference-index).
 
+# [PowerShell](#tab/azure-powershell)
+Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account in with `Connect-AzAccount`.
+
+---
+
+## Create an empty data disk with a tier higher than the baseline tier
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -29,8 +39,6 @@ diskName=<yourDiskNameHere>
 diskSize=<yourDiskSizeHere>
 performanceTier=<yourDesiredPerformanceTier>
 region=westcentralus
-
-az login
 
 az account set --subscription $subscriptionId
 
@@ -68,29 +76,59 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 ```
 ---
 
-## Update the tier of a disk
+## Update the tier of a disk without downtime
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-resourceGroupName=<yourResourceGroupNameHere>
-diskName=<yourDiskNameHere>
-performanceTier=<yourDesiredPerformanceTier>
+1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
 
-az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
-```
+    1.	Execute the following command to register the feature for your subscription
+
+        ```azurecli
+        az feature register --namespace Microsoft.Compute --name LiveTierChange
+        ```
+
+    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
+
+        ```azurecli
+        az feature show --namespace Microsoft.Compute --name LiveTierChange
+        ```
+2. Update the tier of a disk even when it is attached to a running VM
+
+    ```azurecli
+    resourceGroupName=<yourResourceGroupNameHere>
+    diskName=<yourDiskNameHere>
+    performanceTier=<yourDesiredPerformanceTier>
+
+    az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+    ```
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-$resourceGroupName='yourResourceGroupName'
-$diskName='yourDiskName'
-$performanceTier='P1'
+1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
 
-$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+    1.	Execute the following command to register the feature for your subscription
 
-Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
-```
+        ```azurepowershell
+         Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+
+    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
+
+        ```azurepowershell
+        Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+2. Update the tier of a disk even when it is attached to a running VM
+
+    ```azurepowershell
+    $resourceGroupName='yourResourceGroupName'
+    $diskName='yourDiskName'
+    $performanceTier='P1'
+
+    $diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+    Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+    ```
 ---
 
 ## Show the tier of a disk

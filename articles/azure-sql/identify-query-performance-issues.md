@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: troubleshooting
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
+ms.date: 1/14/2021
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
@@ -85,7 +85,7 @@ Here's an example of a partially parameterized query:
 ```sql
 SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
-WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F';
 ```
 
 In this example, `t1.c1` takes `@p1`, but `t2.c2` continues to take GUID as literal. In this case, if you change the value for `c2`, the query is treated as a different query, and a new compilation will happen. To reduce compilations in this example, you would also parameterize the GUID.
@@ -110,7 +110,7 @@ WHERE
   rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
   AND query_parameterization_type_desc IN ('User', 'None')
 GROUP BY q.query_hash
-ORDER BY count (distinct p.query_id) DESC
+ORDER BY count (distinct p.query_id) DESC;
 ```
 
 ### Factors that affect query plan changes
@@ -134,7 +134,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 - **Changed physical design**: For example, newly created indexes more effectively cover the requirements of a query. The new indexes might be used on a new compilation if the query optimizer decides that using that new index is more optimal than using the data structure that was originally selected for the first version of the query execution. Any physical changes to the referenced objects might result in a new plan choice at compile time.
 
-- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated. For example, if one system has more processors, a parallel plan might be chosen.
+- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated. For example, if one system has more processors, a parallel plan might be chosen. For more information on parallelism in Azure SQL Database, see [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md).
 
 - **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics. If the statistics change and a recompilation happens, the query optimizer uses the statistics starting from when they changed. The revised statistics' data distributions and frequencies might differ from those of the original compilation. These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations. Even minor changes to statistics can result in a changed query execution plan.
 
@@ -176,13 +176,15 @@ It's not always easy to identify a workload volume change that's driving a CPU p
 
 Use Intelligent Insights to detect [workload increases](database/intelligent-insights-troubleshoot-performance.md#workload-increase) and [plan regressions](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Parallelism**: Excessive parallelism can worsen cause other concurrent workload performance by starving other queries of CPU and worker thread resources. For more information on parallelism in Azure SQL Database, see [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md).
+
 ## Waiting-related problems
 
 Once you have eliminated a suboptimal plan and *Waiting-related* problems that are related to execution problems, the performance problem is generally the queries are probably waiting for some resource. Waiting-related problems might be caused by:
 
 - **Blocking**:
 
-  One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
+  One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking). For more information, see [Understand and resolve Azure SQL blocking problems](database/understand-resolve-blocking.md).
 - **IO problems**
 
   Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](database/monitoring-with-dmvs.md#identify-io-performance-issues).
@@ -215,6 +217,11 @@ DMVs that track Query Store and wait statistics show results for only successful
 > - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## See also
+
+* [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md)
+* [Understand and resolve Azure SQL Database blocking problems in Azure SQL Database](database/understand-resolve-blocking.md)
+
 ## Next steps
 
-[SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)
+* [SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)

@@ -2,8 +2,9 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
@@ -32,12 +33,12 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 
 ## Supported feature types
 
-Personalizer supports features of string, numeric, and boolean types.
+Personalizer supports features of string, numeric, and boolean types. It is very likely that your application will mostly use string features, with a few exceptions.
 
 ### How choice of feature type affects Machine Learning in Personalizer
 
-* **Strings**: For string types, every combination of key and value creates new weights in the Personalizer machine learning model. 
-* **Numeric**: You should use numerical values when the number should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings, and the feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
+* **Strings**: For string types, every combination of key and value is treated as a One-Hot feature (e.g. genre:"ScienceFiction" and genre:"Documentary" would create two new  input features for the machine learning model.
+* **Numeric**: You should use numerical values when the number is a magnitude that should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings. For example DayOfMonth would be a string with "1","2"..."31". If you have many categories The feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
 * **Boolean** values sent with value of "false" act as if they hadn't been sent at all.
 
 Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
@@ -62,10 +63,10 @@ The following are examples of feature namespaces used by applications:
 You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
 
 
-In the following JSON, `user`, `state`, and `device` are feature namespaces. 
+In the following JSON, `user`, `environment`, `device`, and `activity` are feature namespaces. 
 
 > [!Note]
-> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `environment`, `device`, and `activity` start with `u`, `e`, `d`, and `a`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -75,12 +76,14 @@ JSON objects can include nested JSON objects and simple property/values. An arra
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -88,6 +91,13 @@ JSON objects can include nested JSON objects and simple property/values. An arra
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "activity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -107,6 +117,8 @@ The string you use for naming the namespace must follow some restrictions:
 A good feature set helps Personalizer learn how to predict the action that will drive the highest reward. 
 
 Consider sending features to the Personalizer Rank API that follow these recommendations:
+
+* Use categorical and string types for features that are not a magnitude. 
 
 * There are enough features to drive personalization. The more precisely targeted the content needs to be, the more features are needed.
 

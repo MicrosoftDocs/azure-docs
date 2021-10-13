@@ -1,12 +1,12 @@
 ---
 title: Optimize Azure Databricks costs with a pre-purchase
 description: Learn how you can prepay for Azure Databricks charges with reserved capacity to save money.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/20/2021
 ms.author: banders
 ---
 
@@ -43,11 +43,12 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 **To Purchase:**
 
 1. Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 1. Select a scope. Use the **Scope** list to select a subscription scope:
     - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
     - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
+    - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Azure Databricks commit units you want to purchase and complete the purchase.
 
 

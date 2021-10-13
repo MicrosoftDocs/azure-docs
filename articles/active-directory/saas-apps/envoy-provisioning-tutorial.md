@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Envoy for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Envoy.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/3/2019
-ms.author: Zhchia
+ms.date: 06/28/2021
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Envoy for automatic user provisioning
@@ -35,6 +35,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Envoy tenant](https://envoy.com/pricing/).
 * A user account in Envoy with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -44,19 +47,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign in to your [Envoy Admin Console](https://dashboard.envoy.com/login). Click on **Integrations**.
 
-	![Envoy Integrations](media/envoy-provisioning-tutorial/envoy01.png)
+	![Envoy Integrations](media/envoy-provisioning-tutorial/envoy-01.png)
 
 2. Click on **Install** for the **Microsoft Azure SCIM integration**.
 
-	![Envoy Install](media/envoy-provisioning-tutorial/envoy02.png)
+	![Envoy Install](media/envoy-provisioning-tutorial/integrations.png)
 
 3. Click on **Save** for **Sync all users**. 
 
-	![Envoy Save](media/envoy-provisioning-tutorial/envoy03.png)
+	![Envoy Save](media/envoy-provisioning-tutorial/microsoft-azure.png)
 
 4. Copy the **OAUTH BEARER TOKEN**. This value will be entered in the **Secret Token** field in the provisioning tab of your Envoy application in the Azure portal.
 	
-	![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
+	![Envoy OAUTH](media/envoy-provisioning-tutorial/token.png)
 
 ## Step 3. Add Envoy from the Azure AD application gallery
 

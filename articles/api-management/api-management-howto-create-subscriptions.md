@@ -3,7 +3,7 @@ title: Create subscriptions in Azure API Management | Microsoft Docs
 description: Learn how to create subscriptions in Azure API Management. A subscription is necessary to get subscription keys that allow access to APIs.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
  
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 # Create subscriptions in Azure API Management
 
@@ -44,4 +44,4 @@ Get more information on API Management:
 
 + Learn other [concepts](api-management-terminology.md) in API Management.
 + Follow our [tutorials](import-and-publish.md) to learn more about API Management.
-+ Check our [FAQ page](api-management-faq.md) for common questions.
++ Check our [FAQ page](api-management-faq.yml) for common questions.

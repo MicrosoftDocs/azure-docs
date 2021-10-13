@@ -4,10 +4,12 @@ titleSuffix: Azure DNS
 description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
+ms.date: 04/23/2021
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+  - mode-portal
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
 
@@ -16,6 +18,8 @@ ms.author: rohink
 You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.xyz* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.xyz* domain and resolve *`www.contoso.xyz`* to the IP address of your web server or web app.
 
 In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." border="false":::
 
 >[!IMPORTANT]
 >All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios.

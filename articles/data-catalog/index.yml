@@ -15,6 +15,10 @@ landingContent:
   # Card
   - title: About Azure Data Catalog
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Azure Purview - next generation of unified data governance
+            url: ../purview/overview.md
       - linkListType: overview
         links:
           - text: What is Azure Data Catalog?
@@ -26,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Frequently asked questions
-            url: data-catalog-frequently-asked-questions.md
+            url: data-catalog-frequently-asked-questions.yml
   # Card
   - title: Register data assets
     linkLists:

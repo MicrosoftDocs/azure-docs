@@ -1,9 +1,9 @@
 ---
-title: Optimize performance on Azure Lsv2-series virtual machines - Storage 
+title: Optimize performance on Azure Lsv2-series virtual machines
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Windows example.
 author: sasha-melamed
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.subservice: vm-sizes-storage
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
@@ -11,6 +11,7 @@ ms.author: joelpell
 ---
 
 # Optimize performance on the Lsv2-series Windows virtual machines
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 

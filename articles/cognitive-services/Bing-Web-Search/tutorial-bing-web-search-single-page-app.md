@@ -38,7 +38,7 @@ To use this app, an [Azure Cognitive Services account](../cognitive-services-api
 Here are a few things that you'll need to run the app:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 * Node.js 8 or later
 
@@ -468,4 +468,4 @@ Leave the command window open while you use the sample app; closing the window s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web Search API v7 reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [Bing Web Search API v7 reference](/rest/api/cognitiveservices/bing-web-api-v7-reference)

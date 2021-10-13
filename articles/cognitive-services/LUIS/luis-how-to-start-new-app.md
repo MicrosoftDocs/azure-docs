@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 05/13/2021
 
 ---
 
@@ -41,13 +41,12 @@ You can create a new app with the authoring APIs in a couple of ways:
 ## Create new app in LUIS
 
 1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. 
-
-> [!div class="mx-imgBorder"]
-> ![LUIS apps list](./media/create-app-in-portal.png)
+    
+    :::image type="content" source="media/create-app-in-portal.png" alt-text="LUIS apps list" lightbox="media/create-app-in-portal.png":::
 
 1. In the dialog box, enter the name of your application, such as `Pizza Tutorial`.
 
-    ![Create new app dialog](./media/create-pizza-tutorial-app-in-portal.png)
+    :::image type="content" source="media/create-pizza-tutorial-app-in-portal.png" alt-text="Create new app dialog" lightbox="media/create-pizza-tutorial-app-in-portal.png":::
 
 1. Choose your application culture, and then select **Done**. The description and prediction resource are optional at this point. You can set then at any time in the **Manage** section of the portal.
 
@@ -56,8 +55,7 @@ You can create a new app with the authoring APIs in a couple of ways:
 
     After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app.
 
-    > [!div class="mx-imgBorder"]
-    > ![Intents list with None intent created with no example utterances.](media/pizza-tutorial-new-app-empty-intent-list.png)
+    :::image type="content" source="media/pizza-tutorial-new-app-empty-intent-list.png" alt-text="Intents list with a None intent and no example utterances" lightbox="media/pizza-tutorial-new-app-empty-intent-list.png":::
 
 ## Other actions available on My Apps page
 

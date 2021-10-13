@@ -1,19 +1,18 @@
 ---
-title: Filter activity in Azure Data Factory 
-description: The Filter activity filters the inputs. 
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+title: Filter activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The Filter activity filters the inputs to Azure Data Factory and Synapse Analytics pipelines. 
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 09/09/2021
 ---
 
-# Filter activity in Azure Data Factory
+# Filter activity in Azure Data Factory and Synapse Analytics pipelines
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -21,12 +20,12 @@ You can use a Filter activity in a pipeline to apply a filter expression to an i
 
 ```json
 {
-	"name": "MyFilterActivity",
-	"type": "filter",
-	"typeProperties": {
-		"condition": "<condition>",
-		"items": "<input array>"
-	}
+    "name": "MyFilterActivity",
+    "type": "filter",
+    "typeProperties": {
+        "condition": "<condition>",
+        "items": "<input array>"
+    }
 }
 ```
 
@@ -45,70 +44,70 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 
 ```json
 {
-	"name": "PipelineName",
-	"properties": {
-		"activities": [{
-				"name": "MyFilterActivity",
-				"type": "filter",
-				"typeProperties": {
-					"condition": "@greater(item(),3)",
-					"items": "@pipeline().parameters.inputs"
-				}
-			},
-			{
-			"name": "MyForEach",
-			"type": "ForEach",
-			"dependsOn": [
-				{
-					"activity": "MyFilterActivity",
-					"dependencyConditions": [
-						"Succeeded"
-					]
-				}
-			],
-			"userProperties": [],
-			"typeProperties": {
-				"items": {
-					"value": "@activity('MyFilterActivity').output.value",
-					"type": "Expression"
-				},
-				"isSequential": "false",
-				"batchCount": 1,
-				"activities": [
-					{
-						"name": "Set Variable1",
-						"type": "SetVariable",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "test",
-							"value": {
-								"value": "@string(item())",
-								"type": "Expression"
-							}
-						}
-					}
-				]
-			}
-		}],
-		"parameters": {
-			"inputs": {
-				"type": "Array",
-				"defaultValue": [1, 2, 3, 4, 5, 6]
-			}
-		},
+    "name": "PipelineName",
+    "properties": {
+        "activities": [{
+                "name": "MyFilterActivity",
+                "type": "filter",
+                "typeProperties": {
+                    "condition": "@greater(item(),3)",
+                    "items": "@pipeline().parameters.inputs"
+                }
+            },
+            {
+            "name": "MyForEach",
+            "type": "ForEach",
+            "dependsOn": [
+                {
+                    "activity": "MyFilterActivity",
+                    "dependencyConditions": [
+                        "Succeeded"
+                    ]
+                }
+            ],
+            "userProperties": [],
+            "typeProperties": {
+                "items": {
+                    "value": "@activity('MyFilterActivity').output.value",
+                    "type": "Expression"
+                },
+                "isSequential": "false",
+                "batchCount": 1,
+                "activities": [
+                    {
+                        "name": "Set Variable1",
+                        "type": "SetVariable",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "variableName": "test",
+                            "value": {
+                                "value": "@string(item())",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            }
+        }],
+        "parameters": {
+            "inputs": {
+                "type": "Array",
+                "defaultValue": [1, 2, 3, 4, 5, 6]
+            }
+        },
         "variables": {
             "test": {
                 "type": "String"
             }
         },
         "annotations": []
-	}
+    }
 }
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

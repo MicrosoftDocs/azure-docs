@@ -45,10 +45,10 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 Schedule a periodic [review of endpoint utterances](luis-how-to-review-endpoint-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
 ## When you need to have more than 500 intents
-Assume you're developing an office assistant that has over 500 intents. If 200 intents relate to scheduling meetings, 200 are about reminders, 200 are about getting information about colleagues, and 200 are for sending email, group intents so that each group is in a single app, then create a top-level app containing each intent. Use the [dispatch model](#dispatch-tool-and-model) to build the top-level app. Then change your bot to use the cascading call as shown in the [dispatch model's tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
+Assume you're developing an office assistant that has over 500 intents. If 200 intents relate to scheduling meetings, 200 are about reminders, 200 are about getting information about colleagues, and 200 are for sending email, group intents so that each group is in a single app, then create a top-level app containing each intent. Use the [dispatch model](#dispatch-tool-and-model) to build the top-level app. Then change your bot to use the cascading call as shown in the [dispatch model's tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## When you need to combine several LUIS and QnA maker apps
-If you have several LUIS and QnA maker apps that need to respond to a bot, use the [dispatch model](#dispatch-tool-and-model) to build the top-level app.  Then change your bot to use the cascading call as shown in the [dispatch model's tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
+If you have several LUIS and QnA maker apps that need to respond to a bot, use the [dispatch model](#dispatch-tool-and-model) to build the top-level app.  Then change your bot to use the cascading call as shown in the [dispatch model's tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## Dispatch tool and model
 Use the [Dispatch][dispatch-tool] command-line tool, found in [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) to combine multiple LUIS and/or QnA Maker apps into a parent LUIS app. This approach allows you to have a parent domain including all subjects and different child subject domains in separate apps. 
@@ -59,7 +59,7 @@ The parent domain is noted in LUIS with a version named `Dispatch` in the apps l
 
 The chat bot receives the utterance, then sends to the parent LUIS app for prediction. The top predicted intent from the parent app determines which LUIS child app is called next. The chat bot sends the utterance to the child app for a more specific prediction.
 
-Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0).  
+Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs).  
 
 ### Intent limits in dispatch model
 A dispatch application has 500 dispatch sources, equivalent to 500 intents, as the maximum. 
@@ -67,13 +67,13 @@ A dispatch application has 500 dispatch sources, equivalent to 500 intents, as t
 ## More information
 
 * [Bot framework SDK](https://github.com/Microsoft/botframework)
-* [Dispatch model tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
+* [Dispatch model tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools)
-* Dispatch model bot sample - [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Dispatch model bot sample - [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator)
 
 ## Next steps
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
-[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch
 [dispatch-tool]: https://aka.ms/dispatch-tool

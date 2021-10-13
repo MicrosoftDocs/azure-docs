@@ -3,21 +3,20 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
-ms.date: 09/04/2020
+ms.reviewer: estfan, azla
+ms.topic: reference
+ms.date: 09/09/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Power Automate, 
-> but appears in the Azure Logic Apps documentation. Although this page refers 
-> specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Power Automate, see 
-> [Use expressions in conditions](/flow/use-expressions-in-conditions).
+> This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
+> Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
+> these functions work for both flows and logic app workflows. For more information about functions 
+> and expressions in Power Automate, see [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -63,9 +62,11 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are some other notes about functions in expressions:
+## Considerations for using functions
 
 * Function parameters are evaluated from left to right.
+
+* The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
 
@@ -146,11 +147,10 @@ To work with conditions, compare values and expression results, or evaluate vari
 To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> Azure Logic Apps automatically converts values between some data types, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -182,7 +182,7 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually convert these types. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
+Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually perform these conversions. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
 
 For example, suppose a trigger returns a numerical value as output:
 
@@ -192,9 +192,11 @@ If you use this numerical output where string input is expected, such as a URL, 
 
 `@{triggerBody()?['123']}`
 
+<a name="base64-encoding-decoding"></a>
+
 ### Base64 encoding and decoding
 
-Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these operations by using the corresponding expressions:
+Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these conversions by using the corresponding functions:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -205,11 +207,13 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add these expressions to your logic app, for example, by using the expression editor, 
-> navigate away from the Logic App Designer and return to the designer, the designer shows only the 
-> parameter values. The expressions are preserved in code view only if you don't edit the parameter 
-> values. Otherwise, Logic Apps removes the expressions from code view, leaving only the parameter values. 
-> This behavior doesn't affect encoding or decoding, only whether the expressions are shown.
+> If you manually add any of these functions while using the workflow designer, either directly to a trigger 
+> or action or by using the expression editor, navigate away from the designer, and then return to the designer, 
+> the function disappears from the designer, leaving behind only the parameter values. This behavior also happens 
+> if you select a trigger or action that uses this function without editing the function's parameter values. 
+> This result affects only the function's visibility and not the effect. In code view, the function is unaffected. 
+> However, if you edit the function's parameter values, the function and its effect are both removed from code view, 
+> leaving behind only the function's parameter values.
 
 <a name="math-functions"></a>
 
@@ -295,7 +299,7 @@ For the full reference about each function, see the
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from all the actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from the top-level actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -601,10 +605,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 This example adds 10 days to the specified timestamp:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-25T00:00:0000000Z"`
+And returns this result: `"2018-03-25T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -614,7 +618,7 @@ This example subtracts five days from the specified timestamp:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-10T00:00:0000000Z"`
+And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -646,7 +650,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"
 
 *Example 2*
 
@@ -656,7 +660,7 @@ This example subtracts five hours from the specified timestamp:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -724,10 +728,10 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-To add a child property to an existing property, use this syntax:
+To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -775,7 +779,7 @@ Here's the updated JSON object:
 This example adds the `middleName` child property to the existing `customerName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Here's the current JSON object:
@@ -979,11 +983,10 @@ And returns this result: `["hello"]`
 Return the base64-encoded version for a string.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway, you might experience unexpected rendering behaviors in the designer. 
+> These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes the functions 
+> and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64('<value>')
@@ -1016,11 +1019,10 @@ And returns this result: `"aGVsbG8="`
 Return the binary version for a base64-encoded string.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64ToBinary('<value>')
@@ -1044,9 +1046,7 @@ This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 base64ToBinary('aGVsbG8=')
 ```
 
-And returns this result:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+For example, suppose you're using an HTTP action to send a request. You can use `base64ToBinary()` to convert a base64-encoded string to binary data and send that data using the `application/octet-stream` content type in the request.
 
 <a name="base64ToString"></a>
 
@@ -1055,11 +1055,10 @@ And returns this result:
 Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64), which is deprecated.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64ToString('<value>')
@@ -1089,7 +1088,7 @@ And returns this result: `"hello"`
 
 ### binary
 
-Return the binary version for a string.
+Return the base64-encoded binary version of a string.
 
 ```
 binary('<value>')
@@ -1102,28 +1101,19 @@ binary('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | The binary version for the specified string |
+| <*binary-for-input-value*> | String | The base64-encoded binary version for the specified string |
 ||||
 
 *Example*
 
-This example converts the "hello" string to a binary string:
-
-```
-binary('hello')
-```
-
-And returns this result:
-
-`"0110100001100101011011000110110001101111"`
+For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
+You can use this function expression to send the string bytes with the `application/octet-stream` content type in the request.
 
 <a name="body"></a>
 
 ### body
 
-Return an action's `body` output at runtime.
-Shorthand for `actions('<actionName>').outputs.body`.
-See [actionBody()](#actionBody) and [actions()](#actions).
+Return an action's `body` output at runtime. Shorthand for `actions('<actionName>').outputs.body`. See [actionBody()](#actionBody) and [actions()](#actions).
 
 ```
 body('<actionName>')
@@ -1253,8 +1243,20 @@ concat('<text1>', '<text2>', ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | The string created from the combined input strings |
+| <*text1text2...*> | String | The string created from the combined input strings. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually 
+> perform these conversions when you use the `concat()` function with data that needs encoding or decoding:
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in 
+> the designer. These behaviors affect only the function's visibility and not the effect unless you edit the function's 
+> parameter values, which removes the function and the effect from your code. For more information, review 
+> [Base64 encoding and decoding](#base64-encoding-decoding).
 
 *Example*
 
@@ -1270,10 +1272,7 @@ And returns this result: `"HelloWorld"`
 
 ### contains
 
-Check whether a collection has a specific item.
-Return true when the item is found,
-or return false when not found.
-This function is case-sensitive.
+Check whether a collection has a specific item. Return true when the item is found, or return false when not found. This function is case-sensitive.
 
 ```
 contains('<collection>', '<value>')
@@ -1328,7 +1327,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1370,8 +1369,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1413,7 +1412,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1675,11 +1674,10 @@ This function is deprecated, so please use [base64ToString()](#base64ToString) i
 Return the binary version for a data uniform resource identifier (URI). Consider using [dataUriToBinary()](#dataUriToBinary), rather than `decodeDataUri()`. Although both functions work the same way, `dataUriToBinary()` is preferred.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 decodeDataUri('<value>')
@@ -1735,7 +1733,7 @@ decodeUriComponent('<value>')
 This example replaces the escape characters in this string with decoded versions:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
@@ -1758,7 +1756,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
 *Example 1*
@@ -1786,11 +1784,10 @@ div(11.0,5)
 Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Consider using [uriComponent()](#uriComponent), rather than `encodeUriComponent()`. Although both functions work the same way, `uriComponent()` is preferred.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 encodeUriComponent('<value>')
@@ -1814,7 +1811,7 @@ This example creates a URI-encoded version for this string:
 encodeUriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -1972,10 +1969,7 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point
-number to an actual floating point number.
-You can use this function only when passing custom
-parameters to an app, for example, a logic app or flow.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -1983,12 +1977,12 @@ float('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string that has a valid floating-point number to convert |
+| <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | The floating-point number for the specified string |
+| <*float-value*> | Float | The floating-point number for the specified string. The minimum and maximum values are the same as the limits for the float data type. |
 ||||
 
 *Example*
@@ -2143,7 +2137,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Example 4*
@@ -2151,7 +2145,7 @@ formatNumber(17.36, 'C2')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2339,7 +2333,7 @@ guid('<format>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
+| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
 |||||
 
 | Return value | Type | Description |
@@ -2428,7 +2422,7 @@ And returns this result: `6`
 
 ### int
 
-Return the integer version for a string.
+Convert the string version for an integer to an actual integer number.
 
 ```
 int('<value>')
@@ -2436,12 +2430,12 @@ int('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string to convert |
+| <*value*> | Yes | String | The string version for the integer to convert. The minimum and maximum values are the same as the limits for the integer data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | The integer version for the specified string |
+| <*integer-result*> | Integer | The integer version for the specified string. The minimum and maximum values are the same as the limits for the integer data type. |
 ||||
 
 *Example*
@@ -2614,12 +2608,19 @@ This example creates a counter variable and increments that variable by one duri
 
 ### json
 
-Return the JavaScript Object Notation (JSON)
-type value or object for a string or XML.
+Return the JavaScript Object Notation (JSON) type value, object, or array of objects for a string or XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Without an XML schema that defines the output's structure, the function might return results 
+> where the structure greatly differs from the expected format, depending on the input.
+>  
+> This behavior makes this function unsuitable for scenarios where the output must conform 
+> to a well-defined contract, for example, in critical business systems or solutions.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2628,12 +2629,12 @@ json('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. |
+| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <p><p>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <p> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <p>- If the string is null, the function returns an empty object. |
 ||||
 
 *Example 1*
 
-This example converts this string to the JSON value:
+This example converts this string into a JSON value:
 
 ```
 json('[1, 2, 3]')
@@ -2643,7 +2644,7 @@ And returns this result: `[1, 2, 3]`
 
 *Example 2*
 
-This example converts this string to JSON:
+This example converts this string into JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2651,7 +2652,7 @@ json('{"fullName": "Sophia Owen"}')
 
 And returns this result:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2659,23 +2660,53 @@ And returns this result:
 
 *Example 3*
 
-This example converts this XML to JSON:
+This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Example 4*
+
+This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
+
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+And returns this result:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```
@@ -2735,7 +2766,7 @@ join([<collection>], '<delimiter>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
 
 *Example*
@@ -2807,15 +2838,11 @@ lastIndexOf('<text>', '<searchText>')
 
 If the string or substring value is empty, the following behavior occurs:
 
-* If the string value is empty, `-1` is returned:
+* If only the string value is empty, the function returns `-1`.
 
-* If the string and substring values are both empty, `0` is returned.
+* If the string and substring values are both empty, the function returns `0`.
 
-* If only the substring value is empty, the greater of the following two values is returned:
-
-  * `0`
-
-  * The length of the string, minus 1.
+* If only the substring value is empty, the function returns the string length minus 1.
 
 *Examples*
 
@@ -3366,7 +3393,7 @@ range(<startIndex>, <count>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
-| <*count*> | Yes | Integer | The number of integers in the array |
+| <*count*> | Yes | Integer | The number of integers in the array. The `count` parameter value must be a positive integer that doesn't exceed 100,000. <p><p>**Note**: The sum of the `startIndex` and `count` values must not exceed 2,147,483,647. |
 |||||
 
 | Return value | Type | Description |
@@ -3521,7 +3548,12 @@ Here's the updated JSON object:
 
 ### result
 
-Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. This function is useful returning the results from a failed action so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+
+> [!NOTE]
+> This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
+
+For example, you can use this function to get the results from failed actions so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3529,17 +3561,17 @@ result('<scopedActionName>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Yes | String | The name of the scoped action from which to return the inputs and outputs from all the inner actions |
+| <*scopedActionName*> | Yes | String | The name of the scoped action where you want the inputs and outputs from the top-level actions inside that scope |
 ||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each action that appears inside the specified scoped action |
+| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each top-level action inside the specified scope |
 ||||
 
 *Example*
 
-This example returns the inputs and outputs from each iteration of an HTTP action inside that's inside a `For_each` loop by using the `result()` function in the `Compose` action:
+This example returns the inputs and outputs from each iteration of an HTTP action inside that's in a `For_each` loop by using the `result()` function in the `Compose` action:
 
 ```json
 {
@@ -3785,7 +3817,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates an array with substrings from the specified
 string based on the specified character as the delimiter:
@@ -3795,6 +3827,16 @@ split('a_b_c', '_')
 ```
 
 And returns this array as the result: `["a","b","c"]`
+
+*Example 2*
+  
+This example creates an array with a single element when no delimiter exists in the string:
+
+```
+split('a_b_c', ' ')
+```
+
+And returns this array as the result: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 
@@ -4091,7 +4133,7 @@ This example subtracts one day from this timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-01T00:00:00:0000000Z"`
+And returns this result: `"2018-01-01T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -4144,7 +4186,7 @@ And return these results:
 
 ### ticks
 
-Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')
@@ -4273,8 +4315,7 @@ triggerBody()
 
 ### triggerFormDataMultiValues
 
-Return an array with values that match a key name
-in a trigger's *form-data* or *form-encoded* output.
+Return an array with values that match a key name in a trigger's *form-data* or *form-encoded* output.
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -4292,14 +4333,13 @@ triggerFormDataMultiValues('<key>')
 
 *Example*
 
-This example creates an array from the "feedUrl" key value in
-an RSS trigger's form-data or form-encoded output:
+This example creates an array from the "feedUrl" key value in an RSS trigger's form-data or form-encoded output:
 
 ```
 triggerFormDataMultiValues('feedUrl')
 ```
 
-And returns this array as an example result: `["http://feeds.reuters.com/reuters/topNews"]`
+And returns this array as an example result: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4333,7 +4373,7 @@ an RSS trigger's form-data or form-encoded output:
 triggerFormDataValue('feedUrl')
 ```
 
-And returns this string as an example result: `"http://feeds.reuters.com/reuters/topNews"`
+And returns this string as an example result: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4471,7 +4511,7 @@ This example creates a URI-encoded version for this string:
 uriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4498,7 +4538,7 @@ uriComponentToBinary('<value>')
 This example creates the binary version for this URI-encoded string:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result:
@@ -4534,7 +4574,7 @@ uriComponentToString('<value>')
 This example creates the decoded string version for this URI-encoded string:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
@@ -4594,7 +4634,7 @@ uriPath('<uri>')
 This example finds the `path` value for this URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm"`
@@ -4624,7 +4664,7 @@ uriPathAndQuery('<uri>')
 This example finds the `path` and `query` values for this URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm?date=today"`
@@ -4654,7 +4694,7 @@ uriPort('<uri>')
 This example returns the `port` value for this URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 And returns this result: `8080`
@@ -4684,7 +4724,7 @@ uriQuery('<uri>')
 This example returns the `query` value for this URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"?date=today"`
@@ -4714,7 +4754,7 @@ uriScheme('<uri>')
 This example returns the `scheme` value for this URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"http"`
@@ -4807,16 +4847,22 @@ workflow().<property>
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | String | The name for the workflow property whose value you want <p>A workflow object has these properties: **name**, **type**, **id**, **location**, and **run**. The **run** property value is also an object that has these properties: **name**, **type**, and **id**. |
+| <*property*> | No | String | The name for the workflow property whose value you want <p><p>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <p><p>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <p><p>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
 |||||
 
-*Example*
+*Example 1*
 
 This example returns the name for a workflow's current run:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Example 2*
+
+If you use Power Automate, you can create a `@workflow()` expression that uses the `tags` output property to get the values from your flow's `flowDisplayName` or `environmentName` property.
+
+For example, you can send custom email notifications from the flow itself that link back to your flow. These notifications can include an HTML link that contains the flow's display name in the email title and follows this syntax:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 
@@ -4840,10 +4886,9 @@ xml('<value>')
 
 *Example 1*
 
-This example creates the XML version for this string,
-which contains a JSON object:
+This example converts the string to XML:
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 And returns this result XML:
 
@@ -4852,6 +4897,19 @@ And returns this result XML:
 ```
 
 *Example 2*
+
+This example creates the XML version for this string,
+which contains a JSON object:
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+And returns this result XML:
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Example 3*
 
 Suppose you have this JSON object:
 
@@ -4866,7 +4924,7 @@ Suppose you have this JSON object:
 
 This example creates XML for a string that contains this JSON object:
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 And returns this result XML:
 
@@ -5055,16 +5113,16 @@ Here is the result: `30`
 
 *Example 8*
 
-In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
+In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="https://contoso.com"`:
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Here is the result node that matches the `<location></location>` node: 
 

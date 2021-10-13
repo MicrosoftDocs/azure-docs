@@ -4,12 +4,12 @@ description: Use an Azure PowerShell example script to move a database in SQL Da
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.reviewer: 
-ms.author: sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 

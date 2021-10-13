@@ -147,13 +147,13 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
         */
         
         @cnt =
-        	SELECT message["message"] AS iotmessage,
-        		   message["event"] AS msgevent,
-        		   message["object"] AS msgobject,
-        		   message["status"] AS msgstatus,
-        		   message["host"] AS msghost
-        	FROM @jsonify;
-        	
+            SELECT message["message"] AS iotmessage,
+                message["event"] AS msgevent,
+                message["object"] AS msgobject,
+                message["status"] AS msgstatus,
+                message["host"] AS msghost
+            FROM @jsonify;
+            
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
@@ -164,8 +164,6 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 ## Next steps
 
 In this tutorial, you learned how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services.
-
-For examples of complete end-to-end solutions that use IoT Hub, see the [Azure IoT Solution Accelerators Documentation](../iot-accelerators/index.yml).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
 

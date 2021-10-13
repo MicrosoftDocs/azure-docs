@@ -3,13 +3,13 @@ title: CLI example Restore Geo-backup - Azure SQL Database
 description: Azure CLI example script to restore an Azure SQL Managed Instance Database from a geo-redundant backup.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
 ms.date: 07/03/2019
 ---
 # Use CLI to restore a Managed Instance database to another geo-region

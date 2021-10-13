@@ -9,6 +9,7 @@ tags: azure-service-management
 
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -70,7 +71,7 @@ To configure the DNS suffix, follow these steps:
 
 ## Edit a host file
 
-Since there is no active directory, there is no way to authenticate windows connections. As such, assign trust by editing the host file with a text editor. 
+Since there is no active directory, there is no way to authenticate Windows connections. As such, assign trust by editing the host file with a text editor. 
 
 To edit the host file, follow these steps:
 
@@ -288,4 +289,11 @@ In this final step, configure the load balancer using either the [Azure portal](
 
 ## Next steps
 
-You can also use [Az SQL VM CLI](./availability-group-az-commandline-configure.md) to configure an availability group.
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
+
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

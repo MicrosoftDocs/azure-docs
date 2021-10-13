@@ -1,17 +1,11 @@
 ---
 title: Azure Security Center features for supported Azure PaaS resources.
 description: This page shows the availability of Azure Security Center features for the supported Azure PaaS resources.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/01/2020
+ms.date: 04/25/2021
 ms.author: memildin
 
 ---
@@ -28,8 +22,8 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
 |Azure Cognitive Search|✔|-|-|
-|Azure Container Registry|-|-|✔|
-|Azure Cosmos DB*|-|✔|-|
+|Azure Container Registry|✔|✔|✔|
+|Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
 |Azure Data Lake Storage|✔|✔|-|
 |Azure Database for MySQL*|-|✔|-|

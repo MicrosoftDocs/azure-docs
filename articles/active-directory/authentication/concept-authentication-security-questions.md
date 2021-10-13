@@ -92,7 +92,7 @@ To get started, see the [tutorial for self-service password reset (SSPR)][tutori
 
 To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

@@ -36,7 +36,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
 >
@@ -46,37 +46,31 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `python-webapp`.
->      - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
->      - Select **Register**.
->      - On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Select the **Authentication** from the menu, and then add the following information:
->    - Add the **Web** platform configuration. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
->    - Select **Save**.
-> 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets** section:
->
->      - Type a key description (of instance app secret).
->      - Select a key duration of **In 1 year**.
->      - When you click on **Add**, the key value will be displayed.
->      - Copy the value of the key. You will need it later.
-> 1. Select the **API permissions** section
->
->      - Click the **Add a permission** button and then,
->      - Ensure that the **Microsoft APIs** tab is selected
->      - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
->      - In the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
->      - Select the **Add permissions** button
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `python-webapp` . Users of your app might see this name, and you can change it later.
+> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+> 1. Select **Register**.
+> 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Web**.
+> 1. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
+> 1. Select **Configure**.
+> 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
+> 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
+> 1. Note the **Value** of the **Client Secret** for later use.
+> 1. Under **Manage**, select **API permissions** > **Add a permission**.
+> 1. Ensure that the **Microsoft APIs** tab is selected.
+> 1. From the *Commonly used Microsoft APIs* section, select **Microsoft Graph**.
+> 1. From the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
+> 1. Select the **Add permissions** button.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
 > #### Step 1: Configure your application in Azure portal
 >
-> For the code sample for this quickstart to work, you need to:
+> For the code sample in this quickstart to work:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.

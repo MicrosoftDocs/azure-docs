@@ -13,7 +13,7 @@
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
   - name: Create profile and endpoint - ARM Template
-    displayName: Resource Manager
+    displayName: Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup
     href: create-profile-endpoint-template.md
 - name: Tutorials
   items:
@@ -27,18 +27,21 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
-  - name: Enforce HTTPS by using the Standard rules engine
-    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cdn
+  - name: Azure CLI
+    items:
+      - name: Create a profile and endpoint
+        displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
+        href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: Concepts
   items:
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/cdn/TOC.json
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -71,11 +74,13 @@
     - name: Onboard a root or apex domain
       href: onboard-apex-domain.md
     - name: Restrict access by country or region
-      href: cdn-restrict-access-by-country.md
+      href: cdn-restrict-access-by-country-region.md
     - name: Improve performance by compressing files
       href: cdn-improve-performance.md
     - name: Endpoint multi-origin
       href: endpoint-multiorigin.md
+    - name: Enforce HTTPS by using the Standard rules engine
+      href: cdn-standard-rules-engine.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
@@ -144,7 +149,9 @@
     - name: File compression
       href: cdn-troubleshoot-compression.md
     - name: Allowed certificate authorities
-      href: cdn-troubleshoot-allowed-ca.md      
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+    - name: Subscription offers and bandwidth throttling
+      href: subscription-offerings.md      
 - name: Reference
   items:
   - name: Standard rules engine reference
@@ -171,7 +178,9 @@
       - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md
   - name: Microsoft-specific HTTP headers
-    href: cdn-msft-http-debug-headers.md             
+    href: cdn-msft-http-debug-headers.md
+  - name: Azure CLI
+    href: /cli/azure/cdn                 
   - name: Azure PowerShell
     href: /powershell/module/az.cdn
   - name: .NET
@@ -187,7 +196,11 @@
     - name: POP locations by region
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
-      href: cdn-pop-abbreviations.md
+      items:
+      - name: Microsoft
+        href: microsoft-pop-abbreviations.md
+      - name: Verizon
+        href: cdn-pop-abbreviations.md
   - name: Azure Content Delivery Network billing
     href: cdn-billing.md
   - name: Azure Roadmap

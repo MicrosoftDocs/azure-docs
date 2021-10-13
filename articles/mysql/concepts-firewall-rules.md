@@ -9,6 +9,9 @@ ms.date: 07/17/2020
 ---
 
 # Azure Database for MySQL server firewall rules
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
 
 To configure a firewall, create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
@@ -65,6 +68,8 @@ Consider the following points when access to the Microsoft Azure Database for My
 
    For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
    `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 ## Next steps
 

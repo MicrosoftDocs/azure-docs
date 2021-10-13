@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -57,6 +57,9 @@ The following are the displayed user properties on the **All users** page:
 - Name: The display name of the user.
 - User principal name: The user principal name (UPN) of the user.
 - User Type: Member, guest, none.
+- Creation time: The date and time the user was created.
+- Job title: The job title of the user.
+- Department: The department the user works in.
 - Directory synced: Indicates whether the user is synced from an on-premises directory.
 - Identity issuer: The issuers of the identity used to sign into a user account.
 - Object ID: The object ID of the user.
@@ -64,7 +67,6 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
-- Last sign-in: the date the user last signed in. This property is visible only to users with permission to read audit logs (Reporting_ApplicationAuditLogs_Read)
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
@@ -73,7 +75,8 @@ The following are the displayed user properties on the **All users** page:
 The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
 
 - Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins. 
+- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins.
+- Original user principal name: The original UPN of the user before their object ID was added as a prefix to their deleted UPN.
 
 > [!NOTE]
 > Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
@@ -102,6 +105,10 @@ The following are the filterable properties on the **All users** page:
 - User type: Member, guest, none
 - Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
+- Creation time: Last 7, 14, 30, 90, 360 or >360 days ago
+- Job title: Enter a job title
+- Department: Enter a department name
+- Group: Search for a group
 - Invitation state – Pending acceptance, Accepted
 - Domain name: Enter a domain name
 - Company name: Enter a company name
@@ -114,6 +121,9 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - User type: Member, guest, none
 - Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
+- Creation time: Last 7, 14, 30, 90, 360 or > 360 days ago
+- Job title: Enter a job title
+- Department: Enter a department name
 - Invitation state: Pending acceptance, Accepted
 - Deletion date: Last 7, 14, or 30 days
 - Domain name: Enter a domain name

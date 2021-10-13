@@ -1,8 +1,8 @@
 ---
 title: Connect with Managed Identity - Azure Database for MySQL
 description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
@@ -10,6 +10,8 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
@@ -26,30 +28,33 @@ You learn how to:
 ## Prerequisites
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Azure role-based access control (Azure RBAC) to manage access to your Azure subscription resources](../../articles/role-based-access-control/role-assignments-portal.md).
+- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../articles/role-based-access-control/role-assignments-portal.md).
 - You need an Azure VM (for example running Ubuntu Linux) that you'd like to use for access your database using Managed Identity
 - You need an Azure Database for MySQL database server that has [Azure AD authentication](howto-configure-sign-in-azure-ad-authentication.md) configured
 - To follow the C# example, first complete the guide how to [Connect using C#](connect-csharp.md)
 
 ## Creating a user-assigned managed identity for your VM
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group that your virtual machine runs in, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group that your virtual machine runs in, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
+To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az_identity_show) command to store the identity's resource ID and client ID in variables.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
+
 resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
 
 # Get client ID of the user-assigned identity
+
+
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
+We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID
@@ -78,9 +83,9 @@ Your application can now retrieve an access token from the Azure Instance Metada
 
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
-* `api-version` = `2018-02-01`
-* `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID` (that you retrieved earlier)
+- `api-version` = `2018-02-01`
+- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You'll get back a JSON result that contains an `access_token` field - this long text value is the Managed Identity access token, that you should use as the password when connecting to the database.
 
@@ -88,9 +93,13 @@ For testing purposes, you can run the following commands in your shell. Note you
 
 ```bash
 # Retrieve the access token
+
+
 accessToken=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
+
+
 mysql -h SERVER --user USER@SERVER --enable-cleartext-plugin --password=$accessToken
 ```
 
@@ -202,4 +211,4 @@ MySQL version: 5.7.27
 
 ## Next steps
 
-* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)
+- Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)

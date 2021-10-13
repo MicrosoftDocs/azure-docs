@@ -3,8 +3,9 @@ title: Deploy OpenShift in Azure Stack
 description: Deploy OpenShift in Azure Stack.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
@@ -12,6 +13,8 @@ ms.author: haroldw
 ---
 
 # Deploy OpenShift Container Platform or OKD in Azure Stack
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 OpenShift can be deployed in Azure Stack. There are some key differences between Azure and Azure Stack so deployment will differ slightly and capabilities will also differ slightly.
 
@@ -41,9 +44,9 @@ Make sure you have a valid Red Hat Subscription Manager (RHSM) username, passwor
 
 A RHEL image (OpenShift Container Platform) or CentOS image (OKD) needs to be added to your Azure Stack environment to deploy an OpenShift cluster. Contact your Azure Stack administrator to add these images. Instructions can be found here:
 
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- [Add and remove a custom VM image to Azure Stack Hub](/azure-stack/operator/azure-stack-add-vm-image)
+- [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items)
+- [Offer a Red Hat-based virtual machine for Azure Stack Hub](/azure-stack/operator/azure-stack-redhat-create-upload-vhd)
 
 ## Deploy by using the OpenShift Container Platform or OKD Resource Manager template
 

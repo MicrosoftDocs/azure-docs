@@ -3,7 +3,8 @@ title: Deploy a .NET app in a container to Azure Service Fabric
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
 
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
@@ -23,29 +24,20 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-2. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
-3. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
-4. Install [Visual Studio 2019 Version 16.1](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
-5. Install [Azure PowerShell][link-azure-powershell-install]
+1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+2. Enable Windows features **Hyper-V** and **Containers**.
+3. Install [Docker Desktop for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
+4. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
+5. Install [Visual Studio](https://www.visualstudio.com/) and enable **Azure development** and **ASP.NET and web development** workloads.
+6. Install [Azure PowerShell][link-azure-powershell-install]
 
 ## Download and run Fabrikam Fiber CallCenter
 
-1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.  Click the **download archive** link.  From the *sourceCode* directory in the *fabrikam.zip* file, extract the *sourceCode.zip* file and then extract the *VS2015* directory to your computer.
+1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application from GitHub.
 
-2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as an **administrator** and open the [FabrikamFiber.CallCenter.sln][link-fabrikam-github] file.  Press F5 to debug and run the application.
+2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as **administrator** and open the [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github] file. Press F5 to run and debug the application.
 
    ![Screenshot of the Fabrikam Fiber CallCenter application home page running on the local host. The page shows a dashboard with a list of support calls.][fabrikam-web-page]
-
-## Containerize the application
-
-1. Right-click the **FabrikamFiber.Web** project > **Add** > **Container Orchestrator Support**.  Select **Service Fabric** as the container orchestrator and click **OK**.
-
-2. If prompted, click **Yes** to switch Docker to Windows containers now.
-
-   A new project Service Fabric application project **FabrikamFiber.CallCenterApplication** is created in the solution.  A Dockerfile is added to the existing **FabrikamFiber.Web** project.  A **PackageRoot** directory is also added to the **FabrikamFiber.Web** project, which contains the service manifest and settings for the new FabrikamFiber.Web service.
-
-   The container is now ready to be built and packaged in a Service Fabric application. Once you have the container image built on your machine, you can push it to any container registry and pull it down to any host to run.
 
 ## Create an Azure SQL DB
 
@@ -116,9 +108,42 @@ Back in the **FabrikamFiber.Web** project, update the connection string in the *
 >[!NOTE]
 >You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication. If you want to use a different SQL database when building a release build of your web application, add another connection string to your *web.release.config* file.
 
+## Containerize the application
+
+1. Right-click the **FabrikamFiber.Web** project > **Add** > **Container Orchestrator Support**.  Select **Service Fabric** as the container orchestrator and click **OK**.
+
+2. If prompted, click **Yes** to switch Docker to Windows containers now.
+
+   A new project Service Fabric application project **FabrikamFiber.CallCenterApplication** is created in the solution.  A Dockerfile is added to the existing **FabrikamFiber.Web** project.  A **PackageRoot** directory is also added to the **FabrikamFiber.Web** project, which contains the service manifest and settings for the new FabrikamFiber.Web service.
+
+   The container is now ready to be built and packaged in a Service Fabric application. Once you have the container image built on your machine, you can push it to any container registry and pull it down to any host to run.
+
 ## Run the containerized application locally
 
 Press **F5** to run and debug the application in a container on the local Service Fabric development cluster. Click **Yes** if presented with a message box asking to grant 'ServiceFabricAllowedUsers' group read and execute permissions to your Visual Studio project directory.
+
+If F5 run throws an exception such as follows, then the correct IP has not been added to the Azure database firewall.
+
+```text
+System.Data.SqlClient.SqlException
+HResult=0x80131904
+Message=Cannot open server 'fab-fiber-751718376' requested by the login. Client with IP address '123.456.789.012' is not allowed to access the server.  To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.
+Source=.Net SqlClient Data Provider
+StackTrace:
+<Cannot evaluate the exception stack trace>
+```
+
+To add the appropriate IP to the Azure database firewall, run the following command.
+
+```powershell
+# The IP address of your development computer that accesses the SQL DB.
+$clientIPNew = "<client IP from the Error Message>"
+
+# Create the firewall rule to allow your development computer to access the server.
+New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
+    -ServerName $servername `
+    -FirewallRuleName "AllowClientNew" -StartIpAddress $clientIPNew -EndIpAddress $clientIPNew
+```
 
 ## Create a container registry
 
@@ -147,7 +172,7 @@ You can:
 
 This tutorial creates a cluster from Visual Studio, which is ideal for test scenarios. If you create a cluster some other way or use an existing cluster, you can copy and paste your connection endpoint or choose it from your subscription.
 
-Before starting, open FabrikamFiber.Web->PackageRoot->ServiceManifest.xml in the Solution Explorer. Take note of the port for the web front-end listed in **Endpoint**.
+Before starting, open FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml in the Solution Explorer. Take note of the port for the web front-end listed in **Endpoint**.
 
 When creating the cluster:
 
@@ -162,6 +187,9 @@ When creating the cluster:
 
     c. Select the **Certificate** tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
 
+    >[!NOTE]
+    >Keep a note of the folder path where this certificate is imported. The next step after the creation of the cluster is to import this certificate.
+
     d. Select the **VM Detail** tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
 
     > [!IMPORTANT]
@@ -172,6 +200,12 @@ When creating the cluster:
     f. When you are done modifying settings, select the **Create** button.
 
 5. Creation takes several minutes to complete; the output window will indicate when the cluster is fully created.
+
+## Install the imported certificate
+
+Install the certificate imported as part of the cluster creation step, to the **Current User** store location and provide the private key password you provided.
+
+You can confirm the installation by opening **Manage User Certificates** from the control panel and confirming the certificate is installed under **Certificates - Current User** -> **Personal** -> **Certificates**. The certificate should be like *[Cluster Name]*.*[Cluster Location]*.cloudapp.azure.com, e.g. *fabrikamfibercallcenter.southcentralus.cloudapp.azure.com*. 
 
 ## Allow your application running in Azure to access SQL Database
 
@@ -229,9 +263,11 @@ Now that the application is ready, you can deploy it to the cluster in Azure dir
 
 ![Publish application][publish-app]
 
-Follow the deployment progress in the output window. When the application is deployed, open a browser and type in the cluster address and application port. For example, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Follow the deployment progress in the output window. When the application is deployed, open a browser and type in the cluster address and application port. For example, `http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Screenshot of the Fabrikam Fiber CallCenter application home page running on azure.com. The page shows a dashboard with a list of support calls.][fabrikam-web-page-deployed]
+
+If the page fails to load, or fails to prompt for the certificate, try opening the Explorer path, for example, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:19080/Explorer` and select the newly installed certificate.
 
 ## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
 
@@ -270,7 +306,7 @@ In this tutorial, you learned how to:
 
 In the next part of the tutorial, learn how to [Deploy a container application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
-[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://github.com/Azure-Samples/service-fabric-dotnet-containerize
 [link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs

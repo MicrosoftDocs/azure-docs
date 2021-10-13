@@ -2,9 +2,9 @@
 title: Export data from Azure IoT Central (legacy) | Microsoft Docs
 description: How to export data from your Azure IoT Central application to Azure Event Hubs, Azure Service Bus, and Azure Blob storage
 services: iot-central
-author: viv-liu
-ms.author: viviali
-ms.date: 06/25/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -14,7 +14,7 @@ ms.service: iot-central
 > [!Note]
 > This article describes the legacy data export features in IoT Central.
 >
-> - For information about the new preview data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
+> - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
 > - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
@@ -550,7 +550,7 @@ This example snapshot shows a message that contains device and properties data i
 
 If you have an existing data export in your preview application with the *Devices* and *Device templates* streams turned on, update your export by **30 June 2020**. This requirement applies to exports to Azure Blob storage, Azure Event Hubs, and Azure Service Bus.
 
-Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/devices/get), [device property](/rest/api/iotcentral/devices/getproperties), [device cloud property](/rest/api/iotcentral/devices/getcloudproperties), and [device template](/rest/api/iotcentral/devicetemplates/get) objects in the IoT Central public API.
+Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/1.0dataplane/devices/get), [device property](/rest/api/iotcentral/1.0dataplane/devices/get-properties),  and [device template](/rest/api/iotcentral/1.0dataplane/device-templates/get) objects in the IoT Central public API.
 
 For **Devices**, notable differences between the old data format and the new data format include:
 - `@id` for device is removed, `deviceId` is renamed to `id` 

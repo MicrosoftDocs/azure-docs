@@ -1,14 +1,14 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 :::row:::
     :::column span="3":::
-        The Python Speech SDK is available as a Python Package Index (PyPI) module, for more information, see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The Python Speech SDK is compatible with Windows, Linux, and macOS.
+        The Python Speech SDK is available as a Python Package Index (PyPI) module, for more information, see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech </a>. The Python Speech SDK is compatible with Windows, Linux, and macOS.
     :::column-end:::
     :::column:::
         <br>
@@ -30,4 +30,4 @@ pip install azure-cognitiveservices-speech
 
 #### Additional resources
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Python Speech SDK quickstart source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Python Speech SDK quickstart source code </a>

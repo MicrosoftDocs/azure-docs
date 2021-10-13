@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/30/2020
+ms.date: 09/01/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -38,9 +38,9 @@ To view the compliance details, follow these steps:
 1. On the **Overview** or **Compliance** page, select a policy in a **compliance state** that is
    _Non-compliant_.
 
-1. Under the **Resource compliance** tab of the **Policy compliance** page, right-click or select
-   the ellipsis of a resource in a **compliance state** that is _Non-compliant_. Then select **View
-   compliance details**.
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select and hold (or
+   right-click) or select the ellipsis of a resource in a **compliance state** that is
+   _Non-compliant_. Then select **View compliance details**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot of the 'View compliance details' link on the Resource compliance tab." border="false":::
 
@@ -93,10 +93,17 @@ history (Preview)](#change-history) below.
 
 ### Compliance reasons
 
-The following matrix maps each possible _reason_ to the responsible
-[condition](../concepts/definition-structure.md#conditions) in the policy definition:
+[Resource Manager modes](../concepts/definition-structure.md#resource-manager-modes) and
+[Resource Provider modes](../concepts/definition-structure.md#resource-provider-modes) each have
+different _reasons_ for non-compliance.
 
-|Reason | Condition |
+#### General Resource Manager mode compliance reasons
+
+The following table maps each
+[Resource Manager mode](../concepts/definition-structure.md#resource-manager-modes) _reason_ to the
+responsible [condition](../concepts/definition-structure.md#conditions) in the policy definition:
+
+|Reason |Condition |
 |-|-|
 |Current value must contain the target value as a key. |containsKey or **not** notContainsKey |
 |Current value must contain the target value. |contains or **not** notContains |
@@ -120,22 +127,47 @@ The following matrix maps each possible _reason_ to the responsible
 |Current value must not case-insensitive match the target value. |notMatchInsensitively or **not** matchInsensitively |
 |No related resources match the effect details in the policy definition. |A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
 
+#### AKS Resource Provider mode compliance reasons
+
+The following table maps each `Microsoft.Kubernetes.Data`
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) _reason_ to
+the responsible state of the
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)
+in the policy definition:
+
+|Reason |Constraint template reason description |
+|-|-|
+|Constraint/TemplateCreateFailed |The resource failed to create for a policy definition with a Constraint/Template that doesn't match an existing Constraint/Template on cluster by resource metadata name. |
+|Constraint/TemplateUpdateFailed |The Constraint/Template failed to update for a policy definition with a Constraint/Template that matches an existing Constraint/Template on cluster by resource metadata name. |
+|Constraint/TemplateInstallFailed |The Constraint/Template failed to build and was unable to be installed on cluster for either create or update operation. |
+|ConstraintTemplateConflicts |The Template has a conflict with one or more policy definitions using the same Template name with different source. |
+|ConstraintStatusStale |There is an existing 'Audit' status, but Gatekeeper has not performed an audit within the last hour. |
+|ConstraintNotProcessed |There is no status and Gatekeeper has not performed an audit within the last hour. |
+|InvalidConstraint/Template |API Server has rejected the resource due to a bad YAML. This reason can also be caused by a parameter type mismatch (example: string provided for an integer)
+
+> [!NOTE]
+> For existing policy assignments and constraint templates already on the cluster, if that
+> Constraint/Template fails, the cluster is protected by maintaining the existing
+> Constraint/Template. The cluster reports as non-compliant until the failure is resolved on the
+> policy assignment or the add-on self-heals. For more information about handling conflict, see
+> [Constraint template conflicts](../concepts/policy-for-kubernetes.md#constraint-template-conflicts).
+
 ## Component details for Resource Provider modes
 
 For assignments with a
-[Resource Provider mode](../concepts/definition-structure.md#resource-manager-modes), select the
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes), select the
 _Non-compliant_ resource to open a deeper view. Under the **Component Compliance** tab is additional
 information specific to the Resource Provider mode on the assigned policy showing the
 _Non-compliant_ **Component** and **Component ID**.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
-## Compliance details for Guest Configuration
+## Compliance details for guest configuration
 
-For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
+For policy definitions in the _Guest Configuration_ category, there could be multiple
 settings evaluated inside the virtual machine and you'll need to view per-setting details. For
-example, if you're auditing for a list of password policies and only one of them has status
-_Non-compliant_, you'll need to know which specific password policies are out of compliance and why.
+example, if you're auditing for a list of security settings and only one of them has status
+_Non-compliant_, you'll need to know which specific settings are out of compliance and why.
 
 You also might not have access to sign in to the virtual machine directly but you need to report on
 why the virtual machine is _Non-compliant_.
@@ -156,80 +188,25 @@ setting.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." border="false":::
 
-### Azure PowerShell
+### View configuration assignment details at scale
 
-You can also view compliance details from Azure PowerShell. First, make sure you have the Guest
-Configuration module installed.
+The guest configuration feature can be used outside of Azure Policy assignments.
+For example,
+[Azure AutoManage](../../../automanage/automanage-virtual-machines.md)
+creates guest configuration assignments, or you might
+[assign configurations when you deploy machines](guest-configuration-create-assignment.md).
 
-```azurepowershell-interactive
-Install-Module Az.GuestConfiguration
-```
+To view all guest configuration assignments across your tenant, from the Azure
+portal open the **Guest Assignments** page. To view detailed compliance
+information, select each assignment using the link in the column "Name".
 
-You can view the current status of all Guest Assignments for a VM using the following command:
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
-```
-
-```output
-PolicyDisplayName                                                         ComplianceReasons
------------------                                                         -----------------
-Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
-Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
-```
-
-To view only the _reason_ phrase that describes why the VM is _Non-compliant_, return only the
-Reason child property.
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
-```
-
-```output
-The following applications are not installed: '<name>'.
-```
-
-You can also output a compliance history for Guest Assignments in scope for the machine. The output
-from this command includes the details of each report for the VM.
-
-> [!NOTE]
-> The output may return a large volume of data. It's recommended to store the output in a variable.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
-<truncated>
-```
-
-To simplify this view, use the **ShowChanged** parameter. The output from this command only includes
-the reports that followed a change in compliance status.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
-Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
-```
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Screenshot of the Guest Assignment page." border="true":::
 
 ## <a name="change-history"></a>Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
-deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history
+deletion](../../../azure-resource-manager/templates/deployment-complete-mode-deletion.md). Change history
 provides details about when a change was detected and a _visual diff_ for each change. A change
 detection is triggered when the Azure Resource Manager properties are added, removed, or altered.
 

@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cofense Recipient Sync for automatic user provisioni
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 84fe20ef-0de0-4f7c-9b42-6385f3d834db
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cofense Recipient Sync for automatic user provisioning
@@ -113,19 +113,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String|
    |name.familyName|String|
    |name.honorificSuffix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |phoneNumbers[type eq"home"].value|String|
-   |phoneNumbers[type eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |phoneNumbers[type eq"mobile"].value|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |addresses[type eq"other"].formatted|String|
-   |addresses[type eq"work"].formatted|String|
-   |addresses[type eq"work"].streetAddress|String|
-   |addresses[type eq"work"].locality|String|
-   |addresses[type eq"work"].region|String|
-   |addresses[type eq"work"].postalCode|String|
-   |addresses[type eq"work"].country|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |addresses[type eq "other"].formatted|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |emails[type eq "home"].value|String|
@@ -161,9 +161,13 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md). 
+
+## Change log
+
+* 01/15/2020 - Change from "Only during Object Creation" to "Always"  has been implemented for objectId -> externalId mapping.
 
 ## Additional resources
 

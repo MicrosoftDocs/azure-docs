@@ -369,7 +369,7 @@ Remove the two LUIS endpoint keys, the three Traffic Manager profiles, and the r
 
 ## Next steps
 
-Review [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) options in BotFramework v4 to understand how this traffic management code can be added to a BotFramework bot.
+Review [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) options in BotFramework v4 to understand how this traffic management code can be added to a BotFramework bot.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

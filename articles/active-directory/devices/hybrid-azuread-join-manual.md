@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
@@ -73,7 +73,10 @@ For Windows 10 devices on version 1703 or earlier, if your organization requires
 
 Beginning with Windows 10 1803, even if a hybrid Azure AD join attempt by a device in a federated domain through AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, the device will try to complete the hybrid Azure AD join by using the synced computer/device.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+> [!NOTE]
+> To get device registration sync join to succeed, as part of the device registration configuration, do not exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Verify configuration steps
 
@@ -140,7 +143,7 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-* Uses the Active Directory PowerShell module and Azure Active Directory Domain Services (Azure AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+* Uses the Active Directory PowerShell module and Active Directory Domain Services (AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
 * Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * If the AD DS tools are not installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
 
@@ -167,7 +170,7 @@ In the preceding script, `$verifiedDomain = "contoso.com"` is a placeholder. Rep
 
 For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
@@ -175,7 +178,7 @@ To get a list of your verified company domains, you can use the [Get-AzureADDoma
 
 In a federated Azure AD configuration, devices rely on AD FS or an  on-premises federation service from a Microsoft partner to authenticate to Azure AD. Devices authenticate to get an access token to register against the Azure Active Directory Device Registration Service (Azure DRS).
 
-Windows current devices authenticate by using Integrated Windows Authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
+Windows current devices authenticate by using integrated Windows authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
 
 When you're using AD FS, you need to enable the following WS-Trust endpoints
 - `/adfs/services/trust/2005/windowstransport`
@@ -326,7 +329,7 @@ In the preceding claim, `<verified-domain-name>` is a placeholder. Replace it wi
 
 For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
@@ -496,7 +499,7 @@ If you have already issued an **ImmutableID** claim  for user accounts, set the 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
 * Set a policy in Azure AD to enable users to register devices.
-* Configure your on-premises federation service to issue claims to support Integrated Windows Authentication (IWA) for device registration.
+* Configure your on-premises federation service to issue claims to support integrated Windows authentication (IWA) for device registration.
 * Add the Azure AD device authentication endpoint to the local intranet zones to avoid certificate prompts when authenticating the device.
 * Control Windows down-level devices.
 
@@ -518,7 +521,7 @@ Your on-premises federation service must support issuing the **authenticationmet
    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
    ```
 
-When such a request comes, the on-premises federation service must authenticate the user by using Integrated Windows Authentication. When authentication is successful, the federation service must issue the following two claims:
+When such a request comes, the on-premises federation service must authenticate the user by using integrated Windows authentication. When authentication is successful, the federation service must issue the following two claims:
 
    `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows`
    `http://schemas.microsoft.com/claims/wiaormultiauthn`
@@ -569,7 +572,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

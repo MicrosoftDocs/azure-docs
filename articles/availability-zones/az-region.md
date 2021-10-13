@@ -1,153 +1,211 @@
 ---
-title: Regions that support Availability Zones in Azure
-description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
-author: cynthn
+title: Azure services that support availability zones
+description: Learn what services are supported by availability zones and understand resiliency across all Azure services.
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 10/07/2020
-ms.author: cynthn
-ms.custom: fasttrack-edit, mvc, references_regions
+ms.topic: conceptual
+ms.date: 10/01/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
+ms.custom: references_regions
 ---
+# Azure services that support availability zones
 
-# Regions that support Availability Zones in Azure
+Azure [regions and availability zones](az-overview.md) are physically separate locations within each Azure region that are tolerant to datacenter failures because of redundant infrastructure and logical isolation of Azure services. 
 
-Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. For more information about Availability Zones, see [Regions and Availability Zones in Azure](az-overview.md).
+Availability zones are all about network redundancy. Azure services that support availability zones are designed to provide the right level of resiliency and flexibility along with ultra-low latency. With Azure services that support availability zones, whether you architect your own resiliency or opt for automatic replication and distribution, the benefit is the same. You get superior resiliency across highly available services, no matter the service type. 
 
-This section lists the Azure services and regions that support Availability Zones.
+Azure strives to enable high resiliency across every service and offering. Running Azure services that support availability zones provides fully transparent and consistent resiliency against nearly all scenarios, without interruption.
 
-Services that are available in each region, along with upcoming roadmap for availability, can be found at [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+## Azure regions with availability zones
 
+Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. The following regions currently support availability zones.
 
-## Americas
+| Americas | Europe | Africa | Asia Pacific |
+|--------------------|----------------------|---------------------|----------------|
+| Brazil South | France Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | | Central India\* |
+| Central US | North Europe | | Japan East |
+| East US | Norway East | | Korea Central |
+| East US 2 | UK South | | Southeast Asia |
+| South Central US | West Europe | | |
+| US Gov Virginia | Sweden* | | |
+| West US 2 | | | |
+| West US 3 | | | |
 
-| **Products** | **Central US** | **East US** | **East US 2** | **West US 2** | **Canada Central** |
-|--|--|--|--|--|--|
-| **Compute** |  |  |  |  |  |
-| [App Service Environments (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Kubernetes Service (AKS)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Storage** |  |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Premium Files Storage](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Networking** |  |  |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express Route](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Standard IP Address](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Databases** |  |  |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :x: |
-| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analytics** |  |  |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integration** |  |  |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Security** |  |  |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+\* To learn more about availability zones and available services support in this region, contact your Microsoft sales or customer representative. For information on upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-## Europe
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
-| **Products** | **France Central** | **North Europe** | **UK South** | **West Europe** |
-|--|--|--|--|--|
-| **Compute** |  |  |  |  |
-| [App Service Environments (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Kubernetes Service (AKS)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Storage** |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Premium Files Storage](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Networking** |  |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express Route](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Standard IP Address](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Databases** |  |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | :heavy_check_mark:(Preview) | :x: | :heavy_check_mark:(Preview) |
-| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analytics** |  |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integration** |  |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Security** |  |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+## Highly available services
 
-## Asia Pacific
+Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these architecture approaches when you design your resiliency strategy.
 
+- **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources can be pinned to a specific zone. For example, virtual machines, managed disks, or standard IP addresses can be pinned to a specific zone, which allows for increased resiliency by having one or more instances of resources spread across zones.
+- **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across three zones so that a failure in one zone doesn't affect the high availability of the data. 
+- **Always-available services**: Always available across all Azure geographies and are resilient to zone-wide outages and region-wide outages. For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
+As mentioned earlier in this article, not all Azure services are universally available across all regions. Offerings are grouped into three categories that reflect their _regional_ availability: *foundational*, *mainstream*, and *strategic* services. Azure's general policy on deploying services into any given region is primarily driven by region type, service category, and customer demand. For more information, see [Azure services](region-types-service-categories-azure.md).
 
-| **Products** | **Japan East** | **Southeast Asia** | **Australia East** |
-|--|--|--|--|
-| **Compute** |  |  |  |
-| [App Service Environments (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Kubernetes Service (AKS)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Storage** |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Premium Files Storage](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Networking** |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express Route](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Standard IP Address](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Databases** |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) |
-| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analytics** |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integration** |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Security** |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: |  |
+- **Foundational services**: Available in all recommended and alternate regions when a region is generally available, or within 90 days of a new foundational service becoming generally available.
+- **Mainstream services**: Available in all recommended regions within 90 days of a region's general availability. Mainstream services are demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
+- **Strategic services**: Targeted service offerings, often industry-focused or backed by customized hardware. Strategic services are demand-driven for availability across regions, and many are already deployed into a large subset of recommended regions.
 
+Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
 
+For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
+The following tables provide a summary of the current offering of zonal, zone-redundant, and always-available Azure services. They list Azure offerings according to the regional availability of each.
 
+##### Legend
+![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
 
-## Other
+In the Product Catalog, always-available services are listed as "non-regional" services.
 
-Azure also offers Availability Zones support in the following regions:
-•	US Gov Virginia
-•	South Africa North
-•	South Central US
+### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
-To learn more about Availability Zones support in these three regions, contact your Microsoft sales or customer representative.
+| **Products**   | **Resiliency**   |
+| --- | --- |
+| [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](/architecture/backup/backup-create-rs-vault#set-storage-redundancy.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
+| [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Public IP](../virtual-network/public-ip-addresses.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Azure SQL Database ([General Purpose tier](../azure-sql/database/high-availability-sla.md))  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure SQL Database ([Premium &amp; Business Critical tier](../azure-sql/database/high-availability-sla.md))  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Disk Storage](../storage/common/storage-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Storage account](../storage/common/storage-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Storage: [Hot/Cool Azure Blob Storage tiers](../storage/common/storage-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Storage: [Managed Disks](../virtual-machines/managed-disks-overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Virtual Machines](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Av2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Bs-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [DSv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [DSv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Dv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Dv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [ESv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Ev3-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [F-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [FS-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Shared Image Gallery](../virtual-machines/shared-image-galleries.md#make-your-images-highly-available)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
+| **Products**   | **Resiliency**   |
+| --- | --- |
+| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure App Service environments](../app-service/environment/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure API Management](../api-management/zone-redundancy.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Bastion](../bastion/bastion-overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Batch](../batch/create-pool-availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure Cognitive Services: [Text Analytics](../cognitive-services/text-analytics/index.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Data Factory](../data-factory/index.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure DDoS Protection](../ddos-protection/ddos-faq.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Disk Encryption](../virtual-machines/disks-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Functions](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Monitor: Log Analytics](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Private Link](../private-link/private-link-overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| Azure SQL: [Virtual Machine](../azure-sql/database/high-availability-sla.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Container Registry](../container-registry/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Event Grid](../event-grid/overview.md)  | ![An icon that signifies this service is zone-redundant](media/icon-zone-redundant.svg)  |
+| [Azure HDInsight](../hdinsight/hdinsight-use-availability-zones.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Virtual Machines: [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Ddsv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Ddv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Dsv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Dv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Edsv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Edv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Esv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Ev4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Fsv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [M-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Virtual WAN: [Azure ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Virtual WAN: [Point-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Virtual WAN: [Site-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+
+### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
+
+| **Products**   | **Resiliency**   |
+| --- | --- |
+| Azure Red Hat OpenShift  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| Azure Cognitive Services: Anomaly Detector  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure Cognitive Services: Form Recognizer  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Azure Storage: Ultra Disk  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+
+### ![An icon that signifies this service is non-regional.](media/icon-always-available.svg) Non-regional services (always-available services)
+
+| **Products**   | **Resiliency**   |
+| --- | --- |
+| Azure DNS  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Active Directory  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Advanced Threat Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Information Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Lighthouse  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Managed Applications  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Maps  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Performance Diagnostics  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Policy  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Resource Graph  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Sentinel  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Stack  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Stack Edge  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Cloud Shell  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Content Delivery Network  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Cost Management and Billing | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Customer Lockbox for Microsoft Azure  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Intune  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Peering Service  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure portal  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Cloud App Security  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Graph  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Security Center  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Traffic Manager  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+
+For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
+
+## Pricing for virtual machines in availability zones
+
+You can access Azure availability zones by using your Azure subscription. To learn more, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Next steps
 
-- [Regions and Availability Zones in Azure](az-overview.md)
+- [Building solutions for high availability using availability zones](/architecture/high-availability/building-solutions-for-high-availability)
+- [High availability with Azure services](/architecture/framework/resiliency/overview)
+- [Design patterns for high availability](/architecture/framework/resiliency/app-design)

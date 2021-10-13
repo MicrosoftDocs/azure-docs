@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 12/19/2018
+ms.reviewer: 
+ms.date: 07/23/2021
 ---
 # Extended events in Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Additional information about extended events is available at:
 
 ## Prerequisites
 
-This topic assumes you already have some knowledge of:
+This article assumes you already have some knowledge of:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Extended events](/sql/relational-databases/extended-events/extended-events)
@@ -43,12 +43,12 @@ Prior exposure to the following items is helpful when choosing the Event File as
 
 ## Code samples
 
-Related topics provide two code samples:
+Related articles provide two code samples:
 
 - [Ring Buffer target code for extended events in Azure SQL Database](xevent-code-ring-buffer.md)
 
   - Short simple Transact-SQL script.
-  - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+  - We emphasize in the code sample article that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 - [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md)
 
@@ -69,13 +69,13 @@ The extended events feature is supported by several [catalog views](/sql/relatio
 
 | Name of<br/>catalog view | Description |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Returns a row for each action on each event of an event session. |
-| **sys.database_event_session_events** |Returns a row for each event in an event session. |
-| **sys.database_event_session_fields** |Returns a row for each customize-able column that was explicitly set on events and targets. |
-| **sys.database_event_session_targets** |Returns a row for each event target for an event session. |
-| **sys.database_event_sessions** |Returns a row for each event session in the database. |
+| `sys.database_event_session_actions` |Returns a row for each action on each event of an event session. |
+| `sys.database_event_session_events` |Returns a row for each event in an event session. |
+| `sys.database_event_session_fields` |Returns a row for each customize-able column that was explicitly set on events and targets. |
+| `sys.database_event_session_targets` |Returns a row for each event target for an event session. |
+| `sys.database_event_sessions` |Returns a row for each event session in the database. |
 
-In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
+In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like `sys.server_event_%`.
 
 ## New dynamic management views [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -83,30 +83,30 @@ Azure SQL Database has [dynamic management views (DMVs)](/sql/relational-databas
 
 | Name of DMV | Description |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Returns information about event session actions. |
-| **sys.dm_xe_database_session_events** |Returns information about session events. |
-| **sys.dm_xe_database_session_object_columns** |Shows the configuration values for objects that are bound to a session. |
-| **sys.dm_xe_database_session_targets** |Returns information about session targets. |
-| **sys.dm_xe_database_sessions** |Returns a row for each event session that is scoped to the current database. |
+| `sys.dm_xe_database_session_event_actions` |Returns information about event session actions. |
+| `sys.dm_xe_database_session_events` |Returns information about session events. |
+| `sys.dm_xe_database_session_object_columns` |Shows the configuration values for objects that are bound to a session. |
+| `sys.dm_xe_database_session_targets` |Returns information about session targets. |
+| `sys.dm_xe_database_sessions` |Returns a row for each event session that is scoped to the current database. |
 
 In Microsoft SQL Server, similar catalog views are named without the *\_database* portion of the name, such as:
 
-- **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
+- `sys.dm_xe_sessions` instead of `sys.dm_xe_database_sessions`.
 
 ### DMVs common to both
 
 For extended events there are additional DMVs that are common to Azure SQL Database, Azure SQL Managed Instance, and Microsoft SQL Server:
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- `sys.dm_xe_map_values`
+- `sys.dm_xe_object_columns`
+- `sys.dm_xe_objects`
+- `sys.dm_xe_packages`
 
 <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## Find the available extended events, actions, and targets
 
-You can run a simple SQL **SELECT** to obtain a list of the available events, actions, and target.
+To obtain a list of the available events, actions, and target, use the sample query:
 
 ```sql
 SELECT
@@ -134,9 +134,9 @@ SELECT
 
 Here are targets that can capture results from your event sessions on Azure SQL Database:
 
-- [Ring Buffer target](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) - Briefly holds event data in memory.
-- [Event Counter target](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - Counts all events that occur during an extended events session.
-- [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Writes complete buffers to an Azure Storage container.
+- [Ring Buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target) - Briefly holds event data in memory.
+- [Event Counter target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_counter-target) - Counts all events that occur during an extended events session.
+- [Event File target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target) - Writes complete buffers to an Azure Storage container.
 
 The [Event Tracing for Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) API is not available for extended events on Azure SQL Database.
 
@@ -145,11 +145,11 @@ The [Event Tracing for Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing)
 There are a couple of security-related differences befitting the cloud environment of Azure SQL Database:
 
 - Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
-- You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
-
+- You cannot issue a `CREATE EVENT SESSION` statement in the context of the `master` database.
+    
 ## Permission model
 
-You must have **Control** permission on the database to issue a **CREATE EVENT SESSION** statement. The database owner (dbo) has **Control** permission.
+You must have **Control** permission on the database to issue a `CREATE EVENT SESSION` statement. The database owner (dbo) has **Control** permission.
 
 ### Storage container authorizations
 
@@ -162,6 +162,11 @@ The SAS token you generate for your Azure Storage container must specify **rwl**
 ## Performance considerations
 
 There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore Azure SQL Database dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
+
+There is a cap on memory available to XEvent sessions in Azure SQL Database:
+  - In single Azure SQL Database in the DTU purchasing model, each database can use up to 128 MB. This is raised to 256 MB only in the Premium tier.
+  - In single Azure SQL Database in the vCore purchasing model, each database can use up to 128 MB.
+  - In an elastic pool, individual databases are limited by the single database limits, and in total they cannot exceed 512 MB.
 
 If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
 
@@ -176,13 +181,11 @@ The **Event File** target might experience network latency or failures while per
 
 ## Related links
 
-- [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/).
 - [Azure Storage Cmdlets](/powershell/module/Azure.Storage)
 - [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/)
 - [How to use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
 - [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
-- [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - The Azure *Service Updates* webpage, narrowed by parameter to Azure SQL Database:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 

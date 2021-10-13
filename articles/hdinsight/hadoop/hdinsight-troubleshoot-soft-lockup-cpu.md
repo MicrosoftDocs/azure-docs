@@ -3,9 +3,6 @@ title: Watchdog BUG soft lockup CPU error from Azure HDInsight cluster
 description: Watchdog BUG soft lockup CPU appears in kernel syslogs from Azure HDInsight cluster
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/05/2019
 ---
 
@@ -51,4 +48,4 @@ Apply kernel patch. The script below upgrades the linux kernel and reboots the m
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

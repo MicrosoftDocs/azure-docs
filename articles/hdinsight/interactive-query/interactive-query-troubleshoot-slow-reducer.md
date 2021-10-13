@@ -3,9 +3,6 @@ title: Reducer is slow in Azure HDInsight
 description: Reducer is slow in Azure HDInsight from possible data skewing
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
 ---
 
@@ -35,4 +32,4 @@ A value of `true` makes sense when the number of partitions is larger and data i
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

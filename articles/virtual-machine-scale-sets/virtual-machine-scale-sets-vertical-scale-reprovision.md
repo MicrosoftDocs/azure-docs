@@ -8,10 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurepowershell
 
 ---
 # Vertical autoscale with virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. 
 
@@ -114,7 +116,7 @@ Once you've imported the runbooks, add a webhook to the runbook so it can be tri
 ## Add an alert to your virtual machine scale set
 
 Below is a PowerShell script that shows how to add an alert to a virtual machine scale set. Refer to the following article to get the name of the metric to fire the alert on:
-[Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
+[Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -149,8 +151,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
-* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor/powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor/cli-samples.md)
 
 ## Summary
 

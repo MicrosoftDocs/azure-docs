@@ -16,18 +16,30 @@
       href: tutorial-delete-cluster.md
 - name: How-to guides
   items:
+    - name: Cluster operations
+      items:
+        - name: Upgrade an ARO cluster
+          href: howto-upgrade.md
     - name: Networking
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
+        - name: Configure custom DNS
+          href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+        - name: Restrict egress traffic
+          href: howto-restrict-egress.md
     - name: Storage
       items:
+        - name: Encrypt PVCs with customer-managed key (preview)
+          href: howto-encrypt-data-disks.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
           href: built-in-container-registry.md
+        - name: Use Azure Container registry
+          href: howto-use-acr-with-aro.md
     - name: Security and authentication
       items:
         - name: Configure Azure Active Directory authentication (CLI)
@@ -36,22 +48,28 @@
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster
           href: howto-add-update-pull-secret.md
-    - name: Backup and restore
+        - name: Rotate service principal credentials for an Azure Red Hat OpenShift (ARO) cluster
+          href: howto-service-principal-credential-rotation.md
+    - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
           href: howto-create-a-backup.md
         - name: Create a restore of a cluster application with Velero
           href: howto-create-a-restore.md
-    - name: Monitoring and logging 
+    - name: Monitoring and logging
       items:
         - name: Azure Monitor for containers
           items:
             - name: Configure Azure Monitor for containers for ARO 4 (preview)
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in ARO 4 (preview)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Develop and run applications
       items:
+        - name: Deploy an application from source code
+          href: howto-deploy-with-s2i.md
+        - name: Deploy an application using OpenShift Serverless
+          href: howto-deploy-with-serverless.md
         - name: Deploy an Open Liberty/WebSphere Liberty app
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
@@ -74,10 +92,10 @@
             - name: Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
               items:
                 - name: Configure Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md
@@ -92,23 +110,27 @@
     - name: Networking
       href: concepts-networking.md
     - name: Migrate from ARO 3.11 to ARO 4
-      href: migration.md 
+      href: migration.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
       href: /cli/azure/aro
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
+    - name: Azure CLI
+      href: /cli/azure/openshift
 - name: Resources
   items:
     - name: Frequently asked questions
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4
       href: support-policies-v4.md
-    - name: Support lifecycle for ARO 4 
+    - name: Support lifecycle for ARO 4
       href: support-lifecycle.md
+    - name: Responsibility matrix
+      href: responsibility-matrix.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift 4 documentation
@@ -117,4 +139,3 @@
       href: https://azure.microsoft.com/roadmap/
     - name: ARO Roadmap
       href: https://github.com/Azure/OpenShift/projects/1
-

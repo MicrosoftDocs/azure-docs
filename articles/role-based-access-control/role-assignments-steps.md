@@ -1,5 +1,5 @@
 ---
-title: Steps to add a role assignment - Azure RBAC
+title: Steps to assign an Azure role - Azure RBAC
 description: Learn the steps to assign Azure roles to users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -7,13 +7,13 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 04/14/2021
 ms.author: rolyon
 ---
 
-# Steps to add a role assignment
+# Steps to assign an Azure role
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes the high-level steps to add a role assignment using the [Azure portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md), or the [REST API](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes the high-level steps to assign Azure roles using the [Azure portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md), or the [REST API](role-assignments-rest.md).
 
 ## Step 1: Determine who needs access
 
@@ -26,7 +26,7 @@ You first need to determine who needs access. You can assign a role to a user, g
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
 - Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
-## Step 2: Find the appropriate role
+## Step 2: Select the appropriate role
 
 Permissions are grouped together into a *role definition*. It's typically just called a *role*. You can select from a list of several built-in roles. If the built-in roles don't meet the specific needs of your organization, you can create your own custom roles.
 
@@ -45,7 +45,7 @@ The rest of the built-in roles allow management of specific Azure resources. For
 
 1. In that article, navigate to the service category (such as compute, storage, and databases) for the resource to which you want to grant permissions. The easiest way to find what your looking for is typically to search the page for a relevant keyword, like "blob", "virtual machine", and so on.
 
-1. Review the roles listed for the service category and identify the specific operations you need. Again, always start with the most restrictive role.
+1. Review the roles listed for the service category and identify the specific actions you need. Again, always start with the most restrictive role.
 
     For example, if a security principal needs to read blobs in an Azure storage account, but doesn't need write access, then choose [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) rather than [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) (and definitely not the administrator-level [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role). You can always update the role assignments later as needed.
 
@@ -63,7 +63,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 - If you assign the [Billing Reader](built-in-roles.md#billing-reader) role to a group at the subscription scope, the members of that group can read billing data for every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
- For more information, see [Understand scope](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] For more information, see [Understand scope](scope-overview.md).
 
 ## Step 4. Check your prerequisites
 
@@ -74,16 +74,18 @@ To assign roles, you must be signed in with a user that is assigned a role that 
 
 If your user account doesn't have permission to assign a role within your subscription, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'." In this case, contact the administrators of your subscription as they can assign the permissions on your behalf.
 
-## Step 5. Add role assignment
+If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Azure Active Directory (Azure AD) and the service principal cannot read Azure AD by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Azure AD lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
 
-Once you know the security principal, role, and scope, you can assign the role. You can add role assignments using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group.
+## Step 5. Assign role
 
-Check out the following articles for detailed steps for how to add role assignments.
+Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group.
 
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
-- [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
-- [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md)
-- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
+Check out the following articles for detailed steps for how to assign roles.
+
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)
+- [Assign Azure roles using Azure CLI](role-assignments-cli.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)
 
 ## Next steps
 

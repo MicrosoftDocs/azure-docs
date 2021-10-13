@@ -11,9 +11,12 @@ ms.topic: how-to
 
 In order to correctly process an asset, the conversion service needs to be able to find all the input files.
 These consist of the main asset file being converted and usually some other files referenced by paths within the asset file.
-The request to convert an asset is given two parameters which determine how the conversion service finds these files: The `input.folderPath` (which is optional) and the `input.inputAssetPath`.
+The request to convert an asset is given two parameters which determine how the conversion service finds these files: The `settings.inputLocation.blobPrefix` (which is optional) and the `settings.inputLocation.relativeInputAssetPath`.
 They are fully documented in the [Conversion REST API](conversion-rest-api.md) page.
-For the purpose of laying out files, the important thing to note is that the `folderPath` determines complete set of files which are available to the conversion service when processing the asset.
+For the purpose of laying out files, the important thing to note is that the `BlobPrefix` determines complete set of files which are available to the conversion service when processing the asset.
+
+> [!Note]
+> The service will download all files under the input.BlobPrefix. Ensure file names and paths do not exceed [Windows path length limits](/windows/win32/fileio/maximum-file-path-limitation) to avoid issues on the service. 
 
 ## Placing files so they can be found
 

@@ -1,21 +1,19 @@
 ---
 title: H264 Single Bitrate 4K Media Encoder Standard preset - Azure | Microsoft Docs
-description: The article gives an overview of the Media Encoder Standard "H264 Single Bitrate 4K" task preset.
-author: Juliako
+description: The article gives an overview of the Media Encoder Standard H264 Single Bitrate 4K task preset.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 8e437aea-8193-49a0-9ff2-4fd391c80972
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Single Bitrate 4K

@@ -1,16 +1,14 @@
 ---
 title: Build your first data factory (REST) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: v1
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 11/01/2017 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Build your first Azure data factory using Data Factory REST API
@@ -459,7 +457,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 Run the Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  The creation of an on-demand HDInsight cluster usually takes some time.
 
-![output data](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+:::image type="content" source="./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png" alt-text="output data":::
 
 > [!IMPORTANT]
 > The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.

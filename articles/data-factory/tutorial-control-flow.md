@@ -1,15 +1,12 @@
 ---
 title: Branching in Azure Data Factory pipeline
 description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
-services: data-factory
-author: dcstwh
-ms.author: weetok
-manager: anandsub
-ms.reviewer: maghan
+author: ssabat
+ms.author: susabat
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ---
 
@@ -21,7 +18,7 @@ In this tutorial, you create a Data Factory pipeline that showcases some control
 
 This graphic provides an overview of the scenario:
 
-![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow/overview.png)
+:::image type="content" source="media/tutorial-control-flow/overview.png" alt-text="Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.":::
 
 This tutorial shows you how to do the following tasks:
 
@@ -327,13 +324,13 @@ In the [Azure portal](https://portal.azure.com), create a Logic Apps workflow na
 
 Your workflow looks something like the following example:
 
-![Success email workflow](media/tutorial-control-flow/success-email-workflow-trigger.png)
+:::image type="content" source="media/tutorial-control-flow/success-email-workflow-trigger.png" alt-text="Success email workflow":::
 
 This JSON content aligns with the `EmailRequest` class you created in the previous section.
 
 Add an action of `Office 365 Outlook – Send an email`. For the **Send an email** action, customize how you wish to format the email, using the properties passed in the request **Body** JSON schema. Here's an example:
 
-![Logic app designer - send email action](media/tutorial-control-flow/customize-send-email-action.png)
+:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="Logic app designer - send email action":::
 
 After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 
@@ -341,7 +338,7 @@ After you save the workflow, copy and save the **HTTP POST URL** value from the 
 
 Clone **CopySuccessEmail** as another Logic Apps workflow named *CopyFailEmail*. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
-![Logic app designer - fail email workflow](media/tutorial-control-flow/fail-email-workflow.png)
+:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="Logic app designer - fail email workflow":::
 
 After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 

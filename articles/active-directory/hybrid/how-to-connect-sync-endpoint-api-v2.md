@@ -23,7 +23,14 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 > [!NOTE]
 > Currently, the new endpoint does not have a configured group size limit for Microsoft 365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies. It is recommended to increase your group sizes incrementally.  
 
-## Pre-requisites  
+>[!NOTE]
+> The Azure AD Connect sync V2 endpoint API is Generally Available but currently can only be used in these Azure environments:
+> - Azure Commercial
+> - Azure China cloud
+> - Azure US Government cloud
+> It will not be made available in the Azure German cloud
+
+## Prerequisites  
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
 
 ## Deployment guidance 
@@ -126,7 +133,7 @@ The following steps can be used to increase the membership limit:
  `Set-ADSyncScheduler -SyncCycleEnabled $true` 
  
 >[!NOTE]
-> If Azure AD Connect Health is not enabled, change the windows application event log settings to archive the logs, instead of overwriting them. The logs may be used to assist in future troubleshooting efforts. 
+> If Azure AD Connect Health is not enabled, change the Windows application event log settings to archive the logs, instead of overwriting them. The logs may be used to assist in future troubleshooting efforts. 
 
 >[!NOTE]
 > After enabling the new endpoint, you may see additional export errors on the AAD connector with name ‘dn-attributes-failure’. There will be a corresponding event log entry for each error with id 6949. The errors are informational and do not indicate a problem with your installation, but rather that the sync process could not add certain members to a group in Azure AD because the member object itself was not synced to Azure AD. 
@@ -175,7 +182,7 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
 ## Frequently asked questions  
  
 **When will the new end point become the default for upgrades and new installations?**  
-</br>We are planning a new release of AADConnect to be published for download in January 2021. This release will use the V2 end point by default and will enable syncing groups larger than 50K withuot any additional configuration. THis release will subsequently be published for auto upgrade to eligible servers.
+</br>We are planning a new release of AADConnect to be published for download in February 2021. This release will use the V2 end point by default and will enable syncing groups larger than 50K without any additional configuration. This release will subsequently be published for auto upgrade to eligible servers.
  
 ## Next steps
 

@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ---
@@ -17,6 +17,11 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
+- Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
+
 ## Prerequisites
 
 Before you can use dependency injection, you must install the following NuGet packages:
@@ -24,6 +29,8 @@ Before you can use dependency injection, you must install the following NuGet pa
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) package version 1.0.28 or later
+
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 3.x and earlier supported)
 
 ## Register services
 
@@ -87,9 +94,9 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, IMyService service)
+        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
         {
-            this._client = httpClient;
+            this._client = httpClientFactory.CreateClient();
             this._service = service;
         }
 
@@ -113,8 +120,8 @@ This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
 
-- **Transient**: Transient services are created upon each request of the service.
-- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- **Transient**: Transient services are created upon each resolution of the service.
+- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per function execution. Later requests for that service during the execution reuse the existing service instance.
 - **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `DocumentClient` or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) on GitHub.
@@ -129,7 +136,7 @@ Application Insights is added by Azure Functions automatically.
 > - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
 > - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
-### ILogger<T> and ILoggerFactory
+### ILogger\<T\> and ILoggerFactory
 
 The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt-in to additional filters and categories.
 
@@ -176,6 +183,8 @@ The following example `host.json` file adds the log filter.
     }
 }
 ```
+
+For more information about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
 ## Function app provided services
 
@@ -247,6 +256,24 @@ public class HttpTrigger
 ```
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+
+## Using ASP.NET Core user secrets
+
+When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+
+To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
+
+```bash
+dotnet user-secrets init
+```
+
+Then use the `dotnet user-secrets set` command to create or update secrets.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+To access user secrets values in your function app code, use `IConfiguration` or `IOptions`.
 
 ## Customizing configuration sources
 

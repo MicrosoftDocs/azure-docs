@@ -32,9 +32,9 @@ azcopy login [flags]
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Tutorial: Migrate on-premises data to cloud storage with AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 
@@ -57,11 +57,11 @@ azcopy login --identity
 ```
 
 Log in by using the user-assigned identity of a VM and a Client ID of the service identity:
-  
+
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
- 
+
 Log in by using the user-assigned identity of a VM and an Object ID of the service identity:
 
 ```azcopy
@@ -69,7 +69,7 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 Log in by using the user-assigned identity of a VM and a Resource ID of the service identity:
- 
+
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```

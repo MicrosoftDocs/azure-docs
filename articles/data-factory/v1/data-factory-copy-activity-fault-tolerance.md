@@ -1,20 +1,12 @@
 ---
 title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows 
 description: Learn how to add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows during copy
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
@@ -78,7 +70,7 @@ The following example provides a JSON definition to configure skipping the incom
 ## Monitoring
 After the copy activity run completes, you can see the number of skipped rows in the monitoring section:
 
-![Monitor skipped incompatible rows](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+:::image type="content" source="./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png" alt-text="Monitor skipped incompatible rows":::
 
 If you configure to log the incompatible rows, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` In the log file, you can see the rows that were skipped and the root cause of the incompatibility.
 

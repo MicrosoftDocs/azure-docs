@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 09/24/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -27,13 +27,15 @@ Premium page blob storage accounts have the following scalability targets:
 
 | Total account capacity                            | Total bandwidth for a locally redundant storage account                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Disk capacity: 4 TB (individual disk)/ 35 TB (cumulative total of all disks) <br>Snapshot capacity: 10 TB | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
+| Disk capacity: 4 TB (individual disk)/ 35 TB (cumulative total of all disks) <br>Snapshot capacity: 10 TB<sup>3</sup> | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
 
 <sup>1</sup> All data (requests) that are sent to a storage account
 
 <sup>2</sup> All data (responses) that are received from a storage account
 
-A premium page blob account is be a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
+<sup>3</sup> The total number of snapshots an individual page blob can have is 100.
+
+A premium page blob account is a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
 
 If you are using premium page blob storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, then Microsoft recommends migrating to managed disks. For more information about managed disks, see [Azure Disk Storage overview for VMs](../../virtual-machines/managed-disks-overview.md).
 

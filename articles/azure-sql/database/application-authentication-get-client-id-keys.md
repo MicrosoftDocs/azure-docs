@@ -4,12 +4,12 @@ description: Create a service principal for accessing Azure SQL Database from co
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1 , devx-track-azurecli
+ms.custom: sqldbrb=1 , devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Get the required values for authenticating an application to access Azure SQL Database from code

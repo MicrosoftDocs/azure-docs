@@ -2,23 +2,24 @@
 title: AMD GPU driver extension - Azure Windows VMs 
 description: Microsoft Azure extension for installing AMD GPU Drivers on NVv4-series VMs running Windows.
 services: virtual-machines-windows
-documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
-ms.author: vikancha
+ms.author: vikancha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # AMD GPU driver extension for Windows
 
 This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](../windows/n-series-amd-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series AMD GPU driver setup for Windows](../windows/n-series-amd-driver-setup.md).
 
 ## Prerequisites
 
@@ -28,8 +29,8 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 EMS | Build 1903 |
-| Windows 10 | Build 1809 |
+| Windows 10 EMS | Build 1909 |
+| Windows 10 | Build 1909 |
 | Windows Server 2016 | Core |
 | Windows Server 2019 | Core |
 
@@ -146,7 +147,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following directory:
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 ```
 
 ### Error codes

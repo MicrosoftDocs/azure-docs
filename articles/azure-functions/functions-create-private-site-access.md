@@ -125,7 +125,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 ## Create an Azure Functions app
 
-The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
+The next step is to create a function app in Azure using the [Consumption plan](consumption-plan.md). You deploy your function code to this resource later in the tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 1. Select **Compute > Function App**
@@ -144,7 +144,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./functions-scale.md#storage-account-requirements). |
+    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](storage-considerations.md#storage-account-requirements). |
     | _Operating system_ | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | _Plan_ | Consumption | The [hosting plan](./functions-scale.md) dictates how the function app is scaled and resources available to each instance. |
 1. Select **Review + Create** to review the app configuration selections.

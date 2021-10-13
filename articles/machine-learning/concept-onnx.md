@@ -1,5 +1,5 @@
 ---
-title: 'ONNX: high-perf, cross platform inference'
+title: 'ONNX models: Optimize inference'
 titleSuffix: Azure Machine Learning
 description: Learn how using the Open Neural Network Exchange (ONNX) can help optimize the inference of your machine learning model.
 services: machine-learning
@@ -7,7 +7,6 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
@@ -76,7 +75,7 @@ results = session.run(["output1", "output2"], {
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-For the complete Python API reference, see the [ONNX Runtime reference docs](https://aka.ms/onnxruntime-python).	
+For the complete Python API reference, see the [ONNX Runtime reference docs](https://onnxruntime.ai/docs/api/python-api.html).	
 
 ## Examples
 See [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) for example Python notebooks that create and deploy ONNX models.

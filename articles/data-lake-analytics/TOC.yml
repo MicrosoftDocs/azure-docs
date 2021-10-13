@@ -26,7 +26,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/data-lake-analytics-security-baseline?toc=/azure/data-lake-analytics/TOC.json
 - name: How-to guides
   items:
   - name: Manage Data Lake Analytics
@@ -68,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: https://docs.microsoft.com/u-sql
+        href: /u-sql
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators
@@ -111,6 +111,8 @@
         href: data-lake-analytics-data-lake-tools-for-vscode.md
       - name: Custom code
         href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+      - name: Accessing resources
+        href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
       - name: Local run & debug
         href: data-lake-tools-for-vscode-local-run-and-debug.md
     - name: Programmability guide
@@ -163,6 +165,8 @@
       href: runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
       href: dotnet-upgrade-troubleshoot.md
+  - name: Migrate to Spark on Azure Synapse Analytics
+    href: migrate-azure-data-lake-analytics-to-synapse.md
 - name: Reference
   items:
   - name: Azure PowerShell

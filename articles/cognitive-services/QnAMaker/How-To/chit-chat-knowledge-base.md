@@ -17,7 +17,7 @@ Adding chit-chat to your bot makes it more conversational and engaging. The chit
 
 This dataset has about 100 scenarios of chit-chat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA.
 
-Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) along with details of the personalities.
+Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md) along with details of the personalities.
 
 For the user query of `When is your birthday?`, each personality has a styled response:
 
@@ -59,7 +59,7 @@ Select your KB, and navigate to the **Settings** page. There is a link to all th
 
 ![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 ![Add chit-chat to existing KB preview release](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 

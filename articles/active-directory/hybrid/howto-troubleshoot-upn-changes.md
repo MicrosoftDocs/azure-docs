@@ -1,5 +1,5 @@
 ---
-title: Plan and troubleshoot Azure User Principle name (UPN) changes
+title: Plan and troubleshoot Azure User Principal name (UPN) changes
 description: Understand known issues and mitigations for UPN changes
 
 services: active-directory
@@ -132,7 +132,7 @@ Users may experience single sign-on issues with applications that depend on Azur
 The issues mentioned on this section have been fixed on the Windows 10 May 2020 update (2004).
 
 **Workaround** <br>
-Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -167,9 +167,9 @@ Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
 ## Microsoft Authenticator known issues and workarounds
 
-Your organization might require the use of the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) to sign in and access organizational applications and data. Although a username might appear in the app, the account isn't set up to function as a verification method until the user completes the registration process.
+Your organization might require the use of the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to sign in and access organizational applications and data. Although a username might appear in the app, the account isn't set up to function as a verification method until the user completes the registration process.
 
-The [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) has four main functions:
+The [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) has four main functions:
 
 * Multi-factor authentication via a push notification or verification code
 
@@ -185,7 +185,7 @@ The Microsoft Authenticator app offers an out-of-band verification option. Inste
 
 **Known issues** 
 
-When you change a user's UPN, the old UPN still displays on the user account and a notification might not be received. [Verification codes](../user-help/user-help-auth-app-faq.md) continue to work.
+When you change a user's UPN, the old UPN still displays on the user account and a notification might not be received. [Verification codes](https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd) continue to work.
 
 **Workaround**
 

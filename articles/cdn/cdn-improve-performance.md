@@ -61,10 +61,6 @@ The standard and premium CDN tiers provide the same compression functionality, b
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
 
-   > [!NOTE]
-   > Modifying the default list of MIME types is currently not supported in Azure CDN Standard from Microsoft.
-   > 
-
 5. After making your changes, select **Save**.
 
 ### Premium CDN profiles
@@ -97,7 +93,8 @@ The standard and premium CDN tiers provide the same compression functionality, b
 ### Azure CDN Standard from Microsoft profiles
 
 For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
-- Be of a MIME type that has been [configured for compression](#enabling-compression).
+- Be of a MIME type that has been [configured for compression](#enabling-compression)
+- Have only "identity" *Content-Encoding* headers in the origin response
 - Be larger than 1 KB
 - Be smaller than 8 MB
 
@@ -121,11 +118,8 @@ These profiles support the following compression encodings:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
-- brotli 
 
-If the request supports more than one compression type, those compression types take precedence over brotli compression.
-
-When a request for an asset specifies brotli compression (HTTP header is `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs brotli compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.
+Azure CDN from Verizon does not support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 
@@ -149,10 +143,10 @@ The following tables describe Azure CDN compression behavior for every scenario:
 ### Compression is enabled and file is eligible for compression
 | Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |CDN transcodes between supported formats. |
+| Compressed |Compressed |Compressed |CDN transcodes between supported formats. <br/>**Azure CDN from Microsoft** doesn't support transcoding between formats and instead fetches data from origin, compresses and caches separately for the format. |
 | Compressed |Uncompressed |Compressed |CDN performs a compression. |
 | Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the `Cache-Control: no-cache` header are never compressed. |
-| Uncompressed |Compressed |Uncompressed |CDN performs a decompression. |
+| Uncompressed |Compressed |Uncompressed |CDN performs a decompression. <br/>**Azure CDN from Microsoft** doesn't support decompression and instead fetches data from origin and caches separately for uncompressed clients. |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
 

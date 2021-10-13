@@ -1,10 +1,7 @@
 ---
 title: Reboot VMs for Azure HDInsight clusters 
 description: Learn how to reboot unresponsive VMs for Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
@@ -55,7 +52,7 @@ You can use the **Try it** feature in the API doc to send requests to HDInsight.
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using the REST API to reboot the nodes. The node name follows the pattern of *NodeType(wn/hn/zk/gw)* + *x* + *first six characters of cluster name*. For more information, see [HDInsight restart hosts REST API operation](/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using the REST API to reboot the nodes. The node name follows the pattern of *NodeType(wn/hn/zk)* + *x* + *first six characters of cluster name*. For more information, see [HDInsight restart hosts REST API operation](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview

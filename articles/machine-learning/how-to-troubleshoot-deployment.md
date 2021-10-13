@@ -1,27 +1,33 @@
 ---
-title: Troubleshoot Remote Web Service Deployment
+title: Troubleshooting remote model deployment 
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
+description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: gvashishtha
-ms.author:  gopalv
-ms.reviewer: jmartens
+ms.subservice: mlops
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy, contperfq2
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
-# Troubleshoot model deployment
+# Troubleshooting remote model deployment 
 
-Learn how to troubleshoot and solve, or work around, common remote Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
+Learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model to Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
+
+> [!NOTE]
+> If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
+>
+> * [Check for Resource Health events impacting your AKS cluster](../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service Diagnostics](../aks/concepts-diagnostics.md)
+>
+> If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## Steps for Docker deployment of machine learning models
@@ -29,9 +35,9 @@ Learn how to troubleshoot and solve, or work around, common remote Docker deploy
 When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
 1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
-1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your Workspace's default container registry.
+1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your workspace's default container registry.
 1. The Docker image from your container registry is downloaded to your compute target.
-1. Your Workspace's default Blob store is mounted to your compute target, giving you access to registered models
+1. Your workspace's default Blob store is mounted to your compute target, giving you access to registered models
 1. Your web server is initialized by running your entry script's `init()` function
 1. When your deployed model receives a request, your `run()` function handles that request
 
@@ -47,7 +53,7 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 To get the logs from a deployed webservice, do:
 
-```bash
+```azurecli
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
@@ -73,6 +79,28 @@ print(service.get_logs())
 
 If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
 
+## Azure Machine learning inference HTTP server
+
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Start the server and set `score.py` as the entry script:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Send a scoring request to the server using `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
+
 ## Container cannot be scheduled
 
 When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
@@ -87,7 +115,7 @@ Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-loca
 
 ## Function fails: get_model_path()
 
-Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
@@ -165,13 +193,25 @@ There are two things that can help prevent 503 status codes:
     > [!NOTE]
     > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) module reference.
 
 ## HTTP status code 504
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
 You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
+
+## Other error messages
+
+Take these actions for the following errors:
+
+|Error  | Resolution  |
+|---------|---------|
+| 409 conflict error| When an operation is already in progress, any new operation on that same web service will respond with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it will throw an error. |
+|Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
+|FPGA failure     |  You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
+
 
 ## Advanced debugging
 

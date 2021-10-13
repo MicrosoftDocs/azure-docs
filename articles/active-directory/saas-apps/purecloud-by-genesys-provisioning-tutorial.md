@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure PureCloud by Genesys for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PureCloud by Genesys.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure PureCloud by Genesys for automatic user provisioning
@@ -31,7 +31,7 @@ This tutorial describes the steps you need to perform in both PureCloud by Genes
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A PureCloud [organization](https://help.mypurecloud.com/?p=81984).
 * A User with [permissions](https://help.mypurecloud.com/?p=24360) to create an Oauth Client.
 
@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add PureCloud by Genesys from the Azure AD application gallery
 
-Add PureCloud by Genesys from the Azure AD application gallery to start managing provisioning to PureCloud by Genesys. If you have previously setup PureCloud by Genesys for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add PureCloud by Genesys from the Azure AD application gallery to start managing provisioning to PureCloud by Genesys. If you have previously setup PureCloud by Genesys for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your PureCloud by Genesys API URL and Oauth Token in the **Tenant URL** and **Secret Token** fields respectively. The API URL will be be structured as `{{API Url}}/api/v2/scim/v2`, using the API URL for your PureCloud region from the [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Click **Test Connection** to ensure Azure AD can connect to PureCloud by Genesys. If the connection fails, ensure your PureCloud by Genesys account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input your PureCloud by Genesys API URL and Oauth Token in the **Tenant URL** and **Secret Token** fields respectively. The API URL will be structured as `{{API Url}}/api/v2/scim/v2`, using the API URL for your PureCloud region from the [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Click **Test Connection** to ensure Azure AD can connect to PureCloud by Genesys. If the connection fails, ensure your PureCloud by Genesys account has Admin permissions and try again.
 
  	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
@@ -95,27 +95,36 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to PureCloud by Genesys in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in PureCloud by Genesys for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the PureCloud by Genesys API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-     |Attribute|Type|
-     |---|---|
-     |userName|String|
+     |Attribute|Type|Supported for filtering|
+     |---|---|---|
+     |userName|String|&check;|
 	 |active|Boolean|
 	 |displayName|String|
 	 |emails[type eq "work"].value|String|
 	 |title|String|
 	 |phoneNumbers[type eq "mobile"].value|String|
 	 |phoneNumbers[type eq "work"].value|String|
+	 |phoneNumbers[type eq "work2"].value|String|
+	 |phoneNumberss[type eq "work3"].value|String|
+	 |phoneNumbers[type eq "work4"].value|String|
+	 |phoneNumbers[type eq "home"].value|String|
+	 |phoneNumbers[type eq "microsoftteams"].value|String|
+	 |roles|String|
 	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-	 
+	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’].value|String|	 
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’].value|String|	 
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone].value|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to PureCloud by Genesys**.
 
 11. Review the group attributes that are synchronized from Azure AD to PureCloud by Genesys in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in PureCloud by Genesys for update operations. Select the **Save** button to commit any changes. PureCloud by Genesys does not support group creation or deletion and only supports updating of groups.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;|
       |externalId|String|
       |members|Reference|
 
@@ -144,9 +153,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 
-09/10 - Added support for enterprise attribute "employeeNumber".
+* 09/10/2020 - Added support for extension enterprise attribute **employeeNumber**.
+* 05/18/2021 - Added support for core attributes **phoneNumbers[type eq "work2"]**, **phoneNumbers[type eq "work3"]**, **phoneNumbers[type eq "work4"]**, **phoneNumbers[type eq "home"]**, **phoneNumbers[type eq "microsoftteams"]** and roles. And also added support for custom extension attributes **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’]**, **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone]** and **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’]**.
 
-## Additional resources
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -31,7 +31,7 @@ Learn more about installing applications with Helm in [Azure Kubernetes Service]
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 or later)
+- Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
 - Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
 - A Kubernetes cluster.
 
@@ -183,7 +183,7 @@ settings:
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. 
 
 > [!TIP]
-> Learn more about the [export command](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Learn more about the [export command](/cli/azure/appconfig/kv#az_appconfig_kv_export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -240,4 +240,4 @@ One secret, **password**, stores as Key Vault reference in App Configuration was
 In this tutorial, you exported Azure App Configuration data to be used in a Kubernetes deployment with Helm. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig)

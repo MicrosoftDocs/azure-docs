@@ -1,7 +1,7 @@
 ---
 title: Xamarin iOS considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using Xamarin iOS with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET.
 ---
 
 # Considerations for using Xamarin iOS with MSAL.NET
 
-When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
+When you use the Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
 
 - Override and implement the `OpenUrl` function in `AppDelegate`.
 - Enable keychain groups.

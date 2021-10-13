@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
-ms.author: shipatel
-author: shivp950
+ms.subservice: mlops
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 05/11/2020
 ---
@@ -25,9 +25,6 @@ When to use Event Grid for event driven actions:
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
-> [!NOTE] 
-> Currently, runStatusChanged events only trigger when the run status is **failed**
-
 ## Prerequisites
 To use Event Grid, you need contributor or owner access to the Azure Machine Learning workspace you will create events for.
 
@@ -37,7 +34,7 @@ Azure Event Grid reads events from sources, such as Azure Machine Learning and o
 
 ![Azure Event Grid functional model](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-For more information on event sources and event handlers, see [What is Event Grid?](../event-grid/overview.md).
+For more information on event sources and event handlers, see [What is Event Grid?](../event-grid/overview.md)
 
 ### Event types for Azure Machine Learning
 
@@ -57,7 +54,7 @@ These events are published through Azure Event Grid. Using Azure portal, PowerSh
 
 When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
 
-Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) of the event subscription or at a later time. 
+Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
 
 
 1. Go to the Azure portal, select a new subscription or an existing one. 
@@ -128,7 +125,7 @@ Once you have confirmed your selection, click __Create__. After configuration, t
 
 ### Set up with the CLI
 
-You can either install the latest [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest), or use the Azure Cloud Shell that is provided as part of your Azure subscription.
+You can either install the latest [Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell that is provided as part of your Azure subscription.
 
 To install the Event Grid extension, use the following command from the CLI:
 

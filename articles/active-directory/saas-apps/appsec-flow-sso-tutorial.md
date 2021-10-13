@@ -74,11 +74,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up AppSec Flow SSO** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -117,7 +117,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 1. Click on Test this application in Azure portal and you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO
 
-1. You can use Microsoft Access Panel. When you click the AppSec Flow SSO tile in the Access Panel, you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+1. You can use Microsoft Access Panel. When you click the AppSec Flow SSO tile in the Access Panel, you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

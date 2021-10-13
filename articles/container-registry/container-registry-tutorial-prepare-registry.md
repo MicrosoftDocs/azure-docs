@@ -3,7 +3,7 @@ title: Tutorial - Create geo-replicated registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: "seodec18, mvc"
 ---
 
 # Tutorial: Prepare a geo-replicated Azure container registry
@@ -93,7 +93,7 @@ Navigate to your new container registry in the Azure portal and select **Access 
 
 Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your registry before pushing images to it.
 
-Use the [az acr login](/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
+Use the [az acr login](/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
 
 ```azurecli
 az acr login --name <acrName>

@@ -1,12 +1,14 @@
 ---
-title: Playback of multi-day recordings  - Azure
-description: In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
+title: Playback of multi-day recordings with Live Video Analytics - Azure
+description: In this tutorial, you learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
 
-# Tutorial: Playback of multi-day recordings  
+# Tutorial: Playback of multi-day recordings with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial builds up on the [continuous video recording](continuous-video-recording-concept.md) (CVR) tutorial. In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording from the cloud. 
 
@@ -53,7 +55,7 @@ As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would
 }
 ```
 
-Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the latter file:
+Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the newly created appsettings.development.json:
 
 ```
   "AMS" : {

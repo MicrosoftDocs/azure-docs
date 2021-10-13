@@ -4,7 +4,7 @@ description: Learn the best practices to get the best results from your LUIS app
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/17/2020
+ms.date: 04/13/2021
 
 ---
 # Best practices for building a language understanding (LUIS) app
@@ -76,7 +76,7 @@ Machine learned entities are tailored to your app and require labeling to be suc
 
 Machine learned entities can use other entities as features. These other entities can be custom entities such as regular expression entities or list entities, or you can use prebuilt entities as features.
 
-Learn about [effective machine learned entities](luis-concept-entity-types.md#effective-machine-learned-entities).
+Learn about [effective machine learned entities](luis-concept-entity-types.md#machine-learned-ml-entity).
 
 <a name="#do-build-the-app-iteratively"></a>
 
@@ -136,7 +136,7 @@ Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endp
 
 ## Do monitor the performance of your app
 
-Monitor the prediction accuracy using a [batch test](luis-concept-batch-test.md) set.
+Monitor the prediction accuracy using a [batch test](./luis-how-to-batch-test.md) set.
 
 Keep a separate set of utterances that aren't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app.
 

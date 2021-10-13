@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
 ---
 
@@ -51,6 +51,8 @@ Do the following steps in the local UI of your device to add and connect to a Wi
     ![Local web UI "Port WiFi Network settings" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     A wireless network profile contains the SSID (network name), password key, and security information to be able to connect to a wireless network. You can get the Wi-Fi profile for your environment from your network administrator.
+
+    For information about preparing your Wi-Fi profiles, see [Use Wi-Fi profiles with Azure Stack Edge Mini R devices](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
     ![Local web UI "Port WiFi Network settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

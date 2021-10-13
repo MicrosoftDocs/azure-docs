@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Azure Blob storage client library v10 for JavaScript"
 description: Create, upload, and delete blobs and containers in Node.js with the Azure Storage client library v10 for JavaScript
-author: mhopkins-msft
+author: normesta
 
-ms.author: mhopkins
-ms.date: 07/24/2020
+ms.author: normesta
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -116,7 +116,7 @@ const fs = require('fs');
 const path = require('path');
 ```
 
-The purpose of these modules is as follows: 
+The purpose of these modules is as follows:
 
 - *fs* is the native Node.js module used to work with the file system
 
@@ -128,6 +128,7 @@ Next, environment variable values are read and set aside in constants.
 const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
+
 The next set of constants helps to reveal the intent of file size calculations during upload operations.
 
 ```javascript
@@ -135,7 +136,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Requests made by the API can be set to time out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
+Requests made by the API can be set to time out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -174,20 +175,20 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 The following classes are used in this block of code:
 
-- The [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) class is responsible for wrapping storage account credentials to provide them to a request pipeline.
+- The [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) class is responsible for wrapping storage account credentials to provide them to a request pipeline.
 
-- The [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) class is responsible for creating a new pipeline.
+- The [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) class is responsible for creating a new pipeline.
 
-- The [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) models a URL used in the REST API. Instances of this class allow you to perform actions like list containers and provide context information to generate container URLs.
+- The [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true) models a URL used in the REST API. Instances of this class allow you to perform actions like list containers and provide context information to generate container URLs.
 
-The instance of *ServiceURL* is used with the [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) and [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) instances to manage containers and blobs in your storage account.
+The instance of *ServiceURL* is used with the [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) and [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) instances to manage containers and blobs in your storage account.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
 
-The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account. 
+The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account.
 
 At this point, the container doesn't exist in the storage account. The instance of *ContainerURL* represents a URL that you can act upon. By using this instance, you can create and delete the container. The location of this container equates to a location such as this:
 
@@ -254,7 +255,7 @@ async function showContainerNames(aborter, serviceURL) {
 }
 ```
 
-When the response is returned, then the *containerItems* are iterated to log the name to the console. 
+When the response is returned, then the *containerItems* are iterated to log the name to the console.
 
 ### Upload text
 
@@ -401,7 +402,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## Clean up resources
 
-All data written to the storage account is automatically deleted at the end of the code sample. 
+All data written to the storage account is automatically deleted at the end of the code sample.
 
 ## Next steps
 

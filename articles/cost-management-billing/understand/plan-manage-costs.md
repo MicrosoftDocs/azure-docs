@@ -7,9 +7,9 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2021
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Plan to manage Azure costs
@@ -90,7 +90,7 @@ Additionally, you can click the labels of the chart to see the daily spend histo
 
 ## Optimize and reduce costs
 
-If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../costs/cost-mgt-best-practices.md).
+If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).
 
 In the Azure portal, you can also optimize and reduce Azure costs with auto shutdown for VMs and Advisor recommendations.
 
@@ -120,7 +120,7 @@ Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recom
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/usage-rate-card-overview.md).
+Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/consumption-api-overview.md#usage-details-api).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 

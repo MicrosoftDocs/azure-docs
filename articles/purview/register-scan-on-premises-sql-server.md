@@ -1,12 +1,12 @@
 ---
 title: 'Register and scan an on-premises SQL server'
-description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR. 
+description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -42,46 +42,34 @@ There is only one way to set up authentication for SQL server on-premises:
 
 ### SQL authentication
 
-The SQL identity must have access to the primary database. This location is where `sys.databases` is stored. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
-
-#### Using an existing server administrator
-
-If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
-
-1. `sa` is not Windows authentication type.
-
-2. The server level user you are planning to use must have server roles of public and sysadmin. You can verify this by navigating to SQL Server Management Studio (SSMS), connecting to the server, navigating to security, selecting the login you are planning to use, right-clicking **Properties** and then selecting **Server roles**.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
-
-3. The databases are mapped to a user that has at least db_datareader level access on each database.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="user mapping for sa.":::
+The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 #### Creating a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
+> [!Note]
+   > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
+
+1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. Make sure to select SQL authentication.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
-2. Select Server roles on the left navigation and select both public and sysadmin.
+2. Select Server roles on the left navigation and ensure that public role is assigned.
 
-3. Select User mapping on the left navigation and select all the databases in the map.
+3. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
 
-4. Click OK to save.
+4. Select OK to save.
 
-5. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
+5. Navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
 #### Storing your SQL login password in a key vault and creating a credential in Purview
 
-1. Navigate to your key vault in the Azure portal
-1. Select **Settings > Secrets**
+1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
@@ -93,7 +81,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 
 1. Select **Register**
 
@@ -103,7 +91,35 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+
+1. Select the SQL Server source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific tables by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

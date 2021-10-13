@@ -1,11 +1,11 @@
 ---
 title: Azure Spring Cloud geo-disaster recovery | Microsoft Docs
 description: Learn how to protect your Spring Cloud application from regional outages
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -21,9 +21,9 @@ Azure Spring Cloud applications run in a specific region.  Azure operates in mul
 
 Ensuring high availability and protection from disasters requires that you deploy your Spring Cloud applications to multiple regions.  Azure provides a list of [paired regions](../best-practices-availability-paired-regions.md) so that you can plan your Spring Cloud deployments to regional pairs.  We recommend that you consider three key factors when designing your micro-service architecture:  region availability, Azure paired regions, and service availability.
 
-*  Region availability:  Choose a geographic area close to your users to minimize network lag and transmission time.
-*  Azure paired regions:  Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
-*  Service availability:   Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
+* Region availability:  Choose a geographic area close to your users to minimize network lag and transmission time.
+* Azure paired regions:  Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
+* Service availability:   Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
 
 ## Use Azure Traffic Manager to route traffic
 
@@ -34,7 +34,7 @@ If you have Azure Spring Cloud applications in multiple regions, use Azure Traff
 ## Create Azure Traffic Manager for Azure Spring Cloud
 
 1. Create Azure Spring Cloud in two different regions.
-You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic. 
+You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic.
 
 **Two service instances info:**
 
@@ -44,23 +44,23 @@ You will need two service instances of Azure Spring Cloud deployed in two differ
 | service-sample-b | West Europe | gateway / auth-service / account-service |
 
 2. Set up Custom Domain for Service
-Follow [Custom Domain Document](spring-cloud-tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
+Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
 
 3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
-* Endpoint Profiles: 
+* Endpoint Profiles:
 
 | Profile | Type | Target | Priority | Custom Header Settings |
 |--|--|--|--|--|
 | Endpoint A Profile | External Endpoint | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
 | Endpoint B Profile | External Endpoint | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
 
-4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
 
 5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

@@ -20,7 +20,7 @@ ms.author: rolyon
 ---
 # Tutorial: Create an Azure custom role using Azure PowerShell
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the control plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -49,7 +49,7 @@ Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure resource provider operations](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
@@ -91,7 +91,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     }
     ```
     
-1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` property. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
+1. Edit the JSON file to add the `"Microsoft.Support/*"` action to the `Actions` property. Be sure to include a comma after the read action. This action will allow the user to create support tickets.
 
 1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
 
@@ -177,7 +177,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 
 1. Open the file in an editor.
 
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`.
+1. In `Actions`, add the action to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`.
 
     Your updated JSON file should look like the following:
 
@@ -225,7 +225,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
-1. Call the `Add` method to add the operation to read diagnostic settings.
+1. Call the `Add` method to add the action to read diagnostic settings.
 
     ```azurepowershell
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")

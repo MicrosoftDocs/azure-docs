@@ -1,18 +1,18 @@
 ---
-title: Skip deletion of out of scope users
-description: Learn how to override the default behavior of de-provisioning out of scope users.
+title: Skip deletion of out of scope users in Azure Active Directory Application Provisioning
+description: Learn how to override the default behavior of de-provisioning out of scope users in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
+ms.reviewer: arvinh
 ---
-# Skip deletion of user accounts that go out of scope
+# Skip deletion of user accounts that go out of scope in Azure Active Directory
 
 By default, the Azure AD provisioning engine soft deletes or disables users that go out of scope. However, for certain scenarios like Workday to AD User Inbound Provisioning, this behavior may not be the expected and you may want to override this default behavior.  
 
@@ -70,7 +70,7 @@ In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** e
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
-Copy the updated text from Step 3 into the "Request Body" and set the header "Content-Type" to "application/json" in "Request Headers". 
+Copy the updated text from Step 3 into the "Request Body". 
 
    ![PUT request](./media/skip-out-of-scope-deletions/skip-05.png)
 

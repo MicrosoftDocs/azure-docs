@@ -5,7 +5,6 @@ description: Learn about the quotas and limits on resources for Azure Purview an
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
 ---
@@ -18,12 +17,14 @@ Azure Purview is a cloud service for use by data users. You use Azure Purview to
  
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
-|Purview accounts per tenant (all subscriptions combined)|3|Contact Support|
+|Purview accounts per region, per tenant (all subscriptions combined)|3|Contact Support|
 |vCores available for scanning, per account*|160|160|
 |Concurrent scans, per account at a given point. The limit is based on the type of data sources scanned*|5 | 10 |
 |Maximum time that a scan can run for|7 days|7 days|
-|API Calls, per account|10M APIs/month for 4 Capacity Units platform size. <br>40M APIs/month for 16 Capacity Units platform size |10M APIs/ month for 4 Capacity Units platform size. <br>40M APIs/month for 16 Capacity Units platform size|
-|Storage, per account|10 GB for 4 Capacity Units platform size. <br>40 GB for 16 Capacity Units platform size |10 GB for 4 Capacity Units platform size. <br> 40 GB for 16 Capacity Units platform size |
+|[Data Map Capacity unit (CU)](concept-elastic-data-map.md) |1 CU (25 Operations/second throughput and 2 GB metadata storage) | 100 CU (Contact Support for higher CU)|
+|Data Map Operations throughput |25 Operations/second for each Capacity Unit | 2,500 Operations/Sec for 100 CU (Contact Support for more throughput)| 
+|Data Map Storage |2 GB for each Capacity Unit | 200 GB for for 100 CU (Contact Support for more storage) |
+|Data Map elasticity window | 1 - 8 CU (Data Map can auto scale up/down based on throughput within elasticity window) | Contact support to get higher elasticity window |
 |Size of assets per account|100M physical assets |Contact Support|
 |Maximum size of an asset in a catalog|2 MB|2 MB|
 |Maximum length of an asset name and classification name|4 KB|4 KB|
@@ -35,6 +36,9 @@ Azure Purview is a cloud service for use by data users. You use Azure Purview to
  
 ## Next steps
  
+> [!div class="nextstepaction"]
+>[Concept: Elastic Data Map in Azure Purview](concept-elastic-data-map.md)
+
 > [!div class="nextstepaction"]
 >[Tutorial: Scan data with Azure Purview](tutorial-scan-data.md)
 

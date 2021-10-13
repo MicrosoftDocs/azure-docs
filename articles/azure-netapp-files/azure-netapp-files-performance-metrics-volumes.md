@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/29/2021
 
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
@@ -15,7 +15,9 @@ This article provides benchmark testing recommendations for volume performance a
 
 ## Overview
 
-To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate various workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+
+Azure NetApp Files does *not* recommend using the `dd` utility as a baseline benchmarking tool. You should use an actual application workload, workload simulation, and benchmarking and analyzing tools (for example, Oracle AWR with Oracle, or the IBM equivalent for DB2) to establish and analyze optimal infrastructure performance. Tools such as FIO, vdbench, and iometer have their places in determining virtual machines to storage limits, matching the parameters of the test to the actual application workload mixtures for most useful results. However, it is always best to test with the real-world application.  
 
 ### VM instance sizing
 
@@ -23,7 +25,7 @@ For best results, ensure that you are using a virtual machine (VM) instance that
 
 ### Azure NetApp Files volume sizing
 
-Ensure that you choose the correct service level and volume quota size for the expected performance level. See [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md) for more information.
+Ensure that you choose the correct service level and volume quota size for the expected performance level. For more information, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
 
 ### Virtual network (VNet) recommendations
 
@@ -108,7 +110,7 @@ You can also create a dashboard in Azure Monitor for Azure NetApp Files by going
 
 ### Azure Monitor API access
 
-You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
+You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
 
 The following example shows a GET URL for viewing logical volume size:
 

@@ -1,19 +1,19 @@
 ---
-title: Understand Azure reservations usage for Enterprise Agreements
-description: Learn how to read your usage to understand how the Azure reservation for your Enterprise enrollment is applied.
+title: Understand Azure reservations usage for Enterprise Agreement and Microsoft Customer Agreement
+description: Learn how to read your usage information to understand how an Azure reservation applies to Enterprise Agreement and Microsoft Customer Agreement usage.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 04/20/2021
 ms.author: banders
 ---
 
-# Get Enterprise Agreement reservation costs and usage
+# Get Enterprise Agreement and Microsoft Customer Agreement reservation costs and usage
 
-Reservation costs and usage data are available for Enterprise Agreement customers in the Azure portal and REST APIs. This article helps you:
+Enhanced data for reservation costs and usage is available for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) usage in Cost management. This article helps you:
 
 - Get reservation purchase data
 - Know which subscription, resource group or resource used the reservation
@@ -56,9 +56,7 @@ Other information available in Azure usage data has changed:
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
-
-Please note that this data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md).
 
 Here's an example call to the Usage Details API:
 
@@ -82,7 +80,7 @@ Information in the following table about metric and filter can help solve for co
 
 ## Download the usage CSV file with new data
 
-If you are an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
+If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -92,7 +90,6 @@ In the Azure portal, navigate to [Cost management + billing](https://portal.azur
 ![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then click download. Repeat for **Amortized charges (usage and purchases)**.
 
-The CSV files that you download contain actual costs and amortized costs.
 
 ## Common cost and usage tasks
 
@@ -145,7 +142,7 @@ Reservation costs are available in [cost analysis](https://aka.ms/costanalysis).
 
 Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benefit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -155,8 +152,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
-- [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
+- [Use service principal to get cost data](../manage/assign-roles-azure-service-principals.md)
+- [Use cost management exports](../costs/tutorial-export-acm-data.md)

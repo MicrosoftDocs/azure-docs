@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
+ms.date: 05/21/2021
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
@@ -20,23 +20,23 @@ This article explains how to create a new flow in Power Automate to generate the
 
 ## Create a flow by using Power Automate
 
-1. Open the [Power Automate](https://flow.microsoft.com/) webpage. Select **Sign in**. If you don't already have an account, select **Sign up free** to create a free Power Automate account.
+1. Open the [Power Automate](https://flow.microsoft.com/) webpage. Select **Sign in**. If you don't already have an account, select **Sign up free** to create one.
 
-1. Sign in, and select **My flows** in the menu.
+1. Sign in, select **My flows**, and switch the Environment from **Microsoft (default)** to your Dataverse (CRM) Environment.
 
-    ![Sign in My flows](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png" alt-text="Shows how to sign in to 'My flows'.":::
 
-1. Under **+ New**, select **+ Instant—from blank**.
+1. Under **+ New**, select **+ Instant cloud flow**.
 
-    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png" alt-text="Shows how to select My flows, followed by Instant cloud flow.":::
 
 1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png" alt-text="Shows how to build an automated flow window Skip button.":::
 
 1. Click the flow step to expand it.
 
-    ![Expand the flow step](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png" alt-text="Shows how to expand the flow step.":::
 
 1. Use one of the following methods to configure the **Request Body JSON Schema**:
 
@@ -61,6 +61,10 @@ This article explains how to create a new flow in Power Automate to generate the
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -123,26 +127,30 @@ This article explains how to create a new flow in Power Automate to generate the
     ```
 
 >[!NOTE]
->At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
+>At this point in the configuration, you can select to either connect to a CRM system, or configure an email notification. Follow the remaining instructions based on your choice.
 
 ### Connect to a CRM system
 
 1. Select **+ New step**.
-1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. Select it on the **Actions** tab with the action to create a new record. The following screen shows **Create a new record (Dynamics 365)** as an example.
+1. Search for and select a CRM system in the **Search connectors and actions** box. The following screen shows **Create a new record (Microsoft Dataverse)** as an example.
 
-    ![Create a new record](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/create-new-record.png" alt-text="Shows how to create a new record.":::
 
-1. Provide the **Organization Name** associated with the CRM system. Select **Leads** from the **Entity Name** drop-down list.
+1. Select the **Actions tab** with the action to **Add a new row**.
 
-    ![Select leads](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png" alt-text="Shows how to select 'Create a new record'.":::
+
+1. Select **lead** from the **Table Name** drop-down list.
+
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-leads.png" alt-text="Shows how to select leads.":::
 
 1. Power Automate shows a form for providing lead information. You can map items from the input request by choosing to add dynamic content. The following screen shows **OfferTitle** as an example.
 
-    ![Add dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png" alt-text="Shows how to add dynamic content.":::
 
 1. Map the fields you want, and then select **Save** to save your flow. An HTTP POST URL is created and is accessible in the **When an HTTP request is received** window. Copy this URL by using the copy control, which is located to the right of the HTTP POST URL. Using the copy control is important so that you don't miss any part of the entire URL. Save this URL because you'll need it when you configure lead management in the publishing portal.
 
-    ![When an HTTP request is received](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png" alt-text="Shows when an HTTP request is received.":::
 
 ### Set up email notification
 
@@ -209,7 +217,7 @@ You can test your configuration with [Postman](https://app.getpostman.com/app/do
 
    ![Check results](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-1. You should have also received an email. Check your email inbox. 
+1. You should have also received an email. Check your email inbox.
 
     >[!NOTE] 
     >If you don't see an email from the test, check your spam and junk folders. In the following screen, you'll notice just the field labels you added when you configured the email notification. If this were an actual lead generated from your offer, you would also see the actual information from the lead contact in the body and in the subject line.
@@ -220,7 +228,7 @@ You can test your configuration with [Postman](https://app.getpostman.com/app/do
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Select your offer, and go to the **Offer setup** tab.
 

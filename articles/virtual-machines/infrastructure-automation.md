@@ -11,6 +11,8 @@ ms.author: cynthn
 
 # Use infrastructure automation tools with virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
@@ -82,8 +84,8 @@ Scripts can be downloaded from Azure storage or any public location such as a Gi
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## Packer
@@ -111,7 +113,7 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
@@ -121,7 +123,7 @@ Learn how to:
 
 Learn more about:
 
-- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## Jenkins
@@ -139,7 +141,7 @@ Learn how to:
 
 - [Deploy Spot VMs using a Resource Manager template](./linux/spot-template.md).
 - [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md).
-- [Download the template for a VM](./windows/download-template.md).
+- [Download the template for a VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Create an Azure Image Builder template](./linux/image-builder-json.md).
 
 ## Next steps

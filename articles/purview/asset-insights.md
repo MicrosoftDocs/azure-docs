@@ -1,17 +1,20 @@
 ---
-title: Asset insights on your data in Azure Purview (preview)
+title: Asset insights on your data in Azure Purview
 description: This how-to guide describes how to view and use Purview Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 09/27/2021
 ---
 
 # Asset insights on your data in Azure Purview
 
 This how-to guide describes how to access, view, and filter Purview Asset insight reports for your data.
+
+> [!IMPORTANT]
+> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this how-to guide, you'll learn how to:
 
@@ -28,14 +31,14 @@ Before getting started with Purview insights, make sure that you've completed th
 
 * Set up and complete a scan on the source type.
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
 ## Use Purview Asset Insights
 
 In Azure Purview, you can register and scan source types. Once the scan is complete, you can view the asset distribution in Asset Insights, which tells you the state of your data estate by classification and resource sets. It also tells you if there is any change in data size.
 
 > [!NOTE]
-> After you have scanned your source types, give Asset Insights up to an hour to reflect the new assets.
+> After you have scanned your source types, give Asset Insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact the field support team.
 
 1. Navigate to your Azure Purview resource in the Azure portal.
 
@@ -43,11 +46,11 @@ In Azure Purview, you can register and scan source types. Once the scan is compl
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: area.
+1. On the Purview **Home** page, select **Insights** on the left menu.
 
    :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: area, select **Assets** to display the Purview **Asset insights** report.
+1. In the **Insights** area, select **Assets** to display the Purview **Asset insights** report.
 
 ### View Asset Insights
 
@@ -85,7 +88,7 @@ The next couple of graphs in Asset Insights show a distribution of file based so
    > [!NOTE]
    > If the scan has run only once in last 30 days or any catalog change like classification addition/removed happened only once in 30 days, then the change information above appears blank.
 
-1. See the top folders with change top asset counts when you click on source type.
+1. See the top folders with change top asset counts when you select source type.
 
 1. Select the path to see the asset list.
 

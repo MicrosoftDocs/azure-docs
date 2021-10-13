@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription.md) device. For Conversation Transcription only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported. For other speech use linear mic arrays that provide a microphone array geometry are supported.
@@ -28,8 +28,6 @@ This quickstart requires:
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
    > This quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
-
-Conversation Transcription is currently only available for "en-US" and "zh-CN", in the "centralus" and "eastasia" regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
 If you plan to use the intents you'll need a [Language Understanding Service (LUIS)](../../luis/luis-how-to-azure-subscription.md) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md). A [sample LUIS model](https://aka.ms/sdsdk-luis) is available for this app.
 
@@ -69,7 +67,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.14.0</version>
+             <version>1.15.0</version>
         </dependency>
     </dependencies>
    ```

@@ -2,7 +2,7 @@
 title: Tutorial - Create and manage Windows VMs with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Windows VMs in Azure
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 06/06/2019
@@ -13,6 +13,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and Manage Windows VMs with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine (VM) deployment tasks like selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -47,7 +48,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 When creating a VM, several options are available like operating system image, network configuration, and administrative credentials. This example creates a VM named *myVM*, running the default version of Windows Server 2016 Datacenter.
 
-Set the username and password needed for the administrator account on the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Set the username and password needed for the administrator account on the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

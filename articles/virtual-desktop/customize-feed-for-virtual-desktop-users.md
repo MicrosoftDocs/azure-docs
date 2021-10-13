@@ -1,22 +1,23 @@
 ---
-title: Customize feed for Windows Virtual Desktop users - Azure
-description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
+title: Customize feed for Azure Virtual Desktop users - Azure
+description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/14/2019
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
-# Customize the feed for Windows Virtual Desktop users
+# Customize the feed for Azure Virtual Desktop users
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
 ## Prerequisites
 
-This article assumes you've already downloaded and installed the Windows Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
 
 ## Customize the display name for a RemoteApp
 
@@ -97,11 +98,11 @@ You can change the display name for a published remote desktop by setting a frie
 
 1. Sign in to the Azure portal at <https://portal.azure.com>.
 
-2. Search for **Windows Virtual Desktop**.
+2. Search for **Azure Virtual Desktop**.
 
-3. Under Services, select **Windows Virtual Desktop**.
+3. Under Services, select **Azure Virtual Desktop**.
 
-4. On the Windows Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the app group you want to edit. (For example, if you want to edit the display name of the desktop app group, select the app group named **Desktop**.)
+4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the app group you want to edit. (For example, if you want to edit the display name of the desktop app group, select the app group named **Desktop**.)
 
 5. Select **Applications** in the menu on the left side of the screen.
 
@@ -111,10 +112,10 @@ You can change the display name for a published remote desktop by setting a frie
 
 ## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
+Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
- * [Connect with Windows 10 or Windows 7](connect-windows-7-10.md)
- * [Connect with the web client](connect-web.md)
- * [Connect with the Android client](connect-android.md)
- * [Connect with the iOS client](connect-ios.md)
- * [Connect with the macOS client](connect-macos.md)
+ * [Connect with Windows 10 or Windows 7](./user-documentation/connect-windows-7-10.md)
+ * [Connect with the web client](./user-documentation/connect-web.md)
+ * [Connect with the Android client](./user-documentation/connect-android.md)
+ * [Connect with the iOS client](./user-documentation/connect-ios.md)
+ * [Connect with the macOS client](./user-documentation/connect-macos.md)

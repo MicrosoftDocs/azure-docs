@@ -1,5 +1,5 @@
 ---
-title: Access a lab in Azure DevTest Labs | Microsoft Docs
+title: Access a lab
 description: In this tutorial, you access the lab that's created by using Azure DevTest Labs, claim virtual machines, use them, and then unclaim them.
 ms.topic: tutorial
 ms.date: 06/26/2020
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select your VM in the list. You see the **Virtual Machine page** for your VM. Select **Connect** on the toolbar.
 
     ![Connect to virtual machine](./media/tutorial-use-custom-lab/connect-button.png)
-2. Save the downloaded **RDP** file your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
+2. Save the downloaded **RDP** file on your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
 
     To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
@@ -72,4 +72,3 @@ This tutorial showed you how to access and use a lab that was created by using A
 
 > [!div class="nextstepaction"]
 > [How to: Use VMs in a lab](devtest-lab-add-vm.md)
-

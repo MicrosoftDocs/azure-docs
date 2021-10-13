@@ -1,17 +1,17 @@
 ---
 title: Synapse role-based access control
 description: An article that explains role-based access control in Azure Synapse Analytics
-author: billgib
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. 
+Synapse RBAC extends the capabilities of [Azure RBAC](../../role-based-access-control/overview.md) for Synapse workspaces and their content. 
 
 Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 
@@ -22,7 +22,7 @@ Synapse RBAC is used to manage who can:
 - Monitor or cancel job execution, review job output, and execution logs.  
 
 >[!Note]
->While Synapse RBAC is used to manage access to published SQL scripts, it provides only limited access control to serverless SQL pools and is _not_ used to control access to dedicated SQL pools.  Access to SQL pools is primarily controlled using SQL security.
+>While Synapse RBAC is used to manage access to published SQL scripts, it provides only limited access control to serverless and dedicated SQL pools. Access to SQL pools is primarily controlled using SQL security.
 
 ## What can I do with Synapse RBAC?
 

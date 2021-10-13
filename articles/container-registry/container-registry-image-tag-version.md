@@ -9,7 +9,7 @@ ms.author: stevelas
 
 # Recommendations for tagging and versioning container images
 
-When pushing deploying container images to a container registry and then deploying them, you need a strategy for image tagging and versioning. This article discusses two approaches and where each fits during the container lifecycle:
+When pushing container images to a container registry and then deploying them, you need a strategy for image tagging and versioning. This article discusses two approaches and where each fits during the container lifecycle:
 
 * **Stable tags** - Tags that you reuse, for example, to indicate a major or minor version such as *mycontainerimage:1.0*.
 * **Unique tags** - A different tag for each image you push to a registry, such as *mycontainerimage:abc123*.

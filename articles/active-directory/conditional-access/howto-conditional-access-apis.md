@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: videor, jeevanb
 
 ms.collection: M365-identity-device-management
@@ -93,6 +93,6 @@ These samples are available in our [GitHub repository](https://github.com/Azure-
 
 - [Overview of Microsoft Graph](/graph/overview)
 
-- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy)
 
-- [Named location API](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [Named location API](/graph/api/resources/namedlocation)

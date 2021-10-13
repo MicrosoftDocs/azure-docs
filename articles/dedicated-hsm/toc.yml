@@ -14,6 +14,8 @@
   items:
   - name: Create an Azure Dedicated HSM with Azure PowerShell
     href: quickstart-create-hsm-powershell.md
+  - name: Create an Azure Dedicated HSM with the Azure CLI
+    href: quickstart-hsm-azure-cli.md
 - name: Concepts
   items:
   - name: High availability
@@ -34,9 +36,11 @@
     href: troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/dedicated-hsm
   - name: Azure PowerShell
     href: /powershell/module/Az.DedicatedHsm
 - name: Resources
   items:
   - name: Frequently asked questions
-    href: faq.md
+    href: faq.yml

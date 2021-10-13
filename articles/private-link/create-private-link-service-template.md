@@ -1,11 +1,11 @@
 ---
-title: Create a private link service in Azure Private Link
+title: 'Quickstart: Create a private link service in Azure Private Link'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/29/2020
 ms.author: allensu
 ---
@@ -20,7 +20,7 @@ You can also complete this quickstart by using the [Azure portal](create-private
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 This template creates a private link service.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/privatelink-service/).
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -51,7 +51,7 @@ Here's how to deploy the ARM template to Azure:
 
 1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates a virtual machine, standard load balancer, private link service, private endpoint, networking, and a virtual machine to validate.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 2. Select or create your resource group.
 3. Type the virtual machine administrator username and password.
@@ -77,7 +77,7 @@ Connect to the VM _myConsumerVm{uniqueid}_ from the internet as follows:
     a. If prompted, select **Connect**.
 
     b. Enter the username and password you specified when you created the VM.
-    
+
     > [!NOTE]
     > You might need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 
@@ -107,4 +107,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-Learn more about [Azure Private Link](private-link-overview.md).
+
+For more information on the services that support a private endpoint, see:
+> [!div class="nextstepaction"]
+> [Private Link availability](private-link-overview.md#availability)

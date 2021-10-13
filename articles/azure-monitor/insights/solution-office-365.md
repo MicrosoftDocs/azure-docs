@@ -1,7 +1,6 @@
 ---
 title: Office 365 management solution in Azure
 description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -15,7 +14,7 @@ ms.date: 03/30/2020
 
 > [!IMPORTANT]
 > ## Solution update
-> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until October 31, 2020.
+> This solution has been replaced by the [Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until October 31, 2020.
 > 
 > Azure Sentinel is a cloud native Security Information and Event Management solution that ingests logs and provides additional SIEM functionality including detections, investigations, hunting and machine learning driven insights. Using Azure Sentinel will now provide you with ingestion of Office 365 SharePoint activity and Exchange management logs.
 > 
@@ -88,10 +87,10 @@ ms.date: 03/30/2020
 > ### Q: How I can use the Azure Sentinel out-of-the-box security-oriented content?
 > Azure Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Azure Sentinel GitHub and tutorials to learn more:
 >
-> - [Detect threats out-of-the-box](../../sentinel/tutorial-detect-threats-built-in.md)
-> - [Create custom analytic rules to detect suspicious threats](../../sentinel/tutorial-detect-threats-custom.md)
-> - [Monitor your data](../../sentinel/tutorial-monitor-your-data.md)
-> - [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Detect threats out-of-the-box](../../sentinel/detect-threats-built-in.md)
+> - [Create custom analytic rules to detect suspicious threats](../../sentinel/detect-threats-custom.md)
+> - [Monitor your data](../../sentinel/monitor-your-data.md)
+> - [Investigate incidents with Azure Sentinel](../../sentinel/investigate-cases.md)
 > - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -105,7 +104,7 @@ ms.date: 03/30/2020
 > - If you don't offboard your solution manually by October 31, your data will be disconnected automatically, and the **OfficeActivity** table removed. Even so, you will still be able to restore the table when you enable the Office 365 connector in Azure Sentinel, as explained below.
 > 
 > ### Q: Will my data transfer to the new solution?
-> Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 
+> Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Azure Sentinel, the schema is restored to the workspace and any data already collected will become available. 
  
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
@@ -114,7 +113,7 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log queries](../logs/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 
 ## Uninstall
@@ -469,6 +468,6 @@ The following table provides sample log queries for update records collected by 
 
 ## Next steps
 
-* Use [log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed update data.
-* [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
-* [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  
+* Use [log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed update data.
+* [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
+* [Create alerts](../alerts/alerts-overview.md) to be proactively notified of important Office 365 activities.

@@ -1,110 +1,102 @@
 ---
-title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
-description: 'Tutorial: Learn how to create a solar panel application using Azure IoT Central application templates.'
+title: Tutorial - Azure IoT solar panel monitoring | Microsoft Docs
+description: This tutorial shows you how to deploy and use the solar panel monitoring application template for IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Create and walk-through the solar panel monitoring app template 
+# Tutorial: Deploy and walk through the solar panel monitoring app template 
+
+Use the IoT Central *solar panel monitoring* application template and the guidance in this article to develop an end-to-end solar panel monitoring solution.
+
+  :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-app-architecture.png" alt-text="solar panel architecture.":::
+
+This architecture consists of the following components. Some applications may not require every component listed here.
+
+### Solar panels and connectivity
+
+Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either using gateways or other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
+
+### IoT Central platform
+
+Azure IoT Central is a platform that simplifies building your IoT solution and helps reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your solar panels to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
+
+### Extensibility options to build with IoT Central
+
+The IoT Central platform provides two extensibility options: Continuous Data Export (CDE) and APIs. The customers and partners can choose between these options based to customize their solutions for specific needs. For example, one of our partners configured CDE with Azure Data Lake Storage (ADLS). They're using ADLS for long-term data retention and other cold path storage scenarios, such batch processing, auditing, and reporting purposes. 
 
 
-
-This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
-
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create the solar panel app for free
-> * Application walk-through
+
+> * Create a solar panel app for free
+> * Walk through the application
 > * Clean up resources
 
 
-If you don't have a subscription, [create a free trial account](https://azure.microsoft.com/free)
-
 ## Prerequisites
-- None
-- Azure subscription is recommended, but not required to try out
+
+* There are no specific prerequisites required to deploy this app.
+* You can use the free pricing plan or use an Azure subscription.
 
 
-## Create a solar panel monitoring app 
-
-You can create this application in three simple steps:
-
-1. Open [Azure IoT Central home page](https://apps.azureiotcentral.com) and click **Build** to create a new application. 
-
-2. Select **Energy** tab and click **Create app** under **Solar panel monitoring** application tile. 
-
-    > [!div class="mx-imgBorder"]
-    > ![Build App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
-  
-3. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
-    * **Application name**: Pick a name for your IoT Central application. 
-    * **URL**: Pick an IoT Central URL, the platform will verify its uniqueness.
-    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don't have an Azure subscription, start with free trial.
-    * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
-    * Click **Create** button at the bottom of the page and your app will be created in a minute or so.
-        ![New application form](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
-        
-        ![New application form billing info](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
+## Create a solar panel monitoring application
 
 
-### Verify the application and simulated data
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Energy** tab:
 
-The newly created solar panel app is your app and you can modify it anytime. Let's ensure the app is deployed and working as expected before you modify it.
+    :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-build.png" alt-text="Smart meter template":::
 
-To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes. 
+1. Select **Create app** under **Solar panel monitoring**.
 
-## Application walk-through
-After you successfully deploy the app template, it comes with sample smart meter device, device model, and dashboard.
+To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
 
-Adatum is a fictitious energy company, who monitors and manages solar panels. On the solar panel monitoring dashboard, you see solar panel properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents:
-* Review the latest panel info and its installed location on the map
-* Proactively check the panel status and connection status
-* Review the energy generation and temperature trends to catch any anomalous patterns
-* Track the total energy generation for planning and billing purposes
-* Command and control operations such as activate panel and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
+## Walk through the application
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel monitoring dashboard](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+The following sections walk you through the key features of the application:
+
+### Dashboard
+
+After you deploy the application template, you'll want to explore the app a bit more. Notice that it comes with sample smart meter device, device model, and dashboard.
+
+Adatum is a fictitious energy company that monitors and manages solar panels. On the solar panel monitoring dashboard, you see solar panel properties, data, and sample commands. This dashboard allows you or your support team to perform the following activities proactively, before any problems require additional support:
+* Review the latest panel info and its installed [location](../core/howto-use-location-data.md) on the map.
+* Check the panel status and connection status.
+* Review the energy generation and temperature trends to catch any anomalous patterns.
+* Track the total energy generation for planning and billing purposes.
+* Activate a panel and update the firmware version, if necessary. In the template, the command buttons show the possible functionalities, and don't send real commands.
+
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png" alt-text="Screenshot of Solar Panel Monitoring Template Dashboard.":::
 
 ### Devices
-The app comes with a sample solar panel device. You can see the device details by clicking on the **Devices** tab.
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel devices](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+The app comes with a sample solar panel device. To see device details, select **Devices**.
 
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device.png" alt-text="Screenshot of Solar Panel Monitoring Template Devices.":::
 
-Click on the sample device **SP0123456789** link to see the device details. On the **Update Properties** page, you can update the writable properties of the device and visualize the updated values on the dashboard. 
+Select the sample device, **SP0123456789**. From the **Update Properties** tab, you can update the writable properties of the device and see a visual of the updated values on the dashboard. 
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel properties](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png" alt-text="Screenshot of Solar Panel Monitoring Template Update Properties tab.":::
 
 
-### Device Template
-Click on the **Device templates** tab to see the solar panel device model. The model has pre-define interface for Data, Property, Commands, and Views.
+### Device template
 
-> [!div class="mx-imgBorder"]
-> ![Solar panel devices template](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+To see the solar panel device model, select the **Device templates** tab. The model has predefined interfaces for data, properties, commands, and views.
+
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png" alt-text="Screenshot of Solar Panel Monitoring Template Device templates.":::
 
 
 ## Clean up resources
-If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left pane, open Administration tab
-2. Select Application settings and click Delete button at the bottom of the page. 
+If you decide not to continue using this application, delete your application with the following steps:
 
-    > [!div class="mx-imgBorder"]
-    > ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+1. From the left pane, select **Administration**.
+1. Select **Application settings** > **Delete**. 
 
-## Next steps
-* Learn about solar panel app architecture refer to 
-> [!div class="nextstepaction"]
-> [the concept article](./concept-iot-central-solar-panel-app.md)
-* Create solar panel application templates for free: 
-[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central, see 
-[IoT Central overview](../index.yml)
+    :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png" alt-text="Screenshot of Solar Panel Monitoring Template Administration.":::

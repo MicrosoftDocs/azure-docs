@@ -4,6 +4,7 @@ description: This article walks through the platform-supported migration of IaaS
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
@@ -13,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
 > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
@@ -160,7 +163,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $validate.ValidationMessages
     ```
 
-    The following command displays any warnings and errors that block migration. If validation is successful, you can move on to the Prepare step.
+    The following command displays any warnings and errors that block migration. If validation messages do not contain message of type error, you can move on to the Prepare step.
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -184,7 +187,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $validate.ValidationMessages
     ```
 
-    The following command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following Prepare step:
+    The following command displays any warnings and errors that block migration. If validation messages do not contain errors, you can proceed with the following Prepare step:
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -261,7 +264,7 @@ If the prepared configuration looks good, you can move forward and commit the re
 After you're done migrating the virtual machines, perform the following prerequisite checks before you migrate the storage accounts.
 
 > [!NOTE]
-> If your storage account has no associated disks or VM data, you can skip directly to the "Validate storage accounts and start migration" section.
+> If your storage account has no associated disks or VM data, you can skip directly to the "Validate storage accounts and start migration" section. Also note that deleting the classic disks, VM images or OS images does not remove the source VHD files in the storage account. However, it does break the lease on those VHD files so that they can be reused to create ARM disks or images after migration.
 
 * Prerequisite checks if you migrated any VMs or your storage account has disk resources:
     * Migrate virtual machines whose disks are stored in the storage account.
@@ -340,4 +343,4 @@ After you're done migrating the virtual machines, perform the following prerequi
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.yml)

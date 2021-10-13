@@ -58,7 +58,7 @@ After transformation is completed, you can find transformed images in the output
 
 ## Technical notes  
 
-Refer to [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch.org/docs/stable/torchvision/transforms.html) for more info about image transformation.
+Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org/vision/stable/transforms.html) for more info about image transformation.
 
 ###  Module parameters  
 

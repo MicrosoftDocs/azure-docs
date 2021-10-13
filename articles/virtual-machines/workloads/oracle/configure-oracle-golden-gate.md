@@ -2,16 +2,18 @@
 title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
 
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Azure Marketplace gallery image. 
 
@@ -813,4 +815,4 @@ az group delete --name myResourceGroup
 
 [Create highly available virtual machines tutorial](../../linux/create-cli-complete.md)
 
-[Explore VM deployment CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

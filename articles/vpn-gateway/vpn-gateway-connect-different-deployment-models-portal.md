@@ -1,13 +1,16 @@
 ---
-title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
-description: Steps to connect classic VNets to Resource Manager VNets using VPN Gateway and the portal
+title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal'
+titleSuffix: Azure VPN Gateway
+description: Learn how to to connect classic VNets to Resource Manager VNets using the portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
-ms.author: cherylmc
+ms.date: 02/10/2021
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
+
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -217,7 +220,7 @@ In these steps, you configure the connection from the classic VNet to the Resour
 
 ### 1. Connect to your Azure account
 
-Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
+Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
 ```powershell
 Connect-AzAccount

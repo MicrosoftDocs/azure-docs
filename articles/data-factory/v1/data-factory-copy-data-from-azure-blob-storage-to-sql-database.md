@@ -1,21 +1,12 @@
 ---
 title: Copy data from Blob Storage to SQL Database - Azure
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager:
-editor:
-
-ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Copy data from Blob Storage to SQL Database using Data Factory
@@ -54,13 +45,13 @@ You need the account name and account key of your Azure storage account to do th
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **All services** on the left menu and select **Storage Accounts**.
 
-    ![Browse - Storage accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png" alt-text="Browse - Storage accounts":::
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
 4. Select **Access keys** link under **SETTINGS**.
 5. Click **copy** (image) button next to **Storage account name** text box and save/paste it somewhere (for example: in a text file).
 6. Repeat the previous step to copy or note down the **key1**.
 
-    ![Storage access key](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png" alt-text="Storage access key":::
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
@@ -85,15 +76,15 @@ Now, prepare your Azure blob storage and Azure SQL Database for the tutorial by 
 
 1. Launch Notepad. Copy the following text and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 
-	```
+    ```
     John, Doe
     Jane, Doe
-	```
+    ```
 2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
-	```SQL
+    ```SQL
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -103,7 +94,7 @@ Now, prepare your Azure blob storage and Azure SQL Database for the tutorial by 
     GO
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-	```
+    ```
 
     **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../azure-sql/database/single-database-manage.md) to connect to your server and run the SQL script.
 

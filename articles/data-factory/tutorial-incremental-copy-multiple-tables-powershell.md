@@ -1,21 +1,19 @@
 ---
 title: Incrementally copy multiple tables using PowerShell
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl, maghan
+ms.reviewer: douglasl, jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
+ms.custom: devx-track-azurepowershell
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.    
 
@@ -57,7 +55,7 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -162,8 +160,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -281,7 +279,7 @@ Note the following points:
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
-[!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
+[!INCLUDE [data-factory-create-install-integration-runtime](includes/data-factory-create-install-integration-runtime.md)]
 
 ## Create linked services
 
@@ -361,7 +359,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -394,7 +392,7 @@ In this step, you link your SQL Server database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -769,7 +767,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
    Here is the sample output: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -814,14 +812,15 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 3. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
 
-4. On the **Data factory** page, select **Author & Monitor** to launch Azure Data Factory in a separate tab.
+4. On the **Data factory** page, select **Open** on the **Open Azure Data Factory Studio** tile to launch Azure Data Factory in a separate tab.
 
-5. On the **Let's get started** page, select **Monitor** on the left side. 
-![Screenshot shows the Let's get started page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+5. On the Azure Data Factory home page, select **Monitor** on the left side. 
+
+    :::image type="content" source="media/doc-common-process/get-started-page-monitor-button.png" alt-text="Screenshot shows the home page for Azure Data Factory.":::    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
-    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="Screenshot shows pipeline runs for a data factory including your pipeline.":::    
 7. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
 8. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 

@@ -1,18 +1,12 @@
 ---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
-ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Access control in Azure Data Lake Storage Gen1
@@ -29,8 +23,6 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 
 Both Access ACLs and Default ACLs have the same structure.
-
-
 
 > [!NOTE]
 > Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
@@ -70,7 +62,7 @@ Following are some common scenarios to help you understand which permissions are
 | Operation | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Read      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -284,7 +276,11 @@ On the Azure Portal, go to **Azure Active Directory -> Enterprise applications**
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 

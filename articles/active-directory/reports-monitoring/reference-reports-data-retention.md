@@ -43,7 +43,7 @@ In this article, you learn about the data retention policies for the different a
 
 ### How soon can I see activities data after getting a premium license?
 
-If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license.
 
 ---
 
@@ -69,8 +69,11 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 | Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Users at risk  | 7 days        | 30 days             | 90 days             |
+| Risky users    | no limit      | no limit            | no limit            |
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
+
+> [!NOTE]
+> Risky users are not deleted until the risk has been remediated.
 
 ---
 

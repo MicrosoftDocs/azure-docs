@@ -1,55 +1,30 @@
 ---
-title: 'Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI (preview)'
+title: 'Quickstart: Create a Purview account with PowerShell/Azure CLI'
 description: This Quickstart describes how to create an Azure Purview account using Azure PowerShell/Azure CLI.
-author: hophan
+author: hophanms
 ms.author: hophan
-ms.service: purview
-ms.subservice: purview-data-catalog
+ms.date: 09/27/2021
 ms.topic: quickstart
-ms.date: 11/23/2020
+ms.service: purview
+ms.custom:
+  - mode-api
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI
 
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this Quickstart, you'll create an Azure Purview account using Azure PowerShell/Azure CLI. [PowerShell reference for Purview](/powershell/module/az.purview/) is available, but this article will take you through all the steps needed to create an account with PowerShell.
 
-In this Quickstart, you create an Azure Purview account using Azure PowerShell/Azure CLI.
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-## Prerequisites
+For more information about Purview, [see our overview page](overview.md). For more information about deploying Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
-* The user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription.
+### Install PowerShell
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+ Install either Azure PowerShell or Azure CLI in your client machine to deploy the template: [Command-line deployment](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
-* Install either Azure PowerShell or Azure CLI in your client machine to deploy the template: [Command-line deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
-
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-
-## Configure your subscription
-
-If necessary, follow these steps to configure your subscription to enable Azure Purview to run in your subscription:
-
-   1. In the Azure portal, search for and select **Subscriptions**.
-
-   1. From the list of subscriptions, select the subscription you want to use. Administrative access permission for the subscription is required.
-
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
-
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search and register all three resource providers: 
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub** 
-      
-      If they are not registered, register it by selecting **Register**.
-
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
-
-## Create an Azure Purview account instance
+## Create an Azure Purview account
 
 1. Sign in with your Azure credential
 
@@ -159,7 +134,8 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
 In this quickstart, you learned how to create an Azure Purview account.
 
-Advance to the next article to learn how to allow users to access your Azure Purview Account. 
+Follow these next articles to learn how to navigate the Purview Studio, create a collection, and grant access to Purview.
 
-> [!div class="nextstepaction"]
-> [Add users to your Azure Purview Account](catalog-permissions.md)
+* [How to use the Purview Studio](use-purview-studio.md)
+* [Create a collection](quickstart-create-collection.md)
+* [Add users to your Azure Purview account](catalog-permissions.md)

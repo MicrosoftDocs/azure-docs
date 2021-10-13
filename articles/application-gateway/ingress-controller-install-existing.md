@@ -26,7 +26,7 @@ shared between one or more AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](../aks/configure-azure-cni.md) enabled
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) installed on your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for the commands below.
@@ -342,7 +342,7 @@ Broaden AGIC permissions with:
 
 ### Enable for an existing AGIC installation
 Let's assume that we already have a working AKS, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
-`prod.contosor.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
+`prod.contoso.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
 existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
 are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (via

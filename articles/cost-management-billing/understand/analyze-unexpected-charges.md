@@ -6,9 +6,9 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2021
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Analyze unexpected charges
@@ -30,7 +30,7 @@ Your Azure bill aggregates charges for the month on a per-_meter_ basis. Meters 
 
 Filter the usage CSV file based on the _MeterName_ as shown on the bill that you want to analyze to see all line items that apply to the meter. The _InstanceID_ for the line item corresponds to the actual Azure resource that generated the charge.
 
-When you've identified the resource in question, you can use Cost analysis in Azure Cost Management to further analyze the costs related to the resource. To learn more about using cost analysis, see [Start analyzing costs](../costs/quick-acm-cost-analysis.md).
+When you've identified the resource in question, you can use Cost analysis in Cost Management to further analyze the costs related to the resource. To learn more about using cost analysis, see [Start analyzing costs](../costs/quick-acm-cost-analysis.md).
 
 ## Review invoiced charges in Cost analysis
 
@@ -71,11 +71,11 @@ Often, the team responsible for a given resource will know about changes that we
 
 ### Analyze the audit logs for the resource
 
-If you have permissions to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log).
+If you have permissions to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 
-People that have write access to a subscription or resource group typically have information about the resources were created. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a Subscription scope, see [View role assignments](../../role-based-access-control/check-access.md#view-role-assignments). You can use a similar process for resource groups.
+People that have write access to a subscription or resource group typically have information about the resources were created. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a Subscription scope, see [Check access for a user to Azure resources](../../role-based-access-control/check-access.md). You can use a similar process for resource groups.
 
 ## Get help to identify charges
 
@@ -83,4 +83,4 @@ If you've used the preceding strategies and you still don't understand why you r
 
 ## Next steps
 
-- Learn about how to [Optimize your cloud investment with Azure Cost Management](../costs/cost-mgt-best-practices.md).
+- Learn about how to [Optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).

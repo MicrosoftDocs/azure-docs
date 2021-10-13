@@ -3,9 +3,10 @@ title: 'Query data from a Gen2 environment using C# - Azure Time Series Insights
 description: Learn how to query data from an Azure Time Series Insights Gen2 environment by using an app written in C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -43,7 +44,7 @@ The sample code below demonstrates the following features:
 
 Complete the following steps before you compile and run the sample code:
 
-1. [Provision a Gen2 Azure Time Series Insights](./how-to-provision-manage.md#create-the-environment) environment.
+1. [Provision a Gen2 Azure Time Series Insights](./how-to-create-environment-using-portal.md) environment.
 1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 1. Run the [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) as specified in the [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) to generate the Azure Time Series Insights Gen2 client dependencies.
 1. Open the `TSIPreviewDataPlaneclient.sln` solution and set `DataPlaneClientSampleApp` as the default project in Visual Studio.

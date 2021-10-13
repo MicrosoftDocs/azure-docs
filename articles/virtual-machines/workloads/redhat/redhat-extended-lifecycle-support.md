@@ -2,16 +2,19 @@
 title: Red Hat Enterprise Linux Extended Lifecycle Support 
 description: Learn about adding Red Hat Enterprise Extended Lifecycle support add on
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.reviewer: cynthn
 
 ---
 
 # Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article provides information on Extended Lifecycle Support for the Red Hat Enterprise images:
 * Red Hat Enterprise Linux 6  
 
@@ -34,6 +37,12 @@ Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maint
 
 #### What is the additional charge for using Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On?
 The costs related to Extended Lifecycle support can be found with the [ELS form](https://aka.ms/els-form)
+
+#### I've deployed a VM by using custom image. How can I add Extended Lifecycle support to this VM?
+You need to contact Red Hat directly and get support directly from them.
+
+#### I've deployed a VM by using custom image. Can I convert this VM to a PAYG VM?
+No, you cannot. The conversion is not supported on Azure currently.
 
 
 ## Next steps

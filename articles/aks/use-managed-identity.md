@@ -1,10 +1,8 @@
 ---
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
+ms.date: 05/12/2021
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -17,14 +15,12 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 
 You must have the following resource installed:
 
-- The Azure CLI, version 2.8.0 or later
+- The Azure CLI, version 2.23.0 or later
 
 ## Limitations
 
-* AKS clusters with managed identities can be enabled only during creation of the cluster.
-* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
-* If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
+* If the cluster has `aad-pod-identity` enabled, Node-Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
   request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
   `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity`
@@ -42,12 +38,12 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS for managed networking resources including ingress load balancers and AKS managed public IPs | Contributor role for Node resource group | Preview
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Not currently supported
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers | Contributor role for Node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
-| Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
-| Add-on | azurepolicy | No identity required | NA | No
+| Add-on | azure-policy (gatekeeper) | No identity required | NA | No
+| Add-on | azure-policy | No identity required | NA | No
 | Add-on | Calico | No identity required | NA | No
 | Add-on | Dashboard | No identity required | NA | No
 | Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
@@ -73,110 +69,72 @@ Then, create an AKS cluster:
 az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
-A successful cluster creation using managed identities contains this service principal profile information:
-
-```output
-"servicePrincipalProfile": {
-    "clientId": "msi"
-  }
-```
-
-Use the following command to query objectid of your control plane managed identity:
-
-```azurecli-interactive
-az aks show -g myResourceGroup -n myManagedCluster --query "identity"
-```
-
-The result should look like:
-
-```output
-{
-  "principalId": "<object_id>",   
-  "tenantId": "<tenant_id>",      
-  "type": "SystemAssigned"                                 
-}
-```
-
 Once the cluster is created, you can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
-
-> [!NOTE]
-> For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
->
-> Permission grants to cluster Managed Identity used by Azure Cloud provider may take up 60 minutes to populate.
 
 Finally, get credentials to access the cluster:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## Update an AKS cluster to managed identities (Preview)
+
+## Update an AKS cluster to managed identities
 
 You can now update an AKS cluster currently working with service principals to work with managed identities by using the following CLI commands.
-
-First, Register the Feature Flag for system-assigned identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
-```
-
-Update the system-assigned identity:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
-
-Update the user-assigned identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
-```
-
-Update the user-assigned identity:
-
-```azurecli-interactive
-az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
-```
 > [!NOTE]
-> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
+>
+> If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
+>
+> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you will need to handle the addon identity's permission by yourself. Here is one example using [ARM](../role-based-access-control/role-assignments-template.md). 
 
-## Bring your own control plane MI (Preview)
-A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
+## Obtain and use the system-assigned managed identity for your AKS cluster
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-You must have the following resources installed:
-- The Azure CLI, version 2.9.0 or later
-- The aks-preview 0.4.57 extension
-
-Limitations for bring your own control plane MI (Preview):
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
+Confirm your AKS cluster is using managed identity with the following CLI command:
 
 ```azurecli-interactive
-az extension add --name aks-preview
-az extension list
+az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
 ```
+
+If the cluster is using managed identities, you will see a `clientId` value of "msi". A cluster using a Service Principal instead will instead show the object ID. For example: 
+
+```output
+{
+  "clientId": "msi"
+}
+```
+
+After verifying the cluster is using managed identities, you can find the control plane system-assigned identity's object ID with the following command:
 
 ```azurecli-interactive
-az extension update --name aks-preview
-az extension list
+az aks show -g <RGName> -n <ClusterName> --query "identity"
 ```
 
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
+```output
+{
+    "principalId": "<object-id>",
+    "tenantId": "<tenant-id>",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+},
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) command:
+> [!NOTE]
+> For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+>
+> Permission grants to cluster Managed Identity used by Azure Cloud provider may take up 60 minutes to populate.
 
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) command:
+## Bring your own control plane MI
+A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+You must have the Azure CLI, version 2.15.1 or later installed.
+
+### Limitations
+* USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
@@ -195,7 +153,7 @@ The result should look like:
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```
@@ -218,7 +176,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id> \
+    --assign-identity <identity-id>
 ```
 
 A successful cluster creation using your own managed identities contains this userAssignedIdentities profile information:
@@ -237,10 +195,122 @@ A successful cluster creation using your own managed identities contains this us
  },
 ```
 
+## Bring your own kubelet MI
+
+A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
+
+### Prerequisites
+
+- You must have the Azure CLI, version 2.26.0 or later installed.
+
+### Limitations
+
+- Only works with a User-Assigned Managed cluster.
+- China East, China North in Azure China 21Vianet aren't currently supported.
+
+### Create or obtain managed identities
+
+If you don't have a control plane managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+The result should look like:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If you don't have a kubelet managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+The result should look like:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If your existing managed identity is part of your subscription, you can use the [az identity list][az-identity-list] command to query it:
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+### Create a cluster using kubelet identity
+
+Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kublet-identity`:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
+```
+
+A successful cluster creation using your own kubelet managed identity contains the following output:
+
+```output
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+        "clientId": "<client-id>",
+        "principalId": "<principal-id>"
+      }
+    }
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "<client-id>",
+      "objectId": "<object-id>",
+      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
+    }
+  },
+```
+
 ## Next steps
-* Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create Managed Identity enabled clusters.
+* Use [Azure Resource Manager templates ][aks-arm-template] to create Managed Identity enabled clusters.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true
+
+<!-- LINKS - internal -->
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-list]: /cli/azure/identity#az_identity_list
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

@@ -7,17 +7,14 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
 # Host a static website in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in a [general-purpose V2](../common/storage-account-create.md) or [BlockBlobStorage](../common/storage-account-create.md) account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
-
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Enable static website hosting
 
@@ -33,15 +30,15 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 4. Select **Enabled** to enable static website hosting for the storage account.
 
-5. In the **Index document name** field, specify a default index page (For example: *index.html*). 
+5. In the **Index document name** field, specify a default index page (For example: *index.html*).
 
-   The default index page is displayed when a user navigates to the root of your static website.  
+   The default index page is displayed when a user navigates to the root of your static website.
 
-6. In the **Error document path** field, specify a default error page (For example: *404.html*). 
+6. In the **Error document path** field, specify a default error page (For example: *404.html*).
 
    The default error page is displayed when a user attempts to navigate to a page that does not exist in your static website.
 
-7. Click **Save**. The Azure portal now displays your static website endpoint. 
+7. Click **Save**. The Azure portal now displays your static website endpoint.
 
     ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -49,9 +46,9 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/?view=azure-cli-latest).
+You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
 
-1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest), or if you've [installed](/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 
@@ -67,11 +64,11 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
    ```
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<error-document-name>` placeholder with the name of the error document that will appear to users when a browser requests a page on your site that does not exist.
+   - Replace the `<error-document-name>` placeholder with the name of the error document that will appear to users when a browser requests a page on your site that does not exist.
 
-   * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
+   - Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -111,9 +108,9 @@ You can enable static website hosting by using the Azure PowerShell module.
    $ctx = $storageAccount.Context
    ```
 
-   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 6. Enable static website hosting.
 
@@ -121,13 +118,13 @@ You can enable static website hosting by using the Azure PowerShell module.
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Replace the `<error-document-name>` placeholder with the name of the error document that will appear to users when a browser requests a page on your site that does not exist.
+   - Replace the `<error-document-name>` placeholder with the name of the error document that will appear to users when a browser requests a page on your site that does not exist.
 
-   * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
+   - Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
 ---
 
-## Upload files 
+## Upload files
 
 ### [Portal](#tab/azure-portal)
 
@@ -141,11 +138,11 @@ These instructions show you how to upload files by using the version of Storage 
 
    ![Upload files](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`. 
+4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`.
 
    ![Check content types](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > Storage Explorer automatically sets this property to `text/html` for commonly recognized extensions such as `.html`. However, in some cases, you'll have to set this yourself. If you don't set this property to `text/html`, the browser will prompt users to download the file instead of rendering the contents. To set this property, right-click the file, and then click **Properties**.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -158,12 +155,12 @@ This example assumes that you're running commands from Azure Cloud Shell session
 az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
-> [!NOTE] 
-> If the browser prompts users users to download the file instead of rendering the contents, you can append `--content-type 'text/html; charset=utf-8'` to the command. 
+> [!NOTE]
+> If the browser prompts users users to download the file instead of rendering the contents, you can append `--content-type 'text/html; charset=utf-8'` to the command.
 
-* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-* Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
+- Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
 
 > [!NOTE]
 > If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
@@ -182,12 +179,12 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 -Context $ctx
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > If the browser prompts users users to download the file instead of rendering the contents, you can append `-Properties @{ ContentType = "text/html; charset=utf-8";}` to the command.
 
-* Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
+- Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
 
-* Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
+- Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
 
 ---
 
@@ -211,9 +208,9 @@ Find the public URL of your static website by using the following command:
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
 ```
 
-* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+- Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -224,9 +221,9 @@ Find the public URL of your static website by using by using the following comma
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+- Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
-* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ---
 
@@ -268,9 +265,9 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
    ![Azure Storage static websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > The **GetWebContent** checkbox appears only if that API member was used within a given time frame. The portal only displays API members used within a given time frame in order to only focus on members that return data. If you can't find a specific API member in this list, expand the time frame.
 
 ## Next steps
 
-* Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
+- Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).

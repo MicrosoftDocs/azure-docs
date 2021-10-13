@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++
@@ -23,7 +23,7 @@ Make sure you have the following items:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
-* [Visual Studio Linux Development](/cpp/linux/?view=vs-2019). If you are developing on Linux, you must also install the Visual Studio Linux extension.
+* [Visual Studio Linux Development](/cpp/linux/). If you are developing on Linux, you must also install the Visual Studio Linux extension.
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 

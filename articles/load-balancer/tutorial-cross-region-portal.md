@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 08/02/2021
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -24,6 +24,11 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!IMPORTANT]
+> Cross-region Azure Load Balancer is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 - An Azure subscription.
@@ -33,133 +38,90 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-> [!IMPORTANT]
-> Cross-region load balancer is currently in preview and hidden in the preview portal.  Sign-in to **https://preview.portal.azure.com/?feature.globallb=true** to view and deploy the feature.
+[Sign in](https://portal.azure.com) to the Azure portal.
 
 ## Create cross-region load balancer
 
-In this section, you'll create a cross-region load balancer and public IP address.
+In this section, you'll create a 
 
-1. On the top left-hand side of the screen, select **Create a resource > Networking > Load Balancer**, or search for **Load Balancer** in the search box.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
-
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
-    | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **CreateCRLBTutorial-rg** in the text box.|
-    | Name                   | Enter **myLoadBalancer-CR**                                   |
-    | Region         | Select **West US**.                                        |
-    | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** |
-    | Tier           | Select **Global** |
-    | Public IP address | Select **Create new**.|
-    | Public IP address name | Type **myPublicIP-CR** in the text box.|
-    | Routing preference| Select **Microsoft network** |
-
-    > [!NOTE]
-    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
-
-
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
-
-4. In the **Review + create** tab, select **Create**.   
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Create a cross-region load balancer" border="true":::
-
-## Create backend pool
-
-In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
+* Cross-region load balancer
+* Frontend with a global public IP address
+* Backend pool with two regional load balancers
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
 
-Create the backend address pool **myBackendPool-CR** to include the regional standard load balancers.
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancer** in the search results.
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
+2. In the **Load balancer** page, select **Create**.
 
-2. Under **Settings**, select **Backend pools**, then select **Add**.
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
-3. On the **Add a backend pool** page, for name, type **myBackendPool-CR**.
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Project details** |    |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and enter **CreateCRLBTutorial-rg** in the text box. |
+    | **Instance details** |   |
+    | Name                   | Enter **myLoadBalancer-CR**                                   |
+    | Region         | Select **(US) West US**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Leave the default of **Standard**. |
+    | Tier           | Select **Global** |
 
-4. Select **Add**.
+    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Create a cross-region load balancer" border="true":::
+  
+4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-4. Select **myBackendPool-CR**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-5. Under **Load balancers**, select the pull-down box under **Load balancer**.
+6. Enter **LoadBalancerFrontend** in **Name** in **Add frontend IP address**.
 
-5. Select **myLoadBalancer-R1**, or the name of your load balancer in region 1.
+7. Select **IPv4** or **IPv6** for **IP version**.
 
-6. Select the pull-down box under **Frontend IP configuration**. Choose **LoadBalancerFrontEnd**.
+8. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **OK**.
 
-7. Repeat steps 4-6 to add **myLoadBalancer-R2**.
+9. Select **Add**.
 
-8. Select **Add**.
+10. Select **Next: Backend pools** at the bottom of the page.
 
-    :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Add regional load balancers to backendpool" border="true":::
+11. In **Backend pools**, select **+ Add a backend pool**.
 
-## Create a health probe
+12. Enter **myBackendPool-cr** in **Name** in **Add backend pool**.
 
-In this section, you'll create a health probe to create the load-balancing rule:
+13. In **Load balancers**, select **myLoadBalancer-r1** or your first regional load balancer in the **Load balancer** pull-down box. Verify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r1**.
 
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Interval of **5** seconds.
-* Unhealthy threshold of **two** failures.
+14. Select **myLoadBalancer-r2** or your second regional load balancer in the **Load balancer** pull-down box. Verify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r2**.
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
+15. Select **Add**.
 
-2. Under **Settings**, select **Health probes**.
+16. Select **Next: Inbound rules** at the bottom of the page.
 
-3. Use these values to configure the health probe:
+17. In **Inbound rules**, select **+ Add a load balancing rule**.
+
+18. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myHealthProbe**. |
+    | Name | Enter **myHTTPRule-cr**. |
+    | IP Version | Select **IPv4** or **IPv6** for **IP Version**. |
+    | Frontend IP address | Select **LoadBalancerFrontend**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
-    | Interval | Enter **5**. |
-    | Unhealthy threshold | Enter **2**. |
-
-4. Select **OK**.
-
-    > [!NOTE]
-    > Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
-
-## Create a load balancer rule
-
-In this section, you'll create a load balancer rule:
-
-* Named **myHTTPRule**.
-* In the frontend named **LoadBalancerFrontEnd**.
-* Listening on **Port 80**.
-* Directs load balanced traffic to the backend named **myBackendPool-CR** on **Port 80**.
-
-    > [!NOTE]
-    > Frontend port must match backend port and the frontend port of the regional load balancers in the backend pool.
-
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
-
-2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
-
-3. Use these values to configure the load-balancing rule:
-    
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myHTTPRule**. |
-    | IP Version | Select **IPv4** |
-    | Frontend IP address | Select **LoadBalancerFrontEnd** |
-    | Protocol | Select **TCP**. |
-    | Port | Enter **80**.|
-    | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**.|
-    | Health probe | Select **myHealthProbe**. |
-    | Idle timeout (minutes) | Move slider to **15**. |
+    | Backend pool | Select **myBackendPool-cr**. |
+    | Session persistence | Select **None**. |
+    | Idle timeout (minutes) | Enter or move the slider to **15**. |
     | TCP reset | Select **Enabled**. |
+    | Floating IP | Leave the default of **Disabled**. |
 
-4. Leave the rest of the defaults and then select **OK**.
+19. Select **Add**.
 
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-lb-rule.png" alt-text="Create load balancer rule" border="true":::
+20. Select **Review + create** at the bottom of the page.
+
+21. Select **Create** in the **Review + create** tab.
+
+    > [!NOTE]
+    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
 
 ## Test the load balancer
 
@@ -192,9 +154,6 @@ In this tutorial, you:
 * Created a load-balancing rule.
 * Tested the load balancer.
 
-For more information on cross-region load balancer, see [Cross-region load balancer (Preview)](cross-region-overview.md).
-
-
-Advance to the next article to learn how to:
+For more information on cross-region load balancer, see:
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Cross-region load balancer (Preview)](cross-region-overview.md)

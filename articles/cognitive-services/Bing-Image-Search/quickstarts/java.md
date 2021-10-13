@@ -26,7 +26,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * The [Gson library](https://github.com/google/gson)
 

@@ -1,12 +1,13 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Revoery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: sujayt
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 01/10/2020
 ms.topic: conceptual
-ms.author: sutalasi
+ms.author: sharrai
+ms.date: 05/27/2021 
+ms.custom: devx-track-azurepowershell
 
 
 ---

@@ -1,18 +1,19 @@
 ---
-title: Handling an Azure service disruption that impacts Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Handling an Azure service disruption that impacts Azure Cloud Services (classic)
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
-ms.workload: cloud-services
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: memccror
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# What to do in the event of an Azure service disruption that impacts Azure Cloud Services
+
+# What to do in the event of an Azure service disruption that impacts Azure Cloud Services (classic)
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
 
 Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).

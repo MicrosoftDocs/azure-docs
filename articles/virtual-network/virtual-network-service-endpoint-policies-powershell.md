@@ -7,7 +7,7 @@ author: RDhillon
 manager: narayan
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -17,12 +17,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage data exfiltration to Azure Storage accounts with Virtual network service endpoint policies using Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Virtual network service endpoint policies enable you to apply access control on Azure Storage accounts from within a virtual network over service endpoints. This is a key to securing your workloads, managing what storage accounts are allowed and where data exfiltration is allowed.
 In this article, you learn how to:
@@ -34,6 +32,8 @@ In this article, you learn how to:
 * Deploy a virtual machine (VM) to the subnet.
 * Confirm access to the allowed storage account from the subnet.
 * Confirm access is denied to the non-allowed storage account from the subnet.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

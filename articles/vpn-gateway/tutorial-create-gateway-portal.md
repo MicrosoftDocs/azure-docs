@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial - Create and manage a VPN Gateway: Azure portal'
-description: Follow this tutorial to learn how to create, deploy, and manage an Azure VPN Gateway using the portal
+title: 'Tutorial - Create and manage a VPN gateway: Azure portal'
+description: In this tutorial, learn how to create, deploy, and manage an Azure VPN gateway using the portal.
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/01/2020
+ms.date: 07/21/2021
 
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
 # Tutorial: Create and manage a VPN gateway using Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You can also create a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md).
+Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You can also create a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 In this tutorial, you learn how to:
 
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 
 The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="VNet and VPN gateway diagram":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="VNet and VPN gateway diagram.":::
 
 ## Prerequisites
 
@@ -46,7 +47,7 @@ Create a VNet using the following values:
 
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
-In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+In this step, you create the virtual network gateway (VPN gateway) for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 Create a virtual network gateway using the following values:
 
@@ -54,16 +55,17 @@ Create a virtual network gateway using the following values:
 * **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw1
-* **Generation:** Generation1
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Virtual network:** VNet1
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new
 * **Public IP address name:** VNet1GWpip
-* **Enable active-active mode:** Disabled
-* **Configure BGP:** Disabled
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -71,7 +73,7 @@ Create a virtual network gateway using the following values:
 
 You can view the gateway public IP address on the **Overview** page for your gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Overview page":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page.":::
 
 To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
 
@@ -101,7 +103,7 @@ these resources using the following steps:
 Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
-> [Site-to-Site VPN connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
 > [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

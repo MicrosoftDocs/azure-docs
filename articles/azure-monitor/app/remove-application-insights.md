@@ -53,9 +53,9 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
 
     > [!NOTE]
     > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependencies selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependencies selected.
-    
-1. Click on the "Microsoft.ApplicationInsights.Web" package. On the right, check the checkbox next to *Project* to select all projects.
-    
+
+1. Click on the **Microsoft.ApplicationInsights.Web** package. On the right, check the checkbox next to **Project** to select all projects.
+
 1. To remove all dependencies when uninstalling, select the **Options** dropdown button below the section where you selected project.
 
     Under *Uninstall Options*, select the checkbox next to *Remove dependencies*.
@@ -68,7 +68,7 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
     
     ![Screenshot shows a dialog box with the dependencies to be removed.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  After everything is uninstalled, you may still see  "ApplicationInsights.config" and "AiHandleErrorAttribute.cs" in the *Solution Explorer*. You can delete the two files manually.
+1.  After everything is uninstalled, you may still see "ApplicationInsights.config" and "AiHandleErrorAttribute.cs" in the *Solution Explorer*. You can delete the two files manually.
 
 # [.NET Core](#tab/netcore)
 

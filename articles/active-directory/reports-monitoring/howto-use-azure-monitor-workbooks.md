@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/30/2019
+ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ---
@@ -31,25 +31,23 @@ Do you want to:
 
 - Do you need to understand the impact of Conditional Access policies in your tenant?
 
-- Would you like the ability to review: sign-in log queries, the workbook 
-reports how many users were granted or denied access, as well as how many users bypassed 
+- Would you like the ability to review: sign-in log queries, with a workbook
+that reports how many users were granted or denied access, as well as how many users bypassed
 Conditional Access policies when accessing resources?
 
-- Interested in developing a deeper understanding of: the workbook details per 
-condition so that the impact of a policy can be contextualized per condition, 
+- Interested in developing a deeper understanding of conditional access, with a workbook details per
+condition so that the impact of a policy can be contextualized per condition,
 including device platform, device state, client app, sign-in risk, location, and application?
 
-- Gain deeper insights into sign-in log queries, the workbook 
-reports how many users were granted or denied access, as well as how many users bypassed 
-Conditional Access policies when accessing resources.
+- Archive and report on more than one year of historical application role and [access package assignment activity](../governance/entitlement-management-logs-and-reporting.md)?
 
-- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
 This article:
 
-- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md).
+- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 - Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
@@ -61,9 +59,9 @@ To use Monitor workbooks, you need:
 
 - An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md).
 
-- A [Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
+- A [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
-- [Access](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
+- [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
 - Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
@@ -71,7 +69,7 @@ To use Monitor workbooks, you need:
     - Global administrator
 
 ## Roles
-You must be in one of the following roles as well as have [access to underlying Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) workspace to manage the workbooks:
+You must be in one of the following roles as well as have [access to underlying Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) workspace to manage the workbooks:
 - 	Global administrator
 - 	Security administrator
 - 	Security reader
@@ -300,4 +298,5 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
 
 ## Next steps
 
-[Create interactive reports by using Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md).
+* [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+* [Create custom Azure Monitor queries using Azure PowerShell](../governance/entitlement-management-logs-and-reporting.md).

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/18/2020
+ms.date: 08/18/2021
 ms.author: glenga
 ---
 
@@ -10,8 +10,8 @@ ms.author: glenga
 
 Before you can deploy your function code to Azure, you need to create three resources:
 
-- A resource group, which is a logical container for related resources.
-- A Storage account, which maintains state and other information about your projects.
+- A [resource group](../articles/azure-resource-manager/management/overview.md), which is a logical container for related resources.
+- A [Storage account](../articles/storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
 - A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 Use the following commands to create these items. Both Azure CLI and PowerShell are supported.
@@ -34,20 +34,20 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region:
+1. Create a resource group named `AzureFunctionsQuickstart-rg` in your chosen region:
 
     # [Azure CLI](#tab/azure-cli)
     
     ```azurecli
-    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    az group create --name AzureFunctionsQuickstart-rg --location <REGION>
     ```
  
-    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
+    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location <REGION>
     ```
 
     The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) cmdlet.
@@ -59,7 +59,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
     The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
@@ -67,7 +67,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location westeurope
+    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location <REGION>
     ```
 
     The [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet creates the storage account.

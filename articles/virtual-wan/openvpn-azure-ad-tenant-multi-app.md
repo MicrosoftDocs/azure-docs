@@ -7,8 +7,8 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.author: alzam
-
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections
 
@@ -132,6 +132,14 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
     ![Screenshot shows Diagnose selected from the menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. On the **Connection Properties** page, select **Run Diagnosis**.
+
+    ![Screenshot shows the Run Diagnosis button for a connection.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Sign in with your credentials.
+
+    ![diagnose 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. View the diagnosis results.
 
     ![Screenshot shows the Run Diagnosis button for a connection.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

@@ -4,12 +4,12 @@ description: Enable e-mail notifications for Azure SQL Database automatic query 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning
@@ -26,7 +26,7 @@ Azure SQL Database automatic tuning recommendations can be viewed in the [Azure 
 
 ## Automate email notifications for automatic tuning recommendations
 
-The following solution automates the sending of email notifications containing automatic tuning recommendations. The solution described consists of automating execution of a PowerShell script for retrieving tuning recommendations using [Azure Automation](../../automation/automation-intro.md), and automation of scheduling email delivery job using [Microsoft Flow](https://flow.microsoft.com).
+The following solution automates the sending of email notifications containing automatic tuning recommendations. The solution described consists of automating execution of a PowerShell script for retrieving tuning recommendations using [Azure Automation](../../automation/automation-intro.md), and automation of scheduling email delivery job using [Microsoft Power Automate](https://flow.microsoft.com).
 
 ## Create Azure Automation account
 
@@ -175,17 +175,17 @@ Ensure to adjust the content by customizing the PowerShell script to your needs.
 
 With the above steps, the PowerShell script to retrieve automatic tuning recommendations is loaded in Azure Automation. The next step is to automate and schedule the email delivery job.
 
-## Automate the email jobs with Microsoft Flow
+## Automate the email jobs with Microsoft Power Automate
 
-To complete the solution, as the final step, create an automation flow in Microsoft Flow consisting of three actions (jobs):
+To complete the solution, as the final step, create an automation flow in Microsoft Power Automate consisting of three actions (jobs):
 
 - "**Azure Automation - Create job**" – used to execute the PowerShell script to retrieve automatic tuning recommendations inside the Azure Automation runbook.
 - "**Azure Automation - Get job output**" – used to retrieve output from the executed PowerShell script.
 - "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the work or school account of the individual creating the flow.
 
-To learn more about Microsoft Flow capabilities, see [Getting started with Microsoft Flow](/flow/getting-started).
+To learn more about Microsoft Power Automate capabilities, see [Getting started with Microsoft Power Automate](/power-automate/getting-started).
 
-Prerequisite for this step is to sign up for a [Microsoft Flow](https://flow.microsoft.com) account and to log in. Once inside the solution, follow these steps to set up a **new flow**:
+Prerequisite for this step is to sign up for a [Microsoft Power Automate](https://flow.microsoft.com) account and to log in. Once inside the solution, follow these steps to set up a **new flow**:
 
 1. Access "**My flows**" menu item.
 1. Inside My flows, select the "**+Create from blank**" link at the top of the page.

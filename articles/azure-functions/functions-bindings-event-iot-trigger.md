@@ -18,6 +18,10 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-trigger.md)]
 
+## host.json properties
+
+The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hub trigger behavior. See the [host.json settings](functions-bindings-event-iot.md#hostjson-settings) section for details regarding available settings.
+
 ## Next steps
 
 - [Write events to an event stream (Output binding)](./functions-bindings-event-iot-output.md)

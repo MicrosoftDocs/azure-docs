@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 09/10/2021
 ---
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
@@ -30,7 +30,20 @@ When data is received into SQL table and if the target table does not already ex
 Below is the list of prerequisites for sharing data from SQL source. 
 
 #### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
-You can follow the [step by step demo](https://youtu.be/hIE-TjJD8Dc) to configure prerequisites.
+
+
+To share data using Azure Active Directory authentication, here is a list of prerequisites:
+
+* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
+* Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+* SQL Server **Azure Active Directory Admin**
+* SQL Server Firewall access. This can be done through the following steps: 
+    1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
+    1. Click **Yes** for *Allow Azure services and resources to access this server*.
+    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Click **Save**. 
+
+To share data using SQL authentication, below is a list of prerequisites. You can follow the [step by step demo](https://youtu.be/hIE-TjJD8Dc) to configure prerequisites.
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
@@ -126,7 +139,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 
-1. Select your SQL server or Synapse workspace, provide credentials if prompted and select **Next** to navigate to the object you would like to share and select 'Add Datasets'. You can select tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), or tables from Azure Synapse Analytics (workspace) dedicated SQL pool. 
+1. Select your SQL server or Synapse workspace. If you are using AAD authentication and the checkbox **Allow Data Share to run the above 'create user' SQL script on my behalf** appears, check the checkbox. If you are using SQL authentication, provide credentials, and follow the steps in the prerequisites to run the script appear in the screen. This gives Data Share resource permission to read from your SQL DB. 
+
+   Select **Next** to navigate to the object you would like to share and select 'Add Datasets'. You can select tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), or tables from Azure Synapse Analytics (workspace) dedicated SQL pool. 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Select Datasets")    
 
@@ -170,7 +185,18 @@ If you choose to receive data into Azure Storage, below is the list of prerequis
 If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
 
 #### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
-You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configure prerequisites.
+
+To receive data into a SQL server where you are the **Azure Active Directory admin** of the SQL server, here is a list of prerequisites:
+
+* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
+* Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+* SQL Server Firewall access. This can be done through the following steps: 
+    1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
+    1. Click **Yes** for *Allow Azure services and resources to access this server*.
+    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Click **Save**. 
+    
+To receive data into a SQL server where you are not the **Azure Active Directory admin**, below is a list of prerequisites. You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configure prerequisites.
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
@@ -228,6 +254,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
+   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
+
    ![List of Invitations](./media/invitations.png "List of invitations") 
 
 1. Select the share you would like to view. 
@@ -258,18 +286,18 @@ Follow the steps below to configure where you want to receive data.
 
    ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-1. Select a target data store that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. 
+1. Select a target data store that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you are receiving data into SQL target, and the **Allow Data Share to run the above 'create user' SQL script on my behalf** checkbox appears, check the checkbox. Otherwise, follow the instruction in prerequisites to run the script appear on the screen. This will give Data Share resource write permission to your target SQL DB.
 
    ![Target storage account](./media/dataset-map-target-sql.png "Target Data Store") 
 
-1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**.
+1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
 
 ### Trigger a snapshot
 These steps only apply to snapshot-based sharing.
 
-1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. For SQL sources, only full snapshot is supported.
+1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. For SQL sources, only full snapshot is supported. When a snapshot is executing, subsequent snapshots will not start until the previous one complete.
 
    ![Trigger snapshot](./media/trigger-snapshot.png "Trigger snapshot") 
 
@@ -335,7 +363,7 @@ SQL snapshot performance is impacted by a number of factors. It is always recomm
 * Location of source and target data stores. 
 
 ## Troubleshoot SQL snapshot failure
-The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshot-failed).
+The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).
 
 ## Next steps
 You have learned how to share and receive data from SQL sources using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).

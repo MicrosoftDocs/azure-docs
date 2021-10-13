@@ -2,12 +2,12 @@
 title: "Quickstart: Build, deploy, and use a custom model - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart you go through step-by-step process of building a translation system using the Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 12/09/2019
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
@@ -25,6 +25,8 @@ This article provides step-by-step instructions to build a translation system wi
 
 3. When you have both of the above, sign in to the
     [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
+
+You can also view a full, start to finish walkthrough video of Custom Translator on [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s).
 
 >[!Note]
 >Custom Translator does not support creating workspace for Translator Text API resource that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).

@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
 description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
-author: sharaths-cs
-ms.author: b-shsury 
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/06/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

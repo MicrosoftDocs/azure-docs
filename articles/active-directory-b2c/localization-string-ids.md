@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ The **Localization** element enables you to support multiple locales or language
 The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value | Page Layout Version |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | Forgot your password? | `All` |
 | **createaccount_intro** | Don't have an account? | `All` |
 | **button_signin** | Sign in | `All` |
@@ -92,7 +92,7 @@ The following example localizes the Facebook identity provider to Arabic:
 ### Sign-up or sign-in error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
 | **UserMessageIfPasswordExpired**| Your password has expired.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
@@ -142,7 +142,7 @@ The following example localizes the Facebook identity provider to Arabic:
 The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | Verification code has been sent to: |
 | **ver_but_default** | Default |
 | **cancel_message** | The user has canceled entering self-asserted information |
@@ -181,7 +181,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 ### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | A user with the specified ID already exists. Please choose a different one. |
 | **UserMessageIfClaimNotVerified** | Claim not verified: {0} |
 | **UserMessageIfIncorrectPattern** | Incorrect pattern for: {0} |
@@ -254,43 +254,46 @@ The following example shows the use of some of the user interface elements in th
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **button_verify** | Call Me |
-| **country_code_label** | Country Code |
-| **cancel_message** | The user has canceled multi-factor authentication |
-| **text_button_send_second_code** | send a new code |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. |
-| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. |
-| **button_verify_code** | Verify Code |
-| **requiredField_code** | Please enter the verification code you received |
-| **invalid_code** | Please enter the 6-digit code you received |
-| **button_cancel** | Cancel |
-| **local_number_input_placeholder_text** | Phone number |
-| **button_retry** | Retry |
-| **alternative_text** | I don't have my phone |
-| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. |
-| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. |
-| **enter_code_text_intro** | Enter your verification code below, or  |
-| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. |
-| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. |
-| **button_send_code** | Send Code |
-| **invalid_number** | Please enter a valid phone number |
-| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. |
-| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. |
-| **requiredField_countryCode** | Please select your country code |
-| **requiredField_number** | Please enter your phone number |
-| **country_code_input_placeholder_text** |Country or region |
-| **number_label** | Phone Number |
-| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. |
-| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. |
-| **countryList** | See [the countries list](#phone-factor-authentication-page-example). |
-| **error_448** | The phone number you provided is unreachable. |
-| **error_449** | User has exceeded the number of retry attempts. |
-| **verification_code_input_placeholder_text** | Verification code |
+| ID | Default value | Page Layout Version |
+| --- | ------------- | ------ |
+| **button_verify** | Call Me | `All` |
+| **country_code_label** | Country Code | `All` |
+| **cancel_message** | The user has canceled multi-factor authentication | `All` |
+| **text_button_send_second_code** | send a new code | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. | `All` |
+| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. | `All` |
+| **button_verify_code** | Verify Code | `All` |
+| **requiredField_code** | Please enter the verification code you received | `All` |
+| **invalid_code** | Please enter the 6-digit code you received | `All` |
+| **button_cancel** | Cancel | `All` |
+| **local_number_input_placeholder_text** | Phone number | `All` |
+| **button_retry** | Retry | `All` |
+| **alternative_text** | I don't have my phone | `All` |
+| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. | `All` |
+| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. | `All` |
+| **enter_code_text_intro** | Enter your verification code below, or  | `All` |
+| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. | `All` |
+| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. | `All` |
+| **button_send_code** | Send Code | `All` |
+| **invalid_number** | Please enter a valid phone number | `All` |
+| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. | `All` |
+| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
+| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
+| **requiredField_countryCode** | Please select your country code | `All` |
+| **requiredField_number** | Please enter your phone number | `All` |
+| **country_code_input_placeholder_text** |Country or region | `All` |
+| **number_label** | Phone Number | `All` |
+| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. | `All` |
+| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. | `>= 1.2.3` |
+| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
+| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
+| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
+| **countryList** | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | The phone number you provided is unreachable. | `All` |
+| **error_449** | User has exceeded the number of retry attempts. | `All` |
+| **verification_code_input_placeholder_text** | Verification code | `All` |
 
 The following example shows the use of some of the user interface elements in the MFA enrollment page:
 
@@ -335,6 +338,9 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="country_code_input_placeholder_text">Country or region</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="number_label">Phone Number</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_tryagain">The phone number you provided is busy or unavailable. Please check the number and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_sms_throttled">You hit the limit on the number of text messages. Try again shortly.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_phone_throttled">You hit the limit on the number of call attempts. Try again shortly.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_throttled">You hit the limit on the number of verification attempts. Try again shortly.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_incorrect_code">The verification code you have entered does not match our records. Please try again, or request a new code.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_448">The phone number you provided is unreachable.</LocalizedString>
@@ -351,9 +357,9 @@ The following example shows the use of some of the user interface elements in th
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.1.0 or higher.
 
 | ID | Default value |
-| -- | ------------- |
-|intro_msg| Verification is necessary. Please click Send button.|
-|success_send_code_msg | Verification code has been sent to your inbox. Please copy it to the input box below.|
+| --- | ------------- |
+|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+|success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
 |failure_verify_code_msg | We are having trouble verifying your email address. Please try again.|
@@ -361,6 +367,12 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### Verification display control example
 
@@ -386,7 +398,7 @@ The following are the IDs for a [Verification display control](display-control-v
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.0.0.
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |Change |
 |verification_control_fail_send_code |Failed to send the code, please try again later. |
 |verification_control_fail_verify_code |Failed to verify the code, please try again later. |
@@ -416,7 +428,7 @@ The following are the IDs for a [Verification display control](display-control-v
 The following are the IDs for [Restful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | Failed to establish connection to restful service end point. Restful service URL: {0} |
 |UserMessageIfCircuitOpen | {0} Restful Service URL: {1} |
 |UserMessageIfDnsResolutionFailed | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
@@ -438,10 +450,10 @@ The following are the IDs for [Restful service technical profile](restful-techni
 
 ## Azure AD MFA error messages
 
-The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | Cannot Send SMS to the phone, please try another phone number. |
 |UserMessageIfInvalidFormat | Your phone number is not in a valid format, please correct it and try again.|
 |UserMessageIfMaxAllowedCodeRetryReached | Wrong code entered too many times, please try again later.|
@@ -469,7 +481,7 @@ The following are the IDs for an [Azure AD MFA technical profile](multi-factor-a
 The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | The code has expired.|
 |UserMessageIfInternalError | The email service has encountered an internal error, please try again later.|
 |UserMessageIfThrottled | You have sent too many requests, please try again later.|
@@ -495,13 +507,14 @@ The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technic
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
 
-| ID | Default value |
-| -- | ------------- |
-|UserMessageIfMaxRetryAttempted |One time password provided verification has exceeded maximum number of attempts |
-|UserMessageIfSessionDoesNotExist |One time password verification session has expired |
-|UserMessageIfSessionConflict |One time password verification session has conflict |
-|UserMessageIfInvalidCode |One time password provided for verification is incorrect |
-|UserMessageIfVerificationFailedRetryAllowed |That code is incorrect. Please try again. | 
+| ID | Default value | Description | 
+| --- | ------------- | ----------- |
+| UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
+| UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
+| UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+| UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
+|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### One time password example
 
@@ -510,9 +523,10 @@ The following are the IDs for a [one-time password technical profile](one-time-p
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -522,7 +536,7 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 The following are the IDs for claims transformations error messages:
 
 | ID | Claims transformation | Default value |
-| -- | ------------- |------------- |
+| --- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
@@ -543,5 +557,5 @@ The following are the IDs for claims transformations error messages:
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

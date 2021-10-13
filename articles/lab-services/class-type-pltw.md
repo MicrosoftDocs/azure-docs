@@ -43,7 +43,7 @@ ms.date: 10/28/2020
 
 - **Computer Science A**
 
-    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, [contact Azure Lab Services](mailto:AzLabsCOVIDSupport@microsoft.com).
+    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, contact us via the [Azure Lab Services' forums](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) for more information.
 
 For a full list of class software, go to the [PLTW site](https://www.pltw.org/pltw-software) for each class.
 
@@ -70,15 +70,15 @@ The size of the virtual machine (VM) that we recommend using for PLTW classes de
 
 | Lab setting | Value and description | Class recommendation |
 | ------------ | ------------------ | --- |
-| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, and Engineering Design and Development.
-| Virtual Machine Size | **Large**<br>Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Introduction to Engineering Design, Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
+| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, Engineering Design and Development, and Introduction to Engineering Design.
+| Virtual Machine Size | **Large**<br>Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
 
 <br>
 
 ### License server
 Most of the software that's used in the earlier-mentioned PLTW classes do *not* require access to a license server.  However, you'll need to access a license server if you plan to use the Autodesk network licensing model for the following software:
 -   Revit
--   Inventor
+-   Inventor CAD
 -   Inventor CAM
 
 To use network licensing with Autodesk software, [PLTW provides detailed steps](https://www.pltw.org/pltw-software) to install Autodesk Network License Manager on your license server.  This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within in Azure virtual network.
@@ -95,7 +95,7 @@ For more information, see [Set up a license server as a shared resource](./how-t
 ### Template machine
 Some of the installation files that you need for PLTW are large. When you download the files to a lab template VM, they might take a long time to copy.
 
-Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into Shared Image Gallery so that you can use them to create your labs.  For more information, see [Upload a custom image to Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
+Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into a shared image gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 As you follow this recommendation, note the major tasks for setting up a lab:
 
@@ -117,6 +117,9 @@ As you follow this recommendation, note the major tasks for setting up a lab:
 1.  After the lab is created, start and connect to the template VM to validate that the image works as expected.
 
 1.  Finally, publish the template VM to create the students’ VMs.
+
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
 ## Student devices
 Students can connect to their lab VMs from Windows computers, Mac, and Chromebook. For instructions, see:

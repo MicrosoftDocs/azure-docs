@@ -1,16 +1,10 @@
 ---
 title: Platforms supported by Azure Security Center | Microsoft Docs
 description: This document provides a list of platforms supported by Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
 ---
@@ -31,15 +25,17 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 ## Supported operating systems
 
-Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+Security Center depends on the [Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+
+> [!NOTE]
+> Even though Azure Defender is designed to protect servers, most of the capabilities of **Azure Defender for servers** are supported for Windows 10 machines. One feature that isn't currently supported is [Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 
@@ -49,7 +45,7 @@ Virtual machines are also created in a customer subscription as part of some Azu
 
 Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-Protection for VMs residing in Azure Stack is also supported. For more information about Security Center's integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](quickstart-onboard-machines.md). 
+Protection for VMs residing in Azure Stack Hub is also supported. For more information about Security Center's integration with Azure Stack Hub, see [Onboard your Azure Stack Hub virtual machines to Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## Next steps
 

@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Content moderation reviews, workflows, and jobs
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you'll learn about the core concepts of the Review tool: reviews, workflows, and jobs.
 
 ## Reviews
@@ -39,7 +41,7 @@ Use the **Search** toolbar to sort the reviews by a variety of categories such a
 > [!div class="mx-imgBorder"]
 > ![The Search toolbar is shown. It has various combo boxes for entering search criteria, such as Review State and Tags.](./Review-Tool-user-Guide/images/review-search.png)
 
-See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [API console guide](./try-review-api-review.md) to learn how to do so programmatically.
 
 ## Workflows
 
@@ -77,13 +79,13 @@ Workflows are defined as JSON strings, which makes them accessible programmatica
 }
 ```
 
-See the [Review tool guide](./review-tool-user-guide/workflows.md) to get started creating and using workflows, or see the [REST API guide](./try-review-api-workflow.md) to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/workflows.md) to get started creating and using workflows, or see the [API console guide](./try-review-api-workflow.md) to learn how to do so programmatically.
 
 ## Jobs
 
 A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows, and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](./review-tool-user-guide/human-in-the-loop.md). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
 
-See the [REST API guide](./try-review-api-job.md) to get started using jobs.
+See the [API console guide](./try-review-api-job.md) to get started using jobs.
 
 ## Next steps
 

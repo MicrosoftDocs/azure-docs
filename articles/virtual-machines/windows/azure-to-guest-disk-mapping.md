@@ -2,15 +2,20 @@
 title: How to map Azure Disks to Windows VM guest disks
 description: How to determine the Azure Disks that underlay a Windows VM's guest disks.
 author: timbasham
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.author: tibasham
+ms.author: tibasham 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to map Azure Disks to Windows VM guest disks
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 
 You may need to determine the Azure Disks that back a VM's guest disks. In some scenarios, you can compare the disk or volume size to the size of the attached Azure Disks. In scenarios where there are multiple Azure Disks of the same size attached to the VM you need to use the Logical Unit Number (LUN) of the data disks. 
 
@@ -25,11 +30,11 @@ For our exercise, you only need to use the LUN.
 
 ## Finding the LUN
 
-There are two methods to finding the LUN, which one you choose will depend on if you are using [Storage Spaces](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview) or not.
+There are two methods to finding the LUN, which one you choose will depend on if you are using [Storage Spaces](/windows-server/storage/storage-spaces/overview) or not.
 
 ### Disk Management
 
-If you are not using Storage Pools, you can use [Disk Management](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) to find the LUN.
+If you are not using Storage Pools, you can use [Disk Management](/windows-server/storage/disk-management/overview-of-disk-management) to find the LUN.
 
 1. Connect to the VM and open Disk Management
     a. Right-click on the Start button and choose "Disk Management"

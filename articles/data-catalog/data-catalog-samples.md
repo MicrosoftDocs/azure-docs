@@ -7,8 +7,9 @@ ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
 ---
-
 # Azure Data Catalog developer samples
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Get started developing Azure Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.
 

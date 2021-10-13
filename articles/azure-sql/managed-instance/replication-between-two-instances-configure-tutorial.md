@@ -4,11 +4,11 @@ titleSuffix: Azure SQL Managed Instance
 description: This tutorial teaches you to configure transactional replication between an Azure SQL Managed Instance publisher/distributor and a SQL Managed Instance subscriber. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
+author: ferno-ms
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
@@ -45,7 +45,7 @@ Configuring SQL Managed Instance to function as a publisher and/or a distributor
 - That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [VPN gateways](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) have been configured between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure storage account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage \<storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
+- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage <storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
 
 ## 1 - Create a resource group
 

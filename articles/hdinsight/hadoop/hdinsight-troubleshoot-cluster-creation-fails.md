@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot cluster creation failures with Azure HDInsight
 description: Learn how to troubleshoot Apache cluster creation issues for Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
@@ -64,7 +61,7 @@ Ensure that there are no [locks on your virtual network and resource group](../.
 
 ## Unsupported component versions
 
-Ensure that you are using a [supported version of Azure HDInsight](../hdinsight-component-versioning.md) and any [Apache Hadoop components](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) in your solution.  
+Ensure that you are using a [supported version of Azure HDInsight and Apache Hadoop component](../hdinsight-component-versioning.md) in your solution.  
 
 ## Storage account name restrictions
 

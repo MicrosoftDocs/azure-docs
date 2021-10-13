@@ -82,6 +82,28 @@ AADDomainServicesAccountManagement
 | sort by TimeGenerated asc
 ```
 
+**Note**
+
+You may find on 4776 and 4740 event details of "Source Workstation: " empty. This is because the bad password happened over Network logon via some other devices.
+For Example: If you have RADIUS server, which can forward the auth to AAD DS. To confirm that Enable RDP to DC backend configure netlogon logs.
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
+
+Enable RDP to your DCs in NSG to backend to configure diagnostics capture (i.e netlogon).
+[Inbound security rules](alert-nsg.md#inbound-security-rules)
+
+If you have modified the default NSG already, follow these steps:
+[Port 3389 - management using remote desktop](network-considerations.md#port-3389---management-using-remote-desktop)
+
+To enable Netlogon log on any server, follow these steps:
+[Enabling debug logging for the Netlogon service](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service)
+
 ## Next steps
 
 For more information on fine-grained password policies to adjust account lockout thresholds, see [Configure password and account lockout policies][configure-fgpp].

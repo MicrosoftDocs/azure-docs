@@ -1,57 +1,196 @@
 ---
-title: View reservations for Azure resources| Microsoft Docs
-description: Learn how to view Azure reservations in the Azure portal. See reservations and utilization by using APIs, PowerShell, CLI, and Power BI.
-author: yashesvi
-ms.reviewer: yashar
+title: Permissions to view and manage Azure reservations
+description: Learn how to view and manage Azure reservations in the Azure portal.
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 10/05/2021
 ms.author: banders
 ---
 
-# View Azure reservations
+# Permissions to view and manage Azure reservations
 
-You can view and manage the purchased reservation from the Azure portal.
+This article explains how reservation permissions work and how users can view and manage Azure reservations in the Azure portal and with Azure PowerShell.
 
-## Permissions to view a reservation
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To view or manage a reservation, you need to have reader or owner permission on it. By default, when you buy a reservation, you and the account administrator automatically get the Owner role on the reservation order and reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation. Adding someone to the subscription that's provided for billing the reservation, does not add them to reservation automatically. 
+## Who can manage a reservation by default
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+By default, the following users can view and manage reservations:
 
-## View reservation and utilization in the Azure portal
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
+- Users with elevated access to manage all Azure subscriptions and management groups
+- A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory)
+- A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
 
-To view a reservation as an Owner or Reader
+Currently, the reservation administrator and reservation reader roles are are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
+
+The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
+
+## View and manage reservations
+
+If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions in the Azure portal.
+
+1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+1. In the left menu, select **Products + services** > **Reservations**.
+1. The complete list of reservations for your EA enrollment or billing profile is shown.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, clicking on **Grant access** and selecting **Grant access** in the window that appears.
+
+### Add billing administrators
+
+Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement in the Azure portal.
+
+- For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage reservations in **Cost Management + Billing**.
+    - Users with the _Enterprise Administrator (read only)_ role can only view the reservation from **Cost Management + Billing**. 
+    - Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
+- For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
+    For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## View reservations with Azure RBAC access
+
+If you purchased the reservation or you're added to a reservation, use the following steps to view and manage reservations in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-3. The list will shows all the reservations where you have the Owner or Reader role. Each reservation shows the last known utilization percentage.
-4. Click on the utilization percentage to see the utilization history and details. See details in the video below.
-   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
+1. Select **All Services** > **Reservations** to list reservations that you have access to.
 
-## Get reservations and utilization using APIs, PowerShell, CLI
+## Manage subscriptions and management groups with elevated access
 
-Get list of all reservations using following resources
-- [API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
-- [PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
-- [CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
+You can elevate a user's [access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json).
 
-You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API. 
+After you have elevated access:
 
-## See reservations and utilization in Power BI
+1. Navigate to **All Services** > **Reservation** to see all reservations that are in the tenant.
+1. To make modifications to the reservation, add yourself as an owner of the reservation order using Access control (IAM).
 
-There are two options for Power BI users
-- Content Pack: Reservation purchases and utilization data is available in the [Consumption Insights Power BI content pack](/power-bi/desktop-connect-azure-cost-management). Create the reports you want using this content pack. 
-- Cost management app: Use the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) for pre-created reports that you can further customize.
+## Grant access to individual reservations
+
+Users who have owner access on the reservations and billing administrators can delegate access management for an individual reservation order in the Azure portal.
+
+To allow other people to manage reservations, you have two options:
+
+- Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+- Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
+    - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
+
+        _Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM)._
+    - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
+    For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## Grant access with PowerShell
+
+Users that have owner access for reservations orders, users with elevated access, and [User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can delegate access management for all reservation orders they have access to.
+
+## Assign the owner role for all reservations
+
+Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations orders in their Azure AD tenant (directory).
+
+```azurepowershell
+
+Import-Module Az.Accounts
+Import-Module Az.Resources
+ 
+Connect-AzAccount -Tenant <TenantId>
+ 
+$response = Invoke-AzRestMethod -Path /providers/Microsoft.Capacity/reservations?api-version=2020-06-01 -Method GET
+ 
+$responseJSON = $response.Content | ConvertFrom-JSON
+ 
+$reservationObjects = $responseJSON.value
+ 
+foreach ($reservation in $reservationObjects)
+{
+  $reservationOrderId = $reservation.id.substring(0, 84)
+  Write-Host "Assiging Owner role assignment to "$reservationOrderId
+  New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
+}
+```
+
+### Parameters
+
+**-ObjectId**  Azure AD ObjectId of the user, group, or service principal.
+- Type: String
+- Aliases: Id, PrincipalId
+- Position:	Named
+- Default value: None
+- Accept pipeline input: True
+- Accept wildcard characters:	False
+
+**-TenantId** Tenant unique identifier.
+- Type:	String
+- Position:	5
+- Default value: None
+- Accept pipeline input: False
+- Accept wildcard characters: False
+
+[User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can add the users to Reservation Administrator and Reservation Reader roles.
+
+## Add a Reservation Administrator role at the tenant level
+
+Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level with PowerShell.
+
+```azurepowershell
+Import-Module Az.Accounts
+Import-Module Az.Resources
+Connect-AzAccount -Tenant <TenantId>
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Administrator"
+```
+
+### Parameters
+
+**-ObjectId** Azure AD ObjectId of the user, group, or service principal.
+- Type:	String
+- Aliases: Id, PrincipalId
+- Position:	Named
+- Default value: None
+- Accept pipeline input: True
+- Accept wildcard characters: False
+
+**-TenantId** Tenant unique identifier.
+- Type:	String
+- Position:	5
+- Default value: None
+- Accept pipeline input: False
+- Accept wildcard characters: False
+
+## Assign a Reservation Reader role at the tenant level
+
+Use the following Azure PowerShell script to assign the Reservation Reader role at the tenant level with PowerShell.
+
+```azurepowershell
+
+Import-Module Az.Accounts
+Import-Module Az.Resources
+
+Connect-AzAccount -Tenant <TenantId>
+
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Reader"
+```
+
+### Parameters
+
+**-ObjectId** Azure AD ObjectId of the user, group, or service principal.
+- Type:	String
+- Aliases: Id, PrincipalId
+- Position:	Named
+- Default value: None
+- Accept pipeline input: True
+- Accept wildcard characters: False
+
+**-TenantId** Tenant unique identifier.
+- Type:	String
+- Position:	5
+- Default value: None
+- Accept pipeline input: False
+- Accept wildcard characters: False
+
 
 ## Next steps
 
 - [Manage Azure Reservations](manage-reserved-vm-instance.md).
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-- [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)
-
-## Need help? Contact us
-
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

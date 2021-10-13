@@ -1,30 +1,27 @@
 ---
 title: Transform data by using the Stored Procedure activity
-description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from an Azure Data Factory or Synapse Analytics pipeline.
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-ms.custom: seo-lt-2019
-ms.date: 11/27/2018
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-
-# Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory
+# Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Current version](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
+You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that pipelines support. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 > [!NOTE]
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article.  To learn more about Synapse Analytics, read [What is Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
@@ -74,19 +71,12 @@ The following table describes these JSON properties:
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
 
 ## Parameter data type mapping
-The data type you specify for the parameter is the Azure Data Factory type that maps to the data type in the data source you are using. You can find the data type mappings for your data source in the connectors area. Some examples are
+The data type you specify for the parameter is the internal service type that maps to the data type in the data source you are using. You can find the data type mappings for your data source described in the connectors documentation. For example:
 
-| Data Source          | Data Type Mapping |
-| ---------------------|-------------------|
-| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
-
-
-## Error info
-
-When a stored procedure fails and returns error details, you can't capture the error info directly in the activity output. However, Data Factory pumps all of its activity run events to Azure Monitor. Among the events that Data Factory pumps to Azure Monitor, it pushes error details there. You can, for example, set up email alerts from those events. For more info, see [Alert and Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md).
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
+- [Azure SQL Database data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+- [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle)
+- [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server)
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
@@ -98,5 +88,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio (classic) Batch Execution Activity](transform-data-using-machine-learning.md)
+* [ML Studio (classic) Batch Execution Activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

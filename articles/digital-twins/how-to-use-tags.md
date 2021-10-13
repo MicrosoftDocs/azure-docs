@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to implement tags on digital twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/22/2020
+ms.date: 8/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Add tags to digital twins 
 
-You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/TagModel), within their Azure Digital Twins instances. 
+You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/appendix/tags), within their Azure Digital Twins instances. 
 
 This document describes patterns that can be used to implement tags on digital twins.
 
@@ -33,35 +33,41 @@ Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dt
 
 Here is an excerpt from a twin model implementing a marker tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### Add marker tags to digital twins
 
 Once the `tags` property is part of a digital twin's model, you can set the marker tag in the digital twin by setting the value of this property. 
 
-Here is an example that populates the marker `tags` for three twins:
+Here is a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
+After creating the twin with tag properties according to the example above, the twin will look like this:
+
+```JSON
+{
+  "$dtId": "myTwinID",
+  "$etag": "W/\"e7429259-6833-46b4-b443-200a77a468c2\"",
+  "$metadata": {
+    "$model": "dtmi:example:Room;1",
+    "Temperature": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    },
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    }
+  },
+  "Temperature": 75,
+  "tags": {
+    "VIP": true,
+    "oceanview": true
+  }
+}
 ```
+
+>[!TIP]
+> You can see a twin's JSON representation by [querying](how-to-query-graph.md) it with the CLI or APIs.
 
 ### Query with marker tags
 
@@ -69,15 +75,11 @@ Once tags have been added to digital twins, the tags can be used to filter the t
 
 Here is a query to get all twins that have been tagged as "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 You can also combine tags for more complex queries. Here is a query to get all twins that are round, and not red: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## Value tags 
 
@@ -89,58 +91,67 @@ Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtd
 
 Here is an excerpt from a twin model implementing a value tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### Add value tags to digital twins
 
 As with marker tags, you can set the value tag in a digital twin by setting the value of this `tags` property from the model. To use a value tag as a marker tag, you can set the `tagValue` field to the empty string value (`""`). 
 
-Here is an example that populates the value `tags` for three twins:
+Below are the JSON bodies of two twins that have value tags to represent their sizes. The twins in the example also have value tags for "red" or "purple" that are being used as marker tags.
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
+Example Twin1, with a value tag for size large and a marker tag of "red":
+
+```JSON
+{
+  "$dtId": "Twin1",
+  "$etag": "W/\"d3997593-cc5f-4d8a-8683-957becc2bcdd\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:02.3150852Z"
+    }
+  },
+  "tags": {
+    "red": "",
+    "size": "large"
+  }
+}
 ```
 
-Note that `red` and `purple` are used as marker tags in this example.
+Example Twin2, with a value tag for size small and a marker tag of "purple":
+```JSON
+{
+  "$dtId": "Twin2",
+  "$etag": "W/\"e215e586-b14a-4234-8ddb-be69ebfef878\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:53.1517123Z"
+    }
+  },
+  "tags": {
+    "purple": "",
+    "size": "small"
+  }
+}
+```
 
 ### Query with value tags
 
 As with marker tags, you can use value tags to filter the twins in queries. You can also use value tags and marker tags together.
 
-From the example above, `red` is being used as a marker tag. Here is a query to get all twins that have been tagged as "red": 
+From the example above, `red` is being used as a marker tag. Remember that this is a query to get all twins that have been tagged as "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Here is a query to get all entities that are small (value tag), and not red: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [Manage DTDL models](how-to-manage-model.md)
 
 Read more about querying the twin graph:
-* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [Query the twin graph](how-to-query-graph.md)

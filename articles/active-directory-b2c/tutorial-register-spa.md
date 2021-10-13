@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/19/2020
+ms.date: 09/20/2021
 ms.custom: project-no-code 
 ms.author: mimart
 ms.subservice: B2C
@@ -30,12 +30,12 @@ Azure AD B2C provides **two** options to enable single-page applications to sign
 
 This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
 
-To take advantage of this flow, your application can use an authentication library that supports it, like [MSAL.js 2.x](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa). 
+To take advantage of this flow, your application can use an authentication library that supports it, like [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). 
 
 ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### Implicit grant flow
-- [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). Some frameworks, like [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp), only support the implicit grant flow. The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
+- [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
 
 ![Single-page applications-implicit](./media/tutorial-single-page-app/spa-app.svg)
 
@@ -50,7 +50,8 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 ## Register the SPA application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *spaapp1*.

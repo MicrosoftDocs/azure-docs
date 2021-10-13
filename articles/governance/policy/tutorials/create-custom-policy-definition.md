@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 10/05/2020
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -16,8 +16,8 @@ often enforce:
 Whatever the business driver for creating a custom policy, the steps are the same for defining the
 new custom policy.
 
-Before creating a custom policy, check the [policy samples](../samples/index.md) to see if a policy
-that matches your needs already exists.
+Before creating a custom policy, check the [policy samples](../samples/index.md) to see whether a
+policy that matches your needs already exists.
 
 The approach to creating a custom policy follows these steps:
 
@@ -45,8 +45,8 @@ steps involved:
 Your requirements should clearly identify both the "to be" and the "not to be" resource states.
 
 While we've defined the expected state of the resource, we've not yet defined what we want done with
-non-compliant resources. Azure Policy supports a number of [effects](../concepts/effects.md). For
-this tutorial, we'll define the business requirement as preventing the creation of resources if they
+non-compliant resources. Azure Policy supports many [effects](../concepts/effects.md). For this
+tutorial, we'll define the business requirement as preventing the creation of resources if they
 aren't compliant with the business rules. To meet this goal, we'll use the
 [Deny](../concepts/effects.md#deny) effect. We also want the option to suspend the policy for
 specific assignments. As such, we'll use the [Disabled](../concepts/effects.md#disabled) effect and
@@ -79,7 +79,7 @@ to browse resources in your environment and see the Resource Manager properties 
 ### ARM templates
 
 There are several ways to look at an
-[ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
+[ARM template](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
 includes the property you're looking to manage.
 
 #### Existing resource in the portal
@@ -211,7 +211,6 @@ tutorial:
 - Azure Policy extension for VS Code
 - Azure CLI
 - Azure PowerShell
-- Azure Resource Graph
 
 ### Get aliases in VS Code extension
 
@@ -254,130 +253,6 @@ earlier.
 
 Like Azure CLI, the results show an alias supported by the storage accounts named
 **supportsHttpsTrafficOnly**.
-
-### Azure Resource Graph
-
-[Azure Resource Graph](../../resource-graph/overview.md) is a service that provides another method
-to find properties of Azure resources. Here is a sample query for looking at a single storage
-account with Resource Graph:
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-The results look similar to what we see in the ARM templates and through the Azure Resource
-Explorer. However, Azure Resource Graph results can also include
-[alias](../concepts/definition-structure.md#aliases) details by _projecting_ the _aliases_ array:
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-| project aliases
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-Here is example output from a storage account for aliases:
-
-```json
-"aliases": {
-    "Microsoft.Storage/storageAccounts/accessTier": null,
-    "Microsoft.Storage/storageAccounts/accountType": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/enableBlobEncryption": true,
-    "Microsoft.Storage/storageAccounts/enableFileEncryption": true,
-    "Microsoft.Storage/storageAccounts/encryption": {
-        "keySource": "Microsoft.Storage",
-        "services": {
-            "blob": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            },
-            "file": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            }
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.keySource": "Microsoft.Storage",
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyname": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyvaulturi": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyversion": null,
-    "Microsoft.Storage/storageAccounts/encryption.services": {
-        "blob": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        },
-        "file": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob.enabled": true,
-    "Microsoft.Storage/storageAccounts/encryption.services.file": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.file.enabled": true,
-    "Microsoft.Storage/storageAccounts/networkAcls": {
-        "bypass": "AzureServices",
-        "defaultAction": "Allow",
-        "ipRules": [],
-        "virtualNetworkRules": []
-    },
-    "Microsoft.Storage/storageAccounts/networkAcls.bypass": "AzureServices",
-    "Microsoft.Storage/storageAccounts/networkAcls.defaultAction": "Allow",
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
-    "Microsoft.Storage/storageAccounts/primaryEndpoints": {
-        "blob": "https://mystorageaccount.blob.core.windows.net/",
-        "file": "https://mystorageaccount.file.core.windows.net/",
-        "queue": "https://mystorageaccount.queue.core.windows.net/",
-        "table": "https://mystorageaccount.table.core.windows.net/"
-    },
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
-    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
-    "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
-    "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/sku.tier": "Standard",
-    "Microsoft.Storage/storageAccounts/statusOfPrimary": "available",
-    "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly": false
-}
-```
-
-Azure Resource Graph can be used through [Cloud Shell](https://shell.azure.com), making it a fast
-and easy way to explore the properties of your resources.
 
 ## Determine the effect to use
 
@@ -462,8 +337,8 @@ parameters block looks like this example:
 Composing the [policy rule](../concepts/definition-structure.md#policy-rule) is the final step in
 building our custom policy definition. We've identified two statements to test for:
 
-- That the storage account **type** is **Microsoft.Storage/storageAccounts**
-- That the storage account **supportsHttpsTrafficOnly** isn't **true**
+- The storage account **type** is **Microsoft.Storage/storageAccounts**
+- The storage account **supportsHttpsTrafficOnly** isn't **true**
 
 Since we need both of these statements to be true, we'll use the **allOf** [logical
 operator](../concepts/definition-structure.md#logical-operators). We'll pass the **effectType**

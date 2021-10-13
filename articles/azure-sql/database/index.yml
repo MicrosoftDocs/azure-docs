@@ -8,12 +8,12 @@ metadata:
   description: Find documentation about Azure SQL Database, a platform-as-a-service (PaaS) based on the latest stable version of Microsoft SQL Server.
   services: sql-database
   ms.service: sql-database
-  ms.subservice: single-database
+  ms.subservice: service-overview
   ms.topic: landing-page
-  author: stevestein
-  ms.author: sstein
+  author: MashaMSFT
+  ms.author: mathoma
   ms.reviewer:
-  ms.date: 10/13/2020
+  ms.date: 01/25/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,20 +24,22 @@ landingContent:
   # Card 
   - title: Azure SQL Database
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: doc-changes-updates-release-notes.md?tabs=single-database        
       - linkListType: quickstart
         links:
           - text: Create SQL Database
             url: single-database-create-quickstart.md
           - text: Configure firewall
-            url: firewall-create-server-level-portal-quickstart.md 
+            url: firewall-create-server-level-portal-quickstart.md
       - linkListType: video
         links:
           - text: Azure SQL Database overview
             url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
-          - text: What's new? 
-            url: doc-changes-updates-release-notes.md?tabs=single-database
           - text: What is SQL Database?
             url: sql-database-paas-overview.md
           - text: Purchasing options
@@ -154,7 +156,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-database-references
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API
@@ -175,3 +177,23 @@ landingContent:
             url: elastic-scale-introduction.md 
           - text: Elastic query 
             url: elastic-query-overview.md
+
+  # Card 
+  - title: Planned maintenance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan for Azure maintenance events
+            url: planned-maintenance.md
+          - text: Maintenance window
+            url: maintenance-window.md
+          - text: Resource health
+            url: resource-health-to-troubleshoot-connectivity.md
+
+      - linkListType: how-to-guide
+        links:
+          - text: Configure maintenance window
+            url: maintenance-window-configure.md
+          - text: Maintenance window notifications
+            url: advance-notifications.md
+ 

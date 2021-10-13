@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Create video transcript reviews using .NET
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
 - Create a video review for human moderators
@@ -378,5 +380,3 @@ You see the following features:
 Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
 
 Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) in the review tool.
-
-Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).

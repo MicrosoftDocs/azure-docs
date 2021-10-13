@@ -27,7 +27,7 @@ You can also clear the token cache, which is achieved by removing the accounts f
 
 ## Scopes when acquiring tokens
 
-[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and Microsoft identity platform (v2.0) APIs. v2.0 protocol uses scopes instead of resource in the requests. For more information, read [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md). Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
+[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. For more information, read [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md). Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
 
 Several of MSAL's token acquisition methods require a `scopes` parameter. The `scopes` parameter is a list of strings that declare the desired permissions and the resources requested. Well-known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
@@ -90,7 +90,7 @@ Generally, the method of acquiring a token depends on whether it's a public clie
 For public client applications (desktop or mobile app), you:
 
 - Often acquire tokens interactively, having the user sign in through a UI or pop-up window.
-- Can [get a token silently for the signed-in user](msal-authentication-flows.md#integrated-windows-authentication) using Integrated Windows Authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
+- Can [get a token silently for the signed-in user](msal-authentication-flows.md#integrated-windows-authentication) using integrated Windows authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
 - Can [get a token with a username and password](msal-authentication-flows.md#usernamepassword) in .NET framework desktop client applications (not recommended). Do not use username/password in confidential client applications.
 - Can acquire a token through the [device code flow](msal-authentication-flows.md#device-code) in applications running on devices that don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in. Azure AD then sends a token back to the browser-less device.
 
@@ -119,6 +119,8 @@ When your client requests an access token, Azure AD also returns an authenticati
 
 ## Next steps
 
-If you're using MSAL for Java, learn about [custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md).
-
-Learn about [handling errors and exceptions](msal-handling-exceptions.md).
+Several of the platforms supported by MSAL have additional token cache-related information in the documentation for that platform's library. For example:
+- [Get a token from the token cache using MSAL.NET](msal-net-acquire-token-silently.md)
+- [Single sign-on with MSAL.js](msal-js-sso.md)
+- [Custom token cache serialization in MSAL for Python](msal-python-token-cache-serialization.md)
+- [Custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md)

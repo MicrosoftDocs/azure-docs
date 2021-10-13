@@ -39,7 +39,7 @@ The first step in protecting your VMs is to ensure that only authorized users ca
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../../governance/management-groups/overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
 **Best practice**: Reduce variability in your setup and deployment of VMs.   
-**Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
+**Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
 
 **Best practice**: Secure privileged access.   
 **Detail**: Use a [least privilege approach](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and built-in Azure roles to enable users to access and set up VMs:
@@ -59,7 +59,7 @@ Your subscription admins and coadmins can change this setting, making them admin
 Organizations that control VM access and setup improve their overall VM security.
 
 ## Use multiple VMs for better availability
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) or availability [zones](../../availability-zones/az-overview.md).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../../virtual-machines/availability-set-overview.md) or availability [zones](../../availability-zones/az-overview.md).
 
 An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they’re deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
 
@@ -95,7 +95,7 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
 **Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
-**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
+**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
 **Best practice**: Rapidly apply security updates to VMs.   
 **Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/asset-inventory.md).
@@ -126,17 +126,17 @@ To monitor the security posture of your [Windows](../../security-center/security
 
 Security Center can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
 
-Security Center stores data in [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../../batch/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+Security Center stores data in [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../../batch/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
 Organizations that don't enforce strong security for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
 ## Monitor VM performance
 Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. This is particularly important for VMs that are hosting IIS or other web servers, because high CPU or memory usage might indicate a denial of service (DoS) attack. It’s imperative to monitor VM access not only reactively while an issue is occurring, but also proactively against baseline performance as measured during normal operation.
 
-We recommend that you use [Azure Monitor](../../azure-monitor/platform/data-platform.md) to gain visibility into your resource’s health. Azure Monitor features:
+We recommend that you use [Azure Monitor](../../azure-monitor/data-platform.md) to gain visibility into your resource’s health. Azure Monitor features:
 
-- [Resource diagnostic log files](../../azure-monitor/platform/platform-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
-- [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../../virtual-machines/extensions/diagnostics-template.md).
+- [Resource diagnostic log files](../../azure-monitor/essentials/platform-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
+- [Azure Diagnostics extension](../../azure-monitor/agents/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../../virtual-machines/extensions/diagnostics-template.md).
 
 Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
 

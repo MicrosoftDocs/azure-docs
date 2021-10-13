@@ -3,7 +3,7 @@ title: Introduction to Azure Red Hat OpenShift
 description: Learn the features and benefits of Microsoft Azure Red Hat OpenShift to deploy and manage container-based applications.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
@@ -31,7 +31,7 @@ Azure Red Hat OpenShift nodes run on Azure virtual machines. You can connect sto
 
 ## Service Level Agreement
 
-Azure Red Hat OpenShift offers a Service Level Agreement to guarantee that the service will be available 99.95% of the time. For more details on the SLA, see [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
+Azure Red Hat OpenShift offers a Service Level Agreement to guarantee that the service will be available 99.95% of the time. For more details on the SLA, see [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
-description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Sentinel.
+description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,13 +17,14 @@ ms.author: yelevin
 
 ---
 
-# Connect Azure Sentinel to AWS CloudTrail
+# Connect AWS CloudTrail to Azure Sentinel
 
 Use the AWS connector to stream your AWS CloudTrail management events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
 Azure Sentinel. This is accomplished on AWS by creating a role that gives permission to Azure Sentinel to access your AWS logs.
 
 > [!NOTE]
 > AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
+> Currently, you can only connect your AWS Commercial CloudTrail to Azure Sentinel and not AWS GovCloud CloudTrail.
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ You must have write permission on the Azure Sentinel workspace.
 ## Connect AWS 
 
 
-1. In Azure Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  click **Open connector page**.
+1. In Azure Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  select **Open connector page**.
 
 1. Follow the instructions under **Configuration** using the following steps.
  
@@ -71,7 +72,7 @@ You must have write permission on the Azure Sentinel workspace.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-1.  Copy the **Role ARN**. In the Azure Sentinel portal, in the Amazon Web Services connector screen, paste it into the **Role to add** field and click **Add**.
+1.  Copy the **Role ARN**. In the Azure Sentinel portal, in the Amazon Web Services connector screen, paste it into the **Role to add** field and select **Add**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
@@ -82,6 +83,6 @@ You must have write permission on the Azure Sentinel workspace.
 
 ## Next steps
 In this document, you learned how to connect AWS CloudTrail to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

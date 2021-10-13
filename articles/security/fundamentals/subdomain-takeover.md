@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
@@ -22,7 +22,7 @@ ms.author: memildin
 This article describes the common security threat of subdomain takeover and the steps you can take to mitigate against it.
 
 
-## What is subdomain takeover?
+## What is a subdomain takeover?
 
 Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](../../dns/dns-zones-records.md#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
@@ -116,7 +116,7 @@ If you're a global administrator of your organization’s tenant, elevate your a
 
 ### Run the script
 
-Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## Remediate dangling DNS entries 
 
@@ -141,6 +141,15 @@ Ensuring that your organization has implemented processes to prevent dangling DN
 
 Some Azure services offer features to aid in creating preventative measures and are detailed below. Other methods to prevent this issue must be established through your organization’s best practices or standard operating procedures.
 
+### Enable Azure Defender for App Service
+
+Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
+
+The **Azure Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
+
+Azure Defender's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
+
+Learn more about this and other benefits of this Azure Defender plan in [Introduction to Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### Use Azure DNS alias records
 
@@ -199,8 +208,10 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
+- [Enable Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - to receive alerts when dangling DNS entries are detected
+
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)
 
 - [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

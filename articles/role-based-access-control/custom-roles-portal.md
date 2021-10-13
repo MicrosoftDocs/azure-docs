@@ -5,13 +5,10 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 08/27/2021
 ms.author: rolyon
 ---
 
@@ -27,14 +24,12 @@ To create custom roles, you need:
 
 ## Step 1: Determine the permissions you need
 
-Azure has thousands of permissions that you can potentially include in your custom role. Here are four ways that you can determine the permissions you will want to add to your custom role:
+Azure has thousands of permissions that you can potentially include in your custom role. Here are some methods that can help you determine the permissions you will want to add to your custom role:
 
-| Method | Description |
-| --- | --- |
-| Look at existing roles | You can look at existing roles to see what permissions are being used. For more information, see [Azure built-in roles](built-in-roles.md). |
-| Search for permissions by keyword | When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions). |
-| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the **Add permissions** pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
-| View the permissions in the docs | You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md). |
+- Look at existing [built-in roles](built-in-roles.md).
+- List the Azure services you want to grant access to.
+- Determine the [resource providers that map to the Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). A search method is described later in [Step 4: Permissions](#step-4-permissions).
+- Search the [available permissions](resource-provider-operations.md) to find permissions you want to include. A search method is described later in [Step 4: Permissions](#step-4-permissions).
 
 ## Step 2: Choose how to start
 
@@ -48,7 +43,7 @@ If an existing role does not quite have the permissions you need, you can clone 
 
     The following screenshot shows the Access control (IAM) page opened for a subscription.
 
-    ![Access control (IAM) page for a subscription](./media/custom-roles-portal/access-control-subscription.png)
+    ![Access control (IAM) page for a subscription](./media/shared/sub-access-control.png)
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
@@ -176,15 +171,15 @@ Follow these steps to add or remove permissions for your custom role.
 
     A list of resource provider cards will be displayed based on your search string. For a list of how resource providers map to Azure services, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-    ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Add permissions pane with resource provider](./media/shared/add-permissions-provider.png)
 
 1. Click a resource provider card that might have the permissions you want to add to your custom role, such as **Microsoft Billing**.
 
     A list of the management permissions for that resource provider is displayed based on your search string.
 
-    ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
+    ![Add permissions list](./media/shared/add-permissions-list.png)
 
-1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane. For more information, about the differences between the management plane and data plane, see [Management and data operations](role-definitions.md#management-and-data-operations).
+1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the control plane. For more information, about the differences between the control plane and data plane, see [Control and data actions](role-definitions.md#control-and-data-actions).
 
 1. If necessary, update the search string to further refine your search.
 
@@ -241,7 +236,9 @@ When you exclude a permission, it is added as a `NotActions` or `NotDataActions`
 
 ## Step 5: Assignable scopes
 
-On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as subscription or resource group. Depending on how you chose to start, this tab might list the scope where you opened the Access control (IAM) page. Setting assignable scope to root scope ("/") is not supported. Currently, you cannot add a management group as an assignable scope.
+On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as management group, subscriptions, or resource groups. Depending on how you chose to start, this tab might already list the scope where you opened the Access control (IAM) page.
+
+ You can only define one management group in assignable scopes. Adding a management group to assignable scopes is currently in preview. Setting assignable scope to root scope ("/") is not supported.
 
 1. Click **Add assignable scopes** to open the Add assignable scopes pane.
 
@@ -335,4 +332,4 @@ Follow these steps to view your custom roles.
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)

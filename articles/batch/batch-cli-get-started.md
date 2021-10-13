@@ -49,7 +49,7 @@ There are a few different ways to log into Azure, described in detail in [Log in
 1. [Log in interactively](/cli/azure/authenticate-azure-cli). Log in interactively when you are running Azure CLI commands yourself from the command line.
 2. [Log in with a service principal](/cli/azure/authenticate-azure-cli). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
-For the purposes of this article, we show how to log into Azure interactively. Type [az login](/cli/azure/reference-index#az-login) on the command line:
+For the purposes of this article, we show how to log into Azure interactively. Type [az login](/cli/azure/reference-index#az_login) on the command line:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -64,7 +64,7 @@ The examples listed in the Sample shell scripts section also show how to start y
 
 ### Log in to your Batch account
 
-To use the Azure CLI to manage Batch resources, such as pools, jobs, and tasks, you need to log into your Batch account and authenticate. To log in to the Batch service, use the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. 
+To use the Azure CLI to manage Batch resources, such as pools, jobs, and tasks, you need to log into your Batch account and authenticate. To log in to the Batch service, use the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. 
 
 You have two options for authenticating against your Batch account:
 
@@ -76,7 +76,7 @@ You have two options for authenticating against your Batch account:
 
     An advantage of Azure AD is that it offers Azure role-based access control (Azure RBAC). With Azure RBAC, a user's access depends on their assigned role, rather than whether or not they possess the account keys. Instead of managing account keys, you can manage Azure roles, and let Azure AD handle access and authentication.  
 
-     To log in to your Batch account using Azure AD, call the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command: 
+     To log in to your Batch account using Azure AD, call the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

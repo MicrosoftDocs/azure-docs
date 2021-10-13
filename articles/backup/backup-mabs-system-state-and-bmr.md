@@ -246,11 +246,11 @@ You also can run the system state restore at a command prompt:
 
 1. To get the version identifer, at a command prompt, enter:
 
-   ```wbadmin get versions -backuptarget \<servername\sharename\>```
+   `wbadmin get versions -backuptarget \<servername\sharename\>`
 
 1. Use the version identifier to start the system state restore. At the command prompt, enter:
 
-    ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+   `wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>`
 
 1. Confirm that you want to start the recovery. You can see the process in the Command Prompt window. A restore log is created.
 

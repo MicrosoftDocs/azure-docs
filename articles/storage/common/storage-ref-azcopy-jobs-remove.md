@@ -14,7 +14,7 @@ ms.reviewer: zezha-msft
 
 Remove all files associated with the given job ID.
 
-> [!NOTE] 
+> [!NOTE]
 > You can customize the location where log and plan files are saved. See the [azcopy env](storage-ref-azcopy-env.md) command to learn more.
 
 ```
@@ -24,9 +24,8 @@ azcopy jobs remove [jobID] [flags]
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 

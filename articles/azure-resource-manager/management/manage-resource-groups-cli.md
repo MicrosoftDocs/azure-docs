@@ -3,8 +3,8 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: jgao 
+ms.date: 09/10/2021
+ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
@@ -19,15 +19,13 @@ Other articles about managing resource groups:
 
 ## What is a resource group
 
-A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
-
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored.
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
 ## Create resource groups
 
-The following CLI command creates a resource group.
+to create a resource group, use [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name demoResourceGroup --location westus
@@ -35,76 +33,68 @@ az group create --name demoResourceGroup --location westus
 
 ## List resource groups
 
-The following CLI script lists the resource groups under your subscription.
+To list the resource groups in your subscription, use [az group list](/cli/azure/group#az_group_list).
 
 ```azurecli-interactive
 az group list
 ```
 
-To get one resource group:
+To get one resource group, use [az group show](/cli/azure/group#az_group_show).
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group show --name $resourceGroupName
+az group show --name exampleGroup
 ```
 
 ## Delete resource groups
 
-The following CLI script deletes a resource group:
+To delete a resource group, use [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName
+az group delete --name exampleGroup
 ```
 
 For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
-## Deploy resources to an existing resource group
+## Deploy resources
 
-See [Deploy resources to an existing resource group](manage-resources-cli.md#deploy-resources-to-an-existing-resource-group).
+You can deploy Azure resources by using Azure CLI, or by deploying an Azure Resource Manager (ARM) template or Bicep file.
 
-## Deploy a resource group and resources
+The following example creates a storage account. The name you provide for the storage account must be unique across Azure.
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
+```azurecli-interactive
+az storage account create --resource-group exampleGroup --name examplestore --location westus --sku Standard_LRS --kind StorageV2
+```
 
-## Redeploy when deployment fails
+To deploy an ARM template or Bicep file, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create).
 
-This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](../templates/rollback-on-error.md).
+```azurecli-interactive
+az deployment group create --resource-group exampleGroup --template-file storage.bicep
+```
 
-## Move to another resource group or subscription
+For more information about deploying an ARM template, see [Deploy resources with Resource Manager templates and Azure CLI](../templates/deploy-cli.md).
 
-You can move the resources in the group to another resource group. For more information, see [Move resources](manage-resources-cli.md#move-resources).
+For more information about deploying a Bicep file, see [Deploy resources with Bicep and Azure CLI](../bicep/deploy-cli.md).
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-The following script locks a resource group so the resource group can't be deleted.
+To prevent a resource group and its resources from being deleted, use [az lock create](/cli/azure/lock#az_lock_create).
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleGroup
 ```
 
-The following script gets all locks for a resource group:
+To get the locks for a resource group, use [az lock list](/cli/azure/lock#az_lock_list).
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group exampleGroup
 ```
 
-The following script deletes a lock:
+To delete a lock, use [az lock delete](/cli/azure/lock#az_lock_delete)
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the lock name:" &&
-read lockName &&
-az lock delete --name $lockName --resource-group $resourceGroupName
+az lock delete --name exampleLock --resource-group exampleGroup
 ```
 
 For more information, see [Lock resources with Azure Resource Manager](lock-resources.md).
@@ -115,32 +105,13 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-After setting up your resource group successfully, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
-
-- Automate future deployments of the solution because the template contains all the complete infrastructure.
-- Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group export --name $resourceGroupName  
-```
-
-The script displays the template on the console.  Copy the JSON, and save as a file.
-
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
-
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
+To assist with creating ARM templates, you can export a template from existing resources. For more information, see [Use Azure CLI to export a template](../templates/export-template-cli.md). 
 
 ## Manage access to resource groups
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+To manage access to a resource group, use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
-- To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).

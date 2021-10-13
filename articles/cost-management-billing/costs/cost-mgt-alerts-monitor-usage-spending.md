@@ -1,9 +1,9 @@
 ---
-title: Monitor usage and spending with cost alerts
-description: This article describes how cost alerts help you monitor usage and spending in Azure Cost Management.
+title: Monitor usage and spending with cost alerts in Azure Cost Management
+description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -24,7 +24,7 @@ You can use the Budget API to send email alerts in a different language. For mor
 
 ## Credit alerts
 
-Credit alerts notify you when your Azure credit monetary commitments are consumed. Monetary commitments are for organizations with Enterprise Agreements. Credit alerts are generated automatically at 90% and at 100% of your Azure credit balance. Whenever an alert is generated, it's reflected in cost alerts and in the email sent to the account owners.
+Credit alerts notify you when your Azure Prepayment (previously called monetary commitment) is consumed. Azure Prepayment is for organizations with Enterprise Agreements. Credit alerts are generated automatically at 90% and at 100% of your Azure Prepayment credit balance. Whenever an alert is generated, it's reflected in cost alerts and in the email sent to the account owners.
 
 ## Department spending quota alerts
 

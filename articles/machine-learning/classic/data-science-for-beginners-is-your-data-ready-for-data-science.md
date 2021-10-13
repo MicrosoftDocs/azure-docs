@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Data evaluation - Azure'
 description: Four criteria your data needs to meet to be ready for data science. This video has concrete examples to help with basic data evaluation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 
 author: sdgilley
@@ -12,6 +12,9 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ---
 # Is your data ready for data science?
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## Video 2: Data Science for Beginners series
 Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 
@@ -94,8 +97,8 @@ As you add more data, the picture becomes clearer and you can make more detailed
 
 With data that's relevant, connected, accurate, and enough, you have all the ingredients needed to do some high-quality data science.
 
-Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning Studio (classic).
+Be sure to check out the other four videos in *Data Science for Beginners* from Machine Learning Studio (classic).
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

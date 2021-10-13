@@ -1,22 +1,22 @@
 ---
-title: Operating System Compatibility Matrix for SAP HANA (Large Instances)| Microsoft Docs
-description: The compatibility matrix represents the compatibility of different versions of Operating System with different hardware types (Large Instances)
+title: Operating system compatibility matrix for SAP HANA (Large Instances)| Microsoft Docs
+description: The compatibility matrix represents the compatibility of different versions of operating system with different hardware types (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: sasarava
+author: Ajayan1008
 manager: hrushib
 editor:
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2020
-ms.author: sasarava
+ms.date: 05/18/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
-# Compatible Operating Systems for HANA Large Instances
+# Compatible operating systems for HANA Large Instances
 
 ## HANA Large Instance Type I     
   | Operating System | Availability        | SKUs                                                          |
@@ -29,7 +29,8 @@ ms.custom: H1Hack27Feb2017
   | RHEL 7.6         | Available           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
 
   
-### Persistent Memory SKUs
+### Persistent memory SKUs
+
   | Operating System | Availability | SKUs                             |
   |------------------|--------------|----------------------------------|
   | SLES 12 SP4      | Available    | S224oo, S224om, S224ooo, S224oom |
@@ -44,11 +45,11 @@ ms.custom: H1Hack27Feb2017
   | SLES 15 SP1             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | RHEL 7.6                | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
 
-## Related Documents
+## Next steps
 
-- To know more about [Available SKUs](hana-available-skus.md)
-- To know about [Upgrading the Operating System](os-upgrade-hana-large-instance.md)
-  
+Learn more about:
 
-  
+- [Available SKUs](hana-available-skus.md)
+- [Upgrading the operating system](os-upgrade-hana-large-instance.md)
+- [Supported scenarios for HANA Large Instances](hana-supported-scenario.md)
   

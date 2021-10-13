@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
 ---
@@ -19,11 +19,11 @@ This guide shows you how to specify a face recognition model for face detection,
 
 The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-The Azure Face service has three recognition models available. The models _recognition_01_ (published 2017) and _recognition_02_ (published 2019) are continually supported to ensure backwards compatibility for customers using FaceLists or **PersonGroup**s created with these models. A **FaceList** or **Persongroup** will always use the recognition model it was created with, and new faces will become associated with this model when they are added. This cannot be changed after creation and customers will need to use the corresponding recognition model with the corresponding **FaceList** or **PersonGroup**.
+The Azure Face service has four recognition models available. The models _recognition_01_ (published 2017), _recognition_02_ (published 2019), and _recognition_03_ (published 2020) are continually supported to ensure backwards compatibility for customers using FaceLists or **PersonGroup**s created with these models. A **FaceList** or **Persongroup** will always use the recognition model it was created with, and new faces will become associated with this model when they are added. This cannot be changed after creation and customers will need to use the corresponding recognition model with the corresponding **FaceList** or **PersonGroup**.
 
 You can move to later recognition models at your own convenience; however, you will need to create new FaceLists and PersonGroups with the recognition model of your choice.
 
-The _recognition_03_ model (published 2020) is the most accurate model currently available. If you're a new customer, we recommend using this model. _Recognition_03_ will provide improved accuracy for both similarity comparisons and person-matching comparisons. Note that each model operates independently of the others, and a confidence threshold set for one model is not meant to be compared across the other recognition models.
+The _recognition_04_ model (published 2021) is the most accurate model currently available. If you're a new customer, we recommend using this model. _Recognition_04_ will provide improved accuracy for both similarity comparisons and person-matching comparisons. _Recognition_04_ improves recognition for enrolled users wearing face covers (surgical masks, N95 masks, cloth masks). Now you can build safe and seamless user experiences that use the latest _detection_03_ model to detect whether an enrolled user is wearing a face cover, and then recognize who they are with the latest _recognition_04_ model. Note that each model operates independently of the others, and a confidence threshold set for one model is not meant to be compared across the other recognition models.
 
 Read on to learn how to specify a selected model in different Face operations while avoiding model conflicts. If you are an advanced user and would like to determine whether you should switch to the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
@@ -34,7 +34,7 @@ You should be familiar with the concepts of AI face detection and identification
 
 * [Face detection concepts](../concepts/face-detection.md)
 * [Face recognition concepts](../concepts/face-recognition.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 
@@ -46,6 +46,7 @@ When using the [Face - Detect] API, assign the model version with the `recogniti
 * recognition_01
 * recognition_02
 * recognition_03
+* recognition_04
 
 
 Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
@@ -68,12 +69,12 @@ A **PersonGroup** should have one unique recognition model for all of the **Pers
 See the following code example for the .NET client library.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_02" model
+// Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 ```
 
-In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
+In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_04_ model to extract face features.
 
 Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
@@ -81,15 +82,15 @@ There is no change in the [Face - Identify] API; you only need to specify the mo
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the `recognition_01` model is used by default. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to the list; you cannot change this after creation. To see what model a face list is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the **FaceList** with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the `recognition_01` model is used by default. A **FaceList** will always use the recognition model it was created with, and new faces will become associated with this model when they are added to the list; you cannot change this after creation. To see what model a **FaceList** is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
 
 See the following code example for the .NET client library.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-This code creates a face list called `My face collection`, using the _recognition_03_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_03_ model. As in the previous section, the model needs to be consistent.
+This code creates a **FaceList** called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this **FaceList** for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
 
 There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
 
@@ -100,17 +101,17 @@ The [Face - Verify] API checks whether two faces belong to the same person. Ther
 ## Evaluate different models
 
 If you'd like to compare the performances of different recognition models on your own data, you will need to:
-1. Create three PersonGroups using _recognition_01_, _recognition_02_, and _recognition_03_ respectively.
-1. Use your image data to detect faces and register them to **Person**s within these three **PersonGroup**s. 
+1. Create four PersonGroups using _recognition_01_, _recognition_02_, _recognition_03_, and _recognition_04_ respectively.
+1. Use your image data to detect faces and register them to **Person**s within these four **PersonGroup**s. 
 1. Train your PersonGroups using the PersonGroup - Train API.
-1. Test with Face - Identify on all three **PersonGroup**s and compare the results.
+1. Test with Face - Identify on all four **PersonGroup**s and compare the results.
 
 
 If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), you may need to use different thresholds for different models. A threshold for one model is not meant to be shared to another and will not necessarily produce the same results.
 
 ## Next steps
 
-In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
+In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started with face detection.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

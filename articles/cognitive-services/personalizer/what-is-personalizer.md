@@ -1,6 +1,9 @@
 ---
 title: What is Personalizer?
 description: Personalizer is a cloud-based service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
@@ -11,16 +14,19 @@ keywords: personalizer, Azure personalizer, machine learning
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, the system monitors real-time user behavior and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
+Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
 
 > [!TIP]
 > Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
 
-Before you get started, feel free to try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
+This documentation contains the following article types:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* [**Quickstarts**](quickstart-personalizer-sdk.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
+Before you get started, try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
 
 ## How does Personalizer select the best content item?
 
@@ -60,7 +66,7 @@ Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs
 
 Use Personalizer when your content:
 
-* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items.
+* Has a limited set of actions or items (max of ~50) to select from in each personalization event. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items for each time you call Rank on the Personalizer service.
 * Has information describing the content you want ranked: _actions with features_ and _context features_.
 * Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
 
@@ -96,24 +102,12 @@ Since Personalizer uses collective information in near real-time to return the s
         * Or sometime later in an offline system
     1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
-## Complete a quickstart
-
-We offer quickstarts in C#, JavaScript, and Python. Each quickstart is designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
-
-* [Quickstart: How to use the Personalizer client library](./quickstart-personalizer-sdk.md)
-
-After you've had a chance to get started with the Personalizer service, try our tutorials and learn how to use Personalizer in web applications, chat bots, or an Azure Notebook.
-
-* [Tutorial: Use Personalizer in a .NET web app](tutorial-use-personalizer-web-app.md)
-* [Tutorial: Use Personalizer in a .NET chat bot](tutorial-use-personalizer-chat-bot.md)
-* [Tutorial: Use Personalizer in an Azure Notebook](tutorial-use-azure-notebook-generate-loop-data.md)
-
 ## Reference 
 
-* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
-* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
+* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer)
 * [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## Next steps

@@ -12,8 +12,9 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 
 > [!NOTE]
 >
-> This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
+> * This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
 > events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
+> * For creating custom reporting views, it is recommended to use [system functions on Azure Monitor logs](backup-reports-system-functions.md) instead of working with the raw tables listed below.
 
 ## Using Azure Backup data model
 
@@ -193,9 +194,9 @@ This table provides details about policy-related fields.
 | MonthlyRetentionDaysOfTheWeek_s |Text ||Days of the week selected for monthly retention |
 | MonthlyRetentionWeeksOfTheMonth_s |Text ||Weeks of the month when monthly retention is configured, for example, First, Last |
 | YearlyRetentionDuration_s |Decimal Number ||Total retention duration in years for configured backups |
-| YearlyRetentionTimes_s |Text ||Date and time when yearly retention is configured |
-| YearlyRetentionMonthsOfTheYear_s |Text ||Months of the year selected for yearly retention |
-| YearlyRetentionFormat_s |Text ||Type of configuration for yearly retention, for example, daily for day based, weekly for week based | |
+| YearlyRetentionTimes_s |Text | | Date and time when yearly retention is configured |
+| YearlyRetentionMonthsOfTheYear_s |Text | | Months of the year selected for yearly retention |
+| YearlyRetentionFormat_s |Text ||Type of configuration for yearly retention, for example, daily for day based, weekly for week based |
 | YearlyRetentionDaysOfTheMonth_s |Text ||Dates of the month selected for yearly retention |
 | SynchronisationFrequencyPerDay_s |Whole Number |v2|Number of times in a day a file backup is synchronized for SC DPM and MABS |
 | DiffBackupFormat_s |Text |v2|Format for Differential backups for SQL in Azure VM backup |
@@ -490,4 +491,4 @@ As the V1 schema is on a deprecation path, it's recommended to use only the V2 s
 
 ## Next steps
 
-Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
+Once you review the data model, you can start [creating custom queries](../azure-monitor/visualize/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.

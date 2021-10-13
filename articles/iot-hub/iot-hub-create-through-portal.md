@@ -54,7 +54,7 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 Click **Create** to add this newly created policy to the existing list.
 
-For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Register a new device in the IoT hub
 
