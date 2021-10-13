@@ -57,7 +57,7 @@ items:
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
   - name: Generate SAS tokens for Azure Blob containers
-    href:  generate-sas-tokens.md   
+    href:  generate-sas-tokens.md
   - name: Build and train a custom model
     items:
     - name: Assemble a training data set
@@ -69,7 +69,7 @@ items:
     - name: Use table tags to train your custom model
       href: supervised-table-tags.md
   - name: Compose custom models
-    href: compose-custom-models.md 
+    href: compose-custom-models.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -99,7 +99,7 @@ items:
   - name: Model overview
     href: concept-model-overview.md
   - name: Form Recognizer Studio | preview
-    href: concept-form-recognizer-studio.md 
+    href: concept-form-recognizer-studio.md
   - name: General document model | preview
     href: concept-general-document.md
   - name: Layout model
@@ -135,8 +135,22 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Error codes and messages v3.0 (preview) 
-    href: preview-error-guide.md 
+  - name: Error codes and messages v3.0 (preview)
+    href: preview-error-guide.md
+  - name: Azure Form Recognizer REST API v3.0 (preview)
+    items:
+    - name: REST API v3.0 reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument
+    - name: Client libraries and SDKs
+      items:
+      - name: .NET
+        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html
+      - name: Python
+        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html
+      - name: Java
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html
+      - name: JavaScript
+        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference
@@ -155,7 +169,7 @@ items:
     items:
     - name: REST API v2.0 reference
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
-    - name: SDK v3.0.0 guide
+    - name: SDK guide
       href: api-v2-0/reference-sdk-api-v2-0.md
 - name: Resources
   items:
