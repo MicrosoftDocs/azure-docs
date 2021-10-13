@@ -37,3 +37,15 @@ This article provides suggestions to troubleshoot common problems with the Hive 
     2. Add the `KRB5_CONFIG` and `KRB5CCNAME` to the system variable as well.
     3. Edit the **krb.ini** file.
     4. Shut down and restart the VM and the SHIR from the machine.
+
+## Next steps
+
+For more troubleshooting help, try these resources:
+
+- [Connector troubleshooting guide](connector-troubleshoot-guide.md)
+- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
+- [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
