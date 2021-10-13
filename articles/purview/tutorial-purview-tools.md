@@ -33,7 +33,7 @@ This page lists several open-source tools and utilities (command line, python, a
 
 2. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts*
-- **Description**: PowerShell script to perform initial set-up of Purview account. Useful for anyone looking to set up several fresh new Purview account(s) in less than 5 minutes!
+- **Description**: PowerShell script to perform initial set up of Purview account. Useful for anyone looking to set up several fresh new Purview account(s) in less than 5 minutes!
 
 3. [Purview Lab](https://aka.ms/purviewlab)
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts*
@@ -41,11 +41,11 @@ This page lists several open-source tools and utilities (command line, python, a
 
 4. [Purview CLI](https://aka.ms/purviewcli)
 - *Recommended Customer Journey Stages: Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
-- **Description**: Another technique of using the Purview APIs similar to [Purview-API-via-PowerShell](https://aka.ms/purview-api-ps) , only difference being this tool is Python based, whereas the former is PowerShell based.
+- **Description**: Python-based tool to execute the Purview APIs similar to [Purview-API-via-PowerShell](https://aka.ms/purview-api-ps) but has limited/lesser functionality than the PowerShell-based framework.
 
 5. [Purview Demo](https://aka.ms/pvdemo)
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts*
-- **Description**: An Azure ARM template based tool to automatically set-up and deploy fresh new Azure Purview account quickly and securely at the issue of just one command. It is similar to [Purview-Starter-Kit](https://aka.ms/PurviewKickstart), the extra feature being it deploys a few more pre-configured data sources - Azure SQL Database, Azure Data Lake Storage Gen2 Account, Azure Data Factory, Azure Synapse Analytics Workspace
+- **Description**: An Azure ARM template-based tool to automatically set up and deploy fresh new Azure Purview account quickly and securely at the issue of just one command. It is similar to [Purview-Starter-Kit](https://aka.ms/PurviewKickstart), the extra feature being it deploys a few more pre-configured data sources - Azure SQL Database, Azure Data Lake Storage Gen2 Account, Azure Data Factory, Azure Synapse Analytics Workspace
 
 6. [PyApacheAtlas: Interface between Azure Purview and Apache Atlas](https://github.com/wjohnson/pyapacheatlas) using Atlas APIs
 - *Recommended Customer Journey Stages: Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
@@ -58,7 +58,7 @@ This page lists several open-source tools and utilities (command line, python, a
 
 ## Feedback & Disclaimer
 Disclaimer: None of these tools come with an express warranty from Microsoft verifying their efficacy or guarantees of functionality, however, they are certified to be free of any malicious activity or viruses, and guaranteed to not collect any private or PII data.
-Feedback: Any feedback or questions about efficacy and functionality during usage ? Please contact the respective tool owners/authors on the contact details mentioned in the respective github repo.
+Feedback: IN case of any feedback or questions about efficacy and functionality during usage - please contact the respective tool owners/authors on the contact details mentioned in the respective github repo.
 
 
 ## Next steps
