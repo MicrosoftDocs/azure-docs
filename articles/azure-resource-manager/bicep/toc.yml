@@ -49,8 +49,12 @@
       href: outputs.md
       displayName: dynamic number of outputs,modules
     - name: Modules
-      href: modules.md
-      displayName: scopes,consume
+      items:
+      - name: Module definition
+        href: modules.md
+        displayName: scopes,consume
+      - name: Create private registry
+        href: private-module-registry.md
     - name: Loops
       items:
       - name: Resources
@@ -143,8 +147,6 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
-  - name: Create private registry
-    href: private-module-registry.md
 - name: Reference
   items:
   - name: Bicep file structure

@@ -2,94 +2,69 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ---
 
-# Use private registry for Bicep modules (Preview)
+# Create private registry for Bicep modules (Preview)
 
-To share [modules](modules.md) within your organization, you can create a private module registry. Publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files.
+To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files.
 
-## Install
+To work with module registries, you must have Bicep CLI version **x.xx or later**.
 
-The Bicep Registry can be found in the [nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md). Install both Bicep CLI and Visual Studio Code extension.
+## Configure private registry
 
-## Set up private registry
+A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). Use the following steps to configure your registry for modules.
 
-A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create a container registry, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md). Any of the available registry SKUs can be used for Bicep module registry. Registry [geo-replication](../../container-registry/container-registry-geo-replication.md) provides users with a local presence or as a hot-backup.
+1. If you already have a container registry, you can use it. If you need to create a container registry, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md). 
 
-Login server name is used to access the registry.  To get the login server name:
+   You can use any of the available registry SKUs for the module registry. Registry [geo-replication](../../container-registry/container-registry-geo-replication.md) provides users with a local presence or as a hot-backup.
 
-# [PowerShell](#tab/azure-powershell)
+1. Get the login server name. You need this name when linking to the registry from your Bicep files. To get the login server name, use either [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry) or [az acr show](/cli/azure/acr#az_acr_show).
 
-```azurepowershell
-Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"
-```
+   # [PowerShell](#tab/azure-powershell)
 
-# [CLI](#tab/azure-cli)
+   ```azurepowershell
+   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"
+   ```
+
+   # [CLI](#tab/azure-cli)
+
+   ```azurecli
+   az acr show --resource-group <resource-group-name> --name <registry-name>
+   ```
+
+   ---
+
+   The format of the login server name is: `<registry-name>.azurecr.io`.
+
+1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
+
+1. For more security, you can require access through a private endpoint. For more information, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
+
+## Publish files to registry
+
+After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
 
 ```azurecli
-az acr list --resource-group <resource-group-name>
+az bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
----
+To see the published module in the portal:
 
-The format of the login server name is: `<registry-name>.azurecr.io`.
-
-### Configure container registry permissions
-
-To publish modules to a registry, you must have permission to push an image. To deploy a module from a registry, you have permission to pull the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
-
-
-
-*** defaultAzureCredential class
-
-*** Auth configure in the bicep configuration file (not ready yet)
-
-To use a private endpoint to restrict access, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
-
-
-## From Bicep CLI
-
-To see the published module by using the portal:
-
-1. sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **container registries**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **container registries**.
 1. Select your registry.
 1. Select **Repositories** from the left menu.
 1. Select the module path (repository).  In the preceding example, the module path name is **bicep/modules/storage**.
 1. Select the tag. In the preceding example, the tag is **v1**.
-1. The **Artifact reference** shall match the module reference.
+1. The **Artifact reference** matches the reference you'll use in the Bicep file.
 
-![Bicep module registry artifact reference](./media/module-registry/bicep-module-registry-artifact-reference.png)
+   ![Bicep module registry artifact reference](./media/private-module-registry/bicep-module-registry-artifact-reference.png)
 
-The publish process creates the repository and the tag.
-
-> [!WARNING]
-> Publish to the same registry with the same module reference overwrites the old module. It is recommended to create a new module version each time you publish a new module instead of overwriting an existing module in the registry.
-
-
-
-
-## From Visual Studio Code
-
-When you reference an external component from a Bicep file in Visual Studio code, the Bicep extension automatically calls [bicep restore](bicep-cli.md#restore) to restore the external module from the module registry to the local module cache, so you can take advantage of autocompletion and type checking.
-
-To define a resource referencing an external module in a Bicep file, use the `resource` keyword followed by a symbolic name and the external reference.
-
-```bicep
-resource stg '<external-module-reference>' = {
-  ...
-}
-```
-
-See [Bciep modules](modules.md) for the syntax of adding external modules.
-
-After the single quote for the module reference, add = and a space. You're presented with options for adding properties to the resource. Select **required-properties**. If you don't see the **required-properties** option in the list, it is because the external module has not been restored to the local module cache. It takes a few moments to restore the external module.
-
-![Bicep module registry vscode required properties](./media/module-registry/bicep-module-registry-vscode-required-properties.png)
-
-The **required-properties** option adds all of the properties for external module that are required for deployment.
+You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
 
 ## Next steps
 
-To learn about all of the Bicep CLI commands, see [Bicep CLI commands](bicep-cli.md).
+* To learn about modules, see [Bicep modules](modules.md).
+* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](private-module-registry.md).
+* For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).

@@ -46,7 +46,7 @@ To **conditionally deploy a module**, add an `if` expression. The use is similar
 
 To deploy **more than one instance** a module, add the `for` expression. For more information, see [Module iteration in Bicep](loop-modules.md).
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="2" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
 Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they are determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
 
@@ -83,6 +83,8 @@ For example:
 The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-module-registry). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
+
+When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [bicep restore](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If intellisense for the module doesn't work immediately, wait for the restore to complete.
 
 ## Parameters
 

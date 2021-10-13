@@ -42,8 +42,8 @@ If your Bicep file includes a module that references an external registry, the b
 
 To not call restore automatically, use the `--no-restore` switch:
 
-```bicep
-bicep build --no-restore <bicep-file>
+```azurecli
+az bicep build --no-restore <bicep-file>
 ```
 
 The build process with the `--no-restore` switch fails if one of the external modules isn't already cached:
@@ -116,20 +116,20 @@ The command returns an array of available versions.
 
 The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md).
 
-After publishing the module, you can [reference it in a module](modules.md#file-in-registry).
+After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
 To use the publish command, you must have Bicep CLI version **x.xx or later**.
 
 To publish a module to a registry, use:
 
-```bicep
-bicep publish <bicep-file> --target br/<registry-name>.azurecr.io/<module-path>:<tag>
+```azurecli
+az bicep publish <bicep-file> --target br/<registry-name>.azurecr.io/<module-path>:<tag>
 ```
 
 For example:
 
-```bicep
-bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
+```azurecli
+az bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
 The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config.md) file. Provide the full module path.
@@ -145,8 +145,8 @@ To use the restore command, you must have Bicep CLI version **x.xx or later**.
 
 To manually restore the external modules for a file, use:
 
-```bicep
-bicep restore <bicep-file>
+```azurecli
+az bicep restore <bicep-file>
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
