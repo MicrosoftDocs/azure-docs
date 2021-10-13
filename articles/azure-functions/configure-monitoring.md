@@ -304,7 +304,7 @@ Depending on how the telemetry generated is going to be consumed, real-time dash
   :::image type="content" source="media/configure-monitoring/host-aggregator-function-overview.png" alt-text="Screenshot of Host.Aggregator telemetry displayed in function Overview tab." lightbox="media/configure-monitoring/host-aggregator-function-overview-big.png":::
 
   The following screenshot shows Host.Aggregator telemetry data in Application Insights customMetrics table.
-  :::image type="content" source="media/configure-monitoring/host-aggregator-custom-metrics.png" alt-text="Screenshot of Host.Aggregator telemetry in customMetrics Application Insights table." lightbox="media/configure-monitoring/host-aggregator-custom-metrics.png-big":::
+  :::image type="content" source="media/configure-monitoring/host-aggregator-custom-metrics.png" alt-text="Screenshot of Host.Aggregator telemetry in customMetrics Application Insights table." lightbox="media/configure-monitoring/host-aggregator-custom-metrics-big.png":::
 
 * **Host.Results category**: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating the success or failure of a function invocation. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function Monitor tab, and in different Application Insights dashboards (Performance, Failures...). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
 
@@ -312,7 +312,7 @@ Depending on how the telemetry generated is going to be consumed, real-time dash
   :::image type="content" source="media/configure-monitoring/host-results-function-monitor.png" alt-text="Screenshot of Host.Results telemetry in function Monitor tab." lightbox="media/configure-monitoring/host-results-function-monitor-big.png":::
 
   The following screenshot shows Host.Results telemetry data displayed in Application Insights Performance dashboard.
-  :::image type="content" source="media/configure-monitoring/host-results-application-insights.png" alt-text="Screenshot of Host.Results telemetry in Application Insights Performance dashboard." lightbox="media/configure-monitoring/host-results-application-insights-big.png":::
+  :::image type="content" source="media/configure-monitoring/host-results-application-insights.png" alt-text="Screenshot of Host.Results telemetry in Application Insights Performance dashboard." lightbox="media/configure-monitoring/host-results-application-insights-biggit.png":::
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights about function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based on the other.
 
