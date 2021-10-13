@@ -118,7 +118,7 @@ az vm run-command invoke \
 	- **Resource group**: `link-demo`
 	- **Location**: `(US) East US`
 	- **Name**: `link-demo-sg-c-pe1`
-	- **Target sub-resource**: `link-demo-sg-c`
+	- **Target sub-resource**: `coordinator`
 	- **Virtual network**: `link-demo-net`
 	- **Subnet**: `link-demo-subnet`
 	- **Integrate with private DNS zone**: Yes
