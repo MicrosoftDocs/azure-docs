@@ -43,6 +43,15 @@ After you have created the database make sure the storage account & filepath is 
 To save your layout and make it available within Synapse Publish all changes. This step completes the setup of the lake database and makes it available to all components within Synapse Analytics and outside. 
 
 
+## Ingest data to lake database
+
+To ingest data to the lake database, you can execute [pipelines](../synapse-analytics/data-integration/) with code free data flow mappings which has a **Workspace DB** connector to load data directly to the database table. You can also use the interactive Spark notebooks to ingest data to the lake database tables:
+```Spark
+%%sql
+INSERT INTO `retail_gf6`.`customer` VALUES (1,'2021-02-18',1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
+```
+ 
+
 ## Query the data
 
 After the lake database is created there are different ways to query the data. This can be done over SQL-Ondemand within Synapse that automatically understands the newly created lake database format and exposes the data through it. 
@@ -62,3 +71,6 @@ df = spark.sql("SELECT * FROM `Retail_mil`.`RetailProduct`")
 df.show(10)
 ```
 
+## Train machine learning models
+
+You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](./synapse-analytics/machine-learning/tutorial-automl.md) 
