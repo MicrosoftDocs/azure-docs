@@ -55,9 +55,9 @@ When you complete the quickstart, you have an app that's ready to run. For more 
 
 ## Tools
 
-Microsoft Graph Explorer is a web-based tool that you can use to build and test requests using Microsoft Graph APIs. You can access Microsoft Graph Explorer at: `https://developer.microsoft.com/graph/graph-explorer`.
+**Microsoft Graph Explorer** is a web-based tool that you can use to build and test requests to the Microsoft Graph API. Access Microsoft Graph Explorer at https://developer.microsoft.com/graph/graph-explorer.
 
-Postman is a tool that you can also use to build and test requests using the Microsoft Graph APIs. You can download Postman at: `https://www.getpostman.com/`. To interact with Microsoft Graph in Postman, you use the Microsoft Graph collection in Postman. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
+**Postman** is another tool you can use for making requests to the Microsoft Graph API. You can download Postman at https://www.getpostman.com. To interact with Microsoft Graph in Postman, use the [Microsoft Graph Postman collection](/graph/use-postman).
 
 ## Next steps
 
