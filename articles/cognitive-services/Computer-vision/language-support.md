@@ -30,6 +30,7 @@ See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.
 
 ### Handwritten languages
 The following table lists the handwritten languages supported by Read.
+
 |Language| Language code (optional) | Read |
 |:-----|:----:|:-----|
 |English|`en`|✅ |
