@@ -57,11 +57,11 @@ The Azure Maps iOS SDK provides three ways of setting the language and regional 
         ])
     }
     ```
-<!--
+
 Here is an example of an Azure Maps application with the language set to "fr-FR" and regional view set to "Auto".
 
-:::image type="content" source="media/ios-sdk/how-to-use-ios-map-control-library/fr.png" alt-text="A map image showing labels in French.":::
--->
+:::image type="content" source="media/ios-sdk/how-to-use-ios-map-control-library/fr-borderless.png" alt-text="A map image showing labels in French.":::
+
 For a complete list of supported languages and regional views, see [Localization support in Azure Maps](supported-languages.md).
 
 ## Navigating the map

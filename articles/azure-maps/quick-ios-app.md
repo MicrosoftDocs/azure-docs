@@ -7,7 +7,7 @@ ms.date: 10/13/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-
+manager: eriklind
 ---
 
 #  Create an iOS app (Public Preview)
@@ -140,12 +140,18 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 See the following articles for additional code examples:
 
 * [Manage authentication in Azure Maps](how-to-manage-authentication.md)
+
+<!--
+## Additional information
+
+See the following articles for additional code examples:
+
+* [Manage authentication in Azure Maps](how-to-manage-authentication.md)
 * [Change map styles in iOS maps](set-map-style-ios-sdk.md)
 * [Add a symbol layer](add-symbol-layer-ios.md)
 * [Add a line layer](add-line-layer-to-map-ios.md)
 * [Add a polygon layer](add-polygon-layer-map-ios.md)
 
-<!--
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
