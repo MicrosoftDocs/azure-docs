@@ -19,7 +19,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
    You can use any of the available registry SKUs for the module registry. Registry [geo-replication](../../container-registry/container-registry-geo-replication.md) provides users with a local presence or as a hot-backup.
 
-1. Get the login server name. You need this name when linking to the registry from your Bicep files. To get the login server name, use either [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry) or [az acr show](/cli/azure/acr#az_acr_show).
+1. Get the login server name. You need this name when linking to the registry from your Bicep files. To get the login server name, use either [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry) or [az acr show](/cli/azure/acr#az_acr_show). The format of the login server name is: `<registry-name>.azurecr.io`.
 
    # [PowerShell](#tab/azure-powershell)
 
@@ -35,8 +35,6 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
    ---
 
-   The format of the login server name is: `<registry-name>.azurecr.io`.
-
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
 1. For more security, you can require access through a private endpoint. For more information, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
@@ -48,6 +46,8 @@ After setting up the container registry, you can publish files to it. Use the [p
 ```azurecli
 az bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
+
+## View files in registry
 
 To see the published module in the portal:
 
