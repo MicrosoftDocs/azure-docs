@@ -38,7 +38,7 @@ You can use Purview to do full scans on Cassandra to extract metadata and lineag
 To register a new Cassandra server in your data catalog:
 
 1.  Go to your Purview account.
-2.  Select **Data Map** in the left pane.
+2.  Select **Data Map** on the left pane.
 3.  Select **Register**.
 4.  On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
 
