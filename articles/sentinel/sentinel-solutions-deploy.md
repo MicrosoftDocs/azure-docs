@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Sentinel solutions | Microsoft Docs
-description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors.
+title: Centrally discover and deploy Azure Sentinel built-in content and solutions | Microsoft Docs
+description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors and other content.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -17,65 +17,64 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
-# Discover and deploy Azure Sentinel solutions (Public preview)
+# Centrally discover and deploy Azure Sentinel built-in content and solutions (Public preview)
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel solutions experience and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability, deployment, and enablement, and by [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+The Azure Sentinel Content hub provides access to Azure Sentinel solutions, packed with content for for end-to-end product, domain, or industry needs.
 
-Solutions can consist of any or all of the following components:
+This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use. 
 
-- **Data connectors**, some with accompanying **parsers**
-- **Workbooks**
-- **Analytics rules**
-- **Hunting queries**
-- **Playbooks**
+- Find your solutions in the Content hub based on their statuses, the content included, support, and more.
 
-## Find your solution
+- Install the solution in your workspace when find one that fits your organization's needs, and make sure to keep updating it with the latest changes.
 
-1. From the Azure Sentinel navigation menu, under **Content management**, select **Content Hub (Preview)**.
+> [!TIP]
+> If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+>
+## Find a solution
 
-1. The **Content Hub** displays a searchable and filterable list of solutions.
+1. From the Azure Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Solutions list":::
+1. The **Content hub** page displays a searchable and filterable grid of solutions.
 
-    Filter the list displayed by either entering any part of the name in the **Search** field, or selecting specific values from the filters. The search functionality only recognizes whole words.
+    Filter the list displayed, either by entering any part of a solution name in the **Search** field, or by selecting specific values from the filters. Note that the search functionality only recognizes whole words.
 
-    If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy.
+    For more information, see [Azure Sentinel built-in content and solution categories](sentinel-solutions.md#azure-sentinel-built---in-content-and-solution-categories).
 
-1. Select a solution for more information. On the right then, either select **View Solution Details**, **Deploy Solution**, or **Update Solution**.
+    > [!TIP]
+    > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
+    >
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/proofpoint-tap-solution.png" alt-text="Proofpoint Tap solution":::
+Each solution in the grid shows the categories applied to the solution, and types of content included in the solution.
 
-## Deploy or update a solution
+For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Others**, and that this solution includes 10 analytics rules, 11 hunting queries, a parser, three playbooks, and more.
 
-**To deploy or update a solution in your workspace**:
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub":::
 
-1. In the solution details pane on the right of the **Content Hub**, or on the solution details page, select **Deploy Solution** or **Update Solution**.
+## Install or update a solution
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-basics.png" alt-text="deployment wizard basics tab":::
+1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
-1. Enter the subscription, resource group, and workspace to which you want to deploy the solution.
+1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the wizard's **Basics** tab, enter the subscription, resource group, and workspace to which you want to deploy the solution.
 
-1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the components.
+1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the content components.
 
     > [!NOTE]
-    > The tabs listed below correspond with the components offered by the solution shown in the accompanying screenshots. Different solutions may have different types of components, so you may not see all the same tabs in every solution, and you may see tabs not shown below.
+    > The tabs displayed for you correspond with the content offered by the solution. Different solutions may have different types of content, so you may not see all the same tabs in every solution.
+    >
+    > You may also be prompted to enter credentials to a third party service so that Azure Sentinel can authenticate to your systems. For example, with playbooks, you may want to take response actions as prescribed in your system.
+    >
 
-    1. **Analytics** tab
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-analytics.png" alt-text="deployment wizard analytics tab":::
+1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-    1. **Workbooks** tab
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-workbooks.png" alt-text="deployment wizard workbooks tab":::
+For more information, see [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Azure Sentinel data connector](data-connectors-reference.md).
 
-    1. **Playbooks** tab - you'll need to enter valid Proofpoint TAP credentials here, so that the playbook can authenticate to your Proofpoint system to take any prescribed response actions.
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="deployment wizard playbooks tab":::
 
-1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then select **Create** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="deployment wizard review and create tab":::
+
 
 ## Next steps
 

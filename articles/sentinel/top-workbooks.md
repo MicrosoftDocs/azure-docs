@@ -27,7 +27,7 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 > [!TIP]
 > We recommend deploying any workbooks associated with the data you're ingesting. Workbooks allow for broader monitoring and investigating based on your collected data.
 >
-> For more information, see [Connect data sources](connect-data-sources.md) and [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md).
+> For more information, see [Connect data sources](connect-data-sources.md) and [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md).
 >
 
 |Workbook name  |Description  |

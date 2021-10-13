@@ -65,7 +65,7 @@ Each version of an API is maintained as its own API resource, which is then asso
 
 The Azure portal creates version sets for you. You can modify the name and description for a version set in the Azure portal.
 
-You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
+You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/2020-12-01/api-version-set).
 
 ### Migrating a non-versioned API to a versioned API
 

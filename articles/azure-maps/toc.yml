@@ -1,3 +1,4 @@
+items:
 - name: Azure Maps documentation 
   href: index.yml
 - name: Overview
@@ -11,8 +12,6 @@
     href: quick-demo-map-app.md
   - name: Create an Android app
     href: quick-android-map.md
-  - name: Create an iOS app
-    href: quick-ios-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials

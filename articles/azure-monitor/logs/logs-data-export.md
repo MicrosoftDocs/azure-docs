@@ -28,16 +28,45 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration currently can be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
+- Configuration can currently be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
 - The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables currently are limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables currently aren't supported.
-- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
+- Supported tables are limited those specified in the [supported tables](#supported-tables) section below. 
+- The existing custom log tables won’t be supported in export. A new custom log version available in March 2022 will be supported.
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table becomes supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- Data export will be available in all regions, but currently not available in the following: Switzerland North, Switzerland West, Germany West Central, Australia Central 2, UAE Central, UAE North, Japan West, Brazil Southeast, Norway East, Norway West, France South, South India, Korea South, Jio India Central, Jio India West, Canada East, West US 3, Sweden Central, Sweden South, Government clouds, China.
-- You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
+- You can define up to 10 enabled rules in your workspace. Additional rules are allowed when disabled. 
 - Destination must be unique across all export rules in your workspace.
-- The destination storage account or event hub must be in the same region as the Log Analytics workspace.
-- Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters for an event hub. Tables with longer names will not be exported.
+- Destinations must be in the same region as the Log Analytics workspace.
+- Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
+- Data export will be available in all regions, but currently supported in: 
+    - Australia Central
+    - Australia East
+    - Australia Southeast
+    - Brazil South
+    - Canada Central
+    - Central India
+    - Central US
+    - East Asia
+    - East US
+    - East US 2
+    - France Central
+    - Germany West Central
+    - Japan East
+    - Korea Central
+    - North Central US
+    - North Europe
+    - South Africa North
+    - South Central US
+    - Southeast Asia
+    - Switzerland North
+    - Switzerland West
+    - UAE North
+    - UK South
+    - UK West
+    - West Central US
+    - West Europe
+    - West US
+    - West US 2
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
@@ -109,12 +138,46 @@ If you have configured your Storage Account to allow access from selected networ
 [![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### Create or update data export rule
-A data export rule defines the tables for which data is exported and the destination. You can have 10 enabled rules in your workspace when any additional rule above 10 must be in disable state. A destination must be unique across all export rules in your workspace.
+Data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, additional rules can be added, but in 'disable' state. Destinations must be unique across all export rules in workspace.
 
-> [!NOTE]
-> Data export sends logs to destinations that you own while these have some limits: [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). It’s recommended to monitor your destinations for throttling and apply measures when nearing its limit. For example: 
-> - Set auto-inflate feature in event hub to automatically scale up and increase the number of TUs (throughput units). You can request more TUs when auto-inflate is at max
-> - Splitting tables to several export rules where each is to different destinations
+Data export destinations have limits and they should be monitored to minimize export throttling, failures and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+
+#### Recommendations for storage account 
+
+1. Use separate storage account for export
+1. Configure alert on the metric below with the following settings: 
+   - `Operator` Grater than
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutes
+   - `Frequency of evaluation` Every 5 minutes
+  
+    | Scope | Metric Namespace | Metric | Aggregation | Threshold |
+    |:---|:---|:---|:---|:---|
+    | storage-name | Account | Ingress | Sum | 80% of max storage ingress rate. For example: it's 60Gbps for general-purpose v2 in West US |
+  
+1. Remediation action
+    - Use separate event hub namespace for export
+    - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
+    - Split tables between additional storage accounts
+
+#### Recommendations for event hub
+
+1. Configure alert on the metric below with the following settings: 
+   - `Operator` Grater than
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutes
+   - `Frequency of evaluation` Every 5 minutes
+  
+    | Scope | Metric Namespace | Metric | Aggregation | Threshold |
+    |:---|:---|:---|:---|:---|
+    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per 5 minutes. For example, it's 1MB/s per TU |
+    | namespaces-name | Event Hub standard metrics | Incoming messages | Sum | 80% of max events per 5 minutes. For example, it's 1000/s per TU |
+    | namespaces-name | Event Hub standard metrics | Throttling requests | Sum | Between 1% to 5% of request |
+
+1. Remediation action
+   - Increase the number of throttling units (TUs)
+   - Split tables between additional namespaces
+   - Use Premium event hub tier for higher throughput
 
 Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
 

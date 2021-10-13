@@ -121,7 +121,7 @@ For more information, see [Connect to Azure, Windows, Microsoft, and Amazon serv
 
 [Azure Sentinel solutions](sentinel-solutions.md) provide packages of security content, including data connectors, workbooks, analytics rules, playbooks, and more. When you deploy a solution with a data connector, you'll get the data connector together with related content in the same deployment. 
 
-For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+For more information, see [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 ## Data connector support
 
 Both Microsoft and other organizations author Azure Sentinel data connectors. Each data connector has one of the following support types:

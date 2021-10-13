@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 10/13/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,156 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+
+## November 2021
+
+### Free trial updates
+
+Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
+
+Now, in addition during the trial period:
+
+- **For new Log Analytics workspaces**, including workspaces that are less than three days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+
+    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+
+- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply. Existing workspaces include any workspaces created more than three days ago.
+
+For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
+
+### Content hub and new solutions (Public preview)
+
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+
+Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
+
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
+
+The following list includes highlights of new solutions added to the Content hub:
+
+:::row:::
+   :::column span="":::
+      - Azure Sentinel Training Lab
+      - Cisco ASA
+      - Cisco Duo Security
+      - Cisco Meraki
+      - Cisco StealthWatch
+      - Digital Guardian
+   :::column-end:::
+   :::column span="":::
+      - 365 Dynamics
+      - FalconForce
+      - FireEye NX
+      - Flare Systems Firework
+      - Forescout
+      - Fortinet Fortigate
+   :::column-end:::
+   :::column span="":::
+      - Imperva Cloud FAW
+      - Insiders Risk Management
+      - IronNet CyberSecurity Iron Defense
+      - Lookout
+   :::column-end:::
+   :::column span="":::
+      - Microsoft MITRE ATT&CK Solution for Cloud
+      - Palo Alto PAN-OS
+      - Rapid7 Nexpose
+      - ReversingLabs
+   :::column-end:::
+   :::column span="":::
+      - RSA SecurID
+      - Semperis
+      - Tenable Nessus Scanner
+      - Vectra Stream
+      - Zero Trust
+:::row-end:::
+
+For more information, see:
+
+- [About Azure Sentinel solutions](sentinel-solutions.md)
+- [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md)
+- [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
+
+>[!TIP]
+> We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
+>
+
+### Manage custom content in source control repositories (Public preview)
+
+Now, the new Azure Sentinel **Repositories** page provides you with the ability to store your custom content in GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspace.
+
+Store your custom content in an external repository in order to maintain it outside of Azure Sentinel. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspace, and visible from the various Azure Sentinel galleries, such as the **Analytics**, **Notebooks**, or **Workbooks** pages.
+
+For more information, see [Manage custom content in your own repository](ci-cd.md).
+
+### Enriched threat intelligence with Geolocation and WhoIs data
+
+Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
+
+In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+
+TBD SCREENSHOT
+
+For more information, see:
+
+- [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
+- [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
+- [Enrich entities with geolocation data via API](geolocation-data-api.md)
+
+### Use notebooks with Azure Synapse Analytics in Azure Sentinel
+
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse Analytics for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
+
+To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as new notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
+
+The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+
+For example:
+
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+
+## October 2021
+
+- [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
+- [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
+
+### Playbook templates and gallery now available (Public preview)
+
+A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
+
+Playbook templates have been developed by the Azure Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [**Azure Sentinel Solution**](sentinel-solutions.md), or in the [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
+
+See [Create and customize playbooks from built-in templates](use-playbook-templates.md) for more information about deploying a playbook template from the **Playbook templates** tab under **Automation**.
+
+### Manage template versions for your scheduled analytics rules (Public preview)
+
+When you create analytics rules from [built-in Azure Sentinel rule templates](detect-threats-built-in.md), you effectively create a copy of the template. Past that point, the active rule is ***not*** dynamically updated to match any changes that get made to the originating template.
+
+However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
+
+- If you made changes to a rule when creating it from a template (or at any time after that), you can always revert the rule back to its original version (as a copy of the template).
+
+- You can get notified when a template is updated, and you'll have the choice to update your rules to the new version of their templates or leave them as they are.
+
+[Learn how to manage these tasks](manage-analytics-rule-templates.md), and what to keep in mind. These procedures apply to any [Scheduled](detect-threats-built-in.md#scheduled) analytics rules created from templates.
+
+### DHCP normalization schema (Public preview)
+
+The Azure Sentinel Information Model (ASIM) now supports a DHCP normalization schema, which is used to describe events reported by a DHCP server and is used by Azure Sentinel to enable source-agnostic analytics. 
+
+Events described in the DHCP normalization schema include serving requests for DHCP IP address leased from client systems and updating a DNS server with the leases granted.
+
+For more information, see:
+
+- [Azure Sentinel DHCP normalization schema reference (Public preview)](dhcp-normalization-schema.md)
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
 
 ## September 2021
 
@@ -320,7 +470,7 @@ For more information, see [Alert grouping](detect-threats-custom.md#alert-groupi
 
 Azure Sentinel now offers **packaged content** [solutions](sentinel-solutions-catalog.md) that include combinations of one or more data connectors, workbooks, analytics rules, playbooks, hunting queries, parsers, watchlists, and other components for Azure Sentinel.
 
-Solutions provide improved in-product discoverability, single-step deployment, and end-to-end product scenarios. For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md).
+Solutions provide improved in-product discoverability, single-step deployment, and end-to-end product scenarios. For more information, see [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md).
 
 ### Continuous Threat Monitoring for SAP solution (Public preview)
 

@@ -45,6 +45,12 @@
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
+  - name: Azure Sentinel content
+    items:
+    - name: About Sentinel content
+      href: sentinel-solutions.md
+    - name: Content hub catalog
+      href: sentinel-solutions-catalog.md
   - name: Data collection and analysis
     items:
     - name: Data collection methods
@@ -61,12 +67,6 @@
         href: normalization-content.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
-  - name: Azure Sentinel solutions
-    items:
-    - name: About Sentinel solutions
-      href: sentinel-solutions.md
-    - name: Solutions catalog
-      href: sentinel-solutions-catalog.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Azure Sentinel
@@ -109,6 +109,10 @@
       href: resource-context-rbac.md
   - name: Migrate to Azure Sentinel
     href: migration.md
+  - name: Manage Azure Sentinel content
+    items:
+    - name: Discover and deploy solutions
+      href: sentinel-solutions-deploy.md
   - name: Collect data
     items:
     - name: Connect your data source
@@ -154,8 +158,6 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Discover and deploy solutions
-    href: sentinel-solutions-deploy.md
   - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
@@ -188,6 +190,8 @@
         href: import-export-analytics-rules.md
       - name: Work with SOC-ML anomaly rules
         href: work-with-anomaly-rules.md
+      - name: Manage template versions for analytics rules
+        href: manage-analytics-rule-templates.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
     - name: Work with SOC-ML anomaly rules
@@ -222,6 +226,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Customize playbooks from templates
+      href: use-playbook-templates.md
   - name: Manage Azure Sentinel
     items:
     - name: Azure Sentinel for MSSPs
@@ -286,6 +292,8 @@
         href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: DHCP normalization schema
+        href: dhcp-normalization-schema.md
       - name: File event normalization schema
         href: file-event-normalization-schema.md
       - name: Network normalization schema
