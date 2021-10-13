@@ -279,7 +279,7 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
-    - name: Azure Purview tools reference
+    - name: Azure Purview open-source tools utilities
       href: tutorial-purview-tools.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
