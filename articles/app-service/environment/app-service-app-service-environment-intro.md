@@ -1,12 +1,12 @@
 ---
 title: Introduction to ASE v1
 description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE. 
-author: stefsch
+author: madsd
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -68,7 +68,7 @@ For more details on how App Service Environments work with virtual networks and 
 
 ## Getting started
 
-To get started with App Service Environments, see [How To Create An App Service Environment][HowToCreateAnAppServiceEnvironment]
+To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 
 For an overview of the App Service Environment network architecture, see the [Network Architecture Overview][NetworkArchitectureOverview] article.
 
@@ -80,7 +80,6 @@ For details on using an App Service Environment with ExpressRoute, see the follo
 [PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePlan]: ../overview-hosting-plans.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [LogicApps]: ../../logic-apps/logic-apps-overview.md
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md

@@ -1,12 +1,12 @@
 ---
 title: Network architecture v1
 description: Architectural overview of network topology of App Service Environments. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+author: madsd
 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 
 ---

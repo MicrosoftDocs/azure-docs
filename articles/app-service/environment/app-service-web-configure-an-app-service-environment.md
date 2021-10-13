@@ -1,12 +1,12 @@
 ---
 title: Configure ASE v1
 description: Configuration, management, and monitoring of the App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
-author: ccompy
+author: madsd
 
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -92,7 +92,7 @@ There are two primary methods to control inbound traffic to your ASE.  You can u
 
 When you create an ASE, it will create a VIP in your VNet.  There are two VIP types, external and internal.  When you create an ASE with an external VIP then your apps in your ASE will be accessible via an internet routable IP address. When you select Internal your ASE will be configured with an ILB and will not be directly internet accessible.  An ILB ASE still requires an external VIP but it is only used for Azure management and maintenance access.  
 
-During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name you also need to manage the certificate used for HTTPS access.  After ASE creation you are prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [Using an Internal Load Balancer with an App Service Environment][ILBASE]. 
+During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name you also need to manage the certificate used for HTTPS access.  After ASE creation you are prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md). 
 
 ## Portal
 You can manage and monitor your App Service Environment by using the UI in the Azure portal. If you have an ASE, then you are likely to see the App Service symbol on your sidebar. This symbol is used to represent App Service Environments in the Azure portal:
@@ -199,7 +199,6 @@ To get started with App Service Environments, see [How to create an App Service 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [Appserviceplans]: ../overview-hosting-plans.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
