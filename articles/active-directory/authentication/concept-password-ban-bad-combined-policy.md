@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Combined password policy and weak password check in Azure Active Directory
 
-Beginning in October 2021, Azure Active Directory (Azure AD) validation for compliance with password policies also includes a check for known weak passwords and their variants. 
+Beginning in October 2021, Azure Active Directory (Azure AD) validation for compliance with password policies also includes a check for [known weak passwords](concept-password-ban-bad.md) and their variants. 
 As the combined check for password policy and banned passwords gets rolled out to tenants, users may see differences when they create, change, or reset their passwords. This topic explains details about the password policy criteria checked by Aure AD and some cases where the user experience is changed by the combined check. 
 
 ## Azure AD password policies
@@ -56,4 +56,5 @@ The following expiration requirements apply to other providers that use Azure AD
 
 ## Next steps
 
-[Password policies and account restrictions in Azure Active Directory](concept-sspr-policy.md)
+- [Password policies and account restrictions in Azure Active Directory](concept-sspr-policy.md)
+- [Eliminate bad passwords using Azure Active Directory Password Protection](concept-password-ban-bad.md)
