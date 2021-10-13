@@ -1,9 +1,9 @@
 ---
-title: Register with SQL IaaS Extension (Windows)
-description: Learn how to register your SQL Server on Windows Azure VM with the SQL IaaS Agent extension to enable Azure features, as well as for compliance, and improved manageability. 
+title: Register with SQL IaaS Agent Extension (Linux)
+description: Learn how to register your SQL Server on Linux Azure VM with the SQL IaaS Agent extension to enable Azure features, as well as for compliance, and improved manageability.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,22 +12,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/01/2021
-ms.author: mathoma
-ms.reviewer: jroth 
+ms.author: adbadram
+ms.reviewer: mathoma 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
 
 ---
 
-# Register SQL Server VM with SQL IaaS Extension (Windows)
-
+# Register SQL Server VM with SQL IaaS Agent Extension (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a wealth of feature benefits for your SQL Server on Windows Azure VM.
-
-This article teaches you to register a single SQL Server VM with the SQL IaaS Agent extension. Alternatively, you can register all SQL Server VMs in a subscription [automatically](sql-agent-extension-automatic-registration-all-vms.md) or [multiple VMs scripted in bulk](sql-agent-extension-manually-register-vms-bulk.md).
-
-> [!NOTE]
-> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a wealth of feature benefits for your SQL Server on Linux Azure VM.
 
 ## Overview
 
