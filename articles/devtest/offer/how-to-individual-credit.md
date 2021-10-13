@@ -1,9 +1,9 @@
 ---
 title: How to get started with your individual VSS Azure Dev/Test credit subscription
 description: Covers two options for an individual to access an Azure Credit subscription.
-author: j-martens  
-ms.author: jmartens
-ms.date: 10/04/2021
+author: jamestramel
+ms.author: james.tramel
+ms.date: 10/12/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
@@ -16,11 +16,11 @@ When accessing your Azure Credit Subscription, you have two ways to sign in and 
 You have the opportunity to use a personal or corporate email address when signing in.  
 
 > [!NOTE]
-> It’s important to note that the email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
+> The email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
 
 ## Using a personal email address versus a work account  
 
-The email you use at sign-in should follow your organization’s requirements – either you use a personal email OR your organization’s provided email.
+The email you use should follow your organization’s requirements – either you use a personal email OR your organization’s provided email.
 
 **Using a Personal Email Account or Microsoft Account (MSA)**  
 If you sign in using a personal account like Gmail, Yahoo, or Hotmail, your organization won't have access to your work, nor will you have access to their Active Directory unless that email is added by an admin. When you sign in with a personal email, a new Azure Directory will be created along with an Azure Tenancy on your behalf. Your profile will be created as the Top-Level Admin with access for adding other admins and users.  
@@ -38,7 +38,7 @@ Remember, the account you sign in with will dictate what tenant your directory w
 1. Locate the Azure tile in the Tools section on the Benefits page and select 'Activate' to access the appropriate subscription
 
  ![A screenshot of the Azure Monthly credit activation page.](media/how-to-individual-credit/activate.png "Click Activate to access your subscription.")  
-2. If you don't have an existing Azure subscription, you'll be asked to fill in the the required information to create your Azure subscription. The first step is to provide your personal information and then select **Next**.  
+2. If you don't have an existing Azure subscription, you'll be asked to fill in the required information to create your Azure subscription. The first step is to provide your personal information and then select **Next**.  
 
  ![A screenshot of the About You subscription page.](media/how-to-individual-credit/vs-azure-about-you.png "Enter your information and click 'Next'.")  
 3. Next, you'll need to verify your identity using a simple verification code. Provide your phone number, and choose whether you'd like to receive the code by text or phone. Enter the code you receive, and select **Verify code**.  

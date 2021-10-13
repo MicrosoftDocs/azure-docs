@@ -125,4 +125,25 @@ conceptualContent:
           text: Add users to your directory
         - url: ../../devtest/offer/remove-credit-limits.md
           itemType: how-to-guide
-          text: Remove credit limits        
+          text: Remove credit limits   
+        - url: ../../devtest/offer/sign-into-azure-with-github.md
+          itemType: how-to-guide
+          text: Sign into Azure with GitHub credentials
+        - url: ../../devtest/offer/change-directory-tenants-with-vss-azure.md
+          itemType: how-to-guide
+          text: Change directory tenants with your VSS Azure subscription
+        - url: ../../devtest/offer/create-enterprise-devtest-subscriptions.md
+          itemType: how-to-guide
+          text: Create Enterprise and Organizational Azure Dev/Test subscriptions
+        - url: ../../devtest/offer/gitops-and-azure-devtest.md
+          itemType: how-to-guide
+          text: Use GitOps in association with Azure Dev/Test
+        - url: ../../devtest/offer/manage-and-monitor.md
+          itemType: how-to-guide
+          text: Manage your Azure Dev/Test subscriptions with Azure's cloud environment
+        - url: ../../devtest/offer/manage-reliability-and-performance.md
+          itemType: how-to-guide
+          text: Build reliability into your applications with Dev/Test subscriptions
+        - url: ../../devtest/offer/security-and-governance-devtest.md
+          itemType: how-to-guide
+          text: Build reliability into your applications with Dev/Test subscriptions

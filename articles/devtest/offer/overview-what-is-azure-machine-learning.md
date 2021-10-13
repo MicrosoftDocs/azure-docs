@@ -4,9 +4,9 @@ titleSuffix: Azure Dev/Test offer
 description: An introduction to Azure Dev/Test offer. Defines and describes the cloud service Azure Dev/Test Offer for accelerating and managing machine learning project life cycles.
 ms.topic: overview
 ms.prod: visual-studio-windows
-ms.author: jmartens
-author: j-martens
-ms.date: 09/30/2021
+ms.author: jamestramel
+author: james.tramel
+ms.date: 10/12/2021
 ms.custom: devtestoffer
 adobe-target: true
 ---
