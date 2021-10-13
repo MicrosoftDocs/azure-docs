@@ -24,7 +24,7 @@ ms.author: gistefan
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir teams-access-tokens-quickstart && cd teams-access-tokens-quickstart
+mkdir communication-access-tokens-quickstart && cd communication-access-tokens-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
@@ -68,11 +68,11 @@ const REDIRECT_URI = "http://localhost:3000";
 
 // Quickstart code goes here
 
-app.listen(SERVER_PORT, () => console.log(`Teams token application starte on ${SERVER_PORT}!`))
+app.listen(SERVER_PORT, () => console.log(`Communication access token application started on ${SERVER_PORT}!`))
 
 ```
 
-1. Save the new file as **issue-teams-access-token.js** in the *access-tokens-quickstart* directory.
+1. Save the new file as **issue-communication-access-token.js** in the *access-tokens-quickstart* directory.
 
 ### Step 1: Receive the Azure AD user token via the MSAL library
 
@@ -138,26 +138,9 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-Alternatively, you can separate endpoint and access key.
-```javascript
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
-const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
-const tokenCredential = new AzureKeyCredential(accessKey);
-// Instantiate the identity client
-const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
-```
-
-If you have an Azure Active Directory Application setup, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
-```javascript
-const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
-const tokenCredential = new DefaultAzureCredential();
-const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential);
-
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```javascript
 let response = await identityClient.exchangeTeamsToken(teamsToken);
@@ -166,8 +149,8 @@ console.log(`Token: ${response}`);
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-teams-access-token.js* file, then execute the following `node` command to run the app.
+From a console prompt, navigate to the directory containing the *issue-communication-access-token.js* file, then execute the following `node` command to run the app.
 
 ```console
-node ./issue-teams-access-token.js
+node ./issue-communication-access-token.js
 ```

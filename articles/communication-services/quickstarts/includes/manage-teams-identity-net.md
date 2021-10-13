@@ -21,16 +21,16 @@ ms.author: gistefan
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `TeamsAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `CommunicationAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
 ```console
-dotnet new console -o TeamsAccessTokensQuickstart
+dotnet new console -o CommunicationAccessTokensQuickstart
 ```
 
 Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
 ```console
-cd TeamsAccessTokensQuickstart
+cd CommunicationAccessTokensQuickstart
 dotnet build
 ```
 
@@ -60,7 +60,7 @@ using System.Threading.Tasks;
 using Azure.Communication.Identity;
 using Microsoft.Identity.Client;
 
-namespace TeamsAccessTokensQuickstart
+namespace CommunicationAccessTokensQuickstart
 {
     class Program
     {
@@ -110,28 +110,13 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
-Alternatively, you can separate endpoint and access key.
-```csharp
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
-string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
-var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
-```
-
-If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
-```csharp
-TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
-```
-
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
 Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```csharp
 var accessToken = await client.ExchangeTeamsTokenAsync(teamsUserAadToken.AccessToken);
-Console.WriteLine($"Token:{accessToken.Value.Token}");
+Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 
 ## Run the code

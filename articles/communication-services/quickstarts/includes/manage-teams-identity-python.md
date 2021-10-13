@@ -24,10 +24,10 @@ ms.author: gistefan
 1. Open your terminal or command window create a new directory for your app, and navigate to it.
 
    ```console
-   mkdir teams-access-tokens-quickstart && cd teams-access-tokens-quickstart
+   mkdir communication-access-tokens-quickstart && cd communication-access-tokens-quickstart
    ```
 
-1. Use a text editor to create a file called **exchange-teams-access-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
+1. Use a text editor to create a file called **exchange-communication-access-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
 
    ```python
    import os
@@ -82,15 +82,9 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
-```python
-endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
-client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
-```
-
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Use the `exchange_user_token` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```python
 token_result = client.exchange_user_token(teams_token_result.access_token);
@@ -102,5 +96,5 @@ print("Token: " + token_result.token)
 From a console prompt, navigate to the directory containing the *exchange-teams-access-tokens.py* file, then execute the following `python` command to run the app.
 
 ```console
-python ./exchange-teams-access-tokens.py
+python ./exchange-communication-access-tokens.py
 ```

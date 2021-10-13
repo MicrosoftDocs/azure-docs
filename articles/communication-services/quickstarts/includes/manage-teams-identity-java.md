@@ -78,7 +78,7 @@ public class App
 {
     public static void main( String[] args ) throws Exception
     {
-        System.out.println("Azure Communication Services - Teams Access Tokens Quickstart");
+        System.out.println("Azure Communication Services - Communication access token Quickstart");
         // Quickstart code goes here
     }
 }
@@ -126,30 +126,9 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
         .buildClient();
 ```
 
-You can also provide the entire connection string using the `connectionString()` function instead of providing the endpoint and access key.
-```java
-// Your can find your connection string from your resource in the Azure portal
-String connectionString = "<connection_string>";
-
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
-    .buildClient();
-```
-
-If you have an Azure Active Directory (AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
-```java
-String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-        .endpoint(endpoint)
-        .credential(credential)
-        .buildClient();
-```
-
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
 
 ```java
 var accessToken = communicationIdentityClient.exchangeTeamsToken(result.getAccessToken());

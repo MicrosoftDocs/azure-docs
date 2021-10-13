@@ -14,6 +14,9 @@ ms.subservice: identity
 ---
 # Quickstart: Set up and manage Teams access tokens
 
+> [!IMPORTANT]
+> This feature is available in preview only. To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
+
 In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
@@ -22,6 +25,7 @@ In this quickstart, you'll build a .NET console application to authenticate a Mi
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
+- Enable a custom Teams endpoint experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 - An Azure Active Directory instance with users that have a Teams license.
 
 ## Introduction
@@ -40,6 +44,7 @@ The Administrator role has extended permissions in Azure AD. Members of this rol
 1. The Contoso Administrator extends the application's manifest with Communication Services VoIP permission. 
 1. The Contoso Administrator allows public client flow for the application.
 1. The Contoso Administrator can optionally update.
+1. The Contoso Administrator enables the experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 1. The Contoso Administrator creates or selects existing communication services, which will be used for authentication of the exchanging requests. Azure AD user tokens will be exchanged for Teams access tokens. For more information, see [Create and manage Communication Services resources](./create-communication-resource.md).
 1. The Fabrikam Administrator sets up a new service principal for Communication Services in the Fabrikam tenant. This step is require if the application is missing.
 1. The Fabrikam Administrator grants Communication Services VoIP and or Teams.ManageCalls permission to the Contoso application. This step is required only if the Contoso application isn't verified. 
