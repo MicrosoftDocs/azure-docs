@@ -42,17 +42,7 @@ Pricing for Azure Spot Virtual Machine instances is variable, based on region an
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
 
-## Pricing and eviction history
 
-You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
-
-**Chart**:
-
-:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
-
-**Table**:
-
-:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ## Eviction policy
 
@@ -63,6 +53,17 @@ The *Deallocate* policy moves your evicted instances to the stopped-deallocated 
 If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+
+## Eviction history
+You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
+
+**Chart**:
+
+:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+
+**Table**:
+
+:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ## Try & restore 
 
