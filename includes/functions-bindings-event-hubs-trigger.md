@@ -401,7 +401,7 @@ Refer to the Java [trigger example](#example) for details.
 
 # [JavaScript](#tab/javascript)
 
-Refer to the Javascript [trigger example](#example) for details.
+Refer to the JavaScript [trigger example](#example) for details.
 
 # [Python](#tab/python)
 
