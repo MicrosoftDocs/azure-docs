@@ -21,9 +21,6 @@
       href: database/reserved-capacity-overview.md
   - name: Compute & storage
     items:
-    - name: Overview
-      href: database/service-tiers-general-purpose-business-critical.md
-      displayName: provisioned compute tier
     - name: General purpose / Standard
       href: database/service-tier-general-purpose.md
     - name: Business critical / Premium
@@ -298,8 +295,11 @@
     - name: Logical SQL servers
       href: database/logical-servers.md
 
-    - name: Service Tiers
+    - name: Service tiers
       items: 
+      - name: Overview
+        href: database/service-tiers-general-purpose-business-critical.md
+        displayName: provisioned compute tier
       - name: Serverless
         href: database/serverless-tier-overview.md
       - name: DTU model overview
