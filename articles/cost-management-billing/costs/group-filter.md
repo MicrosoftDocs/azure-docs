@@ -50,11 +50,11 @@ For more information about terms, see [Understand the terms used in the Azure us
 
 ## Publisher Type value changes
 
-In Cost Management, the PublisherType field indicates whether charges are for Microsoft, Marketplace, or AWS (if you have a Cross Cloud connector configured) products.
+In Cost Management, the PublisherType field indicates whether charges are for Microsoft, Marketplace, or AWS (if you have a [Cross Cloud connector](aws-integration-set-up-configure.md) configured) products.
 
 What's changing?
 
-Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a Microsoft Customer Agreement. This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
+Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a [Microsoft Customer Agreement](../understand/review-customer-agreement-bill.dm#check-access-to-a-microsoft-customer-agreement). This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
 
 Values of “Marketplace” and “AWS” will remain unchanged.
 
