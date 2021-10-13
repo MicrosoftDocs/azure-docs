@@ -556,7 +556,7 @@ You will only see the storage types that you actually have defined resources for
 Install and configure the Firepower eNcore eStreamer client. For more information see the [full Cisco install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
 
 1. **Download the Firepower Connector from GitHub**  
-Download the latest version of the Firepower eNcore connector for Azure Sentinel from the [Cisco GitHub repository](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector). If you plan on using python3 use the [python3 eStreamer connector](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector/tree/python3).
+Download the latest version of the Firepower eNcore connector for Azure Sentinel from the [Cisco GitHub repository](https://github.com/CiscoSecurity/fp-05-azure-sentinel-connector). If you plan on using python3 use the [python3 eStreamer connector](https://github.com/CiscoSecurity/fp-05-azure-sentinel-connector/tree/python3).
 
 1. **Create a pkcs12 file using the Azure/VM IP Address**  
 Create a pkcs12 certificate using the public IP of the VM instance in Firepower under **System > Integration > eStreamer**. For more information, see the [install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049443).
