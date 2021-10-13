@@ -88,8 +88,6 @@ items:
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-    - name: Mobility coverage
-      href: mobility-coverage.md
     - name: Weather coverage
       href: weather-coverage.md  
   - name: Localization support
@@ -98,8 +96,6 @@ items:
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility services
-    href: mobility-service-data-structure.md
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
@@ -141,10 +137,6 @@ items:
       href: how-to-use-best-practices-for-routing.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
-    - name: Request public transit routes
-      href: how-to-request-transit-data.md
-    - name: Request real-time public transit data
-      href: how-to-request-real-time-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
     - name: Request elevation data
@@ -293,6 +285,8 @@ items:
       href: power-bi-visual-add-bubble-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a heat map layer
+      href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
@@ -333,8 +327,6 @@ items:
       href: /rest/api/maps/elevation
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility services
-      href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
     - name: Render service V2
