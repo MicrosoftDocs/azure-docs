@@ -29,7 +29,7 @@ This page lists several open-source tools and utilities (command line, python, a
 
 1. [Purview-API-via-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/README.md) 
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts, Adopters, Long-Term Regular Users.*
-- **Description**: This utility is based on and covers the entire set of [Azure Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use PowerShell interface. Use and automate Purview APIs for regular and long-term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
+- **Description**: This utility is based on and covers the entire set of [Azure Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use PowerShell interface. Use and automate Purview APIs for regular and long-term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help, and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
 
 2. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 - *Recommended Customer Journey Stages: Learners, Innovators, Enthusiasts*
@@ -58,7 +58,7 @@ This page lists several open-source tools and utilities (command line, python, a
 
 ## Feedback & Disclaimer
 Disclaimer: None of these tools come with an express warranty from Microsoft verifying their efficacy or guarantees of functionality, however, they are certified to be free of any malicious activity or viruses, and guaranteed to not collect any private or PII data.
-Feedback: IN case of any feedback or questions about efficacy and functionality during usage - please contact the respective tool owners/authors on the contact details mentioned in the respective github repo.
+Feedback: IN case of any feedback or questions about efficacy and functionality during usage, contact the respective tool owners/authors on the contact details mentioned in the respective github repo.
 
 
 ## Next steps
