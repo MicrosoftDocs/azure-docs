@@ -85,5 +85,6 @@ The above diagram shows a high level and simplified view of a complex supply cha
 ## Next steps
 
 * [Infosys traceability graph solution](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview)
+* [Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-integrate-for-azure)
 * To visualize graph data, see the [Gremlin API visualization solutions](graph-visualization-partners.md).
 * To model your graph data, see the [Gremlin API modeling solutions](graph-modeling-tools.md).
