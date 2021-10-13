@@ -61,6 +61,27 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     }
     ```
 
+### [CLI](#tab/cli1)
+
+1. Deallocate the virtual machine scale set. The following will deallocate all virtual machines within the scale set: 
+
+    ```azurecli-interactive
+    az vmss deallocate
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Update the scale set to remove association with the Capacity Reservation Group. Setting the `capacity-reservation-group` property to None removes the association of scale set to the Capacity Reservation Group: 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myresourcegroup 
+    --name myVMSS 
+    --capacity-reservation-group None
+    ```
+
+
 ### [PowerShell](#tab/powershell1)
 
 1. Deallocate the virtual machine scale set. The following will deallocate all virtual machines within the scale set: 
@@ -142,6 +163,27 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
         }
     }
     }
+    ```
+
+### [CLI](#tab/cli2)
+
+1. Update reserved quantity to zero:
+
+    ```azurecli-interactive
+    az capacity reservation update 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    --capacity 2
+    ```
+
+2. Update the scale set to remove association with Capacity Reservation Group by setting the `capacity-reservation-group` property to None: 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group None
     ```
 
 ### [PowerShell](#tab/powershell2)
