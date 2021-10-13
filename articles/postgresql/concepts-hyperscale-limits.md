@@ -60,6 +60,7 @@ The private access feature is available in preview in only these regions:
 
 * Americas
 	* East US
+	* East US 2
 	* West US 2
 * Asia Pacific
 	* Japan East
@@ -67,6 +68,7 @@ The private access feature is available in preview in only these regions:
 	* Korea Central
 * Europe
 	* Germany West Central
+	* UK South
 	* West Europe
 
 ## Storage
