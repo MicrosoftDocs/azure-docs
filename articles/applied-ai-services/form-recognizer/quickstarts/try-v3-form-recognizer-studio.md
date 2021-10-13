@@ -161,11 +161,11 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 ## Labeling as tables
 
-While creating your custom models, you may need to extract collections of values from your documents. These collections appear in various formats. For example:
+While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
-* A dynamic collection of values (rows) for a given set of fields (columns)
+* Dynamic or variable collection of values (rows) for a defined set of fields (columns)
 
-* A fixed collection of values grouped by a second set of fields (rows or columns)
+* Fixed collection of values for two defined sets of fields (fixed rows and columns)
 
 ### Label as dynamic table
 
