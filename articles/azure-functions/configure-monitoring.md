@@ -410,7 +410,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 ---
 
 > [!NOTE]
-> Overriding the `host.json` through changing app settings require your function app to be restarted.
+> Overriding the `host.json` through changing app settings will restart your function app.
  
 ## Next steps
 
