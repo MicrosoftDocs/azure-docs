@@ -6838,7 +6838,7 @@ For more information, see:
 ### Network Policy Server extension for Azure AD Multi-Factor Authentication
 
 **Type:** New feature
-**Service category:**  Multi-Factor Authentication
+**Service category:**  Multi-factor authentication
 **Product capability:** User authentication
 
 The Network Policy Server extension for Azure Active Directory (Azure AD) Multi-Factor Authentication adds cloud-based multifactor authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
@@ -6944,7 +6944,7 @@ Due to a service issue, this functionality was temporarily disabled. The issue w
 ### New Multi-Factor Authentication features
 
 **Type:** New feature
-**Service category:** Multi-Factor Authentication
+**Service category:** Multi-factor authentication
 **Product capability:** Identity security and protection
 
 Azure Active Directory Multi-Factor Authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
