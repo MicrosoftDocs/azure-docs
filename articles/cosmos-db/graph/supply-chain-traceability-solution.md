@@ -1,5 +1,5 @@
 ---
-title: Infosys supply chain traceability solution using Azure Cosmos DB Graph API
+title: Infosys supply chain traceability solution using Azure Cosmos DB Gremllin API
 description: The supply chain traceability graph solution implemented by Infosys uses the Azure Cosmos DB Gremlin API and other Azure services. It provides global supply chain track and trace capability for finished goods.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -9,7 +9,7 @@ author: manishmsfte
 ms.author: mansha
 ---
 
-# Supply chain traceability solution using Azure Cosmos DB Graph API
+# Supply chain traceability solution using Azure Cosmos DB Gremlin API
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
@@ -50,7 +50,7 @@ Different Azure services used in this architecture help with the following tasks
 * Azure Cosmos DB allows you to scale performance up or down elastically. Gremlin API allows you to create and query complex relationships between raw material, finished goods and warehouses.
 * Azure API Management provides APIs for stock movement events to the 3PLs (thirdpParty Logistic Providers) and Warehouse Management Systems (WMS).  
 * Azure Event Hub provides the ability to gather large numbers of concurrent events from WMS and 3PLs for further processing.
-* Azure Function apps processes events and ingest data to Azure Cosmos DB using graph API.
+* Azure Function apps processes events and ingest data to Azure Cosmos DB using Gremlin API.
 * Azure Search service allows users to do complex find, filter pallet information.
 * Azure Databricks reads change feed and creates models in Synapse Analytics for self-service reporting for users in Power BI.
 * Azure Web App and App Service plan allow you to deploy the user portal.
