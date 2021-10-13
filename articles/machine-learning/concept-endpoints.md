@@ -31,28 +31,23 @@ In this article, you learn about:
 
 After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
 
-:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
-
 An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
 - Authentication using "key & token" based auth 
 - SSL termination 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
 
 
-A **deployment** is a set of compute resources hosting the model that does the actual inferencing. It contains: 
-- Model details (code, model, environment) 
-- Compute resource 
-- Advanced settings 
+A **deployment** is a set resources required for hosting the model that does the actual inferencing. 
 
-A single endpoint can contain multiple deployments. Endpoints and deployments are independent ARM resources that will appear in the Azure portal.
+A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
 Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints-preview) and [batch endpoints](#what-are-batch-endpoints-preview).
 
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- the Azure CLI
-- ARM/REST API
+- The Azure CLI
+- Azure Resource Manager/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
 - Support for CI/CD MLOps pipelines using the Azure CLI interface & REST/ARM interfaces
@@ -108,12 +103,6 @@ Autoscale automatically runs the right amount of resources to handle the load on
 ### Visual Studio Code debugging
 
 ::::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
-
-### VNET ingress 
-
-Securing managed online/batch endpoints requires minimal effort compared to the other compute environments as they share the same private endpoint resource used for securing your workspace. If you have a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint), all managed online/batch endpoints in the workspace will be secured by the same private endpoint resource that was created.
-
-You can further allow individual online/batch endpoints to have public internet access if you want a particular endpoint to be accessible from the public as well as from your VNet. 
 
 ## Managed online endpoints (preview) vs AKS web service
 
