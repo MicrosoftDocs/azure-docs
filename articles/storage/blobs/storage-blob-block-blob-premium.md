@@ -52,6 +52,18 @@ For example, assuming that your account is in the East US 2 region, the number o
 > [!NOTE]
 > If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
 
+## Workloads and applications
+
+Premium performance storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions. Example workloads include:
+
+- **Interactive workloads**. These workloads require instant updates and user feedback, such as e-commerce and mapping applications. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier.
+
+- **IoT/ streaming analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
+
+- **Artificial intelligence/machine learning (AI/ML)**. AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis.
+
+- **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
+
 ## Premium scenarios
 
 This section contains real-world examples of how Azure Storage customers use the premium performance tier. Some of these customers also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios. 
@@ -138,6 +150,18 @@ To support interactive analytics in near real time, a system must ingest and pro
 Companies in the media and entertainment industry can generate a large number of logs and telemetry data in a short amount of time as they broadcast an event. One of our customers relies on multiple content delivery network (CDN) partners for streaming. They must make near real-time decisions about which CDN partners to allocate traffic to. Therefore, data needs to be available for querying a few seconds after it is ingested. To facilitate this quick decision making, they use data stored with the premium performance tier, and process that data in Azure Data Explorer (ADX). All of the telemetry that is uploaded to storage is transformed in ADX, where it can be stored in a familiar format that operators and executives can query quickly and reliably.
 
 Data is uploaded into multiple premium performance Blob Storage accounts. Each account is connected to an Event Grid and Event Hub resource. ADX retrieves the data from Blob Storage, performs any required transformations to normalize the data (For example: decompressing zip files or converting from JSON to CSV). Then, the data is made available for query through ADX and dashboards displayed in Grafana. Grafana dashboards are used by operators, executives, and other users. The customer retains their original logs in premium performance storage, or they copy them to a storage account that uses the standard performance tier where they can be stored in the hot or cool access tier for long-term retention and future analysis.
+
+## Blob lifecycle management
+
+Blob storage lifecycle management offers a rich, rule-based policy. With premium block blob storage, you can use a policy to expire data at the end of it's lifecycle. You can't use a policy to move data between hot, cool, and archive tiers. However, you can copy blobs from a block blob storage account to the hot access tier in a *different* account. To copy data to a different account, use the [Put Block From URL](/rest/api/storageservices/put-block-from-url) API or [AzCopy v10](../common/storage-use-azcopy-v10.md). The **Put Block From URL** API synchronously copies data on the server. The call completes only after all the data is moved from the original server location to the destination location.
+
+To learn more, see [Manage the Azure Blob storage lifecycle](./lifecycle-management-overview.md).
+
+## Migrate from standard to premium
+
+You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a premium block blob account, and migrate the data to the new account. 
+
+To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## See also
 
