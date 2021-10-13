@@ -30,7 +30,7 @@ To ensure your TabularDataset contains the accepted schema for consumption in au
 
 ## Azure Machine Learning data labeling
 
-If you don't have labeled data you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md#create-a-labeling-project) to manually label images. This tool automatically generates the data required for training in the accepted format.
+If you don't have labeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
 
 It helps to create, manage, and monitor data labeling tasks for 
 
@@ -42,9 +42,9 @@ If you already have a data labeling project and you want to use that data, you c
 
 ## Use conversion scripts
 
-If you have labeled data in popular computer vision data formats , like VOC or COCO, we provide scripts to generate JSONL files for training and validation data. Refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
+If you have labeled data in popular computer vision data formats, like VOC or COCO, we provide scripts to generate JSONL files for training and validation data. Refer to our [notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed instructions and scripts.
 
-If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](reference-automated-ml-images-schema.md).
+If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](reference-automl-images-schema.md).
 
 After your data file(s) are converted to the accepted JSONL format, you can upload them to your storage account on Azure. 
 
@@ -77,5 +77,5 @@ print("Training dataset name: " + training_dataset.name)
 
 ## Next steps
 
-* [Train computer vision models with automated machine learning](how-to-configure-auto-train-image-models.md).
+* [Train computer vision models with automated machine learning](how-to-auto-train-image-models.md).
 * [Train a small object detection model with automated machine learning](how-to-use-automl-small-object-detect.md). 

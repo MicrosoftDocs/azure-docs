@@ -230,7 +230,7 @@ In this section, we document the input data format required to make predictions 
 
 ### Input format
 
-Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+Following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
 ```python
 # input image for inference
