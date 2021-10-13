@@ -19,12 +19,16 @@ metadata:
 
 landingContent: 
   # Card
-  - title: General Concepts
+  - title: Key Concepts
     linkLists:
       - linkListType: overview
         links:
           - text: Introduction to Azure Active Directory Verifiable Credentials
             url: decentralized-identifier-overview.md
+      - linkListType: overview
+        links:
+          - text: Guiding Principles for Decentralized Identities
+            url: https://www.microsoft.com/security/blog/2021/10/06/microsofts-5-guiding-principles-for-decentralized-identities/ 
       - linkListType: video
         links:
           - text: Govern access to your resources
