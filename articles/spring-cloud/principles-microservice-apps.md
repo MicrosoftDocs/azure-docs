@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
 ---
 
