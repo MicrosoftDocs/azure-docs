@@ -62,7 +62,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     * **Toggle the image for Gen 2**: Confidential  virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Click the **Configure VM generation** under Image selection where you're configuring the virtual machine. If Gen1 VM is selected, error message will pop out.
     
 
-        ![Confidential VM Config](media/quick-create-portal-cvm/CVM-VM-Config.png)
+        ![Confidential VM Config](media/quick-create-portal-cvm/CVM-VM-Config.PNG)
 
 
 1. Choose Confidential virtual machine size based on your requirements by clicking **size**.

@@ -120,7 +120,7 @@ $region="West US"
 ```
 Example:
 
-![Set Variables](/media/quick-create-ARM-amd-cvm/Set-variables.png)]
+![Set Variables](media/quick-create-ARM-amd-cvm/Set-variables.png)]
 
 1. Deploy Confidential virtual machine: Use the following commands in PowerShell to deploy your CVM to Azure.
 ```bash
@@ -137,4 +137,4 @@ az deployment group create `
 ```
 Example:
 
-![Deploy CVM](/media/quick-create-ARM-amd-cvm/Deploy-CVM.png)]
+![Deploy CVM](media/quick-create-ARM-amd-cvm/Deploy-CVM.png)]
