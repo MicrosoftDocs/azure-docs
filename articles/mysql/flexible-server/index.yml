@@ -120,6 +120,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Choose the right tools for migration to Azure Database for MySQL
+            url: ../how-to-decide-on-right-migration-tools.md
+          - text: Migrate from single server to flexible server
+            url: ../howto-migrate-single-flexible-minimum-downtime.md 
           - text: Migrate online
             url: ../howto-migrate-online.md
           - text: Migrate RDS for MySQL using Data-in replication
