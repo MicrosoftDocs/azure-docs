@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: duongau
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 10/13/2021
 ms.author: duau
 ms.custom: references_regions
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
@@ -65,4 +65,6 @@ A connectivity configuration enables you to create a mesh or a hub-and-spoke net
 ## Next steps
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
+- Learn what you can do with a [connectivity configuration](concept-connectivity-configuration.md).
 - Learn more about [security admin configurations](concept-security-admins.md).
