@@ -146,29 +146,35 @@ Each operation's:
 
 You can create SOAP pass-through and SOAP-to-REST APIs with WSDL files.
 
-- **SOAP bindings**  
-    - Only SOAP bindings of "document" and “literal” encoding style are supported.
-    - No support for “rpc” style or SOAP-Encoding.
-- **WSDL:Import**
-    - Not supported. Instead, merge the imports into one document.
-- **Messages with multiple parts** 
-    - This message type is not supported.
-- **WCF wsHttpBinding** 
-    - SOAP services created with Windows Communication Foundation should use `basicHttpBinding`.
-    - `wsHttpBinding` isn't supported.
-- **MTOM** 
-    - Services using `MTOM` *may* work. 
-    - Official support isn't offered at this time.
-- **Recursion** 
-    - Types defined recursively are not supported by API Management.
-    - For example, refer to an array of themselves.
-- **Multiple Namespaces** 
-    - While multiple namespaces can be used in a schema, only the target namespace can be used to define message parts. 
-    - Namespaces other than the target are not preserved. 
-        - These namespaces are used to define other input or output elements.
-        - Although such a WSDL document can be imported, on export, all message parts will have the WSDL target namespace.
-- **Arrays** 
-    - SOAP-to-REST transformation supports only wrapped arrays shown in the example below:
+### SOAP bindings 
+- Only SOAP bindings of "document" and “literal” encoding style are supported.
+- No support for “rpc” style or SOAP-Encoding.
+
+### WSDL:Import
+Not supported. Instead, merge the imports into one document.
+
+### Messages with multiple parts 
+This message type is not supported.
+
+### WCF wsHttpBinding 
+- SOAP services created with Windows Communication Foundation should use `basicHttpBinding`.
+- `wsHttpBinding` isn't supported.
+### MTOM 
+- Services using `MTOM` *may* work. 
+- Official support isn't offered at this time.
+### Recursion
+- Types defined recursively are not supported by API Management.
+- For example, refer to an array of themselves.
+
+### Multiple Namespaces
+While multiple namespaces can be used in a schema, only the target namespace can be used to define message parts. These namespaces are used to define other input or output elements.
+
+Namespaces other than the target are not preserved. 
+
+Although such a WSDL document can be imported, on export, all message parts will have the WSDL target namespace.
+
+### Arrays 
+SOAP-to-REST transformation supports only wrapped arrays shown in the example below:
 
 ```xml
     <complexType name="arrayTypeName">
