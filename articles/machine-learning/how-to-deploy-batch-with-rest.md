@@ -6,7 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 author: tracych
 ms.author: tracych
 ms.date: 10/21/2021
