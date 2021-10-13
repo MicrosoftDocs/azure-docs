@@ -170,4 +170,8 @@ sections:
           | Availability set (newly created by user) | Gallery | Disabled with "Yes" as default |
           | Availability set (newly created by user) | Blob storage | Enabled with "No" as default |
           
-          
+      - question: |
+         Should I use Windows Defender Application Control or AppLocker to control which applications and drivers are allowed to run on my Win 10 Devices?
+        answer: |
+          The team that owns both Windows Defender Application Control and AppLock suggests using Windows Defender Application Control instead of AppLocker. AppLocker is still supported but considered legacy and customers. should steer towards Windows Defender Application Control. 
+
