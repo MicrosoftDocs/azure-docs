@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ---
 
 # What's new in Azure Sentinel
@@ -37,11 +37,11 @@ Azure Sentinel's free trial continues to support new or existing Log Analytics w
 
 Now, in addition during the trial period:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+- **For new Log Analytics workspaces**, including workspaces that are less than three days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
 
     Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply.
+- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply. Existing workspaces include any workspaces created more than three days ago.
 
 For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
@@ -125,9 +125,9 @@ For more information, see:
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 - [Enrich entities with geolocation data via API](geolocation-data-api.md)
 
-### Use notebooks with Azure Synapse in Azure Sentinel
+### Use notebooks with Azure Synapse Analytics in Azure Sentinel
 
-Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse Analytics for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
 
 While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
 
@@ -140,6 +140,7 @@ For example:
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+
 ## October 2021
 
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
