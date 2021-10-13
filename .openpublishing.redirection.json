@@ -1775,7 +1775,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
-      "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+      "redirect_url": "/azure/active-directory-b2c/add-password-reset-policy",
       "redirect_document_id": true
     },
     {
