@@ -65,6 +65,9 @@ Include the SDK in your app, so it can gather data.
 
 5. Start automatically collecting and sending data by calling `appInsights.start();`.
 
+> [!NOTE]
+> Statsbeat is a feature in the Application Insights SDKs that collects and sends diagnostic data to Microsoft. Microsoft uses this information to run and improve Application Insights. You have the option to disable [non-essential data collection](./statsbeat.md#configure-statsbeat). [Learn More](./statsbeat.md).
+
 ### <a name="monitor"></a> Monitor your app
 
 The SDK automatically gathers telemetry about the Node.js runtime and some common third-party modules. Use your application to generate some of this data.

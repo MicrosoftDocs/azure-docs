@@ -140,6 +140,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     logger.warning('action', extra=properties)
     ```
 
+> [!NOTE]
+> Statsbeat is a feature in the Application Insights SDKs that collects and sends diagnostic data to Microsoft. Microsoft uses this information to run and improve Application Insights. You have the option to disable [non-essential data collection](./statsbeat.md#configure-statsbeat). [Learn More](./statsbeat.md).    
+
 #### Configure logging for Django applications
 
 You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. For how to configure Django settings, see [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/). For more information on configuring logging, see [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/).
