@@ -487,5 +487,6 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Deployed your model
 > * Visualized detections
 
-* Learn more about computer vision in automated ML (preview).
-* [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
+* [Learn more about computer vision in automated ML (preview)](concept-automated-ml.md#computer-vision-preview).
+* [Learn how to set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
