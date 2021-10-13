@@ -13,7 +13,7 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Azure Active Directory Verifiable Credentials (Preview)
+# Introduction to Azure Active Directory Verifiable Credentials (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.

@@ -11,7 +11,7 @@ ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
 
-# Frequently Asked Questions (FAQ)
+# Frequently Asked Questions (FAQ) (preview)
 
 This page contains commonly asked questions about Verifiable Credentials and Decentralized Identity. Questions are organized into the following sections.
 

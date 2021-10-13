@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID)
+# Link your domain to your Decentralized Identifier (DID) (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.

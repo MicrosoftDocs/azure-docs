@@ -1,5 +1,5 @@
 ---
-title: What's new for Azure Active Directory Verifiable Credentials
+title: What's new for Azure Active Directory Verifiable Credentials (preview)
 description: Recent updates for Azure Active Directory Verifiable Credentials
 author: barclayn
 ms.service: active-directory

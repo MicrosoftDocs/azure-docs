@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Issue Azure AD Verifiable Credentials from an Application
+title: Tutorial - Issue Azure AD Verifiable Credentials from an Application (preview)
 description: In this tutorial, you learn how to issue verifiable credentials using a sample app
 ms.service: active-directory
 ms.subservice: verifiable-credentials

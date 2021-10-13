@@ -1,5 +1,5 @@
 ---
-title: Specify the Request Service REST API verify request
+title: Specify the Request Service REST API verify request (preview)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a Verifiable Credential presentation request
 documentationCenter: ''
@@ -14,7 +14,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Request Service REST API presentation specification (Preview)
+# Request Service REST API presentation specification (preview)
 
 Azure Active Directory (Azure AD) verifiable credentials Request Service REST API allows you to issue and verify a veritable credential. This article specifies the Request Service REST API for a presentation request. The presentation request asks the user to present a verifiable credential and then verify the credential.
 
