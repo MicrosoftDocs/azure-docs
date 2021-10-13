@@ -1,5 +1,5 @@
 ---
-title: QuickStart: Azure Synapse lake database and database templates
+title: QuickStart on Azure Synapse lake database and database templates
 description: Quickstart how to use the synapse lake database and the database templates
 author: gesaur
 ms.author: gesaur
