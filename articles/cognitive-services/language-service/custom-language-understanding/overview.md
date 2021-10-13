@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What is Conversational Language Understanding (preview)?
 
-Conversational Language Understanding is a cloud-based service that enables you to train conversational language models using transformer-based models. 
+Conversational Language Understanding is a cloud-based service that enables you to train conversational language models using state-of-the-art technology. 
 
 The API is a part of [Azure Cognitive Services](../../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API, or the client libraries.
 
@@ -22,7 +22,7 @@ The API is a part of [Azure Cognitive Services](../../index.yml), a collection o
 
 Conversational Language Understanding applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
-* Natural language understanding technology using advanced neural networks.
+* Advanced natural language understanding technology using advanced neural networks.
 * Robust and semantically aware classification and extraction models.
 * Simplified model building experience, using Language Studio.
 * Natively multilingual models that let you to train in one language, and test in others.
