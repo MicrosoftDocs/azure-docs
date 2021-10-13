@@ -29,31 +29,31 @@ This page lists several open-source tools and utilities (command line, python an
 
 1. [Purview-API-via-Powershell](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/README.md) 
 - *Recommended Customer Journey Stages : Learners (Interactive Mode); Innovators, Enthusiasts, Adopters, Long-Term Regular Users (Batch Mode).*
-- *Description* : This utility is based on and covers the entire set of [Azure Purview REST API Reference](https://docs.microsoft.com/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use Powershell interface. Use and automate Purview APIs for regular and long term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
+- **Description** : This utility is based on and covers the entire set of [Azure Purview REST API Reference](https://docs.microsoft.com/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Purview REST APIs through a breezy fast and easy to use Powershell interface. Use and automate Purview APIs for regular and long term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch mode or scheduled cron jobs; as against the GUI method of using the Azure portal and Purview Studio. Detailed documentation, sample usage guide, self-help and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
 
 2. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 - *Recommended Customer Journey Stages : Learners, Innovators, Enthusiasts*
-- Description : Powershell script to perform initial set-up of Purview account. Very useful for anyone looking to set up several fresh new Purview account(s) in less than 5 minutes!
+- **Description** : Powershell script to perform initial set-up of Purview account. Very useful for anyone looking to set up several fresh new Purview account(s) in less than 5 minutes!
 
 3. [Purview Lab](https://aka.ms/purviewlab)
 - *Recommended Customer Journey Stages : Learners, Innovators, Enthusiasts*
 - Description : A hands-on-lab introducing the myriad features of Purview and helping you learn the concepts in a practical and hands-on approach where you execute each step on your own by hand to develop the best possible understanding of Purview.
 
 4. [Purview CLI](https://aka.ms/purviewcli)
-- Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users
-- Description : Another technique of using the Purview APIs similar to [Purview-API-via-Powershell](https://aka.ms/purview-api-ps) , only difference being this tool is Python based, whereas the former is Powershell based.
+- *Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
+- **Description** : Another technique of using the Purview APIs similar to [Purview-API-via-Powershell](https://aka.ms/purview-api-ps) , only difference being this tool is Python based, whereas the former is Powershell based.
 
 5. [Purview Demo](https://aka.ms/pvdemo)
-- Recommended Customer Journey Stages : Learners, Innovators, Enthusiasts
-- Description : A lightning fast tool to automatically deploy Purview in a super fast and secure way at the click of a button. It just asks for your corporate email address - as simple as that ! Click a button, wait 10 minutes and boom - your Purview environment is up and running, ready to use via Azure portal, Purview Studio or any of the Purview APIs.
+- *Recommended Customer Journey Stages : Learners, Innovators, Enthusiasts*
+- **Description** : A lightning fast tool to automatically deploy Purview in a super fast and secure way at the click of a button. It just asks for your corporate email address - as simple as that ! Click a button, wait 10 minutes and boom - your Purview environment is up and running, ready to use via Azure portal, Purview Studio or any of the Purview APIs.
 
 6. [PyApacheAtlas: Interface between Azure Purview and Apache Atlas](https://github.com/wjohnson/pyapacheatlas) using Atlas APIs
-- Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users
-- Description : A python package to work with Azure Purview and Apache Atlas API. Supports bulk loading, custom lineage, and more from a Pythonic set of classes and Excel templates. The package supports programmatic interaction and an Excel template for low-code uploads.
+- *Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
+- **Description** : A python package to work with Azure Purview and Apache Atlas API. Supports bulk loading, custom lineage, and more from a Pythonic set of classes and Excel templates. The package supports programmatic interaction and an Excel template for low-code uploads.
 
 7. [Purview EventHub Notifications Reader](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py)
-- Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users
-- Description : This tool demonstrates how to read Purview's EventHub and catch realtime Kafka notifications from the EventHub in Atlas Notifications (https://atlas.apache.org/2.0.0/Notifications.html) format. Further, it generates an excel sheet CSV of the entities and assets on the fly that are discovered live during a scan, and any other notifications of interest that Purview generates.
+- *Recommended Customer Journey Stages : Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
+- **Description** : This tool demonstrates how to read Purview's EventHub and catch realtime Kafka notifications from the EventHub in Atlas Notifications (https://atlas.apache.org/2.0.0/Notifications.html) format. Further, it generates an excel sheet CSV of the entities and assets on the fly that are discovered live during a scan, and any other notifications of interest that Purview generates.
 
 
 ## Feedback & Disclaimer
