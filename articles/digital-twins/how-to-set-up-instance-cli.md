@@ -5,9 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/3/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
