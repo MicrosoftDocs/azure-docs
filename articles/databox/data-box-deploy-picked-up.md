@@ -110,7 +110,35 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [Europe](#tab/in-europe)
 
-Take the following steps if returning the device in Europe.
+Take the following steps if you're returning the device in Europe.
+
+#### Germany or Switzerland
+
+1. Write down the reference number (the return tracking number) on the **Prepare to ship** page in the local web UI of your Data Box.
+1. Make sure that the device is powered off and cables are removed.
+1. Spool and securely place the power cord that was provided with the device in the back of the device.
+1. Ensure that a return label with a tracking number that matches the reference number you wrote down in Step 1 is visible in the E-ink display. If the label is not visible or does not have the correct return tracking number, then you can go to **Overview > Download shipping label** in the Azure portal. If a printed copy is required, it can be affixed to the outside of the device on top of the E-ink display.
+1. The Azure datacenter requires advance notice of all device returns. Email Azure Data Box Operations, using the following template, to receive an Inbound ID. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Inbound ID: <orderName> 
+    Body: 
+        
+    I am ready to return an Azure Data Box and would like to request an Inbound ID for the following order:
+
+    Order Name: <orderName>
+    Return Tracking Number: <returnTracking#>
+    ```
+
+1. Write down the Inbound ID number provided by Azure Data Box Operations, and paste it onto the unit, where it is clearly visible, near the return label.
+1. Note the name of the shipment carrier and tracking number found on the return label.
+1. Schedule a pickup. To schedule a pickup, contact the carrier online or by phone, and provide them with the return tracking number as shown in the E-ink display or your printed label.
+1. If any issues come up while you're scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Provide the order name and the issue encountered in the **Subject** line.
+
+#### Other European locations
+
+Take the following steps if returning the device in US or Canada.
 
 1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
@@ -122,7 +150,9 @@ Take the following steps if returning the device in Europe.
     * If any issues come up while you're scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
+
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+
 
 ::: zone target="chromeless"
 
