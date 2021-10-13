@@ -82,7 +82,7 @@ LIST FILES IN DATA PATH...
 ['cifar-10-batches-py', 'cifar-10-python.tar.gz']
 ```
 
-[!Note:]
+[!Note]
 Azure Dev/Test offer has mounted Blob Storage to the compute cluster automatically for you. The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point.  
 
 ## Clean up resources

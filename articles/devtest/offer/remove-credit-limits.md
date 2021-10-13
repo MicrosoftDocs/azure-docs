@@ -34,7 +34,7 @@ More Cost Management docs:
 * [Understand Cost Management Data](../../cost-management-billing/costs/understand-cost-mgt-data.md)  
 * [Optimize Your Cloud Investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md)  
 
-Payment Methods and Overages
+## Payment Methods and Overages
 
 When removing limits or changing offers, you may be required to [update or add a new credit](../../cost-management-billing/manage/change-credit-card.md). You won't be able to use your credit card for overages until your credit has been exhausted.  
 

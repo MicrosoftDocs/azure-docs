@@ -28,7 +28,7 @@ To create an enterprise Azure dev/test subscription, you must have an account ow
 
 An EA Account Owner **cannot** use the same sign-in account for the EA Portal and other Azure offers. Suppose you were added to the EA Portal as an Account Owner and used the same credentials you used for your individual Visual Studio Benefits. In that case, that Visual Studio subscription will be converted to the EA Dev/Test offer.  
 
-[!Note:] The first time you sign in to the EA Portal as an account owner, you'll see a warning pop-up. It’s essential to read and understand. Your existing subscriptions will be converted to a billable EA offer. If you're a Visual Studio subscriber added as an Account Owner, you'll lose your individual monthly Azure credit until you take further action.
+> [!Note] The first time you sign in to the EA Portal as an account owner, you'll see a warning pop-up. It’s essential to read and understand. Your existing subscriptions will be converted to a billable EA offer. If you're a Visual Studio subscriber added as an Account Owner, you'll lose your individual monthly Azure credit until you take further action.
 
 ### To recover your individual Visual Studio Azure Benefits  
 
@@ -46,12 +46,10 @@ To create your enterprise dev/test subscriptions, first choose an enrollment acc
 1. To get started, go to [Ea.azure.com](https://ea.azure.com). The Azure Enterprise Portal is where you can manage your company's enrollments  
 2. Within the Manage tab, select your agreement number  
 
- [!Note:] the enrollment can change based on your Enterprise Agreement renewal cycle  
+ [!Note] the enrollment can change based on your Enterprise Agreement renewal cycle  
 
  ![A screenshot of the Enterprise Agreement management portal page.](media/creating-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")  
 3. Once you’ve selected the appropriate enrollment number, select the “Account” tab  
-
- ![A screenshot of the Azure Enterprise portal management page with the Account tab selected.](media/creating-enterprise-devtest-subscriptions/ea-account.png "Select the Account tab.")  
 4. From here, you can edit the Account(s) and toggle the dev/test flag to “Yes.”  
 
 To add an account:  
@@ -75,10 +73,10 @@ After you've chosen the account to create an enterprise Azure dev/test subscript
     b. Sign in with your Microsoft Azure credentials  
     c. Once you’re signed in, you'll be directed to a page that lists the offers available – you MUST toggle 'yes' in the EA portal to see enterprise offers  
 2. Select the enterprise dev/test offer and create your subscription  
-    a. Note: You must have access and permissions associated with your identity
+    a. You must have access and permissions associated with your identity
     b. You must designate the Account as a dev/test account within the enrollment portal  
 
-See Also:  
+### Next steps  
 
 - [Azure EA portal administration](../../cost-management-billing/manage/ea-portal-administration.md)
 - [Get started with the Azure Enterprise portal](../../cost-management-billing/manage/ea-portal-get-started.md)

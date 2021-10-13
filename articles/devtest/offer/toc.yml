@@ -22,7 +22,7 @@
   - name: Get started with an individual Azure Dev/Test credit
     href: how-to-individual-credit.md
   - name: Change directory tenants
-    href: change-directory-tenants-with-vss-azure.md
+    href: change-directory-tenants-vss-azure.md
   - name: Remove credit limits 
     href: remove-credit-limits.md
   - name: Add users to your directory
@@ -32,13 +32,13 @@
   - name: Create an enterprise Dev/Test subscription
     href: create-enterprise-devtest-subscriptions.md
   - name: GitOps and Azure Dev/Test
-    href: gitops-and-azure-devtest.md
+    href: gitops-azure-devtest.md
   - name: Manage and Monitor Dev/Test
-    href: manage-and-monitor-devtest.md
+    href: manage-monitor-devtest.md
   - name: Manage reliability and performance with Azure Dev/Test
-    href: manage-reliability-and-performance.md
-  - name: Security and Governance in Dev/Test
-    href: security-and-governance-devtest.md
+    href: manage-reliability-performance.md
+  - name: Security and governance in Dev/Test
+    href: security-governance-devtest.md
 - name: Resources
   items: 
     - name: Azure roadmap

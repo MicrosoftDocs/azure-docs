@@ -1,5 +1,5 @@
 ---
-title: Managing reliability and performance with Dev/Test subscriptions
+title: Manage reliability and performance with Azure Dev/Test subscriptions
 description: Build reliability into your applications with Dev/Test subscriptions. 
 author: jamestramel
 ms.author: jametra
@@ -56,10 +56,6 @@ Developer inner loop activities often use credits, but then switch to enterprise
 
 Manage your credit subscriptions, enterprise dev/test subscriptions, and PAYG subscriptions and segment your developers using [management groups](../../governance/management-groups/how-to/protect-resource-hierarchy.md) that each have a unique hierarchy.  
 
-Learn more about Security with Azure Dev/Test subscriptions: (link – Security within Dev/Test subscriptions).  
-
-Follow our process guide: (link – Creating a Developer tenant)  
-
 ## Using Your Organization Azure Dev/Test Offers  
 
 If you need an organization Azure Dev/Test subscription, you have two offers to choose from.  
@@ -77,10 +73,6 @@ Enterprise Dev/Test Subscriptions require an enterprise agreement (EA). Pay-As-Y
 
 A PAYG Dev/Test offer might be the right fit to use as a Visual Studio subscriber. Unlike credit subscriptions for individual use, PAYG offers are great for team development and allow you to have multiple users within one subscription. A PAYG Dev/Test offer might be right for you if:  
 
-1. You don't have an enterprise agreement. In this case, you can only create a PAYG account with a Visual Studio license.  
-2. You're creating an enterprise agreement, but you need to set up a subscription that doesn't use your organization’s agreement. You may have a unique project that requires its own subscription or to create an isolated environment billed separately for projects or teams.  
-3. You prefer to keep identities isolated. You may need certain identities to remain separate from others to protect access to data, resources, and apps.  
-
-Learn more about Security with Azure Dev/Test subscriptions: (link – Security within Dev/Test subscriptions).  
-
-Follow our process guide: (link – Creating a Developer tenant)  
+- You don't have an enterprise agreement. In this case, you can only create a PAYG account with a Visual Studio license.  
+- You're creating an enterprise agreement, but you need to set up a subscription that doesn't use your organization’s agreement. You may have a unique project that requires its own subscription or to create an isolated environment billed separately for projects or teams.  
+- You prefer to keep identities isolated. You may need certain identities to remain separate from others to protect access to data, resources, and apps.  

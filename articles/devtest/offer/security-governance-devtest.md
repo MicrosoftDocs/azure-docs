@@ -1,5 +1,5 @@
 ---
-title: Security, Governance, and Azure Dev/Test Subscriptions
+title: Security, governance, and Azure Dev/Test subscriptions
 description: Manage security and governance within your organization's Dev/Test subscriptions. 
 author: jamestramel
 ms.author: jametra
@@ -30,7 +30,7 @@ Your resources, resource groups, subscriptions, management groups, and tenant co
 
 [Azure Management Groups](../../governance/management-groups/overview.md) are an important aspect of governing access and protecting your resources in a single tenant. Azure Management Groups allows you to set quotas, Azure policies, and security to different types of subscriptions. These groups are a vital component of developing security for your organization's dev/test subscriptions.  
 
-![A screenshot of Azure orgs and governance groupings](media/security-and-governance-in-devtest/orgs-and-governance.png "How Azure Management Groups fit into overall governance.")
+![A screenshot of Azure org and governance groupings](media/security-and-governance-in-devtest/orgs-and-governance.png "How Azure Management Groups fit into overall governance.")
 
 As you can see above, using management groups changes the default hierarchy and adds a level for the management groups. This behavior can potentially create unforeseen circumstances and holes in security if you don’t follow the [appropriate process to protect your resource hierarchy](../../governance/management-groups/how-to/protect-resource-hierarchy.md)  
 
@@ -68,8 +68,6 @@ If you don't have an Azure AD tenant, or want to create a new one for developmen
 - **Country or region**  
 
  [Learn more about creating and setting up Azure AD tenants](../../active-directory/develop/quickstart-create-new-tenant.md)  
-
-Follow our process guide: (link – Creating a Developer tenant)  
 
 ### Using Azure Lighthouse to manage multiple tenants  
 

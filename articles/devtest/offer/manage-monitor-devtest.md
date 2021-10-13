@@ -1,5 +1,5 @@
 ---
-title: Managing and Monitoring your Azure Dev/Test Subscriptions
+title: Managing and monitoring your Azure Dev/Test subscriptions
 description: Manage your Azure Dev/Test subscriptions with the flexibility of Azure's cloud environment. This guide also covers Azure Monitor to help maximize availability and performance for applications and services.
 author: jamestramel
 ms.author: jametra
@@ -70,4 +70,4 @@ Azure Automation becomes important in this scenario. When you're going into a ne
 
 You can deploy your configurations as many times as you want to update the pre-production environment and track your costs. Using Azure Automation you can run and delete your ARM templates as needed.  
 
-When a service or resource only needs to be updated twice a year, use Devops tools to deploy your ARM template. Let the automation job turn off your resource, and then redeploy it as needed.  
+When a service or resource only needs to be updated twice a year, use DevOps tools to deploy your ARM template. Let the automation job turn off your resource, and then redeploy it as needed.  
