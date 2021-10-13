@@ -1,6 +1,6 @@
 ---
-title: Image Builder - Create a Windows Virtual Desktop image
-description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
+title: Image Builder - Create a Azure Virtual Desktop image
+description: Create an Azure VM image of Azure Virtual Desktop using Azure Image Builder in PowerShell.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -12,11 +12,11 @@ ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
+# Create an Azure Virtual Desktop image using Azure VM Image Builder and PowerShell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article shows you how to create a Windows Virtual Desktop image with these customizations:
+This article shows you how to create an Azure Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
@@ -98,7 +98,7 @@ Import-Module Az.Accounts
 $currentAzContext = Get-AzContext
 
 # destination image resource group
-$imageResourceGroup="wvdImageDemoRg"
+$imageResourceGroup="avdImageDemoRg"
 
 # location (see possible locations in main docs)
 $location="westus2"
@@ -107,7 +107,7 @@ $location="westus2"
 $subscriptionID=$currentAzContext.Subscription.Id
 
 # image template name
-$imageTemplateName="wvd10ImageTemplate01"
+$imageTemplateName="avd10ImageTemplate01"
 
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName="sigOutput"
@@ -125,13 +125,13 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS modules to support AzUserAssignedIdentity and Az AIB
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
 $idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
 $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
@@ -168,13 +168,13 @@ If you don't already have a Shared Image Gallery, you need to create one.
 
 ```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"
-$imageDefName ="win10wvd"
+$imageDefName ="win10avd"
 
 # create gallery
 New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
 
 # create gallery definition
-New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku '10wvd'
+New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku '10avd'
 
 ```
 
@@ -278,7 +278,7 @@ Delete the resource group template first, do not just delete the entire resource
 Remove the Image Template.
 
 ```azurepowershell-interactive
-Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name wvd10ImageTemplate
+Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name vd10ImageTemplate
 ```
 
 Delete the role assignment.
