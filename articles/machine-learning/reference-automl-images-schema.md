@@ -13,9 +13,10 @@ ms.date: 10/13/2021
 ms.custom: 
 ---
 
-# Data schemas for  to train computer vision models with automated machine learning
+# Data schemas to train computer vision models with automated machine learning
 
-Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks.
+Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
+
 
 ## Data schema for training 
 
