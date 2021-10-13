@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/08/2021
+ms.date: 10/13/2021
 ms.author: radeltch
 
 ---
@@ -76,6 +76,7 @@ Before you begin, refer to the following SAP notes and papers:
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Red Hat Enterprise Linux Networking Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
   * [How do I configure SAP HANA Scale-Out System Replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971)
+  * [Active/Active (Read-Enabled):RHEL HA Solution for SAP HANA Scale Out and System Replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf)
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
   * [Red Hat Enterprise Linux Solution for SAP HANA Scale-Out and System Replication](https://access.redhat.com/solutions/4386601)
@@ -1035,6 +1036,57 @@ Include all virtual machines, including the majority maker in the cluster.
    > [!NOTE]
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.
   
+## Configure HANA active/read enabled system replication in Pacemaker cluster
+
+Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intensive workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+
+This section describes the additional steps that are required to manage HANA scale-out Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.  
+
+Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in above segments of the documentation.  
+
+![SAP HANA scale-out high availability with read-enabled secondary](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
+
+### Additional setup in Azure load balancer for active/read-enabled setup
+
+To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Deploy Azure load balancer](#deploy-azure-load-balancer) section.
+
+1. For **standard** load balancer, follow below additional steps on the same load balancer that you had created in earlier section.
+
+   a. Create a second front-end IP pool: 
+
+   - Open the load balancer, select **frontend IP pool**, and select **Add**.
+   - Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+   - Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.19**).
+   - Select **OK**.
+   - After the new front-end IP pool is created, note the pool IP address.
+
+   b. Next, create a health probe:
+
+   - Open the load balancer, select **health probes**, and select **Add**.
+   - Enter the name of the new health probe (for example, **hana-secondaryhp**).
+   - Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+   - Select **OK**.
+
+   c. Next, create the load-balancing rules:
+
+   - Open the load balancer, select **load balancing rules**, and select **Add**.
+   - Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+   - Select the front-end IP address , the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
+   - Select **HA Ports**.
+   - Make sure to **enable Floating IP**.
+   - Select **OK**.
+
+### Configure HANA active/read enabled system replication
+
+The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
+
+```
+sapcontrol -nr 03 -function StopWait 600 10 
+
+hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2 --operationMode=logreplay_readaccess 
+```
+
+
 ## Test SAP HANA failover 
 
 1. Before you start a test, check the cluster and SAP HANA system replication status.  
