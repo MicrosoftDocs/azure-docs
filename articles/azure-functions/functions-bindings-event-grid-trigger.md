@@ -361,7 +361,7 @@ def main(event: func.EventGridEvent):
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.
 
-# [In-process/C# script](#tab/in-process+csharp-script)
+# [In-process](#tab/in-process)
 
 Here's an `EventGridTrigger` attribute in a method signature:
 
