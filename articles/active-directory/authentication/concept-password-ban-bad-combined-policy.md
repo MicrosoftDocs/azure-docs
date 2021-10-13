@@ -32,8 +32,10 @@ The following Azure AD password policy requirements apply for all passwords that
 | --- | --- |
 | Characters allowed |Uppercase characters (A - Z)<br>Lowercase characters (a - z)<br>Numbers (0 - 9)<br>Symbols:<br>- @ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ><br>- blank space |
 | Characters not allowed | Unicode characters |
-| Password restrictions |Passwords require<br>- A minimum of 8 characters<br>- A maximum of 256 characters</li> |
+| Password length |Passwords require<br>- A minimum of 8 characters<br>- A maximum of 256 characters</li> |
 | Password complexity |Passwords require three out of four of the following:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: This check is not required for Education tenants. |
+| Password not recently used | When a user changes or resets their password, the new password cannot be the same as the current or recently used passwords. |
+| Password is not banned by Azure AD Password Protection | The password cannot be on the global list of banned passwords for Azure AD Password Protection, or on a customizable list of banned passwords specific to your organization. |
 | Password expiry duration (Maximum password age) |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification (When users are notified of password expiration) |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Password expiry (Let passwords never expire) |<ul><li>Default value: **false** (indicates that password's have an expiration date).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
