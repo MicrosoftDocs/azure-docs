@@ -8,7 +8,7 @@
     href: chaos-studio-chaos-engineering-overview.md
 - name: Tutorials
   items:
-  - name: Run and manage an experiment
+  - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
   - name: Cause a DNS outage using the network security group fault
     href: chaos-studio-quickstart-dns-outage.md
@@ -26,11 +26,11 @@
     href: chaos-studio-chaos-engineering-overview.md
 - name: How-to guides
   items:
-  - name: Create and run an experiment that uses service-direct faults
+  - name: Create and run experiment: Service-direct faults
     href: chaos-studio-tutorial-service-direct.md
-  - name: Create and run an experiment that uses agent-based faults
+  - name: Create and run experiment: Agent-based faults
     href: chaos-studio-tutorial-agent-based.md
-  - name: Create and run an experiment that uses Chaos Mesh faults on AKS
+  - name: Create and run experiment: Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
 - name: Reference
   items:

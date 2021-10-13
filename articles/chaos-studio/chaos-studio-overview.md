@@ -42,7 +42,7 @@ Chaos Studio enables you to orchestrate fault injection on your Azure resources 
 
 When you build a chaos experiment, you define one or more *steps* that execute sequentially, each step containing one or more *branches* that run in parallel within the step, and each branch containing one or more *actions* such as injecting a fault or waiting for a certain duration. Finally, you organize the resources (*targets*) that each fault will be run against into groups called selectors so that you can easily reference a group of resources in each action.
 
-![Diagram showing the layout of a chaos experiment](images/chaos-experiment.png)
+![Diagram showing the layout of a chaos experiment.](images/chaos-experiment.png)
 
 A chaos experiment is an Azure resource that lives in a subscription and resource group. You can use the Azure portal or the Chaos Studio REST API to create, update, start, cancel, and view the status of an experiment.
 
