@@ -23,7 +23,7 @@ If you want to skip straight to sample code, see the [C++ quickstart samples](ht
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Install the Speech SDK
