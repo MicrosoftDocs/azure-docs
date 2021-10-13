@@ -701,26 +701,6 @@ This scenario is currently in **PREVIEW**.
 
 - **Sign-in event from user with leaked credentials leading to ransomware in cloud app**
 
-### Multiple alerts possibly related to Ransomware activity detected (Public preview)
-
-Azure Sentinel generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
-
-- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
-- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
-- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
-- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
-
-Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
-
-For example, Azure Sentinel would generate an incident for possible Ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
-
-- Azure Sentinel scheduled alerts (informational): **Windows Error and Warning Events**
-- Azure Defender (medium): **'GandCrab' ransomware was prevented**
-- Microsoft Defender for Endpoint (informational): **'Emotet' malware was detected**
-- Azure Defender (low): **'Tofsee' backdoor was detected**
-- Microsoft Defender for Endpoint (informational): **'Parite' malware was detected**
-
 ## Remote exploitation
 
 ### Suspected use of attack framework followed by anomalous traffic flagged by Palo Alto Networks firewall

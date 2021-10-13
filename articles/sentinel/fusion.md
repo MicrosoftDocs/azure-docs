@@ -26,15 +26,17 @@ Azure Sentinel uses Fusion, a correlation engine based on scalable machine learn
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
 
+Since Fusion correlates multiple security alerts from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Azure Sentinel **Incidents** page, and not as **alerts** in the **Security Alerts** table in **Logs**.
+
 ## Fusion for emerging threats
 
 The volume of security events continues to grow, and the scope and sophistication of attacks are ever increasing. We can define the known attack scenarios, but how about the emerging and unknown threats in your environment?  
 
-Azure Sentinel's extended Fusion ML detection capability can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
+Azure Sentinel's Fusion ML detection capability can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
 
-With this extended capability, our ML detections are no longer limited to the known attack scenarios. The Fusion ML algorithm constantly learns from existing attacks, applies analysis based on how the real security analysts think, and finds the threats we have not seen previously from millions of anomalous behaviors and suspicious activities across the kill-chain in your environment to help you stay one step ahead of the attackers.
+The Fusion ML algorithm constantly learns from existing attacks and applies analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
 
-Fusion collects data on anomalous behaviors from the following sources:
+**Fusion for emerging threats** supports data collection and analysis from the following sources:
 
 - [Built-in anomaly detections](soc-ml-anomalies.md)
 - Alerts from Microsoft products:
@@ -46,10 +48,37 @@ Fusion collects data on anomalous behaviors from the following sources:
     - Microsoft Defender for Endpoint
     - Microsoft Defender for Identity
     - Microsoft Defender for Office 365
-- Alerts from scheduled analytics rules, both [built-in](detect-threats-built-in.md) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information to be used by Fusion.
+- Alerts from scheduled analytics rules, both [built-in](detect-threats-built-in.md) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
+
+You don’t need to have connected all the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
+
+When the Fusion machine learning model's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the incidents table in your Azure Sentinel workspace.
+
 
 > [!NOTE]
 > Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+
+## Fusion for ransomware
+
+Azure Sentinel's Fusion engine generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
+- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
+
+Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
+
+For example, Azure Sentinel would generate an incident for possible Ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
+
+- Azure Sentinel scheduled alerts (informational): **Windows Error and Warning Events**
+- Azure Defender (medium): **'GandCrab' ransomware was prevented**
+- Microsoft Defender for Endpoint (informational): **'Emotet' malware was detected**
+- Azure Defender (low): **'Tofsee' backdoor was detected**
+- Microsoft Defender for Endpoint (informational): **'Parite' malware was detected**
+
+
 
 ## Fusion for scheduled analytics rules
 
@@ -83,11 +112,9 @@ Fusion collects data on anomalous behaviors from the following sources:
 
 You can now configure all your Fusion detections in one centralized place, giving you more control over your environment.
 
-## Attack detection scenarios
+## Scenario-based Fusion detections
 
 The following section lists the types of correlation scenarios, grouped by threat classification, that Azure Sentinel looks for using Fusion technology.
-
-As mentioned above, since Fusion correlates multiple security alerts from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Azure Sentinel **Incidents** page, and not as **alerts** in the **Security Alerts** table in **Logs**.
 
 In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested using the associated Azure Sentinel data connectors.
 
@@ -108,7 +135,7 @@ In order to enable these Fusion-powered attack detection scenarios, any data sou
 | **Malicious execution <br>with legitimate process**    | <ul><li>PowerShell made a suspicious network connection, *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall   <li>Suspicious remote WMI execution *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall   <li>Suspicious PowerShell command line *following* suspicious sign-in          |
 | **Malware C2 or download**      | <ul><li>Suspicious PowerShell command line *following* suspicious sign-in     <li>Beacon pattern detected by Fortinet *following* suspicious Azure AD sign-in       <li>Network request to TOR anonymization service *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall       <li>Outbound connection to IP with a history of unauthorized access attempts *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall    |
 | **Persistence**                 | <ul><li>Rare application consent *following* suspicious sign-in         |
-| **Ransomware**                  | <ul><li>Ransomware execution *following* suspicious Azure AD sign-in    <li>Multiple alerts possibly related to Ransomware activity detected (Public preview)          |
+| **Ransomware**                  | <ul><li>Ransomware execution *following* suspicious Azure AD sign-in          |
 | **Remote exploitation**         | <ul><li>Suspected use of attack framework *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall          |
 | **Resource hijacking**          | <ul><li>Suspicious resource / resource group deployment by a previously unseen caller <br>*following* suspicious Azure AD sign-in          |
 |
