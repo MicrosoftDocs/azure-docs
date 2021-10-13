@@ -54,7 +54,7 @@ In Cost Management, the PublisherType field indicates whether charges are for Mi
 
 What's changing?
 
-Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a [Microsoft Customer Agreement](../understand/review-customer-agreement-bill.dm#check-access-to-a-microsoft-customer-agreement). This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
+Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a [Microsoft Customer Agreement](../understand/review-customer-agreement-bill.md#check-access-to-a-microsoft-customer-agreement). This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
 
 Values of “Marketplace” and “AWS” will remain unchanged.
 
