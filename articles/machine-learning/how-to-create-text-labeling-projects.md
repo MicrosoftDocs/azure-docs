@@ -125,6 +125,26 @@ To directly upload your data:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
+## Use ML-assisted data labeling
+
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. ML-assisted labeling is available for both file and tabular (.csv) text data inputs.
+
+At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
+
+Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling. If you don't have one in your workspace, a GPU cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
+
+The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in teh project.
+
+Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+
+> [!NOTE]
+> ML assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
+
+### Prelabeling
+
+After enough labels are submitted, a classification model is used to predict tags. The labeler now sees pages that contain predicted labels already present on each item. The task is then to review these predictions and correct any mis-labeled items before submitting the page.  
+
+Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled items to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions more confident than this threshold are used for pre-labeling.
 
 ## Initialize the text labeling project
 

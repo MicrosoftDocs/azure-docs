@@ -124,7 +124,10 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
-Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
+Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling. If you don't have one in your workspace, a GPU cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
+
+
+ML-assisted labeling consists of two phases:
 
 * Clustering
 * Prelabeling
