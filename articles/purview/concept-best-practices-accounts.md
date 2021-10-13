@@ -49,15 +49,15 @@ Optionally, you can register a data source in more than one Purview instance, if
 
 ### Fulfilling compliance requirements  
 
-When you scan data sources in Azure Purview, information related to your metadata is ingested and stored inside your Azure Purview Data Map in the Azure region where your Purview account is deployed. Consider deploying separate instances of Azure Purview if you find strict regulatory and compliance requirements, which requires treating even metadata as sensitive and require it to be in a specific geography.  
+When you scan data sources in Azure Purview, information related to your metadata is ingested and stored inside your Azure Purview Data Map in the Azure region where your Purview account is deployed. Consider deploying separate instances of Azure Purview if you have specific regulatory and compliance requirements that include even having metadata in a specific geographical location.  
 
-If your organization has data in multiple geographies and you must keep metadata in the same region as the actual data, you have to deploy multiple Purview instances, one for each geography. In this case, data sources from each regions should be registered and scanned in the Purview account that corresponds to the data source region.
+If your organization has data in multiple geographies and you must keep metadata in the same region as the actual data, you have to deploy multiple Purview instances, one for each geography. In this case, data sources from each regions should be registered and scanned in the Purview account that corresponds to the data source region or geography.
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-regions.png" alt-text="Screenshot that shows multiple Azure Purview accounts based on compliance requirements."lightbox="media/concept-best-practices/accounts-multiple-regions.png":::
 
-### having Data sources distributed across multiple tenants  
+### Having Data sources distributed across multiple tenants  
 
-Currently, Purview doesn't support multi-tenancy. If you have Azure data sources distributed in multiple Azure subscriptions that are associated to different Azure Active Directory tenants, we recommend deploying separate Azure Purview accounts per each tenant. 
+Currently, Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions which are associated to different Azure Active Directory tenants, we recommend deploying at least one Azure Purview account per each tenant. 
 
 An exception applies to VM-based data sources and Power BI tenants. For more information about how to scan and register a cross tenant Power BI in a single Purview account see, [Register and scan a cross-tenant Power BI](/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
 
@@ -65,21 +65,21 @@ An exception applies to VM-based data sources and Power BI tenants. For more inf
 
 ### Require separate billing model for each department or business unit  
 
-Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing Azure Purview architecture for your organization. Consider that you will receive one billing for a single Purview account for the subscription where Purview account is deployed. This model also applies to additional costs related to scanning and classifying metadata inside your Purview Data Map.  
+Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing Azure Purview architecture for your organization. One billing is generated for a single Purview account in the subscription where Purview account is deployed. This model also applies to additional costs related to scanning and classifying metadata inside your Purview Data Map.  
 
-Some organization often have many business units (BUs) that operate separately, and, in some cases, they won't even share billing with each other. In those cases, the organization will end up creating a Purview instance for each BU. This model is not ideal, but may be necessary, especially because BUs are often not willing to share billing. 
+Some organization often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
 
 For more information about cloud computing cost model in chargeback and showback models see, [What is cloud accounting?](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
 ## Additional considerations and recommendations 
 
-- Consider that deploying multiple Purview instances to build your organization data governance may increase administrative overhead, because you may require creating and managing additional scans, access control, credentials and runtimes across your Purview accounts. Additionally, you may need to manage classifications and glossary terms for each account.
+- Keep the number of Purview accounts low for simplified administrative overhead. If you plan building multiple Purview accounts, you may require creating and managing additional scans, access control model, credentials and runtimes across your Purview accounts. Additionally, you may need to manage classifications and glossary terms for each Purview account.
 
-- Review your financial requirements. If possible, use chargeback or showback model for Azure services to divide the cost of Azure Purview across the organization to keep the number of Purview accounts minimum, when possible. 
+- Review your budgeting and financial requirements. If possible, use chargeback or showback model when using Azure services and divide the cost of Azure Purview across the organization to keep the number of Purview accounts minimum. 
 
-- Use [Azure Purview collections](concept-best-practices-collections.md) to define and segregate access control inside the Azure Purview for your business users, data management and governance teams in the organization. For more information, see [Access control in Azure Purview](./catalog-permissions.md).
+- Use [Azure Purview collections](concept-best-practices-collections.md) to define metadata access control inside Azure Purview Data Map for your organization's business users, data management and governance teams. For more information, see [Access control in Azure Purview](./catalog-permissions.md).
 
-- Review [Azure Purview limits](./how-to-manage-quotas.md#azure-purview-limits) before deploying any new Purview accounts. Currently the default limit of Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying additional instances of Azure Purview.  
+- Review [Azure Purview limits](./how-to-manage-quotas.md#azure-purview-limits) before deploying any new Purview accounts. Currently, the default limit of Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying additional instances of Azure Purview.  
 
 - Review [Azure Purview prerequisites](./create-catalog-portal.md#prerequisites) before deploying any new Purview accounts in your environment.
   
