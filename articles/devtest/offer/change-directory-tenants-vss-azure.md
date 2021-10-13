@@ -19,13 +19,13 @@ You may need to change the Active Directory you’re working in or [transfer you
 
 When activating your subscription, your identity is created based on the email you use. That identity is either associated with your organization’s Active Directory tenant or a new directory tenant is created for that identity. You can see the identity you’re using in the upper right-hand side of your Azure portal.  
 
-![A screenshot of the Azure portal with the identity highlighted in the upper right-hand corner.](media/change-directory-with-vss-azure/identity.png "The logged in identity is in the upper right-hand corner of your Azure portal.")  
+![A screenshot of the Azure portal with the identity highlighted in the upper right-hand corner.](media/change-directory-vss-azure/identity.png "The logged in identity is in the upper right-hand corner of your Azure portal.")  
 
 From here, you can either switch identities or switch directories. You may need to change your identity to access certain directories.  
 
 If the identity you’re logged in as is associated with multiple directories, switch by selecting “Switch directory.” You'll see the directories your current identity is associated with.  
 
-![A screenshot of the Directory and Subscription window in Azure portal.](media/change-directory-with-vss-azure/switch-directory.png "Switch directories by clicking switch directory. Choose the directory you want.")  
+![A screenshot of the Directory and Subscription window in Azure portal.](media/change-directory-vss-azure/switch-directory.png "Switch directories by clicking switch directory. Choose the directory you want.")  
 
 Your experience within the portal is highly dependent on the directory associated with the identity you used. To change directory tenants, an Admin will have to add your identity as a user within the target directory.  
 
@@ -37,7 +37,7 @@ If you set up your credit subscription using a personal account, your identity a
 
 Below is a simple diagram that shows the basic steps taken when you change or transfer your subscription.
 
-![A diagram illustrating changing or transferring your subscription.](media/change-directory-with-vss-azure/change-diagram.png "A diagram of what happens when you change or transfer your subscription.")  
+![A diagram illustrating changing or transferring your subscription.](media/change-directory-vss-azure/change-diagram.png "A diagram of what happens when you change or transfer your subscription.")  
 
 ## Identity and Access Management
 
