@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 10/12/2021
 
 ms.reviewer: sdash
 ---
@@ -157,7 +157,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## Secure the control channel
 
 > [!NOTE]
-> Currently, you can only set up an authenticated channel using code based monitoring and cannot authenticate servers using codeless attach.
+> Currently, you can only set up an authenticated channel using manual instrumentation (SDK) and cannot authenticate servers using Azure service integration (or auto instrumentation).
 
 The custom filters criteria you specify in Live Metrics portal are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 
