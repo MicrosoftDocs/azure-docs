@@ -33,19 +33,19 @@ az acr list --resource-group <resource-group-name>
 
 ---
 
-The format of the login server name is: **&lt;registry-name>.azurecr.io**.
+The format of the login server name is: `<registry-name>.azurecr.io`.
 
-### Configure container registry permissions (Pending Shenglong)
+### Configure container registry permissions
 
-The user account or SPN used to push or pull OCI artifacts to/from the registry must have at least the `AcrPush` role assigned to it in the scope of the registry or above. Any other roles like `Contributor` that include the permissions in AcrPush can be used as well.
+To publish modules to a registry, you must have permission to push an image. To deploy a module from a registry, you have permission to pull the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
+
+
 
 *** defaultAzureCredential class
 
-*** Roles: AcrPush, AcrPull, contributor.
-
 *** Auth configure in the bicep configuration file (not ready yet)
 
-*** [Restrict access using private endpoint](../../container-registry/container-registry-private-link.md)
+To use a private endpoint to restrict access, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
 
 
 ## From Bicep CLI
@@ -72,7 +72,7 @@ The publish process creates the repository and the tag.
 
 ## From Visual Studio Code
 
-When you reference an external component from a Bicep file in Visual Studio code, the Bicep extension automatically called [`bicep restore`](#bicep-restore) to restore the external module from the module registry to the local module cache, so you can take advantage of autocompletion and type checking.
+When you reference an external component from a Bicep file in Visual Studio code, the Bicep extension automatically calls [bicep restore](bicep-cli.md#restore) to restore the external module from the module registry to the local module cache, so you can take advantage of autocompletion and type checking.
 
 To define a resource referencing an external module in a Bicep file, use the `resource` keyword followed by a symbolic name and the external reference.
 
@@ -82,7 +82,7 @@ resource stg '<external-module-reference>' = {
 }
 ```
 
-See [Module reference and alias](#module-reference-and-alias) for the syntax of adding external modules.
+See [Bciep modules](modules.md) for the syntax of adding external modules.
 
 After the single quote for the module reference, add = and a space. You're presented with options for adding properties to the resource. Select **required-properties**. If you don't see the **required-properties** option in the list, it is because the external module has not been restored to the local module cache. It takes a few moments to restore the external module.
 

@@ -2,18 +2,16 @@
 title: Bicep config file
 description: Describes how to customize configuration values for your Bicep deployments
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ---
 
 # Add custom settings in the Bicep config file
 
-To customize configuration values for your Bicep deployments, add a file named **bicepconfig.json** to the directory where you store Bicep files. Within this file, specify the configuration values to use. This article describes the available properties for the configuration file.
+To customize configuration values for your Bicep deployments, add a file named **bicepconfig.json** to the directory where you store Bicep files. Within this file, specify the configuration values to use.
 
 You can add multiple bicepconfig.json files. The closest configuration file in the directory hierarchy is used.
 
-## Edit with Visual Studio Code
-
-The Bicep extension for Visual Studio Code provides intellisense for editing Bicep configuration files. The intellisense helps you see which properties are available for editing.
+This article describes the properties that are available in the configuration file. However, you can also discover those properties through intellisense provided by the Bicep extension for Visual Studio Code.
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
@@ -111,9 +109,9 @@ The following example shows the rules that are available for configuration.
 
 The properties are:
 
-- **enabled**: enter **true** for enabling linter, enter **false** for disabling linter.
-- **verbose**: enter **true** to show the bicepconfig.json file used by Visual Studio Code.
-- **rules**: enter rule-specific values. Each rule has a level. The level determines how the linter responds when a violation is found.
+- **enabled**: specify **true** for enabling linter, **false** for disabling linter.
+- **verbose**: specify **true** to show the bicepconfig.json file used by Visual Studio Code.
+- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when a violation is found.
 
 The available values for **level** are:
 
@@ -124,7 +122,7 @@ The available values for **level** are:
 | `Info` | Violations don't appear in the command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
 
-For the rule about hardcoded environment URLs, you can customize which URLs are checked. By default, the following URLs aren't allowed:
+For the rule about hardcoded environment URLs, you can customize which URLs are checked. By default, the following settings are applied:
 
 ```json
 {

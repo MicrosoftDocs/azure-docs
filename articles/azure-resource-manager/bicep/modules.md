@@ -2,23 +2,23 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ---
 
 # Bicep modules
 
-Bicep enables you to divide deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you can encapsulate complex details of your deployment and easily reuse files in different settings. 
+Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, [create a private registry](#private-module-registry.md). Modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, [create a private registry](private-module-registry.md). Modules in the registry are only available to users with the correct permissions.
 
-Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
+Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
 ## Definition syntax
 
 The basic syntax for defining a module is:
 
 ```bicep
-module <module-symbolic-name> '<path-to-file>' = {
+module <symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
   params: {
     <parameter-names-and-values>
@@ -44,11 +44,13 @@ To **conditionally deploy a module**, add an `if` expression. The use is similar
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-To deploy **more than one instance** a module, add the `for` expression:
+To deploy **more than one instance** a module, add the `for` expression. For more information, see [Module iteration in Bicep](loop-modules.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="2" :::
 
-For more information, see [Module iteration in Bicep](loop-modules.md).
+Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they are determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
 
 ## Path to module
 
@@ -78,7 +80,9 @@ For example:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 
-The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-module-registry). The aliases make it easier to reference the module.
+The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-module-registry). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 
 ## Parameters
 
@@ -86,73 +90,17 @@ The parameters you provide in your module definition match the parameters in the
 
 The following Bicep example has three parameters - storagePrefix, storageSKU, and location. The storageSKU parameter has a default value so you don't have to provide a value for that parameter during deployment.
 
-```bicep
-@minLength(3)
-@maxLength(11)
-param storagePrefix string
-
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_RAGRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-  'Premium_ZRS'
-  'Standard_GZRS'
-  'Standard_RAGZRS'
-])
-param storageSKU string = 'Standard_LRS'
-param location string
-
-var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
-
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
-  name: uniqueStorageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}
-
-output storageEndpoint object = stg.properties.primaryEndpoints
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="3,15,17" :::
 
 To use the preceding example as a module, provide values for those parameters.
 
-```bicep
-@minLength(3)
-@maxLength(11)
-param namePrefix string
-param location string
-
-module stgModule 'storageAccount.bicep' = {
-  name: 'storageDeploy'
-  params: {
-    storagePrefix: namePrefix
-    location: location
-  }
-}
-
-output storageEndpoint object = stgModule.outputs.storageEndpoint
-```
-
-## Output
-
-Output is used to pass values to the parent Bicep files.
-
-Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
-
-To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="14-17" :::
 
 ## Set module scope
 
 When declaring a module, you can set a scope for the module that is different than the scope for the containing Bicep file. Use the `scope` property to set the scope for the module. When the scope property isn't provided, the module is deployed at the parent's target scope.
 
-The following Bicep file creates a resource group and a storage account in that resource group. The file is deployed to a subscription, but the module is scoped to the resource group.
+The following Bicep file creates a resource group and a storage account in that resource group. The file is deployed to a subscription, but the module is scoped to the new resource group.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/rg-and-storage.bicep" highlight="2,12,19" :::
 
@@ -172,6 +120,18 @@ Those functions are:
 The following example uses the `managementGroup` function to set the scope.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/function-scope.bicep" highlight="5" :::
+
+## Output
+
+You can get values from a module and use them in the main Bicep file. To get an output value from a module, use the `outputs` property on the module object.
+
+The first example creates a storage account and returns the primary endpoints.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="33" :::
+
+When used as module, you can get that output value.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="20" :::
 
 ## Next steps
 

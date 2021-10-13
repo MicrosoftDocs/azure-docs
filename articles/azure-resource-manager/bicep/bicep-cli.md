@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ---
 # Bicep CLI commands
 
@@ -38,7 +38,7 @@ To print the file to `stdout`, use:
 az bicep build --file main.bicep --stdout
 ```
 
-If your Bicep file includes a module that references an external registry, the build command automatically calls [restore](#restore) on the file in the registry. The restore command gets the file from the registry and stores it in the local cache.
+If your Bicep file includes a module that references an external registry, the build command automatically calls [restore](#restore). The restore command gets the file from the registry and stores it in the local cache.
 
 To not call restore automatically, use the `--no-restore` switch:
 
@@ -114,9 +114,11 @@ The command returns an array of available versions.
 
 ## publish
 
-The `publish` command adds a module to an external registry. The Azure container registry must exist and be configured with the correct registry permissions. After publishing the module, you can [link to it in a module](modules.md#file-in-registry).
+The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md).
 
-You must have Bicep CLI version **x.xx or later** to use the publish command.
+After publishing the module, you can [reference it in a module](modules.md#file-in-registry).
+
+To use the publish command, you must have Bicep CLI version **x.xx or later**.
 
 To publish a module to a registry, use:
 
@@ -130,16 +132,16 @@ For example:
 bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicepconfig.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config.md) file. Provide the full module path.
 
 > [!WARNING]
-> Publishing to the same registry with the same module path overwrites the old module. We recommend that you create a new version for each update.
+> Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.
 
 ## restore
 
-When your Bicep file uses modules that are published to an external registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. The external modules must exist in the local cache before the Bicep file can be built. Typically, you don't need to run `restore` because it's called automatically by `build`.
+When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
-You must have Bicep CLI version **x.xx or later** to use the restore command.
+To use the restore command, you must have Bicep CLI version **x.xx or later**.
 
 To manually restore the external modules for a file, use:
 
@@ -158,7 +160,7 @@ module stgModule 'br/exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-The module cache is stored in:
+The local cache is found at:
 
 ```path
 %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
