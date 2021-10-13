@@ -4,7 +4,7 @@ description: Learn how to limit the total throughput provisioned on your Azure C
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 11/04/2021
 ms.author: thweiss
 ---
 
@@ -23,7 +23,7 @@ It can be challenging to keep track of the total amount of throughput that you h
 > [!NOTE]
 > This feature is not available on [serverless](./serverless.md) accounts.
 
-After you've set a limit to your account's total throughput, any of the following operations that would result in exceeding this limit is blocked and will explicitly fail:
+After you've set a limit to your account's total throughput, any of the following operations that results in exceeding this limit is blocked and will explicitly fail:
 
 - Creating a new database with shared throughput.
 - Creating a new container with dedicated throughput.
@@ -34,34 +34,29 @@ After you've set a limit to your account's total throughput, any of the followin
 > [!NOTE]
 > For resources configured in autoscale mode, it is the maximum throughput configured on the resource that counts towards your account's total throughput.
 
-## Set your total throughput limit from the Azure portal
+## Set total throughput limit from the Azure portal
 
-### When creating a new account
+### New account
 
 When creating a new Azure Cosmos DB account from the portal, you have the option to limit the account's total throughput:
 
-*screenshot*
+:::image type="content" source="./media/limit-total-account-throughput/create-account.png" alt-text="Screenshot of the Azure portal showing how to limit total account throughput when creating a new account" border="true":::
 
-Checking this option will limit your account's total throughput to:
+Checking this option will limit your account's total throughput to 4,000 RU/s. You can change this value after your account has been created.
 
-- 1,000 RU/s when you're creating a free tier account.
-- X,XXX RU/s when you're creating a non-free tier account.
-
-You can change this value after your account has been created.
-
-## On an existing account
+### Existing account
 
 From the Azure portal, navigate to your Azure Cosmos DB account and select **Cost management** from the left menu.
 
-*screenshot*
+:::image type="content" source="./media/limit-total-account-throughput/existing-account.png" alt-text="Screenshot of the Azure portal showing how to update total account throughput on an existing account" border="true":::
 
-This section shows a summary of the total throughput provisioned on your account and lets you configure the total throughput limit. Three options are available:
+This section shows a summary of the total throughput provisioned on your account and lets you configure the total throughput limit. The following three options are available:
 
-- Limit the account's total provisioned throughput to the amount included in the free tier discount. This option is only available on free tier accounts and will limit your account's total throughput to 1,000 RU/s. When checking this option, you ensure that you won't incur any charges for provisioned throughput.
-- Allow the account's total throughput to be provisioned up to a custom amount. This option lets you enter the total provisioned throughput that you don't want to exceed. A monthly cost estimates corresponding to your input is shown as a reference.
+- **Limit the account's total provisioned throughput to the amount included in the free tier discount**. This option is only available on free tier accounts and will limit your account's total throughput to 1,000 RU/s. When checking this option, you ensure that you won't incur any charges for provisioned throughput.
+- **Allow the account's total throughput to be provisioned up to a custom amount**. This option lets you enter the total provisioned throughput that you don't want to exceed. A monthly cost estimates corresponding to your input is shown as a reference.
   > [!NOTE]
   > This custom limit can't be set below the total throughput currently provisioned across the account.
-- No limit, allow the account's total throughput to be provisioned to any amount. This option disables the limit.
+- **No limit, allow the account's total throughput to be provisioned to any amount**. This option disables the limit.
 
 ## Set the total throughput limit programmatically
 
