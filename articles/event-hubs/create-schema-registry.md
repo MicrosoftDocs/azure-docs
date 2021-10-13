@@ -82,7 +82,7 @@ In this section, you add a schema to the schema group using the Azure portal.
 1. You see that `2` is selected for the **version** on the **Schema Overview** page. 
 
     :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Image showing the new version of schema":::    
-1. Select `1` to see the version 1 fo the schema. 
+1. Select `1` to see the version 1 of the schema. 
 
 
 ## Next steps
