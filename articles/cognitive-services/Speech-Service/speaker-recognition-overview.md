@@ -46,7 +46,7 @@ Speaker Identification is used to determine an unknown speaker’s identity with
 
 ### How does Speaker Identification work?
 
-Enrollment for speaker identification is **text-independent**, which means that there are no restrictions on what the speaker says in the audio after speaker reads a particular activation phrase to activate the enrollment. Similar to Speaker Verification, in the enrollment phase the speaker's voice is recorded, and voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request).
+Enrollment for speaker identification is **text-independent**, which means that there are no restrictions on what the speaker says in the audio, besides the initial activation phrase to activate the enrollment. Similar to Speaker Verification, the speaker's voice is recorded in the enrollment phase, and the voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request).
 
 ## Data security and privacy
 
