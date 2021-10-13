@@ -1,11 +1,11 @@
 ---
 title: Azure Synapse database templates concepts
-description: Learn how database templates in Azure Synapse help to define database schema from standardized templates. 
+description: Learn more about the database templates within Azure Synapse
 author: gesaur
 ms.author: gesaur
 ms.service: synapse-analytics
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 13/10/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
