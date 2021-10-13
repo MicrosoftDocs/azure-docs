@@ -79,7 +79,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 1. **Set up the edge device**
 
     > [!Important]
-    > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#set-up-deployment-template)** file to deploy the required containers.
+    > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#configure-deployment-template)** file to deploy the required containers.
 
     #### [Azure Stack Edge device](#tab/azure-stack-edge)
     [Configure compute on the Azure Stack Edge portal](../../../cognitive-services/computer-vision/spatial-analysis-container.md#configure-compute-on-the-azure-stack-edge-portal)
@@ -330,6 +330,38 @@ In operations.json:
 Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
 
 ## Interpret results
+
+The `spatialanalysis` is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events. You will see events such as:
+
+```JSON
+[IoTHubMonitor] [3:37:28 PM] Message received from [ase03-edge/avaedge]:
+{
+  "sdp": "SDP:\nv=0\r\no=- 1620671848135494 1 IN IP4 172.27.86.122\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/cafeteria.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.066\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/retailshop-15fps.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=Z2QAKKzZQHgCHoQAAAMABAAAAwDwPGDGWA==,aOvssiw=\r\na=control:track1\r\n"
+}
+[IoTHubMonitor] [3:37:30 PM] Message received from [ase03-edge/avaedge]:
+{
+  "type": "video",
+  "location": "/videos/<your video name>",
+  "startTime": "2021-05-10T18:37:27.931Z"
+}
+[IoTHubMonitor] [3:37:40 PM] Message received from [ase03-edge/avaedge]:
+{
+  "state": "initializing"
+}
+[IoTHubMonitor] [3:37:50 PM] Message received from [ase03-edge/avaedge]:
+{
+  "state": "initializing"
+}
+[IoTHubMonitor] [3:38:18 PM] Message received from [ase03-edge/avaedge]:
+{
+  "type": "video",
+  "location": "/videos/<your video name>",
+  "startTime": "2021-05-10T18:37:27.931Z"
+}
+
+```
+> [!NOTE]
+> You will see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
 When a pipelineTopology is instantiated, you should see "MediaSessionEstablished" event, here is a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
@@ -748,83 +780,6 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 [!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
-## Troubleshooting
-
-The `spatialanalysis` is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events. You will see events such as:
-
-```JSON
-[IoTHubMonitor] [3:37:28 PM] Message received from [ase03-edge/avaedge]:
-{
-  "sdp": "SDP:\nv=0\r\no=- 1620671848135494 1 IN IP4 172.27.86.122\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/cafeteria.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.066\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/cafeteria.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=Z2QAKKzZQHgCHoQAAAMABAAAAwDwPGDGWA==,aOvssiw=\r\na=control:track1\r\n"
-}
-[IoTHubMonitor] [3:37:30 PM] Message received from [ase03-edge/avaedge]:
-{
-  "type": "video",
-  "location": "/videos/<your video name>",
-  "startTime": "2021-05-10T18:37:27.931Z"
-}
-[IoTHubMonitor] [3:37:40 PM] Message received from [ase03-edge/avaedge]:
-{
-  "state": "initializing"
-}
-[IoTHubMonitor] [3:37:50 PM] Message received from [ase03-edge/avaedge]:
-{
-  "state": "initializing"
-}
-[IoTHubMonitor] [3:38:18 PM] Message received from [ase03-edge/avaedge]:
-{
-  "type": "video",
-  "location": "/videos/<your video name>",
-  "startTime": "2021-05-10T18:37:27.931Z"
-}
-[IoTHubMonitor] [3:38:42 PM] Message received from [ase03-edge/avaedge]:
-{
-  "timestamp": 145860472980260,
-  "inferences": [
-    {
-      "type": "entity",
-      "inferenceId": "647aacf9d8bc47078a1ed31d1c459c24",
-      "entity": {
-        "tag": {
-          "value": "person",
-          "confidence": 0.7583008
-        },
-        "box": {
-          "l": 0.48213565,
-          "t": 0.21217245,
-          "w": 0.056364775,
-          "h": 0.29961595
-        }
-      },
-      "extensions": {
-        "centerGroundPointY": "0.0",
-        "centerGroundPointX": "0.0",
-        "footprintX": "0.5087100982666015",
-        "footprintY": "0.49634415356080924"
-      }
-    },
-    {
-      "type": "event",
-      "inferenceId": "dae6c2b742634196b615c128654845dc",
-      "relatedInferences": [
-        "647aacf9d8bc47078a1ed31d1c459c24"
-      ],
-      "event": {
-        "name": "personCountEvent",
-        "properties": {
-          "personCount": "1.0",
-          "zone": "stairlanding"
-        }
-      }
-    }
-  ]
-}
-
-```
-
-> [!NOTE]
-> You will see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
-
 ## Next steps
 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies:
@@ -832,5 +787,4 @@ Try different operations that the `spatialAnalysis` module offers, please refer 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
 - [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
-- [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)
