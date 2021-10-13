@@ -115,7 +115,7 @@ The Capacity Reservation must meet the following rules:
 1. Select **Create**
 
 
-### [AzureCLI](#tab/cli1)
+### [CLI](#tab/cli1)
 
 1. Before you can create a capacity reservation, create a resource group with `az group create`. The following example creates a resource group *myResourceGroup* in the East US location.
 
@@ -232,7 +232,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
-### [AzureCLI](#tab/cli2)
+### [CLI](#tab/cli2)
 
  ```azurecli-interactive
  az capacity reservation show 
