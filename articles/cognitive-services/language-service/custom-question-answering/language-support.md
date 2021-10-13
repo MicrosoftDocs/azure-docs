@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 ---
 # Language support for custom question answering and knowledge bases
 

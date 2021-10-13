@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ---

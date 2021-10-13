@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -19,7 +19,7 @@ Use this article to find the natural languages supported by Key Phrase Analysis.
 ## Supported languages 
 
 > [!NOTE]
-> Languages are added as new [model versions](how-to/call-api.md#specify-the-key-phrase-extraction-model) are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
+> Languages are added as new [model versions](how-to/call-api.md#specify-the-key-phrase-extraction-model) are released for specific features. The current model version for Key Phrase Extraction is `2021-06-01`.
 
 | Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|

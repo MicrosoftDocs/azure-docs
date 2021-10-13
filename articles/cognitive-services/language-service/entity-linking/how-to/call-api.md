@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/15/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -81,4 +81,4 @@ Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguag
 
 ## See also
 
-* [What is the Text Analytics API](../overview.md)
+* [Entity linking overview](../overview.md)

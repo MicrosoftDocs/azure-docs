@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -30,7 +30,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/containers/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a language container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
 
 ## Deploy the Key Phrase Extraction container to an AKS cluster

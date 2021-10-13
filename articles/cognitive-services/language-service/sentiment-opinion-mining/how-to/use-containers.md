@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 11/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---

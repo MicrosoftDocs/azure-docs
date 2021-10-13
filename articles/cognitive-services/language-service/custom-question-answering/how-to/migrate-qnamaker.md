@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: how-to
 ms.author: diagarw
 author: DishaAgarwal
-ms.date: 09/30/2021
+ms.date: 11/02/2021
 ---
 
 # Migrate from QnA Maker to custom question answering

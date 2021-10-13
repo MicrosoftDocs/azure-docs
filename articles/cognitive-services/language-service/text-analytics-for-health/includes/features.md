@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 09/30/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
 
 > [!div class="mx-imgBorder"]
-> ![Text Analytics for healthrelation extraction](../media/call-api/health-relation-extraction.png)
+> ![Text Analytics for health relation extraction](../media/call-api/health-relation-extraction.png)
 
 
 # [Entity Linking](#tab/entity-linking)

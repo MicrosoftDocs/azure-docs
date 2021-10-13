@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/15/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -54,7 +54,7 @@ namespace LanguageDetectionExample
         // Example method for summarizing text
         static async Task TextSummarizationExample(TextAnalyticsClient client)
         {
-            string document = @"The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document. 
+            string document = @"The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured text document. 
                 These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. 
                 They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. 
                 In the public preview, extractive summarization supports several languages. It is based on pretrained multilingual transformer models, part of our quest for holistic representations. 
@@ -146,7 +146,7 @@ Status       : succeeded
 
 Extracted the following 3 sentence(s):
 
-Sentence: The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document.
+Sentence: The extractive summarization feature in uses natural language processing techniques to locate key sentences in an unstructured text document.
 
 Sentence: This feature is provided as an API for developers.
 

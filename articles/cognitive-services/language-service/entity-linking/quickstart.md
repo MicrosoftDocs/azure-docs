@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 11/02/2021
 ms.author: aahi
-keywords: text mining, entity linking, text analytics
+keywords: text mining, entity linking
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 11/02/2021
 ---
 
 # Use chitchat with a knowledge base

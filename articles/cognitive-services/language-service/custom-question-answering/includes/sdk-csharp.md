@@ -2,7 +2,7 @@
 title: "Quickstart: custom question answering client library for .NET"
 description: This quickstart shows how to get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 11/02/2021
 ---
 
 Use the custom question answering client library for .NET to:

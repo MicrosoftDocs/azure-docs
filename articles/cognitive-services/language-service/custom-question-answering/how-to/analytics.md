@@ -8,7 +8,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 ---
 
 # Get analytics for your knowledge base

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -16,7 +16,7 @@ ms.author: aahi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Text Analytics**.
-   Or, go to [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+   Or, go to [Create a Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Enter all the required settings:
 
     |Setting|Value|

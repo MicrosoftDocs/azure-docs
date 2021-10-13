@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.author: diagarw
-ms.date: 03/31/2021
+ms.date: 11/02/2021
 ---
 
 # Add multiple domains to your FAQ bot
@@ -76,7 +76,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Pass context](../media/multiple-domains/extract-metadata-from-context.png)
 
-    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as Text Analytics and LUIS for entity extraction.
+    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as [Named Entity Recognition (NER)](../../named-entity-recognition/overview.md) and [conversational language understanding](../../custom-language-understanding/overview.md) for entity extraction.
 
       ![Extract metadata from query](../media/multiple-domains/extract-metadata-from-query.png)
 

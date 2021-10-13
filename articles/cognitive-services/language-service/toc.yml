@@ -16,7 +16,7 @@ items:
   items: 
   - name: Transparency note for Azure Cognitive Service for Language
     href: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
-    displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    displayName: Transparency note for language service, Language service Transparency, Responsible AI, Responsible use of AI
   - name: Integration and responsible use
     href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
     displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -129,7 +129,7 @@ items:
     items: 
     - name: Transparency note for entity linking
       href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -152,7 +152,7 @@ items:
     items: 
     - name: Transparency note for language detection
       href: /legal/cognitive-services/language-service/transparency-note-language-detection?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for language detection, language detection transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -185,7 +185,7 @@ items:
     items: 
     - name: Transparency note for key phrase detection
       href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -222,7 +222,7 @@ items:
     items: 
     - name: Transparency note for NER
       href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -253,7 +253,7 @@ items:
     items: 
     - name: Transparency note for PII
       href: /legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for PII, Personally Identifiable Information transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -280,7 +280,7 @@ items:
     items: 
     - name: Transparency note for question answering
       href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for question answering, question answering transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -353,7 +353,7 @@ items:
     items: 
     - name: Transparency note for sentiment analysis and opinion mining
       href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -390,9 +390,9 @@ items:
     href: text-analytics-for-health/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for Text Analytics for health`
+    - name: Transparency note for Text Analytics for health
       href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for Text Analytics health, Text Analytics for health transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -433,7 +433,7 @@ items:
     items: 
     - name: Transparency note for text summarization
       href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use

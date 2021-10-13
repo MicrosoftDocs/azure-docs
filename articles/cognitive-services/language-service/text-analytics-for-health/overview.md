@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/30/2021
+ms.date: 11/02/2021
 ms.author: aahi
 ---
 
@@ -28,7 +28,7 @@ This documentation contains the following types of articles:
 
 ## Features
 
-[!INCLUDE [Text Analytics for Text Analytics for health](includes/features.md)]
+[!INCLUDE [Text Analytics for health](includes/features.md)]
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
