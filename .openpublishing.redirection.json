@@ -6679,11 +6679,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
-      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
       "redirect_url": "/azure/azure-maps",
       "redirect_document_id": false

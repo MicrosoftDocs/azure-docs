@@ -44,6 +44,8 @@ landingContent:
             url: quick-demo-map-app.md
           - text: Create an Android app using Azure Maps
             url: quick-android-map.md
+          - text: Create an iOS app using Azure Maps
+            url: quick-iOS-app.md  
       - linkListType: concept
         links:
           - text: Choose the right pricing tier for Maps account
@@ -163,6 +165,18 @@ landingContent:
             url: clustering-point-data-android-sdk.md
           - text: Use data-driven style expressions
             url: data-driven-style-expressions-android-sdk.md
+
+  # Card
+  - title: Developing with iOS SDK
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an iOS app using Azure Maps
+            url: quick-iOS-app.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Getting started with the iOS map control
+            url: how-to-use-ios-map-control-library.md
 
   # Card
   - title: Developing with Location-Based Services
