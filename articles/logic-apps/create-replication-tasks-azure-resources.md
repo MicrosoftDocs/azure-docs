@@ -42,11 +42,11 @@ The following table lists the replication task templates currently available in 
 | Azure Service Bus | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** |
 |||
 
-## Replication task differences between Azure Logic Apps and Azure Functions
-
-![Conceptual diagram showing topology for replication task powered by Standard logic app workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
+## Replication tasks: Azure Logic Apps versus Azure Functions
 
 ### Replication topology for Event Hubs
+
+![Conceptual diagram showing topology for replication task powered by Standard logic app workflow between Event Hubs instances.](media/create-replication-tasks-azure-resources/replication-topology-event-hubs.png)
 
 For more information about replication and federation in Azure Event Hubs with Azure Functions, review the following documentation:
 
@@ -56,7 +56,9 @@ For more information about replication and federation in Azure Event Hubs with A
 
 ### Replication topology for Service Bus
 
-For more information about replication and federation in Azure Service Bus with Azure Functions, review the following documentation: 
+![Conceptual diagram showing topology for replication task powered by Standard logic app workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
+
+For more information about replication and federation in Azure Service Bus with Azure Functions, review the following documentation:
 
 - [Message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md)
