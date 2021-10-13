@@ -137,6 +137,8 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 # [Portal](#tab/azure-portal)
 
+### Preview registration
+
 First, register your subscription to the Microsoft.AVS and CloudSanExperience.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -145,6 +147,8 @@ First, register your subscription to the Microsoft.AVS and CloudSanExperience.
 1. Search for **Microsoft.AVS**, select it, and select **Register**.
 1. Select **Preview features** under **Settings**.
 1. Search for and register **CloudSanExperience**.
+
+### Connect your disk pool
 
 Now that your subscription has been properly registered, you can connect your disk pool to your Azure VMware Solution private cloud cluster.
 
