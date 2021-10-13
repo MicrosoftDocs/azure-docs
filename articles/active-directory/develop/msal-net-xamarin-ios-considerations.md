@@ -78,9 +78,9 @@ For more information, see the [iOS entitlements documentation](https://developer
 
 #### Troubleshooting KeyChain access
 
-If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example like so: 
+If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example: 
 
-```csarp
+```csharp
 var queryRecord = new SecRecord(SecKind.GenericPassword)
 {
     Service = "",
