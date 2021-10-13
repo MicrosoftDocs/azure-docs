@@ -173,7 +173,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
- - `portalReview` (string): Determines if parameters should be reviewed in portal, regardless of required input. 
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
