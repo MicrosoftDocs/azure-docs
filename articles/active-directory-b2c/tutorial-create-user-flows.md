@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 10/12/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -251,6 +251,7 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 Each starter pack contains:
 
 - **Base file** - Few modifications are required to the base. Example: *TrustFrameworkBase.xml*
+- **Localization file** - This file is where localization changes are made. Example: *TrustFrameworkLocalization.xml*
 - **Extension file** - This file is where most configuration changes are made. Example: *TrustFrameworkExtensions.xml*
 - **Relying party files** - Task-specific files called by your application. Examples: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -285,10 +286,11 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 1. Select **Upload custom policy**.
 1. In this order, upload the policy files:
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 
