@@ -41,10 +41,6 @@
       href: volume-quota-introduction.md
     - name: Understand volume hard quota
       href: volume-hard-quota-guidelines.md
-  - name: Capacity pools 
-    items:
-    - name: Manual QoS capacity pool
-      href: manual-qos-capacity-pool-introduction.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files

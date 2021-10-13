@@ -59,7 +59,7 @@ The maximum throughput allocated to a volume depends on the service level of the
 
 For performance considerations about QoS types, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
-#### <a name="manual_qos_type"></a>*Manual* QoS type  
+#### *Manual* QoS type  
 
 When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type. You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. *Setting the capacity type to manual QoS is a permanent change.* You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
 
