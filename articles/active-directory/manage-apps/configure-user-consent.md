@@ -53,27 +53,25 @@ To configure user consent settings through the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), to choose which app consent policy governs user consent for applications.
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module, to choose which app consent policy governs user consent for applications.
 
 #### Disable user consent
 
 To disable user consent, set the consent policies which govern user consent to be empty:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @() }
+```
 
 #### Allow user consent subject to an app consent policy
 
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+```
 
 Replace `{consent-policy-id}` with the ID of the policy you'd like to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) you have created, or you can choose from the following built-in policies:
 
@@ -85,9 +83,8 @@ Replace `{consent-policy-id}` with the ID of the policy you'd like to apply. You
 For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
 ---
