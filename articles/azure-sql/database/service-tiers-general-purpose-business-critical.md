@@ -30,9 +30,8 @@ Azure SQL Database also provides the Hyperscale service tier:
 The following table describes the key differences between service tiers.
 
 |-| General Purpose | Hyperscale | Business Critical |
-|:---:|:---:|:---:|:---:|:---:|
-| **Best for** | |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-
+|:---:|:---:|:---:|:---:|
+| **Best for** |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 | **Compute size**|  1 to 80 vCores | 1 to 80  vCores | 1 to 128 vCores |
 | **Storage type** |  Remote storage | Tiered remote and local SSD storage | Local SSD storage |
 | **Database size**  | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
