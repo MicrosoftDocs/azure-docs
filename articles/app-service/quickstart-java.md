@@ -119,7 +119,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : Java SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -152,7 +152,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : tomcat 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -179,7 +179,7 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 2. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
-3. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+3. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
 4. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -190,7 +190,7 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : JAVA SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -209,7 +209,7 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
 1. When prompted with **webcontainer** option, select **Tomcat 8.5** by entering `3`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -220,7 +220,7 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : TOMCAT 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -275,10 +275,10 @@ Property | Required | Description | Version
 `<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
-`<region>` | true | Specifies the region where your Web App will be hosted; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
-`<pricingTier>` | true | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | true | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
-`<deployment>` | true | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<region>` | false | Specifies the region where your Web App will be hosted; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
+`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | false | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<deployment>` | false | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
 Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
 
