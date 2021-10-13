@@ -1,19 +1,18 @@
 ---
-title: Azure Schema Registry in Event Hubs (preview)
-description: This article provides an overview of Schema Registry support by Azure Event Hubs (Preview).
+title: Azure Schema Registry in Event Hubs
+description: This article provides an overview of Schema Registry support by Azure Event Hubs.
 ms.topic: overview
 ms.date: 05/10/2021
 ms.custom: references_regions
 ---
 
-# Azure Schema Registry in Event Hubs (Preview)
+# Azure Schema Registry in Event Hubs
 In many event streaming and messaging scenarios, the event or message payload contains structured data that's either being serialized or deserialized using a schema-driven format like Apache Avro. Both senders and receivers may want to validate the integrity of the data with a schema document as with JSON schema. For schema-driven formats, making the schema available to the message consumer is a prerequisite for the consumer to be able to deserialize the data. 
 
 The **Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schema documents for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to exchange data without having to manage and share the schema between them and also to evolve at different rates. The Schema Registry also provides a simple governance framework for reusable schemas and defines the relationship between schemas through a grouping construct (schema groups).
 
 > [!NOTE]
-> - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
-> - The feature isn't available in the **basic** tier.
+> The feature isn't available in the **basic** tier.
 
 With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
 
@@ -52,8 +51,8 @@ When accessing the schema registry programmatically, you need to register an app
 | ---- | ----------- | 
 | Owner | Read, write, and delete Schema Registry groups and schemas. |
 | Contributor | Read, write, and delete Schema Registry groups and schemas. |
-| [Schema Registry Reader (Preview)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. |
-| [Schema Registry Contributor (Preview)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete Schema Registry groups and schemas. |
+| [Schema Registry Reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. |
+| [Schema Registry Contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete Schema Registry groups and schemas. |
 
 For instructions on creating registering an application using the Azure portal, see [Register an app with Azure AD](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
 
