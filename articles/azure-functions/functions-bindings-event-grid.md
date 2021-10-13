@@ -24,7 +24,6 @@ If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Rec
 | Run a function when an Event Grid event is dispatched | [Trigger](./functions-bindings-event-grid-trigger.md) |
 | Sends an Event Grid event |[Output binding](./functions-bindings-event-grid-output.md) |
 
-The code in this reference defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## Add to your Functions app
 
