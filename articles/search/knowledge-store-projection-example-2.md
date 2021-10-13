@@ -1,7 +1,7 @@
 ---
-title: Define projections
+title: EXAMPLE
 titleSuffix: Azure Cognitive Search
-description: Learn how to define table, object, and file projections in a knowledge store by reviewing syntax and examples.
+description: EXAMPLE
 
 manager: nitinme
 author: HeidiSteen
@@ -11,51 +11,264 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 ---
 
-# Define projections in a knowledge store
+# Detailed example of shapes and projections in a knowledge store
 
-Projections are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how your AI enriched content is stored in Azure Storage. Projections determine both the type of data structure and the quantity.
+This article provides a detailed example of data shapes and projections in a knowledge store, and is intended to fill in the gaps left by [high-level concept](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md).
 
-In this article, learn how to build out projection properties for each type. 
+For broad context, the example includes the full skillset, with call outs for Shaper skills and projection definitions. If your application requirements call for multiple skills and projections, this example can help you trace a projection specification backwards through upstream skills and outputs for a better understanding of projection composition.
 
-Before your start=, review a [check list for working with projections](knowledge-store-projection-overview.md#checklist-for-working-with-projections) for tips and best practices.
+## Example skillset
 
-> [!TIP]
-> When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments wherever possible. Without caching, simple edits to a projection specification will result in a full reprocessing of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing fees.
+To understand the intersection between data shapes and projections, refer to the following skillset as the basis for enriched content. 
 
-## Define a table projection
-
-Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI. The tables definition is a list of tables that you want to project. Each table requires three properties:
-
-+ tableName: The name of the table in Azure Table Storage.
-
-+ generatedKeyName: The column name for the key that uniquely identifies this row.
-
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a Shaper skill that defines the shape of the table. Tables have rows and columns, and shaping is the mechanism by which rows and columns are specified. You can use a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). The Shaper skill produces valid JSON, but could be the output from any skill, if valid JSON. 
-
-As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. 
+This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
 
 ```json
-"knowledgeStore": {
-  "storageConnectionString": "an Azure storage connection string",
-  "projections" : [
-    {
-      "tables": [
-        { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-        { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-        { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-      ]
+{
+    "name": "azureblob-skillset",
+    "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+            "name": "#1",
+            "description": null,
+            "context": "/document/merged_content",
+            "categories": [
+                "Person",
+                "Quantity",
+                "Organization",
+                "URL",
+                "Email",
+                "Location",
+                "DateTime"
+            ],
+            "defaultLanguageCode": "en",
+            "minimumPrecision": null,
+            "includeTypelessEntities": null,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_content"
+                },
+                {
+                    "name": "languageCode",
+                    "source": "/document/language"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "persons",
+                    "targetName": "people"
+                },
+                {
+                    "name": "organizations",
+                    "targetName": "organizations"
+                },
+                {
+                    "name": "locations",
+                    "targetName": "locations"
+                },
+                {
+                    "name": "entities",
+                    "targetName": "entities"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+            "name": "#2",
+            "description": null,
+            "context": "/document/merged_content",
+            "defaultLanguageCode": "en",
+            "maxKeyPhraseCount": null,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_content"
+                },
+                {
+                    "name": "languageCode",
+                    "source": "/document/language"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "keyPhrases",
+                    "targetName": "keyphrases"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+            "name": "#3",
+            "description": null,
+            "context": "/document",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "languageCode",
+                    "targetName": "language"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
+            "name": "#4",
+            "description": null,
+            "context": "/document",
+            "insertPreTag": " ",
+            "insertPostTag": " ",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/content"
+                },
+                {
+                    "name": "itemsToInsert",
+                    "source": "/document/normalized_images/*/text"
+                },
+                {
+                    "name": "offsets",
+                    "source": "/document/normalized_images/*/contentOffset"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "mergedText",
+                    "targetName": "merged_content"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+            "name": "#5",
+            "description": null,
+            "context": "/document/normalized_images/*",
+            "textExtractionAlgorithm": "printed",
+            "lineEnding": "Space",
+            "defaultLanguageCode": "en",
+            "detectOrientation": true,
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "text",
+                    "targetName": "text"
+                },
+                {
+                    "name": "layoutText",
+                    "targetName": "layoutText"
+                }
+            ]
+        }
+    ],
+    "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "A Cognitive Services resource in the same region as Search.",
+        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
     },
-    {
-      "objects": [ ]
-    },
-    {
-      "files": [ ]
-    }
-  ]
+    "knowledgeStore": null
 }
 ```
 
-The enrichment node specified in "source" can be sliced to project into multiple tables. The reference to "EnrichedShape" is the output of a Shaper skill (not shown). The inputs of the skill determine table composition and the rows that fill it. Generated keys and common fields within each table provide the basis for table relationships.
+## Example Shaper skill
+
+The Shaper skill is a utility for working with enriched content instead of creating it. Adding a Shaper to a skillset lets you create a custom shape that you can project into table storage. Without a custom shape, projections are limited to referencing a single node (one projection per output), which isn't suitable for tables. Creating a custom shape aggregates various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. 
+
+In this example, the custom shape combines blob metadata and identified entities and key phrases. The custom shape is called `projectionShape` and is parented under `/document`. 
+
+One purpose of shaping is to ensure that all enrichment nodes are expressed in well-formed JSON, which is required for projecting into knowledge store. This is especially true when an enrichment tree contains nodes that are not well-formed JSON (for example, when an enrichment is parented to a primitive like a string).
+
+Notice the last two nodes, `KeyPhrases` and `Entities`. These are wrapped into a valid JSON object with the `sourceContext`. This is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "ShaperForTables",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+        {
+            "name": "metadata_storage_content_type",
+            "source": "/document/metadata_storage_content_type",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_storage_name",
+            "source": "/document/metadata_storage_name",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_storage_path",
+            "source": "/document/metadata_storage_path",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_content_type",
+            "source": "/document/metadata_content_type",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "keyPhrases",
+            "source": null,
+            "sourceContext": "/document/merged_content/keyphrases/*",
+            "inputs": [
+                {
+                    "name": "KeyPhrases",
+                    "source": "/document/merged_content/keyphrases/*"
+                }
+
+            ]
+        },
+        {
+            "name": "Entities",
+            "source": null,
+            "sourceContext": "/document/merged_content/entities/*",
+            "inputs": [
+                {
+                    "name": "Entities",
+                    "source": "/document/merged_content/entities/*/name"
+                }
+
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "name": "output",
+            "targetName": "projectionShape"
+        }
+    ]
+}
+```
+
+Add the above Shaper skill to the example skillset introduced at the start of this article. 
+
+```json
+    "name": "azureblob-skillset",
+    "description": "A friendly description of the skillset goes here.",
+    "skills": [
+        {
+            <Shaper skill goes here>
+            }
+        ],
+    "cognitiveServices":  "A key goes here",
+    "knowledgeStore": []
+}  
+```
 
 ## Projecting to tables
 
@@ -438,21 +651,10 @@ When building projections of different types, file and object projections are ge
 }
 ```
 
-## Common Issues
-
-When defining a projection, there are a few common issues that can cause unanticipated results. Check for these issues if the output in knowledge store isn't what you expect.
-
-+ Not shaping string enrichments into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. So at projection time, make sure to transform the enrichment into a valid JSON object with a name and a value.
-
-+ Omitting the ```/*``` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
-
-+ Path syntax errors. Path selectors are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector.
 
 ## Next steps
 
-The examples in this article demonstrate common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
-
-As you explore new features, consider incremental enrichment as your next step. Incremental enrichment is based on caching, which lets you reuse any enrichments that are not otherwise affected by a skillset modification. This is especially useful for pipelines that include OCR and image analysis.
+The example in this article demonstrates common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
 
 > [!div class="nextstepaction"]
 > [Configure caching for incremental enrichment i](search-howto-incremental-index.md)
