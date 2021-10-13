@@ -93,7 +93,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     export const msalConfig = {
       auth: {
         clientId: "Enter_the_Application_Id_Here",
-        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
+        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID}
         redirectUri: "Enter_the_Redirect_Uri_Here",
       },
       cache: {
