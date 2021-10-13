@@ -23,7 +23,7 @@ Images can be used to bootstrap deployments and ensure consistency across multip
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 
 
@@ -72,11 +72,11 @@ $resourceGroup = New-AzResourceGroup `
    -Location 'EastUS'
 ```
 
-## Create an image gallery 
+## Create a gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
+A gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
-Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+Create a gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
@@ -177,7 +177,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Share the gallery
 
-We recommend that you share access at the image gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
+We recommend that you share access at the gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
 
 ```azurepowershell-interactive
 # Get the object ID for the user
@@ -216,7 +216,7 @@ In this tutorial, you created a specialized VM image. You learned how to:
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 Advance to the next tutorial to learn about how to create highly available virtual machines.
 

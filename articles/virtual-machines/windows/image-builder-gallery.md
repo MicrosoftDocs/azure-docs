@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder with an image gallery for Windows VMs
+title: Use Azure Image Builder with a gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using Azure Image Builder and Azure PowerShell.
 author: kof-f
 ms.author: kofiforson
@@ -136,12 +136,12 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 
 ## Create the Azure Compute Gallery
 
-To use Image Builder with an Azure Compute Gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
+If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery.
 
 ```powershell
-# Image gallery name
+# Gallery name
 $sigGalleryName= "myIBSIG"
 
 # Image definition name

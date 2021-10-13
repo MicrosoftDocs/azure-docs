@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder with an image gallery for Linux VMs
+title: Use Azure Image Builder with an Azure Compute Gallery for Linux VMs
 description: Create Linux VM images with Azure Image Builder and Azure Compute Gallery.
 author: kof-f
 ms.author: kofiforson
@@ -115,9 +115,9 @@ az role assignment create \
 
 ## Create an image definition and gallery
 
-To use Image Builder with an Azure Compute Gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
+If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery.
 
 ```azurecli-interactive
 az sig create \
@@ -220,7 +220,7 @@ If you want to now try re-customizing the image version to create a new version 
 
 This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 

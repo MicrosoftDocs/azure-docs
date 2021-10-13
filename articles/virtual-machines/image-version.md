@@ -54,7 +54,7 @@ To create an image using a source other than a VM, follow these steps.
 
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your image gallery, select **Add a new image definition** from the top of the page. 
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
 1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**. 
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  

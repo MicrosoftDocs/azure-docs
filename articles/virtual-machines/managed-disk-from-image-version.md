@@ -22,7 +22,7 @@ You can export the OS or a single data disk from an image version as a managed d
 
 ## CLI
 
-List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
+List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* gallery.
 
 ```azurecli-interactive
 az sig image-version list \

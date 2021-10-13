@@ -28,7 +28,7 @@ Before you get started, make sure you have the following:
 - All files need to be byte aligned. You can do this using PowerShell:
 
     ```powershell
-    $inputFile = \<the file you want to pad>
+    $inputFile = <the file you want to pad>
 
     $fileInfo = Get-Item -Path $inputFile
 
@@ -36,12 +36,12 @@ Before you get started, make sure you have the following:
 
     if ($remainder -ne 0){
 
-       $difference = 512 - $remainder
+    $difference = 512 - $remainder
 
-       $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
+    $bytesToPad = [System.Byte[]]::CreateInstance([System.Byte], $difference)
 
-       Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
-        }
+    Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+    }
     ```
 
 This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md).
@@ -140,7 +140,7 @@ Hello world!
 ### Byte align the files
 
 ```azurepowershell-interactive
-$inputFile = "./MyAppInstaller.ps1"
+$inputFile = <the file you want to pad>
 
 $fileInfo = Get-Item -Path $inputFile
 
@@ -150,7 +150,7 @@ if ($remainder -ne 0){
 
     $difference = 512 - $remainder
 
-    $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
+    $bytesToPad = [System.Byte[]]::CreateInstance([System.Byte], $difference)
 
     Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
     }
@@ -162,13 +162,13 @@ All VM Applications must have a package. Fill in the blanks for the following sc
 ```azurepowershell-interactive
 Login-AzureRMAccount
 
-$subid = ""
+$subid = "<your subscription ID>"
 Set-AzContext -SubscriptionId $subid
 
-$rg = ""
-$saName = ""
-$containerName = ""
-$location = ""
+$rg = "myResourceGroup"
+$saName = "sa10122021"
+$containerName = "apppackages"
+$location = "East US"
 
 $sa = New-AzStorageAccount -name $saName -ResourceGroupName $rg -SkuName "Standard_LRS" -Location $location
 New-AzStorageContainer -Name $containerName -Context $sa.Context -Permission Blob
@@ -196,13 +196,10 @@ Choose an option below for creating your VM application definition and version:
 
 ### [Portal](#tab/portal2)
 
-<!-- Introduction paragraph if needed. The numbering is automatically controlled, so you can put 1. for each step and the rendering engine will fix the numbers in the live content. -->
 
-1. Open the [portal](https://portal.azure.com).
-1. In the search bar, type **<name_of_feature>**.
-1. Select **<name_of_feature>**.
-1. In the left menu under **Settings**, select **<something>**.
-1. In the **<something>** page, select **<something>**.
+1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
+1. Select the gallery you want to use from the list.
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
 
 ### [CLI](#tab/cli2)
 <!-- Introduction paragraph if needed-->

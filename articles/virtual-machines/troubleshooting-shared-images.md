@@ -346,7 +346,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Sharing resources
 
-The sharing of image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+The sharing of gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## Replication speed
 

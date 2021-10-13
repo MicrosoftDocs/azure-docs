@@ -447,7 +447,7 @@ Azure offers a large variety of virtual machines that you can select to deploy. 
 
 ![Positioning of Microsoft Azure Virtual Machine Services][planning-guide-figure-400]
 
-With Azure virtual machines, Microsoft is enabling you to deploy custom server images to Azure as IaaS instances. Or you are able to choose from a rich selection of consumable operating system images out of the Azure image gallery.
+With Azure virtual machines, Microsoft is enabling you to deploy custom server images to Azure as IaaS instances. Or you are able to choose from a rich selection of consumable operating system images from the Azure Marketplace.
 
 From an operational perspective, the Azure Virtual Machine Service offers similar experiences as virtual machines deployed on premises. You are responsible for the administration, operations and also the patching of the particular operating system, running in an Azure VM and its applications in that VM. Microsoft is not providing any more services beyond hosting that VM on its Azure infrastructure (Infrastructure as a Service - IaaS). For SAP workload that you as a customer deploy, Microsoft has no offers beyond the IaaS offerings.
 

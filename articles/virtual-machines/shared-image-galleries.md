@@ -164,7 +164,7 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 ## Updating resources
 
-Once created, you can make some changes to the image gallery resources. These are limited to:
+Once created, you can make some changes to the gallery resources. These are limited to:
  
 Azure Compute Gallery:
 - Description

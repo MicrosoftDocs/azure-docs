@@ -253,7 +253,7 @@ az sig image-definition delete \
 ```
 
 
-Delete an image gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
+Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
 
 ```azurecli-interactive
 az sig delete \

@@ -262,7 +262,7 @@ If you want to now try recustomizing the image version to create a new version o
 
 The following deletes the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 

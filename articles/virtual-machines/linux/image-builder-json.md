@@ -600,7 +600,7 @@ an Azure Compute Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../create-gallery.md). 
+Before you can distribute to the gallery, you must create a gallery and an image definition, see [Shared images](../create-gallery.md). 
 
 ```json
 {

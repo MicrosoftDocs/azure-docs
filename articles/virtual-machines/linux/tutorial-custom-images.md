@@ -25,7 +25,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 
 This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
@@ -54,13 +54,13 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-## Create an image gallery 
+## Create a gallery 
 
-An image gallery is the primary resource used for enabling image sharing. 
+A gallery is the primary resource used for enabling image sharing. 
 
-Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes.   Gallery names must be unique within your subscription. 
+Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
-Create an image gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create an gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -190,7 +190,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 Advance to the next tutorial to learn about highly available virtual machines.
 

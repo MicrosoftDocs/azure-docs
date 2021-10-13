@@ -834,7 +834,7 @@
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
-      displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting, Azure Compute Gallery
       href: troubleshooting-shared-images.md
     - name: Using customer-managed keys
       displayName: SSE, CMK, encrypt

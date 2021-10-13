@@ -33,7 +33,7 @@ $vm.Plan
 
 ## Create the image definition
 
-Get the image gallery that you want to use to store the image. You can list all of the galleries first.
+Get the gallery you want to use to store the image. You can list all of the galleries first.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
