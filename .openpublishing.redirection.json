@@ -1460,7 +1460,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
-      "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+      "redirect_url": "/azure/active-directory-b2c/add-password-reset-policy",
       "redirect_document_id": true
     },
     {
@@ -6681,11 +6681,6 @@
     {
       "source_path_from_root": "/articles/mobile-apps/concepts/azure-maps.md",
       "redirect_url": "/azure/developer/mobile-apps/azure-maps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
-      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
       "redirect_document_id": false
     },
     {
