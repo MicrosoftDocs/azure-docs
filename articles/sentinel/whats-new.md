@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ---
 
 # What's new in Azure Sentinel
@@ -28,6 +28,118 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+
+## November 2021
+
+### Free trial updates
+
+Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
+
+Now, in addition during the trial period:
+
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+
+    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+
+- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply.
+
+For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
+
+### Content hub and new solutions (Public preview)
+
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+
+Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
+
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
+
+The following list includes highlights of new solutions added to the Content hub:
+
+:::row:::
+   :::column span="":::
+      - Azure Sentinel Training Lab
+      - Cisco ASA
+      - Cisco Duo Security
+      - Cisco Meraki
+      - Cisco StealthWatch
+      - Digital Guardian
+   :::column-end:::
+   :::column span="":::
+      - 365 Dynamics
+      - FalconForce
+      - FireEye NX
+      - Flare Systems Firework
+      - Forescout
+      - Fortinet Fortigate
+   :::column-end:::
+   :::column span="":::
+      - Imperva Cloud FAW
+      - Insiders Risk Management
+      - IronNet CyberSecurity Iron Defense
+      - Lookout
+   :::column-end:::
+   :::column span="":::
+      - Microsoft MITRE ATT&CK Solution for Cloud
+      - Palo Alto PAN-OS
+      - Rapid7 Nexpose
+      - ReversingLabs
+   :::column-end:::
+   :::column span="":::
+      - RSA SecurID
+      - Semperis
+      - Tenable Nessus Scanner
+      - Vectra Stream
+      - Zero Trust
+:::row-end:::
+
+For more information, see:
+
+- [About Azure Sentinel solutions](sentinel-solutions.md)
+- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
+- [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
+
+>[!TIP]
+> We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
+>
+
+### Manage custom content in source control repositories (Public preview)
+
+Now, the new Azure Sentinel **Repositories** page provides you with the ability to store your custom content in GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspace.
+
+Store your custom content in an external repository in order to maintain it outside of Azure Sentinel. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspace, and visible from the various Azure Sentinel galleries, such as the **Analytics**, **Notebooks**, or **Workbooks** pages.
+
+For more information, see [Manage custom content in your own repository](ci-cd.md).
+
+### Enriched threat intelligence with Geolocation and WhoIs data
+
+Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
+
+In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+
+TBD SCREENSHOT
+
+For more information, see:
+
+- [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
+- [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
+- [Enrich entities with geolocation data via API](geolocation-data-api.md)
+
+### Use notebooks with Azure Synapse in Azure Sentinel
+
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
+
+To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as new notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
+
+The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+
+For example:
+
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 ## October 2021
 
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
