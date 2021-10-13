@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 09/16/2021
+  ms.date: 10/13/2021
   ms.author: banders
     
 title: Cost Management + Billing frequently asked questions (FAQ)
@@ -118,6 +118,9 @@ sections:
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+      - question: Can I view New Commerce license and consumption products besides Azure in Cost Management?
+        answer: |
+          Yes. Partners with an MCA agreement can buy New Commerce license and consumption products in the Partner Center. The products are invoiced along with your Azure products and you can view the charges in Cost Management. The "Provider" dimension helps to distinguish between Azure and license-based products like M365, D365.
 
   - name: Cost Management + Billing API questions
     questions:
