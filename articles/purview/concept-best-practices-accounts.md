@@ -11,13 +11,13 @@ ms.date: 10/12/2021
 
 # Azure Purview accounts architectures and best practices  
 
-Azure Purview is a unified data governance solution. You can use Azure Purview to centrally manage data governance across your organization's data estate, spanning multi-cloud and on-premises environments. We recommend organizations keeping the number of Azure Purview Instances as minimum as possible, however, there might additional requirements where additional Purview instances are needed to fulfil business security and compliance requirements.
+Azure Purview is a unified data governance solution. You deploy an Azure Purview account to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. To use Azure Purview as your centralized data governance solution, you need to deploy one or more Purview accounts inside your Azure subscription. We recommend keeping the number of Purview instances as minimum, however, in some cases additional Purview instances are needed to fulfil business security and compliance requirements.
 
 ## Intended audience
 
-- Data architecture team  
-- Data governance and management teams  
-- Data security team  
+- Data architecture team
+- Data governance and management teams
+- Data security team
 
 ## Single Purview account
 
@@ -57,13 +57,13 @@ If your organization has data in multiple geographies and you must keep metadata
 
 ### Having Data sources distributed across multiple tenants  
 
-Currently, Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions which are associated to different Azure Active Directory tenants, we recommend deploying at least one Azure Purview account per each tenant. 
+Currently, Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions under different Azure Active Directory tenants, it is recommended deploying separate Azure Purview accounts under each tenant. 
 
 An exception applies to VM-based data sources and Power BI tenants. For more information about how to scan and register a cross tenant Power BI in a single Purview account see, [Register and scan a cross-tenant Power BI](/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Azure Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 
-### Require separate billing model for each department or business unit  
+### Billing model 
 
 Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing Azure Purview architecture for your organization. One billing is generated for a single Purview account in the subscription where Purview account is deployed. This model also applies to additional costs related to scanning and classifying metadata inside your Purview Data Map.  
 
