@@ -56,7 +56,7 @@ Depending on the subnet state and designation, the following adjustments may be 
 - **Other**: The subnet is prepared and all relevant rules are created according to the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). <sup>1</sup>
 
 > [!Note]
-> <sup>1</sup> Azure portal only: Destination subnets that are categorized as **Ready for Managed Instance (empty)** and **Other**  may be adjusted to match the source subnet configuration: 
+> <sup>1</sup> When you use the Azure portal to move your subnet, neccesary subnet adjustments are made automatically so that the configuration of the destination subnet matches the configuration of the source subnet. Subnet adjustments should be made manually when using Azure PoweShell or the Azure CLI so that subnet configurations match. Destination subnets that are categorized in the Azure portal as **Ready for Managed Instance (empty)** and **Other** may be adjusted to match the source subnet configuration: 
 > - Extra rules may be deployed depending on the instance configuration (such as public endpoint, connection type for private endpoint, etc.). 
 > - Custom rules added to the source subnet configuration are copied to the destination subnet.
 
