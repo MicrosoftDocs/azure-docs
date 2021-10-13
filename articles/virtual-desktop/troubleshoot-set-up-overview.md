@@ -3,7 +3,7 @@ title: Azure Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/04/2020
+ms.date: 10/13/2021
 ms.author: helohr
 manager: femila
 ---
@@ -13,6 +13,10 @@ manager: femila
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
+
+## Troubleshoot deployment and connection issues
+
+[Azure Monitor for Windows Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Windows Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
 
 ## Report issues
 
