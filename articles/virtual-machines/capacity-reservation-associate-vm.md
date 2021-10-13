@@ -78,6 +78,19 @@ In the request body, include the `capacityReservationGroup` property as shown be
 1. After validation runs, select the **Create** button 
 1. After the deployment is complete, select **Go to resource**
 
+### [CLI](#tab/cli1)
+
+Use `az vm create` to create a new VM and add the `CapacityReservationGroupId` property to associate it to an existing capacity reservation group. The example below creates a Standard_D2s_v3 VM in the East US location and associate the VM to a capacity reservation group.
+
+```azurecli-interactive
+az vm create 
+--resource-group myResourceGroup 
+--name myVM 
+--location eastus 
+--size Standard_D2s_v3 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
+```
 
 ### [PowerShell](#tab/powershell1)
 
@@ -155,6 +168,24 @@ While Capacity Reservation is in preview, to associate an existing VM to a Capac
 1. Go to **Configurations** on the left
 1. In the **Capacity Reservation Group** dropdown, select the group that you want the VM to be associated with 
 
+### [CLI](#tab/cli2)
+
+1. Deallocate the VM
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+1. Associate the VM to a capacity reservation group
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}
+    ```
 
 ### [PowerShell](#tab/powershell2)
 
