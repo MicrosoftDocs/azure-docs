@@ -47,10 +47,10 @@ In this tutorial, you learn about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Select device setup type
-> * Configure network
-> * Get authentication token
-> * Configure cluster
-> * Configure virtual IP
+> * Configure network on both nodes
+> * Get authentication token for prepared node
+> * Configure cluster witness and add prepared node
+> * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
 
@@ -421,10 +421,10 @@ In this tutorial, you learned about:
 > [!div class="checklist"]
 > * Prerequisites
 > * Select device setup type
-> * Configure network
-> * Get authentication token
-> * Configure cluster
-> * Configure virtual IP
+> * Configure network on both nodes
+> * Get authentication token for prepared node
+> * Configure cluster witness and add prepared node
+> * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
 
