@@ -4,7 +4,7 @@ description: This article provides examples of Azure Purview accounts  architect
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-ma
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/12/2021
 ---
@@ -71,7 +71,7 @@ Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details
 
 Some organization often have many business units (BUs) that operate separately, and, in some cases, they won't even share billing with each other. In those cases, the organization will end up creating a Purview instance for each BU. This model is not ideal, but may be necessary, especially because BUs are often not willing to share billing. 
 
-For more information about cloud computing cost model in chargeback and showback models see, [What is cloud accounting?](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/cloud-accounting).  
+For more information about cloud computing cost model in chargeback and showback models see, [What is cloud accounting?](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
 ## Additional considerations and recommendations 
 
@@ -81,9 +81,9 @@ For more information about cloud computing cost model in chargeback and showback
 
 - Use [Azure Purview collections](concept-best-practices-collections.md) to define and segregate access control inside the Azure Purview for your business users, data management and governance teams in the organization. For more information, see [Access control in Azure Purview](./catalog-permissions.md).
 
-- Review [Azure Purview limits](./how-to-manage-quotas#azure-purview-limits.md) before deploying any new Purview accounts. Currently the default limit of Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying additional instances of Azure Purview.  
+- Review [Azure Purview limits](./how-to-manage-quotas.md#azure-purview-limits) before deploying any new Purview accounts. Currently the default limit of Purview accounts per region, per tenant (all subscriptions combined) is 3. You may need to contact Microsoft support to increase this limit in your subscription or tenant before deploying additional instances of Azure Purview.  
 
-- Review [Azure Purview prerequisites](./create-catalog-portal#prerequisites) before deploying any new Purview accounts in your environment.
+- Review [Azure Purview prerequisites](./create-catalog-portal.md#prerequisites) before deploying any new Purview accounts in your environment.
   
 ## Next steps
 -  [Create a Purview account](./create-catalog-portal.md)
