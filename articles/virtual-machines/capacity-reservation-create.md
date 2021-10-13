@@ -235,10 +235,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ### [AzureCLI](#tab/cli2)
 
  ```azurecli-interactive
-  az capacity reservation show 
-  -c myCapacityReservationGroup 
-  -n myCapacityReservation 
-  -g myResourceGroup
+ az capacity reservation show 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup
  ```
 
 ### [PowerShell](#tab/powershell2)
