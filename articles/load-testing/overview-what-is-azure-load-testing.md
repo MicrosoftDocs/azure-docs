@@ -1,198 +1,64 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Load Testing is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
+description: 'Azure Load Testing is a fully managed load testing service built for Microsoft Azure that enables developers to generate high-scale loads to optimize app performance.'
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
-ms.author: jmartens
-author: j-martens
-ms.date: 08/03/2021
+ms.author: nicktrog
+author: ntrogh
+ms.date: 10/11/2021
 adobe-target: true
 ---
 
 # What is Azure Load Testing?
 
-Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
+Azure Load Testing is a fully managed load testing service built for Microsoft Azure that enables you to generate high-scale load. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity.
 
-You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
+You can create a load test using existing Apache JMeter scripts and identify bottlenecks in your Azure-hosted endpoints. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
 
-> [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> [!IMPORTANT]
+> Azure Load Testing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Who is Azure Machine Learning for?
+## How does Azure Load Testing work?
 
-Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
+Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines execute the Apache JMeter script to call your application endpoints. You can configure the number of test engines to scale out your load test.
 
-Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
+During the load test execution, Azure Monitor collects the metrics of your Azure application components. The Azure Load Testing dashboard visualizes the application and test engine metrics.
 
-Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control (RBAC) for infrastructure. You can set up a project to deny access to protected data and select operations.
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Azure Load Testing architecture overview.":::
 
-### Collaboration for machine learning teams
+Azure Load Balancing integrates with Azure networking to avoid load tests being mistaken for a security risk, such as a denial of service (DoS) attack. When the service detects throttling, the load test is automatically aborted.
 
-Machine learning projects often require a team with varied skillsets to build and maintain. Azure Machine Learning has tools that help enable collaboration, such as:
+> [!NOTE]
+> This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
 
-- Shared notebooks, compute resources, data, and environments
-- Tracking and auditability that shows who made changes and when
-- Asset versioning
+## How to identify performance bottlenecks using high-scale load test?
 
-### Tools for developers
+Performance bottlenecks often remain undetected until the application is experiencing high load. You can create a high-scale load test to simulate large numbers of *virtual users* simultaneously accessing your application endpoints.
 
-Developers find familiar interfaces in Azure Machine Learning, such as:
+Azure Load Testing integrates with Azure Monitor to track performance metrics for the Azure resources across your application. These metrics allow you to identify which component is responsible for the performance problem. For example, the application service cpu percentage, the number of database requests, or the available storage.
 
-- [Python SDK](/python/api/overview/azure/ml/)
-- [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
-- [CLI v2 (preview)](/cli/azure/ml)
+## How to enable continuous regression testing?
 
-### Studio UI 
+You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline. With each application build, you run a load test and compare the results against a baseline. This allows you to identify performance regressions early in the development cycle and implement continuous improvement.
 
-The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
+You can run an Azure Load Testing load test from Azure Pipelines or GitHub Actions workflows.
 
-- View runs, metrics, logs, outputs, and so on.
-- Author and edit notebooks and files.
-- Manage common assets, such as
-    - Data credentials
-    - Compute
-    - Environments
-- Visualize run metrics, results, and reports.
-- Visualize pipelines authored through developer interfaces.
-- Author AutoML jobs.
+<!-- (set pass/fail criteria for load tests) -->
 
-Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
+## Analyze test results for insights
 
-## Enterprise-readiness and security
+Azure Load Testing provides you a single, consolidated dashboard to analyze the load test results. The dashboard shows live updates of the test engine and application metrics during the load test. After the test completes, you can download the load test results to create your own customized reports for further analysis.
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+The test results consist of *client-side* and *server-side* metrics:
 
-Security integrations include:
+- Client-side metrics give you details about the load test engine. For example, the number of virtual users, the request response time, or the number of requests per second. The client-side metrics can help you determine the scale limits of your application.
 
-- Azure Virtual Networks (VNets) with network security groups 
-- Azure Key Vault where you can save security secrets, such as access information for storage accounts
-- Azure Container Registry set up behind a VNet
-
-See [Tutorial: Set up a secure workspace](../machine-learning/tutorial-create-secure-workspace.md).
-
-## Azure integrations for complete solutions
-
-Other integrations with Azure services support a machine learning project from end-to-end. They include:
-
-- Azure Synapse Analytics to process and stream data with Spark
-- Azure Arc, where you can run Azure services in a Kubernetes environment
-- Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
-- Azure App Service allowing you to deploy and manage ML-powered apps
-
-
-## Machine learning project workflow
-
-Typically models are developed as part of a project with an objective and goals. Projects often involve more than one person. When experimenting with data, algorithms, and models, development is iterative. 
-
-### Project lifecycle
-
-While the project lifecycle can vary by project, it will often look like this:
-
-![Machine learning project lifecycle diagram](../machine-learning/media/overview-what-is-azure-machine-learning/overview-ml-development-lifecycle.png)
-
-A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
-
-For more information, see [Manage Azure Machine Learning workspaces](../machine-learning/how-to-manage-workspace.md?tabs=python).
-
-When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
-
-Models can be deployed to the managed inferencing solution, for both real-time and batch deployments, abstracting away the infrastructure management typically required for deploying models.
-
-## Train models
-
-In Azure Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
-
-### Open and interoperable
-
-Data scientists can use models in Azure Machine Learning that they've created in common Python frameworks, such as: 
-
-- PyTorch
-- TensorFlow
-- scikit-learn
-- XGBoost
-- LightGBM
-
-Other languages and frameworks are supported as well, including: 
-- R
-- .NET
-
-See [Open-source integration with Azure Machine Learning](../machine-learning/concept-open-source.md).
-
-### Automated featurization and algorithm selection (AutoML)
-
-In a repetitive, time-consuming process, in classical machine learning data scientists use prior experience and intuition to select the right data featurization and algorithm for training. Automated ML (AutoML) speeds this process and can be used through the studio UI or Python SDK.
-
-See [What is automated machine learning?](../machine-learning/concept-automated-ml.md)
-
-### Hyperparameter optimization
-
-Hyperparameter optimization, or hyperparameter tuning, can be a tedious task. Azure Machine Learning can automate this task for arbitrary parameterized commands with little modification to your job definition. Results are visualized in the studio.
-
-See [How to tune hyperparameters](../machine-learning/how-to-tune-hyperparameters.md).
-
-### Multinode distributed training
-
-Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
-
-Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
-
-- PyTorch
-- TensorFlow
-- MPI
-
-The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
-
-See [Distributed training with Azure Machine Learning](../machine-learning/concept-distributed-training.md).
-
-### Embarrassingly parallel training
-
-Scaling a machine learning project may require scaling embarrassingly parallel model training. This pattern is common for scenarios like forecasting demand, where a model may be trained for many stores.
-
-## Deploy models
-
-To bring a model into production, it is deployed. Azure Machine Learning's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
-
-### Real-time and batch scoring (inferencing)
-
-*Batch scoring*, or *batch inferencing*, involves invoking an endpoint with a reference to data. The batch endpoint runs jobs asynchronously to process data in parallel on compute clusters and store the data for further analysis.
-
-*Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
-
-See:
- - [Deploy a model with a real-time managed endpoint](../machine-learning/how-to-deploy-managed-online-endpoints.md)
- - [Use batch endpoints for scoring](../machine-learning/how-to-use-batch-endpoint.md) 
-
-
-## MLOps: DevOps for machine learning 
-
-DevOps for machine learning models, often called MLOps, is a process for developing models for production. A model's lifecycle from training to deployment must be auditable if not reproducible.
-
-### ML model lifecycle 
-
-![Machine learning model lifecycle - MLOps](../machine-learning/media/overview-what-is-azure-machine-learning/model-lifecycle.png)
-
-Learn more about [MLOps in Azure Machine Learning](../machine-learning/concept-model-management-and-deployment.md).
-
-### Integrations enabling MLOPs
-
-Azure Machine Learning is built with the model lifecycle in mind. You can audit the model lifecycle down to a specific commit and environment. 
-
-Some key features enabling MLOps include:
-
-- `git` integration
-- MLflow integration
-- Machine learning pipeline scheduling
-- Azure Event Grid integration for custom triggers
-- Easy to use with CI/CD tools like GitHub Actions or Azure DevOps
-
-Also, Azure Machine Learning includes features for monitoring and auditing:
-- Job artifacts, such as code snapshots, logs, and other outputs
-- Lineage between jobs and assets, such as containers, data, and compute resources
+- Server-side metrics provide you information about your application. Azure Load Testing integrates with Azure Monitor to capture details from your Azure application services. Depending on the type of service, you can view different metrics. For example, for a database you have the number of reads or writes and for a web site you view statistics of each type of HTTP request. The server-side metrics can give you insights about how load affects the different parts of your application.
 
 ## Next steps
 
-Start using Azure Machine Learning:
-- [Set up an Azure Machine Learning workspace](../machine-learning/quickstart-create-resources.md)
-- [Tutorial: Build a first machine learning project](../machine-learning/tutorial-1st-experiment-hello-world.md)
-- [Preview: Run model training jobs with the v2 CLI](../machine-learning/how-to-train-cli.md)
+Start using Azure Load Testing:
+- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-in-azure-portal.md)
+- [Run a load test in Visual Studio Code to identify performance bottlenecks](./how-to-identify-bottlenecks-in-vs-code.md)
