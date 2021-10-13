@@ -28,4 +28,15 @@ The Azure AD password policy doesn't apply to user accounts synchronized from an
 
 The following Azure AD password policy requirements apply for all passwords that are created, changed, or reset in Azure AD. This includes during user provisioning, password change, and password reset flows. Unless noted, you can't change these settings:
 
+| Property | Requirements |
+| --- | --- |
+| Characters allowed |Uppercase characters (A - Z)<br>Lowercase characters (a - z)<br>Numbers (0 - 9)<br>Symbols:<br>- @ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ><br>- blank space |
+| Characters not allowed | Unicode characters |
+| Password restrictions |Passwords require<br>- A minimum of 8 characters<br>- A maximum of 256 characters</li> |
+| Password complexity |Passwords require three out of four of the following:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: This check is not required for Education tenants. |
+| Password expiry duration (Maximum password age) |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
+| Password expiry notification (When users are notified of password expiration) |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
+| Password expiry (Let passwords never expire) |<ul><li>Default value: **false** (indicates that password's have an expiration date).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
+| Password change history | The last password *can't* be used again when the user changes a password. |
+| Password reset history | The last password *can* be used again when the user resets a forgotten password. |
 
