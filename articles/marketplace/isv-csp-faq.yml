@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Configure ISV to Cloud Reseller Private Offers FAQ - Microsoft commercial marketplace"
-  description: Learn about configuring ISV to Cloud Reseller Private Offers in Microsoft Partner Center.
+  title: "Configure ISV to Cloud Reseller private offers FAQ"
+  description: Learn about configuring ISV to Cloud Reseller private offers in Partner Center.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: troubleshooting
@@ -9,8 +9,8 @@ metadata:
   author: emerb19
   ms.author: emerb
     
-title: Common questions about configuring Independent Software Vendor (ISV) to Cloud Reseller Private Offers
-summary: This article covers questions about configuring Independent Software Vendor (ISV) to Cloud Reseller Private Offers.
+title: Common questions about configuring Independent Software Vendor (ISV) to Cloud Reseller private offers
+summary: This article covers questions about configuring Independent Software Vendor (ISV) to Cloud Reseller private offers.
 
 
 sections:
@@ -78,7 +78,7 @@ sections:
     questions:
       - question: What if an ISV wants to change the term of a private offer?
         answer: |
-          Once an ISV has extended a private offer, they can't alter the term of the Private offer prior to the end date, nor change the end date. Once the CSP Partner receives a private offer, it is locked in until its end date.
+          Once an ISV has extended a private offer, they can't alter the term of the private offer prior to the end date, nor change the end date. Once the CSP Partner receives a private offer, it is locked in until its end date.
 
           If the ISV adds a new private offer providing the CSP Partner a greater margin percentage and the timeline overlaps the current offer, the higher margin percentage will apply.
 
@@ -90,7 +90,7 @@ sections:
 
       - question: If the ISV made a mistake and created a private offer with the incorrect margin percentage, can they edit it?
         answer: |
-          Once the Private offer has been submitted, it cannot be edited until the end of the term. The ISV can only request to cancel (via withdraw request) the original private offer if the CSP partner has not yet transacted the offer.
+          Once the private offer has been submitted, it cannot be edited until the end of the term. The ISV can only request to cancel (via withdraw request) the original private offer if the CSP partner has not yet transacted the offer.
 
       - question: Can an ISV remove a CSP partner from an existing private offer?
         answer: |
