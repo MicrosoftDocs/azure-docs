@@ -279,7 +279,9 @@ The load balancer is ready for NVAs in the backend pool.
 
 ## Chain load balancer frontend to gateway load balancer
 
-The final step in the deployment is to chain a network interface with a public IP address or the frontend of a standard load balancer to the gateway load balancer. In this section, you'll replace the existing frontend of a standard load balancer with the gateway load balancer you created previously.
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
 
 1. In the search box in the Azure portal, enter **Load balancer**. In the search results, select **Load balancers**.
 
