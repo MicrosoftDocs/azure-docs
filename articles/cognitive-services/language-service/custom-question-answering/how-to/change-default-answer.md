@@ -17,7 +17,7 @@ There are two types of default answer in your knowledge base. It is important to
 
 |Types of default answers|Description of answer|
 |--|--|
-|KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question it displays a default text response. In Custom question answering, you can set this text in the **Settings** of your project. |
+|KB answer when no answer is determined|`No good match found in KB.` - When the question answering API finds no matching answer to the question it displays a default text response. In Custom question answering, you can set this text in the **Settings** of your project. |
 |Follow-up prompt instruction text|When using a follow-up prompt in a conversation flow, you may not need an answer in the QnA pair because you want the user to select from the follow-up prompts. In this case, set specific text by setting the default answer text, which is returned with each prediction for follow-up prompts. The text is meant to display as instructional text to the selection of follow-up prompts. An example for this default answer text is `Please select from the following choices`. This configuration is explained in the next few sections of this document. You can also set this as part of a knowledge base definition with `defaultAnswerUsedForExtraction` using the REST API.|
 
 ### Client application integration
@@ -40,8 +40,8 @@ The knowledge base default answer is returned when no answer is returned from qu
 1. Change the value of **Default answer when no answer found** > Select **Save**.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of project settings with red box around the default answer](../media/change-default-answer/settings.png)
+> ![Screenshot of project settings with red box around the default answer](../media/change-default-answer/settings.png)
 
 ## Next steps
 
-* [Create a knowledge base](../../../qnamaker/How-to/manage-knowledge-bases.md)
+* [Create a knowledge base](manage-knowledge-base.md)
