@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Form Recognizer documentation # < 60 chars
-summary: Azure Form Recognizer, part of Azure Applied AI Services, uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also conduct supervised learning with manually labeled data. Models trained with labeled data perform better and can also work with more complicated documents. # < 160 chars
+summary: Azure Form Recognizer is an [Azure Applied AI Service](../../applied-ai-services/index.yml) cloud service that uses machine learning models to extract and analyze form fields, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # < 160 chars
 
 metadata:
   title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Applied AI Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Form Recognizer, part of Azure Applied AI Services, uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Form Recognizer is an [Azure Applied AI Service](../../applied-ai-services/index.yml) cloud service that uses machine learning models to extract and analyze form fields, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: applied-ai-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
@@ -15,36 +15,68 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+    items:
+      - title: About Form Recognizer
+        itemType: overview
+        url: overview.md
+      - title: What's new in Form Recognizer?
+        itemType: whats-new
+        url: whats-new.md
+      - title: Language support
+        itemType: reference
+        url: language-support.md
+
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Form Recognizer
+  - title: 🆕Form Recognizer Studio (preview)
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Form Recognizer?
-            url: overview.md
-          - text: What are Azure Applied AI Services?
-            url: ../../applied-ai-services/index.yml
-      - linkListType: whats-new
-        links:
-          - text: What's new in Azure Form Recognizer?
-            url: whats-new.md
-      - linkListType: video
-        links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
-          - text: Newest features and updates
-            url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
-
-  - title: Extract layout and structure from documents
+       - linkListType: concept
+         links:
+           - text: Studio
+             url: concept-studio.md?
+       - linkListType: overview
+         links:
+         - text: Using the General document model (preview)
+           url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+         - text: Using the Layout model
+           url: quickstarts/try-v3-form-recognizer-studio.md#layout
+         - text: Using the Invoice model
+           url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+         - text: Using the Receipt model
+           url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+         - text: Using the ID document model
+           url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+         - text: Using the Business card model
+           url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+         - text: Using the Custom model
+           url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+  - title: 🆕General document model
     linkLists:
       - linkListType: concept
         links:
-          - text: Layout 
+          - text: Extract data from documents
+            url: concept-general-document.md?
+      - linkListType: quickstart
+        links:
+        - text: Using the .NET SDK
+          url: 
+        - text: Using the Python SDK
+          url: 
+        - text: Using the Java SDK
+          url: 
+        - text: Using the JavaScript SDK
+          url: 
+        - text: Using the REST API (cURL)
+          url: 
+  - title: Layout model
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Extract data an structure from documents
             url: concept-layout.md?
       - linkListType: quickstart
         links:
@@ -63,11 +95,11 @@ landingContent:
           - text: Try Form Recognizer (layout)
             url: https://fott-2-1.azurewebsites.net/layout-analyze
 
-  - title: Extract data from receipts
+  - title: Receipt model
     linkLists:
       - linkListType: concept
         links:
-          - text: Receipts
+          - text: Extract data from receipts
             url: concept-receipts.md?
       - linkListType: quickstart
         links:
@@ -241,3 +273,23 @@ landingContent:
         links:
           - text: Support and help options
             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+  - title: About Azure Form Recognizer
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Azure Form Recognizer?
+          url: overview.md
+        - text: What are Azure Applied AI Services?
+          url: ../../applied-ai-services/index.yml
+    - linkListType: whats-new
+      links:
+        - text: What's new in Azure Form Recognizer?
+          url: whats-new.md
+    - linkListType: video
+      links:
+        - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+          url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+        - text: AI-powered process automation
+          url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+        - text: Newest features and updates
+          url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
