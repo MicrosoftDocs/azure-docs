@@ -25,7 +25,7 @@ The following lists cover the currently GA languages in the the 2.1 version and 
 > [!NOTE]
 > **Language code optional**
 >
-> Form Recognizer's deep learning based universal models extracts all multi-lingual text in your documents, including text lines with mixed languages, and does not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> Form Recognizer's deep learning based universal models extracts all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
 To use the preview languages, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
 
