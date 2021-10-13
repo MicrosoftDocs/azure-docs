@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 10/13/2021
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -39,7 +39,9 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document to SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications.
+
+For example, consider an expiration policy that is set so that a group expires after 30 days of inactivity. However, to keep from sending an expiration email the day that group expiration is enabled (because there's no record activity yet), Azure AD first waits five days. If there is activity in those five days, the expiration policy works as expected. If there is no activity within five days, we send an expiration/renewal email. Of course, if the group was inactive for five days, an email was sent, and then the group was active, we will autorenew it and start the expiration period again.
 
 ### Activities that automatically renew group expiration
 
@@ -98,7 +100,10 @@ If groups are not automatically renewed, email notifications such as this one ar
 
 From the **Renew group** notification email, group owners can directly access the group details page in the [Access Panel](https://account.activedirectory.windowsazure.com/r#/applications). There, the users can get more information about the group such as its description, when it was last renewed, when it will expire, and also the ability to renew the group. The group details page now also includes links to the Microsoft 365 group resources, so that the group owner can conveniently view the content and activity in their group.
 
-When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Microsoft 365 group owners informing them about the expiration and subsequent deletion of their Microsoft 365 group.
+>[!Important]
+> If there is any problem with the notification emails, and they are not sent out or they are delayed, be assured that Microsoft will never delete a group before the last email is sent.
+
+When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Microsoft 365 group owners informing them about the expiration and subsequent deletion of their Microsoft 365 group. 
 
 ![Group deletion email notifications](./media/groups-lifecycle/deletion-notification.png)
 
