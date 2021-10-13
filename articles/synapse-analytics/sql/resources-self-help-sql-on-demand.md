@@ -506,7 +506,7 @@ The value specified in the `WITH` clause doesn't match the underlying Cosmos DB 
 ### CosmosDB performance issues
 
 If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
-- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool).
 - Make sure that you are using the `WITH` clause with [optimal data types](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 - Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
 - If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
@@ -656,10 +656,15 @@ The serverless SQL pool assign the resources to the queries based on the size of
 ### Query duration is very long 
 
 If you are using Synapse Studio, try using some desktop client such as SQL Server Management Studio or Azure Data Studio. Synapse Studio is a web client that is connecting to serverless pool using HTTP protocol, that is generally slower than the native SQL connections used in SQL Server Management Studio or Azure Data Studio.
+
 If you have queries with the query duration longer than 30min, this indicates that returning results to the client is slow. Serverless SQL pool has 30min limit for execution, and any additional time is spent on result streaming.
+
+Check the following issues if you are experiencing the slow query execution:
 -	Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
 -	Make sure that you don’t have networking issues that can cause the slow streaming of result set 
 -	Make sure that the client application has enough resources (for example, not using 100% CPU). 
+-	Make sure that the storage account or cosmosDB analytical storage is placed in the same region as your serverless SQL endpoint.
+
 See the best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
 ### High variations in query durations

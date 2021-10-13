@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 10/12/2021
 ms.author: banders
 ---
 
@@ -201,6 +201,10 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
    A `200 OK` response shows that the SPN has been successfully added.
 
 Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
+
+## Troubleshoot
+
+You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
 
 ## Next steps
 

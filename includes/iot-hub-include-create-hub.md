@@ -65,4 +65,4 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Review information for creating the new hub.":::
 
-1. Select **Create** to start the deployment of your new hub. Your deployment will be in progress a few minutes while the hub is being created. Once the deployment is complete, click **Go to resource** to open the new hub.
+1. Select **Create** to start the deployment of your new hub. Your deployment will be in progress a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.
