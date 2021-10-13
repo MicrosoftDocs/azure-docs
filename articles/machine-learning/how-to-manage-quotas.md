@@ -100,9 +100,7 @@ The following table shows additional limits in the platform. Please reach out to
 ### Azure Machine Learning managed online endpoints (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning managed online endpoints have limits described in the following table. 
-
-To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). To request an exception from the Azure Machine Learning product team, please open a technical support ticket.
+Azure Machine Learning managed online endpoints have the following limits:
 
 | **Resource** | **Limit** |
 | --- | --- |
@@ -112,15 +110,11 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
 | Number of instances per deployment | 20 |
+| Max payload size at endpoint level | 1.5 MB |
 | Max request time out at endpoint level  | 60 seconds |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
+| Total QPS at endpoint level for all deployments | 100 |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
-
-<sup>2</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
