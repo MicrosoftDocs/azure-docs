@@ -63,7 +63,7 @@ This change doesn't affect customers with an Enterprise Agreement or pay-as-you-
 **Impact and Action**
 <a name="impact-action"></a>
 
-For any Cost Management data that you've downloaded before 14 October 2021, you'll need to consider the older “Azure” and the new “Microsoft” PublisherType field values. The data could have been downloaded through exports, usage details or from Cost Management.
+For any Cost Management data that you've downloaded before 14 October 2021, you'll need to consider the older “Azure” and the new “Microsoft” PublisherType field values. The data could have been downloaded through exports, usage details, or from Cost Management.
 
 If you use Cost Management + Billing REST API calls that filter the PublisherType field by the value “Azure”, you'll need to address the change and filter by the new value “Microsoft” after 14 October 2021. Afterward, if you make any API calls with a filter for Publisher type = “Azure”, data won't be returned.
 
