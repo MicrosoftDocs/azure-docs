@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Quick Start 
 
-This quick start gives you a run through of an end-2-end scenario how you can leverage the database templates to create a lake database , align data to your new model and use the integrated experience to analyze the data. 
+This quick start gives you a run through of an end-2-end scenario on how you can leverage the database templates to create a lake database, align data to your new model and use the integrated experience to analyze the data. 
 
 ## Prerequisits
 
@@ -19,9 +19,9 @@ This quickstart assumes you have already created a Synapse Analytics workspace.
 
 ## Create a lake database from database templates
 
-Use the new database templates (preview) functionallity to create a lake database that you can use to configure your data model for the database. 
+Use the new database templates (preview) functionality to create a lake database that you can use to configure your data model for the database. 
 
-For our scenario we will use the Retail database templates and select the following entities: 
+For our scenario we will use the Retail database template and select the following entities: 
  - **RetailProduct** - A product is anything that can be offered to a market that might satisfy a want or need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
  - **Transaction** - The lowest level of executable work or customer activity.
 A transaction consists of one or more discrete events.
@@ -36,11 +36,11 @@ The easiest way to find them is by using the search box above the different busi
  
  ## Configure lake database
  
-After you have created the database make sure the storage account & filepath is set to a location where you wish to store the data. This will default to the primary storage account within Synapse analytics but can be change to your needs. 
+After you have created the database make sure the storage account & filepath is set to a location where you wish to store the data. This will default to the primary storage account within Synapse analytics but can be changed to your needs. 
   
  ![Lake database example](./media/quick-start-create-lake-database/lake-database-example.png)
  
-To save your layout and make it avaialble within Synapse Publish all changes. This step completes the setup of the lake database and makes it avaialble to all components within Synapse Analytics and outside. 
+To save your layout and make it available within Synapse Publish all changes. This step completes the setup of the lake database and makes it available to all components within Synapse Analytics and outside. 
 
 
 ## Query the data
