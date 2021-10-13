@@ -46,7 +46,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 ## Set up Azure resources
 
-1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
+1. **Choose a compute device**  
+
+    To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use **[Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)** with GPU acceleration, however the container runs on any other **desktop machine** or **Azure VM** that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
 
    #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -70,38 +72,38 @@ The following are prerequisites for connecting the spatial-analysis module to Az
    - 2 NVIDIA Tesla T4 GPUs
    - 50 GB of SSD space
 
-   In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):
-
-   - [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
-   - Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
-   - [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker)
-   - [Azure IoT Edge](../../../iot-edge/how-to-install-iot-edge.md) runtime.
-
    #### [Azure VM with GPU](#tab/virtual-machine)
 
    You can utilize an [NC series VM](../../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
-
-   1. Connect to your VM and in the terminal type in the following command:
-
-        `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
-    
-        Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
-    
-        The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
-    
-        * `/home/localedgeuser/samples`
-        * `/home/localedgeuser/samples/input`
-        * `/var/lib/videoanalyzer`
-        * `/var/media`
-    
-        Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
         
-1. [Set up the edge device](../../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
+1. **Set up the edge device**
 
     > [!Important]
     > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#set-up-deployment-template)** file to deploy the required containers.
 
-1. Next, deploy the other Azure resources.
+#### [Azure Stack Edge device](#tab/azure-stack-edge)
+[Configure compute on the Azure Stack Edge portal](../../../cognitive-services/computer-vision/spatial-analysis-container.md#configure-compute-on-the-azure-stack-edge-portal)
+#### [Desktop machine](#tab/desktop-machine)
+[Follow these instructions if your host computer isn't an Azure Stack Edge device.](../../../cognitive-services/computer-vision/spatial-analysis-container.md#install-nvidia-cuda-toolkit-and-nvidia-graphics-drivers-on-the-host-computer)
+#### [Azure VM with GPU](#tab/virtual-machine)
+[Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm)
+
+Connect to your VM and in the terminal type in the following command:
+```bash
+bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"
+```
+Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    
+The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
+    
+  * `/home/localedgeuser/samples`
+  * `/home/localedgeuser/samples/input`
+  * `/var/lib/videoanalyzer`
+  * `/var/media`
+    
+ Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed.   
+
+3. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
