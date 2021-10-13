@@ -12,6 +12,8 @@ items:
     href: quick-demo-map-app.md
   - name: Create an Android app
     href: quick-android-map.md
+  - name: Create an iOS app
+    href: quick-iOS-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
@@ -275,6 +277,10 @@ items:
       href: data-driven-style-expressions-android-sdk.md
     - name: Reacting to events
       href: android-map-events.md
+  - name: Develop with the iOS SDK
+    items:
+    - name: Getting started with iOS map control
+      href: how-to-use-ios-map-control-library.md      
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
