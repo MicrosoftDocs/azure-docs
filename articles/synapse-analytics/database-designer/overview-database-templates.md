@@ -1,10 +1,10 @@
 ---
-title: Azure Synapse database templates
-description: Learn about database templates and what is a lake database.
+title: Overivew of Azure Synapse database templates
+description: Learn about database templates 
 author: gesaur
 ms.author: gesaur
 ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 13/10/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
