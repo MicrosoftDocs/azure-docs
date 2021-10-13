@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/28/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -23,6 +23,11 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](./developer-support-help-options.md) to learn about other ways you can get help and support.
 >
 > This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
+
+## Lookup current error code information
+Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
+
+For example, if you received the error code "AADSTS50058" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "50058".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058).
 
 ## Handling error codes in your application
 
@@ -66,11 +71,6 @@ The `error` field has several possible values - review the protocol documentatio
 | `invalid_resource` | The target resource is invalid because it does not exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  During development, this usually indicates an incorrectly setup test tenant or a typo in the name of the scope being requested. |
 | `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource, interactively, so that the user can complete any challenges required.  |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
-
-## Lookup current error code information
-Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
-
-For example, if you received the error code "AADSTS50058" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "50058".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058).
 
 ## AADSTS error codes
 
