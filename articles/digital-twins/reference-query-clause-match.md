@@ -45,6 +45,7 @@ Here's the basic `MATCH` syntax.
 The placeholder values shown in the `MATCH` clause that should be replaced with your values are `twin_1`, `relationship_condition`, and `twin_2`. The placeholder values in the `WHERE` clause that should be replaced with your values are `twin_or_twin_collection` and `twin_ID`.
 
 ```sql
+-- <MatchSyntax>
 --SELECT ... FROM ...  
 MATCH (twin_1)-[relationship_condition]-(twin_2)
 WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
@@ -56,6 +57,7 @@ You can leave out the name of one of the twins in order to allow any twin name t
 You can also change the number of relationship conditions, to have multiple [chained](#combine-match-operations) relationship conditions or no relationship condition at all:
 
 ```sql
+-- <MatchChainSyntax>
 --Chained relationship conditions
 -- SELECT ... FROM ... 
 MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
@@ -63,6 +65,7 @@ WHERE twin_or_twin_collection.$dtId = 'twin_ID'
 ```
 
 ```sql
+-- <MatchNodeSyntax>
 -- No relationship condition
 -- SELECT ... FROM ... 
 MATCH (twin_1)
@@ -81,9 +84,10 @@ The query specifies a [relationship direction](#specify-relationship-direction),
 The building and sensor are both included in the query result.
 
 ```sql
+-- <MatchExample>
 SELECT building, sensor FROM DIGITALTWINS 
 MATCH (building)-[]->(sensor) 
-WHERE building.$dtId= 'Building21' AND sensor.temperature > 50  
+WHERE building.$dtId = 'Building21' AND sensor.temperature > 50  
 ```
 
 ## Specify relationship direction
@@ -106,6 +110,7 @@ This section shows the syntax for different directions of relationships. The pla
 For a **left-to-right** relationship, use the following syntax.
 
 ```sql
+-- <MatchDirectionLRSyntax>
 -- SELECT ... FROM ...
 MATCH (source_twin)-[]->(target_twin)
 -- WHERE ...
@@ -114,6 +119,7 @@ MATCH (source_twin)-[]->(target_twin)
 For a **right-to-left** relationship, use the following syntax.
 
 ```sql
+-- <MatchDirectionRLSyntax>
 -- SELECT ... FROM ...
 MATCH (target_twin)<-[]-(source_twin)
 -- WHERE ...
@@ -122,6 +128,7 @@ MATCH (target_twin)<-[]-(source_twin)
 For a **non-directional** relationship, use the following syntax. This will not specify a direction for the relationship, so relationships of any direction will be included in the result.
 
 ```sql
+-- <MatchDirectionNDSyntax>
 -- SELECT ... FROM ...
 MATCH (source_twin)-[]-(target_twin)
 -- WHERE ...
@@ -138,6 +145,7 @@ The first example shows a **left-to-right** directional traversal. This query fi
 * *factory* has a `$dtId` of 'ABC'
 
 ```sql
+-- <MatchDirectionLRExample>
 SELECT room, factory FROM DIGITALTWINS MATCH (room)-[]->(factory) 
 WHERE room.temperature > 50 AND factory.$dtId = 'ABC' 
 ```
@@ -148,6 +156,7 @@ The following example shows a **right-to-left** directional traversal. This quer
 * *room* has a temperature value that's greater than 50
 
 ```sql
+-- <MatchDirectionRLExample>
 SELECT room, factory FROM DIGITALTWINS MATCH (room)<-[]-(factory) 
 WHERE factory.$dtId = 'ABC' AND room.temperature > 50  
 ```
@@ -158,6 +167,7 @@ The following example shows a **non-directional** traversal. This query finds tw
 * *room* has a humidity value that's greater than 70
 
 ```sql
+-- <MatchDirectionNDExample>
 SELECT factory, room FROM DIGITALTWINS MATCH (factory)-[]-(room) 
 WHERE factory.$dtId ='ABC'  AND room.humidity > 70 
 ```
@@ -181,6 +191,7 @@ Specify the name of a relationship to traverse in the `MATCH` clause within squa
 For a **single name**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name`, and `twin_2`.
 
 ```sql
+-- <MatchNameSingleSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)-[:relationship_name]-(twin_2)
 -- WHERE ...
@@ -189,6 +200,7 @@ MATCH (twin_1)-[:relationship_name]-(twin_2)
 For **multiple possible names**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
 
 ```sql
+-- <MatchNameMultiSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)-[:relationship_name_option_1|relationship_name_option_2|continue pattern as needed...]-(twin_2)
 -- WHERE ...
@@ -197,6 +209,7 @@ MATCH (twin_1)-[:relationship_name_option_1|relationship_name_option_2|continue 
 (Default) To leave name **unspecified**, leave the brackets empty of name information, like this:
 
 ```sql
+-- <MatchNameAllSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)-[]-(twin_2)
 -- WHERE ...
@@ -209,6 +222,7 @@ The following example shows a **single relationship name**. This query finds twi
 * *building* has a `$dtId` of 'Seattle21'
 
 ```sql
+-- <MatchNameSingleExample>
 SELECT building, sensor FROM DIGITALTWINS   
 MATCH (building)-[:contains]-(sensor)  
 WHERE building.$dtId = 'Seattle21'
@@ -219,6 +233,7 @@ The following example shows **multiple possible relationship names**. This query
 * *building* has a `$dtId` of 'Seattle21'
 
 ```sql
+-- <MatchNameMultiExample>
 SELECT building, sensor FROM DIGITALTWINS   
 MATCH (building)-[:contains|isAssociatedWith]-(sensor)  
 WHERE building.$dtId = 'Seattle21'
@@ -229,6 +244,7 @@ The following example has **no specified relationship name**. As a result, relat
 * *building* has a `$dtId` of 'Seattle21'
 
 ```sql
+-- <MatchNameAllExample>
 SELECT building, sensor FROM DIGITALTWINS   
 MATCH (building-[]-(sensor)  
 WHERE building.$dtId = 'Seattle21'
@@ -253,6 +269,7 @@ Specify the number of hops to traverse in the `MATCH` clause within the square b
 To specify an **exact number of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
 
 ```sql
+-- <MatchHopsExactSyntax>
 -- SELECT ... FROM ... 
 MATCH (twin_1)-[*number_of_hops]-(twin_2)
 -- WHERE ...
@@ -261,6 +278,7 @@ MATCH (twin_1)-[*number_of_hops]-(twin_2)
 To specify a **range of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `starting_limit`,  `ending_limit` and `twin_2`. The starting limit **is not** included in the range, while the ending limit **is** included.
 
 ```sql
+-- <MatchHopsRangeSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)-[*starting_limit..ending_limit]-(twin_2)
 -- WHERE ...
@@ -269,6 +287,7 @@ MATCH (twin_1)-[*starting_limit..ending_limit]-(twin_2)
 You can also leave out the starting limit to indicate "anything up to" (and including) the ending limit. An ending limit must always be provided.
 
 ```sql
+-- <MatchHopsRangeEndingSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)-[*..ending_limit]-(twin_2)
 -- WHERE ...
@@ -277,6 +296,7 @@ MATCH (twin_1)-[*..ending_limit]-(twin_2)
 (Default) To default to **one hop**, leave the brackets empty of hop information, like this:
 
 ```sql
+-- <MatchHopsOneSyntax>
 -- SELECT ... FROM ... 
 MATCH (twin_1)-[]-(twin_2)
 -- WHERE ...
@@ -287,6 +307,7 @@ MATCH (twin_1)-[]-(twin_2)
 The following example specifies an **exact number of hops**. The query will only return relationships between twins *r* and *c* that are exactly 3 hops.
 
 ```sql
+-- <MatchHopsExactExample>
 SELECT * FROM DIGITALTWINS 
 MATCH (r)-[*3]-(c)
 WHERE r.$dtId = '0'
@@ -295,6 +316,7 @@ WHERE r.$dtId = '0'
 The following example specifies a **range of hops**. The query will return relationships between twins *r* and *c* that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
 
 ```sql
+-- <MatchHopsRangeExample1>
 SELECT * FROM DIGITALTWINS 
 MATCH (r)-[*1..3]-(c)
 WHERE r.$dtId = '0'
@@ -303,6 +325,7 @@ WHERE r.$dtId = '0'
 You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins *r* and *c* that are at most 2 hops (meaning the number of hops is either 1 or 2).
 
 ```sql
+-- <MatchHopsRangeEndingExample>
 SELECT * FROM DIGITALTWINS 
 MATCH (r)-[*..2]-(c)
 WHERE r.$dtId = '0'
@@ -311,6 +334,7 @@ WHERE r.$dtId = '0'
 The following example has no specified number of hops, so will default to **one hop**.
 
 ```sql
+-- <MatchHopsOneExample>
 SELECT * FROM DIGITALTWINS  
 MATCH (r)-[]-(c)
 WHERE r.$dtId = '0'
@@ -333,6 +357,7 @@ A useful result of doing this is the ability to filter on relationship propertie
 To assign a query variable to the relationship, put the name in the square brackets (`[]`). The placeholder values that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
 
 ```sql
+-- <MatchVariableSyntax>
 -- SELECT ... FROM ...   
 MATCH (twin_1)-[relationship_variable]-(twin_2>) 
 -- WHERE ... 
@@ -343,6 +368,7 @@ MATCH (twin_1)-[relationship_variable]-(twin_2>)
 The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship *r* should have a length property that's equal to 10.
 
 ```sql
+-- <MatchVariableExample>
 SELECT t, c, r FROM DIGITALTWINS   
 MATCH (t)-[r]-(c)  
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10 
@@ -361,6 +387,7 @@ These syntax examples show how these attributes can be combined. You can also le
 To specify **relationship direction, relationship name, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
 
 ```sql
+-- <MatchCombinedHopsSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)optional_left_angle_bracket-[:relationship_name(s)*number_of_hops]-optional_right_angle_bracket(twin_2)
 -- WHERE
@@ -369,6 +396,7 @@ MATCH (twin_1)optional_left_angle_bracket-[:relationship_name(s)*number_of_hops]
 To specify **relationship direction, relationship name, and a query variable for the relationship** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_name(s)`.
 
 ```sql
+-- <MatchCombinedVariableSyntax>
 -- SELECT ... FROM ...
 MATCH (twin_1)optional_left_angle_bracket-[relationship_variable:relationship_name(s)]-optional_right_angle_bracket(twin_2)
 -- WHERE
@@ -380,6 +408,7 @@ MATCH (twin_1)optional_left_angle_bracket-[relationship_variable:relationship_na
 You can **chain** multiple relationship conditions together, like this. The placeholder values that should be replaced with your values are `twin_1`, all instances of `relationship_condition`, and `twin_2`.
 
 ```sql
+-- <MatchChainSyntax>
 -- Chained relationship conditions
 -- SELECT ... FROM ... 
 MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
@@ -396,6 +425,7 @@ Here's an example that combines **relationship direction, relationship name, and
 The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
+-- <MatchCombinedHopsExample>
 SELECT t, c FROM DIGITALTWINS    
 MATCH (t)-[:contains|isAssociatedWith*3..5]->(c) 
 WHERE t.$dtId = 'thermostat-15'
@@ -409,6 +439,7 @@ Here is an example that combines **relationship direction, relationship name, an
 The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
+-- <MatchCombinedVariableExample>
 SELECT t, c FROM DIGITALTWINS    
 MATCH (t)-[r:contains|isAssociatedWith]->(c) 
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10
@@ -427,6 +458,7 @@ The following example illustrates **chained** relationship conditions. The query
 The query also specifies that twin *t1* has a `$dtId` of 'thermostat-15' and twin *t2* has a temperature of 55.
 
 ```sql
+-- <MatchCombinedChainExample>
 SELECT t1, t2, c FROM DIGITALTWINS    
 MATCH (t1)-[r:contains|isAssociatedWith]->(c)<-[has|includes*..3]-(t2)  
 WHERE t1.$dtId = 'thermostat-15'  AND r.length = 10 AND t2.temperature = 55  
@@ -440,6 +472,7 @@ You can also use chained relationship conditions to express **bi-directional rel
 The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
 
 ```sql
+-- <MatchCombinedChainBDExample>
 SELECT t, c FROM DIGITALTWINS    
 MATCH (t)-[r:isAssociatedWith]->(c)<-[r:isAssociatedWith]-(t)
 WHERE t.$dtId = 'thermostat-15'  AND r.length = 10
