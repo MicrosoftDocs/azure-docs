@@ -11,7 +11,7 @@ ms.date: 10/12/2021
 
 # Azure Purview accounts architectures and best practices  
 
-Azure Purview is a unified data governance solution. You deploy an Azure Purview account to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. To use Azure Purview as your centralized data governance solution, you need to deploy one or more Purview accounts inside your Azure subscription. We recommend keeping the number of Purview instances as minimum, however, in some cases more Purview instances are needed to fulfil business security and compliance requirements.
+Azure Purview is a unified data governance solution. You deploy an Azure Purview account to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. To use Azure Purview as your centralized data governance solution, you need to deploy one or more Purview accounts inside your Azure subscription. We recommend keeping the number of Purview instances as minimum, however, in some cases more Purview instances are needed to fulfill business security and compliance requirements.
 
 ## Intended audience
 
@@ -69,7 +69,7 @@ Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details
 
 Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
 
-For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/cloud-accounting).  
+For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](/cloud-adoption-framework/strategy/cloud-accounting).  
 
 ## Additional considerations and recommendations 
 
