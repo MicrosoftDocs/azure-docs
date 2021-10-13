@@ -26,7 +26,7 @@ The App Containerization tool helps you:
 - **Deploy to Azure App Service.**  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use the [Azure Migrate Discovery and assessment tool](./tutorial-discover-vmware.md).
+> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises computers, use the [Azure Migrate Discovery and assessment tool](./tutorial-discover-vmware.md).
 
 Not all applications will benefit from a straight shift to containers without significant rearchitecting. But some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -54,8 +54,8 @@ Before you start this tutorial, you should:
 
 **Requirement** | **Details**
 --- | ---
-**Identify a machine on which to install the tool** | You need a Windows machine on which to install and run the Azure Migrate App Containerization tool. The Windows machine could run a server (Windows Server 2016 or later) or client (Windows 10) operating system. (The tool can run on your desktop.) <br/><br/> The Windows machine running the tool should have network connectivity to the servers / virtual machines hosting the ASP.NET applications that you'll containerize.<br/><br/> Ensure that 6 GB is available on the Windows machine running the Azure Migrate App Containerization tool. This space is for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool from here](https://aka.ms/webdeploy3.6).
-**Application servers** | Enable PowerShell remoting on the application servers: Sign in to the application server and follow [these instructions to turn on PowerShell remoting](/powershell/module/microsoft.powershell.core/enable-psremoting). <br/><br/> If the application server is running Window Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instructions [here to download and install PowerShell 5.1](/powershell/scripting/windows-powershell/wmf/setup/install-configure)  on the application server. <br/><br/> If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool from here](https://aka.ms/webdeploy3.6)
+**Identify a machine on which to install the tool** | You need a Windows machine on which to install and run the Azure Migrate App Containerization tool. The Windows machine could run a server (Windows Server 2016 or later) or client (Windows 10) operating system. (The tool can run on your desktop.) <br/><br/> The Windows machine running the tool should have network connectivity to the servers / virtual machines hosting the ASP.NET applications that you'll containerize.<br/><br/> Ensure that 6 GB is available on the Windows machine running the Azure Migrate App Containerization tool. This space is for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool here](https://aka.ms/webdeploy3.6).
+**Application servers** | Enable PowerShell remoting on the application servers: sign in to the application server and follow [these instructions to turn on PowerShell remoting](/powershell/module/microsoft.powershell.core/enable-psremoting). <br/><br/> If the application server is running Window Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instructions [here to download and install PowerShell 5.1](/powershell/scripting/windows-powershell/wmf/setup/install-configure)  on the application server. <br/><br/> If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool here](https://aka.ms/webdeploy3.6)
 **ASP.NET application** | The tool currently supports: <br> <ul><li> ASP.NET applications that use .NET Framework 3.5 or later.<br/> <li>Application servers that run Windows Server 2008 R2 or later. (Application servers should be running PowerShell 5.1.) <br/><li> Applications that run on Internet Information Services 7.5 or later.</ul> <br/><br/> The tool currently doesn't support: <br/> <ul><li>Applications that require Windows authentication. (AKS doesn't currently support gMSA.) <br/> <li> Applications that depend on other Windows services hosted outside of Internet Information Services.
 
 
@@ -86,7 +86,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
    Your Azure account also needs permissions to register Azure Active Directory apps.
 8. In the Azure portal, go to **Azure Active Directory** > **Users** > **User Settings**.
-9. In **User settings**, verify that Azure AD users can register applications. (This option is set to **Yes** by default).
+9. In **User settings**, verify that Azure AD users can register applications. (This option is set to **Yes** by default.)
 
       ![Screenshot that shows the User settings page.](./media/tutorial-discover-vmware/register-apps.png)
 
@@ -106,13 +106,14 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Open a browser on any machine that can connect to the Windows machine that's running the App Containerization tool. Go to the tool URL: **https://*machine name or IP address*: 44369**.
 
-   Alternatively, you can open the app from your desktop by selecting the app shortcut.
+   Alternatively, you can open the app from your desktop by using the app shortcut.
 
 2. If you see a warning that says your connection isn't private, select **Advanced** and continue to the website. This warning appears because the web interface uses a self-signed TLS/SSL certificate.
 3. On the sign-in screen, use the machine's local administrator account to sign in.
 4. Select **ASP.NET web apps** as the type of application you want to containerize.
 5. In the **Target Azure service** list, select **Containers on Azure App Service**:
-![Screenshot that shows the application type and target lists.](./media/tutorial-containerize-apps-aks/tool-home.png)
+
+   ![Screenshot that shows the application type and target lists.](./media/tutorial-containerize-apps-aks/tool-home.png)
 
 ### Complete the tool prerequisites
 1. Accept the license terms and read the third-party information.
@@ -134,7 +135,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. Select **Sign in** to sign in to your Azure account.
 
    You need a device code to authenticate with Azure. Selecting **Sign in** should open a window that contains the device code. If the window doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. Select **Copy code and Sign in** to copy the device code and open an Azure sign-in prompt in a new browser tab. 
+2. Select **Copy code and Sign in** to copy the device code and open an Azure sign-in prompt in a new browser tab:
 
     ![Screenshot that shows the Device code for Azure Sign in window.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
@@ -181,9 +182,10 @@ Parameterizing the configuration makes it available as a deploy-time parameter. 
 3. To add multiple folders to the same volume, separate the values with commas.
 4. Select **Azure file share** as the storage option if you want the folders to be stored outside the container on persistent storage.
 5. Select **Save** after you review the application folders:
+
    ![Screenshot that shows the Edit application folders window.](./media/tutorial-containerize-apps-aks/discovered-app-volumes-asp.png)
 
-6. Select **Continue** to continue to the container image build phase.
+6. Select **Continue** to proceed to the container image build phase.
 
 ## Build container image
 
@@ -192,14 +194,14 @@ Parameterizing the configuration makes it available as a deploy-time parameter. 
 
     ![Screenshot that shows the Build images window.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 
-> [!NOTE]
-> Only Azure container registries with the admin user account enabled are displayed. The admin user account is currently required for deploying an image from an Azure container registry to Azure App Service. For more information, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md#admin-account).
+   > [!NOTE]
+   > Only Azure container registries with the admin user account enabled are displayed. The admin user account is currently required for deploying an image from an Azure container registry to Azure App Service. For more information, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md#admin-account).
 
 2. The Dockerfiles needed to build the container images for each selected application are generated at the beginning of the build step. Select **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before you start the build process.
 
 3. Select the applications that you want to build images for, and then select **Build**. Selecting **Build** will start the container image build for each application. The tool monitors the build status and will let you continue to the next step when the build finishes.
 
-4.  You can monitor the progress of the build by selecting **Build in Progress** under the status column. The link will become active a couple of minutes after you trigger the build process.  
+4.  You can monitor the progress of the build by selecting **Build in Progress** under the status column. The link will become active a couple minutes after you trigger the build process.  
 
 5. After the build is complete, select **Continue** to specify deployment settings:
 
@@ -211,7 +213,7 @@ After the container image is built, the next step is to deploy the application a
 
 1. Select the Azure App Service plan that the application should use.
 
-     - If you don't have an App Service plan or want to create a new App Service plan to use, you create one by selecting **Create new App Service plan**.      
+     - If you don't have an App Service plan or want to create a new App Service plan to use, you can create one by selecting **Create new App Service plan**.      
 1. Select **Continue** after you select the App Service plan.
 
 2. If you parameterized application configurations, specify the secret store to use for the application. You can choose Azure Key Vault or App Service application settings to manage your application secrets. For more information, see [Configure connection strings](../app-service/configure-common.md#configure-connection-strings).
