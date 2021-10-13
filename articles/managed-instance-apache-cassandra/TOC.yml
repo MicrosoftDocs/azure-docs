@@ -4,8 +4,8 @@
   items:
     - name: What is Azure Managed Instance for Apache Cassandra?
       href: introduction.md
-    - name: Compare to Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md
+    - name: 
+      href: .md
 - name: Quickstarts
   items:
     - name: Create a cluster - portal
@@ -29,6 +29,8 @@
         href: spark-migration.md  
 - name: Concepts
   items:
+    - name: Compare to Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  

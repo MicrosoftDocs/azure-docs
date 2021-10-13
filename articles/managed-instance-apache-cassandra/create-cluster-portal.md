@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 10/11/2021
+ms.date: 11/02/2021
 ms.custom: references_regions, devx-track-azurecli
 
 ---

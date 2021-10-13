@@ -4,7 +4,7 @@ description: Learn about the common commands to automate the management of your 
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 09/17/2021
+ms.date: 11/02/2021
 ms.author: thvankra
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: azure resource manager cli

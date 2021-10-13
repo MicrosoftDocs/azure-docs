@@ -4,7 +4,7 @@ description: Learn how to install and configure Grafana in a VM to visualize met
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 11/02/2021
 ms.author: thvankra
 
 ---
