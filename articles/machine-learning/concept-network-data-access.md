@@ -18,21 +18,21 @@ ms.date: 10/13/2021
 Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is more complex than using the SDK or CLI, as studio runs partially in your web browser. In general, data access from studio involves the following checks:
 
 1. Who is accessing?
-    - There are multiple different types of authentication including account key, service principal, managed identity, user identity, etc
-    - If user identity, then it is important to know *which* user is trying to access storage
+    - There are multiple different types of authentication, including account key, token, service principal, managed identity, and user identity.
+    - If user identity, then it is important to know *which* user is trying to access storage.
 2. Do they have permission?
-    - Are the credentials correct? And if so, does the service principal, or managed identity, etc, have the necessary Azure RBAC permission on the storage?
-    - Reader of the storage account reads metadata of the storage
-    - Storage Blob Data Reader reads data within a blob container
-    - Contributor allows write access to a storage account
-    - More types of roles depending on the type of storage
+    - Are the credentials correct? And if so, does the service principal, managed identity, etc., have the necessary permission on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
+    - [Reader](/azure/role-based-access-control/built-in-roles#reader) of the storage account reads metadata of the storage.
+    - [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) reads data within a blob container.
+    - Contributor allows write access to a storage account.
+    - More roles may be required depending on the type of storage.
 3. Where is access from?
     - User: Is the client IP address in the VNet/subnet range?
     - Workspace: Is the workspace public or does it have a private endpoint in a VNet/subnet?
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
 4. What operation is being performed?
     - Create, read, update, and delete (CRUD) calls on a data store or dataset are handled by Azure Machine Learning.
-    - Data Access calls (preview, quick profile, schema, etc.) go to the underlying storage and need additional permissions
+    - Data Access calls (preview, quick profile, schema, etc.) go to the underlying storage and need extra permissions
 5. Where is this operation being run? (Compute vs our machines)
     - For all calls to dataset and datastore services except full profile, we use our own machines to run the operations
     - Jobs, including a full profile, run on a customer compute and access the data from there, so the compute identity needs permission to the storage rather than the user
