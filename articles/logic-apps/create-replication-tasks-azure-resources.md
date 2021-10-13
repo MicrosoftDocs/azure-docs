@@ -46,15 +46,15 @@ When you create a replication task, charges start incurring immediately. Underne
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Based on the template that you choose, the source and target Azure resources, which should exist in different Azure regions. You can also create the target resource when you create the replication task.
+* Based on the template that you choose, the source and target Azure resources, which should exist in different Azure regions.
 
 <a name="create-replication-task"></a>
 
 ## Create a replication task
 
-1. In the [Azure portal](https://portal.azure.com), find the Azure resource that you want to replicate.
+1. In the [Azure portal](https://portal.azure.com), find the Azure resource that you want to replicate as the source.
 
-   Currently, replication tasks are available only for Event Hubs and Service Bus. This example shows how to create a Service Bus replication task.
+   Currently, replication tasks are available only for Event Hubs and Service Bus. This example shows how to create a replication task between Service Bus namespaces.
 
 1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
 
@@ -72,24 +72,34 @@ When you create a replication task, charges start incurring immediately. Underne
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
-   This example shows the prompt to create the connection to the target Service Bus namespace because the connection already exists for the current, or source, namespace.
+   This example shows the prompt to create the connection to the target Service Bus namespace. The connection already exists for the current and source Service Bus namespace.
 
-   ![Screenshot showing selected "Create" option for the target Service Bus connection.](./media/create-replication-tasks-azure-resources/create-authenticate-connections.png)
+   ![Screenshot showing selected "Create" option for the connection to the target Service Bus namespace.](./media/create-replication-tasks-azure-resources/create-authenticate-connections.png)
 
-1. When you're prompted, sign in with your Azure account credentials.
+1. Provide the necessary information about the target resource.
 
-   Each successfully authenticated connection looks similar to this example:
+   For this example, provide a display name for the target Service Bus namespace, and then select the namespace to use as the target.
 
-1. After you authenticate all the connections, select **Next: Configure** if the next page doesn't appear.
+   ![Screenshot showing "Connect" pane with the specified display name to use and the target Service Bus namespace selected.](./media/create-replication-tasks-azure-resources/connect-target-service-bus-namespace.png)
+
+   The following example shows the successfully created connection:
+
+   ![Screenshot showing "Add a task" pane with finished connection to target Service Bus namespace.](./media/create-replication-tasks-azure-resources/connected-service-bus-namespaces.png)
+
+1. After you finish all the connections, select **Next: Configure**.
 
 1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
 
    > [!NOTE]
-   > You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). 
-   > Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+   > You can't change the task name after creation, so consider a name that still applies if you 
+   > [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying 
+   > workflow apply only to the task that you created, not the task template.
    >
-   > For example, if you name your task `SendMonthlyCost`, but you later edit the underlying workflow to run weekly, 
-   > you can't change your task's name to `SendWeeklyCost`.
+   > For example, if you name your task `Fabrikam-Service-Bus-Replication-Task`, but you later edit 
+   > the underlying workflow to replicate to an Event Hubs namespace, you can't change the task name 
+   > to `Fabrikam-Service-Bus-Event-Hubs-Replication-Task`.
+
+   ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target instance names, and name to use for logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
    The task that you created, which is automatically live and running, now appears on the **Tasks** list.
 
