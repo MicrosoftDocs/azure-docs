@@ -9,7 +9,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory
