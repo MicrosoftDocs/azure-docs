@@ -11,18 +11,18 @@ ms.date: 10/10/2021
 ---
 
 # Azure Purview Open-Source Tools & Utilities
-This page lists several open-source tools and utilities (command line, python and powershell interfaces) that help you get kickstarted on various stages of your journey with Azure Purview service in a matter of minutes. These tools are developed by collective effort of the Azure Purview Product Group and the open-source community; and are intended to make learning, starting up, regular usage and long-term adoption of Purview breezy and super fast.
+This page lists several open-source tools and utilities (command line, python, and powershell interfaces) that help you get kickstarted on various stages of your journey with Azure Purview service in a matter of minutes. These tools are developed by collective effort of the Azure Purview Product Group and the open-source community; and are intended to make learning, starting up, regular usage and long-term adoption of Purview breezy and super fast.
 
 ### Intended Audience
-- Azure Purview community including customers, developers, ISVs, partners, evangelists and enthusiasts. 
-- Azure Purview catalog is based on [Apache Atlas](https://atlas.apache.org/) and extends full support for Apache Atlas APIs. We welcome Apache Atlas community, enthusiasts and developers to whole-heartedly build on and evangelize Azure Purview.
+- Azure Purview community including customers, developers, ISVs, partners, evangelists, and enthusiasts. 
+- Azure Purview catalog is based on [Apache Atlas](https://atlas.apache.org/) and extends full support for Apache Atlas APIs. We welcome Apache Atlas community, enthusiasts, and developers to whole-heartedly build on and evangelize Azure Purview.
 
 ### Purview Customer Journey Stages
 - *Purview Learners*: Learners who are starting fresh with Azure Purview (Microsoft Cloud marquee Data Governance service) and are keen to understand and explore how a multi-cloud unified data governance solution works. A section of learners includes users who want to compare and contrast Purview with other competing solutions in the data governance market and try it before adopting for long-term usage.
-- *Purview Innovators*: Innovators who are keen to understand existing and latest features, ideate and conceptualize features upcoming on Purview's roadmap, build and develop solutions for customers and for the future of next-gen cutting-edge data governance product.
-- *Purview Enthusiasts/Evangelists*: Enthusiasts who are a combination of Learners and Innovators and have developed solid understanding and knowledge of Purview that they are upbeat about adoption of Purview. They can help evangelize Purview as a service and educate several other Purview users and probable users across the globe as well.
+- *Purview Innovators*: Innovators who are keen to understand existing and latest features, ideate, and conceptualize features upcoming on Purview's roadmap. They are adept at building and developing solutions for customers, and have futuristic forward-looking thoughts and ideas for the next-gen cutting-edge data governance product.
+- *Purview Enthusiasts/Evangelists*: Enthusiasts who are a combination of Learners and Innovators. They have developed solid understanding and knowledge of Purview that they are upbeat about adoption of Purview. They can help evangelize Purview as a service and educate several other Purview users and probable users across the globe as well.
 - *Purview Adopters*: Adopters who have migrated from starting up and exploring Purview and are smoothly using Purview for more than a few months.
-- *Purview Long-Term Regular Users*: Long-term users who have been using Purview for more than two to three quarters and are now extremely comfortable using majority of Purview use cases on the Azure portal and Purview Studio; furthermore they have near perfect knowledge and awareness of the Purview REST APIs.
+- *Purview Long-Term Regular Users*: Long-term users who have been using Purview for more than two to three quarters and are now very comfortable using most Purview use cases on the Azure portal and Purview Studio; furthermore they have near perfect knowledge and awareness of the Purview REST APIs.
 
 
 ## Azure Purview Open-Source Tools & Utilities List
