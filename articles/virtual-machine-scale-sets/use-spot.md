@@ -112,7 +112,10 @@ az vmss create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1 
+    --eviction-policy Deallocate \
+    --max-price -1 \
+    --enable-spot-restore True \
+    --spot-restore-timeout PT1H
 ```
 
 ## PowerShell
@@ -127,7 +130,10 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    -max-price -1
+    -max-price -1 `
+    -EnableSpotRestore `
+    -SpotRestoreTimeout 60 `
+    -EvictionPolicy delete
 ```
 
 ## Resource Manager templates
@@ -136,7 +142,7 @@ The process to create a scale set that uses Azure Spot Virtual Machines is the s
 
 For Azure Spot Virtual Machine template deployments, use`"apiVersion": "2019-03-01"` or later. 
 
-Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":`section and the `"singlePlacementGroup": false,` property to the `"Microsoft.Compute/virtualMachineScaleSets"` section in your template:
+Add the `priority`, `evictionPolicy`, `billingProfile` and `spotRestoryPolicy` properties to the `"virtualMachineProfile":`section and the `"singlePlacementGroup": false,` property to the `"Microsoft.Compute/virtualMachineScaleSets"` section in your template:
 
 ```json
 
@@ -152,7 +158,11 @@ Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"vi
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }
+                },
+                "spotRestorePolicy": {
+                  "enabled": "bool",
+                  "restoreTimeout": "string"
+    },
             },
 ```
 
