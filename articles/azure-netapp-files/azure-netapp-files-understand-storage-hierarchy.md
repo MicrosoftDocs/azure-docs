@@ -73,7 +73,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 - A volume is measured by logical capacity consumption and is scalable. 
 - A volume's capacity consumption counts against its pool's provisioned capacity.
-- A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual_qos_type).
+- A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
