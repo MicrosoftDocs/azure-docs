@@ -17,7 +17,7 @@ ms.custom: seodec18,references_regions
 
 The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
+The Speech portal, where you can perform custom configurations to your speech experience for all regions, is available here: https://speech.microsoft.com
 
 Keep in mind the following points when considering regions:
 
