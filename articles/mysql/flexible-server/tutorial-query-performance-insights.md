@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Query performance insights for Azure Database for MySQL Flexible Server'
+title: 'Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server'
 description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL Flexible Server.'
 author: SudheeshGH
 ms.author: sunaray
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 10/01/2021
 ---
 
-# Tutorial: Query performance insights for Azure Database for MySQL Flexible Server
+# Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Query Performance Insight proposes to provide intelligent query analysis for databases. The most preferred insights are the workload patterns and the longer-running queries. Understanding these insights can help you find which queries to optimize to improve overall performance and to use your available resources efficiently. 
@@ -18,9 +18,9 @@ Query Performance Insight is designed to help you spend less time troubleshootin
 * The query details: view the query text as well as the history of execution with minimum, maximum, average, and standard deviation query time.
 * The resource utilizations (CPU, memory, and storage).
  
-This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize the Query performance insights for Azure Database for MySQL Flexible Server.
+This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL Flexible Server.
 
-In this tutorial you'll learn how to:
+In this tutorial, you'll learn how to:
 >[!div class="checklist"]
 > * Configure slow query logs by using the Azure portal or the Azure CLI
 > * Set up diagnostics
@@ -59,7 +59,7 @@ You can return to the list of logs by closing the **Server parameters** page.
 
 ## Configure slow query logs by using the Azure CLI
  
-Alternatively , you can enable and configure slow query logs for your flexible server from the Azure CLI by running the following command: 
+Alternatively, you can enable and configure slow query logs for your flexible server from the Azure CLI by running the following command: 
 
 > [!IMPORTANT]
 > To ensure that your flexible server's performance is not heavily affected, we recommend that you log only the event types and users that are required for your auditing purposes.
