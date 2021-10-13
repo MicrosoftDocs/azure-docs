@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: article
   ms.service: backup
-  ms.date: 13/10/2021
+  ms.date: 10/13/2021
 
 title: Azure Backup Server and DPM - FAQ
 summary: |
@@ -30,7 +30,7 @@ sections:
 
       - question: |
           What happens if the expected Weekly, Monthly, or Yearly backup fails?
-            answer: |
+        answer: |
           If backup fails, the next successful backup after the expected Weekly, Monthly or Yearly backup is retained as per the retention period for Weekly, Monthly and Yearly recovery points (Long Term Retention (LTR) points) respectively, as per the backup policy. This successful backup could be an adhoc backup or a scheduled backup in case of MARS Agent.
 
       - question: |
