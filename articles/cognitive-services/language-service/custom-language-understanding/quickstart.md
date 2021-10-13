@@ -131,4 +131,4 @@ You can also test out utterances in other languages such as the following phrase
 
 ## Next steps
 
-* [Improve your model](how-to/improve-model.md)
+* [Learn about entity components](concepts/entity-components.md)
