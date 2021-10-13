@@ -47,7 +47,7 @@ Azure Database for MySQL Flexible Server has three available templates:
 
 You can also edit and customize these templates according to your requirements. For more information, see [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
 
- ## How to access workbook templates
+ ## Access the workbook templates
 
 To view the templates in the Azure portal, go to the **Monitoring** pane for Azure Database for MySQL Flexible Server, and then select **Workbooks**.
 
@@ -60,4 +60,4 @@ You can also display the list of templates by going to the **Public Templates** 
 
 ## Next steps
 - Learn about [access control](../../azure-monitor/visualize/workbooks-access-control.md) in Azure Monitor workbooks.
-- Learn more about [visualization options](../../azure-monitor/visualize/workbooks-overview.md#visualizations) in Azure Monitor workbooks.
+- Learn more about [visualization options](../../azure-monitor/visualize/workbooks-overview.md#visualizations) in Azure Monitor workbooks. 
