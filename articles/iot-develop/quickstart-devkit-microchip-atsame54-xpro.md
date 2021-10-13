@@ -86,6 +86,7 @@ The cloned repo contains a setup script that installs and configures the require
 
 > [!NOTE]
 > The setup script installs the following tools:
+>
 > * [CMake](https://cmake.org): Build
 > * [ARM GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm): Compile
 > * [Termite](https://www.compuphase.com/software_termite.htm): Monitor serial port output for connected devices
@@ -93,16 +94,17 @@ The cloned repo contains a setup script that installs and configures the require
 To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named ***get-toolchain.bat***:
-> *getting-started\tools\get-toolchain.bat*
 
-2. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
-3. Run the following code to confirm that CMake version 3.14 or later is installed.
+    *getting-started\tools\get-toolchain.bat*
+
+1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
     ```shell
     cmake --version
     ```
 
-4. Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
+1. Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
 
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
@@ -122,82 +124,93 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 :::zone pivot="iot-toolset-cmake"
 
 1. Open the following file in a text editor:
-> *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
-2. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
-> |Constant name|Value|
-> |-------------|-----|
-> | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
-> | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
-> | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
-3. Save and close the file.
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
+
+    |Constant name|Value|
+    |-------------|-----|
+    | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
+    | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
+    | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+
+1. Save and close the file.
 
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 
 1. Open the ***azure_rtos.eww*** EWARM Workspace in IAR from the extracted zip file.
 
-2. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
-> |Constant name|Value|
-> |-------------|-----|
-> | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
-> | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
-> | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
-3. Save and close the file.
+    |Constant name|Value|
+    |-------------|-----|
+    | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
+    | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
+    | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+
+1. Save and close the file.
 
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
 
 1. Open MPLab and select **File > Open Project** and select all projects from the extracted zip file.
 
-2. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
-> |Constant name|Value|
-> |-------------|-----|
-> | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
-> | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
-> | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
-3. Save and close the file.
+    |Constant name|Value|
+    |-------------|-----|
+    | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
+    | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
+    | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
+
+1. Save and close the file.
 
 :::zone-end
 
 ### Connect the device
 
 1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
-> ![Locate key components on the Microchip E54 evaluation kit board](media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png)
 
-2. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
-> [!NOTE]
->  Optionally, for more information about setting up and getting started with the Microchip E54, see [SAM E54 Xplained Pro User's Guide](http://ww1.microchip.com/downloads/en/DeviceDoc/70005321A.pdf).
+    ![Locate key components on the Microchip E54 evaluation kit board](media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png)
 
-3. Use the Ethernet cable to connect the Microchip E54 to an Ethernet port.
+1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
+
+    > [!NOTE]
+    > Optionally, for more information about setting up and getting started with the Microchip E54, see [SAM E54 Xplained Pro User's Guide](http://ww1.microchip.com/downloads/en/DeviceDoc/70005321A.pdf).
+
+1. Use the Ethernet cable to connect the Microchip E54 to an Ethernet port.
 
 ### Optional: Install a weather sensor
 
 If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, follow the steps in this section; otherwise, skip to [Build the image](#build-the-image). You can complete this quickstart even if you don't have a sensor. The sample code for the device returns simulated data if a real sensor is not present.
 
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
-> :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
 
-2. Reopen the configuration file you edited previously:
-> *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
 
-3. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
-> `#define __SENSOR_BME280__ 1`
+1. Reopen the configuration file you edited previously:
 
-4. Save and close the file.
+    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
+
+1. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
+
+    `#define __SENSOR_BME280__ 1`
+
+1. Save and close the file.
 
 ### Build the image
 
 :::zone pivot="iot-toolset-cmake"
 
 1. In your console or in File Explorer, run the script ***rebuild.bat*** at the following path to build the image:
-> *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
 
-2. After the build completes, confirm that the binary file was created in the following path:
-> *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
+    *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
+
+1. After the build completes, confirm that the binary file was created in the following path:
+
+    *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
 
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
@@ -216,23 +229,24 @@ Make sure all sample project’s dependent libraries (***azure_iot, threadx, net
 :::zone pivot="iot-toolset-cmake"
 
 1. Open the **Windows Start > Microchip Studio Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
-> *getting-started\Microchip\ATSAME54-XPRO\build\app*
 
-2. Use the *atprogram* utility to flash the Microchip E54 with the binary image:
+    *getting-started\Microchip\ATSAME54-XPRO\build\app*
 
-> [!NOTE] 
-> For more information about using the Atmel-ICE and atprogram tools with the Microchip E54, see [Using Atmel-ICE for AVR Programming In Mass Production](http://ww1.microchip.com/downloads/en/AppNotes/00002466A.pdf).
+1. Use the *atprogram* utility to flash the Microchip E54 with the binary image:
 
-> ```shell
-> atprogram --tool edbg --interface SWD --device ATSAME54P20A program --chiperase --file atsame54_azure_iot.bin --verify
-> ```
+    ```shell
+    atprogram --tool edbg --interface SWD --device ATSAME54P20A program --chiperase --file atsame54_azure_iot.bin --verify
+    ```
 
-> After the flashing process completes, the console confirms that programming was successful:
+    > [!NOTE]
+    > For more information about using the Atmel-ICE and atprogram tools with the Microchip E54, see [Using Atmel-ICE for AVR Programming In Mass Production](http://ww1.microchip.com/downloads/en/AppNotes/00002466A.pdf).
 
-> ```output
-> Firmware check OK
-> Programming and verification completed successfully.
-> ```
+    After the flashing process completes, the console confirms that programming was successful:
+
+    ```output
+    Firmware check OK
+    Programming and verification completed successfully.
+    ```
 
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
@@ -250,58 +264,65 @@ In MPLAB, select **Debug > Debug Main Project**.
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 
-1. Start **Termite**.    
-> [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
-2. Select **Settings**.
-3. In the **Serial port settings** dialog, check the following settings and update if needed:
-> * **Baud rate**: 115,200
-> * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
-> * **Flow control**: DTR/DSR
-> :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+1. Start **Termite**.
 
-4. Select OK.
-5. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
-6. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+    > [!TIP]
+    > If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 
-```output
+1. Select **Settings**.
+
+1. In the **Serial port settings** dialog, check the following settings and update if needed:
+    * **Baud rate**: 115,200
+    * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
+    * **Flow control**: DTR/DSR
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+
+1. Select OK.
+
+1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
+
+1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+
+    ```output
     Starting Azure thread
 
     Initializing DHCP
         IP address: 192.168.0.21
-	    Mask: 255.255.255.0
-	    Gateway: 192.168.0.1
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.75.75
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-	    SNTP server 0.pool.ntp.org
-	    SNTP IP address: 45.55.58.103
-	    SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 45.55.58.103
+        SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsg;1
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-```
+    ```
 
 Keep Termite open to monitor device output in the following steps.
 
 ## Verify the device status
 
 To view the device status in IoT Central portal:
+
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to *Provisioned*.
 1. Confirm that the **Device template** is updated to *Getting Started Guide*.
@@ -355,6 +376,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 If you no longer need the Azure resources created in this quickstart, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
+
 1. Select **Administration** > **Your application**.
 1. Select **Delete**.
 

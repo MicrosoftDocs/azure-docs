@@ -1,19 +1,19 @@
 ---
 title: Save for Azure App Service with reserved capacity
-description: Learn how you can save costs for Azure App Service Premium v3 and Premium v2 reserved instances and Isolated Stamp Fees.
+description: Learn how you can save costs for Azure App Service Premium v3 and Isolated v2 reserved instances and Isolated Stamp Fees.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/04/2021
 ms.author: banders
 ms.custom: references_regions
 ---
 
 # Save costs with Azure App Service reserved instances
 
-This article explains how you can save with Azure App Service reserved instances for Premium v3 and Premium v2 instances and Isolated Stamp Fees.
+This article explains how you can save with Azure App Service reserved instances for Premium v3 and Isolated v2 instances and Isolated Stamp Fees.
 
 ## Save with Premium v3 reserved instances
 

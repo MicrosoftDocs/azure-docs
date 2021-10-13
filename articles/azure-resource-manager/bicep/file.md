@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -179,6 +179,8 @@ param name string
 param description string
 ```
 
+For more information, see [Decorators](parameters.md#decorators).
+
 ## Variables
 
 Use variables for complex expressions that are repeated in a Bicep file. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
@@ -195,7 +197,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resource
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The Symbolic names are case-sensitive. They may contain letters, numbers, and _; but can't start with a number.
 
 The resource declaration also includes the resource type and API version.
 

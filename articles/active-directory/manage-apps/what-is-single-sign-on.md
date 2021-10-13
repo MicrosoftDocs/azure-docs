@@ -28,7 +28,7 @@ Choosing an SSO method depends on how the application is configured for authenti
 
 - **Federation** - When you set up SSO to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, end-user experiences, and implementation. 
 
-    With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation, or [OpenID Connect](../develop/active-directory-v2-protocols.md) applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Services (AD FS).
+    With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for SAML 2.0, WS-Federation, or OpenID Connect applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Services (AD FS).
 
     There are some scenarios where the SSO option is not present for an enterprise application. If the application was registered using **App registrations** in the portal, then the single sign-on capability is configured to use OpenID Connect and OAuth by default. In this case, the single sign-on option won't appear in the navigation under enterprise applications.
 
@@ -36,7 +36,7 @@ Choosing an SSO method depends on how the application is configured for authenti
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Password** - On-premises applications can use password-based, integrated Windows authentication, header-based, linked-based methods for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
+- **Password** - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked-based methods for SSO. The on-premises choices work when applications are configured for Application Proxy.
 
     With password-based SSO, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD provides the username and password to the application. Password-based SSO enables secure application password storage and replay using a web browser extension or mobile app. This option uses the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
 
@@ -60,12 +60,12 @@ Web applications are hosted by various companies and made available as a service
 
 How you implement SSO depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. Users don't need to use the Internet to access on-premises applications (hosted on a local network). If the application is hosted in the cloud, users need the Internet to use it. Cloud hosted applications are also called Software as a Service (SaaS) applications.
 
-For cloud applications, federation protocols are used. You can also use single sign-on for on-premises applications. You can use Application Proxy to configure access for your on-premises application. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md).
+For cloud applications, federation protocols are used. You can also use single sign-on for on-premises applications. You can use Application Proxy to configure access for your on-premises application. For more information, see Remote access to on-premises applications through Azure AD Application Proxy.
 
 ## My Apps
 
-If you're a user of an application, you likely don't care much about SSO details. You just want to use the applications that make you productive without having to type your password so much. You can find and manage your applications at the [My Apps portal](https://myapps.microsoft.com).	
+If you're a user of an application, you likely don't care much about SSO details. You just want to use the applications that make you productive without having to type your password so much. You can find and manage your applications at the My Apps portal.	
 
 ## Next steps
 
-- [Plan a single sign-on deployment in Azure Active Directory](plan-sso-deployment.md)
+- [Enable single sign on](add-application-portal-setup-sso.md)

@@ -77,7 +77,7 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
 | Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `BurstLimit * 3600` |
 | Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
@@ -88,9 +88,9 @@ The following table illustrates a few examples of these formulae for the provisi
 |-|-|-|-|-|-|
 | 100 | 500 | Up to 4,000 | 14,400,000 | 44 | 66 |
 | 500 | 900 | Up to 4,000 | 14,400,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,272 | 15,379,200 | 81 | 122 |
-| 5,120 | 5,520 | Up to 16,560 | 59,616,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 31,920 | 114,912,000 | 450 | 675 |
+| 1,024 | 1,424 | Up to 4,000 | 14,400,000 | 81 | 122 |
+| 5,120 | 5,520 | Up to 15,360 | 55,296,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 30,720 | 110,592,000 | 450 | 675 |
 | 33,792 | 34,192 | Up to 100,000 | 360,000,000 | 1,392 | 2,088 |
 | 51,200 | 51,600 | Up to 100,000 | 360,000,000 | 2,088 | 3,132 |
 | 102,400 | 100,000 | Up to 100,000 | 360,000,000 | 4,136 | 6,204 |
@@ -113,7 +113,7 @@ Share credits have three states:
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## Pay-as-you-go model
-Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of data stored on disk, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements or deprovision if your workload is data footprint varies over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
+Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements or deprovision if your workload is data footprint varies over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
 
 ### Differences in standard tiers
 When you create a standard file share, you pick between the transaction optimized, hot, and cool tiers. All three tiers are stored on the exact same standard storage hardware. The main difference for these three tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. This means:
@@ -127,6 +127,9 @@ If you put an infrequently accessed workload in the transaction optimized tier, 
 Similarly, if you put a highly accessed workload in the cool tier, you will pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. It is possible for some usage levels that while the hot tier will be the most cost efficient tier, the cool tier will be more expensive than transaction optimized.
 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
+
+### Logical size versus physical size
+The data at-rest capacity charge for Azure Files is billed based on the logical size, often called colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.

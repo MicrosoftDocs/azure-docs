@@ -134,5 +134,5 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

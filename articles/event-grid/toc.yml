@@ -100,6 +100,10 @@
       href: scripts/event-grid-powershell-resource-group.md
     - name: Subscribe and filter events for resource group
       href: scripts/event-grid-powershell-resource-group-filter.md
+    - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md
+    - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
