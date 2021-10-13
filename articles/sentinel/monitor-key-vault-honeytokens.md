@@ -20,13 +20,13 @@ ms.author: bagol
 
 # Plant and monitor Azure Key Vault honeytokens with Azure Sentinel
 
-This article describes how to use the [Azure Sentinel Deception solution](sentinel-solutions-catalog.md#microsoft) to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*.
+This article describes how to use the [Azure Sentinel Deception solution](azure-sentinel) to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*.
 
 Then, use the [analytics rules](detect-threats-built-in.md), [watchlists](watchlists.md), and [workbooks](monitor-your-data.md) provided by the **Azure Sentinel Deception** solution to monitor access to the planted honeytokens.
 
 ## Prerequisites
 
-In order to start using the **Azure Sentinel Deception** solution, make sure that you have the [required Azure Sentinel data connectors deployed](#deploy-required-data-connectors) and have an [Azure Active Directory application configured as needed](#deploy-the-azure-sentinel-deception-solution).
+In order to start using the **Azure Sentinel Deception** solution, make sure that you have the required Azure Sentinel data connectors deployed and have an Azure Active Directory application configured as needed.
 
 **To verify and complete the prerequisites**:
 
@@ -46,7 +46,7 @@ In order to start using the **Azure Sentinel Deception** solution, make sure tha
 
     For more information, see [Discover and deploy built-in content and solutions](sentinel-solutions-deploy.md).
 
-1. Open an Azure Cloud Shell prompt, and run the following command, using the name of your function app. <!--tbd what does this mean? an example? is it a static value? also what about the AAD application? i think we need more details-->
+1. Open an Azure Cloud Shell prompt, and run the following command, using the name of your function app. This command runs a script that creates a new Azure AD app, which will deploy your honeytokens. <!--tbd what does this mean? an example? is it a static value? also what about the AAD application? i think we need more details-->
 
     ```azurecli-interactive
     curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s <function app name>

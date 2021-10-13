@@ -202,8 +202,8 @@
       href: create-incidents-from-alerts.md
     - name: Use watchlists
       href: watchlists.md
-    - name: Plant and monitor decoy keys
-      href: monitor-key-vault-decoys.md
+    - name: Plant and monitor decoy honeytokens
+      href: monitor-key-vault-honeytokens.md
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
