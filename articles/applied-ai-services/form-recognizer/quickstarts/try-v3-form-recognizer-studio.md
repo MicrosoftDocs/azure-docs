@@ -14,7 +14,7 @@ ms.author: sajagtap
 # Get started: Form Recognizer Studio | Preview
 
 >[!NOTE]
-> Form Recognizer Studio is currently in public preview. some features may not be supported or have limited capabilities. 
+> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities. 
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
@@ -101,6 +101,14 @@ In the Layout view:
 
 ## Prebuilt models
 
+There are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are prebuilt models currently supported by the Form Recognizer service:
+
+* [🆕 **General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extracts text and key information from receipts.
+* [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extracts text and key information from driver licenses and international passports.
+* [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extracts text and key information from business cards.
+
 In the Prebuilt view:
 
 1. From the Studio home, select one of the prebuilt model. In this example, we are using the Invoice model.
@@ -121,7 +129,7 @@ In the Prebuilt view:
 
 To create custom models, you start with configuring your project:
 
-1. From the Studio home, select the Custom form project to open the Custom form home page.
+1. From the Studio home, select the [Custom form project](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to open the Custom form home page.
 
 1. Use the "Create a project" command to start the new project configuration wizard.
 

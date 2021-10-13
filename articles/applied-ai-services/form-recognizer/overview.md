@@ -17,7 +17,7 @@ keywords: automated data processing, document processing, automated data entry, 
 <!-- markdownlint-disable MD024 -->
 # What is Azure Form Recognizer?
 
-Azure Form Recognizer is an [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build automated document processing software using machine learning technology. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+Azure Form Recognizer is an [Azure Applied AI Service](../../applied-ai-services/index.yml) cloud service that uses machine learning models to extract and analyze form fields, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
 Form Recognizer easily identifies, extracts, and analyzes the following document data:
 
@@ -53,7 +53,7 @@ The following features are supported by the Form Recognizer service v2.1. Use th
 ### [Form Recognizer preview (v3.0)](#tab/v3-0)
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities.
+> Form Recognizer studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
 The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
@@ -69,17 +69,7 @@ The following features  and development options are supported by the Form Recogn
 
 ---
 
-## Prerequisites
-
-* You'll need an Azure subscription—[**create one for free**](https://azure.microsoft.com/free/cognitive-services).
-
-* Once you have your subscription, create a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
-
-* Finally, you'll need to retrieve your resource **endpoint URL** and **API key** from the Azure portal to try out the Form Recognizer service:
-
-  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint window in the Azure portal.":::
-
- ## Form Recognizer workflows
+## Form Recognizer workflows
 
 | Document type | Considerations | Solution |
 | -----------------|-------------------| ----------|

@@ -14,45 +14,37 @@ recommendations: false
 
 # Quickstart: Form Recognizer C# client library SDKs v3.0 | Preview
 
-Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) cloud service that lets you build automated data processing software using machine learning technology. You can use Form Recognizer via the REST API or an SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. some features may not be supported or have limited capabilities. 
+> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities. 
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true ) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications.
+Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) cloud service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-### Form Recognizer models
-
-The C# SDK supports the following models and capabilities:
-
-* 🆕General document—Analyze and extract text, tables, structure, key-value pairs and named entities.|
-* Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
-* Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
-* Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
-* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
-* Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
+To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#try-it-general-document-model)
+* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-* The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or [.NET Core](https://dotnet.microsoft.com/download).
+* The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!TIP] 
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
+    > [!TIP] 
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -60,6 +52,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
+<!--- 
 ### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
@@ -95,6 +88,7 @@ dotnet add package Azure.AI.FormRecognizer
 This version of the client library defaults to the 2021-09-30-preview version of the service.
 
 ### [Option 2: Visual Studio](#tab/vs)
+--->
 
 1. Start Visual Studio 2019.
 
@@ -128,8 +122,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
      This version of the client library defaults to the 2021-09-30-preview version of the service.
 
----
-
+<!-- --- -->
 ## Build your application
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
@@ -153,17 +146,30 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
     ```
 
-1. Delete the line, `Console.Writeline("Hello World!");` and ddd the **Try It** code to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
+
+### Select a code sample to copy and paste into your application's Main method:
+
+* [**General document**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: General document model
 
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
+> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
+> * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
 ### Add the following code to your general document application **Main** method
 
@@ -275,7 +281,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
+> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
 ### Add the following code to your layout application **Main** method
@@ -360,17 +366,18 @@ This sample demonstrates how to analyze data from certain types of common docume
 > [!div class="checklist"]
 >
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
+> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#key-value-pair-extraction) concept page.
 
 ### Choose the invoice prebuilt model ID
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
-* **prebuilt-invoice**: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* **prebuilt-businessCard**: extracts text and key information from business cards.
-* **prebuilt-idDocument**: extracts text and key information from driver licenses and international passports.
-* **prebuilt-receipt**: extracts text and key information from receipts.
+* [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
+* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
+* [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
 ### Add the following code to your prebuilt invoice application **Main** method
 
@@ -478,7 +485,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 ## Run your application
 
-### [.NET Command-line interface (CLI)](#tab/cli)
+<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
 Open your command prompt and go to the directory that contains your project and type the following:
 
@@ -486,13 +493,13 @@ Open your command prompt and go to the directory that contains your project and 
 dotnet run formrecognizer-quickstart.dll
 ```
 
-### [Visual Studio](#tab/vs)
+### [Visual Studio](#tab/vs) -->
 
 Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
----
+<!-- --- -->
 
 Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
@@ -500,3 +507,6 @@ Congratulations! In this quickstart, you used the Form Recognizer C# SDK to anal
 
 > [!div class="nextstepaction"]
 > [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer C#/.NET reference library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)
