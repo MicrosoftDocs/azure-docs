@@ -60,7 +60,6 @@ When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated re
 ## Next steps
 
 Get started with one of our quickstarts:
-
 * [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
 * [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
 * [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
