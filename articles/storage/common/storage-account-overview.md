@@ -35,7 +35,7 @@ The following table describes the types of storage accounts recommended by Micro
 
 <sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blobs, and premium file shares accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
-<sup>3</sup> Storage accounts in a premium performance tier use solid-state drives (SSDs) for low latency and high throughput.
+<sup>3</sup> Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 

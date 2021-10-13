@@ -142,15 +142,30 @@ Companies in the media and entertainment industry can generate a large number of
 
 Data is uploaded into multiple premium performance Blob Storage accounts. Each account is connected to an Event Grid and Event Hub resource. ADX retrieves the data from Blob Storage, performs any required transformations to normalize the data (For example: decompressing zip files or converting from JSON to CSV). Then, the data is made available for query through ADX and dashboards displayed in Grafana. Grafana dashboards are used by operators, executives, and other users. The customer retains their original logs in premium performance storage, or they copy them to a general-purpose v2 storage account where they can be stored in the hot or cool access tier for long-term retention and future analysis.
 
-## Migrating to premium
+## Getting started with premium
 
-You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. 
+To create a premium block blob storage account, make sure to choose the **Premium** performance option and the **Block blobs** account type as you create the account.
 
-To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
+> [!div class="mx-imgBorder"]
+> ![Create blockblobstorageacount](./media/storage-blob-block-blob-premium/create-block-blob-storage-account.png)
+
+If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. To unlock Azure Data Lake Storage Gen2 capabilities, enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
+
+The following image shows this setting in the **Create storage account** page.
+
+> [!div class="mx-imgBorder"]
+> ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
+
+For complete guidance, see [Create a storage account](../common/storage-account-create.md) account.
+
+You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
+
+> [!NOTE]
+> Some Blob Storage features aren't yet supported or have partial support in premium block blob storage accounts. Before choosing premium, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you intend to use are fully supported in your account. Feature support is always expanding so make sure to periodically review this article for updates.
 
 ## See also
 
-- [Performance tiers for block blob storage](storage-blob-performance-tiers.md)
 - [Storage account overview](../common/storage-account-overview.md)
 - [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
 - [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md)
+- [Premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)

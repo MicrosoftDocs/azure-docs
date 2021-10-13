@@ -11,31 +11,33 @@ ms.author: normesta
 
 # Premium tier for Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions.
+Azure Data Lake Storage Gen2 now supports [premium block blob storage accounts](storage-blob-block-blob-premium.md). Premium block blob storage accounts are ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions.
 
-## Workloads that can benefit from the premium performance tier
-
-Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning. To learn more about the performance and cost advantages of using this tier, and to read about real world examples of how other customers that have used the premium tier, see [Premium performance tier for Azure block blob storage](storage-blob-block-blob-premium.md).
+Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning. To learn more about the performance and cost advantages of using a premium block blob storage account, and to read about real world examples of how other customers that have used this type of account, see [Premium block blob storage accounts](storage-blob-block-blob-premium.md).
 
 ## Feature availability
 
-Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
+Some Blob storage features might not be available or might only have partial support with premium block blob storage accounts. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
-## Enabling the premium performance tier
+## Getting started
 
-You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](../common/storage-account-create.md) account.
+You can use the premium tier for Azure Data Lake Storage by creating a premium block blob storage account with the **Hierarchical namespace** setting **enabled**. 
 
-When you create the account, make sure to choose the **Premium** performance option and the **BlockBlobStorage** account kind.
+Make sure to choose the **Premium** performance option and the **Block blobs** account type as you create the account.
 
 > [!div class="mx-imgBorder"]
-> ![Create blockblobstorageacount](./media/premium-tier-for-data-lake-storage/create-block-blob-storage-account.png)
+> ![Create block blob storage account](./media/storage-blob-block-blob-premium/create-block-blob-storage-account.png)
 
-Enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. You must enable this setting when you create the account. You can't enable it afterwards.
+To unlock Azure Data Lake Storage Gen2 capabilities, enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
 
 The following image shows this setting in the **Create storage account** page.
 
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
+
+For complete guidance, see [Create a storage account](../common/storage-account-create.md) account.
+
+You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## Next steps
 
