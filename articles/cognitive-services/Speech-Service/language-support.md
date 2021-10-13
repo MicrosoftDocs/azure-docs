@@ -599,7 +599,7 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Speaker Recognition
 
-Speaker recognition is kind of language agnostics. We built an universal model for text-independent speaker recognition by lumping together various data sources of multiple languages. We have tuned and evaluated on languages and locales as the following table for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We have tuned and evaluated the model on the languages and locales that appear in the following table. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
