@@ -36,48 +36,51 @@ conceptualContent:
                - itemType: concept
                  text: Studio overview
                  url: concept-form-recognizer-studio.md
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the General document model (preview)
                  url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the Layout model
                  url: quickstarts/try-v3-form-recognizer-studio.md#layout
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the Invoice model
                  url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the Receipt model
                  url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the ID document model
                  url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the Business card model
                  url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: quickstart
+               - itemType: get-started
                  text: Using the Custom model
                  url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
 
-           - title: 🆕General document
+           - title: 🆕General document (preview)
              links:
                - itemType: concept
                  text: Model overview
-                 url: concept-general-document.md?
+                 url: concept-general-document.md
                - itemType: quickstart
                  text: Using the .NET SDK
-                 url: ""
+                 url: "quickstarts/try-v3-csharp-sdk.md#try-it-general-document-model"
                - itemType: quickstart
                  text: Using the Python SDK
-                 url: ""
+                 url: "quickstarts/try-v3-python-sdk.md#try-it-general-document-model"
                - itemType: quickstart
                  text: Using the Java SDK
-                 url: ""
+                 url: "quickstarts/try-v3-java-sdk.md#try-it-general-document-model"
                - itemType: quickstart
                  text: Using the JavaScript SDK
                  url: ""
                - itemType: quickstart
                  text: Using the REST API (cURL)
-                 url: ""
+                 url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
+               - itemType: get-started
+                 text: Using the Form Recognizer Studio
+                 url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"   
 
            - title: Layout
              links:
@@ -100,8 +103,8 @@ conceptualContent:
                 text: Using the REST API (cURL)
                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
               - itemType: get-started
-                text: Try Form Recognizer (layout)
-                url: ""
+                text: Using the sample labeling tool
+                url: "concept-layout.md#try-sample-labeling-tool"
 
            - title: Receipt
              links:
@@ -123,9 +126,9 @@ conceptualContent:
                - itemType: quickstart
                  text: Using the REST API (cURL)
                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: quickstart
-                 text: Try Form Recognizer (analyze receipt)
-                 url: ""
+               - itemType: get-started
+                 text: Using the Sample Labeling tool
+                 url: "concept-receipt.md#try-it-sample-labeling-tool"
 
            - title: Business card
              links:
@@ -147,9 +150,9 @@ conceptualContent:
                - itemType: quickstart
                  text: Using the REST API (cURL)
                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: quickstart
-                 text: Try Form Recognizer (analyze business card)
-                 url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+               - itemType: get-started
+                 text: Using the Sample Labeling tool
+                 url: "concept-business-card.md#try-it-sample-labeling-tool"
 
            - title: Invoice model
              links:
@@ -171,9 +174,9 @@ conceptualContent:
                - itemType: quickstart
                  text: Using the REST API (cURL)
                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: quickstart
-                 text: Try Form Recognizer (analyze invoice)
-                 url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+               - itemType: get-started
+                 text: Using the Sample Labeling tool
+                 url: "concept-business-card.md#try-it-sample-labeling-tool"
 
            - title: ID document model
              links:
@@ -195,33 +198,33 @@ conceptualContent:
                - itemType: quickstart
                  text: Using the REST API (cURL)
                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: quickstart
-                 text: Try Form Recognizer (analyze ID)
-                 url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+               - itemType: get-started
+                 text: Using the Sample Labeling tool
+                 url: "concept-id-document.md#try-it-sample-labeling-tool"
 
-              #  - title: Custom model
-              #    links:
-              #      - itemType: concept
-              #        text: Custom model overview
-              #        url: concept-custom
-              #      - itemType: quickstart
-              #        text: Using the .NET SDK
-              #        url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-              #      - itemType: quickstart
-              #        text: Using the Python SDK
-              #        url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-              #      - itemType: quickstart
-              #        text: Using the Java SDK
-              #        url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-              #      - itemType: quickstart
-              #        text: Using the JavaScript SDK
-              #        url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-              #      - itemType: quickstart
-              #        text: Using the REST API (cURL)
-              #        url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-              #      - itemType: quickstart
-              #        text: Try Form Recognizer (analyze a custom form)
-              #        url: https://fott-2-1.azurewebsites.net/
+               - title: Custom model
+                 links:
+                   - itemType: concept
+                     text: Custom model overview
+                     url: concept-custom
+                   - itemType: quickstart
+                     text: Using the .NET SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the Python SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the Java SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the JavaScript SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the REST API (cURL)
+                     url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: get-started
+                     text: Using the Sample Labeling tool
+                     url: concept-custom#try-form-recognizer-sample-labeling-tool
 
 
     # - title: Microsoft tech community

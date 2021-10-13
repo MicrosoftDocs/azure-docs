@@ -22,7 +22,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
-## Try it: Sample labeling tool
+## Try it: Sample Labeling tool
 
 You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
 

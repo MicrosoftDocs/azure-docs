@@ -62,7 +62,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    |Sample Labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
     Install Docker on your machine by following the appropriate instructions for your operating system:
 

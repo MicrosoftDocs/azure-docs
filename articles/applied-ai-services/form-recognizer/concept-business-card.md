@@ -32,7 +32,7 @@ The business card model combines powerful Optical Character Recognition (OCR) ca
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
 
-## Try it: Sample labeling tool
+## Try it: Sample Labeling tool
 
 You can see how business card data is extracted by trying our Sample Labeling tool. You'll need the following:
 
