@@ -23,10 +23,6 @@ ms.author: bagol
 >
 > The Azure Sentinel **Content hub** and solutions are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability, deployment, and enablement, and by [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
-
-## What is Azure Sentinel content?
-
 Azure Sentinel *content* is Security Information and Event Management (SIEM) content that enables customers to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services in Azure Sentinel.
 
 Content in Azure Sentinel includes any of the following types:
@@ -43,13 +39,15 @@ Content in Azure Sentinel includes any of the following types:
 Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Azure Sentinel.
 
 > [!TIP]
-> You can either customize built-in content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+> You can either customize built-in (out-of-the-box) content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Azure Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions’ authoring and publishing.
 >
 ## Discover and manage Azure Sentinel content
 
-Use the Azure Sentinel **Content hub** to centrally discover and install built-in, or out-of-the-box content.
+Use the Azure Sentinel **Content hub** to centrally discover and install built-in content.
 
-- In the **Content hub**, filter by [categories](#content-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+The Azure Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical built-in solutions and content in Azure Sentinel.
+
+- In the **Content hub**, filter by [categories](#azure-sentinel-built---in-content-and-solution-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-built---in-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
     Manage [updates for built-in content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Azure Sentinel **Content hub**, and for custom content via the **Repositories** page.
 
@@ -57,24 +55,30 @@ Use the Azure Sentinel **Content hub** to centrally discover and install built-i
 
     Manage your custom content directly in your Azure Sentinel workspace, via the [Azure Sentinel API](/rest/api/securityinsights/), or in your own source control repository, via the [Azure Sentinel **Repositories** page](ci-cd.md).
 
-### Why solutions?
+### Why content hub and solutions?
 
-Azure Sentinel *solutions* provide packaged content and integrations that deliver end-to-end product value for one or more domain or vertical scenarios.
+Azure Sentinel *solutions* are packaged content or integrations that deliver end-to-end product value for one or more domain or vertical scenarios.
+
+The solutions experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability and deployment and by the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing."
+
+Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by  for solutions’ discoverability, deployment, and enablement, and by  for solutions’ authoring and publishing.
 
 - **Packaged content** are collections of one or more pieces of Azure Sentinel content, such as data connectors, workbooks, analytics rules, playbooks, hunting queries, watchlists, parsers, and more.
 
-- **Integrations** include services or tools built using Azure Sentinel or Azure Log Analytics APIs that support integrations between Azure and existing customer applications, or migrate data, queries, and more from those applications into Azure Sentinel.
+- **Integrations** include services or tools built using Azure Sentinel or Azure Log Analytics APIs that support integrations between Azure and existing customer applications, or migrate data, queries, and more, from those applications into Azure Sentinel.
 
-Solutions also provide the ability to install packages of content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
+Solutions also provide the ability to install packages of content / multiple pieces of built-in-content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
+
+Use the Content hub to centrally discover and deploy solutions and built-in content in a sceanario-driven manner.
 
 For more information, see:
 
-- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy Azure Sentinel built-in content and solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel Content hub catalog](sentinel-solutions-catalog.md)
 
-## Content categories
+## Azure Sentinel built-in content and solution categories
 
-Azure Sentinel content can be applied with one or more of the following categories. In the **Content hub**, select the categories you want to view to change the content displayed.
+Azure Sentinel built-in content can be applied with one or more of the following categories. In the **Content hub**, select the categories you want to view to change the content displayed.
 
 ### Domain categories
 
@@ -115,9 +119,9 @@ Azure Sentinel content can be applied with one or more of the following categori
 | **Manufacturing** | Products, services, and content specific for the manufacturing industry |
 | **Retail**       | Products, services, and content specific for the retail industry       |
 
-## Azure Sentinel solution support models
+## Azure Sentinel built-in content and solution support models
 
-Both Microsoft and other organizations author Azure Sentinel built-in content and solutions. Each piece of content or solution has one of the following support types:
+Both Microsoft and other organizations author Azure Sentinel built-in content and solutions. Each piece of built-in content or solution has one of the following support types:
 
 - **Microsoft-supported**: Applies to:
 
@@ -143,7 +147,7 @@ After you've learned about Azure Sentinel content, start managing content and so
 
 Discover and install solutions from the Azure Sentinel **Content hub**. For more information, see:
 
-- [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy built-in content and solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md)
 - [Azure Sentinel data connectors](connect-data-sources.md)
 - [Find your Azure Sentinel data connector](data-connectors-reference.md)

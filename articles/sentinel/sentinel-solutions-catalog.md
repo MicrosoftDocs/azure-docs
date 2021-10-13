@@ -27,7 +27,7 @@ ms.author: bagol
 
 This article lists the built-in, on-demand, Azure Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
 
-For more information, see [Discover and deploy Azure Sentinel solutions (Public preview)](sentinel-solutions-deploy.md).
+For more information, see [Centrally discover and deploy built-in content and solutions (Public preview)](sentinel-solutions-deploy.md).
 
 <!-- template for new sections>
 |Name    |Includes  |Categories |Supported by  |
