@@ -1,6 +1,6 @@
 ---
 title: Create server group with private access (preview) - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to set up private link in a server group for Azure Database for PostgreSQL - Hyperscale (Citus)
+description: Connect a VM to a server group private endpoint
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
