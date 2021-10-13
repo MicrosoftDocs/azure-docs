@@ -20,7 +20,9 @@ ms.author: lajanuar
 
 ## Layout and custom model
 
-The preview model includes any enhancements to the currently GA languages.
+The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. The preview model may include enhancements to the currently GA languages.
+
+To use the preview languages, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
 
 ### Handwritten text
 
