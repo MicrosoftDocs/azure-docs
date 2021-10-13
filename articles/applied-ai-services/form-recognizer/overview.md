@@ -69,17 +69,7 @@ The following features  and development options are supported by the Form Recogn
 
 ---
 
-## Prerequisites
-
-* You'll need an Azure subscription—[**create one for free**](https://azure.microsoft.com/free/cognitive-services).
-
-* Once you have your subscription, create a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
-
-* Finally, you'll need to retrieve your resource **endpoint URL** and **API key** from the Azure portal to try out the Form Recognizer service:
-
-  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint window in the Azure portal.":::
-
- ## Form Recognizer workflows
+## Form Recognizer workflows
 
 | Document type | Considerations | Solution |
 | -----------------|-------------------| ----------|
