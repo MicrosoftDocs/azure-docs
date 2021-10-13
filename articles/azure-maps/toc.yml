@@ -13,7 +13,7 @@ items:
   - name: Create an Android app
     href: quick-android-map.md
   - name: Create an iOS app
-  - href: quick-iOS-app.md
+    href: quick-iOS-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
