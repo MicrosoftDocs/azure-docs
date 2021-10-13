@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 09/25/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.

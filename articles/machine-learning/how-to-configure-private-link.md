@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/07/2021
+ms.date: 10/21/2021
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace

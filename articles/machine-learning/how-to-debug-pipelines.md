@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: lobrien
 ms.author: laobri
-ms.date: 10/22/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: larryfr
-ms.date: 06/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
 ---

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/23/2021
+ms.date: 10/21/2021
 ---
 
 # Migrate to Azure Machine Learning 

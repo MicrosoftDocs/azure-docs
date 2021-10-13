@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/16/2021
+ms.date: 10/21/2021
 ---
 
 # Interactive debugging with Visual Studio Code
