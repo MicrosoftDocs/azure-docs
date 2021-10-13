@@ -401,7 +401,7 @@ The [EventGridTrigger](/java/api/com.microsoft.azure.functions.annotation.eventg
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
 |function.json property |Description|
@@ -424,11 +424,13 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 | **[Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]** | ✔ | ✔<sup>*</sup>|X|
 | **Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent** |X|✔ |X |
 | **Newtonsoft.Json.Linq.JObject** | ✔ |✔ |✔ |
-| [System.String](/dotnet/api/system.string) | ✔ |✔ |✔ |
+| **[System.String](/dotnet/api/system.string)** | ✔ |✔ |✔ |
 
 <sup>*</sup> Requires the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package. To use the newer type, fully qualify the [EventGridEvent] type name by prefixing it with `Microsoft.Azure.EventGrid.Models`.
 
-The [EventGridEvent] type is specific to Event Grid and defines properties for the fields common to all event types. [CloudEvent] is based on the [CloudEvents standard](https://cloudevents.io/) and is intended to be more interoperable between cloud-based messaging providers.
+The [EventGridEvent] type is specific to Event Grid and defines properties for the fields common to all event types. The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
+
+[CloudEvent] is based on the [CloudEvents standard](https://cloudevents.io/) and is intended to be more interoperable between cloud-based messaging providers.
 
 See the [Example section](#example) for examples of using the various parameter types.
 
@@ -487,8 +489,6 @@ The example shown is an array of one element. Event Grid always sends an array a
 The top-level properties in the event JSON data are the same among all event types, while the contents of the `data` property are specific to each event type. The example shown is for a blob storage event.
 
 For explanations of the common and event-specific properties, see [Event properties](../event-grid/event-schema.md#event-properties) in the Event Grid documentation.
-
-The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
 
 ## Next steps
 
