@@ -311,7 +311,7 @@
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
           href: enable-host-encryption.md
-        - name: CSI Secrets Store driver (preview)
+        - name: CSI Secrets Store driver
           href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:

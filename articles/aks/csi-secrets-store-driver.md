@@ -5,11 +5,11 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 03/30/2021
+ms.date: 10/13/2021
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster (preview)
+# Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster
 
 The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume][kube-csi].
 
@@ -17,7 +17,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
+- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ### Supported Kubernetes versions
 
@@ -32,42 +32,6 @@ The minimum recommended Kubernetes version for this feature is 1.18.
 - Supports Windows containers
 - Sync with Kubernetes Secrets (Secrets Store CSI Driver v0.0.10+)
 - Supports auto rotation of mounted contents and synced Kubernetes secrets (Secrets Store CSI Driver v0.0.15+)
-
-## Register the `AKS-AzureKeyVaultSecretsProvider` preview feature
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-To create an AKS cluster that can use the Secrets Store CSI Driver, you must enable the `AKS-AzureKeyVaultSecretsProvider` feature flag on your subscription.
-
-Register the `AKS-AzureKeyVaultSecretsProvider` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-AzureKeyVaultSecretsProvider"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzureKeyVaultSecretsProvider')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-## Install the aks-preview CLI extension
-
-You also need the *aks-preview* Azure CLI extension version 0.5.9 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. If you already have the extension installed, update to the latest available version by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## Create an AKS cluster with Secrets Store CSI Driver support
 
