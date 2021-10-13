@@ -11,19 +11,19 @@ ms.custom: template-concept
 
 # Security admin rules in Azure Virtual Network Manager (Preview)
 
+Azure Virtual Network Manager provides two different types of configurations you can deploy across your virtual networks, one of them being a *SecurityAdmin* configuration. A security admin configuration contains a set of rule collections. Each rule collection contains one or more security admin rules. You then associate the rule collection with the network groups that you want to apply the security admin rules to.
+
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Virtual Network Manager provides two different types of configurations you can deploy across your virtual networks, one of them being a *SecurityAdmin* configuration. A security admin configuration contains a set of rule collections. Each rule collection contains one or more security admin rules. You then associate the rule collection with a network group that you want to apply the security admin rules to.
-
 ## Security admin rules
 
-A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than Network security group (NSG) rules and will get evaluated before NSG rules. For example, an administrator can deny all high risk ports or protocol from the Internet with security admin rules, and these rules will override allowed NSG rules created at the VM or subnet level.
+A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. For example, an administrator can deny all high risk ports or protocol from the Internet with security admin rules, and these rules will override allowed NSG rules created at the VM or subnet level.
 
 > [!IMPORTANT]
-> Some services have network intent policies to ensure the network traffic is working as needed for their services. When you use security admin rules, you could break the network intent policies created for those services. For example, creating a deny admin rule can block some traffic allowed by the *SQL managed instance* service, which is defined by their network intent policy. Make sure to review your environment before applying a security admin rule. 
+> Some services have network intent policies to ensure the network traffic is working as needed for their services. When you use security admin rules, you could break the network intent policies created for those services. For example, creating a deny admin rule can block some traffic allowed by the *SQL managed instance* service, which is defined by their network intent policy. Make sure to review your environment before applying a security admin configuration. 
 
 The following are fields you can define in a security admin rule:
 
@@ -31,7 +31,7 @@ The following are fields you can define in a security admin rule:
 
 ### Priority
 
-Security rule priority is determined by an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 override an allow rule with a priority of 11. 
+Security rule priority is determined by an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 override an allow rule with a priority of 20. 
 
 ### <a name = "action"></a>Action
 
@@ -39,7 +39,7 @@ You can define one of three actions for a security rule:
 
 * **Allow**: Allows traffic on the specific port, protocol, and source/destination IP prefixes in the specified direction.
 * **Deny**: Block traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
-* **Always allow**: Regardless of other rules with lower priority & user-defined NSGs, allow traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
+* **Always allow**: Regardless of other rules with lower priority or user-defined NSGs, allow traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
 
 ### Direction
 
@@ -60,12 +60,12 @@ Protocols currently supported with security admin rules are:
 
 ### Source and destination types
 
-* **IP addresses**: You can provide IPv4 or IPv6 addresses or blocks of address in CIDR notation. To list multiple IP address, separate each IP using a comma.
+* **IP addresses**: You can provide IPv4 or IPv6 addresses or blocks of address in CIDR notation. To list multiple IP address, separate each IP address with a comma.
 * **Service Tag**: You can define specific service tags based on regions or a whole service. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags.
 
 ### Source and destination ports
 
-You can define specific common ports to block from the source or to the destination. See below for a list of common ports:
+You can define specific common ports to block from the source or to the destination. See below for a list of common TCP ports:
 
 | Ports | Service name |
 | ----- | ------------ |
