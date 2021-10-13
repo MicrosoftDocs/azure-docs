@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with Quantum Workplace, perform the followi
 
 To configure single sign-on on **Quantum Workplace** side, you need to send the **App Federation Metadata Url** to [Quantum Workplace support team](mailto:support@quantumworkplace.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -127,7 +127,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -164,7 +164,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in Quantum Workplace. Work with [Quantum Workplace support team](mailto:support@quantumworkplace.com) to add the users in the Quantum Workplace platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
