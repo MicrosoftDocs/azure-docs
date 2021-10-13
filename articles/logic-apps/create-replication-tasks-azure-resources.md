@@ -37,13 +37,13 @@ The following table lists the replication task templates currently available in 
 
 | Resource type | Replication task templates |
 |---------------|----------------------------|
-| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | - **Replicate to Event Hubs instance**: Replicate content between two Event Hubs instances. <br>- **Replicate from Event Hubs instance to Service Bus queue** <br>- **Replicate from Event Hubs instance to Service Bus topic** <p>For more information about replication and federation, review the following documentation: <p>- [Multi-site and multi-region federation for Event Hubs](../event-hubs/event-hubs/event-hubs-federation-overview.md) <br>- [] |
-| [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** |
+| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | - **Replicate to Event Hubs instance**: Replicate content between two Event Hubs instances. <br>- **Replicate from Event Hubs instance to Service Bus queue** <br>- **Replicate from Event Hubs instance to Service Bus topic** <p>For more information about replication and federation, review the following documentation: <p>- [Multi-site and multi-region federation for Event Hubs](../event-hubs/event-hubs/event-hubs-federation-overview.md) <br>-  |
+| [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** <p>For more information about replication and federation, review the following documentation: <p>- [Message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md) <br>- [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md) |
 |||
 
 ## Replication task differences between Azure Logic Apps and Azure Functions
 
-
+![Conceptual diagram showing topology for replication task powered by Standard logic app workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
 
 ### Replication topology for Event Hubs
 
