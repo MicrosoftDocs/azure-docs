@@ -107,7 +107,7 @@ conceptualContent:
              links:
                - itemType: concept
                  text: Extract data from receipts
-                 url: concept-receipts.md?
+                 url: concept-receipt.md?
                - itemType: quickstart
                  text: Using the .NET SDK
                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
@@ -131,7 +131,7 @@ conceptualContent:
              links:
                - itemType: concept
                  text: Business cards
-                 url: concept-business-cards.md
+                 url: concept-business-card.md
                - itemType: quickstart
                  text: Using the .NET SDK
                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
@@ -155,7 +155,7 @@ conceptualContent:
              links:
                - itemType: concept
                  text: Invoices
-                 url: concept-invoices.md?
+                 url: concept-invoice.md
                - itemType: quickstart
                  text: Using the .NET SDK
                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
@@ -175,11 +175,11 @@ conceptualContent:
                  text: Try Form Recognizer (analyze invoice)
                  url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 
-           - title: Extract data from ID documents
+           - title: ID document model
              links:
                - itemType: concept
                  text: ID documents
-                 url: concept-identification-cards.md
+                 url: concept-id-document.md
                - itemType: quickstart
                  text: Using the .NET SDK
                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
@@ -199,6 +199,29 @@ conceptualContent:
                  text: Try Form Recognizer (analyze ID)
                  url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
       
+               - title: Custom model
+                 links:
+                   - itemType: concept
+                     text: Custom
+                     url: concept-custom
+                   - itemType: quickstart
+                     text: Using the .NET SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the Python SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the Java SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the JavaScript SDK
+                     url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Using the REST API (cURL)
+                     url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+                   - itemType: quickstart
+                     text: Try Form Recognizer (analyze a custom form)
+                     url: https://fott-2-1.azurewebsites.net/
 
     # - title: Microsoft tech community
     #   linkLists:
@@ -239,25 +262,7 @@ conceptualContent:
     #           url: https://fott-2-1.azurewebsites.net/
 
 
-    # - title: Analyze forms with your custom model
-    #   linkLists:
-    #     - itemType: quickstart
-    #       links:
-    #         text: Using the .NET SDK
-    #           url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-    #         text: Using the Python SDK
-    #           url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-    #         text: Using the Java SDK
-    #           url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-    #         text: Using the JavaScript SDK
-    #           url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-    #         text: Using the REST API (cURL)
-    #           url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-    #     - itemType: get-started
-    #       links:
-    #         text: Try Form Recognizer (analyze a custom form)
-    #           url: https://fott-2-1.azurewebsites.net/
-
+   
     # - title: Get stated with the labeling tool
     #   linkLists:
     #     - itemType: how-to-guide
