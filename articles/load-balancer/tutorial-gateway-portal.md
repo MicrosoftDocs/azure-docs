@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/6/2021
+ms.date: 11/01/2021
 ms.custom: template-tutorial
 ---
 
@@ -21,6 +21,7 @@ In this tutorial, you learn how to:
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
+> * Chain a load balancer frontend to gateway load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
@@ -30,6 +31,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
+    - For the purposes of this tutorial, the load balancer in the examples is named **myLoadBalancer**.
 
 ## Register preview feature
 
@@ -273,6 +276,29 @@ In this section, you'll create the configuration and deploy the gateway load bal
 19. Select **Create**.
 
 The load balancer is ready for NVAs in the backend pool.
+
+## Chain load balancer frontend to gateway load balancer
+
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+
+1. In the search box in the Azure portal, enter **Load balancer**. In the search results, select **Load balancers**.
+
+2. In **Load balancers**, select **myLoadBalancer** or your existing load balancer name.
+
+3. In the load balancer page, select **Frontend IP configuration** in **Settings**.
+
+4. Select the frontend IP of the load balancer. In this example, the name of the frontend is **myFrontendIP**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/frontend-ip.png" alt-text="Screenshot of frontend IP configuration." border="true":::
+
+5. Select **myFrontendIP (10.1.0.4)** in the pull-down box next to **Gateway load balancer**.
+
+6. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/select-gateway-load-balancer.png" alt-text="Screenshot of addition of gateway load balancer to frontend IP." border="true":::
+
 
 ## Clean up resources
 
