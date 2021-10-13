@@ -232,8 +232,6 @@
         href: manage/ea-portal-administration.md
       - name: Azure direct EA administration
         href: manage/direct-ea-administration.md
-      - name: View and download direct EA usage details
-        href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
       - name: Azure Enterprise transfers
@@ -244,6 +242,8 @@
         href: manage/ea-portal-agreements.md
       - name: Enterprise enrollment invoices
         href: manage/ea-portal-enrollment-invoices.md
+      - name: View and download direct EA usage details
+        href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
