@@ -101,7 +101,9 @@ The following table shows additional limits in the platform. Please reach out to
 ### Azure Machine Learning managed online endpoints (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning managed online endpoints have the following limits. Current usage for an endpoint can determined by [viewing the metrics](how-to-monitor-online-endpoints.md#view-metrics). Please reach out to the AzureML product team through a technical support ticket to request an exception.
+Azure Machine Learning managed online endpoints have limits described in the following table. 
+
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). To request an exception from the Azure Machine Learning product team, please open a technical support ticket.
 
 | **Resource** | **Limit** |
 | --- | --- |
@@ -119,7 +121,7 @@ Azure Machine Learning managed online endpoints have the following limits. Curre
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> If making request for a limit increase, make sure to also calculate and include all the other limit increases that you might need. E.g. if requesting to increase the RPS limit, you might also want to compute the required connections and bandwidth limit and include them in the same request.
+<sup>2</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
