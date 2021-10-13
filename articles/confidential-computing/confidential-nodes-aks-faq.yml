@@ -78,7 +78,7 @@ sections:
     questions:
       - question: Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing?
         answer: |
-              Yes you will a SGX wrapper software to run in an enclave, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
+              Yes you will an SGX wrapper software to run in an enclave, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
       - question: Should I be using a Docker base image to get started on enclave applications? 
         answer: |
               Various enablers (ISVs and OSS projects) provide ways to enable confidential containers. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
@@ -114,10 +114,10 @@ sections:
               spec:
                 containers:
                 - name: sgxtest
-                  image: oeciteam/sgx-test:1.0
+                  image: oeciteam/sgx-test: 1.0
                   resources:
                     limits:
-                      sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to nodepools
+                      sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to node pools
                 restartPolicy: Never
             backoffLimit: 0
           ```
@@ -133,7 +133,7 @@ sections:
  
       - question: Do I have to mount the driver volumes in my deployment yaml?
         answer: |
-          No.Product provides ACC Add On that includes the (confcom) will help you with ths. Read more on the deployment details [here](confidential-nodes-aks-overview.md).  
+          No. Product provides ACC Add On that includes the (confcom) will help you with this. Read more on the deployment details [here](confidential-nodes-aks-overview.md).  
                   
      
       - question: Can we change the current Intel SGX DCAP diver version on AKS? 
@@ -146,7 +146,7 @@ sections:
 
       - question: Is container signing possible to bring code integrity protection to confidential containers?
         answer: |
-          Confidential containers allows you to sign the enclave code that but not the docker container itself. With enclave code (which is typically your core application code in Java, Python etc) signing you can verify through attestation the MRSIGNER details of the enclave code before you can trust the code and the execution environment through attestation flow. 
+          Confidential containers allow you to sign the enclave code that but not the docker container itself. With enclave code (which is typically your core application code in Java, Python etc.) signing you can verify through attestation the MRSIGNER details of the enclave code before you can trust the code and the execution environment through attestation flow. 
 
 additionalContent: |
   ## Next Steps

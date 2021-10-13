@@ -1,81 +1,65 @@
 ---
-title: Choose Confidential Container Offerings
-description: Choose Confidential Container Offerings
-author: JBCook
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.workload: infrastructure
+title: Choosing container offerings with confidential computing 
+description: Choosing the right confidential container offerings to meet your security, isolation and developer needs.
+author: agowdamsft
+ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/7/2021
-ms.author: JenCook
+ms.date: 10/8/2021
+ms.author: amgowda
 ---
 
+# Container related confidential offerings on Azure
 
-<!--- A bit more detail of above, help guide a customer through the decision making of why they should take a certain route.
-Note: this page can describe the partner solutions available (Fortanix, Anjuna, Scone).
-Tell the user to read about OSS enablers for confidential containers on the next page (and link to the next page). For enclave-aware containers, the application model is similar to SGX Virtual machines (link to the VM OSS page). 
----> 
+In Azure we have two deployment models to help meet your security, confidentiality and compliance needs
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+1. [Enclave Confidential Containers](#Enclave-Confidential-Containers)
+1. [Containers in a Confidential VM](#Containers-in-a-Confidential-VM)
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
+Confidential capability of the offerings in this space allows your apps to achieve:
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+- data integrity 
+- data confidentiality
+- code integrity
+- container code protection through encryption
+- hardware-based assurances
+- create hardware root of trust
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
+##  Enclave Confidential Containers
 
-# Choose Confidential container offerings
+Containers deployed in this mode have a tightest security and compute isolation with a lower Trusted Computing Base (TCB). Intel SGX based confidential containers running in the hardware based Trusted Execution Environment (TEE) support both a lift and shift of existing container apps or allow building custom apps with enclave awareness.
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+There are two programmings & deployment model on Azure Kubernetes Service (AKS) 
 
-[add your introductory paragraph]
+1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers-intelsgx.md).  
+1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./confidential-containers-intelsgx.md). 
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+Below is the isolation and security boundaries of enclave confidential containers on Intel SGX.
 
-## [Section 1 heading]
-<!-- add your content here -->
+![Enclave Confidential Container with Intel SGX](./media/confidential-containers/confidential-container-intelsgx.png)
 
-## [Section 2 heading]
-<!-- add your content here -->
 
-## [Section n heading]
-<!-- add your content here -->
+## Containers in a Confidential VM
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+> [!NOTE]
+> Confidential VM's with AMD SEV-SNP is coming soon on AKS. [Please get added to the notification list for this capability on Azure Kubernetes Service](virtual-machine-solutions.md).
 
-## Next steps
-<!-- Add a context sentence for the following links -->
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+Combining the security features of trusted launch and full node in-memory encryption enabled through AMD’s SEV-SNP confidential computing technology. The in-memory encryption keys are not accessible by Azure. SEV-SNP enabled VM nodes on AKS will also allow you to lift & shift the current sensitive workloads making it a straight forward process for developers or operations. The added integrity assurances of SEV-SNP will continuously protect data corruption, replay, memory aliasing, and memory remapping​ that can help meet your security requirements. Summarizing the features: 
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
+- Protection of memory and code from physical attacks.
+- Supporting both Linux and Windows nodes
+- VM or node level confidentiality through AMD SEV-SNP with full kernel support.
+- Supporting full linux kernel support to support an easy full container app support.
+- Microsoft has no access to memory encryption keys. 
+- Each VM in a node pool gets its own memory encryption key 
+- Container Code and data-in-use are protected and isolated from anyone outside of the VM like the hypervisor admin and Host OS admin.
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
+## Learn more
+
+[ Confidential Virtual Machines on Azure](./virtual-machine-solutions.md)
+
+<!-- LINKS - internal -->
+
+[Confidential Containers on Azure](./confidential-containers.md)
+
+
