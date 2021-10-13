@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 09/22/2021
+ms.date: 10/13/2021
 
 ---
 # Azure Functions runtime versions overview
@@ -97,7 +97,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
     - For isolated .NET apps:
         - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
         - Update the [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) packages to the latest versions.
-    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available.
+    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available. Until the updated extension bundle is ready, remove both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` app settings from your function app. This will prevent the host from failing to start.
 
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
