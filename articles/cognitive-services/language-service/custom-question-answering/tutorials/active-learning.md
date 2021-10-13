@@ -1,6 +1,6 @@
 ---
-title: Enrich your knowledge base with Active Learning
-description: In this tutorial, learn how to enrich your knowledge bases with action learning
+title: Enrich your project with active learning
+description: In this tutorial, learn how to enrich your question answering projects with active learning
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
@@ -9,7 +9,7 @@ ms.author: mbullwin
 ms.date: 11/02/2021
 ---
 
-# Enrich your knowledge base with active learning
+# Enrich your project with active learning
 
 In this tutorial, you learn how to:
 
@@ -20,9 +20,9 @@ In this tutorial, you learn how to:
 > * Accept/reject active learning suggestions
 > * Add alternate questions
 
-This tutorial shows you how to enhance your knowledge base with active learning. If you notice that customers are asking questions, which are not part of your knowledge base. There are often variations of questions that are paraphrased differently.
+This tutorial shows you how to enhance your question answering project with active learning. If you notice that customers are asking questions, which are not part of your project. There are often variations of questions that are paraphrased differently.
 
-These variations when added as alternate questions to the relevant question answer pair, help to optimize the knowledge base to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
+These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
 
 ## Enable active learning
 
@@ -61,9 +61,9 @@ Alternatively, to accept or reject individual suggestions, select the checkmark 
 
 ## Add alternate questions
 
-While active learning automatically suggests alternate questions based on the user queries hitting the knowledge base, we can also add variations of a question on the edit knowledge base page by selection **Add alternate phrase** to question answer pairs.
+While active learning automatically suggests alternate questions based on the user queries hitting the project, we can also add variations of a question on the edit knowledge base page by selecting **Add alternate phrase** to question answer pairs.
 
-By adding alternate questions along with active learning, we further enrich the knowledge base with variations of a question that helps to provide consistent answers to user queries.
+By adding alternate questions along with active learning, we further enrich the project with variations of a question that helps to provide consistent answers to user queries.
 
 > [!NOTE]
 > When alternate questions have many stop words, they might negatively impact the accuracy of responses. So, if the only difference between alternate questions is in the stop words, these alternate questions are not required.
