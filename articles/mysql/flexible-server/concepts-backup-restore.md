@@ -27,10 +27,6 @@ These backup files cannot be exported. The backups can only be used for restore 
 
 Backups on flexible servers are snapshot-based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes.
 
-## Backup frequency
-
-Backups on flexible servers are snapshot-based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes.
-
 ## Backup redundancy options
 
 Azure Database for MySQL stores multiple copies of your backups so that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Azure Database for MySQL provides the flexibility to choose between locally redundant, zone-redundant or geo-redundant backup storage in Basic, General Purpose and Memory Optimized tiers. By default Azure Database for MySQL server backups are locally redundant.  
@@ -41,7 +37,7 @@ Backup redundancy ensures that your database meets its availability and durabili
 
 - **Zone-redundant backup storage** : When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the availability zone in which your server is hosted, but are also replicated to another availability zone in the same region. This option can be leveraged for scenarios that require high availability or for restricting replication of data to within a country/region to meet data governance requirements. Also this provides at least 99.9999999999% (12 9's) durability of Backups objects over a given year. One can select High Availability option at server create time to ensure zone-redundant backup storage. High Availability for a server can be disabled post create however the backup storage will continue to remain zone-redundant.  
 
-- **Geo-Redundant backup storage** : When the backups are stored in geo-redundant backup storage, multiple copies are not only stored within the region in which your server is hosted, but are also replicated to aâ€¯paired Azure region. This provides better protection and ability to restore your server in a different region in the event of a disaster. Also this provides at least 99.99999999999999% (16 9's) durability of Backups objects over a given year. One can enable Geo-Redundancy option at server create time to ensure geo-redundant backup storage. Geo redundancy is supported for servers hosted in any of the [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+- **Geo-Redundant backup storage** : When the backups are stored in geo-redundant backup storage, multiple copies are not only stored within the region in which your server is hosted, but are also replicated to aâ€¯paired Azure region. This provides better protection and ability to restore your server in a different region in the event of a disaster. Also this provides at least 99.99999999999999% (16 9's) durability of Backups objects over a given year. One can enable Geo-Redundancy option at server create time to ensure geo-redundant backup storage. Geo redundancy is supported for servers hosted in any of the [Azure paired regions](../../best-practices-availability-paired-regions). 
 
 > [!NOTE]
 > Enabling/Disabling Geo-Redundancy is currently surfaced as a create time operation only.
@@ -121,7 +117,7 @@ The estimated time of recovery depends on several factors including the database
 
 ## Geo-restore
 
-You can restore a server to it's [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) where the service is available if you have configured your server for geo-redundant backups. Geo-restore to other regions is not supported currently. 
+You can restore a server to it's [Azure paired region](../../best-practices-availability-paired-regions) where the service is available if you have configured your server for geo-redundant backups. Geo-restore to other regions is not supported currently. 
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. 
 
