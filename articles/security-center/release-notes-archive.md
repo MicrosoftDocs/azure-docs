@@ -500,7 +500,7 @@ To learn more, see the following pages:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)
 
-In October, we announced a preview for scanning Azure Arc enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
+In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
 It's now released for general availability (GA).
 
@@ -515,9 +515,9 @@ Main capabilities:
 - Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
 - Unified experience for Azure VMs and Azure Arc machines
 
-[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Learn more about deploying the integrated Qualys vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+[Learn more about Azure Arc-enabled servers](../azure-arc/servers/index.yml).
 
 
 ### Secure score for management groups is now available in preview
@@ -967,7 +967,7 @@ Updates in October include:
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
 
-[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc enabled servers.
+[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
@@ -980,9 +980,9 @@ Main capabilities:
 - Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
 - Unified experience for Azure VMs and Azure Arc machines
 
-[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Learn more about deploying the integrated Qualys vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+[Learn more about Azure Arc-enabled servers](../azure-arc/servers/index.yml).
 
 
 ### Azure Firewall recommendation added (preview)
@@ -1253,7 +1253,7 @@ The security findings are now available for export through continuous export whe
 
 Related pages:
 
-- [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
+- [Security Center's integrated Qualys vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
 - [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-container-registries-usage.md)
 - [Continuous export](continuous-export.md)
 
