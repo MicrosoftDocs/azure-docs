@@ -56,6 +56,8 @@ Create and manage batch and online endpoints with multiple developer tools:
 
 **Online endpoints** (preview) are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
 
+The following diagram shows an online endpoint that has two deployments, 'blue' and 'green'. The blue deployment uses VMs with a CPU SKU, and runs v1 of a model. The green deployment uses VMs with a GPU SKU, and uses v2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while green receives the remaining 10%.
+
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
 ### Online endpoints requirements
@@ -77,6 +79,9 @@ Deploy locally to test your endpoints without deploying to the cloud. Azure Mach
 Recall, that a single endpoint can have multiple deployments. The online endpoint can do load balancing to give any percentage of traffic to each deployment.
 
 Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
+
+> [!TIP]
+> A request can bypass the configured traffic load balancing by including an HTTP header of `azureml-model-deployment`. Set the header value to the name of the deployment you want the request to route to.
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
 
@@ -106,7 +111,7 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 ## Managed online endpoints (preview) vs AKS web service
 
-The following table highlights some of the key differences between: **Managed online endpoints** (preview) and **AKS web service**
+The following table highlights some of the key differences between: **Managed online endpoints** (preview) and **Azure Kubernetes Service (AKS) web service**
 
 |  | Managed online endpoints | [AKS web service](how-to-deploy-azure-kubernetes-service.md) |
 |-|-|-|
