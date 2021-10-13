@@ -10,7 +10,7 @@ ms.date: 10/10/2021
 # Customer intent: As an Azure Purview administrator, I want to kickstart and be up and running with Azure Purview service in a matter of minutes; additionally, I want to perform and set up automations, batch mode API executions and scripts that help me run Purview smoothly and effectively for the long term on a regular basis.
 ---
 
-# Azure Purview Tools & Utilities
+# Azure Purview Open-Source Tools & Utilities
 This page lists all the open-source tools and utilities that help you get started and be up and running with Azure Purview service in a matter of minutes. These tools are developed by the Azure Purview Product Group and the open source community.
 Additionally, using these tools you can perform and set up automations, batch mode API executions and scripts that help run Purview smoothly and effectively for the long term on a regular basis.
 
