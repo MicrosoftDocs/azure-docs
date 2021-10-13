@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ms.author: memildin
 
 ---
@@ -110,6 +110,17 @@ Learn more about the [Azure Defender for Resource Manager](defender-for-resource
 ### Recommendations details pages now show related recommendations
 
 To clarify the relationships between different recommendations, we've added a **Related recommendations** area to to the details pages of many recommendations. 
+
+The three relationship types that are shown on these pages are:
+
+- **Prerequisite** - A recommendation that must be completed before the selected recommendation
+- **Alternative** - A different recommendation which provides another way of achieving the goals of the selected recommendation
+- **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+
+For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+
+> [!TIP]
+> If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
 
 An example of related recommendations:
 
