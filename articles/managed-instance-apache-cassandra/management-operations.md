@@ -17,13 +17,13 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Patching
 
-* Operating System-level patches are done automatically at approximately 2-weekly cadence.
+* Operating System-level patches are done automatically at approximately 2-week cadence.
 
 * Apache Cassandra software-level patches are done when security vulnerabilities are identified. The patching cadence may vary.
 
-* During patching, machines are re-booted one rack at a time. You should not experience any degradation at the application side as long as **quorum ALL setting is not being used**, and the replication factor is **3 or higher**.
+* During patching, machines are rebooted one rack at a time. You should not experience any degradation at the application side as long as **quorum ALL setting is not being used**, and the replication factor is **3 or higher**.
 
-* In regards to versioning in Apache Cassandra (version number in the format `X.Y.Z`), you can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically.  
+* The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically.  
 
 ## Maintenance
 
@@ -34,7 +34,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
   * Actively monitoring each node's membership in the Cassandra ring.
   * Actively monitoring virtual machines to identify and fix problems with Azure, Virtual Machines, storage, Linux, and the support software.
 
-* You are responsible for any CPU, disk, and network usage problems which may arise due to your Cassandra usage. Some examples of such issues include:
+* You are responsible for any CPU, disk, and network usage problems, which may arise due to your Cassandra usage. Some examples of such issues include:
 
   * Inefficient query operations.
   * Throughput that exceeds capacity.
@@ -44,7 +44,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Security
 
-Azure Managed Instance for Apache Cassandra provides a number of built-in explicit security controls and features:
+Azure Managed Instance for Apache Cassandra provides many built-in explicit security controls and features:
 
 * Hardened Linux Virtual Machine images with a controlled supply chain.
 * Common Vulnerability & Exposure (CVE) monitoring at the Operating System level.
