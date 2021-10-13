@@ -170,7 +170,7 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
 > - **Domain** - Verify an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process.
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
-> - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option. HTML page will not work for web apps with "Https Only" enabled.
+> - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option. The HTML page option doesn't work for web apps with "Https Only" enabled.
 
 ### Import certificate into App Service
 
