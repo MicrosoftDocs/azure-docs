@@ -14,12 +14,12 @@ We have many open-source projects on GitHub that provide you the source code and
 
 ## Healthcare APIs samples
 
-* This repo contains [samples for Healthcare APIs](https://github.com/microsoft/healthcare-apis-samples), including FHIR, DICOM, IoT connector, and data related services.
+* This repo contains [samples for Healthcare APIs](https://github.com/microsoft/healthcare-apis-samples), including FHIR, DICOM, IoT connector, and data-related services.
 
 ## FHIR Server
 
 * [microsoft/fhir-server](https://github.com/microsoft/fhir-server/): open-source FHIR Server,  which is the basis for FHIR service
-* To see the latest releases, please refer to [Release Notes](https://github.com/microsoft/fhir-server/releases)
+* For information about the latest releases, see [Release notes](https://github.com/microsoft/fhir-server/releases)
 * [microsoft/fhir-server-samples](https://github.com/microsoft/fhir-server-samples): a sample environment
 
 ## Data Conversion & Anonymization
