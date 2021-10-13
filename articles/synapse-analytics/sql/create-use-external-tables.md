@@ -173,7 +173,7 @@ CREATE EXTERNAL TABLE Covid (
 );
 ```
 
-Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+External tables cannot be created on a partitioned folders. Review the other known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Use an external table
 
