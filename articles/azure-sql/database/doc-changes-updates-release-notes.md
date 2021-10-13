@@ -96,7 +96,7 @@ This table provides a quick comparison for the change in terminology:
 - [Distributed database transactions spanning multiple Azure SQL Managed Instances](https://azure.microsoft.com/updates/distributed-database-transactions-spanning-multiple-azure-sql-managed-instances/) - Distributed database transactions spanning multiple Azure SQL Managed Instances have been added to enable frictionless migration of existing applications, as well as development of modern multi-tenant applications relying on vertically or horizontally partitioned database architecture (Public Preview).
 - [Configurable Backup Storage Redundancy option for Azure SQL Managed Instance](https://azure.microsoft.com/updates/configurable-backup-storage-redundancy-option-for-azure-sql-managed-instance-2/) - Locally redundant storage (LRS) and zone-redundant storage (ZRS) options have been added to backup storage redundancy, providing more flexibility and choice. 
 - [Backup storage cost savings for Azure SQL Database and Managed Instance](https://azure.microsoft.com/updates/backup-storage-cost-savings-for-azure-sql-database-and-managed-instance/) - User can set the PITR backup retention period & automated compression of backups for databases with transparent data encryption(TDE) is now up to 30 percent more efficient in backup storage space consumption.
-- [Azure AD authentication features for Azure SQL MI](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - hese features help automate user creation using Azure AD applications and allow individual Azure AD guest users to be created in SQL Managed Instance (Public Preview).
+- [Azure AD authentication features for Azure SQL MI](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - These features help automate user creation using Azure AD applications and allow individual Azure AD guest users to be created in SQL Managed Instance (Public Preview).
 - [Global virtual network peering support for Azure SQL Managed Instance](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)
 - [Hosting catalog databases for all supported versions of SSRS in Azure SQL Managed Instance](https://azure.microsoft.com/updates/hosting-catalog-databases-for-all-supported-versions-of-ssrs-in-azure-sql-managed-instance/) - Azure SQL Managed Instance can host catalog databases for all supported versions of SQL Server Reporting Services (SSRS).
 - [Major performance improvements for Azure SQL Database Managed Instances](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) 
@@ -214,7 +214,7 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### Cannot create SQL Managed Instance with the same name as logical server previously deleted
 
-After [logical server](./logical-servers.md) is deleted, there is a treshold period of 7 days before the name is released from the records. In that period, SQL Managed Instance with the same name cannot be created. As a workaround you would need to use different name for the SQL Managed Instance or create a support ticket for releasing a logical server name.
+After [logical server](./logical-servers.md) is deleted, there is a threshold period of 7 days before the name is released from the records. In that period, SQL Managed Instance with the same name cannot be created. As a workaround you would need to use different name for the SQL Managed Instance or create a support ticket for releasing a logical server name.
 
 ### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
@@ -341,7 +341,7 @@ In the initial phase, a user can access the empty database and even create table
 
 **Workaround**: Do not access the database that you are restoring until you see that restore is completed.
 
-### TEMPDB structure and content is re-created
+### Tempdb structure and content is re-created
 
 The `tempdb` database is always split into 12 data files, and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
 
