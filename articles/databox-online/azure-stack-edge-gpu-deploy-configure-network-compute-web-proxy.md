@@ -351,15 +351,17 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 
 You'll now configure the intent of the virtual switches that are created based on the network topology that you created.
 
+
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, select a virtual switch. In the **Network settings** blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use *CRTL + Click* to select more than one intent for your virtual switch. 
+1. In the **Virtual switch** section, select a virtual switch. In the **Network settings** blade, specify whether the switch should be used for compute or management traffic. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. Use *CRTL + Click* to select more than one intent for your virtual switch.
+ 
 1. For a virtual switch that is intended for compute, you can assign **Kubernetes node IPs**. These static IP addresses are for the compute VM.  
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided.
 
     > [!IMPORTANT]
-    > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
-
+    > - Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
+    > - DHCP mode is not supported for Kubernetes node IPs. If you plan to deploy IoT Edge/Kubernetes, you must assign static Kubernetes IPs and then enable IoT role. This will ensure that static IPs are assigned to Kubernetes node VMs. 
 
 1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
