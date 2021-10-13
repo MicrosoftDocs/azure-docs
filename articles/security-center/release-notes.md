@@ -31,6 +31,8 @@ Updates in October include:
 - [Software inventory filters added to asset inventory (in preview)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 - [Changes to the logic of a security recommendation for Kubernetes clusters](#changes-to-the-logic-of-a-security-recommendation-for-kubernetes-clusters)
+- [Recommendations details pages now show related recommendations](#recommendations-details-pages-now-show-related-recommendations)
+
 
 ### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
 
@@ -111,6 +113,42 @@ Learn more about the [Azure Defender for Resource Manager](defender-for-resource
 The recommendation "Kubernetes clusters should not use the default namespace" prevents usage of the default namespace for a range of resource types. Two of the resource types that were included in this recommendation have been removed: ConfigMap and Secret. 
 
 Learn more about this recommendation and hardening your Kubernetes clusters in [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
+
+### Recommendations details pages now show related recommendations
+
+To clarify the relationships between different recommendations, we've added a **Related recommendations** area to to the details pages of many recommendations. 
+
+The three relationship types that are shown on these pages are:
+
+- **Prerequisite** - A recommendation that must be completed before the selected recommendation
+- **Alternative** - A different recommendation which provides another way of achieving the goals of the selected recommendation
+- **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+
+For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+
+> [!TIP]
+> If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
+
+An example of related recommendations:
+
+1. Security Center checks your machines for supported vulnerability assessment solutions:<br>
+    **A vulnerability assessment solution should be enabled on your virtual machines**
+
+1. If one is found, you'll get notified about discovered vulnerabilities:<br>
+    **Vulnerabilities in your virtual machines should be remediated**
+
+Obviously, Security Center can't notify you about discovered vulnerabilities unless it finds a supported vulnerability assessment solutions.
+
+Therefore:
+
+ - Recommendation #1 is a prerequisite for recommendation #2
+ - Recommendation #2 depends upon recommendation #1
+
+:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="Screenshot of recommendation to deploy vulnerability assessment solution.":::
+
+:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="Screenshot of recommendation to resolve discovered vulnerabilities.":::
+
+
 
 ## September 2021
 

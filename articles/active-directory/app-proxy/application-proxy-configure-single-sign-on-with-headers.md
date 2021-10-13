@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Header-based single sign-on for on-premises apps with Azure AD App Proxy

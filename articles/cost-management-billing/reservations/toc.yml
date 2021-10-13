@@ -47,7 +47,7 @@
       href: understand-storage-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Synapse Analytics
+    - name: Synapse Analytics - Data warehouse
       href: reservation-discount-azure-sql-dw.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -80,8 +80,6 @@
       href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
       href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Synapse Analytics
-      href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Blob storage
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
@@ -102,6 +100,10 @@
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
+    - name: Synapse Analytics - data warehouse
+      href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Synapse Analytics - Pre-Purchase
+      href: synapse-analytics-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Virtual machines
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
   - name: Permissions, View and Manage
