@@ -11,6 +11,12 @@ ms.date: 11/02/2021
 
 # Improve quality of response with synonyms
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Add synonyms to improve the quality of your responses
+> * Evaluate the response quality via the inspect option of the Test pane
+
 This tutorial will show you how you can improve the quality of your responses by using synonyms. Let's assume that users are not getting an accurate response to their queries, when they use alternate forms, synonyms or acronyms of a word. So, they decide to improve the quality of the response by using [Authoring API](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) to add synonyms for keywords.
 
 ## Add synonyms using Authoring API
@@ -59,7 +65,7 @@ For the question and answer pair “Fix problems with Surface Pen”, we compare
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot with confidence score of .74 highlighted in red]( ../media/adding-synonyms/score.png) ]( ../media/adding-synonyms/score.png#lightbox)
 
-## Response after addition of synonym 
+## Response after addition of synonym
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot with a confidence score of .97 highlighted in red]( ../media/adding-synonyms/score-improvement.png) ]( ../media/adding-synonyms/score-improvement.png#lightbox)
