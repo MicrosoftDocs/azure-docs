@@ -2,7 +2,7 @@
 title: Security, Governance, and Azure Dev/Test Subscriptions
 description: Manage security and governance within your organization's Dev/Test subscriptions. 
 author: jamestramel
-ms.author: james.tramel
+ms.author: jametra
 ms.prod: visual-studio-windows
 ms.topic: how-to 
 ms.date: 10/12/2021
@@ -24,15 +24,15 @@ Important tools within Azure Dev/Test Subscriptions help you create secure acces
 
 When enabling and setting up your Azure Dev/Test Subscriptions, Azure deploys a default resource hierarchy to manage identities and access to resources in a single Azure Active Directory domain. The resource hierarchy allows your organization to set up strong security perimeters for your resources and users.  
 
-![A screenshot of the Azure Management Groups](media/security-and-governance-in-devtest/azure-management-groups.png "Azure default resource hierarchy.")  
+![A screenshot of the Azure Management Groups](media/security-and-governance-in-devtest/access-management-groups.png "Azure default resource hierarchy.")  
 
 Your resources, resource groups, subscriptions, management groups, and tenant collectively make up your resource hierarchy. Updating and changing these settings in Azure custom roles or Azure policy assignments can effect every resource in your resource hierarchy. It's important to protect the resource hierarchy from changes that could negatively impact all resources.  
 
-[Azure Management Groups](../governance/management-groups/overview.md) are an important aspect of governing access and protecting your resources in a single tenant. Azure Management Groups allows you to set quotas, Azure policies, and security to different types of subscriptions. These groups are a vital component of developing security for your organization's dev/test subscriptions.  
+[Azure Management Groups](../../governance/management-groups/overview.md) are an important aspect of governing access and protecting your resources in a single tenant. Azure Management Groups allows you to set quotas, Azure policies, and security to different types of subscriptions. These groups are a vital component of developing security for your organization's dev/test subscriptions.  
 
 ![A screenshot of Azure orgs and governance groupings](media/security-and-governance-in-devtest/orgs-and-governance.png "How Azure Management Groups fit into overall governance.")
 
-As you can see above, using management groups changes the default hierarchy and adds a level for the management groups. This behavior can potentially create unforeseen circumstances and holes in security if you don’t follow the [appropriate process to protect your resource hierarchy](../governance/management-groups/how-to/protect-resource-hierarchy.md)  
+As you can see above, using management groups changes the default hierarchy and adds a level for the management groups. This behavior can potentially create unforeseen circumstances and holes in security if you don’t follow the [appropriate process to protect your resource hierarchy](../../governance/management-groups/how-to/protect-resource-hierarchy.md)  
 
 ## Why are Azure Management Groups useful?  
 
@@ -81,4 +81,4 @@ For most organizations, management is easier with a single Azure AD tenant. Havi
 
 Where a multi-tenant architecture is required, Azure Lighthouse helps centralize and streamline management operations. By using Azure delegated resource management, users in one managing tenant can perform cross-tenant management functions in a centralized, scalable manner.  
 
-[More Security Resources](../../security-center/)
+[More Security Resources](../../security-center/security-center-introduction.md)

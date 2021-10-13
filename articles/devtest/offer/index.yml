@@ -138,7 +138,7 @@ conceptualContent:
         - url: ../../devtest/offer/gitops-and-azure-devtest.md
           itemType: how-to-guide
           text: Use GitOps in association with Azure Dev/Test
-        - url: ../../devtest/offer/manage-and-monitor.md
+        - url: ../../devtest/offer/manage-and-monitor-devtest.md
           itemType: how-to-guide
           text: Manage your Azure Dev/Test subscriptions with Azure's cloud environment
         - url: ../../devtest/offer/manage-reliability-and-performance.md

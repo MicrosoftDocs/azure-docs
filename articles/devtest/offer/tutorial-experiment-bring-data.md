@@ -4,8 +4,8 @@ titleSuffix: Azure Dev/Test offer
 description: A step-by-step tutorial for enabling credits and running a training script in your Azure Dev/Test offer subscription.
 ms.topic: tutorial
 ms.prod: visual-studio-windows
-ms.author: jmartens
-author: j-martens
+ms.author: jametra
+author: jamestramel
 ms.date: 10/05/2021
 ms.custom: devtestoffer
 adobe-target: true

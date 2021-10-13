@@ -2,7 +2,7 @@
 title: Creating Enterprise Azure Dev/Test subscriptions
 description: Create Enterprise and Organizational Azure Dev/Test subscriptions for teams and large organizations.
 author: jamestramel
-ms.author: james.tramel
+ms.author: jametra
 ms.prod: visual-studio-windows
 ms.topic: how-to
 ms.date: 10/12/2021

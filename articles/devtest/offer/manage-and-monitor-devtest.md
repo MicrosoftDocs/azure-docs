@@ -2,14 +2,14 @@
 title: Managing and Monitoring your Azure Dev/Test Subscriptions
 description: Manage your Azure Dev/Test subscriptions with the flexibility of Azure's cloud environment. This guide also covers Azure Monitor to help maximize availability and performance for applications and services.
 author: jamestramel
-ms.author: james.tramel
-ms.prod: visual.studio.windows
+ms.author: jametra
+ms.prod: visual-studio-windows
 ms.topic: how-to 
 ms.date: 10/12/2021
 ms.custom: devtestoffer
 ---
 
-## Managing Azure DevTest Subscriptions
+# Managing Azure DevTest Subscriptions
 
 Managing your Azure Dev/Test Subscriptions is important. Managing cost, monitoring the stages of production, the resources you deploy and the processes you configure is a top priority in subscription management.  
 
@@ -37,7 +37,7 @@ Monitoring allows you to maximize your dev/test benefits with net new applicatio
 
 ## Cost Management
 
-[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you to improve the technical performance of your business workloads significantly. It can also reduce your costs and the overhead required to manage organizational assets.  
+[Azure Cost Management](../../cost-management-billing/cost-management-billing-overview.md) allows you to improve the technical performance of your business workloads significantly. It can also reduce your costs and the overhead required to manage organizational assets.  
 
 Using monitoring, you can use cost-analysis tools in pre-production before you deploy your services to run an analysis of your current pre-production compute to forecast production costs and potentially save money.  
 
@@ -52,7 +52,7 @@ Load and duress analysis provide another data in pre-production so you can conti
 As you perform load and duress testing with your application or service, the method for scaling up or out depends on your workloads. You can learn more about scaling your apps in Azure:  
 
 - [Scale up an app in Azure App Service](../../app-service/manage-scale-up.md)  
-- [Get started with Autoscale in Azure](../../azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json)  
+- [Get started with Autoscale in Azure](../../../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)  
 
 Enable monitoring for your application with [Application Insights](../../azure-monitor/app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions.  
 
@@ -66,7 +66,7 @@ Azure Automation becomes important in this scenario. When you're going into a ne
 
 ## Azure Resource Manager
 
-[Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/) implement infrastructure as code for your Azure solutions. The template defines the infrastructure and configuration for your project. You can automate your deployments.  
+[Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) implement infrastructure as code for your Azure solutions. The template defines the infrastructure and configuration for your project. You can automate your deployments.  
 
 You can deploy your configurations as many times as you want to update the pre-production environment and track your costs. Using Azure Automation you can run and delete your ARM templates as needed.  
 

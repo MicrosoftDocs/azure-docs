@@ -2,7 +2,7 @@
 title: GitOps and Azure Dev/Test
 description: Use GitOps in association with Azure Dev/Test
 author: jamestramel
-ms.author: james.tramel
+ms.author: jametra
 ms.prod: visual-studio-windows
 ms.topic: how-to 
 ms.date: 10/12/2021
@@ -37,6 +37,6 @@ GitOps combines automation and commonly used collaboration frameworks like git. 
 
 Learn more about GitOps and Azure:  
 
-- [Azure Friday Video: Azure Arc Enabled Kubernetes With GitOps](https://azure.microsoft.com/en-us/resources/videos/azure-friday-azure-arc-enabled-kubernetes-with-gitops/)  
+- [Azure Friday Video: Azure Arc Enabled Kubernetes With GitOps](https://azure.microsoft.com/resources/videos/azure-friday-azure-arc-enabled-kubernetes-with-gitops/)  
 - [Azure Friday Blog: Azure Arc Enabled Kubernetes With GitOps](https://techcommunity.microsoft.com/t5/azure-arc/azure-arc-enabled-kubernetes-with-gitops/ba-p/1654171?ocid=AID754288&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0570)  
 - [GitOps for Azure Infrastructure Lifecycle Automation](https://github.com/travisnielsen/azure-gitops)

@@ -2,7 +2,7 @@
 title: Managing reliability and performance with Dev/Test subscriptions
 description: Build reliability into your applications with Dev/Test subscriptions. 
 author: jamestramel
-ms.author: james.tramel
+ms.author: jametra
 ms.prod: visual-studio-windows
 ms.topic: how-to
 ms.date: 10/12/2021
@@ -35,7 +35,7 @@ How SRE and DevOps differ is still under discussion in the field. Some broadly a
 
 If you want to learn more about the practice of SRE, check out these links:  
 
-- [SRE in Context](../../../../../learn/modules/intro-to-site-reliability-engineering/3-sre-in-context.md)  
+- [SRE in Context](/learn/modules/intro-to-site-reliability-engineering/3-sre-in-context.md)  
 - [Key SRE Principles and Practices: virtuous cycles](/learn/modules/intro-to-site-reliability-engineering/4-key-principles-1-virtuous-cycles.md)  
 - [Key SRE Principles and Practices: The human side of SRE](/learn/modules/intro-to-site-reliability-engineering/5-key-principles-2-human-side-of-sre.md)  
 - [Getting Started with SRE](/learn/modules/intro-to-site-reliability-engineering/6-getting-started.md)  
@@ -46,7 +46,7 @@ Enterprise Dev/Test is exclusively for the development and testing of your appli
 
 ## Learn to Use Different Types of Dev/Test Subscriptions  
 
-Whether you need [Monthly Azure Credits for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/), [Enterprise Dev/Test Subscriptions](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/), or a [Pay-As-You-Go Dev/Test Subscription](https://azure.microsoft.com/en-us/offers/ms-azr-0023p/) (PAYG), you can easily find offers that work for individuals or a team.  
+Whether you need [Monthly Azure Credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), [Enterprise Dev/Test Subscriptions](https://azure.microsoft.com/offers/ms-azr-0148p/), or a [Pay-As-You-Go Dev/Test Subscription](https://azure.microsoft.com/offers/ms-azr-0023p/) (PAYG), you can easily find offers that work for individuals or a team.  
 
 ## Managing Individual Credit Subscriptions  
 
@@ -64,8 +64,8 @@ Follow our process guide: (link – Creating a Developer tenant)
 
 If you need an organization Azure Dev/Test subscription, you have two offers to choose from.  
 
-- [Pay-As-You-Go (PAYG) Dev/Test (0023P)](https://azure.microsoft.com/en-us/offers/ms-azr-0023p/-)  
-- [Enterprise Dev/Test (0148P)](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/)  
+- [Pay-As-You-Go (PAYG) Dev/Test (0023P)](https://azure.microsoft.com/offers/ms-azr-0023p/-)  
+- [Enterprise Dev/Test (0148P)](https://azure.microsoft.com/offers/ms-azr-0148p/)  
 
 Each comes with their own set of discounts and require a Visual Studio Subscription.  
 
