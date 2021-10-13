@@ -32,15 +32,15 @@ When importing the LUIS JSON application into CLU, it will create a **Conversati
 
 |**Feature**|**Notes**|
 | :- | :- |
-|**Intents**|All of your intents will be transferred as CLU intents with the same names.|
-|**ML entities**|All of your ML entities will be transferred as CLU entities with the same names. The ML labels will be persisted and used to train the Learned component of the entity. Structured ML entities will only be transferred as the top-level entity. The individual sub-entities will be ignored.|
-|**Utterances**|All of your LUIS utterances will be transferred as CLU utterances with their intent and entity labels. Structured ML entity labels will only consider the top-level entity labels, and the individual sub-entity labels will be ignored.|
-|**Culture**|The primary language of the Conversation project will be the LUIS app culture. If the culture is not supported, the importing will fail. |
-|**List entities**|All of your list entities will be transferred as CLU entities with the same names. The normalized values and synonyms of each list will be transferred as keys and synonyms in the list component for the CLU entity.|
-|**Prebuilt entities**|All of your prebuilt entities will be transferred as CLU entities with the same names. The CLU entity will have the relevant prebuilt entities enabled if they are supported. Learn more about the supported prebuilt entities [here.](TBD)|
-|**Required entity features in ML entities**|If you had a prebuilt entity or a list entity as a required feature to another ML entity (top-level only, sub-entities are ignored), then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. The CLU entity will include the required feature entity as a component. The [overlap method](TBD) will be set as “Exact Overlap” for the CLU entity.|
-|**Non-required entity features in ML entities**|If you had a prebuilt entity or a list entity as a non-required feature to another ML entity (top-level only, sub-entities are ignored), then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. If an ML entity was used as a feature to another ML entity, it will not be transferred over.|
-|**Roles**|All of your roles will be transferred as CLU entities with the same names. Each role will be its own CLU entity. The role’s entity type will determine which component is populated for the role. Roles on prebuilt entities will transfer as CLU entities with the prebuilt entity component enabled and the role labels transferred over to train the Learned component. Roles on list entities will transfer as CLU entities with the list entity component populated and the role labels transferred over to train the Learned component. Roles on ML entities will be transferred as CLU entities with their labels applied to train the Learned component of the entity.  |
+|Intents|All of your intents will be transferred as CLU intents with the same names.|
+|ML entities|All of your ML entities will be transferred as CLU entities with the same names. The ML labels will be persisted and used to train the Learned component of the entity. Structured ML entities will only be transferred as the top-level entity. The individual sub-entities will be ignored.|
+|Utterances|All of your LUIS utterances will be transferred as CLU utterances with their intent and entity labels. Structured ML entity labels will only consider the top-level entity labels, and the individual sub-entity labels will be ignored.|
+|Culture|The primary language of the Conversation project will be the LUIS app culture. If the culture is not supported, the importing will fail. |
+|List entities|All of your list entities will be transferred as CLU entities with the same names. The normalized values and synonyms of each list will be transferred as keys and synonyms in the list component for the CLU entity.|
+|Prebuilt entities|All of your prebuilt entities will be transferred as CLU entities with the same names. The CLU entity will have the relevant prebuilt entities enabled if they are supported. Learn more about the supported prebuilt entities [here.](TBD)|
+|Required entity features in ML entities|If you had a prebuilt entity or a list entity as a required feature to another ML entity (top-level only, sub-entities are ignored), then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. The CLU entity will include the required feature entity as a component. The [overlap method](TBD) will be set as “Exact Overlap” for the CLU entity.|
+|Non-required entity features in ML entities|If you had a prebuilt entity or a list entity as a non-required feature to another ML entity (top-level only, sub-entities are ignored), then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. If an ML entity was used as a feature to another ML entity, it will not be transferred over.|
+|Roles|All of your roles will be transferred as CLU entities with the same names. Each role will be its own CLU entity. The role’s entity type will determine which component is populated for the role. Roles on prebuilt entities will transfer as CLU entities with the prebuilt entity component enabled and the role labels transferred over to train the Learned component. Roles on list entities will transfer as CLU entities with the list entity component populated and the role labels transferred over to train the Learned component. Roles on ML entities will be transferred as CLU entities with their labels applied to train the Learned component of the entity.  |
 
 ### Unsupported Features
 
@@ -48,12 +48,12 @@ When importing the LUIS JSON application into CLU, certain features will be igno
 
 |**Feature**|**Notes**|
 | :- | :- |
-|**Application Settings**|The settings such as Normalize Punctuation, Normalize Diacritics, and Use All Training Data were meant to improve predictions for intents and entities. The new models in CLU are not sensitive to small changes such as punctuation and are therefore not available as settings.|
-|**Features**|Phrase list features and features to intents will all be ignored. Features were meant to introduce semantic understanding for LUIS that CLU can provide out of the box with its new models.|
-|**Patterns**|Patterns were used to cover for lack of quality in intent classification. The new models in CLU are expected to perform better without needing patterns.|
-|**Pattern.Any Entities**|Pattern.Any entities were used to cover for lack of quality in ML entity extraction. The new models in CLU are expected to perform better without needing pattern.any entities.|
-|**Regex Entities**|*Coming Soon*|
-|**Structured ML Entities**|*Coming Soon*|
+|Application Settings|The settings such as Normalize Punctuation, Normalize Diacritics, and Use All Training Data were meant to improve predictions for intents and entities. The new models in CLU are not sensitive to small changes such as punctuation and are therefore not available as settings.|
+|Features|Phrase list features and features to intents will all be ignored. Features were meant to introduce semantic understanding for LUIS that CLU can provide out of the box with its new models.|
+|Patterns|Patterns were used to cover for lack of quality in intent classification. The new models in CLU are expected to perform better without needing patterns.|
+|Pattern.Any Entities|Pattern.Any entities were used to cover for lack of quality in ML entity extraction. The new models in CLU are expected to perform better without needing pattern.any entities.|
+|Regex Entities| |
+|Structured ML Entities| |
 
 
 ## Use a published LUIS application in Conversational Language Understanding orchestration projects
