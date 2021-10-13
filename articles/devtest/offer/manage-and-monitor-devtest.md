@@ -52,7 +52,7 @@ Load and duress analysis provide another data in pre-production so you can conti
 As you perform load and duress testing with your application or service, the method for scaling up or out depends on your workloads. You can learn more about scaling your apps in Azure:  
 
 - [Scale up an app in Azure App Service](../../app-service/manage-scale-up.md)  
-- [Get started with Autoscale in Azure](../../../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)  
+- [Get started with Autoscale in Azure](../../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)  
 
 Enable monitoring for your application with [Application Insights](../../azure-monitor/app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions.  
 
