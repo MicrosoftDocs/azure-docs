@@ -64,11 +64,21 @@ For more information about replication and federation in Azure Service Bus with 
 - [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
+## Naming conventions
+
+For example, if you want to create a replication task between Service Bus queues, you can use the following suggested naming convention:
+
+| Source name | Example | Replication app | Example | Target name | Example |
+|-------------|---------|-----------------|---------|-------------|---------|
+| Namespace: `<name>-sb-<region>` | `fabrikam-sb-weu` | Logic app: `<name-source-region-target-region>` | `fabrikam-rep-weu-wus` | Namespace: `<name>-sb-<region>` | `fabrikam-sb-wus` |
+| Queue: `<name>` | `jobs-transfer` | Workflow: `<name>` | `jobs-transfer-workflow` | Queue: `<name>` | `jobs` |
+|||||||
+
 <a name="pricing"></a>
 
 ## Pricing
 
-Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follows the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
+Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follows the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
 
 ## Prerequisites
 
