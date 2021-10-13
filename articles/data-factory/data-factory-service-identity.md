@@ -110,6 +110,10 @@ Type                             : Microsoft.Synapse/workspaces
 #### Generate system-assigned managed identity using REST API
 
 # [Azure Data Factory](#tab/data-factory)
+
+> [!NOTE]
+> If you attempt to update a service instance that already has a managed identity without either specifying the **identity** parameter in the factory object or providing an **identity** section in the REST request body, you will get an error.
+
 Call the API below with the "identity" section in the request body:
 
 ```
@@ -152,6 +156,10 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 # [Azure Synapse](#tab/synapse-analytics)
+
+> [!NOTE]
+> If you attempt to update a service instance that already has a managed identity without either specifying the **identity** parameter in the workspace object or providing an **identity** section in the REST request body, you will get an error.
+
 Call the API below with the "identity" section in the request body:
 
 ```
