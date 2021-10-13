@@ -1105,6 +1105,8 @@
         href: managed-instance/virtual-network-subnet-create-arm-template.md
       - name: Configure existing VNet and subnet for managed instance
         href: managed-instance/vnet-existing-add-subnet.md
+      - name: Configure service endpoint policies for managed instance
+        href: managed-instance/service-endpoint-policies-configure.md
       - name: Delete subnet after deleting managed instance
         href: managed-instance/virtual-cluster-delete.md
       - name: Configure custom DNS
