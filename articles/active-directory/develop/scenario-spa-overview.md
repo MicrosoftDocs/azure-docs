@@ -34,7 +34,9 @@ The Microsoft identity platform provides **two** options to enable single-page a
 
 - [OAuth 2.0 Authorization code flow (with PKCE)](./v2-oauth2-auth-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. 
 
-    Proof Key for Code Exchange, or _PKCE_, is an extension to the authorization code flow to prevent authorization code injection attacks. This IETF standard mitigates the threat of having authorization code intercepted and enables secure OAuth exchange from public clients as documented in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). In addition, it returns **refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. This is the **recommended** approach.
+    Proof Key for Code Exchange, or _PKCE_, is an extension to the authorization code flow to prevent authorization code injection attacks. This IETF standard mitigates the threat of having authorization code intercepted and enables secure OAuth exchange from public clients as documented in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). In addition, it returns **refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. 
+
+    Using the authorization code flow with PKCE is the more secure and **recommended** authorization approach, not only in native and browser-based JavaScript apps, but for every other type of OAuth client.
 
 ![Single-page applications-auth](./media/scenarios/spa-app-auth.svg)
 
