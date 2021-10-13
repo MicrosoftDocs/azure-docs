@@ -1,18 +1,18 @@
 ---
-title: "Quickstart - Set up Azure Spring Cloud configuration server"
-description: Describes set up of Azure Spring Cloud config server for app deployment.
+title: "Quickstart - Set up Azure Spring Cloud Config Server"
+description: Describes the set up of Azure Spring Cloud Config Server for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Set up Azure Spring Cloud configuration server
+# Quickstart: Set up Azure Spring Cloud Config Server
 
-Azure Spring Cloud Config server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the config server to get data from a Git repository.
+Azure Spring Cloud Config Server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -20,33 +20,33 @@ Azure Spring Cloud Config server is a centralized configuration service for dist
 
 * Complete the previous quickstart in this series: [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
 
-## Azure Spring Cloud config server procedures
+## Azure Spring Cloud Config Server procedures
 
-Set up your config-server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
+Set up your Config Server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
 ```
 
-This command tells Configuration server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that will get the configuration data is `planet-weather-provider`, the file that will be used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
+This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that will get the configuration data is `planet-weather-provider`, the file that will be used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Azure Spring Cloud Config server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
+Azure Spring Cloud Config Server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the Config Server to deploy microservice apps to Azure Spring Cloud.
 
 ## Prerequisites
 
-* [Install JDK 8](/java/azure/jdk/)
+* [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## Azure Spring Cloud config server procedures
+## Azure Spring Cloud Config Server procedures
 
 #### [Portal](#tab/Azure-portal)
 
-The following procedure sets up the config server using the Azure portal to deploy the [PetClinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
+The following procedure sets up the Config Server using the Azure portal to deploy the [PetClinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
 1. Go to the service **Overview** page and select **Config Server**.
 
@@ -54,21 +54,21 @@ The following procedure sets up the config server using the Azure portal to depl
 
 3. Select **Validate**.
 
-    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to Config Server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 4. When validation is complete, select **Apply** to save your changes.
 
-    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    ![Validating Config Server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 5. Updating the configuration can take a few minutes.
 
-    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
+    ![Updating Config Server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 6. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
+The following procedure uses the Azure CLI to set up Config Server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
 Run the following command to set the Default repository.
 
@@ -79,9 +79,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
+> If you are using a private repository for Config Server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
 
-## Troubleshooting of Azure Spring Cloud config server
+## Troubleshooting of Azure Spring Cloud Config Server
 
 The following procedure explains how to troubleshoot config server settings.
 
