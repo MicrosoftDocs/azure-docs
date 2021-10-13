@@ -27,8 +27,12 @@ Microsoft Graph exposes REST APIs and client libraries to access data on the fol
 
 ## Versions
 
-Microsoft Graph currently supports two versions: v1.0 and beta. The v1.0 version includes generally available APIs. Use the v1.0 version for all production apps. The
-beta includes APIs that are currently in preview. Because we might introduce breaking changes to our beta APIs, we recommend you use the beta version only to test apps that are in development; do not use beta APIs in your production apps. For more information, see [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
+The following versions of the Microsoft Graph API are currently available:
+
+- **Beta version**: The beta includes APIs that are currently in preview and are accessible in the `https://graph.microsoft.com/beta` endpoint.
+- **v1.0 version**: The v1.0 version includes APIs that are generally available and ready for production use. The v1.0 version is accessible in the `https://graph.microsoft.com/v1.0` endpoint.
+
+For more information about Microsoft Graph API versions, see [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
 
 To start using the beta APIs, see [Microsoft Graph beta endpoint reference](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
