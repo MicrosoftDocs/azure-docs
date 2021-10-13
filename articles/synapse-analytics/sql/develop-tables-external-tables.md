@@ -300,10 +300,11 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
     WITH (
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
-        FILE_FORMAT = external_file_format_name
-        [ , <reject_options> [ ,...n ] ] 
+        FILE_FORMAT = external_file_format_name,
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+        [, <reject_options> [ ,...n ] ] 
     )  
-[;]  
+[;]    
 
 <column_definition> ::=
 column_name <data_type>
@@ -315,7 +316,7 @@ column_name <data_type>
     | REJECT_VALUE = reject_value,  
     | REJECT_SAMPLE_VALUE = reject_sample_value,
     | REJECTED_ROW_LOCATION = '/REJECT_Directory'
-}  
+}   
 ```
 
 ### Arguments CREATE EXTERNAL TABLE
