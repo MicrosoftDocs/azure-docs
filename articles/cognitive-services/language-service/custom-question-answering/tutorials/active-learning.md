@@ -43,7 +43,7 @@ curl "https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob
 From the edit knowledge base pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of edit knowledge base menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions-and-answers.png) ]( ../media/active-learning/import-questions-and-answers.png#lightbox)
+> [ ![Screenshot of edit knowledge base menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)
 
 ## View and add/reject active learning suggestions
 
@@ -57,7 +57,7 @@ We can now either accept these suggestions or reject them using the options on t
 Alternatively, to accept or reject individual suggestions, select the checkmark (accept) symbol or trash can (reject) symbol that appears next to individual questions in the **Review suggestions** page.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with option to accept or reject highlighted in red.]( ../media/active-learning/accept-or-reject.png) ]( ../media/active-learning/accept-or-reject.png#lightbox)
+> [ ![Screenshot with option to accept or reject highlighted in red.]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
 
 ## Add alternate questions
 
