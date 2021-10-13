@@ -170,7 +170,7 @@ Check if the target size is part of the reservation group:
 
 ### [CLI](#tab/cli2)
 
-1. Get the names of all Capacity Reservations within the group with `az capacity reservation group show`
+1. Get the names of all Capacity Reservations within the capacity reservation group with `az capacity reservation group show`
 
     ```azurecli-interactive
     az capacity reservation group show 
