@@ -1,4 +1,4 @@
-## Overview
+## How to create a project in Conversational Language Understanding
 Conversational Language Understanding allows you to create two types of projects: **Conversation** and **Orchestration Workflow** projects.
 
 ## Sign in to Language Studio
