@@ -18,7 +18,7 @@ utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
 [manually](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
 or by using other Azure services such as
-[AutoManage](../../automanage/automanage-virtual-machines.md).
+[AutoManage](../../../automanage/automanage-virtual-machines.md).
 
 Configuration resources in Azure are designed as an
 [extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
