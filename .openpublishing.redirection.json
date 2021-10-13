@@ -46472,6 +46472,26 @@
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-invoice",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md",
+      "redirect_url": "/azure/app-service/environment/integrate-with-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-environment-with-internal-load-balancer.md",
+      "redirect_url": "/azure/app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-an-app-service-environment.md",
+      "redirect_url": "/azure/app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
+      "redirect_url": "/azure/app-service/environment/using",
+      "redirect_document_id": false
     }
   ]
 }
