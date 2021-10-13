@@ -33,7 +33,7 @@ The code in this reference defaults to .NET Core syntax, used in Functions versi
 
 ### CloudEvent type
 
-The following example shows a Functions 3.x [C# function](functions-dotnet-class-library.md) that binds to a `CloudEvent`:
+The following example shows a Functions version 3.x function that uses a `CloudEvent`  binding parameter:
 
 ```cs
 using Azure.Messaging;
@@ -81,7 +81,7 @@ namespace Company.Function
 }
 ```
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+The following example shows a C# function that uses an `EventGridEvent` binding parameter:
 
 ```cs
 using System;
@@ -96,7 +96,7 @@ namespace Company.Function
     public static class EventGridTriggerDemo
     {
         [FunctionName("EventGridTriggerDemo")]
-        public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+        public static void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.Data.ToString());
         }
@@ -106,9 +106,9 @@ namespace Company.Function
 
 For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
 
-### Version 1.x
+### JObject type
 
-The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
+The following example shows a function that uses a  `JObject`  binding parameter:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -123,7 +123,7 @@ namespace Company.Function
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        public static void Run([EventGridTrigger] JObject eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
         }
@@ -142,7 +142,7 @@ This custom type is used in both the trigger and an Event Grid output binding:
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
+The following example shows an Event Grid trigger defined in the *function.json* file.
 
 Here's the binding data in the *function.json* file:
 
@@ -161,7 +161,7 @@ Here's the binding data in the *function.json* file:
 
 ### EventGridEvent type
 
-Here's an example that binds to `EventGridEvent`:
+Here's an example of a C# script function that uses an  `EventGridEvent` binding parameter:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -178,7 +178,7 @@ For more information, see Packages, [Attributes](#attributes-and-annotations), [
 
 ### JObject type
 
-Here's Functions 1.x C# script code that binds to `JObject`:
+Here's an example of a C# script function that uses a `JObject` binding parameter:
 
 ```cs
 #r "Newtonsoft.Json"
