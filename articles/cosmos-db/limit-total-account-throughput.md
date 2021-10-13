@@ -34,7 +34,7 @@ After you've set a limit to your account's total throughput, any of the followin
 > [!NOTE]
 > For resources configured in autoscale mode, it is the maximum throughput configured on the resource that counts towards your account's total throughput.
 
-## Set total throughput limit from the Azure portal
+## Set the total throughput limit from the Azure portal
 
 ### New account
 
@@ -53,9 +53,9 @@ From the Azure portal, navigate to your Azure Cosmos DB account and select **Cos
 This section shows a summary of the total throughput provisioned on your account and lets you configure the total throughput limit. The following three options are available:
 
 - **Limit the account's total provisioned throughput to the amount included in the free tier discount**. This option is only available on free tier accounts and will limit your account's total throughput to 1,000 RU/s. When checking this option, you ensure that you won't incur any charges for provisioned throughput.
-- **Allow the account's total throughput to be provisioned up to a custom amount**. This option lets you enter the total provisioned throughput that you don't want to exceed. A monthly cost estimates corresponding to your input is shown as a reference.
+- **Allow the account's total throughput to be provisioned up to a custom amount**. This option lets you enter the total provisioned throughput that you don't want to exceed. A monthly cost estimate corresponding to your input is shown as a reference.
   > [!NOTE]
-  > This custom limit can't be set below the total throughput currently provisioned across the account.
+  > This custom limit can't be lower than the total throughput currently provisioned across the account.
 - **No limit, allow the account's total throughput to be provisioned to any amount**. This option disables the limit.
 
 ## Set the total throughput limit programmatically
