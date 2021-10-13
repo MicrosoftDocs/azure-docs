@@ -163,13 +163,13 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
-* Dynamic or variable collection of values (rows) for a defined set of fields (columns)
+* Dynamic or variable count of values (rows) for a given set of fields (columns)
 
-* Fixed collection of values for two defined sets of fields (fixed rows and columns)
+* Specific collection of values for a given set of fields (columns and/or rows)
 
 ### Label as dynamic table
 
-For labeling dynamic rows of data for a given set of fields:
+Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
 1. Add a new "Table" type label, select "Dynamic table" type, and name your label.
 
@@ -181,7 +181,7 @@ For labeling dynamic rows of data for a given set of fields:
 
 ### Label as fixed table
 
-For labeling fixed collections of data grouped by two sets of fields:
+Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
 1. Create a new "Table" type label, select "Fixed table" type, and name it.
 
