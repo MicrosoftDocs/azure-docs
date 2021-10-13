@@ -15,35 +15,35 @@ Azure Database for MySQL Flexible Server is now integrated with Azure Monitor wo
 
 When you open a template, you create a transient workbook that's populated with the contents of the template. With this integration, the server links to workbooks and a few sample templates, which can help you monitor the service at scale. You can edit these templates, customize them to your requirements, and pin them to the dashboard to create a focused and organized view of Azure resources.
  
-In this article, you will learn about the various workbook templates that are available for your flexible server.
+In this article, you'll learn about the various workbook templates that are available for your flexible server.
 
 Azure Database for MySQL Flexible Server has three available templates:
  
 - **Overview**: Displays an instance summary and top-level metrics to help you visualize and understand the resource utilization on your server. This template displays the following views:
 
-    * Server summary 
-    * Database summary
-    * Connection metrics 
-    * Performance metrics 
-    * Storage metrics 
+    * Server Summary 
+    * Database Summary
+    * Connection Metrics 
+    * Performance Metrics 
+    * Storage Metrics 
 
 * **Auditing**: Displays a summary and details of the auditing events that are collected for the server. This template displays the following views:
 
-    * Administrative sections on the service
-    * Audit summary
-    * Audit connection events summary
-    * Audit connection events
-    * Table access summary
-    * Errors identified
+    * Administrative Actions on the service
+    * Audit Summary
+    * Audit Connection Events Summary
+    * Audit Connection Events
+    * Table Access Summary
+    * Errors Identified
 
 * **Query Performance Insight**: Displays a summary and details of query workload on the instance, long running query, slow query analysis, and connection metrics. This template displays the following views:
 
-    * Query load
-    * Total active connections
-    * Slow query trend (>10 seconds of query time)
-    * Slow query details
-    * A list of the top five longest queries
-    * A summary of slow queries by minimum, maximum, average, and standard deviation query time
+    * Query Load
+    * Total Active Connections
+    * Slow Query Trend (>10 seconds of query time)
+    * Slow Query Details
+    * List top 5 longest queries
+    * Summarize slow queries by minimum, maximum, average, and standard deviation query time
 
 You can also edit and customize these templates according to your requirements. For more information, see [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
 
