@@ -70,7 +70,7 @@ For the default scale condition, use the following values:
 
 ---
 
-## Create a rule to scale out
+## Create a rule to scale out using metrics
 
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
@@ -98,7 +98,7 @@ Finally, select the __Add__ button to create the rule.
 
 ---
 
-## Create a rule to scale in
+## Create a rule to scale in using metrics
 
 When load is light, a scaling in rule can reduce the number of VM instances. The following example will release a single node, down to a minimum of 2, if the CPU load is less than 30% for 5 minutes:
 
@@ -125,9 +125,9 @@ If you have both scale out and scale in rules, your rules will look similar to t
 
 ---
 
-## Create a rule for endpoint metrics
+## Create a scaling rule based on endpoint metrics
 
-The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. In this example, if the request latency is greater than an average of 70 for 5 minutes, allocate another node.
+The previous rules applied to the deployment. Now, add a rule that applies to the endpoint. In this example, if the request latency is greater than an average of 70 milliseconds for 5 minutes, allocate another node.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -151,7 +151,7 @@ Select __Scale based on metric__, and then select __Add a rule__. The __Scale ru
 
 ---
 
-## Create a schedule-based rule
+## Create scaling rules based on a schedule
 
 You can also create rules that apply only on certain days or at certain times. In this example, the node count is set to 2 on the weekend.
 
