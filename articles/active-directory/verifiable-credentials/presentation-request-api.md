@@ -4,7 +4,7 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a Verifiable Credential presentation request
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials

@@ -4,6 +4,7 @@ description: In this tutorial, you learn how to issue verifiable credentials usi
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
