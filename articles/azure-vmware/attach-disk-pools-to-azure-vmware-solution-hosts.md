@@ -139,7 +139,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 First, register your subscription to the Microsoft.AVS and CloudSanExperience.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Subscriptions**.
 1. Select the subscription you want to use and select **Resource providers** under **Settings**.
 1. Search for **Microsoft.AVS**, select it, and select **Register**.
