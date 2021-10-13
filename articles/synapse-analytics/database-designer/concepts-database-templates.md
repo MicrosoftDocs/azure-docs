@@ -16,14 +16,14 @@ Learn concepts related to lake database templates in Azure Synapse. Use these te
 
 ## Business area templates  
 
-Business area templates provide the most comprehensive and granular view of data for a business or subject area. Business area models are also referred to as Subject Area or domain templates. Business area templates contain tables and columns relevant to a particular business within an industry. Data stewards, data governance team, business teams within an organization can use the business area templates to build business centric data schema that facilitate detailed communication of business requirements and scope. Each business area templates is constructed from a common set of entities from the corresponding industry enterprise database template the ensures that business area templates will have common keys, attributes and definitions consistent with other industry models. E.g., Accounting & Financial Reporting, Marketing, Budget & Forecasting are business area templates for many industries such as Retail, or Banking etc. 
+Business area templates provide the most comprehensive and granular view of data for a business or subject area. Business area models are also referred to as Subject Area or domain templates. Business area templates contain tables and columns relevant to a particular business within an industry. Data stewards, data governance team, business teams within an organization can use the business area templates to build business-centric data schema that facilitate detailed communication of business requirements and scope. Each business area template is constructed from a common set of entities from the corresponding industry enterprise database template to ensures that business area templates will have common keys, attributes and definitions consistent with other industry models. E.g., Accounting & Financial Reporting, Marketing, Budget & Forecasting are business area templates for many industries such as Retail, or Banking etc. 
 
 ![Business area templates example](./media/concepts-database-templates/business-area-template-example.png)
 
 
 ## Enterprise templates 
 
-Enterprise database templates contain a subset of tables that are most likely to be of interest to an organization within a specific industry. It provides a high-level overview and describes the connectivity between the related business area templates. These templates serves as an accelerator for many types of large projects. For example, the Banking template has one enterprise template called "Banking". 
+Enterprise database templates contain a subset of tables that are most likely to be of interest to an organization within a specific industry. It provides a high-level overview and describes the connectivity between the related business area templates. These templates serve as an accelerator for many types of large projects. For example, the Banking template has one enterprise template called "Banking". 
 
 ![Enterprise template example](./media/concepts-database-templates/enterprise-template-example.png)
 
@@ -47,4 +47,4 @@ A composite key is one that comprises of 2 or more columns that are together req
 Relations are associations or interactions between any two tables. For example, the tables Customer and CustomerEmail are related to each other. There are 2 tables involved in a relationship. There is a parent table and a child table, often connected by a foreign key. You might say that the relationship is From table To table.
 
 ## Table partitions
-Lake database allow for the underlying data to be partitioned for a table for better performance. You can set partition configuration in the storage settings of a table in database editor.
+Lake database allows for the underlying data to be partitioned for a table for better performance. You can set partition configuration in the storage settings of a table in database editor.
