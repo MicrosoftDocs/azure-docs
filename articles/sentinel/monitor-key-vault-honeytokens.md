@@ -20,13 +20,13 @@ ms.author: bagol
 
 # Plant and monitor Azure Key Vault honeytokens with Azure Sentinel
 
-This article describes how to use the [Azure Sentinel Deception solution](azure-sentinel) to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*.
+This article describes how to use the [Azure Sentinel Deception (Honey Tokens) ~~S~~olution](azure-sentinel) to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*.
 
-Then, use the [analytics rules](detect-threats-built-in.md), [watchlists](watchlists.md), and [workbooks](monitor-your-data.md) provided by the **Azure Sentinel Deception** solution to monitor access to the planted honeytokens.
+Then, use the [analytics rules](detect-threats-built-in.md), [watchlists](watchlists.md), and [workbooks](monitor-your-data.md) provided by the **Azure Sentinel Deception (Honey Tokens)** solution to monitor access to the planted honeytokens.
 
 ## Prerequisites
 
-In order to start using the **Azure Sentinel Deception** solution, make sure that you have the required Azure Sentinel data connectors deployed and have an Azure Active Directory application configured as needed.
+In order to start using the **Azure Sentinel Deception (Honey Tokens)** solution, make sure that you have the required Azure Sentinel data connectors deployed and have an Azure Active Directory application configured as needed.
 
 **To verify and complete the prerequisites**:
 
@@ -37,26 +37,38 @@ In order to start using the **Azure Sentinel Deception** solution, make sure tha
     - [Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
     - [Find your Azure Sentinel data connector](data-connectors-reference.md)
 
-1. Install the **Azure Sentinel Deception** solution in the same resource group where your Azure Sentinel workspace is located.
+1. Install the **Azure Sentinel Deception (Honey Tokens)** solution. In the **Create Azure Sentinel Deception (Honey Tokens) Solution** page, follow the wizard instructions to create the solution in your workspace:
 
-    In the solution installation wizard, adjust any settings as needed to suit your environment:
+    1. On the **Basics** tab, select the same resource group where your Azure Sentinel workspace is located.
 
-    - Set the **Keys Keywords** and **Secrets Keywords** to a comma-separated list of values, which will be used to generate honeytoken names.
-    - Set the **Additional HoneyToken Probability** value to a value between `0` and `1`, such as `0.6`. This value defines the probability of more than one honeytoken being added to the Key Vault.
+    1. On the **Prerequisites** tab, in the **Function app name** field, enter a meaningful name for the Azure Function App that will create honeytokens in your key vaults.
+
+        The command displayed below is automatically updated with the name you define. For example, if you've named your Function App `honeytokens`, the command is updated to read:
+
+        ```bash
+        curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s honeytokens
+        ```
+
+    1. Select **To open a cloud shell, click here**, and then run the command displayed.
+
+        The script creates an Azure AD app, and outputs the client ID and secret. Copy these values to a secure location to use on the **Azure Functions** tab.
+
+    1. On the **Workbooks**, **Analytics**, **Watchlists**, and **Playbooks** tabs, note the security content that will be created, and modify the names as needed.
+
+    1. On the **Azure Functions** tab, define values for your Function App, using the client ID and secret value you saved after running the cloud shell script earlier.
+
+        In the **Keys Keywords** and **Secrets Keywords** fields, enter comma-separated lists of values, which will be used to generate honeytoken names.
+
+        In the **Additional HoneyToken Probability** field, enter a value between `0` and `1`, such as `0.6`. This value defines the probability of more than one honeytoken being added to the Key Vault.
+
+    1. In the **Policy Definitions** tab, TBD.
 
     For more information, see [Discover and deploy built-in content and solutions](sentinel-solutions-deploy.md).
 
-1. Open an Azure Cloud Shell prompt, and run the following command, using the name of your function app. This command runs a script that creates a new Azure AD app, which will deploy your honeytokens. <!--tbd what does this mean? an example? is it a static value? also what about the AAD application? i think we need more details-->
-
-    ```azurecli-interactive
-    curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s <function app name>
-    ```
-
-    The script output includes a client ID and client secret that you'll use when [deploying your honeytokens](#deploy-your-honeytokens). Save the script output to a secure location.
 
 ## Deploy your honeytokens
 
-After you've installed the **Azure Sentinel Deception** solution and run the Azure CloudShell script to configure your Azure AD application, you're ready to start deploying honeytokens in your key vaults.
+After you've installed the **Azure Sentinel Deception (Honey Tokens)** solution and run the Azure CloudShell script to configure your Azure AD application, you're ready to start deploying honeytokens in your key vaults.
 
 **Use the SOCHTManagement workbook to deploy honeytokens**:
 
