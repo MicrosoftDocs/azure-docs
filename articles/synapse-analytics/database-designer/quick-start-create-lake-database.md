@@ -1,11 +1,11 @@
 ---
-title: Azure Synapse lake database Quick Start
-description: Learn how database templates in Azure Synapse help to define database schema from standardized templates. 
+title: QuickStart: Azure Synapse lake database and database templates
+description: Quickstart how to use the synapse lake database and the database templates
 author: gesaur
 ms.author: gesaur
 ms.service: synapse-analytics
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 12/10/2021
+ms.date: 13/10/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
@@ -46,9 +46,10 @@ To save your layout and make it available within Synapse Publish all changes. Th
 ## Ingest data to lake database
 
 To ingest data to the lake database, you can execute [pipelines](../synapse-analytics/data-integration/) with code free data flow mappings which has a **Workspace DB** connector to load data directly to the database table. You can also use the interactive Spark notebooks to ingest data to the lake database tables:
+
 ```Spark
 %%sql
-INSERT INTO `retail_gf6`.`customer` VALUES (1,'2021-02-18',1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
+INSERT INTO `retail_mil`.`customer` VALUES (1,'2021-02-18',1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
 ```
  
 
