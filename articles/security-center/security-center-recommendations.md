@@ -32,13 +32,26 @@ Security Center analyzes the security state of your resources to identify potent
     The page includes:
 
     1. For supported recommendations, the top toolbar shows any or all of the following buttons:
-        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
-        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy
-        - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer
-    1. **Severity indicator**
-    1. **Freshness interval** (where relevant)
-    1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted
-    1. **Description** - A short description of the issue
+        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
+        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
+        - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
+    1. **Severity indicator**.
+    1. **Freshness interval** (where relevant).
+    1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted.
+    1. **Description** - A short description of the security issue.
+    1. When relevant, the details page also includes a table of **related recommendations**:
+
+        The relationship types are:
+
+        - **Prerequisite** - A recommendation that must be completed before the selected recommendation
+        - **Alternative** - A different recommendation which provides another way of achieving the goals of the selected recommendation
+        - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+
+        For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+
+        > [!TIP]
+        > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
+
     1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select **View remediation logic** before applying the suggested fix to your resources.
     1. **Affected resources** - Your resources are grouped into tabs:
         - **Healthy resources** – Relevant resources which either aren't impacted or on which you've already  remediated the issue.
