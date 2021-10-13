@@ -38,7 +38,7 @@ The following table describes the key differences between service tiers.
 | | SQL Managed Instance pools | 2, 4, 8, 16, 24, 32, 40, 64, 80  vCores | N/A | N/A |
 | **Storage type** | All | Remote storage | Tiered remote and local SSD storage | Local SSD storage |
 | **Database size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
-| | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only| N/A | 32 GB – 4 TB |
 | **Storage size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
 | | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **TempDB size** | SQL Database | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) |

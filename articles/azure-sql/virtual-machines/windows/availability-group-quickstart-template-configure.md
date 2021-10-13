@@ -42,7 +42,8 @@ To automate the setup of an Always On availability group by using quickstart tem
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) that are in the same availability set or availability zone and that have been [registered with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).  
-- Two available (not used by any entity) IP addresses: one for the internal load balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, you need only one available IP address.  
+- An internal Azure Load Balancer and an available (not used by any entity) IP address for the availability group listener within the same subnet as the SQL Server VM. 
+
 
 ## Permissions
 The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
