@@ -272,20 +272,7 @@ Add the above Shaper skill to the example skillset introduced at the start of th
 
 ## Projecting to tables
 
-Projecting to tables in Azure Storage is useful for reporting and analysis using tools like Power BI that can read from tables and discover relationships based on keys generated during projection. If you're trying to build a dashboard, working with related tables will simplify that task.
-
-The schema of the table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns).
-
-> [!NOTE] 
-> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
-
 Drawing on the examples above, there is a known quantity of enrichments and data shapes that can be referenced in table projections. In the tables projection below, three tables are defined by setting the `tableName`, `source` and `generatedKeyName` properties.
-
-| Property | Description |
-|----------|-------------|
-| tableName | (Required) Determines the name of a new table created in Azure Table Storage. Tables are created with partitionKey and rowKey columns. |
-| source | A path to a node in an enrichment tree. Because a table projection is complex (with multiple nodes populating multiple columns), the path should resolve to a data shape that includes the nodes. The output of a Shaper skill is the most common value for this property, but you can also create a shape using inline shaping within the projection. |
-| generatedKeyName | Every row is uniquely identified by a system-generated value. This property determines the name of the column containing those values. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
 
 All three of these tables will be related through generated keys and by the shared parent `/document/projectionShape`.
 
@@ -318,7 +305,9 @@ All three of these tables will be related through generated keys and by the shar
 }
 ```
 
-You can process your work by following these steps:
+### Test your work
+
+You can check projection definitions by following these steps:
 
 1. Set the knowledge store's `storageConnectionString` property to a valid V2 general purpose storage account connection string.  
 

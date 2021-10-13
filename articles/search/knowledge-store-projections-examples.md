@@ -13,117 +13,133 @@ ms.date: 10/15/2021
 
 # Define projections in a knowledge store
 
-Projections are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how your AI enriched content is stored in Azure Storage. Projections determine both the type of data structure and the quantity.
+Projections are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how AI enriched content is stored in Azure Storage. Projections determine the type, quantity, and composition of the data structures containing your content.
 
-In this article, learn how to build out projection properties for each type. 
+In this article, learn how to build out projections for each type:
 
-Before your start=, review a [check list for working with projections](knowledge-store-projection-overview.md#checklist-for-working-with-projections) for tips and best practices.
++ [Table projections](#define-a-table-projection)
++ [Object projections](#define-an-object-projection)
++ [File projections](#define-a-file-projection)
 
-> [!TIP]
-> When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments wherever possible. Without caching, simple edits to a projection specification will result in a full reprocessing of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing fees.
-
-## Define a table projection
-
-Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI. The tables definition is a list of tables that you want to project. Each table requires three properties:
-
-+ tableName: The name of the table in Azure Table Storage.
-
-+ generatedKeyName: The column name for the key that uniquely identifies this row.
-
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a Shaper skill that defines the shape of the table. Tables have rows and columns, and shaping is the mechanism by which rows and columns are specified. You can use a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). The Shaper skill produces valid JSON, but could be the output from any skill, if valid JSON. 
-
-As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. 
-
-```json
-"knowledgeStore": {
-  "storageConnectionString": "an Azure storage connection string",
-  "projections" : [
-    {
-      "tables": [
-        { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-        { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-        { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-      ]
-    },
-    {
-      "objects": [ ]
-    },
-    {
-      "files": [ ]
-    }
-  ]
-}
-```
-
-The enrichment node specified in "source" can be sliced to project into multiple tables. The reference to "EnrichedShape" is the output of a Shaper skill (not shown). The inputs of the skill determine table composition and the rows that fill it. Generated keys and common fields within each table provide the basis for table relationships.
-
-## Projecting to tables
-
-Projecting to tables in Azure Storage is useful for reporting and analysis using tools like Power BI that can read from tables and discover relationships based on keys generated during projection. If you're trying to build a dashboard, working with related tables will simplify that task.
-
-The schema of the table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns).
-
-> [!NOTE] 
-> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
-
-Drawing on the examples above, there is a known quantity of enrichments and data shapes that can be referenced in table projections. In the tables projection below, three tables are defined by setting the `tableName`, `source` and `generatedKeyName` properties.
-
-| Property | Description |
-|----------|-------------|
-| tableName | (Required) Determines the name of a new table created in Azure Table Storage. Tables are created with partitionKey and rowKey columns. |
-| source | A path to a node in an enrichment tree. Because a table projection is complex (with multiple nodes populating multiple columns), the path should resolve to a data shape that includes the nodes. The output of a Shaper skill is the most common value for this property, but you can also create a shape using inline shaping within the projection. |
-| generatedKeyName | Every row is uniquely identified by a system-generated value. This property determines the name of the column containing those values. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
-
-All three of these tables will be related through generated keys and by the shared parent `/document/projectionShape`.
+Projections are defined under the "knowledgeStore" property of a skillset.
 
 ```json
 "knowledgeStore" : {
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
     "projections": [
-        {
-            "tables": [
-                {
-                    "tableName": "tblDocument",
-                    "generatedKeyName": "Documentid",
-                    "source": "/document/projectionShape"
-                },
-                {
-                    "tableName": "tblKeyPhrases",
-                    "generatedKeyName": "KeyPhraseid",
-                    "source": "/document/projectionShape/keyPhrases/*"
-                },
-                {
-                    "tableName": "tblEntities",
-                    "generatedKeyName": "Entityid",
-                    "source": "/document/projectionShape/Entities/*"
-                }
-            ],
-            "objects": [],
-            "files": []
-        }
+      {
+        "tables": [  ],
+        "objects": [ ],
+        "files": [ ]
+      }
+    ]
+```
+
+If you need more background before getting started, review [this check list](knowledge-store-projection-overview.md#checklist-for-working-with-projections) for tips and workflow.
+
+> [!TIP]
+> When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing charges.
+
+## Projection requirements
+
+All projections have source and destination properties. The source is from an enrichment tree created during skillset execution. The destination is the name of the object that will be created in Azure Storage.
+
+With the exception of file projections, which store binary files, the source must be:
+
++ Valid JSON
++ A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
+
+While a node might be a single field, a more common representation is a reference to a complex data shape. Complex data shapes are created through a shaping methodology, either a Shaper skill or inline definition.
+
+Given source input requirements, knowing how to [shape data](knowledge-store-projection-shape.md) becomes a practical requirement for projection definition, especially if you are working with tables.
+
+## Define a table projection
+
+Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI or workloads that consume data frames. The tables definition is a list of tables that you want to project.
+
+A table projection has three required properties:
+
+| Property | Description |
+|----------|-------------|
+| tableName | Determines the name of a new table created in Azure Table Storage.  |
+| generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
+| source | A path to a node in an enrichment tree. The node should be a reference to a complex data shape that determines which columns are created in the table.|
+
+In table projections, "source" is usually the output of a [Shaper skill](cognitive-search-skill-shaper.md) that defines the shape of the table. Tables have rows and columns, and shaping is the mechanism by which rows and columns are specified. You can use a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). The Shaper skill produces valid JSON, but the source could be the output from any skill, if valid JSON.
+
+> [!NOTE]
+> Table projections are subject to the [storage limits](/rest/api/storageservices/understanding-the-table-service-data-model) imposed by Azure Storage. The entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
+
+### Single table example
+
+The schema of a table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns).
+
+```json
+"projections" : [
+  {
+    "tables": [
+      { "tableName": "Hotels", "generatedKeyName": "HotelId", "source": "/document/tableprojection" }
+    ]
+  }
+]
+```
+
+Columns provided by an enriched shape like the one shown below will be the HotelId, HotelName, Category, Description.
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "#3",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+    {
+        "name": "HotelId",
+        "source": "/document/HotelId"
+    },
+    {
+        "name": "HotelName",
+        "source": "/document/HotelName"
+    },
+    {
+        "name": "Category",
+        "source": "/document/Category"
+    },
+    {
+        "name": "Description",
+        "source": "/document/Description"
+    },
+    ],
+    "outputs": [
+    {
+        "name": "output",
+        "targetName": "tableprojection"
+    }
     ]
 }
 ```
 
-You can process your work by following these steps:
+### Multiple table example
 
-1. Set the knowledge store's `storageConnectionString` property to a valid V2 general purpose storage account connection string.  
+A common pattern for table projections is to have multiple tables. All tables are created with partitionKey and rowKey columns to support cross-table relationships.
 
-1. Update the skillset by issuing the PUT request.
+The following example shows table projections for enrichments that include Key Phrases and Entity Recognition. Because key phrases and entities are not directly correlated, you would model these projections as separate tables, with a main table that contains a representation of the main document. 
 
-1. After updating the skillset, run the indexer. 
+For example, if you are generating key phrases and location entities from a hotel catalog, the main table would include fields that describe the hotel (ID, name, description, address, category).
 
-You now have a working projection with three tables. [Importing these tables into Power BI](knowledge-store-connect-power-bi.md) should result in Power BI auto-discovering the relationships.
+```json
+"projections" : [
+  {
+    "tables": [
+    { "tableName": "MainTable", "generatedKeyName": "HotelId", "source": "/document/EnrichedShape" },
+    { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
+    { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
+    ]
+  }
+]
+```
 
-Before moving on to the next example, let's revisit aspects of the table projection to understand the mechanics of slicing and relating data.
-
-### Slicing a table into multiple child tables
-
-Slicing is a technique that subdivides a whole consolidated shape into constituent parts. The outcome consists of separate but related tables that you can work with individually.
-
-In the example, `projectionShape` is the consolidated shape (or enrichment node). In the projection definition, `projectionShape` is sliced into additional tables, which enables you to pull out parts of the shape, `keyPhrases` and `Entities`. In Power BI, this is useful as multiple entities and keyPhrases are associated with each document, and you will get more insights if you can see entities and keyPhrases as categorized data.
-
-Slicing implicitly generates a relationship between the parent and child tables, using the `generatedKeyName` in the parent table to create a column with the same name in the child table. 
+The enrichment node specified in "source" can be sliced to project into multiple tables. Within "EnrichedShape", there are nodes for KeyPhrases and Entities. As you can see from the example above, you can define tables that contain a subset of columns. As noted earlier, generated values provide the basis for table relationships.
 
 ### Naming relationships
 
@@ -213,21 +229,18 @@ The destination is always a blob container, with a folder prefix of the base64 e
 The following example projects all normalized images extracted from the document node of an enriched document, into a container called `myImages`.
 
 ```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-        {
-            "tables": [ ],
-            "objects": [ ],
-            "files": [
-                {
-                    "storageContainer": "myImages",
-                    "source": "/document/normalized_images/*"
-                }
-            ]
-        }
-    ]
-}
+"projections": [
+    {
+        "tables": [ ],
+        "objects": [ ],
+        "files": [
+            {
+                "storageContainer": "myImages",
+                "source": "/document/normalized_images/*"
+            }
+        ]
+    }
+]
 ```
 
 ## Projecting to multiple types
@@ -438,13 +451,29 @@ When building projections of different types, file and object projections are ge
 }
 ```
 
+## Test projections
+
+You can process projections by following these steps:
+
+1. Set the knowledge store's `storageConnectionString` property to a valid V2 general purpose storage account connection string.  
+
+1. Update the skillset by issuing a [PUT request](/rest/api/searchservice/update-skillset).
+
+1. After updating the skillset, [run the indexer](/rest/api/searchservice/run-indexer). 
+
+1. Monitor indexer execution to check progress and catch any errors.
+
+1. In Azure Storage, [use Storage Explorer](knowledge-store-view-storage-explorer.md) to verify object creation.
+
+1. If you are projecting tables, [import them into Power BI](knowledge-store-connect-power-bi.md) for table manipulation and visualization. In most cases, Power BI will auto-discover the relationships among tables.
+
 ## Common Issues
 
 When defining a projection, there are a few common issues that can cause unanticipated results. Check for these issues if the output in knowledge store isn't what you expect.
 
-+ Not shaping string enrichments into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. So at projection time, make sure to transform the enrichment into a valid JSON object with a name and a value.
++ String enrichments are not shaped into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. So at projection time, make sure to transform the enrichment into a valid JSON object with a name and a value.
 
-+ Omitting the ```/*``` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
++ Omission of `/*` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
 
 + Path syntax errors. Path selectors are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector.
 

@@ -162,21 +162,21 @@ After the indexer is run, you can read the projected data in the containers or t
 
 ## Checklist for working with projections
 
-Recall that projections are exclusive to knowledge stores, and are not used to create or structure a search index.
+Recall that projections are exclusive to knowledge stores, and are not used to structure a search index.
 
 1. Get the connection string for the Azure Storage account and verify the account is StorageV2 (general purpose V2). 
 
-1. Familiarize yourself with existing content in containers and tables so that you choose non-conflicting names for the projections. A knowledge store is a loose collection of tables and containers. Consider adopting a naming convention to keep related objects together.
+1. Familiarize yourself with existing content in containers and tables in Azure Storage so that you choose non-conflicting names for the projections. A knowledge store is a loose collection of tables and containers. Consider adopting a naming convention to keep track of related objects.
 
-1. [Enable enrichment caching](search-howto-incremental-index.md) in the indexer, and the [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves are not modified).
+1. [Enable enrichment caching](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves are not modified).
 
-1. All projection definitions are solely in a skillset definition. There are no indexer properties (such as field mappings or output field mappings) that apply to projections. Within a skillset definition, you will work in two areas: knowledge store property and skills array.
+1. All projections are defined solely in a skillset. There are no indexer properties (such as field mappings or output field mappings) that apply to projections. Within a skillset definition, you will work in two areas: knowledgeStore property and skills array.
 
-1. Define the projection types (table, object, file) in the `projections` section of the `knowledgeStore` definition.
+   1. Under knowledgeStore, specify table, object, file in the `projections` section.
 
-1. Define projection composition through shapes. Shapes are either the output of a Shaper skill (create as many as you need), or inline shaping that is embedded in a projection definition.
+   1. From the skills array, determine which skill outputs will be referenced in the `source` of each projection. All projections have a source. The source can be the output of an upstream skill, but is often the output of a Shaper skill. The composition of your projection is determined through shapes. 
 
-1. Save the skillset and [run the indexer](search-howto-run-reset-indexers.md). On subsequent runs, avoid naming collisions by deleting objects in Azure Storage or changing project names in the skillset.
+1. Save the skillset and [run the indexer](search-howto-run-reset-indexers.md). Check your results in Azure Storage. On subsequent runs, avoid naming collisions by deleting objects in Azure Storage or changing project names in the skillset.
 
 ## Next steps
 
