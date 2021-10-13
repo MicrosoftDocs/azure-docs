@@ -41,8 +41,8 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 [!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
 
-> [!Note]
-> Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
+   > [!Note]
+   > Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 ## Set up Azure resources
 
