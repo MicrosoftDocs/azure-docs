@@ -46,14 +46,14 @@ landingContent:
   - title: Build Verifiable Credentials Solutions
     linkLists:
         - linkListType: concept
-        links:
-          - text: Plan your architecture
-            url: introduction-to-verifiable-credentials-architecture.md
+          links:
+            - text: Plan your architecture
+              url: introduction-to-verifiable-credentials-architecture.md
         - linkListType: how-to-guide
-        links:
-          - text: The Request Service API for issuers
-            url: issuance-request-api.md
+          links:
+            - text: The Request Service API for issuers
+              url: issuance-request-api.md
         - linkListType: how-to-guide
-        links:
-          - text: Request Service API for Verifiers
-            url: presentation-request-api.md
+          links:
+            - text: Request Service API for Verifiers
+              url: presentation-request-api.md
