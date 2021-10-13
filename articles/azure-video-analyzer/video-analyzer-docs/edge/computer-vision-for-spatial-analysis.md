@@ -86,9 +86,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
     #### [Desktop machine](#tab/desktop-machine)
     [Follow these instructions if your host computer isn't an Azure Stack Edge device.](../../../cognitive-services/computer-vision/spatial-analysis-container.md#install-nvidia-cuda-toolkit-and-nvidia-graphics-drivers-on-the-host-computer)
     #### [Azure VM with GPU](#tab/virtual-machine)
-    [Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm)
+    1. [Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm)
 
-    Connect to your VM and in the terminal type in the following command:
+    1. Connect to your VM and in the terminal type in the following command:
     ```bash
     bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"
     ```
@@ -219,7 +219,7 @@ There are a few things you need to pay attention to in the deployment template f
 #### [Desktop machine](#tab/desktop-machine)
 Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
 #### [Azure VM with GPU](#tab/virtual-machine)
-Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.  
 
 ## Generate and deploy the deployment manifest
 
