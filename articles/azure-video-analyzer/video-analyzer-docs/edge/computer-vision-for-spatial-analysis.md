@@ -18,10 +18,10 @@ In this tutorial you will:
 
 > [!div class="checklist"]
 >
-> - Set up resources.
-> - Examine the code.
-> - Run the sample code.
-> - Monitor events.
+> - Set up resources
+> - Examine the code
+> - Run the sample code
+> - Monitor events
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -101,9 +101,9 @@ The following are prerequisites for connecting the spatial-analysis module to Az
       * `/var/lib/videoanalyzer`
       * `/var/media`
     
-     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed.   
+     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed.  
 
-3. Next, deploy the other Azure resources.
+1. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
@@ -129,11 +129,9 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 You need to create an Azure resource of type [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) for the **Standard S1 tier** either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
-### Gathering required parameters
-
 There are three primary parameters for all Cognitive Services' containers that are required, including the `spatialanalysis` container. The **end-user license agreement (EULA)** must be present with a value of accept. Additionally, both an **Endpoint URI** and **API Key** are needed.
 
-### Keys and endpoint URI
+### Gathering Keys and Endpoint URI
 
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
 
@@ -171,16 +169,14 @@ A key is used to start the spatial-analysis container, and is available on the A
    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
    ```
 
-## Set up deployment template
+## Configure deployment template
 
+#### [Azure Stack Edge device](#tab/azure-stack-edge)
 Look for the deployment file in /src/edge/deployment.spatialAnalysis.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
-
-> [!Note]
-> This document focusses on deployment steps using the **Azure Stack Edge** device. To deploy the modules on your desktop or Azure VM, please follow the steps mentioned in the [Getting Started Quickstart](get-started-detect-motion-emit-events-portal.md#deploy-edge-modules).
 
 There are a few things you need to pay attention to in the deployment template file:
 
-1. Set the port binding in the `spatialanalysis` module.
+1. The deployment manifest uses port 50051 to communicate between `avaedge` and `spatialanalysis` module. If the port is being used by any other application, then set the port binding in the `spatialanalysis` module to an open port.
 
    ```
    "PortBindings": {
@@ -220,6 +216,11 @@ There are a few things you need to pay attention to in the deployment template f
                           }
                         }
       ```
+#### [Desktop machine](#tab/desktop-machine)
+Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+#### [Azure VM with GPU](#tab/virtual-machine)
+Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+
 ## Generate and deploy the deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.
@@ -232,14 +233,14 @@ Follow these steps to generate the manifest from the template file and then depl
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Spatial Analysis: connection string":::
 
-1. Right-click `src/edge/deployment.spatialAnalysis.template.json` and select Generate IoT Edge Deployment Manifest.
+1. Pick the appropriate deployment template (`src/edge/deployment.spatialAnalysis.template.json` or `src/edge/deployment.spatialAnalysis.generic.template.json`) and select Generate IoT Edge Deployment Manifest.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/generate-deployment-manifest.png" alt-text="Spatial Analysis: deployment amd64 json":::
 
-   This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` in the src/edge/config folder.
+   This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` or `deployment.spatialAnalysis.generic.amd64.json` in the src/edge/config folder.
 
-1. Right-click `src/edge/config/deployment.spatialAnalysis.amd64.json`, select **Create Deployment for Single Device**, and then select the name of your edge device.
+1. Right-click on the generated manifest file and select **Create Deployment for Single Device**, and then select the name of your edge device.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/deployment-single-device.png" alt-text="Spatial Analysis: deploy to single device":::
@@ -324,59 +325,6 @@ In operations.json:
           }
       }
   },
-  ```
-
-  > [!Note]
-  > Check out the use of `CognitiveServicesVisionExtension` to connect with spatialanalysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, for example, tcp://spatialAnalysis:50051
-
-  ```json
-  {
-          "@type": "#Microsoft.VideoAnalyzer.CognitiveServicesVisionProcessor",
-          "name": "computerVisionExtension",
-          "endpoint": {
-            "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
-            "url": "${grpcUrl}",
-            "credentials": {
-              "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
-              "username": "${spatialanalysisusername}",
-              "password": "${spatialanalysispassword}"
-            }
-          },
-          "inputs": [
-            {
-              "nodeName": "rtspSource",
-              "outputSelectors": [
-                {
-                  "property": "mediaType",
-                  "operator": "is",
-                  "value": "video"
-                }
-              ]
-            }
-          ],
-          "operation": {
-            "@type": "Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation",
-            "trackerNodeConfiguration": "{ \"enable_speed\": true }",
-            "enableFaceMaskClassifier": "false",
-            "zones": [
-              {
-                "zone": {
-                  "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
-                  "polygon": "[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]",
-                  "name": "retailstore"
-                },
-                "events": [
-                  {
-                    "eventType": "zonecrossing",
-                    "threshold": "5",
-                    "focus": "footprint"
-                  }
-                ]                
-              }
-            ]
-          }
-        }
-      ],
   ```
 
 Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
@@ -499,7 +447,7 @@ Sample output for `SpatialAnalysisPersonZoneCrossingOperation` :
 }
 ```
 
-## Operations:
+## Supported Operations
 
 ### Person Zone Crossing
 
@@ -518,31 +466,31 @@ Sample output for `SpatialAnalysisPersonZoneCrossingOperation` :
 | `detectorNodeConfiguration` | string  | The DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `trackerNodeConfiguration` | string  | The TRACKER_NODE_CONFIG parameters for all Spatial Analysis operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-### Tracker Node Parameter Settings
+### Orientation parameter settings
 
-You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
+You can configure the orientation computation through DETECTOR_NODE_CONFIG parameter settings
 ```json
 {
-"enable_speed": true,
-}
-
-```
-| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enable_speed`                     | bool    | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to True. It is highly recommended that we enable both speed and orientation to have the best estimated values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-### Detector Node Parameter Settings
-
-You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
-```json
-{
-"enable_orientation": true,
+    "enable_orientation": true,
 }
 
 ```
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enable_orientation`                     | bool    | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to True..                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-### More operations:
+### Speed parameter settings
+
+You can configure the speed computation through TRACKER_NODE_CONFIG parameter settings
+```json
+{
+    "enable_speed": true,
+}
+
+```
+| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable_speed`                     | bool    | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to True. It is highly recommended that we enable both speed and orientation to have the best estimated values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+### More operations
 There are additional operations that the `spatialAnalysis` module offers:
 
 - **personCrossingLine**
@@ -554,7 +502,7 @@ There are additional operations that the `spatialAnalysis` module offers:
   <summary>Click to expand and see the different configuration options for each of the operations.</summary>
 
 ### Person Line Crossing
-
+See an example of [Person Line Crossing Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json) from our GitHub sample.
 #### Parameters:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                   |
@@ -619,7 +567,7 @@ There are additional operations that the `spatialAnalysis` module offers:
 ```
 
 ### Person Distance
-
+See an example of [Person Distance Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json) from our GitHub sample.
 #### Parameters:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -664,7 +612,7 @@ There are additional operations that the `spatialAnalysis` module offers:
 ```
 
 ### Person Count
-
+See an example of [Person Count Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json) from our GitHub sample.
 #### Parameters:
 
 | Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -724,14 +672,13 @@ There are additional operations that the `spatialAnalysis` module offers:
 ```
 
 ### Custom
-
+See an example of [Custom Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json) from our GitHub sample.
 #### Parameters:
 
 | Name                   | Type   | Description                           |
 | ---------------------- | ------ | ------------------------------------- |
 | extensionConfiguration | string | JSON representation of the operation. |
 
-See an example of [Custom Operation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json) from our GitHub sample.
 #### Output:
 
 ```json
