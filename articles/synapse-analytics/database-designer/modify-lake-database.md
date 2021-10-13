@@ -10,7 +10,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 
-# How-to: Create an empty lake database
+# How-to: Modify a lake database
 
 In this article, you will learn how to modify an existing [lake database](./concepts-lake-database.md) in Azure Synapse using the database designer. The database designer allows you to easily create and deploy a database without writing any code. 
 
