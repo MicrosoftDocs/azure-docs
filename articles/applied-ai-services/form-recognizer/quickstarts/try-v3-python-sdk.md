@@ -31,10 +31,6 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
-> [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -91,6 +87,18 @@ endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
 key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```
+
+### Select a code sample to copy and paste into your application:
+
+* [**General document**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: General document model
 
