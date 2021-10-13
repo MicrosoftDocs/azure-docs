@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy

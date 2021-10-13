@@ -29,7 +29,7 @@ Azure Purview allows you to apply sensitivity labels to assets, enabling you to 
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
 * **Apply labels to files and database columns:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
 
-Sensitivity labels are tags that you can apply on assets to classify and protect your data. Learn more about [sensitivity labels here](/microsoft-365/compliance/create-sensitivity-labels.md).
+Sensitivity labels are tags that you can apply on assets to classify and protect your data. Learn more about [sensitivity labels here](/microsoft-365/compliance/create-sensitivity-labels).
 
 ## How to apply labels to assets in Azure Purview
 
@@ -58,7 +58,7 @@ Sensitivity labels are supported in Azure Purview for the following data sources
 
 ## Labeling for SQL databases
 
-In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [MIP sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
+In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
 Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, **labels applied in SSMS are not shown in Purview, and vice versa**. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 

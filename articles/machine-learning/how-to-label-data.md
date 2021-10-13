@@ -5,7 +5,7 @@ description: Use data labeling tools to rapidly label text or label images for a
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml

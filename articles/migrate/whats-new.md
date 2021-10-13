@@ -13,6 +13,9 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (October 2021)
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#supported-geographies-public-cloud)
+
 ## Update (September 2021)
 - Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md)  is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#supported-geographies-azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md)
 - Support to tag and add custom names to resources for agentless VMware VM migrations using PowerShell.
