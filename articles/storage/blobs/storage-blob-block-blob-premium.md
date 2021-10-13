@@ -14,13 +14,15 @@ ms.topic: conceptual
 
 # Premium block blob storage accounts
 
-Premium block blob storage accounts make data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. File transfer is much faster because data is stored on instantly accessible memory chips.All parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
+Premium block blob storage accounts make data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. File transfer is much faster because data is stored on instantly accessible memory chips. All parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
 
 ## High performance workloads
 
-This type of account is ideal for workloads that require fast and consistent response times and/or have a high number of input output operations per second (IOP). Example workloads include:
+Premium block blob storage accounts are ideal for workloads that require fast and consistent response times and/or have a high number of input output operations per second (IOP). Example workloads include:
 
-- **Interactive workloads**. Highly interactive and real-time applications that must write data quickly. E-commerce and mapping applications often require instant updates and user feedback. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.  
+- **Interactive workloads**. Highly interactive and real-time applications must write data quickly. E-commerce and mapping applications often require instant updates and user feedback. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. 
+
+  Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.  
 
 - **IoT/ streaming analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
 
@@ -53,14 +55,14 @@ For example, assuming that your account is in the East US 2 region, the number o
 > ![Performance table](./media/storage-blob-performance-tiers/premium-performance-data-lake-storage-cost-analysis-table.png)
 
 > [!NOTE]
-> If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
+> If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table. 
 
 ## Premium scenarios
 
 This section contains real-world examples of how some of our Azure Storage partners use premium block blob storage. Some of them also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios. 
 
 > [!TIP]
-> If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. To learn about how to configure your account, see [Premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
+> If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. 
 
 This section contains the following examples:
 
@@ -149,6 +151,9 @@ To create a premium block blob storage account, make sure to choose the **Premiu
 > [!div class="mx-imgBorder"]
 > ![Create blockblobstorageacount](./media/storage-blob-block-blob-premium/create-block-blob-storage-account.png)
 
+> [!NOTE]
+> Some Blob Storage features aren't yet supported or have partial support in premium block blob storage accounts. Before choosing premium, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you intend to use are fully supported in your account. Feature support is always expanding so make sure to periodically review this article for updates.
+
 If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. To unlock Azure Data Lake Storage Gen2 capabilities, enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
 
 The following image shows this setting in the **Create storage account** page.
@@ -158,10 +163,9 @@ The following image shows this setting in the **Create storage account** page.
 
 For complete guidance, see [Create a storage account](../common/storage-account-create.md) account.
 
-You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
+You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. 
 
-> [!NOTE]
-> Some Blob Storage features aren't yet supported or have partial support in premium block blob storage accounts. Before choosing premium, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you intend to use are fully supported in your account. Feature support is always expanding so make sure to periodically review this article for updates.
+To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## See also
 
