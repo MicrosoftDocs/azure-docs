@@ -13,7 +13,7 @@ ms.date: 10/01/2021
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 You can use Azure Database for MySQL Flexible Server to configure audit logs. Audit logs can be used to track database-level activity, including connection, administration, data definition language (DDL), and data manipulation language (DML) events. These types of logs are commonly used for compliance purposes. You ordinarily use database auditing to:
-* Account for all the actions that are happening within particular schema, table, or row, or that affect specific content.
+* Account for all actions that happen within a particular schema, table, or row, or that affect specific content.
 * Prevent users (or others) from inappropriate actions based on their accountability.
 * Investigate suspicious activity.
 * Monitor and gather data about specific database activities.
@@ -108,11 +108,11 @@ Audit logs are integrated with Azure Monitor diagnostics settings to allow you t
 
 1. In Log Analytics, on the left pane, under **Monitoring**, select **Logs**.
 
-1. Close the **Queries** window that opens.  
+1. Close the **Queries** window.  
 
    :::image type="content" source="./media/tutorial-configure-audit/log-query.png" alt-text="Screenshot of the Log Analytics 'Queries' pane.":::
 
-1. In the query window, you can write the query to be executed. To find a summary of audited events on a particular server, we've used the following query: 
+1. In the query window, you can write the query to be executed. For example, to find a summary of audited events on a particular server, we've used the following query: 
 
     ```kusto
     AzureDiagnostics
@@ -126,7 +126,7 @@ Audit logs are integrated with Azure Monitor diagnostics settings to allow you t
 
 ## View audit logs by using workbooks 
  
-The workbook template that you use for auditing requires you to create diagnostic settings to send platform logs. 
+The workbook template that you use for auditing requires you to create diagnostics settings to send platform logs. 
 
 1. In Azure Monitor, on the left pane, select **Activity log**, and then select **Diagnostics settings**. 
 
@@ -162,7 +162,7 @@ In the workbook, you can view the following visualizations:
 > * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of the [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
 > * For a quick view, you can also pin the workbooks or Log Analytics query to your Dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
-The *Administrative Actions on the service* view gives you details on activity performed on the service. It helps to determine the *what, who, and when* for any write operations (PUT, POST, DELETE) performed on the resources in your subscription. 
+The *Administrative Actions on the service* view gives you details on activity performed on the service. It helps to determine the *what, who, and when* for any write operations (PUT, POST, DELETE) that are performed on the resources in your subscription. 
 
 You can use other visualizations to help you understand the details of database activity. Database security has four parts: 
 * **Server security**: Responsible for preventing unauthorized personnel from accessing the database.  
