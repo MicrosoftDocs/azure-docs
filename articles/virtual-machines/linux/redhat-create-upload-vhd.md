@@ -235,7 +235,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Install the Azure Linux Agent, cloud-init and other necesary utilities by running the following command:
+1. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -424,7 +424,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ClientAliveInterval 180
     ```
 
-1. Install the Azure Linux Agent, cloud-init and other necesary utilities by running the following command:
+1. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
