@@ -312,7 +312,7 @@ Depending on how the telemetry generated is going to be consumed, real-time dash
   :::image type="content" source="media/configure-monitoring/host-results-function-monitor.png" alt-text="Screenshot of Host.Results telemetry in function Monitor tab." lightbox="media/configure-monitoring/host-results-function-monitor-big.png":::
 
   The following screenshot shows Host.Results telemetry data displayed in Application Insights Performance dashboard.
-  :::image type="content" source="media/configure-monitoring/host-results-application-insights.png" alt-text="Screenshot of Host.Results telemetry in Application Insights Performance dashboard." lightbox="media/configure-monitoring/host-results-application-insights-biggit.png":::
+  :::image type="content" source="media/configure-monitoring/host-results-application-insights.png" alt-text="Screenshot of Host.Results telemetry in Application Insights Performance dashboard." lightbox="media/configure-monitoring/host-results-application-insights-big.png":::
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights about function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based on the other.
 
