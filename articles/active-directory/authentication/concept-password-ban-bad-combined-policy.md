@@ -54,3 +54,6 @@ The following expiration requirements apply to other providers that use Azure AD
 | Password expiry notification (When users are notified of password expiration) |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Password expiry (Let passwords never expire) |<ul><li>Default value: **false** (indicates that password's have an expiration date).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
 
+## Next steps
+
+[Password policies and account restrictions in Azure Active Directory](concept-sspr-policy.md)
