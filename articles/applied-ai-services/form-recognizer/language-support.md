@@ -26,7 +26,7 @@ To use the preview languages, refer to the [v3.0 REST API migration guide](/v3-m
 
 ### Handwritten text
 
-|Language| Language code (optional) |  |
+|Language| Language code (optional) | Preview?  |
 |:-----|:----:|:----:|
 |English|`en`||
 |Chinese Simplified |`zh-Hans`| preview
@@ -38,7 +38,7 @@ To use the preview languages, refer to the [v3.0 REST API migration guide](/v3-m
 
 ### Print text
 
-|Language| Language code (optional) |  |
+|Language| Language code (optional) | Preview? |
 |:-----|:----:|:----:|
 |Afrikaans|`af`||
 |Albanian |`sq`||
