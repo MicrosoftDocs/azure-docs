@@ -53,7 +53,7 @@ WHERE twin_or_twin_collection.$dtId = 'twin_ID'
 
 You can leave out the name of one of the twins in order to allow any twin name to work in that spot.
 
-You can also change the number of relationship conditions, to have multiple [chained](#combining-match-operations) relationship conditions or no relationship condition at all:
+You can also change the number of relationship conditions, to have multiple [chained](#combine-match-operations) relationship conditions or no relationship condition at all:
 
 ```sql
 --Chained relationship conditions
@@ -91,12 +91,12 @@ WHERE building.$dtId= 'Building21' AND sensor.temperature > 50
 Use the relationship condition in the `MATCH` clause to specify a relationship direction between the twins. Possible directions include left-to-right, right-to-left, or non-directional. Cyclic relationships are automatically detected, so that a relationship is traversed only once.
 
 > [!NOTE]
-> It's possible to represent bi-directional relationships by using [chaining](#combining-match-operations).
+> It's possible to represent bi-directional relationships by using [chaining](#combine-match-operations).
 
 ### Syntax
 
 >[!NOTE]
-> The examples in this section focus on relationship direction. They don't specify relationship names, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship name](#specify-number-of-hops), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+> The examples in this section focus on relationship direction. They don't specify relationship names, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship name](#specify-number-of-hops), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 
 Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship name](#specify-number-of-hops). 
@@ -174,7 +174,7 @@ If you don't provide a relationship name, the query will include all relationshi
 ### Syntax
 
 >[!NOTE]
-> The examples in this section focus on relationship name. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+> The examples in this section focus on relationship name. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying named relationships.
 
@@ -246,7 +246,7 @@ If you don't provide a number of hops, the query will default to one hop.
 ### Syntax
 
 >[!NOTE]
->The examples in this section focus on number of hops. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+>The examples in this section focus on number of hops. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 Specify the number of hops to traverse in the `MATCH` clause within the square brackets (`[]`).
 
@@ -328,7 +328,7 @@ A useful result of doing this is the ability to filter on relationship propertie
 ### Syntax
 
 >[!NOTE]
->The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combining MATCH operations](#combining-match-operations).
+>The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-number-of-hops). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 To assign a query variable to the relationship, put the name in the square brackets (`[]`). The placeholder values that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
 
@@ -348,7 +348,7 @@ MATCH (t)-[r]-(c) 
 WHERE t.$dtId = 'thermostat-15' AND r.length = 10 
 ```
 
-## Combining MATCH operations
+## Combine MATCH operations
 
 You can combine multiple relationship conditions in the same query. You can also chain multiple relationship conditions to express bi-directional relationships or other larger combinations.
 
