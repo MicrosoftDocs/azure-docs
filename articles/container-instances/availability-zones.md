@@ -24,6 +24,8 @@ An [availability zone][availability-zone-overview] is a physically separate zone
 
 ## Deploy a container group using an Azure Resource Manager (ARM) template
 
+### Create the ARM template
+
 Start by copying the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability into East US zone 1.
 
 ```json
@@ -146,16 +148,15 @@ Start by copying the following JSON into a new file named `azuredeploy.json`. Th
     }
 }
 ```
+### Deploy the ARM template
 
-## Deploy the template
-
-Create a resource group with the [az group create][az-group-create] command.
+Create a resource group with the [az group create][az-group-create] command:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the template with the [az deployment group create][az-deployment-group-create] command.
+Deploy the template with the [az deployment group create][az-deployment-group-create] command:
 
 ```azurecli
 az deployment group create \
@@ -174,4 +175,6 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 [az-container-create]: /cli/azure/container#az_container_create
 [container-regions]: container-instances-region-availability.md
 [az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment#az_deployment_group_create
 [availability-zone-overview]: /availability-zones/az-overview.md
