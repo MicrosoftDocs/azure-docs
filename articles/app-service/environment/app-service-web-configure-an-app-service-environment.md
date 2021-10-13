@@ -181,7 +181,7 @@ If you want to delete an App Service Environment, then simply use the **Delete**
 ![Delete an App Service Environment UI][9]  
 
 ## Getting started
-To get started with App Service Environments, see [How to create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
+To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

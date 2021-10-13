@@ -189,7 +189,7 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment), connect the backend of your apps to your VNets with VNet Integration, and lock down inbound traffic to your app with service endpoints. For more information, see the following articles:
 
 * [App Service networking features](../app-service/networking-features.md)
-* [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Creating Web Apps in an App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service access restrictions](../app-service/app-service-ip-restrictions.md)
 
