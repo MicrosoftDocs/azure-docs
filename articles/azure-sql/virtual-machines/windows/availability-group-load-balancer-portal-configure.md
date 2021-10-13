@@ -211,7 +211,7 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 ## Create an IP address for an additional availability group
 
-Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
+Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address does not support floating IP](/azure/load-balancer/load-balancer-floating-ip).
 
 To add an IP address to a load balancer with the Azure portal, do the following steps:
 

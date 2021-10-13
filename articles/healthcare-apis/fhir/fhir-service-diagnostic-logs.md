@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 10/12/2021
 ms.author: zxue
 ---
 
@@ -26,19 +26,21 @@ Access to diagnostic logs is essential for any healthcare service. Compliance wi
 
    [ ![Screenshot of the diagnostic settings page in the Azure portal.](media/diagnostic-logs/fhir-diagnostic-settings-screen.png) ](media/diagnostic-logs/fhir-diagnostic-settings-screen.png#lightbox)
 
-4. Enter a name for the setting.
+4. Enter the **Diagnostic setting name**.
+ 
+   [ ![Screenshot of the destination details and the checkbox for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
 
 5. Select the method that you want to use to access your logs:
 
    - **Send to Log Analytics workspace** is for sending logs and metrics to a Log Analytics workspace in Azure Monitor. You need to create your Log Analytics workspace before you can select this option.
    
-   - **Archive to a storage account** is for auditing or manual inspection. The storage account that you want to use needs to be already created.
+   - **Archive to a storage account** is for auditing or manual inspection. The storage account that you want to use needs to be already created. The retention option only applies to a storage account. Retention policy ranges from 1 to 365 days. If you do not want to apply any retention policy and retain data forever, set the retention (days) to 0.
 
    - **Stream to an event hub** is for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this option.
+   
+   - **Send to partner solution** should be selected if you have enabled a partner solution that Azure supports. For more information, see [Extend Azure with solutions from partners](https://docs.microsoft.com/azure/partner-solutions/overview).
 
 6. Select **AuditLogs**.
-
-   [ ![Screenshot of the destination details and the checkbox for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
 
 7. Select **Save**.
 
@@ -101,11 +103,11 @@ Having access to diagnostic logs is essential for monitoring a service and provi
 > [!NOTE]
 > Metrics will be added when the Azure Healthcare APIs service is generally available.
 
-FHIR is a registered trademark of [HL7](https://www.hl7.org/fhir/index.html) and is used with the permission of HL7.
-
 ## Next steps
 
 For an overview of the FHIR service, see:
 
 >[!div class="nextstepaction"]
 >[What is the FHIR service?](overview.md)	
+
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

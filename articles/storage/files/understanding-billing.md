@@ -77,7 +77,7 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
 | Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `BurstLimit * 3600` |
 | Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
@@ -88,9 +88,9 @@ The following table illustrates a few examples of these formulae for the provisi
 |-|-|-|-|-|-|
 | 100 | 500 | Up to 4,000 | 14,400,000 | 44 | 66 |
 | 500 | 900 | Up to 4,000 | 14,400,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,272 | 15,379,200 | 81 | 122 |
-| 5,120 | 5,520 | Up to 16,560 | 59,616,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 31,920 | 114,912,000 | 450 | 675 |
+| 1,024 | 1,424 | Up to 4,000 | 14,400,000 | 81 | 122 |
+| 5,120 | 5,520 | Up to 15,360 | 55,296,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 30,720 | 110,592,000 | 450 | 675 |
 | 33,792 | 34,192 | Up to 100,000 | 360,000,000 | 1,392 | 2,088 |
 | 51,200 | 51,600 | Up to 100,000 | 360,000,000 | 2,088 | 3,132 |
 | 102,400 | 100,000 | Up to 100,000 | 360,000,000 | 4,136 | 6,204 |
