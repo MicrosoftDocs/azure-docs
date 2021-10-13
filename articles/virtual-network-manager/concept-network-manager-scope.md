@@ -42,7 +42,7 @@ A *scope* within Azure Virtual Network Manager is a set of resources where featu
 
 ## Features
 
-Features are scope access that you allow the Azure Virtual Network Manager to manage. Azure Virtual Network Manager currently has two feature scopes, which are *Connectivity* and *SecurityAdmin*. You can enable both feature scopes on the same Virtual Network Manager instance. For more information about each feature, see [Connectivity](concept-connectivity-configuration.md) and [SecurityAdmin](concept-security-admin.md).
+Features are scope access that you allow the Azure Virtual Network Manager to manage. Azure Virtual Network Manager currently has two feature scopes, which are *Connectivity* and *SecurityAdmin*. You can enable both feature scopes on the same Virtual Network Manager instance. For more information about each feature, see [Connectivity](concept-connectivity-configuration.md) and [SecurityAdmin](concept-security-admins.md).
 
 > [!NOTE]
 > Features are enabled only during deployment of Azure Virtual Network Manager. If you deploy a Virtual Network Manager instance with only one feature scope, you will need to redeploy a new Azure Virtual Network Manager to enable both features.
