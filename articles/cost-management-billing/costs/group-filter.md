@@ -60,7 +60,7 @@ Values of “Marketplace” and “AWS” will remain unchanged.
 
 This change doesn't affect customers with an Enterprise Agreement or pay-as-you-go offers.
 
-**Impact and Action**
+**Impact and action**
 <a name="impact-action"></a>
 
 For any Cost Management data that you've downloaded before 14 October 2021, you'll need to consider the older “Azure” and the new “Microsoft” PublisherType field values. The data could have been downloaded through exports, usage details, or from Cost Management.
