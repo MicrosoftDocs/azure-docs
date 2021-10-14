@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/14/2021
 ms.author: alkohli
 ---
 # Review alerts on Azure Stack Edge
@@ -18,7 +18,7 @@ This article describes how to view alerts and interpret alert severity for event
 
 ## Overview
 
-The Alerts blade for an Azure Stack Edge device lets you review and clear Azure Stack Edge device–related alerts in real-time. From this blade, you can centrally monitor the health issues of your Azure Stack Edge devices and the overall Microsoft Azure Azure Stack Edge solution.
+The Alerts blade for an Azure Stack Edge device lets you review Azure Stack Edge device–related alerts in real-time. From this blade, you can centrally monitor the health issues of your Azure Stack Edge devices and the overall Microsoft Azure Azure Stack Edge solution.
 
 The initial display is a high-level summary of alerts at each severity level. You can drill down to see individual alerts at each severity level.
 
@@ -30,7 +30,7 @@ The initial display is a high-level summary of alerts at each severity level. Yo
 Alerts have different severity levels, depending on the impact of the alert situation and the need for a response to the alert. The severity levels are:
 
 - **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that Azure Stack Edge service is not interrupted.
-- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to resolve the issue.
 - **Informational** – This alert contains information that can be useful in tracking and managing your system.
 
 ### Configure alert notifications
