@@ -174,7 +174,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -g myResourceGroup 
     -c myCapacityReservationGroup 
     -n myCapacityReservation 
-    --capacity 2
+    --capacity 0
     ```
 
 2. Update the scale set to remove association with Capacity Reservation Group by setting the `capacity-reservation-group` property to None: 
