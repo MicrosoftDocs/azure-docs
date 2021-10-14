@@ -1,6 +1,6 @@
 ---
-title: Add XSLT maps for XML transforms in workflows
-description: Create and add XSLT maps to transform XML for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+title: Add XSLT maps to transform XML in workflows
+description: Add XSLT maps to transform XML in workflows with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/14/2021
 ---
 
-# Add XSLT maps for XML transformation in Azure Logic Apps
+# Add XSLT maps to transform XML in workflows with Azure Logic Apps
 
 To convert XML between formats, your logic app workflow can use maps with the **Transform XML** action. A map is an XML document that uses Extensible Stylesheet Language Transformation (XSLT) language to describe how to convert data from XML to another format. The map consists of a source XML schema as input and a target XML schema as output. You can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations. You can manipulate or control data by using different built-in functions, such as string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
 

@@ -1,3 +1,4 @@
+items:
 - name: Language Understanding (LUIS) documentation
   href: index.yml
 - name: Overview
@@ -22,6 +23,18 @@
     href: client-libraries-rest-api.md
 - name: Samples
   href: https://github.com/Azure-Samples/cognitive-services-language-understanding
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: LUIS use cases
+      href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
   - name: Sign in to LUIS portal
@@ -66,14 +79,14 @@
       href: luis-how-to-model-intent-pattern.md
   - name: Train and test your app
     items:
-      - name: Train your app
-        href: luis-how-to-train.md
-        displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
-      - name: Interactive testing
-        href: luis-interactive-test.md
-      - name: Batch testing
-        href: luis-how-to-batch-test.md
-        displayName: import, export
+    - name: Train your app
+      href: luis-how-to-train.md
+      displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
+    - name: Interactive testing
+      href: luis-interactive-test.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
+      displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime

@@ -50,7 +50,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure Azure Arc enabled machine learning (preview)](how-to-attach-arc-kubernetes.md). | 
+| Attached Kubernetes cluster | [Configure Azure Arc-enabled machine learning (preview)](how-to-attach-arc-kubernetes.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
@@ -68,7 +68,7 @@ For more information on creating the various types, see:
 | --- | --- | 
 | Compute instance | [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) | 
 | Compute cluster | [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) | 
-| Attached Kubernetes cluster | [Attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md) | 
+| Attached Kubernetes cluster | [Attach an Azure Arc-enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md) | 
 
 ## Specify the necessary environment
 
@@ -80,7 +80,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 ### Curated environments
 
-Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments).
+Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
  [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 

@@ -17,7 +17,7 @@ The following different concepts apply to configuring a static web app.
 
 - [Build configuration](./build-configuration.md): Define settings that control the build process.
 
-- [Application settings](./application-settings.md): Set application-level settings and environment variables.
+- [Application settings](./application-settings.md): Set application-level settings and environment variables that can be used by backend APIs.
 
 ## Example scenarios
 

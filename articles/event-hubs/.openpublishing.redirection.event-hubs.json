@@ -71,13 +71,23 @@
     "redirect_document_id": false
   },  
   {
+    "source_path": "event-hubs-dotnet-framework-getstarted-send.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-standard-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },    
+  {
     "source_path": "event-hubs-dotnet-framework-api-overview.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
     "redirect_document_id": false
   },
   {
     "source_path": "event-hubs-dotnet-framework-getstarted-receive-eph.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
     "redirect_document_id": false
   },
   {

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to create a new Azure Kubernetes Service cluster through Azure Machine Learning, or how to attach an existing AKS cluster to your workspace.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
@@ -78,9 +78,6 @@ When **creating** an Azure Kubernetes Service cluster using one of the following
 These methods of creating an AKS cluster use the __default__ version of the cluster. *The default version changes over time* as new Kubernetes versions become available.
 
 When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
-
-> [!IMPORTANT]
-> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
 
 > [!IMPORTANT]
 > Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 
