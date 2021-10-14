@@ -40,7 +40,7 @@ Currently, to be able to manage and interact with an Azure database for PostgreS
 
 Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
 
-1. If you do not have a key vault, follow [this guide to create an Azure Key Vault](../key-vault/certificates/quick-create-portal.md#create-a-vault).
+1. If you do not have an Azure Key vault already, follow [this guide to create an Azure Key Vault](../key-vault/certificates/quick-create-portal.md#create-a-vault).
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure PostgreSQL Database
