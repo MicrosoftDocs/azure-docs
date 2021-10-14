@@ -1,6 +1,6 @@
 ---
-title: Permissions and security for Azure Chaos Studio
-description: Understand how permissions work in Azure Chaos Studio and how you can secure resources from accidental fault injection.
+title: Targets and capabilities in Azure Chaos Studio
+description: Understand how to control resource onboarding in Azure Chaos Studio by using targets and capabilities.
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
@@ -11,13 +11,13 @@ ms.custom: template-concept
 
 # Targets and capabilities in Azure Chaos Studio
 
-Before you can inject a fault against an Azure resource, the resource must first have corresponding targets and capabilities enabled. Targets and capabilities control which resources are enabled for fault injection and which faults are permitted to be run against those resources. Using targets and capabilities [along with other security measures](chaos-studio-permissions-security.md) you can avoid accidental or malicious fault injection with Chaos Studio. For example, with targets and capabilities you can allow the CPU pressure fault to be run against your production virtual machines while preventing the kill process fault from running against them.
+Before you can inject a fault against an Azure resource, the resource must first have corresponding targets and capabilities enabled. Targets and capabilities control which resources are enabled for fault injection and which faults can run against those resources. Using targets and capabilities [along with other security measures](chaos-studio-permissions-security.md) you can avoid accidental or malicious fault injection with Chaos Studio. For example, with targets and capabilities you can allow the CPU pressure fault to run against your production virtual machines while preventing the kill process fault from running against them.
 
 ## Targets
 
 A chaos **target** enables Chaos Studio to interact with a resource for a particular target type. A **target type** represents the method of injecting faults against a resource. Resource types that only support service-direct faults have one target type, for example the `Microsoft-CosmosDB` type for Azure Cosmos DB. Resource types that support service-direct and agent-based faults have two target types: one for the service-direct faults (for example, `Microsoft-VirtualMachine`), and one for the agent-based faults (always `Microsoft-Agent`).
 
-A target is an extension resource created as a child of the resource that is being onboarded to Chaos Studio (e.g. a Virtual Machine or Network Security Group). A target defines the target type that is enabled on the resource. For example, if onboarding a Cosmos DB instance with this resource ID:
+A target is an extension resource created as a child of the resource that is being onboarded to Chaos Studio (for example, a Virtual Machine or Network Security Group). A target defines the target type that is enabled on the resource. For example, if onboarding a Cosmos DB instance with this resource ID:
 
 ```
 /subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/chaosstudiodemo/providers/Microsoft.DocumentDB/databaseAccounts/myDB
@@ -50,7 +50,7 @@ The target resource will have a child resource formatted like this:
 An experiment can only inject faults on onboarded targets with the corresponding capabilities enabled. 
 
 ## Listing capability names and parameters
-For reference, a periodically-updated list of capability names, fault URNs and parameters is available [in our fault library](chaos-studio-fault-library.md), but you can use the HTTP response to creating a capability or do a GET on an existing capability to get this information on demand. For example, doing a GET on a VM shutdown capability:
+For reference, a list of capability names, fault URNs, and parameters is available [in our fault library](chaos-studio-fault-library.md), but you can use the HTTP response to creating a capability or do a GET on an existing capability to get this information on demand. For example, doing a GET on a VM shutdown capability:
 
 ```bash
 az rest --method get --url "https://management.azure.com/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0?api-version=2021-08-11-preview"
