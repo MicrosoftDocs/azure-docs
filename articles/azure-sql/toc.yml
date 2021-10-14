@@ -1157,7 +1157,7 @@
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
       - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes.md
+        href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Quickstarts
       items:
       - name: Portal
