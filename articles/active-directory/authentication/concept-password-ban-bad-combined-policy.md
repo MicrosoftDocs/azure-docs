@@ -33,9 +33,9 @@ The following Azure AD password policy requirements apply for all passwords that
 | Characters allowed |Uppercase characters (A - Z)<br>Lowercase characters (a - z)<br>Numbers (0 - 9)<br>Symbols:<br>- @ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ><br>- blank space |
 | Characters not allowed | Unicode characters |
 | Password length |Passwords require<br>- A minimum of 8 characters<br>- A maximum of 256 characters</li> |
-| Password complexity |Passwords require three out of four of the following:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: This check is not required for Education tenants. |
+| Password complexity |Passwords require three out of four of the following:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: Password complexity check is not required for Education tenants. |
 | Password not recently used | When a user changes or resets their password, the new password cannot be the same as the current or recently used passwords. |
-| Password is not banned by Azure AD Password Protection | The password cannot be on the global list of banned passwords for Azure AD Password Protection, or on a customizable list of banned passwords specific to your organization. |
+| Password is not banned by Azure AD Password Protection | The password can't be on the global list of banned passwords for Azure AD Password Protection, or on a customizable list of banned passwords specific to your organization. |
 
 ## Password expiration policies
 
@@ -44,7 +44,7 @@ Password expiration policies are unchanged but they are included in this topic f
 > [!NOTE]
 > By default, only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
-You can also use PowerShell to remove the never-expires configuration or to see which user passwords are set to never expire.
+You can also use PowerShell to remove the never-expires configuration, or to see user passwords that are set to never expire.
 
 The following expiration requirements apply to other providers that use Azure AD for identity and directory services, such as Intune and Microsoft 365. 
 
