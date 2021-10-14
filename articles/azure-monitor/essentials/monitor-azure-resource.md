@@ -27,7 +27,7 @@ There is no cost for analyzing monitoring data that is collected by default. Thi
 - Collecting Activity log and analyzing it in the Azure portal.
 - Creating an Activity log alert rule.
 
-There are no Azure Monitor costs for collecting and exporting metrics. There can be charges for exporting certain categories of resource logs as listed in [Resource log supported categories](/azure/azure-monitor/essentials/resource-logs-categories). They can also be related costs associated with the destination you choose for metrics and logs:
+There are no Azure Monitor costs for collecting and exporting metrics. There can be charges for exporting certain categories of resource logs as listed in [Resource log supported categories](/azure/azure-monitor/essentials/resource-logs-categories). There can also be related costs associated with the destination you choose for metrics and logs:
 
 - Costs associated with data ingestion and retention when collecting metrics and logs in Log Analytics workspace. See [Azure Monitor pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 - Costs associated with data storage when collecting metrics and logs to an Azure storage account. See [Azure Storage pricing for blob storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
