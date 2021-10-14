@@ -60,7 +60,7 @@ The prerequisites are the same for physical TPM and virtual TPM solutions.
 
 # [Physical TPM](#tab/physical-tpm)
 
-In this section, you build a tool that you can use to retrieve the Registration ID and Endorsement key for your TPM.
+In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
 
 1. Follow the steps in [Set up a Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) to install and build the Azure IoT device SDK for C.
 
@@ -77,15 +77,15 @@ In this section, you build a tool that you can use to retrieve the Registration 
 1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 > [!TIP]
-> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The Endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique Registration ID for your TPM device. For example, you can create an SHA-256 hash of the Endorsement key.
+> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
 
-After you have your Registration ID and Endorsement key, you're ready to continue.
+After you have your registration ID and endorsement key, you're ready to continue.
 
 # [Simulated TPM](#tab/simulated-tpm)
 
 If you don't have a physical TPM available and want to test this provisioning method, you can simulate a TPM on your device.
 
-The IoT Hub device provisioning service provides samples that simulate a TPM and return the Endorsement key and Registration ID for you.
+The IoT Hub device provisioning service provides samples that simulate a TPM and return the endorsement key and registration ID for you.
 
 1. Choose one of the samples from the following list based on your preferred language.
 1. Stop following the device provisioning service sample steps after you have the simulated TPM running and have collected the **Endorsement key** and **Registration ID**. Don't select **Enter** to run registration in the sample application.
