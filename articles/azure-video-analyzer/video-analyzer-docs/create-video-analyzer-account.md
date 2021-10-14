@@ -35,12 +35,12 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     |**Storage account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/>|
     |**Managed identity**|Select a user-assigned managed identity that the new Video Analyzer account will use to access the storage account. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the roles of [Storage Blob Data Contributor][docs-storage-access] and [Reader][docs-role-reader] for the storage account.
 
-    >[!IMPORTANT]
-    >In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
-
 1. Click **Review + create** at the bottom of the form.
 
 ### Post deployment steps
+
+>[!IMPORTANT]
+>In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
 
 1. Click **Go to resource** after the resource has finished deploying.
 1. Under settings select **IoT Hub**, then click on **Attach**.  In the **Attach IoT Hub** configuration fly-out blade enter the required values:
@@ -231,7 +231,7 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 ### Post deployment steps
 
 >[!IMPORTANT]
->In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
+>In the following steps you will attach an IoT Hub to the Video Analyzer account and this will require an [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).  You can create a new UAMI or use an existing one.  If the UAMI has not been assigned the contributor role for the IoT Hub the following steps will assign this role to the UAMI.
 
 1. In the Azure portal navigate to the Video Analyzer account.
 1. Under settings select **IoT Hub**, then click on **Attach**.  In the **Attach IoT Hub** configuration fly-out blade enter the required values:
