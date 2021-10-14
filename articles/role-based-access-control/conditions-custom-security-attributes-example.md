@@ -88,11 +88,22 @@ The full condition would be similar to the following. The list of actions could 
 
 ## Why use this solution?
 
-This type of solution has multiple benefits. For example, access control is centralized and is easier to maintain because it reduces the number of role assignments. If your current system uses shared access signature (SAS) tokens and access keys for storage credentials, using Azure RBAC and conditions is more secure. Azure RBAC has an identity binding that reduces your security risk. SAS tokens expire on a regularly basis and can be a significant overhead for a DevOps team. Access keys are a security risk to store.
+There are several access control mechanisms that you could use to provide access to data plane resources.
+
+Access keys are a common way to provide access to data plane resources. Access keys provide read, write, and delete permissions to whoever possesses the access key. This means attackers can get access to your sensitive data if they can get your access keys. Access keys do not have identity binding, do not have an expiration, and are a security risk to store.
+
+Like access keys, shared access signature (SAS) tokens do not have identity binding, but expire on a regularly basis. The lack of identity binding represents the same security risks as access keys do. You must manage the expiration to ensure that clients do not get errors. SAS tokens require additional code to manage and operate daily and can be a significant overhead for a DevOps team.
+
+Resource-based access control lists (ACLs) are typically stored on a resource as a list of users and allowed actions on that specific resource. ACLs offer fine-grained access control and have identity bindings. However, ACLs require you to manage access on each object, creates performance implications related to managing ACLs recursively, and creates management overhead for custom scripts and permission drift remediation.
+
+Azure RBAC provides centralized fine-grained access control. Azure RBAC has identity binding that reduces your security risk. Using conditions you can potentially scale the management of role assignments and make access control easier to maintain because access is based on flexible and dynamic attributes.
+
+Here are some of the benefits of this solution:
 
 - Centralized access control
 - Easier to maintain
-- Does not rely on SAS tokens and access keys
+- Does not rely on access keys or SAS tokens
+- Does not require you to manage access on each object
 - Can potentially improve your security posture
 
 ## Can you use this solution?
