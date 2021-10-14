@@ -1,69 +1,54 @@
 ---
-title: Develop enclaves with OSS
-description: Develop enclaves with OSS
+title: Develop application enclaves with open source solutions 
+description: Learn how to use tools to develop Intel SGX applications for confidential computing
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 10/7/2021
+ms.date: 11/1/2021
 ms.author: JenCook
 ---
 
 
+# Open Source Solutions to Build Enclave Applications
 
-<!--- article on the OSS solutions that customers can use to develop application enclaves for SGX ---> 
+This article goes over open-source solutions for building applications that use application enclaves. Before reading, make sure you read the [enclave applications](application-development.md) conceptual page. 
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+## Intel SGX-Compatible Tools
+Azure offers application enclaves via  [confidential virtual machines with Intel Software Guard Extensions (SGX) enabled](virtual-machine-solutions-sgx.md). After deploying an Intel SGX virtual machine, you'll need specialized tools to make your application "enclave aware". This way, you can build applications that have both trusted and untrusted portions of code. 
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
+For example, you can use these open-source frameworks: 
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+- [The Open Enclave (OE) Software Development Kit (SDK)](#oe-sdk)
+- [The EGo SDK](#ego)
+- [The Intel SGX SDK](#intel-sdk)
+- [The Confidential Consortium Framework (CCF)](#ccf)
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
+If you're not looking to write new application code, you can wrap a containerized application using [confidential container enablers](confidential-containers.md#confidential-container-enablers)
 
-# Using Open Source Solutions to Build Enclaves
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 
-[add your introductory paragraph]
+Use a library or framework supported by your provider if you want to write code that runs in an enclave. The [Open Enclave SDK](https://github.com/openenclave/openenclave) (OE SDK) is an open-source SDK that allows abstraction over different confidential computing-enabled hardware. 
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+The OE SDK is built to be a single abstraction layer over any hardware on any CSP. The OE SDK can be used on top of Azure confidential computing virtual machines to create and run applications on top of enclaves. The Open Enclave repository is maintained by Microsoft.
 
-## [Section 1 heading]
-<!-- add your content here -->
+### EGo Software Development Kit <a id="ego"></a>
 
-## [Section 2 heading]
-<!-- add your content here -->
+[EGo](https://ego.dev/) is an open-source SDK that enables you to run applications written in the Go programming language inside enclaves. EGo builds on top of the OE SDK and comes with an in-enclave Go library for attestation and sealing. Many existing Go applications run on EGo without modifications.  
 
-## [Section n heading]
-<!-- add your content here -->
+### Intel SGX Software Development Kit <a id="intel-sdk"></a>
+The [Intel SGX SDK](https://01.org/intel-softwareguard-extensions) is developed and maintained by the SGX team at Intel. The SDK is a collection tools allowing software developers to create and debug Intel SGX enabled applications in C/C++.
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+### Confidential Consortium Framework (CCF) <a id="ccf"></a>
+
+The [CCF](https://github.com/Microsoft/CCF) is a distributed network of nodes, each running their own enclaves. The trusted node network allows you to run a distributed ledger. The ledger provides secure, reliable components for the protocol to use. 
+
+![CCF Nodes](media/application-development/ccf.png)
+
+This open-source framework enables high throughout, fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
+
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Deploy a confidential computing Intel SGX virtual machine](quick-create-portal.md)

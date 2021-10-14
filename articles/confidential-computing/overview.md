@@ -10,9 +10,9 @@ ms.date: 09/22/2020
 ms.author: JenCook
 ---
 
-# Confidential computing on Azure
+# What is confidential computing?
 
-Azure confidential computing allows you to isolate your sensitive data while it's being processed in the cloud. Many industries use confidential computing to protect their data by using confidential computing to:
+Confidential computing allows you to isolate your sensitive data while it's being processed. Many industries use confidential computing to protect their data by using confidential computing to:
 
 - Secure financial data
 - Protect patient information
@@ -32,7 +32,7 @@ We know that securing your cloud data is important. We hear your concerns. Here'
 - How do I prevent security threats from privileged admins inside my company?
 - What are more ways that I can prevent third-parties from accessing sensitive customer data?
 
-Microsoft Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
+Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 ## Introduction to confidential computing 
 
@@ -50,16 +50,18 @@ Running workloads on the cloud requires trust. You give this trust to various pr
 
 **Infrastructure providers**: Trust cloud providers or manage your own on-premise data centers.
 
-
 Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
 
 ### Reducing the attack surface
-The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. 
+The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. 
 
-A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. TEEs reduce your TCB to trusted runtime binaries, code, and libraries. When you use Azure infrastructure and services for confidential computing, you can remove all of Microsoft from your TCB.
+### Reducing the TCB in Azure
 
+When you deploy Azure confidential virtual machines, you can remove Microsoft from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, this requires no code or app changes. 
 
-## Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
+Azure also offers confidential VMs with enclaves. These solutions require more work - potentially changes to configuration policies, or application code. Typically, enclaves allow developers to build solutions with a smaller TCB. Enclaves remove both Microsoft and your own company admin from the TCB. Application enclaves like what Intel SGX provides, reduces your TCB to only trusted runtime binaries, code, and libraries. 
+
+### Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
 
 Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware.  
 
@@ -71,25 +73,11 @@ Azure confidential computing allows you to leverage confidential computing capab
 
 **Isolated processing**: Offer a new wave of products that remove liability on private data with blind processing. User data cannot even be retrieved by the service provider. 
 
-## Get Started
-### Azure Compute
-Build applications on top of confidential compute IaaS offerings in Azure.
-- Virtual Machines (VMs): [DCsv2-Series](confidential-computing-enclaves.md)
-- Azure Kubernetes (AKS): [Orchestrate confidential containers](confidential-nodes-aks-overview.md)
-
-### Azure Security 
-Ensure your workloads are secure through verification methods and hardware-bound key management. 
-- Attestation: [Microsoft Azure Attestation (Preview)](../attestation/overview.md)
-- Key Management: Managed-HSM
-
-### Develop
-Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.
-- Write applications to run on DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
-- Confidential ML models in ONNX runtime: [Confidential inferencing (beta)](https://aka.ms/confidentialinference)
+Azure offers various [products and services](overview-azure-products.md) for confidential computing. 
 
 ## Next steps
 
-Deploy a DCsv2-Series virtual machine and install the OE SDK on it.
+Learn about all the confidential computing products on Azure.
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential computing VM in Azure Marketplace](quick-create-marketplace.md)
+> [Overview of Azure confidential computing services](overview-azure-products.md)
