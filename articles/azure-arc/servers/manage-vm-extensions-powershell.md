@@ -46,7 +46,7 @@ $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 New-AzConnectedMachineExtension -Name "custom" -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-The following example enables the Antimalware extension on an Azure Arc-enabled Windows server:
+The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
 
 ```powershell
 $Setting = @{ "AntimalwareEnabled" = $true }
