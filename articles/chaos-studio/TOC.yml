@@ -22,8 +22,8 @@
     href: chaos-studio-chaos-experiments.md
   - name: Faults and actions
     href: chaos-studio-faults-actions.md
-  - name: What is chaos engineering?
-    href: chaos-studio-chaos-engineering-overview.md
+  - name: Permissions and security
+    href: chaos-studio-permissions-security.md
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
