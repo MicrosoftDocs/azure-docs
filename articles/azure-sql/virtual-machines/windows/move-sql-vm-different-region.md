@@ -152,4 +152,4 @@ For more information, see the following articles:
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [SQL Server on a Windows VM FAQ](frequently-asked-questions-faq.yml)
 * [SQL Server on a Windows VM pricing guidance](pricing-guidance.md)
-* [SQL Server on a Windows VM release notes](doc-changes-updates-release-notes.md)
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)
