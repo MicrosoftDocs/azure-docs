@@ -35,6 +35,12 @@ In this article, you learn how to use the new REST APIs to:
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+- The [jq](https://stedolan.github.io/jq/) JSON processor.
+
+> [!IMPORTANT]
+> The code snippets in this article assume that you are using the Bash shell.
+>
+> The code snippets are pulled from the `/cli/batch-score.sh` file in the [AzureML Example repository](https://github.com/Azure/azureml-examples).
 
 ## Set endpoint name
 
@@ -44,7 +50,8 @@ In this article, you learn how to use the new REST APIs to:
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="set_endpoint_name":::
 
 ## Azure Machine Learning batch endpoints
-Batch endpoints (preview) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+
+[Batch endpoints (preview)](concept-endpoints.md#what-are-batch-endpoints-preview) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
 There are many ways to create an Azure Machine Learning batch endpoint, [including the Azure CLI](how-to-use-batch-endpoint.md), and visually with [the studio](how-to-use-batch-endpoints-studio.md). The following example creates a batch endpoint and deployment with the REST API.
 
@@ -61,6 +68,16 @@ Administrative REST requests a [service principal authentication token](how-to-m
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" range="11":::
+
+### Create compute
+Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster where you can run batch scoring workflows.
+
+Create a compute cluster:
+
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_compute":::
+
+> [!ITP]
+> If you want to use an existing compute instead, you must specify the full Azure Resource Manager ID when [creating the batch deployment](#create-batch-deployment). The full ID uses the format `/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes/<your-compute-name>`.
 
 ### Get storage account details
 
@@ -100,12 +117,9 @@ Now, run the following snippet to create an environment:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_environment":::
 
-### Create compute
-Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster where you can run batch scoring workflows.
+## Deploy with batch endpoints
 
-Create a compute cluster:
-
-:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_compute":::
+Next, create the batch endpoint, a deployment, and set the default deployment.
 
 ### Create batch endpoint
 
@@ -125,9 +139,13 @@ There's only one default batch deployment under one endpoint, which will be used
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="set_endpoint_defaults":::
 
+## Run batch scoring
+
+Invoking a batch endpoint triggers a batch scoring job. A job `id` is returned in the response, and can be used to track the batch scoring progress. In the following snippets, `jq` is used to get the job `id`.
+
 ### Invoke the batch endpoint to start a batch scoring job
 
-We need the scoring uri and access token to invoke the batch endpoint. First get the scoring uri:
+Get the scoring uri and access token to invoke the batch endpoint. First get the scoring uri:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="get_endpoint":::
 
@@ -135,11 +153,15 @@ Get the batch endpoint access token:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="get_access_token":::
 
-Now, invoke the batch endpoint using curl with data in cloud:
+Now, invoke the batch endpoint to start a batch scoring job. The following example scores data publicly available in the cloud:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="score_endpoint_with_data_in_cloud":::
 
-You can also invoke the batch endpoint with a registered dataset:
+If your data is stored in an Azure Machine Learning registered datastore, you can invoke the batch endpoint with a dataset. The following code creates a new dataset:
+
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_dataset":::
+
+Next, reference the dataset when invoking the batch endpoint:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="score_endpoint_with_dataset":::
 
@@ -149,7 +171,11 @@ Batch scoring jobs usually take some time to process the entire set of inputs. M
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="check_job":::
 
-### Delete the batch endpoint
+### Check batch scoring results
+
+For information on checking the results, see [Check batch scoring results](how-to-use-batch-endpoint.md#check-batch-scoring-results).
+
+## Delete the batch endpoint
 
 If you aren't going use the batch endpoint, you should delete it with the below command (it deletes the batch endpoint and all the underlying deployments):
 

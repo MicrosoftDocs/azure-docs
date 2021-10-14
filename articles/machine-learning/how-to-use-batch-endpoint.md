@@ -33,40 +33,9 @@ In this article, you learn to do the following tasks:
 
 ## Prerequisites
 
-* An Azure subscription
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-
-* The Azure Command Line Interface (CLI) and ML extension.
-
-The Machine Learning extension requires Azure CLI version `>=2.15.0`. Ensure this requirement is met:
-
-```azurecli
-az version
-```
-
-If necessary, upgrade the Azure CLI:
-
-```azurecli
-az upgrade
-```
-
-> [!NOTE]
->
-> The `az upgrade` command was added in version 2.11.0 and will not work with versions prior to 2.11.0. Older versions can be updated by reinstalling as described in [Install the Azure CLI](/cli/azure/update-azure-cli).
->
-> This command will also update all installed extensions by default. For more `az upgrade` options, please refer to the [command reference page](/cli/azure/reference-index#az_upgrade).
-
-Add and configure the Azure ML extension:
-
-```azurecli
-az extension add -n ml
-```
-
-For more on configuring the ML extension, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
-
-* The example repository
-
-Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/batch`.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+* The Azure Command Line Interface (CLI) and ML extension. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* The example repository. Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples) to your development environment. This article uses the assets in `/cli/endpoints/batch`.
 
 ## Create a compute target
 
