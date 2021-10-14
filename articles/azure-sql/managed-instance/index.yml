@@ -27,7 +27,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+            url: doc-changes-updates-release-notes-whats-new.md
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance
@@ -47,7 +47,7 @@ landingContent:
           - text: Transactional replication 
             url: replication-transactional-overview.md 
           - text: Migrate from SQL Server
-            url: migrate-to-instance-from-sql-server.md
+            url: ../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
           - text: T-SQL differences with SQL Server
             url: transact-sql-tsql-differences-sql-server.md
 

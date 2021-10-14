@@ -177,7 +177,7 @@ Device management encompasses the full lifecycle associated with managing the de
 
 ### Device model
 
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-modeling-guide.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-develop/concepts-modeling-guide.md).
 
 ### Device modeling
 
@@ -209,7 +209,7 @@ Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These me
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language-dtdl) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language-dtdl) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-develop/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
 
 ### Digital twin change events
 
@@ -363,10 +363,6 @@ IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a 
 
 An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. An IoT Plug and Play device might be implemented directly or as an IoT Edge module. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
-### IoT solution accelerators
-
-Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
-
 ## J
 
 ### Job
@@ -395,7 +391,7 @@ The [Device Provisioning Service (DPS)](#device-provisioning-service), can provi
 
 A model defines a type of entity in your physical environment, including its properties, telemetries, components, and sometimes other information. Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl).
 
-In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-pnp/index.yml), [device models](#device-model) are used to describe devices specifically.
+In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-develop/index.yml), [device models](#device-model) are used to describe devices specifically.
 
 ### Model ID
 

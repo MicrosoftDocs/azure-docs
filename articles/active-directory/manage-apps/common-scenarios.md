@@ -1,21 +1,22 @@
 ---
-title: Common application management scenarios for Azure Active Directory | Microsoft Docs
+title: Common application management scenarios
+titleSuffix: Azure AD
 description: Centralize application management with Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-provisioning
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019
 ms.author: davidmu
-ms.reviewer: arvinh
+ms.reviewer: napuri
 ms.collection: M365-identity-device-management
 ---
 
-# Centralize application management with Azure AD
+# Centralize application management with Azure Active Directory
 
-Passwords, both an IT nightmare and a pain for employees across the world. This is why more and more companies are turning to Azure Active Directory, Microsoft's Identity and Access Management solution for the cloud and all your other resources. Jump from application to application without having to enter a password for each one. Jump from Outlook, to Workday, to ADP as fast as you can open them up, quickly and securely. Then collaborate with partners and even others outside your organization all without having to call IT. What's more, Azure AD helps manage risk by securing the apps you use with things like multi-factor authentication to verify who you are, using continuously adaptive machine learning and security intelligence to detect suspicious sign-ins giving you secure access to the apps you need, wherever you are. It's not only great for users but for IT as well. With just-in-time access reviews and a full scale governance suite, Azure AD helps you stay in compliance and enforce policies too. And get this, you can even automate provisioning user accounts, making access management a breeze. check out some of the common scenarios that customer use Azure Active Directory's application management capabilities for.
+Passwords, both an IT nightmare and a pain for employees across the world. This is why more and more companies are turning to Azure Active Directory, Microsoft's Identity and Access Management solution for the cloud and all your other resources. Jump from application to application without having to enter a password for each one. Jump from Outlook, to Workday, to ADP as fast as you can open them up, quickly and securely. Then collaborate with partners and even others outside your organization all without having to call IT. What's more, Azure AD helps manage risk by securing the apps you use with things like multi-factor authentication to verify who you are, using continuously adaptive machine learning and security intelligence to detect suspicious sign-ins giving you secure access to the apps you need, wherever you are. It's not only great for users but for IT as well. With just-in-time access reviews and a full scale governance suite, Azure AD helps you stay in compliance and enforce policies too. And get this, you can even automate provisioning user accounts, making access management a breeze. Check out some of the common scenarios that customer use Azure Active Directory's application management capabilities for.
 
 **Common scenarios**
 

@@ -23,7 +23,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-single-server).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-single-server).
 
 :::zone-end
 
@@ -41,7 +41,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-flexible-server).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-flexible-server).
 
 :::zone-end
 
@@ -455,9 +455,9 @@ Test the app locally with the following steps:
 
 1. Go to `http://localhost:8000` in a browser, which should display the message "No polls are available". 
 
-1. Go to `http:///localhost:8000/admin` and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices. 
+1. Go to `http://localhost:8000/admin` and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices. 
 
-1. Go to *http:\//localhost:8000* again and answer the question to test the app. 
+1. Go to `http://localhost:8000` again and answer the question to test the app. 
 
 1. Stop the Django server by pressing **Ctrl**+**C**.
 

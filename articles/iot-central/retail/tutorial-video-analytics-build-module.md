@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/31/2020
+ms.date: 09/01/2021
 ---
 
 # Tutorial: Modify and build the live video analytics gateway modules

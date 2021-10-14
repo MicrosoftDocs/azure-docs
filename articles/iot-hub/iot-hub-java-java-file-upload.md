@@ -2,13 +2,13 @@
 title: Upload files from devices to Azure IoT Hub with Java | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 06/28/2017
+ms.date: 07/18/2021
 ms.custom: [amqp, mqtt, devx-track-java]
 ---
 
@@ -25,7 +25,7 @@ The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-
 * Vibration data sampled at high frequency
 * Some form of preprocessed data.
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This sample shows you how. Also, there are two samples located at [https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This sample shows you how. Also, there are two samples located at [https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
@@ -46,7 +46,11 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Create a project using Maven
 
@@ -157,10 +161,9 @@ Using a text editor, replace the pom.xml file with the following:
 
 ```
 
+## Upload a file from a device app
 
-## Upload a file
-
-Copy the file that you want to upload to the `my-app` folder in your project tree. Using a text editor, replace App.java with the following code. Supply your connection string and file name where noted.
+Copy the file that you want to upload to the `my-app` folder in your project tree. Using a text editor, replace App.java with the following code. Supply your device connection string and file name where noted. You copied the device connection string when you registered the device.
 
 ```java
 package com.mycompany.app;
@@ -276,23 +279,8 @@ public class App
     }
 }
 ```
-## Get the device connection string
 
-Run the following command in Azure Cloud Shell to get the _device connection string_ for your device. Replace the placeholders below with the name you chose for your IoT hub and the name of your device.
-
-```azurecli-interactive
-az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
-```
-    
-Copy the device connection string, which looks like the following, and place it in the code sample where noted.
-  
-```cmd/sh
-HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
-```
-
-Place the path to the file to upload in the code sample where noted.
-    
-## Build and Run the application
+## Build and run the application
 
 At a command prompt in the `my-app` folder, run the following command:
 

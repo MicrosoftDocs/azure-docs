@@ -71,8 +71,8 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 1. Delete the conflicting Contact object.
 2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
 3. Re-invite the guest user.
-4. Wait for the user to redeem invitation
-5. Add the user's Contact email back into Exchange and any DLs they should be a part of
+4. Wait for the user to redeem invitation.
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of.
 
 ## Invitation redemption flow
 
@@ -127,7 +127,13 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
 
+> [!NOTE]
+> The consent experience appears only after the user signs in, and not before. There are some scenarios where the consent experience will not be displayed to the user, for example:
+> - The user already accepted the consent experience
+> - The admin [grants tenant-wide admin consent to an application](../manage-apps/grant-admin-consent.md)
+
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ## Next steps
 

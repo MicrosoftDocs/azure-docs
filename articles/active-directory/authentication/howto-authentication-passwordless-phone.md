@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/02/2021
 
 ms.author: justinha
 author: justinha
@@ -33,7 +33,12 @@ People who enabled phone sign-in from the Microsoft Authenticator app see a mess
 
 To use passwordless phone sign-in with the Microsoft Authenticator app, the following prerequisites must be met:
 
-- Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method.
+- Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
+  
+  Azure Multi-Factor Auth Connector must be enabled to allow users to register for push notifications for phone sign-in.
+
+  ![Screenshot of Azure Multi-Factor Auth Connector enabled.](media/howto-authentication-passwordless-phone/connector.png)
+
 - Latest version of Microsoft Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
 - The device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user. 
 
@@ -75,7 +80,7 @@ Users register themselves for the passwordless authentication method of Azure AD
 1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
 1. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
 
-An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring the Microsoft Authenticator app and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
+An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring the Microsoft Authenticator app and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Authenticator app](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
 
 > [!NOTE]
 > Users who aren't allowed by policy to use phone sign-in are no longer able to enable it within the Microsoft Authenticator app.

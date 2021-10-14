@@ -41,12 +41,14 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 
 Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
 
+> Note: if you're using .NET 6 or later then you don't need to use Implicit grant. The latest template uses MSAL Browser 2.0 and supports Auth Code Flow with PKCE
+
 ## Create the app using the .NET Core CLI
 
 To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
 ```
 
 Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.

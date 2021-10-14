@@ -5,9 +5,9 @@ metadata:
   author: genlin
   manager: dcscontentpm
   tags: top-support-issue
-  
   ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
   ms.topic: article
+  ms.service: app-service
   ms.date: 10/30/2018
   ms.author: genli 
   ms.custom: devx-track-azurepowershell
@@ -228,13 +228,6 @@ sections:
           Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
           
           For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
-          
-      - question: |
-          In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
-        answer: |
-          To provide fault tolerance, App Service Environment requires that each worker pool needs at least one additional compute resource. The additional compute resource cannot be assigned a workload.
-          
-          For more information, see [How to create an App Service Environment](environment/app-service-web-how-to-create-an-app-service-environment.md).
           
       - question: |
           Why do I see timeouts when I try to create an App Service Environment?

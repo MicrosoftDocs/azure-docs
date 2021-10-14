@@ -68,7 +68,7 @@ When you build a Nuxt.js site using `npm run build`, the app is built as a tradi
     ```json
     "scripts": {
       "dev": "nuxt dev",
-      "build": "nuxt generate",
+      "build": "nuxt generate"
     },
     ```
 

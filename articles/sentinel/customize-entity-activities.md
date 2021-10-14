@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yelevin
 
 ---
@@ -137,24 +137,47 @@ SecurityEvent
 
 #### Presenting the activity in the timeline
 
-You can determine how the activity will be presented in the timeline for your convenience.
+For the sake of convenience, you may want to determine how the activity is presented in the timeline by adding dynamic parameters to the activity output.
 
-You can add dynamic parameters to the activity output with the following format: `{{ParameterName}}`. The parameters include built-in ones provided by Azure Sentinel, plus others based on the fields you projected in the query.
+Azure Sentinel provides built-in parameters for you to use, and you can also use others based on the fields you projected in the query.
 
-Once the activity query passes validation (you'll know it has if you see the "View query results" link below the query window), the **Available values** section can be expanded, and you'll see the different parameters you can use to create a dynamic activity title. Clicking on the **copy** icon next to a particular parameter will copy that parameter to your clipboard, and you can then paste it into the **Activity title** field above.
+Use the following format for your parameters: `{{ParameterName}}`
 
-You can add the following parameters: 
+After the activity query passes validation and displays the **View query results** link below the query window, you'll be able to expand the **Available values** section to view the parameters available for you to use when creating a dynamic activity title.
+
+Select the **Copy** icon next to a specific parameter to copy that parameter to your clipboard so that you can paste it into the **Activity title** field above.
+
+Add any of the following parameters to your query:
+
 - Any field you projected in the query.
+
 - Entity identifiers of any entities mentioned in the query.
-- Count – use this parameter to summarize the count of the KQL query output. The bucket size is determined in the entity page.
-- StartTimeUTC – Start time of the activity in UTC.
-- EndTimeUTC – End time of the activity in UTC.
+
+- `StartTimeUTC`, to add the start time of the activity, in UTC time.
+
+- `EndTimeUTC`, to add the end time of the activity, in UTC time.
+
+- `Count`, to summarize several KQL query outputs into a single output.
+
+    The `count` parameter adds the following command to your query in the background, even though it's not displayed fully in the editor:
+
+    ```kql
+    Summarize count() by <each parameter you’ve projected in the activity>
+    ```
+
+    Then, when you use the **Bucket Size** filter in the entity pages, the following command is also added to the query that's run in the background:
+
+    ```kql
+    Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
+    ```
+
+For example:
 
 :::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
 When you are satisfied with your query and activity title, select **Next : Review**.
 
-### Review and create tab 
+### Review and create tab
 
 1. Verify all the configuration information of your custom activity.
 

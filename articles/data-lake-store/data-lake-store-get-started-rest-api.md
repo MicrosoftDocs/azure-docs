@@ -2,11 +2,11 @@
 title: Manage an Azure Data Lake Storage Gen1 account with REST
 description: Use the WebHDFS REST API to perform account management operations on an Azure Data Lake Storage Gen1 account.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Account management operations on Azure Data Lake Storage Gen1 using REST API

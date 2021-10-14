@@ -8,8 +8,9 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ---
 # Build a custom Teams endpoint
 
@@ -38,7 +39,7 @@ Optionally, you can also use custom Teams endpoints to integrate chat capabiliti
 
 |   Permission    |  Display string   |  Description | Admin consent required | Microsoft account supported |
 |:--- |:--- |:--- |:--- |:--- |
-| _https://auth.msft.communication.azure.com/VoIP_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+| _`https://auth.msft.communication.azure.com/VoIP`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
 
 ### Application permissions
 

@@ -91,7 +91,7 @@ This section shows you how to create a .NET Core console application to send eve
             // Create a batch of events 
             using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
 
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= numOfEvents; i++)
             {
                 if (! eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
                 {
@@ -104,7 +104,7 @@ This section shows you how to create a .NET Core console application to send eve
             {
                 // Use the producer client to send the batch of events to the event hub
                 await producerClient.SendAsync(eventBatch);
-                Console.WriteLine("A batch of 3 events has been published.");
+                Console.WriteLine($"A batch of {numOfEvents} events has been published.");
             }
             finally
             {

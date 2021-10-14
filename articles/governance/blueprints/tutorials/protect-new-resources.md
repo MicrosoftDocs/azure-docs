@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Protect new resources with locks"
 description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
-ms.date: 03/08/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
@@ -277,7 +277,8 @@ doesn't remove the associated artifacts.
 
 1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
 
-1. Select the **Access control (IAM)** page on the left and then select the **Role assignments** tab.
+1. Select the **Access control (IAM)** page on the left and then select the **Role assignments**
+   tab.
 
 The security for the resource group shows that the blueprint assignment no longer has _Owner_
 access.

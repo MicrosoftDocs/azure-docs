@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
@@ -120,7 +120,7 @@ Search-AzGraph -Query "PolicyResources | where type =~ 'Microsoft.PolicyInsights
 
 ### List all non-compliant resources
 
-Provides compliance state, compliance percentage, and counts of resources for each resource type.
+Provides a list of all resources types that are in a `NonCompliant` state.
 
 ```kusto
 PolicyResources

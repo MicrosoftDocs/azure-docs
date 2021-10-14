@@ -81,7 +81,7 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 |--------|--------|-------------|
 | `typ` | String - always "JWT" | Indicates that the token is a JWT.|
 | `alg` | String | Indicates the algorithm that was used to sign the token, for example, "RS256" |
-| `kid` | String | Specifies the thumbprint for the public key that's used to sign this token. Emitted in both v1.0 and v2.0 access tokens. |
+| `kid` | String | Specifies the thumbprint for the public key that can be used to validate this token's signature. Emitted in both v1.0 and v2.0 access tokens. |
 | `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
@@ -224,7 +224,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 This metadata document:
 
 * Is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for doing OpenID Connect authentication.
-* Includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517).  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
+* Includes a `jwks_uri`, which gives the location of the set of public keys that correspond to the private keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517). Your app can use the `kid` claim in the JWT header to select the public key, from this document, which corresponds to the private key that has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
 
 > [!NOTE]
 > We recommend using the `kid` claim to validate your token. Though v1.0 tokens contain both the `x5t` and `kid` claims, v2.0 tokens contain only the `kid` claim.

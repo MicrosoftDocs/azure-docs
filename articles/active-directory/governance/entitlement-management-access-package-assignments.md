@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/12/2021
+ms.date: 10/05/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -70,7 +70,7 @@ $assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackage
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
-## Directly assign a user
+## Directly assign a user 
 
 In some cases, you might want to directly assign specific users to an access package so that users don't have to go through the process of requesting the access package. To directly assign users, the access package must have a policy that allows administrator direct assignments.
 
@@ -106,6 +106,38 @@ In some cases, you might want to directly assign specific users to an access pac
 1. Click **Add** to directly assign the selected users to the access package.
 
     After a few moments, click **Refresh** to see the users in the Assignments list.
+    
+> [!NOTE]
+> When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
+
+## Directly assign any user (Preview)
+Azure AD Entitlement Management also allows you to directly assign external users to an access package to make collaborating with partners easier. To do this, the access package must have a policy that allows users not yet in your directory to request access.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+
+1.	In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+
+1.	In the left menu, click **Access packages** and then open the access package in which you want to add a user.
+
+1.	In the left menu, click **Assignments**.
+
+1.	Select **New assignment** to open **Add user to access package**.
+
+1.	In the **Select policy** list, select a policy that allows that is set to **For users not in your directory**
+
+1. Select **Any user**. You’ll be able to specify which users you want to assign to this access package.
+    ![Assignments - Add any user to access package](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
+
+1. Enter the user’s **Name** (optional) and the user’s **Email address** (required).
+
+    > [!NOTE]
+    > - The user you want to add must be within the scope of the policy. For example, if your policy is set to **Specific connected organizations**, the user’s email address must be from the domain(s) of the selected organization(s). If the user you are trying to add has an email address of jen@*foo.com* but the selected organization’s domain is *bar.com*, you won't be able to add that user to the access package.
+    > - Similarly, if you set your policy to include **All configured connected organizations**, the user’s email address must be from one of your configured connected organizations. Otherwise, the user won't be added to the access package.
+    > - If you wish to add any user to the access package, you'll need to ensure that you select **All users (All connected organizations + any external user)** when configuring your policy.
+
+1.	Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
+1.	Click **Add** to directly assign the selected users to the access package.
+1.	After a few moments, click **Refresh** to see the users in the Assignments list.
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
@@ -124,6 +156,22 @@ Select-MgProfile -Name "beta"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
 $policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
+```
+
+You can also assign multiple users to an access package in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.1 or later. This cmdlet takes as parameters
+* the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet,
+* the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
+* the object IDs of the target users, either as an array of strings, or as a list of user members returned from the `Get-MgGroupMember` cmdlet.
+
+For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this will cmdlet will only create assignments; it does not remove assignments.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
+Select-MgProfile -Name "beta"
+$members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
 ```
 
 ## Remove an assignment

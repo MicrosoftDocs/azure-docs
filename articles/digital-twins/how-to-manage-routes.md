@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/22/2020
+ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -24,7 +24,7 @@ This article walks you through the process of creating endpoints and routes usin
 ## Prerequisites
 
 * You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
 
@@ -43,9 +43,12 @@ Follow the instructions below if you intend to use the Azure CLI while following
 ## Create an endpoint for Azure Digital Twins
 
 These are the supported types of endpoints that you can create for your instance:
-* [Event Grid](../event-grid/overview.md) 
-* [Event Hubs](../event-hubs/event-hubs-about.md)
-* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+* [Event Grid](../event-grid/overview.md) topic
+* [Event Hubs](../event-hubs/event-hubs-about.md) hub
+* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topic
+
+>[!NOTE]
+> For Event Grid endpoints, only event grid **topics** are supported. Event grid **domains** are not supported as endpoints.
 
 For more information on the different endpoint types, see [Choose between Azure messaging services](../event-grid/compare-messaging-services.md).
 
@@ -59,7 +62,7 @@ Use the following chart to see what resources should be set up before creating y
 
 | Endpoint type | Required resources (linked to creation instructions) |
 | --- | --- |
-| Event Grid endpoint | [event grid topic](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) |
+| Event Grid endpoint | [event grid topic](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>*event schema must be Event Grid Schema or Cloud Event Schema v1.0 |
 | Event Hubs endpoint | [Event&nbsp;Hubs&nbsp;namespace](../event-hubs/event-hubs-create.md)<br/><br/>[event hub](../event-hubs/event-hubs-create.md)<br/><br/>(Optional) [authorization rule](../event-hubs/authorize-access-shared-access-signature.md) for key-based authentication | 
 | Service Bus endpoint | [Service Bus namespace](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Service Bus topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (Optional) [authorization rule](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) for key-based authentication|
 
@@ -78,7 +81,7 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
-    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview) for your Azure Digital Twins instance. 
+    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
 
     :::row:::
         :::column:::
@@ -91,7 +94,7 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [How-to: Route events with a managed identity](how-to-route-with-managed-identity.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
@@ -133,7 +136,7 @@ After successfully running these commands, the event grid, event hub, or Service
 
 #### Create an endpoint with identity-based authentication
 
-You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
+You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
 
 The CLI command to create this type of endpoint is below. You'll need the following values to plug into the placeholders in the command:
 * the Azure resource ID of your Azure Digital Twins instance
@@ -155,7 +158,7 @@ When an endpoint can't deliver an event within a certain time period or after tr
 
 You can set up the necessary storage resources using the [Azure portal](https://ms.portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
-To learn more about dead-lettering, see [Concepts: Event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
+To learn more about dead-lettering, see [Event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
 #### Set up storage resources
 
@@ -236,7 +239,7 @@ Alternatively, you can create dead letter endpoints using the [Azure Digital Twi
 
 #### Create a dead-letter endpoint with identity-based authentication
 
-You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
+You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
 
 To create this type of endpoint, use the same CLI command from earlier to [create an endpoint with identity-based authentication](#create-an-endpoint-with-identity-based-authentication), with an extra field in the JSON payload for a `deadLetterUri`.
 
@@ -291,7 +294,7 @@ Here is an example of a dead-letter message for a [twin create notification](con
 
 ## Create an event route
 
-To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
+To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Routing Azure Digital Twins events](concepts-route-events.md).
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
@@ -334,7 +337,7 @@ When finished, select the _Save_ button to create your event route.
 
 Routes can be managed using the [az dt route](/cli/azure/dt/route?view=azure-cli-latest&preserve-view=true) commands for the Azure Digital Twins CLI. 
 
-For more information about using the CLI and what commands are available, see [Concepts: Azure Digital Twins CLI command set](concepts-cli.md).
+For more information about using the CLI and what commands are available, see [Azure Digital Twins CLI command set](concepts-cli.md).
 
 # [.NET SDK](#tab/sdk2)
 
@@ -434,7 +437,10 @@ Here are the supported route filters.
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br>**For notifications (create/delete)**: Data schema can be accessed in the notification body at `$body.$metadata.$model`. <br>**For notifications (update)**: Data schema can be accessed in the notification body at `$body.modelId`|
 | Content type | Content type of data value | `datacontenttype = '<content-type>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Concepts: Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+
+>[!NOTE]
+> Azure Digital Twins currently doesn't support filtering events based on fields within an array. This includes filtering on properties within a `patch` section of a [digital twin change notification](concepts-event-notifications.md#digital-twin-change-notifications).
 
 The following data types are supported as values returned by references to the data above:
 
@@ -473,9 +479,9 @@ From the portal homepage, search for your Azure Digital Twins instance to pull u
 
 From here, you can view the metrics for your instance and create custom views.
 
-For more on viewing Azure Digital Twins metrics, see [How-to: View metrics with Azure Monitor](troubleshoot-metrics.md).
+For more on viewing Azure Digital Twins metrics, see [View metrics with Azure Monitor](troubleshoot-metrics.md).
 
 ## Next steps
 
 Read about the different types of event messages you can receive:
-* [Concepts: Event notifications](concepts-event-notifications.md)
+* [Event notifications](concepts-event-notifications.md)

@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot problems signing in to an application from Azure AD My Apps
+title: Troubleshoot problems signing in to an application from My Apps portal
+titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: davidmu1
@@ -10,11 +11,11 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
-ms.reviewer: japere
+ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
 
-# Troubleshoot problems signing in to an application from Azure AD My Apps
+# Troubleshoot application sign-in in Azure Active Directory
 
 My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -38,7 +39,7 @@ Here are some things to check if an app is appearing or not appearing:
 
 ## General issues to check first
 
-- Make sure the web browser meets the requirements, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
+- Make sure the web browser meets the requirements, see [My Apps supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 - Make sure the user’s browser has added the URL of the application to its **trusted sites**.
 - Make sure to check the application is **configured** correctly.
 - Make sure the user’s account is **enabled** for sign-ins.

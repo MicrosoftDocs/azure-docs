@@ -1,7 +1,7 @@
 ---
-title: Create custom artifacts for your DevTest Labs virtual machine | Microsoft Docs
+title: Create custom artifacts for your Azure DevTest Labs virtual machine
 description: Learn how to create artifacts to use with Azure DevTest Labs to deploy and set up applications after you provision a virtual machine.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

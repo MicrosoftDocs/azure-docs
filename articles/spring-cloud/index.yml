@@ -10,8 +10,8 @@ metadata:
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: bmitchell287 #Required; your GitHub user alias, with correct capitalization.
-  ms.author: brendm  #Required; microsoft alias of author; optional team alias.
+  author: karlerickson #Required; your GitHub user alias, with correct capitalization.
+  ms.author: karler  #Required; microsoft alias of author; optional team alias.
   ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -35,7 +35,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Quickstart - Deploy your first Azure Spring Cloud application
-            url: quickstart.md 
+            url: quickstart.md
           - text: Introduction to PiggyMetrics sample app
             url: quickstart-sample-app-introduction.md
       - linkListType: tutorial
@@ -44,7 +44,7 @@ landingContent:
             url: how-to-prepare-app-deployment.md
 
   - title: Configure your service
-    linkLists: 
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Use Config Server to maintain application configuration
@@ -56,7 +56,7 @@ landingContent:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
             url: how-to-cicd.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
-            url: how-to-staging-environment.md           
+            url: how-to-staging-environment.md
           - text: Use persistent storage in Azure Spring Cloud
             url: how-to-persistent-storage.md
 
@@ -82,7 +82,7 @@ landingContent:
           - text: Bind your application with Azure Cache for Redis
             url: how-to-bind-redis.md
           - text: Bind your application to an Azure MySQL DB
-            url: how-to-bind-mysql.md 
+            url: how-to-bind-mysql.md
           - text: Bind your application to Azure CosmosDB
             url: how-to-bind-cosmos.md
    # Card

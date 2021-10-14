@@ -2,7 +2,7 @@
   tocHref: /azure
   topicHref: /azure/index
   items:
-  - name: Windows Virtual Desktop
+  - name: Azure Virtual Desktop
     tocHref: /azure/virtual-desktop
     topicHref: /azure/virtual-desktop/index
     items: 

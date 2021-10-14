@@ -462,7 +462,7 @@ It's important to note that the following doesn't cause the ApplicationInsights 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#control-logging-level).
+For more information, see [ILogger configuration](ilogger.md#logging-level).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 

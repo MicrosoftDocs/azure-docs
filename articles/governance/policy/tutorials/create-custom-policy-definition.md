@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -45,8 +45,8 @@ steps involved:
 Your requirements should clearly identify both the "to be" and the "not to be" resource states.
 
 While we've defined the expected state of the resource, we've not yet defined what we want done with
-non-compliant resources. Azure Policy supports a number of [effects](../concepts/effects.md). For
-this tutorial, we'll define the business requirement as preventing the creation of resources if they
+non-compliant resources. Azure Policy supports many [effects](../concepts/effects.md). For this
+tutorial, we'll define the business requirement as preventing the creation of resources if they
 aren't compliant with the business rules. To meet this goal, we'll use the
 [Deny](../concepts/effects.md#deny) effect. We also want the option to suspend the policy for
 specific assignments. As such, we'll use the [Disabled](../concepts/effects.md#disabled) effect and
@@ -337,8 +337,8 @@ parameters block looks like this example:
 Composing the [policy rule](../concepts/definition-structure.md#policy-rule) is the final step in
 building our custom policy definition. We've identified two statements to test for:
 
-- That the storage account **type** is **Microsoft.Storage/storageAccounts**
-- That the storage account **supportsHttpsTrafficOnly** isn't **true**
+- The storage account **type** is **Microsoft.Storage/storageAccounts**
+- The storage account **supportsHttpsTrafficOnly** isn't **true**
 
 Since we need both of these statements to be true, we'll use the **allOf** [logical
 operator](../concepts/definition-structure.md#logical-operators). We'll pass the **effectType**

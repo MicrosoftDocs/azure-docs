@@ -10,7 +10,7 @@ ms.date: 07/03/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries
 
-Azure products are available in a number of [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/), with each Azure geography containing one or more regions. For example, the Europe geography contains two regions -- North Europe and West Europe -- while the sole region in the Brazil geography is Brazil South.
+Azure products are available in a number of [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/), with each Azure geography containing one or more regions. For example, the Europe geography contains two regions -- North Europe and West Europe -- while the sole region in the Brazil geography is Brazil South.
 
 Azure Key Vault is a multi-tenant service that uses a pool of Hardware Security Modules (HSMs). All HSMs in a geography share the same cryptographic boundary, referred to as a "security world". Every geography corresponds to a single security world, and vice versa.
 

@@ -17,9 +17,12 @@ A backup policy typically governs the retention and schedule of your backups. Si
 
 The steps to create a backup policy for an Azure Recovery Services vault are outlined in the policy [REST API document](/rest/api/dataprotection/backup-policies/create-or-update). Let's use this document as a reference to create a policy for blobs in a storage account.
 
-## Create or update a policy
+## Create a policy
 
-To create or update an Azure Backup policy, use the following *PUT* operation
+> [!IMPORTANT]
+> Currently, we do not support updating or modifying an existing policy. An alternative is to create a new policy with the required details and assign it to the relevant backup instance.
+
+To create an Azure Backup policy, use the following *PUT* operation
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{policyName}?api-version=2021-01-01

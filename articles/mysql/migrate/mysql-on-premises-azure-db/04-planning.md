@@ -1,6 +1,6 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Planning"
-description: "an azure landing zone is the target environment defined as the final resting place of a cloud migration project."
+description: "An Azure landing zone is the target environment defined as the final resting place of a cloud migration project."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -61,7 +61,7 @@ The migration tool location determines the network connectivity requirements. As
 
 Other networking considerations include:
 
-- DMS located in a VNET is assigned a [dynamic public IP](../../../dms/faq.md#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](../../../expressroute/expressroute-introduction.md) or over [a site to site VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md).
+- DMS located in a VNET is assigned a [dynamic public IP](/azure/dms/faq#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](../../../expressroute/expressroute-introduction.md) or over [a site to site VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 - When using an Azure Virtual Machine to run the migration tools, assign it a public IP address and then only allow it to connect to the on-premises MySQL instance.
 

@@ -5,7 +5,7 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: "include"
-ms.date: 05/04/2021
+ms.date: 07/22/2021
 ms.author: magoedte
 ms.custom: "include file"
 ---
@@ -27,7 +27,8 @@ ms.custom: "include file"
 | Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
 | Maximum number of Automation accounts in a subscription |No limit ||
-| Maximum number of Hybrid Worker Groups per Automation Account|4,000||
+| Maximum number of system hybrid runbook workers per Automation Account|4,000||
+| Maximum number of user hybrid runbook workers per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||
 | Maximum runbook job parameter size   | 512 kilobytes||
 | Maximum runbook parameters   | 50|If you reach the 50-parameter limit, you can pass a JSON or XML string to a parameter and parse it with the runbook.|

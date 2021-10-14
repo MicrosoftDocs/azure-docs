@@ -2,7 +2,7 @@
 title: Compare Azure messaging services
 description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 ms.topic: overview
-ms.date: 07/01/2021
+ms.date: 07/22/2021
 ---
 
 # Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus

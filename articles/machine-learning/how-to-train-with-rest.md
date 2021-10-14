@@ -11,6 +11,7 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
+ms.custom: devplatv2
 ---
 
 # Train models with REST (preview)

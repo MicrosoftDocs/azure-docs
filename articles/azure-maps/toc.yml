@@ -1,3 +1,4 @@
+items:
 - name: Azure Maps documentation 
   href: index.yml
 - name: Overview
@@ -11,6 +12,8 @@
     href: quick-demo-map-app.md
   - name: Create an Android app
     href: quick-android-map.md
+  - name: Create an iOS app
+    href: quick-iOS-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
@@ -87,8 +90,6 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-    - name: Mobility coverage
-      href: mobility-coverage.md
     - name: Weather coverage
       href: weather-coverage.md  
   - name: Localization support
@@ -97,8 +98,6 @@
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility services
-    href: mobility-service-data-structure.md
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
@@ -140,10 +139,6 @@
       href: how-to-use-best-practices-for-routing.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
-    - name: Request public transit routes
-      href: how-to-request-transit-data.md
-    - name: Request real-time public transit data
-      href: how-to-request-real-time-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
     - name: Request elevation data
@@ -202,6 +197,8 @@
         href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: Add a snap grid
+        href: map-add-snap-grid.md
       - name: React to drawing events
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
@@ -280,6 +277,10 @@
       href: data-driven-style-expressions-android-sdk.md
     - name: Reacting to events
       href: android-map-events.md
+  - name: Develop with the iOS SDK
+    items:
+    - name: Getting started with iOS map control
+      href: how-to-use-ios-map-control-library.md      
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
@@ -290,6 +291,8 @@
       href: power-bi-visual-add-bubble-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a heat map layer
+      href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
@@ -330,8 +333,6 @@
       href: /rest/api/maps/elevation
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility services
-      href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
     - name: Render service V2
@@ -394,10 +395,8 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ./index.yml
     - name: Time Series Insights

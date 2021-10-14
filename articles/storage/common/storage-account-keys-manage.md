@@ -28,15 +28,17 @@ You can view and copy your account access keys with the Azure portal, PowerShell
 
 To view and copy your storage account access keys or connection string from the Azure portal:
 
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
-3. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
+3. Select **Show keys** to show your access keys and connection strings and to enable buttons to copy the values.
 
-4. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+4. Under **key1**, find the **Key** value. Select the **Copy** button to copy the account key.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
+5. Alternately, you can copy the entire connection string. Under **key1**, find the **Connection string** value. Select the **Copy** button to copy the connection string.
+
+    :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -46,14 +48,14 @@ The following example retrieves the first key. To retrieve the second key, use `
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
 
 ### [Azure CLI](#tab/azure-cli)
 
-To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. 
+To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 az storage account keys list \
@@ -89,11 +91,23 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-The ability to set a key expiration policy by using the Azure portal is not yet available. You can use either PowerShell or Azure CLI.
+To create a key expiration policy in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
+
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+
+3. Select the **Set rotation reminder** link.
+
+4. In **Set a reminder to rotate access keys**, select the **Enable key rotation reminders** checkbox and set a frequency for the reminder.
+
+5. Select **Save**.
+
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Screenshot showing how to create a key expiration policy in the Azure portal":::
 
 #### [PowerShell](#tab/azure-powershell)
 
-To create a key expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-KeyExpirationPeriodInDay` parameter to the number of days an access key can be active before it should be rotated. 
+To create a key expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-KeyExpirationPeriodInDay` parameter to the number of days an access key can be active before it should be rotated.
 
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
@@ -103,32 +117,31 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
 > [!TIP]
 > You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
-To verify that the policy has been applied, use the `KeyPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command. 
-  
+To verify that the policy has been applied, use the `KeyPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command.
+
 ```powershell
 $account.KeyPolicy
-``` 
+```
 
 The key expiration period appears in the console output.
 
 > [!div class="mx-imgBorder"]
 > ![access key expiration period](./media/storage-account-keys-manage/key-policy-powershell.png)
 
-You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the `KeyCreationTime` property. 
-  
+You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the `KeyCreationTime` property.
+
 ```powershell
 $account.KeyCreationTime
-``` 
+```
 
 The access key creation time for both access keys appears in the console output.
 
 > [!div class="mx-imgBorder"]
 > ![access key creation times](./media/storage-account-keys-manage/key-creation-time-powershell.png)
 
-
 #### [Azure CLI](#tab/azure-cli)
 
-To create a key expiration policy on existing storage accounts, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the number of days an access key can be active before it should be rotated. 
+To create a key expiration policy on existing storage accounts, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the number of days an access key can be active before it should be rotated.
 
 ```azurecli-interactive
 az storage account update \
@@ -140,7 +153,7 @@ az storage account update \
 > You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -158,9 +171,8 @@ The key expiration period appears in the console output.
 }
 ```
 
-
 You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the  [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and then use the string `keyCreationTime` for the -query parameter.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -172,22 +184,22 @@ az storage account show \
 
 ### Query for policy violations
 
-If you create a diagnostic setting that [sends logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics) workspace, then you can use an Azure Monitor log query to determine whether a key has expired. 
+If you create a diagnostic setting that [sends logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics) workspace, then you can use an Azure Monitor log query to determine whether a key has expired.
 
 To determine if a key has expired, enter the following query in the **Log search** bar.
 
-```Kusto
+```kusto
 StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
 ```
 
 You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
 
-```Kusto
-resources  
-| where type =~ 'microsoft.storage/storageAccounts' 
-| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
-| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
-| project name, days, KeyExpiryStatus  
+```kusto
+resources 
+| where type =~ 'microsoft.storage/storageAccounts'
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
+| project name, days, KeyExpiryStatus  
 ```
 
 ### Rotate access keys
@@ -200,7 +212,7 @@ To rotate your storage account access keys in the Azure portal:
 
 2. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-3. Under **Settings**, select **Access keys**.
+3. Under **Security + networking**, select **Access keys**.
 
 4. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
 
@@ -237,13 +249,13 @@ To rotate your storage account access keys with Azure CLI:
     ```azurecli-interactive
     az storage account keys renew \
       --resource-group <resource-group> \
-      --account-name <storage-account>
+      --account-name <storage-account> \
       --key primary
     ```
 
 1. Update the connection strings in your code to reference the new primary access key.
 
-2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
+2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `secondary` as the key name instead of `primary`.
 
 ---
 

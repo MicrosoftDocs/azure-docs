@@ -13,7 +13,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # Attach a data disk to a Windows VM with PowerShell
 
-This article shows you how to attach both new and existing disks to a Windows virtual machine by using PowerShell.
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
+This article shows you how to attach both new and existing disks to a Windows virtual machine by using PowerShell. 
 
 First, review these tips:
 
@@ -101,7 +103,6 @@ You can attach an existing managed disk to a VM as a data disk.
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
-$location = "East US"
 $dataDiskName = "myDisk"
 $disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName
 

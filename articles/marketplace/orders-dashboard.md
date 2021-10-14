@@ -4,9 +4,10 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 09/27/2021
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -30,17 +31,45 @@ The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays
 > [!NOTE]
 > The maximum latency between customer acquisition and reporting in Partner Center is 48 hours.
 
+## Access the Orders dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Orders**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Orders**.
+
+---
+
 ## Elements of the Orders dashboard
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
-To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
-
 ### Month range
+
+#### [Workspaces view](#tab/workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Orders dashboard.":::
+
+---
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -131,7 +160,16 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | AssetCount | Asset Count | The number of assets associated with the order ID. | Deprecated |
+| Not available * | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
+| Not available * | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
+| Not available * | purchaseRecordId | The identifier of the purchase record related to an order. | purchaseRecordId |
+| Not available * | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
+| Not available * | EstimatedCharges | The price the customer will be charged for all order units before taxation. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
+| Not available * | Currency | BillingCurrency for the offer | Currency |
+| Not available * | HasTrial | Represents whether an offer has trial period enabled. | HasTrial |
 |||||
+
+`*` These new fields are currently provided in the ISVOrderV2 dataset and can be accessed programmatically.
 
 ### Orders page filters
 

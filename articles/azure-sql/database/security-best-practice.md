@@ -155,7 +155,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 
 **Best practices**:
 
-- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
+- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use integrated Windows authentication (for domain-joined machines with Azure AD).
   - See the article, [SSMS support for Azure AD Integrated authentication](authentication-aad-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications
@@ -642,7 +642,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by enabling [Azure Defender](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -677,7 +677,7 @@ Restrict access to the storage account to support Separation of Duties and to se
 **How to implement**:
 
 - When saving Audit logs to Azure Storage, make sure that access to the Storage Account is restricted to the minimal security principles. Control who has access to the storage account.
-- For more information, see [Authorizing access to Azure Storage](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- For more information, see [Authorizing access to Azure Storage](../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Best practices**:
 

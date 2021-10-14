@@ -93,7 +93,7 @@ This condition requires that any new blobs must include a blob index tag key of 
 
 There are two permissions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
-- /blobs/write (create or update) 
+- /blobs/write (create or update)
 - /blobs/add/action (create)
 
 ![Diagram of example 2 condition showing new blobs must include a tag.](./media/storage-auth-abac-examples/example-2.png)

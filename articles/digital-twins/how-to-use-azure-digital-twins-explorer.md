@@ -488,7 +488,7 @@ Here is an example of a URL with the placeholder values filled in:
 
 `https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
 
-For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Concepts: Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
 ### Link with a query
 
@@ -527,5 +527,5 @@ Clicking the settings cog in the top right corner allows the configuration of th
 ## Next steps 
 
 Learn about writing queries for the Azure Digital Twins twin graph: 
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

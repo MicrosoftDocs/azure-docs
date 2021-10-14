@@ -67,6 +67,7 @@ In the current preview state, the following limitations apply to email as an alt
     * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business
     * Microsoft Office on macOS
+    * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 

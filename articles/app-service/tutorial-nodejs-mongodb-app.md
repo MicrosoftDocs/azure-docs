@@ -97,7 +97,7 @@ To stop Node.js at any time, press `Ctrl+C` in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/cosmos-db/). Cosmos DB supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure Cosmos DB](../cosmos-db/index.yml). Cosmos DB supports MongoDB client connections.
 
 ### Create a resource group
 
@@ -575,5 +575,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure Node.js app](configure-language-nodejs.md)
+- [Configure Node.js app](configure-language-nodejs.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to attach and launch Apache Spark pools for data wrangling with Azure Synapse Analytics and Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
@@ -60,7 +60,7 @@ To begin data preparation with the Apache Spark pool, specify the attached Spark
 ![get attached compute name](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
+> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. [Learn more about the %synapse magic command](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class)).
 
 ```python
 %synapse start -c SynapseSparkPoolAlias
@@ -271,6 +271,7 @@ The following code,
 
 ```Python
 from azureml.core import Dataset, HDFSOutputDatasetConfig
+from azureml.core.environment import CondaDependencies
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
@@ -286,6 +287,9 @@ run_config.spark.configuration["spark.driver.cores"] = 2
 run_config.spark.configuration["spark.executor.memory"] = "1g" 
 run_config.spark.configuration["spark.executor.cores"] = 1 
 run_config.spark.configuration["spark.executor.instances"] = 1 
+
+conda_dep = CondaDependencies()
+conda_dep.add_pip_package("azureml-core==1.20.0")
 
 run_config.environment.python.conda_dependencies = conda_dep
 
