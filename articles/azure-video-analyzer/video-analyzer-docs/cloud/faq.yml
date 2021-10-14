@@ -1,0 +1,105 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ about Azure Video Analyzer - Azure
+  description: This article answers frequently asked questions about Azure Video Analyzer.
+  ms.service: azure-video-analyzer
+  ms.topic: conceptual
+  ms.date: 10/13/2021
+
+title: FAQ about Azure Video Analyzer
+summary: This article answers commonly asked questions about Azure Video Analyzer.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: General
+        answer: |
+          **What system variables can I use in the pipeline topology definition?**
+
+          | Variable	 |  Description  | 
+          | --- | --- | 
+          | System.Runtime.DateTime | Represents an instant in UTC time, typically expressed as a date and time of day in the following format: <br/>*yyyyMMddTHHmmssZ* | 
+          | System.Runtime.PreciseDateTime | Represents a Coordinated Universal Time (UTC) date-time instance in an ISO8601 file-compliant format with milliseconds, in the following format:<br/>*yyyyMMddTHHmmss.fffZ* | 
+          | System.TopologyName	 | Represents the name of the pipeline topology. | 
+          | System.PipelineName | Represents the name of the live pipeline. | 
+
+          > [!Note] 
+          > System.Runtime.DateTime and System.Runtime.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a [FileSink](pipeline.md#file-sink), for naming the file.
+
+          **What is the difference between Live and Batch Pipelines of Video Analyzer service?**
+
+          For more information, see [Pipeline](pipeline.md)
+
+          **How do I operate cloud pipelines?**
+
+          You can either use portal or rest APIs. Please refer <ToDo: Howto/operate cloud pipeline> link for details
+
+          **What is the privacy policy for Video Analyzer?**
+
+          Video Analyzer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
+
+          **Do we have AI models or AI inferencing capability for Video Analyzer service?**
+
+          It is not currently available for cloud pipelines.
+
+      - question: Configuration and deployment
+        answer: |
+          **How do I create an Azure Video Analyzer account?**
+
+          You can either create the account by using an Azure Resource Manager (ARM) template or via the Azure portal. To create the Azure Video Analyzer account <ToDo update link> https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account
+
+          **How do I simulate RTSP stream if I don’t have camera?**
+
+          Yes you can simulate RTSP stream by using a Azure Linux VM. For more details please see <ToDo GetStartedLivePipelines> Simulate RTSP Camera section
+
+          **How can I add sample video files to the Azure RTSP camera simulator?**
+
+          To add a new video file to your existing IoT Edge device folder, please refer here <ToDo GetStartedLivePipelines> Simulate RTSP Camera section.
+          Sample media files available for testing can be found at [Media datasets](https://github.com/Azure/video-analyzer/tree/main/media).
+
+      - question: Capture from IP camera and RTSP settings
+        answer: |
+          **Do I need to use a special SDK on my camera device to send in a video stream?**
+
+          No, Video Analyzer supports capturing media by using RTSP (Real-Time Streaming Protocol) for video streaming, which is supported on most IP cameras. 
+          Video Analyzer currently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway for video and RTSP protocol, connecting from behind a firewall using an IoT PnP command, and connecting over the open internet without a firewall. For more details, pls see <To Do link Connect cameras to the cloud>
+
+          **Can I push media to Video Analyzer service by using protocols other than RTSP?**
+
+          No, Video Analyzer service currently supports only RTSP for capturing video from IP cameras. Any camera that supports RTSP streaming over TCP/HTTP should work. 
+
+          **Can I reset or update the RTSP source URL in a live pipelines?**
+
+          Yes, when the live pipeline is in inactive state.
+
+          **Is an RTSP simulator available to use during testing and development for Live pipelines?**
+
+          Yes, you can use Azure VM RTSP simulator <ToDo correct link> for quickstarts and tutorials to support the learning process. We recommend strongly that you solely not rely on simulator for your projects. You should invest in testing with your actual RTSP source before you plan a production deployment.
+
+      - question: Monitoring and metrics
+        answer: |
+          **Are there any tools to make it easier to monitor the Video Analyzer service?**
+
+          You can monitor Video Analyzer’s metrics & diagnostic events published by service to your storage account via going to Azure portal -> Video Analyzer account -> Monitoring option. 
+          For more information, see the <ToDo – Monitor & Telemetry cloud doc>.
+          
+          **Can I monitor the pipeline on the cloud by using Azure Event Grid?**
+
+          No, currently not supported.
+
+          **Can I use Azure Monitor to view the health, metrics, and performance of my pipelines in the cloud or on the edge?**
+
+          Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../../azure-monitor/essentials/data-platform-metrics.md)
+          and <ToDo – Monitor & Telemetry cloud doc>
+
+      - question: Billing and availability
+        answer: |
+          **How is Azure Video Analyzer billed?**
+
+          For billing details, see [Video Analyzer pricing](https://azure.microsoft.com/pricing/details/video-analyzer/).
+
+additionalContent: |
+
+  ## Next steps
+
+  [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)

@@ -201,8 +201,12 @@
     href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
-  - name: FAQs
-    href: faq.yml 
+  - name: FAQ
+    items:
+  - name: Edge module FAQ
+    href: edge/faq.yml 
+  - name: Cloud pipelines FAQ
+    href: cloud/faq.yml     
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: Terraform resource
