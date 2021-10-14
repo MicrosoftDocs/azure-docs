@@ -48,9 +48,9 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
     > [!IMPORTANT]
     > Be sure to select the **HSR secondary** option to indicate that you are creating a replication secondary system for the HANA system.  
 
-    * **SAP ID (SID)**:    
+    * **SAP ID (SID)**:   
         The three alphanumeric-character SAP HANA system identifier.
-    * **Group name**: 
+    * **Group name**:  
         The volume group name. 
     * **SAP node memory**:  
         This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
@@ -59,12 +59,12 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
         Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Shared and backup volumes can be created only with the first host.
-    * **Multiple-host**: 
+    * **Multiple-host**:  
         Select this option to add additional hosts to a multiple-hosts HANA system.
     * **HSR secondary**:  
         Select this option to create a HANA database that will be a replication secondary system for SAP HANA System Replication (HSR).
 
-    Selecting **HSR secondary** also triggers the naming convention for the volume group name to include `"-HA-"` to indicate the HA setup.   
+        Selecting **HSR secondary** also triggers the naming convention for the volume group name to include `"-HA-"` to indicate the HA setup.   
 
     Click **Next: Volume Group** to continue.
 
@@ -72,14 +72,14 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 
-    * **Proximity placement group (PPG)**: 
+    * **Proximity placement group (PPG)**:  
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
-    * **Capacity pool**: 
+    * **Capacity pool**:  
         All volumes will be placed in a single manual QoS capacity pool.  
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
-    * **Virtual network**: 
+    * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
-    * **Subnet**: 
+    * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
     Click **Next: Protocol**.
@@ -95,7 +95,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
     You will be able to modify this tag for each volume. 
 
     > [!IMPORTANT]
-    > At the group level, filling the TAG will populate all the volumes in the group with the same volume ID. You will need to change the volume ID for each individual volume later in the workflow or when you update the volumes. Using this TAG is optional; it’s for documentation purposes only.
+    > At the group level, filling the tag will populate all the volumes in the group with the same volume ID. You will need to change the volume ID for each individual volume later in the workflow or when you update the volumes. Using this tag is optional; it’s for documentation purposes only.
 
     Click **Next: Volumes**.
 
@@ -109,9 +109,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 7. In the **Volumes** tab, you can select each volume to view or change the volume details, including the protocol and tag for the volume.
 
-    In the **Tags** section of a volume, you can populate the `HSRPartnerStorageResourceId` tag with the resource ID of the corresponding primary volume. 
-
-    This action only marks the primary volume; it does not validate the provided resource ID.
+    In the **Tags** section of a volume, you can populate the `HSRPartnerStorageResourceId` tag with the resource ID of the corresponding primary volume. This action only marks the primary volume; it does not validate the provided resource ID.
 
     [ ![Screenshot that shows the tag details.](../media/azure-netapp-files/application-secondary-volumes-tag-details.png) ](../media/azure-netapp-files/application-secondary-volumes-tag-details.png#lightbox)
 

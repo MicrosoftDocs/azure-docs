@@ -40,8 +40,8 @@ Application volume group for SAP HANA provides the following key features:
     * SAP HANA data volumes (one for each database host)
     * SAP HANA log volumes (one for each database host)
     * SAP HANA shared volumes (for the first SAP HANA host only)
-    * Log-backup volumes (optionally)
-    * File-based data-backup volumes (optionally)
+    * Log-backup volumes (optional)
+    * File-based data-backup volumes (optional)
 
 * Creating volumes in a [manual QoS capacity pool](manage-manual-qos-capacity-pool.md). The volume size and the required performance (in MiB/s) are proposed based on user input for the memory size of the database.
 

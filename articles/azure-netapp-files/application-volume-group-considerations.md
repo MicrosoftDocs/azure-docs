@@ -22,7 +22,7 @@ This article describes the requirements and considerations you need to be aware 
 
 ## Requirements and considerations
 
-* You will need to use the manual QoS capacity pool functionality.  
+* You will need to use the [manual QoS capacity pool](manage-manual-qos-capacity-pool.md) functionality.  
 * You must have created a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement-groups) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).  
 * You must have completed your sizing and SAP HANA system architecture, including the following areas: 
     * SAP ID (SID)
@@ -39,12 +39,13 @@ This article describes the requirements and considerations you need to be aware 
 
 ## Best practices about proximity placement groups
 
-To deploy SAP HANA volumes using the application volume group, you need to use your HANA database VM’s as anchor for a proximity placement group (PPG). It’s recommended that you create an availability set per database and use the **[pinning request form](https://aka.ms/HANAPINNING)** to pin the availability set to a dedicated compute cluster. After pinning, you need to add a PPG to the availability set  and then deploy all hosts of an SAP HANA database using that availability set. Doing so ensures that all virtual machines are at the same location. If the virtual machines are started, the PPG has its anchor.
+To deploy SAP HANA volumes using the application volume group, you need to use your HANA database VM’s as an anchor for a proximity placement group (PPG). It’s recommended that you create an availability set per database and use the **[SAP HANA VM pinning request form](https://aka.ms/HANAPINNING)** to pin the availability set to a dedicated compute cluster. After pinning, you need to add a PPG to the availability set  and then deploy all hosts of an SAP HANA database using that availability set. Doing so ensures that all virtual machines are at the same location. If the virtual machines are started, the PPG has its anchor.
 
 > [!NOTE]
 > The PPG must be in the same resource group as the capacity pool you want to use for the SAP HANA volumes.
 
 Be aware that when using a PPG without a pinned availability set, a PPG would lose its anchor if all the virtual machines in that PPG are stopped. When the virtual machines are restarted, they might be started in a different location, which can result in a latency increase because the volumes created with the application volume group will not be moved. 
+
 This situation leads to two possible scenarios:
 
 * Stable long-term setup:   

@@ -53,6 +53,7 @@ The basics for multiple partitions are as follows:
 * Multiple partitions mean that a single SAP HANA host is using more than one volume to store its persistence. 
 * Multiple partitions need to mount on a different path. For example, the first volume is on `/hana/data/SID/mnt00001`, and the second volume needs a different path (`/hana/data2/SID/mnt00001`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA_MNT00001; SID_DATA2_MNT00001,...`.
 * Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should only use 50% of the memory. For three partitions, you should use 1/3 of the memory, and so on. 
+
 For each host and each partition you want to create, you need to rerun application volume group for SAP HANA. And you should adapt the naming proposal to meet the above recommendation.
 
 ## Why is 1500 MiB/s the maximum throughput value that application volume group for SAP HANA proposes for the data volume?

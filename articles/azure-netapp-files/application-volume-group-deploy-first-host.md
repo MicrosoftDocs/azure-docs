@@ -39,7 +39,7 @@ You should understand the [requirements and considerations for application volum
 
     [ ![Screenshot that shows the Create Volume Group window.](../media/azure-netapp-files/application-volume-group-create-group.png) ](../media/azure-netapp-files/application-volume-group-create-group.png#lightbox)
 
-3. In the SAP HANA tab, provide HANA specific information:   
+3. In the **SAP HANA** tab, provide HANA specific information:   
 
     * **SAP ID (SID**):    
         The three alphanumeric-character SAP HANA system identifier.
@@ -48,8 +48,7 @@ You should understand the [requirements and considerations for application volum
     * **SAP node memory**:  
         This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:  
-        When you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume. 
-        
+        When you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume.  
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
         Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
@@ -60,16 +59,16 @@ You should understand the [requirements and considerations for application volum
 
     [ ![Screenshot that shows the SAP HANA tag.](../media/azure-netapp-files/application-sap-hana-tag.png) ](../media/azure-netapp-files/application-sap-hana-tag.png#lightbox)
 
-4. In the Volume group tab, provide information for creating the volume group:  
+4. In the **Volume group** tab, provide information for creating the volume group:  
 
-    * **Proximity placement group (PPG)**: 
+    * **Proximity placement group (PPG)**:  
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
-    * **Capacity pool**: 
-        All volumes will be placed in a single manual QoS capacity pool. 
+    * **Capacity pool**:  
+        All volumes will be placed in a single manual QoS capacity pool.  
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
-    * Virtual network: 
+    * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
-    * Subnet: 
+    * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
     Click **Next: Tag**. 
@@ -96,17 +95,17 @@ You should understand the [requirements and considerations for application volum
 
     [ ![Screenshot that shows a list of volumes being created.](../media/azure-netapp-files/application-volume-list.png) ](../media/azure-netapp-files/application-volume-list.png#lightbox)
 
-8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-volume-name".  
+8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*".  
 
     Not all settings can be changed because of SAP HANA certification restrictions.
  
     When you select a volume, you can change the following values in the **Basics** tab:  
 
-    * **Volume Name**:
+    * **Volume Name**:   
         It is recommended that you retain the suggested naming conventions.
-    * **Quota**: 
+    * **Quota**:   
         The size of the volume.
-    * **Throughput**: 
+    * **Throughput**:  
         You can reduce the throughput requirements for development or test systems accordingly to the value required for your use cases.
 
     Click **Next: Protocols** to review the protocol settings. 
