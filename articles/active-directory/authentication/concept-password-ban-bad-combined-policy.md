@@ -26,7 +26,7 @@ A password policy is applied to all user and admin accounts that are created and
 
 The Azure AD password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
-The following Azure AD password policy requirements apply for all passwords that are created, changed, or reset in Azure AD. This includes during user provisioning, password change, and password reset flows. Unless noted, you can't change these settings.
+The following Azure AD password policy requirements apply for all passwords that are created, changed, or reset in Azure AD. Requirements are applied during  user provisioning, password change, and password reset flows. Unless noted, you can't change these settings.
 
 | Property | Requirements |
 | --- | --- |
@@ -42,7 +42,7 @@ The following Azure AD password policy requirements apply for all passwords that
 Password expiration policies are unchanged but they are included in this topic for completeness. A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 > [!NOTE]
-> By default only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
+> By default, only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
 You can also use PowerShell to remove the never-expires configuration or to see which user passwords are set to never expire.
 
