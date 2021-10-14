@@ -17,7 +17,7 @@ recommendations: false
 Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) cloud service that lets you build automated data processing software using machine learning technology. You can use Form Recognizer via the REST API or an SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. some features may not be supported or have limited capabilities. 
+> Form Recognizer v3.0 is currently in public preview. some features may not be supported or have limited capabilities.
 
 [Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -121,17 +121,17 @@ def format_bounding_box(bounding_box):
         return "N/A"
     return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
 
+
 def analyze_general_documents():
-    # sample form document
+
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     document_analysis_client = DocumentAnalysisClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document(
-        "prebuilt-document", formUrl
-    )
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-document", formUrl)
     result = poller.result()
 
     for style in result.styles:
@@ -227,6 +227,8 @@ def analyze_general_documents():
                 )
     print("----------------------------------------")
 
+
+if __name__ == "__main__":
     analyze_general_documents()
 ```
 
