@@ -68,16 +68,6 @@ The modern Edge browser is now included in the requirement to provide an `Origin
 
 ---
 
-### General availability - Access packages can expire after a number of hours
-
-**Type:** New feature  
-**Service category:** User Access Management 
-**Product capability:** Entitlement Management
- 
-There is now an additional option for advanced expiration settings in entitlement management. It's possible  to configure an access package that'll expire in hours, in addition to prior settings. [Learn more]../governance/entitlement-management-access-package-create.md#lifecycle).
-
----
-
 ### General availability - On the My Apps portal, users can choose to view their apps in a list
 
 **Type:** New feature  
