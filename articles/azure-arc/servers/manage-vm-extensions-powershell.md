@@ -17,7 +17,9 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. Run the following command on your Azure Arc-enabled server:
+Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. These management operations can be performed from your secure workstation; it is not required to run them directly from the Azure Arc-enabled server.
+
+Run the following command on your Azure Arc-enabled server:
 
 `Install-Module -Name Az.ConnectedMachine`.
 
@@ -46,7 +48,7 @@ PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-### Key Vault VM extension 
+### Key Vault VM extension
 
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
