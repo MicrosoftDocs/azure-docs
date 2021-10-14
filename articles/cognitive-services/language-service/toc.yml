@@ -57,6 +57,15 @@ items:
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
+  - name: Reference
+    items:
+    - name: Prediction
+      items:
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
+        
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -93,6 +102,14 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Data limits
         href: custom-named-entity-recognition/concepts/limits.md
+  - name: Reference
+    items:
+    - name: Prediction
+      items:
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Custom Language Understanding (preview)
   items:
   - name: Overview
@@ -117,6 +134,14 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
+  - name: Reference
+    items:
+    - name: Prediction
+      items:
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Entity linking
   items:
   - name: Overview
@@ -140,6 +165,36 @@ items:
     items:
       - name: How to call the API
         href: entity-linking/how-to/call-api.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
 - name: Language Detection
   items:
   - name: Overview
@@ -173,6 +228,37 @@ items:
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+
 - name: Key phrase extraction
   items:
   - name: Overview
@@ -210,6 +296,37 @@ items:
     items:
     - name: Integrate Power BI 
       href: key-phrase-extraction/tutorials/integrate-power-bi.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+
 - name: Named Entity Recognition (NER)
   items:
   - name: Overview
@@ -241,6 +358,37 @@ items:
     items:
     - name: Extract information in Excel using Power Automate 
       href: named-entity-recognition/tutorials/extract-excel-information.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -268,6 +416,37 @@ items:
     items:
     - name: Recognized entity categories
       href: personally-identifiable-information/concepts/entity-categories.md 
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+
 - name: Question answering
   items:
   - name: Overview
@@ -380,6 +559,37 @@ items:
       href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+
 - name: Text Analytics for health
   items:
   - name: Overview
@@ -421,6 +631,36 @@ items:
       href: text-analytics-for-health/concepts/relation-extraction.md
     - name: Assertion detection
       href: text-analytics-for-health/concepts/assertion-detection.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
+        - name: v3.1
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+      - name: v3.1
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
 - name: Text summarization (preview)
   items:
   - name: Overview
@@ -444,6 +684,24 @@ items:
     items:
     - name: Call the Text Summarization API
       href: text-summarization/how-to/call-api.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
+    - name: SDKs
+      items:
+      - name: v3.2-preview.2
+        items:
+          - name: .NET
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+          - name: Python
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+          - name: Java
+            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+          - name: Node.js
+            href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Concepts
   items:
   - name: Multilingual and emoji support
@@ -462,10 +720,6 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-- name: Reference
-  items:
-    - name: REST API reference
-      href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Resources
   items:
     - name: Support and help options
