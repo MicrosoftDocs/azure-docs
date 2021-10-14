@@ -6,15 +6,34 @@ ms.topic: conceptual
 ---
 # Understand the guest configuration feature of Azure Policy
 
-Azure Policy can audit or configure settings inside a machine, both for machines
-running in Azure and
+Azure Policy's guest configuration feature provides native capability
+to audit or configure operating system settings as code,
+both for machines running in Azure and hybrid
 [Arc-enabled machines](../../../azure-arc/servers/overview.md).
-Each task is performed by the guest configuration agent in Windows and Linux.
-The guest configuration extension, through the agent, manages settings such as:
+The feature can be used directly per-machine,
+or at-scale orchestrated by Azure Policy.
 
-- The configuration of the operating system
+Configurations are distinct from policy definitions. Guest configuration
+utilizes Azure Policy to dynamically assign configurations
+to machines. You can also assign configurations to machines
+[manually](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
+or by using other Azure services such as
+[AutoManage](../../../automanage/automanage-virtual-machines.md).
+
+Configuration resources in Azure are designed as an
+[extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
+You can imagine each configuration as an additional set of properties
+for the machine. Configurations can include settings such as:
+
+- Operating system settings
 - Application configuration or presence
 - Environment settings
+
+The results from each configurations can be viewed either in the
+[Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+or if the configuration is orchestrated by an Azure Policy assignment,
+by clicking on the "Last evaluated resource" link on the
+["Compliance details" page](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
 
 [A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM).
 
@@ -114,8 +133,8 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Publisher|Name|Versions|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|16.04 - 20.x|
-|Credativ|Debian|9 - 10.x|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
