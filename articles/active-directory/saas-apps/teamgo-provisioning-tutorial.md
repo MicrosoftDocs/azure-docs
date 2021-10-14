@@ -44,9 +44,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Sign-in to the [Teamgo dashboard](https://my.teamgo.co) and go to  the Settings. 
 1. Click on **Integrations** under settings.
 1. Under **Employee Directory**, look for **Azure Active Directory** and click on **Enable** button.
-![Integrations tab](teamgo-provisioning-tutorial/enable-azure-in-teamgo.png)
+![Integrations tab](media/teamgo-provisioning-tutorial/enable-azure-in-teamgo.png)
 1. Go to **SCIM Bearer Token** tab and copy the bearer token. The **Secret Token** will be required in the **Step 5**.
-![Integrations tab](teamgo-provisioning-tutorial/scim-bearer-token.png)
+![Integration tab](media/teamgo-provisioning-tutorial/scim-bearer-token.png)
 
 ## Step 3. Add Teamgo from the Azure AD application gallery
 
