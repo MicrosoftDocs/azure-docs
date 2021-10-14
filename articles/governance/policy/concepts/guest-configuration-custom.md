@@ -116,6 +116,7 @@ Configuration.
 - The Reasons property must be an array.
 - Each item in the array should be a hashtable with keys named **Code** and
   **Phrase**.
+- No other values other than the hashtable should be returned.
 
 The Reasons property is used by the service to standardize how compliance
 information is presented. You can think of each item in Reasons as a "reason"
@@ -148,6 +149,12 @@ return @{
     reasons = $reasons
 }
 ```
+
+When using commandline tools to get information that will return in Get, you
+might find the tool returns output you didn't expect. Even though you capture
+the output in PowerShell, output might also been written to
+standard error. To avoid this issue, consider redirecting
+output to null.
 
 ### The Reasons property embedded class
 

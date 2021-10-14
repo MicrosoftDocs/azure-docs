@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -57,6 +57,11 @@ To configure your user flow token lifetime:
 1. Select **Properties**.
 1. Under **Token lifetime**, adjust the properties to fit the needs of your application.
 1. Click **Save**.
+
+
+
+:::image type="content" source="./media/configure-tokens/configure-tokens.png" alt-text="configure user flows tokens in Azure portal.":::
+
 
 ::: zone-end
 

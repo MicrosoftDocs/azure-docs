@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: How to troubleshoot when you get errors running a machine learning pipeline. Common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020

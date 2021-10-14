@@ -2,21 +2,13 @@
 title: Azure AD Connect sync service shadow attributes | Microsoft Docs
 description: Describes how shadow attributes work in Azure AD Connect sync service.
 services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-
-ms.assetid:
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/29/2021
 ms.subservice: hybrid
 ms.author: billmath
-
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync service shadow attributes
@@ -107,7 +99,7 @@ To be considered a shared resource, the cloud user will have one of the followin
 
 
 >[!NOTE]
-> CloudMSExchRecipientDisplayType is not visible from the Azure AD side and can only be viewed by using something like the Exchange Online cmdlet [Get-Recipient](https://docs.microsoft.com/powershell/module/exchange/get-recipient?view=exchange-ps).  
+> CloudMSExchRecipientDisplayType is not visible from the Azure AD side and can only be viewed by using something like the Exchange Online cmdlet [Get-Recipient](/powershell/module/exchange/get-recipient).  
 >
 >Example:
 > ```PowerShell

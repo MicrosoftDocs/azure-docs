@@ -85,15 +85,35 @@ $domain = "contoso.corp.com"
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
 
-If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
-you will see web-based popup and complete the U/P and MFA there
-
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential
 
 # Create the new Azure AD Kerberos Server object in Active Directory
 # and then publish it to Azure Active Directory.
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+```
+
+> [!NOTE]
+> If your organization protects password-based sign-in and enforces modern authentication methods such as MFA, FIDO2, or Smart Card, you must use the "-UserPrincipalName" parameter with the User Principal Name of a Global administrator.
+>    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+>    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
+
+```powerShell
+Import-Module ".\AzureAdKerberos.psd1"
+
+# Specify the on-premises Active Directory domain. A new Azure AD
+# Kerberos Server object will be created in this Active Directory domain.
+$domain = "contoso.corp.com"
+
+# Enter a User Principal Name of Azure Active Directory global administrator
+$userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+# Enter a domain administrator username and password.
+$domainCred = Get-Credential
+
+# Create the new Azure AD Kerberos Server object in Active Directory
+# and then publish it to Azure Active Directory.
+Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
 ```
 
 ### Viewing and verifying the Azure AD Kerberos Server

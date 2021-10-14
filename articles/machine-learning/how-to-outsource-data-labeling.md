@@ -1,10 +1,10 @@
 ---
-title: Work with data labeling vendor companies to label your data
+title: Data labeling vendor companies 
 titleSuffix: Azure Machine Learning
 description: Use a data labeling vendor company to help label the data in your data labeling project
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 author: kvijaykannan
 ms.author: vkann
@@ -31,7 +31,7 @@ Before you create your data labeling project:
 
 Once the contract with the vendor labeling company is in place:
 
-1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
+1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see how to create an [image labeling project](how-to-create-image-labeling-projects.md) or [text labeling project](how-to-create-text-labeling-projects.md).
 1. You're not limited to using a data labeling provider from Azure Marketplace.  But if you do use a provider from Azure Marketplace:
     1. Select **Use a vendor labeling company from Azure Marketplace** in the workforce step.
     1. Select the appropriate data labeling company in the dropdown.
@@ -78,4 +78,5 @@ In order for the vendor labeling company to have access into your projects, you'
 
 ## Next steps
 
-[Create a data labeling project and export labels](how-to-create-labeling-projects.md)
+* [Create an image labeling project and export labels](how-to-create-image-labeling-projects.md)
+* [Create a text labeling project and export labels (preview)](how-to-create-text-labeling-projects.md)
