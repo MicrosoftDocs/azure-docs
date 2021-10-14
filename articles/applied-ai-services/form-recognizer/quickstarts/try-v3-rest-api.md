@@ -11,7 +11,7 @@ ms.date: 10/07/2021
 ms.author: lajanuar
 ---
 
-# Quickstart: Form Recognizer REST API  | Preview
+# Quickstart: REST API  | Preview
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
@@ -30,10 +30,6 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
-> [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -50,6 +46,18 @@ In this quickstart you'll use following features to analyze and extract data and
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+### Select a code sample to copy and paste into your application:
+
+* [**General document**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: General document model
 
