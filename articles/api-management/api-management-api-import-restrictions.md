@@ -43,31 +43,36 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 ### <a name="open-api-general"> </a>General
 
 #### URL template requirements
-- Required parameters across both path and query must have unique names.
-  - In OpenAPI, a parameter name only needs to be unique within a location, for example path, query, header. 
-  - In API Management, we allow operations to be discriminated by both path and query parameters. 
-    - OpenAPI doesn't support this, so we require parameter names to be unique within the entire URL template.
-- A defined URL parameter needs to be part of the URL template.
-- Available source file URL is applied to relative server URLs.
-- `\$ref` pointers can't reference external files.
+
+| Requirement | Description |
+| ----------- | ----------- |
+| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this, so we require parameter names to be unique within the entire URL template.</li></ul>  |
+| **Defined URL parameter** | Must be part of the URL template. |
+| **Available source file URL** | Applied to relative server URLs. |
+| **`\$ref` pointers** | Can't reference external files. |
+
 
 #### OpenAPI specifications
-When imported inline to API Management, an OpenAPI specification can be up to 4 MB in size. When an OpenAPI document is provided via a URL to a location accessible from your API Management service, the size limit doesn't apply.
+
+| Size limit | Description |
+| ---------- | ----------- |
+| **Up to 4 MB** | When an OpenAPI specification is imported inline to API Management. |
+| **Size limit doesn't apply** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. |
 
 #### Supported extensions
 The only supported extensions are:
-- `x-ms-paths` 
-    - Allows you to define paths that are differentiated by query parameters in the URL.
-    - Covered in the [autorest docs](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).
-- `x-servers` 
-    - A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2.
+
+| Extension | Description |
+| ----------- | ----------- |
+| **`x-ms-paths`** | <ul><li>Allows you to define paths that are differentiated by query parameters in the URL.</li><li>Covered in the [autorest docs](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).</li></ul> |
+| **`x-servers`** | A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2. |
 
 #### Unsupported extensions
-- `Recursion`: 
-    - API Management doesn't support definitions defined recursively.
-    - For example, schemas referring to themselves.
-- `Server` object isn't supported on the API operation level.
-- `Produces` keyword (which describes MIME types returned by an API) isn't supported. 
+| Extension | Description |
+| ----------- | ----------- |
+| **`Recursion`** | API Management doesn't support definitions defined recursively.<br />For example, schemas referring to themselves. |
+| **`Server` object** | Not supported on the API operation level. |
+| **`Produces` keyword** | Describes MIME types returned by an API. <br />Not supported. |
 
 #### Custom extensions
 - Are ignored on import.
@@ -75,8 +80,8 @@ The only supported extensions are:
 
 #### Unsupported definitions 
 Inline schema definitions for API operations aren't supported. Schema definitions:
-    - Are defined in the API scope.
-    - Can be referenced in API operations request or response scopes.
+- Are defined in the API scope.
+- Can be referenced in API operations request or response scopes.
 
 #### Ignored definitions
 Security definitions are ignored.
@@ -92,13 +97,18 @@ OpenAPI version 2 support is limited to JSON format only.
 - If there aren't any HTTPS URLs, the server URL will be empty.
 
 #### Supported
-- While `Examples` isn't supported, `example` is.
+- `example`
 
 #### Unsupported
-The following fields are included in OpenAPI version 3.x, but are not supported:
-    - `explode`
-    - `style`
-    - `allowReserved`
+The following fields are included in [OpenAPI version 3.x](https://swagger.io/specification/), but are not supported:
+
+| Object | Field |
+| ----------- | ----------- |
+| **OpenAPI** | `externalDocs` |
+| **Components** | <ul><li>`responses`</li><li>`parameters`</li><li>`examples`</li><li>`requestBodies`</li><li>`headers`</li><li>`securitySchemes`</li><li>`links`</li><li>`callbacks`</li></ul> |
+| **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
+| **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
+| **Parameter** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li></ul> |
 
 ## OpenAPI import, update, and export mechanisms
 
