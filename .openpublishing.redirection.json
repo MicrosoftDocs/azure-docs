@@ -25914,6 +25914,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-preview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/connect-wirex-systems.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#wirex-network-forensics-platform-preview",
       "redirect_document_id": false

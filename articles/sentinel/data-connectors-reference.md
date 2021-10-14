@@ -1322,14 +1322,15 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article);<br>**[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
+
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 
-See also: [**Windows Security Events**](#windows-security-events-preview) connector
+See also: [**Windows Security Events**](#windows-security-events-preview) connector based on Azure Monitor Agent (AMA)
 
 ## SentinelOne (Preview)
 
@@ -1571,7 +1572,7 @@ Follow the instructions to obtain the credentials.
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository](link) using the **Deploy** button in the **ASIM normalization support** section of the connector page.
+We recommend installing the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
 
 ## Windows Firewall
 
@@ -1592,7 +1593,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 | **Supported by** | Microsoft |
 | | |
 
-See also: Legacy [**Security events**](#security-events-windows) connector
+Use the Windows Security Events connector, or the legacy [**Security events**](#security-events-windows) connector, to [detect anomalous RDP logins](common-threat-detection-scenarios.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## Workplace from Facebook (Preview)
 

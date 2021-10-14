@@ -194,7 +194,7 @@ You'll see all your data collection rules (including those created through the A
 
 ### Create data collection rules using the API
 
-You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example (for the [Windows Security Events](data-connectors-reference.md#windows-security-events-preview) connector) that you can use as a template for creating a rule:
 
 **Request URL and header**
 
@@ -242,6 +242,8 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
     }
 }
 ```
+See this [complete description of data collection rules](../azure-monitor/agents/data-collection-rule-overview.md) from the Azure Monitor documentation.
+
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 

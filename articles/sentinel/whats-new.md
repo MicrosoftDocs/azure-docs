@@ -30,9 +30,25 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2021
 
+- [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
+
+### Windows Forwarded Events connector now available (Public preview)
+
+You can now stream event logs from Windows Servers connected to your Azure Sentinel workspace using Windows Event Collection/Windows Event Forwarding (WEC/WEF), thanks to this new data connector. The connector uses the new Azure Monitor Agent (AMA), which provides a number of advantages over the legacy Log Analytics agent (also known as the MMA):
+- **Scalability:** If you have enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
+
+- **Speed:** The AMA can send data at an improved rate of 5K EPS, allowing for faster data refresh.
+
+- **Efficiency:** The AMA allows you to design complex Data Collection Rules (DCR) to filter the logs at their source, choosing the exact events to stream to your workspace. DCRs help lower your network traffic and your ingestion costs by leaving out undesired events.
+
+- **Coverage:** WEC/WEF enables the collection of Windows Event logs from legacy (on-premises and physical) servers and also from high-usage or sensitive machines, such as domain controllers, where installing an agent is undesired. 
+
+We recommend using this connector with the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers installed to ensure full support for data normalization.
+
+Learn more about the [Windows Forwarded Events connector](data-connectors-reference.md#windows-forwarded-events-preview).
 
 ### Playbook templates and gallery now available (Public preview)
 
