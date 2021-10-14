@@ -126,7 +126,7 @@ Production machine learning models need to be auditable (if not reproducible). I
 
 You can specify the `code.local_path` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
 
-> [!TIP]
+> [!WARNING]
 > The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot. The limits for snapshot size are 300 MB or 2000 files.
 
 Let's look at a job that specifies code:
