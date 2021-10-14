@@ -19,9 +19,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## October 2021
 
-- **Geo-redundant backups restore to different Azure regions for DR scenarios**
+- **Geo-redundant backup restore to geo-paired region for DR scenarios**
 
-    The service now provides the added flexibility to choose between locally redundant backup storage and geo-redundant backup storage to provide higher data resiliency. Enabling geo-redundancy empowers customers to recover from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled, customers can perform geo-restore and deploy a new server to the geo-paired geographic region leveraging the original server’s latest available geo-redundant backup. [Learn more](../flexible-server/concepts-backup-restore.md). 
+    The service now provides the added flexibility to choose geo-redundant backup storage to provide higher data resiliency. Enabling geo-redundancy empowers customers to recover from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled, customers can perform geo-restore and deploy a new server to the geo-paired geographic region leveraging the original server’s latest available geo-redundant backup. [Learn more](../flexible-server/concepts-backup-restore.md). 
 
 -  **Availability Zones Selection when creating Read replicas**
 
