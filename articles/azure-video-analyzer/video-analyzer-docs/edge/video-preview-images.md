@@ -60,22 +60,23 @@ Example:
       ]
 ``` 
 
-## Access images in storage account
-In the storage account associated with your Video Analyzer,
-1. Navigate to **Containers**
-1. Select the container titled with the asset associated with the video sink. <!-- how can container name be linked to specific video?? -->
-1. Select the **images** folder
-1. Select the **latest** folder.
+## Access video preview images
 
-The files, **small.jpg**, **medium.jpg**, and **large.jpg**, representing the 3 different dimensions can be accessed and downloaded.  
+To acquire the static URLs to the most recent set of images, a GET request must be called on the video entity with an authorized bearer token.
+  
+The URLs for each size will be provided under previewImageUrls in the contentUrls section of the response, as follows:
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./edge/media/video-preview-images/images-sizes-storage-account.png" alt-text="Three different image sizes":::
-
-To view the timestamp at which the images were generated, select one of the images and the value for **timestamp** will be listed under **Metadata**.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./edge/media/video-preview-images/image-timestamp.png" alt-text="Image timestamp":::
+```
+      "contentUrls": {
+        "archiveBaseUrl": "XXXX",
+        "previewImageUrls": {
+          "small": "XXXX",
+          "medium": "XXXX",
+          "large": "XXXX"
+         }
+       },
+    
+```
 
 
 
