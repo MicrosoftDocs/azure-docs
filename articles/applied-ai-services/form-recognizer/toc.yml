@@ -28,6 +28,10 @@ items:
          href: quickstarts/try-v3-rest-api.md
        - name: C# SDK (preview)
          href: quickstarts/try-v3-csharp-sdk.md
+       - name: Java SDK (preview)
+         href: quickstarts/try-v3-java-sdk.md
+        - name: JavaScript SDK (preview)
+         href: quickstarts/try-v3-javascript-sdk.md   
        - name:  Python SDK (preview)
          href: quickstarts/try-v3-python-sdk.md
 - name: Samples

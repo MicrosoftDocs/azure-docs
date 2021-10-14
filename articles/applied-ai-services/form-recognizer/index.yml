@@ -158,7 +158,7 @@ conceptualContent:
            - title: Invoice model
              links:
                - itemType: concept
-                 text: odel overview
+                 text: Model overview
                  url: concept-invoice.md
                - itemType: quickstart
                  text: Using the .NET SDK
@@ -225,7 +225,9 @@ conceptualContent:
                      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
                    - itemType: get-started
                      text: Using the Sample Labeling tool
-                     url: concept-custom#try-form-recognizer-sample-labeling-tool
+                     url: "concept-custom#try-form-recognizer-sample-labeling-tool"
+
+                     
 
 
     # - title: Microsoft tech community
