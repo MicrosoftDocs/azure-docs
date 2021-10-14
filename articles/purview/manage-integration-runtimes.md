@@ -38,6 +38,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats.
 
+> [!IMPORTANT]
+> If you will use the Self-Hosted Integration runtime to read Parquet files, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](#java-runtime-environment-installation) for an installation guide.
+
 ## Setting up a self-hosted integration runtime
 
 To create and set up a self-hosted integration runtime, use the following procedures.
@@ -123,6 +126,16 @@ You can edit a self-hosted integration runtime by navigating to **Integration ru
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
 You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
+
+## Java Runtime Environment Installation
+
+If you will be scanning Parquet files using the Self-Hosted Integration runtime with Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
+
+When scanning Parquet files using the Self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+
+- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
+
 
 ## Next steps
 
