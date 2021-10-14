@@ -387,6 +387,8 @@ And run:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="pipeline_cifar":::
 
+Pipelines can also be written using reusable components. For more, see [Create and run components-based machine learning pipelines with the Azure Machine Learning CLI (Preview)](how-to-create-component-pipelines-cli.md).
+
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
