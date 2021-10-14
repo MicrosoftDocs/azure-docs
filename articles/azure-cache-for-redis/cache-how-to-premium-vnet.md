@@ -78,7 +78,8 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. After the cache is created, you can view the configuration for the virtual network by selecting **Virtual Network** from the **Resource** menu.
 
-![Virtual network][redis-cache-vnet-info]
+<!-- ![Virtual network][redis-cache-vnet-info]  -->
+:::image type="content" source="media/cache-how-to-premium-vnet/redis-cache-vnet-info.png" alt-text="Virtual network":::
 
 To connect to your Azure Cache for Redis instance when you use a virtual network, specify the host name of your cache in the connection string, as shown in the following example:
 
@@ -184,15 +185,15 @@ There are network connectivity requirements for Azure Cache for Redis that might
 
 After the port requirements are configured as described in the previous section, you can verify that your cache is working by following these steps:
 
-* [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
-* After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:
-  + Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
+- [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
+- After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:
+  - Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
 
     `tcping.exe contosocache.redis.cache.windows.net 6380`
 
     If the `tcping` tool reports that the port is open, the cache is available for connection from clients in the virtual network.
 
-  + Another way to test: create a test cache client that connects to the cache, then adds and retrieves some items from the cache. The test cache client could be a console application using StackExchange.Redis. Install the sample client application onto a VM that's in the same virtual network as the cache. Then, run it to verify connectivity to the cache.
+  - Another way to test: create a test cache client that connects to the cache, then adds and retrieves some items from the cache. The test cache client could be a console application using StackExchange.Redis. Install the sample client application onto a VM that's in the same virtual network as the cache. Then, run it to verify connectivity to the cache.
 
 ### When I try to connect to my Azure Cache for Redis instance in a virtual network, why do I get an error stating the remote certificate is invalid?
 

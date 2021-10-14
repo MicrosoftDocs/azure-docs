@@ -197,12 +197,9 @@ Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
-<!-- IMAGES 
 
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
-
--->
