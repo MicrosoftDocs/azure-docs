@@ -110,7 +110,9 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [Europe](#tab/in-europe)
 
-Take the following steps if you're returning the device in Europe. If you're shipping from Germany or Italy, follow the instructions below the general instructions.
+Take the following steps if you're returning the device in Europe. 
+
+If you're shipping from Germany or Italy, follow the instructions after the general instructions for Europe.
 
 Take the following steps if returning the device in Europe.
 
@@ -128,7 +130,7 @@ Take the following steps if returning the device in Europe.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 
-**Germany or Switzerland**
+**Shipping from Germany or Switzerland**
 
 1. Write down the reference number (the return tracking number) on the **Prepare to ship** page in the local web UI of your Data Box.
 1. Make sure that the device is powered off and cables are removed.
