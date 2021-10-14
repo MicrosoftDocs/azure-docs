@@ -82,7 +82,7 @@ ProductId<sup>1</sup> | MCA | Unique identifier for the product.
 ProductOrderId | All | Unique identifier for the product order.
 ProductOrderName | All | Unique name for the product order.
 PublisherName | All | Publisher for Marketplace services.
-PublisherType | All | Type of publisher (Values: **Azure**, **AWS**, **Marketplace**).
+PublisherType | All | Type of publisher. Break down Microsoft/Azure, Marketplace, and AWS costs.  Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts.|
 Quantity | All | The number of units purchased or consumed.
 ReservationId | EA, MCA | Unique identifier for the purchased reservation instance.
 ReservationName | EA, MCA | Name of the purchased reservation instance.

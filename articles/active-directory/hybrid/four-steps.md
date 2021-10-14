@@ -76,7 +76,7 @@ Azure AD Application Proxy offers the following benefits:
 
 In modern enterprises, IT departments are often not aware of all the cloud applications that are used by the users to do their work. When IT admins are asked how many cloud apps they think their employees use, on average they say 30 or 40. In reality, the average is over 1,000 separate apps being used by employees in your organization. 80% of employees use non-sanctioned apps that no one has reviewed and may not be compliant with your security and compliance policies.
 
-[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and Conditional Access.
+[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and Conditional Access.
 
 <em>"**Cloud App Security** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
