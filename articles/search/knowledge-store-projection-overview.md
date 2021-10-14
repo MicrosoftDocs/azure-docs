@@ -13,29 +13,27 @@ ms.date: 10/15/2021
 
 # Knowledge store "projections" in Azure Cognitive Search
 
-[Projections](knowledge-store-projection-overview.md) are the physical tables, objects, and files in Azure Storage that contain enriched content in a [knowledge store](knowledge-store-concept-intro.md). 
+Projections are the physical tables, objects, and files in Azure Storage that hold the enriched content in a Cognitive Search[knowledge store](knowledge-store-concept-intro.md). If you're creating a knowledge store, defining and shaping projections is most of the work.
 
-When creating a knowledge store in Cognitive Search, the definition and shaping of projections is most of the work. This article introduces you to the concepts and workflow you'll need to know in advance.
+This article introduces you to projection concepts and workflow, which can be helpful before you start coding. Projections are defined in Cognitive Search, but the end result is the table, object, and image file projections in Azure Storage.
 
-## Types of projections and usage scenarios
+:::image type="content" source="media/knowledge-store-concept-intro/projections-azure-storage.png" alt-text="Projections expressed in Azure Storage" border="true":::
+
+## Types of projections and how they're used
 
 A knowledge store is a logical construction that's physically expressed as a loose collection of tables, JSON objects, or binary image files in Azure Storage.
 
 | Projection | Storage | Usage |
 |------------|---------|-------|
-| Tables | Azure Table Storage | Used for data that's best represented as rows and columns. Table projections allow you to define a schematized shape. Only valid JSON objects can be projected as tables. Since an enriched document can contain nodes that are not named JSON objects, you'll add a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) within a skill to create valid JSON. |
-| Objects | Azure Blob Storage | Used when you need a JSON representation of your data and enrichments. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that. |
-| Files | Azure Blob Storage | Used when you need to save normalized, binary image files. |
-
-You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data (skillset output) shaped differently for individual use cases. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
-
-For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores.
+| [Tables](#define-a-table-projection) | Azure Table Storage | Used for data that's best represented as rows and columns, or whenever you need granular representations of your data (for example, as data frames). Table projections allow you to define a schematized shape, using a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) to specify columns and rows. You can organize content into multiple tables based on familiar normalization principles. Tables that are in the same group are automatically related. |
+| [Objects](#define-an-object-projection) | Azure Blob Storage | Used when you need the full JSON representation of your data and enrichments in one JSON document. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that. |
+| [Files](#define-a-file-projection) | Azure Blob Storage | Used when you need to save normalized, binary image files. |
 
 ## Projection definition
 
 Projections are specified under the "knowledgeStore" property of a [skillset](/rest/api/searchservice/create-skillset). Projection definitions are used during indexer invocation to create and load objects in Azure Storage with enriched content. If you are unfamiliar with these concepts, start with [AI enrichment](cognitive-search-concept-intro.md) for an introduction.
 
-The following example illustrates the placement of projections under knowledgeStore, 
+The following example illustrates the placement of projections under knowledgeStore, and the basic construction. The name, type, and content source make up a projection definition.
 
 ```json
 "knowledgeStore" : {
@@ -54,7 +52,7 @@ The following example illustrates the placement of projections under knowledgeSt
     ]
 ```
 
-## Projection groups for isolation and relatedness
+## Projection groups
 
 Projections are an array of complex collections, which means that you can specify multiple sets of each type. It's common to use just one projection group, but you might use multiple if storage requirements include supporting different tools and scenarios. For example, you might use one group for design and debug of a skillset, while a second set collects output used for an online app, with a third for data science workloads.
 

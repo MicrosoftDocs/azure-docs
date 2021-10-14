@@ -13,15 +13,15 @@ ms.date: 10/15/2021
 
 # Define projections in a knowledge store
 
-Projections are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how AI enriched content is stored in Azure Storage. Projections determine the type, quantity, and composition of the data structures containing your content.
+[Projections](knowledge-store-projection-overview.md) are the component of a [knowledge store definition](knowledge-store-concept-intro.md) that determines how AI enriched content is stored in Azure Storage. Projections determine the type, quantity, and composition of the data structures containing your content.
 
-In this article, learn how to build out projections for each type:
+In this article, learn the syntax for each type of projection:
 
 + [Table projections](#define-a-table-projection)
 + [Object projections](#define-an-object-projection)
 + [File projections](#define-a-file-projection)
 
-Projections are defined under the "knowledgeStore" property of a skillset.
+Recall that projections are defined under the "knowledgeStore" property of a skillset.
 
 ```json
 "knowledgeStore" : {
@@ -49,7 +49,7 @@ With the exception of file projections, which store binary files, the source mus
 + Valid JSON
 + A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
 
-While a node might resolve to a single field, a more common representation is a reference to a complex data shape. Complex data shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill.
+While a node might resolve to a single field, a more common representation is a reference to a complex shape. Complex shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill.
 
 Shaper skills are favored because most skills do not output valid JSON objects on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
 
@@ -65,7 +65,7 @@ To define a table projection, use the `tables` array in the projections property
 |----------|-------------|
 | tableName | Determines the name of a new table created in Azure Table Storage.  |
 | generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
-| source | A path to a node in an enrichment tree. The node should be a reference to a complex data shape that determines which columns are created in the table.|
+| source | A path to a node in an enrichment tree. The node should be a reference to a complex shape that determines which columns are created in the table.|
 
 In table projections, "source" is usually the output of a [Shaper skill](cognitive-search-skill-shaper.md) that defines the shape of the table. Tables have rows and columns, and shaping is the mechanism by which rows and columns are specified. You can use a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). The Shaper skill produces valid JSON, but the source could be the output from any skill, if valid JSON.
 
@@ -278,7 +278,7 @@ Omitting any of the following steps can result in unexpected outcomes. Check for
 
 + Omission of `/*` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
 
-+ Path syntax errors. [Path selectors](cognitive-search-concept-annotations-syntax) are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector. 
++ Path syntax errors. [Path selectors](cognitive-search-concept-annotations-syntax.md) are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector. 
 
 ## Next steps
 
