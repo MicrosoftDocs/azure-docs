@@ -15,7 +15,7 @@ ms.date: 08/04/2021
 
 **Applies to:** Azure Database for PostgreSQL - Flexible Server versions 11 and later.
 
-The intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server provides a way to automatically improve your database's performance. Intelligent tuning automatically adjusts your `checkpoint_completion_target`, `min_wal_size`, and `max_wal_size` parameters based on usage patterns and values. It queries statistics for your database every 30 minutes and makes constant adjustments to optimize performance without any interaction.
+The intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server provides a way to automatically improve your database's performance. Intelligent tuning automatically adjusts your `checkpoint_completion_target`, `min_wal_size`, and `bgwriter_delay` parameters based on usage patterns and values. It queries statistics for your database every 30 minutes and makes constant adjustments to optimize performance without any interaction.
 
 Intelligent tuning is an opt-in feature, so it isn't active by default on a server. It's available for singular databases and isn't global. Enabling it on one database doesn't enable it on all connected databases.
 
@@ -30,7 +30,7 @@ Allow up to 35 minutes for the first batch of data to persist in the *azure_sys*
 
 ## Information about intelligent tuning
 
-Intelligent tuning operates around three main parameters for the given time: `checkpoint_completion_target`, `min_wal_size`, and `max_wal_size`.
+Intelligent tuning operates around three main parameters for the given time: `checkpoint_completion_target`, `min_wal_size`, and `bgwriter_delay`.
 
 These three parameters mostly affect: 
 
