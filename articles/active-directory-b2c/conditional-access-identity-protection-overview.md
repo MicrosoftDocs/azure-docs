@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 
 ms.author: kengaderdus
 author: kengaderdus
-manager: celested
+ manager: CelesteDG
 
 ms.collection: M365-identity-device-management
 ---

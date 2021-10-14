@@ -9,7 +9,7 @@ ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 author: kengaderdus
-manager: celested
+ manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ---
 # Add Conditional Access to user flows in Azure Active Directory B2C
