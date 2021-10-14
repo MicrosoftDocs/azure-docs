@@ -30,10 +30,10 @@ for the machine. Configurations can include settings such as:
 - Environment settings
 
 The results from each configurations can be viewed either in the
-[Guest assignments page](../../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+[Guest assignments page](../../../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 or if the configuration is orchestrated by an Azure Policy assignment,
 by clicking on the "Last evaluated resource" link on the
-["Compliance details" page](../../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
+["Compliance details" page](../../../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
 
 [A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM).
 
