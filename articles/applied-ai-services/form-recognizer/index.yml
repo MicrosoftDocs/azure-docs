@@ -203,16 +203,16 @@ conceptualContent:
              links:
                - itemType: concept
                  text: Transparency notes
-                 url: fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+                 url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
                - itemType: concept
                  text: Characteristics and limitations
-                 url: fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+                 url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
                - itemType: concept
                  text: Guidance for integration and responsible use
-                 url: fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+                 url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
                - itemType: concept
                  text: Data privacy, compliance, and security
-                 url: fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+                 url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 
       - title: Development options
         items:
