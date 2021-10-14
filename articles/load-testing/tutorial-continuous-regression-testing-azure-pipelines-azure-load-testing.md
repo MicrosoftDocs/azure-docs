@@ -4,9 +4,9 @@ titleSuffix: Azure Load Testing
 description: Continuous regression testing in Azure Pipelines with Azure Load Testing
 services: load-testing
 ms.service: load-testing
-ms.author: ninallam
-author: ninallam
-ms.date: 09/30/2021
+ms.author: jmartens
+author: j-martens
+ms.date: 10/14/2021
 ms.topic: tutorial
 #Customer intent: As a Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment with Azure Pipelines
 ---
@@ -48,7 +48,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Configuration files (if any): Not required for the sample app.  
 
-1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file using the syntax shown [here](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download this file from the input files section on the dashboard as shown below.  
+1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file [using the syntax shown](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download this file from the input files section on the dashboard as shown below.  
 
     :::image type="content" source="media/tutorial-continous-regression-testing-in-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
 
@@ -95,11 +95,11 @@ You'll require the following files in your repository for running the load test.
 
 Here's what happened when you ran the pipeline.  
 
-* The pipeline builds, creates the required Azure resources, and deploys the sample node.js app to the App service.  The pipeline triggers are defined to run for every push to the main branch. You can modify the triggers according to the [available triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers).  
+* The pipeline builds, creates the required Azure resources, and deploys the sample node.js app to the App service.  The pipeline triggers are defined to run for every push to the main branch. You can modify the triggers according to the [available triggers](../../devops/pipelines/build/triggers/index.yml).  
 
 * The Azure Load testing task created and ran a load test on the App service deployed in the above step.  
 
-The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip.”    
+The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip.”  
 
 ## Define test criteria for your load test
 

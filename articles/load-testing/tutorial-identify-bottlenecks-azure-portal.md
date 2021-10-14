@@ -30,11 +30,11 @@ In this tutorial, you'll learn how to:
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Download and install:
-   * [VS Code](https://code.visualstudio.com/Download).
-   * The [Azure Load Testing extension](https://github.com/microsoft/azureloadtest#installation-of-vs-code-extension) for VS Code.
-   * [Java](https://java.com/download/windows_manual.jsp).
-   * [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
-   * [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/). Since the sample app's `SampleApp.jmx` uses an Ultimate Thread group, install Plugins Manager to run the Apache JMeter script on a fresh Apache JMeter install.
+  * [VS Code](https://code.visualstudio.com/Download).
+  * The [Azure Load Testing extension](https://github.com/microsoft/azureloadtest#installation-of-vs-code-extension) for VS Code.
+  * [Java](https://java.com/download/windows_manual.jsp).
+  * [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
+  * [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/). Since the sample app's `SampleApp.jmx` uses an Ultimate Thread group, install Plugins Manager to run the Apache JMeter script on a fresh Apache JMeter install.
 
 ## Deploy the sample app
 
