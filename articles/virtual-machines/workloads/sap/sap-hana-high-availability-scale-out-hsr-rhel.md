@@ -1145,13 +1145,13 @@ Make sure that the cluster status is ok and that all of the resources are starte
 
 ```
 
-In next section, you can find the typical set of failover tests to execute.
+In the next section, you can find the typical set of failover tests to execute.
 
 Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
 
-1. When you migrate **SAPHana_HN1_HDB03** cluster resource to **hana-s2-db1**, the second virtual IP will move to the other server **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1** as the server is available and cluster services are online.  
+1. When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, i.e. to  **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
 
-2. When testing server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and Azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected allows applications that are connected to read-enabled HANA database to operate, while the time secondary server is unavailable.   
+2. When testing server crash, the second virtual IP resources (**secvip_HN1_HDB03**) and Azure load balancer port resource (**secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
   
 3. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
 
