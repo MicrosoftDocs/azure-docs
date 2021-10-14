@@ -120,14 +120,14 @@ The following table lists the properties you can specify for attribute sets and 
 | --- | :---: | :---: | --- |
 | Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
 | Attribute set description |  | :heavy_check_mark: | Description of the attribute set. |
-| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the attribute set. |
+| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes that can be defined in an attribute set. Default value is `null`. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. |
 | Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of an attribute set. |
 | Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
 | Attribute description |  | :heavy_check_mark: | Description of the custom security attribute. |
 | Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are `Boolean`, `Integer`, and `String`. |
 | Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. If data type is set to `Boolean`, cannot be set to Yes. |
 | Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. If data type is set to `Boolean`, cannot be set to Yes.|
-| Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can added later. Values can include spaces, but some special characters are not allowed. |
+| Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can be added later. Values can include spaces, but some special characters are not allowed. |
 | Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. |
 | Attribute is active |  | :heavy_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
 
@@ -138,14 +138,16 @@ Here are some of the limits and constraints for custom security attributes.
 > [!div class="mx-tableFixed"]
 > | Resource | Limit | Notes |
 > | --- | :---: | --- |
-> | Attributes in an attribute set per tenant | 500 | Applies only to active attributes in the tenant |
+> | Attributes per tenant | 500 | Applies only to active attributes in the tenant |
+> | Attribute sets per tenant | 100 |  |
 > | Attribute set name length | 32 | Unicode characters |
 > | Attribute set description length | 128 | Unicode characters |
 > | Attribute name length | 32 | Unicode characters |
 > | Attribute description length | 128 | Unicode characters |
 > | Predefined values per attribute | 100 |  |
+> | Attribute value length | 64 | Unicode characters |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | `` ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? / <space>`` |  |
+> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` |  |
 > | Characters not allowed for:<br/>Attribute values | `# % & * + \ : " / < > ?` |  |
 
 ## Custom security attribute roles
