@@ -9,7 +9,7 @@ ms.date: 13/10/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: Create new Lake database 
+# Quickstart: Create a new Lake database leveragin database templates
 
 This quick start gives you a run through of an end-2-end scenario on how you can leverage the database templates to create a lake database, align data to your new model and use the integrated experience to analyze the data. 
 
@@ -77,8 +77,8 @@ df.show(10)
 You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](./synapse-analytics/machine-learning/tutorial-automl.md) 
 
 ## Next steps
-
-Advance to the next article to learn how to create...
- - [!div class="nextstepaction"]
- - [Next steps button](contribute-how-to-mvc-quickstart.md)
+Continue to explore the capabilities of the database designer using the links below.
+ - [Database templates concept](concepts-database-templates.md)
+ - [Lake database concept](concepts-lake-database.md)
+ - [How to create a lake database(create-empty-lake-database.md)
 
