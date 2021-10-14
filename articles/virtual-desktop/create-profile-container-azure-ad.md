@@ -27,7 +27,8 @@ This article describes how to configure Azure Files for authentication using Azu
 
 - The session host VMs must be using one of the following:
     - Windows 11 ENT single or multi session.
-    - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
+    - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
+    - Windows Serer 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
     - 
 - The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect.
 
