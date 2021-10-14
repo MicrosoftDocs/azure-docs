@@ -47,9 +47,11 @@ To create your enterprise dev/test subscriptions, first choose an enrollment acc
 1. To get started, go to [Ea.azure.com](https://ea.azure.com). The Azure Enterprise Portal is where you can manage your company's enrollments  
 2. Within the Manage tab, select your agreement number  
 
- [!Note] the enrollment can change based on your Enterprise Agreement renewal cycle  
-
- ![A screenshot of the Enterprise Agreement management portal page.](media/creating-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")  
+    > [!Note]
+    > The enrollment can change based on your Enterprise Agreement renewal cycle.
+    
+    ![A screenshot of the Enterprise Agreement management portal page.](media/creating-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")
+    
 3. Once you’ve selected the appropriate enrollment number, select the “Account” tab  
 4. From here, you can edit the Account(s) and toggle the dev/test flag to “Yes.”  
 
@@ -69,13 +71,14 @@ To add an account:
 
 After you've chosen the account to create an enterprise Azure dev/test subscription, add the appropriate subscription offer. There are two ways. No matter what you pick, the experience is the same.  
 
-1. The subscription tab in each portal will be a “+/Add” button  
-    a. You'll go to a sign-in page  
-    b. Sign in with your Microsoft Azure credentials  
-    c. Once you’re signed in, you'll be directed to a page that lists the offers available – you MUST toggle 'yes' in the EA portal to see enterprise offers  
-2. Select the enterprise dev/test offer and create your subscription  
-    a. You must have access and permissions associated with your identity
-    b. You must designate the Account as a dev/test account within the enrollment portal  
+1. The subscription tab in each portal will be a “+/Add” button. 
+    1. You'll go to a sign-in page.
+    1. Sign in with your Microsoft Azure credentials.
+    1. After you sign in, you're directed to a page that lists the offers available. Toggle **yes** in the EA portal to see enterprise offers.
+    
+1. Select the enterprise dev/test offer and create your subscription.
+    1. You must have access and permissions associated with your identity.
+    1. You must designate the Account as a dev/test account within the enrollment portal.
 
 ### Next steps  
 

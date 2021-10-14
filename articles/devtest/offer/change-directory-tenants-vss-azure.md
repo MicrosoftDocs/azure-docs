@@ -61,14 +61,16 @@ Once you’ve been added and given proper permissions, you can switch directorie
 1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)  
 2. Select “Change Directory”  
 
- ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/change-directory-vss-azure/change-directory.png "Select Change Directory.")  
+    ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/change-directory-vss-azure/change-directory.png "Select Change Directory.") 
+    
 3. A box will surface to choose the new directory  
 4. Select “Change”  
 
->  [!NOTE]
->  If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you'll receive a success message.  
+    > [!NOTE]
+    > If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you'll receive a success message.  
 
-  ![A screenshot of the Change Directory validation page.](media/change-directory-vss-azure/change-button.png "Select the directory from the dropdown and click the Change button.")  
+    ![A screenshot of the Change Directory validation page.](media/change-directory-vss-azure/change-button.png "Select the directory from the dropdown and click the Change button.")
+    
 5. Select “Switch Directories” on the subscription page to access the new directory  
 
   ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-vss-azure/switch-directories-outlined.png "Click Switch Directories to access the new directory.")
