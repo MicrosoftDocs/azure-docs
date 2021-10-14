@@ -42,6 +42,8 @@ items:
     items:
       - name: Deployment best practices
         href: deployment-best-practices.md
+      - name: Accounts architecture
+        href: concept-best-practices-accounts.md    
       - name: Collections architecture
         href: concept-best-practices-collections.md
       - name: Pricing guidelines 
