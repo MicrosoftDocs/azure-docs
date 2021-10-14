@@ -39,7 +39,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats.
 
 > [!IMPORTANT]
-> If you will use the Self-Hosted Integration runtime to read Parquet files, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](#java-runtime-environment-installation) for an installation guide.
+> If you will use the Self-Hosted Integration runtime to scan Parquet files, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](#java-runtime-environment-installation) for an installation guide.
 
 ## Setting up a self-hosted integration runtime
 
