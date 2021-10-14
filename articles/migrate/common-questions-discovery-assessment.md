@@ -78,6 +78,16 @@ The confidence rating is calculated for "Performance-based" assessments based on
 - For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
+## Why is my RAM utilization greater than 100%?
+
+By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+
+## Why can't I see all Azure VM families in the Azure VM assessment properties?
+
+There could be two reasons:
+- You have chosen an Azure region where a particular series is not supported. Azure VM families shown in Azure VM assessment properties are dependent on the availability of the VM series in the chosen Azure location, storage type and Reserved Instance. 
+- The VM series is not support in the assessment and is not in the consideration logic of the assessment. We currently do not support B-series burstable, accelerated and high performance SKU series. We are trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
+
 ## The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
 
  To remediate this, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessment. The discovery and assessment tool will then show the correct count for that assessment type.
