@@ -94,9 +94,9 @@ displays them all.
 
 2. From the left-hand pane select **User attributes**, and then select **Add** to create two custom attributes
 
-- Agent ID: String **Data Type**
+   - Agent ID: String **Data Type**
 
-- Agent Geo: String **Data Type**
+   - Agent Geo: String **Data Type**
 
 ### Add attributes to user flow
 
@@ -289,10 +289,12 @@ Here, we'll configure Azure AD B2C as the OAuth2 Identity Provider. You’ll not
 
   Backend services are represented in the BIG-IP as a pool, containing one or more application servers that virtual server’s direct inbound traffic to. Select an existing pool, otherwise create a new one.
 
-  - Load-balancing method: Leave as Round Robin
-  - Pool server: Internal IP of backend application
-  - Port: Service port of backend application
-
+  | Properties | Description |
+  |:-----------|:------------|
+  | Load-balancing method | Leave as Round Robin |
+  |Pool server | Internal IP of backend application |
+  | Port | Service port of backend application |
+  
 >[!NOTE]
 >The BIG-IP must have line of sight to the pool server address specified.
 
@@ -300,18 +302,15 @@ Here, we'll configure Azure AD B2C as the OAuth2 Identity Provider. You’ll not
 
   A BIG-IP supports many SSO options, but in OAuth client mode the Guided Config is limited to Kerberos or HTTP Headers. Enable SSO and use the following information to have the APM map inbound attributes you defined earlier, to outbound headers.
 
-  - Header Operation: `Insert`
-  - Header Name: `name`
-  - Header Value: `%{session.oauth.client.last.id_token.name}`
-
-  - Header Operation: `Insert`
-  - Header Name: `agentid`
-  - Header Value:`%{session.oauth.client.last.id_token.extension_AgentID}`
-
-  - Header Operation: `Insert`
-  - Header Name: `agentgeo`
-  - Header Value: `%{session.oauth.client.last.id_token.extension_AgentGeo}`
-
+  | Properties | Description |
+  |:-----------|:------------|
+  | Header Operation |`Insert`|
+  | Header Name | 'name' |
+  | Header Value | `%{session.oauth.client.last.id_token.name}`|
+  | Header Operation | `Insert`|
+  |Header Name| `agentid`|
+  |Header Value | `%{session.oauth.client.last.id_token.extension_AgentGeo}`|
+ 
   >[!Note]
   > APM session variables defined within curly brackets are CASE sensitive. So, entering agentid when the B2C attribute name is being sent as AgentID will cause an attribute mapping failure. Unless necessary, we recommend defining all attributes in lowercase. In an Azure AD B2C case, the user flow prompts the user for the additional attributes using the name of the attribute as displayed in the portal, so using normal sentence case instead of lowercase might be preferable.
 
@@ -383,23 +382,23 @@ Failure to access the protected application could be down to any number of poten
 
 - BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
 
- 1. Go to **Access Policy** > **Overview** > **Event Logs** > **Settings**.
+  1. Go to **Access Policy** > **Overview** > **Event Logs** > **Settings**.
 
- 2. Select the row for your published application then **Edit** > **Access System Logs**.
+  2. Select the row for your published application then **Edit** > **Access System Logs**.
 
- 3. Select **Debug** from the SSO list then, select **OK**. You can now reproduce your issue before looking at the logs but remember to switch this back when finished.
+  3. Select **Debug** from the SSO list then, select **OK**. You can now reproduce your issue before looking at the logs but remember to switch this back when finished.
 
 - If you see a BIG-IP branded error immediately after successful Azure AD B2C authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
- 1. Navigate to **Access** > **Overview** > **Access reports**.
+  1. Navigate to **Access** > **Overview** > **Access reports**.
 
- 2. Run the report for the last hour to see logs provide any clues. The View session variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
+  2. Run the report for the last hour to see logs provide any clues. The View session variables link for your session will also help understand if the APM is receiving the  expected claims from Azure AD.
 
 - If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 
-1. Go to **Access Policy** > **Overview** > **Active Sessions**.
+  1. Go to **Access Policy** > **Overview** > **Active Sessions**.
 
-2. Select the link for your active session.
+  2. Select the link for your active session.
 
 - The View Variables link in this location may also help determine root cause, particularly if the BIG-IP APM fails to obtain the right session attributes.
 Your application’s logs would then help understand if it received those attributes as headers, or not.
@@ -428,4 +427,4 @@ Your application’s logs would then help understand if it received those attrib
   
   5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and click apply again to refresh the access profile list.
 
-See F5’s guidance for additional [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
