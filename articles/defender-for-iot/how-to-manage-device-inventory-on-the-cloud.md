@@ -46,19 +46,6 @@ The following table describes the different parameters in the device inventory.
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
 | **Site** | The site that contains this device. | - |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
-| **VLAN** |  | - |
-| **Firmware version** | | - |
-| **IPv4 address** | The IPv4 address of the device. | - |
-| **IPv6 address** | The IPv6 address of the device. | - |
-| **Application** | | - |
-| **Importance** | The importance level assigned to the device. Can be None, Standard, Low, Normal and High. | - |
-| **Sensor** | The assigned name of the sensor. | - |
-| **Zone** |The Zone assigned to the device. | - |
-| **Programming time** | | - |
-| **Firmware vendor** | The vendor of the firmware for the device.| - |
-| **Purdue level** | The Purdue level in which the device can be found. | - |
-| **PLC mode (Preview)** | | - |
-| **Slots** | The number of slots available on the device.| - |
 
 **To view the device inventory**:
 
