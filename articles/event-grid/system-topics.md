@@ -55,8 +55,8 @@ When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/ev
 ### Failure to create system topics
 The system topic creation fails if you have set up Azure policies in such a way that the Event Grid service can't create it. For example, you may have a policy that allows creation of only certain types of resources (for example: Azure Storage, Azure Event Hubs, etc.) in the subscription. 
 
-In such case, Event flow functionality is preserved, however Metrics and Diagnostic functionalities of System Topics will be unavailable.
-If you require this functionality, allow System Topics resource type and create the missing System Topic as [described above](#lifecycle-of-system-topics).
+In such cases, event flow functionality is preserved. However, metrics and diagnostic functionalities of system topics will be unavailable.
+If you require this functionality, allow creation of resources of the system topic type, and create the missing system topic as described in the [Life cycle of system topics](#lifecycle-of-system-topics) section.
 
 ## Location and resource group for a system topic
 For Azure event sources that are in a specific region/location, system topic is created in the same location as the Azure event source. For example, if you create an event subscription for an Azure blob storage in East US, the system topic is created in East US. For global Azure event sources such as Azure subscriptions, resource groups, or Azure Maps, Event Grid creates the system topic in **global** location. 
