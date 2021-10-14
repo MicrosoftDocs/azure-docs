@@ -5909,6 +5909,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+      "redirect_url": "/azure/storage/common/storage-account-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
