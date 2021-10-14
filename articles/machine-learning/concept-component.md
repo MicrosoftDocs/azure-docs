@@ -179,7 +179,7 @@ You can create a component in **Components** page in the studio UI.
 
 ## Use components to build ML pipelines
 
-You can use the Azure CLI 2.0 to create a pipeline job. See Create and run ML pipelines (CLI).
+You can use the Azure CLI 2.0 to create a pipeline job. See [Create and run ML pipelines (CLI)](how-to-create-component-pipelines-cli.md).
 
 ## Manage components
 
@@ -217,5 +217,5 @@ You can also select a component and archive it.
 ## Next steps
 
 - [Component YAML reference](reference-yaml-component-command.md)
-- Create and run ML pipelines (CLI)
+- [Create and run ML pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 - [Build machine learning pipelines in the designer](tutorial-designer-automobile-price-train-score.md)
