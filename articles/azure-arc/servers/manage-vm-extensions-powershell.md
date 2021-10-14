@@ -32,9 +32,9 @@ To enable a VM extension on your Azure Arc-enabled server, use [New-AzConnectedM
 The following example enables the Log Analytics VM extension on a Azure Arc-enabled Linux server:
 
 ```powershell
-PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
-PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
+$Setting = @{ "workspaceId" = "workspaceId" }
+$protectedSetting = @{ "workspaceKey" = "workspaceKey" }
+New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
 
 To enable the Log Analytics VM extension on an Azure Arc-enabled Windows server, change the value for the `-ExtensionType` parameter to `"MicrosoftMonitoringAgent"` in the previous example.
@@ -42,8 +42,15 @@ To enable the Log Analytics VM extension on an Azure Arc-enabled Windows server,
 The following example enables the Custom Script Extension on an Azure Arc-enabled server:
 
 ```powershell
-PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
-PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
+$Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
+New-AzConnectedMachineExtension -Name "custom" -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
+```
+
+The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
+
+```powershell
+$Setting = @{ "AntimalwareEnabled" = $true }
+New-AzConnectedMachineExtension -Name "IaaSAntimalware" -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.Azure.Security" -Settings $Setting -ExtensionType "IaaSAntimalware"
 ```
 
 ### Key Vault VM extension 
