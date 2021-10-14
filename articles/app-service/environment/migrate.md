@@ -73,7 +73,7 @@ Ensure you understand how migrating to an App Service Environment v3 will affect
 ## Frequently asked questions
 
 - **What if migrating my App Service Environment is not currently supported?**  
-  Support for other scenarios will roll out over the next few months. Check back for updates on this page and look for announcements on the [App Service Blog](https://azure.github.io/AppService/). <!--- Should I mention cloning or migrating manually here as alternatives? --->
+  Support for other scenarios will roll out over the next few months. Check back for updates on this page and look for announcements on the [App Service Blog](https://azure.github.io/AppService/).
 - **Will I experience downtime during the migration?**  
   Yes, you should expect about two hours of downtime during Step 2 of the migration so please plan accordingly.
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
