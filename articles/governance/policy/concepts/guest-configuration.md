@@ -6,9 +6,13 @@ ms.topic: conceptual
 ---
 # Understand the guest configuration feature of Azure Policy
 
-Azure Policy can audit or configure settings inside a machine, both for machines
-running in Azure and
+Azure Policy's guest configuration feature provides native capability
+to audit or configure operating system settings as code,
+both for machines running in Azure and hybrid
 [Arc-enabled machines](../../../azure-arc/servers/overview.md).
+The feature can be used directly per-machine,
+or at-scale orchestrated by Azure Policy.
+
 Each task is performed by the guest configuration agent in Windows and Linux.
 The guest configuration extension, through the agent, manages settings such as:
 
