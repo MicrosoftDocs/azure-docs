@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 
 ---

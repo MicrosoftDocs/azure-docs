@@ -5,7 +5,7 @@ services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: mimart
+ms.author: kengaderdus
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: how-to

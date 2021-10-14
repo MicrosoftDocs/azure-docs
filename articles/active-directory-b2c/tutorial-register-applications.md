@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

@@ -8,7 +8,7 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 author: kengaderdus
 manager: celested
 

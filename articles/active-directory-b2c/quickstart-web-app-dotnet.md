@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: quickstart
 ms.custom: "devx-track-csharp, mvc"
 ms.date: 10/01/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

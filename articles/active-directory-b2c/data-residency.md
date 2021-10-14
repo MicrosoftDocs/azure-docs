@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
 ---

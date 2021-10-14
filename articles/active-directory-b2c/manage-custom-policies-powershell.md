@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

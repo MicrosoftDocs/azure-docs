@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---

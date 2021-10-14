@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---

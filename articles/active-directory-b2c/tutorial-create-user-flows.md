@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/12/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

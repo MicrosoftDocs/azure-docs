@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C

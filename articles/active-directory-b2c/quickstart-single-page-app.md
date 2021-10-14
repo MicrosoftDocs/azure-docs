@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

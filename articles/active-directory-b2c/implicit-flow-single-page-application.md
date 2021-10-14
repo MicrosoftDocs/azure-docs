@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

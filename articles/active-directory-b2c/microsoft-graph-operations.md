@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph

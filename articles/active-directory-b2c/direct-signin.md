@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

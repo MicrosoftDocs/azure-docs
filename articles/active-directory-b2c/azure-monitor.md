@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.date: 09/15/2021
 ---

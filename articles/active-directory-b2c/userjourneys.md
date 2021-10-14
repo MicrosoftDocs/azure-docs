@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/31/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

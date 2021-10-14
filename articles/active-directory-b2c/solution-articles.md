@@ -5,7 +5,7 @@ services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: mimart
+ms.author: kengaderdus
 ms.date: 10/01/2021
 ms.topic: conceptual
 ms.service: active-directory

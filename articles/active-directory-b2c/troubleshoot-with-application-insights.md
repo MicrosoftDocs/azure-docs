@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

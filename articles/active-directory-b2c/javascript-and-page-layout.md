@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: project-no-code, devx-track-js
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

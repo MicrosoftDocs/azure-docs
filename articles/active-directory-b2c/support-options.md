@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

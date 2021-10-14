@@ -7,7 +7,7 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 author: kengaderdus
 manager: celested
 zone_pivot_groups: b2c-policy-type
