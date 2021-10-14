@@ -26,7 +26,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 - A basic understanding of Managed identities. If you would like to learn more about managed identities for Azure resources before you continue, review the managed identities [overview](overview.md).
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- You may need either [PowerShell](/powershell/azure/new-azureps-module-az) or the [CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) or some other development environment of your choosing. 
 
 ## Create a resource group
