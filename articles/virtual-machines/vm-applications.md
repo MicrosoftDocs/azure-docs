@@ -45,7 +45,7 @@ The VM application packages use multiple resource types:
 |----------|------------|
 | **Azure compute gallery** | A gallery is a repository for managing and sharing application packages. Users can share the gallery resource and all the child resources will be shared automatically. The gallery name must be unique per subscription. For example, you may have one gallery to store all your OS images and another gallery to store all your VM applications.|
 | **VM application** | This is the definition of your VM application resource. This is a *logical* resource that stores the common metadata for all the versions under it. For example, you may have an application definition for Apache Tomcat and have multiple versions within it. |
-| **VM Application version** | This is the deployable version of the VM Application. This is a multi-regional, independently scalable resource. Users may choose to globally replicate their VM application versions to target regions closer to their VM infrastructure. The VM Application Version must be replicated to a region before it may be deployed on a VM in that region. |
+| **VM Application version** | This is the 1`qp0oi This is a multi-regional, independently scalable resource. Users may choose to globally replicate their VM application versions to target regions closer to their VM infrastructure. The VM Application Version must be replicated to a region before it may be deployed on a VM in that region. |
 
 
 ## Limitations

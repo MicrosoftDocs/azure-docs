@@ -1,58 +1,50 @@
 ---
-title: Creating install, updated, and remove commands for VM application packages (preview)
+title: Creating VM application packages (preview)
 description: Learn how create install, update, and remove commands for VM application packages.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/23/2021
+ms.date: 10/13/2021
 ms.reviewer:
 ms.custom: 
 
 ---
 
+# Things to consider when creating VM application packages
 
-
-# Authoring install, update, and remove commands for Vm application packages
-
+This article provides details on things to consider when creating VM applications.
   
 
 ## Download directory and working directory  
-
  
-The download location of the application package and the configuration file is:
+The download location of the application package and the configuration files are:
   
 - Linux: /var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> 
 - Windows: C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.3\Downloads\<appname>\<app version> 
 
  
-The install/update/remove commands have the working directory already set to the download location, so the commands can be written assuming the application package and the configuration are in the current directory.
-
- 
+The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
 
 ## Command interpreter  
 
-The default command interpreter is:
+The default command interpreters are:
 - Linux: `/bin/sh` 
-- Windows: `cmd.exe`. 
+- Windows: `cmd.exe`
 
-It is possible to use a different interpreter, as long as it is installed on the machine, by invoking the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass "powershell.exe -Command '<powershell commmand>' "
-
+It is possible to use a different interpreter, as long as it is installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
   
 ## Naming the package and the config file
 
-*****  Still needed? xxxx ******
+**** Needs a better explanation****
+
 The application package uses `appname` for the name and the configuration file name as `appname_config`. The install, update, and remove commands must be written with this in mind. In an upcoming update, we will add an option to the VMApp publisher to specify how to name the downloaded application package and application configuration file 
  
 Windows example, if my gallery application name was 'firefoxwindows ', my install command should be 
 
 move .\\firefoxwindows .\\firefox.exe & firefox.exe /S 
 
-  
-
-Note: cmd expects executable files to have extension .exe, so the application package file was renamed before it was invoked. The command like parameter '/S' signals the installer to run in silent mode 
-
-  
+Windows `cmd` expects executable files to have extension `.exe`, so the application package file was renamed before it was invoked. The command like parameter `/S` signals the installer to run in silent mode.
 
 Linux example, if my gallery application name was 'powershell', my install command should be 
 
