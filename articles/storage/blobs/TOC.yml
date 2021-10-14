@@ -293,6 +293,8 @@ items:
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Upgrading to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
   - name: How to
@@ -348,9 +350,11 @@ items:
         href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
-        - name: Authorize with a managed identity
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authorize from an application
+        - name: Get an access token for authorization with Azure AD
+          href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize from an application running in Azure
+          href: authorize-managed-identity.md
+        - name: Authorize from a native or web application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorize with Shared Key
         items:
@@ -550,6 +554,8 @@ items:
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2-how-to.md
     - name: Monitor
       items:
       - name: Scenarios and best practices

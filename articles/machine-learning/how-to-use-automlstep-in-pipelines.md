@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: The AutoMLStep allows you to use automated machine learning in your pipelines.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: laobri
 author: lobrien
 manager: cgronlun
