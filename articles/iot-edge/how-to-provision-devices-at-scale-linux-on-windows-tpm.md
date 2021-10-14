@@ -236,16 +236,16 @@ Install IoT Edge for Linux on Windows on your device.
 
    Two options are available for GPU passthrough: **Direct Device Assignment (DDA)** and **GPU Paravirtualization (GPU-PV)**, depending on the GPU adaptor you assign to your deployment.
 
-   For the **Direct Device Assignment** method, select the number of GPU processors to allocate to your Linux VM.
+   For the direct device assignment method, select the number of GPU processors to allocate to your Linux VM.
 
-   ![Screenshot that shows Configuration settings with a Direct Device Assignment GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-tpm/gpu-passthrough-direct-device-assignment.png)
+   ![Screenshot that shows Configuration settings with a direct device assignment GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-tpm/gpu-passthrough-direct-device-assignment.png)
 
-   For the **Paravirtualization** method, no other settings are needed.
+   For the paravirtualization method, no other settings are needed.
 
-   ![Screenshot that shows Configuration settings with a Paravirtualization GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-tpm/gpu-passthrough-paravirtualization.png)
+   ![Screenshot that shows Configuration settings with a paravirtualization GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-tpm/gpu-passthrough-paravirtualization.png)
 
    >[!WARNING]
-   >Enabling hardware device passthrough might increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices by using Discrete Device Assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
+   >Enabling hardware device passthrough might increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices by using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
    After you're satisfied with the settings, select **Next**.
 
