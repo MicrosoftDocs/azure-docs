@@ -80,7 +80,7 @@ In the request body, include the `capacityReservationGroup` property as shown be
 
 ### [CLI](#tab/cli1)
 
-Use `az vm create` to create a new VM and add the `CapacityReservationGroupId` property to associate it to an existing capacity reservation group. The example below creates a Standard_D2s_v3 VM in the East US location and associate the VM to a capacity reservation group.
+Use `az vm create` to create a new VM and add the `capacity-reservation-group` property to associate it to an existing capacity reservation group. The example below creates a Standard_D2s_v3 VM in the East US location and associate the VM to a capacity reservation group.
 
 ```azurecli-interactive
 az vm create 
@@ -269,6 +269,16 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
    }
 } 
 ``` 
+
+### [CLI](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation show 
+-g myResourceGroup
+-c myCapacityReservationGroup 
+-n myCapacityReservation 
+```
+
 ### [PowerShell](#tab/powershell3)
 
 ```powershell-interactive
