@@ -14,6 +14,8 @@ This article describes how to enable VM insights on Azure virtual machines using
 - Azure virtual machine
 - Azure virtual machine scale set
 
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).

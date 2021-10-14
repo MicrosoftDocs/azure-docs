@@ -29,6 +29,8 @@ Enabling a virtual machine for monitoring by VM insights includes the following 
 ## Enable VM insights
 You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-enable-portal.md#enable-vm-insights) since the VMinsights management pack isn't used by Azure Monitor agent.
 
+> [!NOTE]
+> You can't currently enable the Azure Monitor agent from the virtual machine's menu in the Azure portal. You must use the Azure Monitor menu.
 
 ## Changes to Get Started tab
 The following changes have been made to the **Get Started** page in VM insights.

@@ -15,6 +15,8 @@ This article describes how to enable VM insights for a virtual machine or virtua
 - Azure virtual machine scale set
 - Hybrid virtual machine connected with Azure Arc
 
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). Alternatively, you can create a new workspace during this process.

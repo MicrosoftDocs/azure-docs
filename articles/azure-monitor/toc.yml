@@ -1075,6 +1075,8 @@
         href: vm/vminsights-enable-hybrid.md
       - name: Upgrade Dependency agent
         href: vm/vminsights-dependency-agent-maintenance.md
+    - name: Install Azure Monitor agent (Preview)
+        href: vm/vminsight-azure-monitor-agent.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
