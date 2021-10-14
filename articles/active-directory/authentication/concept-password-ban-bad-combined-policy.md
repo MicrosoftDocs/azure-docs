@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 
 ms.author: justinha
-author: justinha
+author: sajiang
 manager: daveba
-ms.reviewer: rogoya
+ms.reviewer: sajiang
 
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +22,7 @@ As the combined check for password policy and banned passwords gets rolled out t
 
 ## Azure AD password policies
 
-A password policy is applied to all user and admin accounts that are created and managed directly in Azure AD. You can ban weak passwords and define parameters to lock out an account after repeated bad password attempts. Other password policy settings can't be modified.
+A password policy is applied to all user and admin accounts that are created and managed directly in Azure AD. You can ban weak passwords and define parameters to [lock out an account](howto-password-smart-lockout.md) after repeated bad password attempts. Other password policy settings can't be modified.
 
 The Azure AD password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
