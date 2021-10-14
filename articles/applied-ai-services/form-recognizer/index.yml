@@ -31,33 +31,6 @@ conceptualContent:
       - title: Features
         items:
            # Card
-           - title: 🆕Form Recognizer Studio (preview)
-             links:
-               - itemType: concept
-                 text: Studio overview
-                 url: concept-form-recognizer-studio.md
-               - itemType: get-started
-                 text: Using the General document model (preview)
-                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: get-started
-                 text: Using the Layout model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#layout
-               - itemType: get-started
-                 text: Using the Invoice model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: get-started
-                 text: Using the Receipt model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: get-started
-                 text: Using the ID document model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: get-started
-                 text: Using the Business card model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-               - itemType: get-started
-                 text: Using the Custom model
-                 url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
-
            - title: 🆕General document (preview)
              links:
                - itemType: concept
@@ -226,22 +199,115 @@ conceptualContent:
                  text: Using the Sample Labeling tool
                  url: "concept-custom.md#try-it-sample-labeling-tool"
 
-tools:
-  title: Software development kits (SDKs)
-  summary: Get started with a Form Recognizer SDK in your favorite programming language.
-  items:
-  - title: C#/.NET
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: /dotnet/api/overview/azure/AI.FormRecognizer-readme
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable
-  - title: JavaScript/Node.js
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python
+      - title: Development options
+        items:
+          - title: 🆕Form Recognizer Studio (preview)
+            links:
+               - itemType: concept
+                 text: Studio overview
+                 url: concept-form-recognizer-studio.md
+               - itemType: get-started
+                 text: Using the General document model (preview)
+                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+               - itemType: get-started
+                 text: Using the Layout model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#layout
+               - itemType: get-started
+                 text: Using the Invoice model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+               - itemType: get-started
+                 text: Using the Receipt model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+               - itemType: get-started
+                 text: Using the ID document model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+               - itemType: get-started
+                 text: Using the Business card model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+               - itemType: get-started
+                 text: Using the Custom model
+                 url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+
+          - title: Form Recognizer Sample Labeling tool
+            links:
+               - itemType: quickstart
+                 text: Get started
+                 url: quickstarts/try-sample-label-tool.md
+               - itemType: get-started
+                 text: Using the Layout model
+                 url: concept-layout.md#try-it-sample-labeling-tool
+               - itemType: get-started
+                 text: Using the Invoice model
+                 url: concept-invoice.md#try-it-sample-labeling-tool
+               - itemType: get-started
+                 text: Using the Receipt model
+                 url: concept-receipt.md#try-it-sample-labeling-tool
+               - itemType: get-started
+                 text: Using the ID document model
+                 url: concept-id-document.md#try-it-sample-labeling-tool
+               - itemType: get-started
+                 text: Using the Business card model
+                 url: concept-business-card.md#try-it-sample-labeling-tool
+               - itemType: get-started
+                 text: Using the Custom model
+                 url: concept-custom.md#try-it-sample-labeling-tool
+
+          - title: Form Recognizer REST API
+            links:
+               - itemType: quickstart
+                 text: Get started
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
+               - itemType: get-started
+                 text: Analyze Layout
+                 url: quickstarts/try-sdk-rest-api?pivots=programming-language-rest-api#analyze-layout
+               - itemType: get-started
+                 text: Analyze invoice
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices
+               - itemType: get-started
+                 text: Analyze receipt
+                 url: quickstarts/try-sdk-rest-api?pivots=programming-language-rest-api#analyze-receipts
+               - itemType: get-started
+                 text: Analyze ID document
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents
+               - itemType: get-started
+                 text: Analyze Business card
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards
+               - itemType: get-started
+                 text: Use a custom model
+                 url: concept-custom.md#try-it-sample-labeling-tool
+
+          - title: Form Recognizer client libraries
+            links:
+               - itemType: quickstart
+                 text: C# SDK
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
+               - itemType: get-started
+                 text: Java SDK
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-java
+               - itemType: get-started
+                 text: JavaScript SDK
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
+               - itemType: get-started
+                 text: Python SDK
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
+
+
+# tools:
+#   title: Software development kits (SDKs)
+#   summary: Get started with a Form Recognizer SDK in your favorite programming language.
+#   items:
+#   - title: C#/.NET
+#     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+#     url: /dotnet/api/overview/azure/AI.FormRecognizer-readme
+#   - title: Java
+#     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+#     url: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable
+#   - title: JavaScript/Node.js
+#     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+#     url: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest
+#   - title: Python
+#     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+#     url: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python
 
 
     # - title: Microsoft tech community
