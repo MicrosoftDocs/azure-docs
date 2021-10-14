@@ -7,8 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.reviewer: peterlu
-ms.date: 10/29/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: deploy, studio, designer
 ---
@@ -95,7 +94,8 @@ Alternatively, you can download the files from the **Models** asset page after r
 After downloading the necessary files, you're ready to deploy the model.
 
 1. In the **Models** asset page, select the registered model.
-1. Select the **Deploy** button.
+1. Select **Deploy** and select **Deploy to web service**.
+    ![Screenshot of deploy button in model asset page](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. In the configuration menu, enter the following information:
 
     - Input a name for the endpoint.

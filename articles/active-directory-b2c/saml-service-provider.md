@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -34,7 +34,7 @@ In this article, learn how to connect your Security Assertion Markup Language (S
 
 Organizations that use Azure AD B2C as their customer identity and access management solution might require integration with applications that authenticate by using the SAML protocol. The following diagram shows how Azure AD B2C serves as an *identity provider* (IdP) to achieve single-sign-on (SSO) with SAML-based applications.
 
-![Diagram with Azure Active Directory B 2 C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
+![Diagram with Azure Active Directory B2C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
 
 1. The application creates a SAML AuthN request that's sent to the SAML login endpoint for Azure AD B2C.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
@@ -175,7 +175,7 @@ Now that your policy can create SAML responses, you must configure the policy to
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `_B2C_1A_signup_signin_saml_` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
+1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `B2C_1A_signup_signin_saml` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
 
     ```xml
     <TrustFrameworkPolicy
@@ -345,7 +345,7 @@ Using the SAML test application as an example, you'd use the following value for
 
 You can configure the reply URL to which Azure AD B2C sends SAML responses. Reply URLs can be configured in the application manifest. This configuration is useful when your application doesn't expose a publicly accessible metadata endpoint.
 
-The reply URL for a SAML application is the endpoint at which the application expects to receive SAML responses. The application usually provides this URL in the metadata document under the `AssertionConsumerServiceUrl` attribute, as shown in this example:
+The reply URL for a SAML application is the endpoint at which the application expects to receive SAML responses. The application usually provides this URL in the metadata document as the `Location` attribute of the `AssertionConsumerService` element, as shown in this example:
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -354,7 +354,7 @@ The reply URL for a SAML application is the endpoint at which the application ex
 </SPSSODescriptor>
 ```
 
-If you want to override the metadata provided in the `AssertionConsumerServiceUrl` attribute or the URL isn't present in the metadata document, you can configure the URL in the manifest under the `replyUrlsWithType` property. The `BindingType` value will be set to `HTTP POST`.
+If the application's metadata `AssertionConsumerService` element is missing, or you want to override it, configure the application registration manifest `replyUrlsWithType` property. Azure AD B2C uses the `replyUrlsWithType` to redirect users after they're signed in using the `HTTP-POST` binding type.
 
 Using the SAML test application as an example, you'd set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet:
 
@@ -369,20 +369,18 @@ Using the SAML test application as an example, you'd set the `url` property of `
 
 #### Override or set the logout URL (optional)
 
-You can configure the logout URL to which Azure AD B2C will send the user after a logout request. Reply URLs can be configured in the application manifest.
-
-If you want to override the metadata provided in the `SingleLogoutService` attribute or the URL isn't present in the metadata document, you can configure it in the manifest under the `Logout` property. The `BindingType` value will be set to `Http-Redirect`.
-
-The application usually provides this URL in the metadata document under the `AssertionConsumerServiceUrl` attribute, as shown in the following example:
+The logout URL defines where to redirect the user after a logout request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
 
 ```xml
-<IDPSSODescriptor WantAuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://samltestapp2.azurewebsites.net/logout" ResponseLocation="https://samltestapp2.azurewebsites.net/logout" />
 
-</IDPSSODescriptor>
+</SPSSODescriptor>
 ```
 
-Using the SAML test application as an example, you'd leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
+If the application's metadata `SingleLogoutService` element is missing, configure the application registration manifest `logoutUrl` property. Azure AD B2C uses the `logoutURL` to redirect users after they're signed out using the `HTTP-Redirect` binding type.
+
+Using the SAML test application as an example, you'd set the `logoutUrl` property to `https://samltestapp2.azurewebsites.net/logout`:
 
 ```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

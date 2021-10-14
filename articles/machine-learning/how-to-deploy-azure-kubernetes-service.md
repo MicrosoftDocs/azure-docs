@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/28/2021
+ms.date: 10/21/2021
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -55,9 +55,6 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 - An Azure Kubernetes Service cluster connected to your workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
     - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
-
-> [!IMPORTANT]
-> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
 
 ## Understand the deployment processes
 

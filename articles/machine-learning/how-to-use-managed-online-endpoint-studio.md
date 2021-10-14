@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to create and use managed online endpoints (preview) using the Azure Machine Learning studio.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: laobri
-ms.date: 09/10/2021
+ms.date: 10/21/2021
 ---
 
 # Create and use managed online endpoints (preview) in the studio
@@ -42,12 +42,12 @@ Use the studio to create a managed online endpoint (preview) directly in your br
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
-Follow the setup wizard to configure your managed online endpoint.
-
-* You can use our sample [model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) and [scoring script](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py) from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1)
-* On the **Environment** step of the wizard, you can select the **AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference** curated environment.
-
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
+
+### Follow the setup wizard to configure your managed online endpoint.
+
+1. You can use our sample [model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) and [scoring script](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py) from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1)
+1. On the **Environment** step of the wizard, you can select the **AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference** curated environment.
 
 You can also create a managed online endpoint from the **Models** page in the studio. This is an easy way to add a model to an existing managed online deployment.
 

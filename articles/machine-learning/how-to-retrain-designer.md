@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Retrain models with published pipelines and pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 03/06/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---

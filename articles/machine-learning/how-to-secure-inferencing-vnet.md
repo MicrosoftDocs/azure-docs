@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---

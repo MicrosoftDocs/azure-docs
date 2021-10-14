@@ -7,8 +7,8 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
-author: bonova
-ms.author: bonova
+author: niko-neugebauer
+ms.author: nneugebauer 
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
 ---

@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/06/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 

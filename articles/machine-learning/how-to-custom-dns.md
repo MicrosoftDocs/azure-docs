@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: How to configure a custom DNS server to work with an Azure Machine Learning workspace and private endpoint.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/03/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---

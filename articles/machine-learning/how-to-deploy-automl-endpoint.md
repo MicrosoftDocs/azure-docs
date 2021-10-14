@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: ssambare
 ms.reviewer: laobri
 author: shivanissambare
-ms.date: 09/27/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -39,17 +39,17 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 1. Once you select a model, the Deploy button will light up with a drop-down menu
 1. Select *Deploy to real-time endpoint (preview)* option
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
    The system will generate the Model and Environment needed for the deployment. 
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" lightbox="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" lightbox="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
 
 5. Complete the wizard to deploy the model to a real-time endpoint
 
- :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" alt-text="Screenshot showing the review-and-create page":::
+ :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" lightbox="media/how-to-deploy-automl-endpoint/complete-wizard.png"  alt-text="Screenshot showing the review-and-create page":::
 
 
 ## Deploy manually from the studio or command line
@@ -63,7 +63,7 @@ To download the components you'll need for deployment:
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
 1. Choose *Download*
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
+:::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" lightbox="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
 
 You'll receive a zip file containing:
 * A conda environment specification file named `conda_env_<VERSION>.yml`
@@ -113,36 +113,46 @@ Set the default resource group and workspace to where you wish to create the dep
 
 Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to do inference. For an AutoML model, there's just the single scoring file. 
 
-## Create the deployment yaml file
+## Create the endpoint and deployment yaml file
 
-To create a managed online endpoint from the command line, you'll need to create a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml_ file, which captures all the required inputs:
+To create a managed online endpoint from the command line, you'll need to create an *endpoint.yml* and a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/sample/_, which captures all the required inputs:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
+__automl_endpoint.yml__
+
+::: code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml" :::
+
+__automl_deployment.yml__
+
+::: code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
 
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 
-1. Create a file `automl_deployment.yml` and paste the contents of the above example.
-1. Change the value of the `name` of the deployment. The deployment name needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
-1. Under the `deployments` path, change the value of the keys at the following paths:
+1. Create a file `automl_endpoint.yml` and `automl_deployment.yml` and paste the contents of the above example.
 
-| Path | Change to |
-| --- | --- |
-| `model:local_path` | The path to the `model.pkl` file you downloaded |
-| `code_configuration:code:local_path` | The directory in which you placed the scoring file | 
-| `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`) |
-| `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`) |
+1. Change the value of the `name` of the endpoint. The endpoint name needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
 
-> [!NOTE]
-> For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
+1. In the `automl_deployment` file, change the value of the keys at the following paths:
+
+    | Path | Change to |
+    | --- | --- |
+    | `model:local_path` | The path to the `model.pkl` file you downloaded. |
+    | `code_configuration:code:local_path` | The directory in which you placed the scoring file. | 
+    | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
+    | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
+
+    > [!NOTE]
+    > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
 
 3. From the command line, run: 
 
-```azurecli
-az ml endpoint create -f automl_deployment.yml
-```
+    ```azurecli
+    az ml online-endpoint create -f automl_endpoint.yml
+    az ml online-deployment create -f automl_deployment.yml
+    ```
+    
 ---
 
-Once you've created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 ## Next steps
 

@@ -9,16 +9,13 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/21/2021
+ms.date: 10/21/2021
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
-
-
-<br>
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
@@ -36,7 +33,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Workspace Resource Manager template
 
-The Azure Resource Manager template used throughout this document can be found in the [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
+The Azure Resource Manager template used throughout this document can be found in the [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
 
 This template creates the following Azure services:
 

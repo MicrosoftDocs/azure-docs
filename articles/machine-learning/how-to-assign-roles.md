@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
-ms.date: 03/26/2021
+ms.date: 10/21/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---

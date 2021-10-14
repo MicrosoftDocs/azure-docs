@@ -116,6 +116,7 @@ We want to know how we can improve the service. Propose and vote on what we shou
 * NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 * IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 * NAT can't span multiple virtual networks.
+* NAT cannot be deployed in a [Gateway Subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
 ## Next steps
 

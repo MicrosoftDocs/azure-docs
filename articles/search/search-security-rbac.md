@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 10/04/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
@@ -45,7 +45,7 @@ There are no regional, tier, or pricing restrictions for using RBAC on Azure Cog
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | Service ops (generally available) | Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Service ops (generally available) | Same level of access as Owner, minus the ability to assign roles or change authorization options. |
 | [Reader](../role-based-access-control/built-in-roles.md#reader) | Service ops (generally available) | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects and content (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch) at the content level. This role is for search service administrators who need to fully manage the service and its content. For content management, you must sign up for the preview. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
 | [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Documents collection (preview) | Provides full access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Documents collection (preview) | Provides read-only access to search indexes on the search service. This role is for apps and users who run queries. |
 
@@ -235,6 +235,8 @@ var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadS
 SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
 ```
 
+Additional details on using [AAD authentication with the Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) are available in the SDK's GitHub repo.
+
 > [!NOTE]
 > If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
 
@@ -288,3 +290,19 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 > [!TIP]
 > Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+
+## Conditional Access
+
+[Conditional Access](../active-directory/conditional-access/overview.md) is the tool used by Azure Active Directory to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
+
+To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. In the **Cloud apps or actions** section of the policy, add **Azure Cognitive Search** as a cloud app depending on how you want to set up your policy.
+1. Update the remaining parameters of the policy. For example, specify which users and groups this policy applies to. 
+1. Save the policy.
+
+> [!IMPORTANT]
+> If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies cannot be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.

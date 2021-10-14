@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
 author: aashishb
 ms.author: aashishb 
-ms.date: 05/10/2021
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ---

@@ -66,7 +66,7 @@ sections:
       - question: |
           Where does Azure Event Hubs store data?
         answer: |
-          Azure Event Hubs standard and dedicated tiers store metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+          Azure Event Hubs standard, premium and dedicated tiers store and process data published to it in the region that you select when you create an Event Hubs name space. By default, customer data stays within that region. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
           
           [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
           

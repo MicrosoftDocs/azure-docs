@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to configure Azure Machine Learning studio to access data stored inside of a virtual network.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
 ---

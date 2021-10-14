@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.

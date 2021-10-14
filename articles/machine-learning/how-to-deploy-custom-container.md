@@ -1,12 +1,12 @@
 ---
 title: Deploy a custom container as a managed online endpoint
 titleSuffix: Azure Machine Learning
-description: Learn how to use a custom container to use open-source servers in Azure Machine Learning
+description: Learn how to use a custom container to use open-source servers in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
-ms.date: 06/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
 ---

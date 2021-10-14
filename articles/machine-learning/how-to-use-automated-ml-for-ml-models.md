@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
@@ -109,7 +109,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision) for more information.
 
     1. For **classification**, you can also enable deep learning.
     

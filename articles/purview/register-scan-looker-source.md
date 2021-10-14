@@ -8,7 +8,7 @@ ms.subservice: purview-data-map
 ms.topic: overview
 ms.date: 09/27/2021
 ---
-# Register and Scan Looker(Preview)
+# Register and Scan Looker (Preview)
 
 This article outlines how to register a Looker Server in Purview and set
 up a scan.

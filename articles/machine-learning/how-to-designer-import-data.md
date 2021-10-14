@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to import data into Azure Machine Learning designer using Azure Machine Learning datasets and the Import Data component.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: likebupt
 ms.author: keli19
-ms.date: 06/13/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---

@@ -5,9 +5,9 @@ description: Turn your machine learning experimental notebooks into production-r
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 10/21/2021
 ms.custom: devx-track-python
 ---
 

@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -17,7 +17,7 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Train a linear regression model that predicts car prices using the Azure Machine Learning designer. This tutorial is part one of a two-part series.
 
-This tutorial uses the Azure Machine Learning designer, for more information see [What is Azure Machine Learning designer](concept-designer.md).
+This tutorial uses the Azure Machine Learning designer, for more information see [What is Azure Machine Learning designer?](concept-designer.md)
 
 In part one of the tutorial, you learn how to:
 

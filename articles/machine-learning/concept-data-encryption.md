@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how Azure Machine Learning computes and data stores provides data encryption at rest and in transit.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/02/2021
+ms.date: 10/21/2021
 ---
 
 # Data encryption with Azure Machine Learning

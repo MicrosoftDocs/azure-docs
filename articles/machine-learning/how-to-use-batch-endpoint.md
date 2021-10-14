@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint to continuously batch score large data.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 8/11/2021
+ms.date: 10/21/2021
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -17,7 +17,7 @@ ms.custom: how-to, devplatv2
 
 # Use batch endpoints (preview) for batch scoring
 
-In this article, you learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API. For more, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+In this article, you learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API. For more, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md)
 
 In this article, you learn to do the following tasks:
 

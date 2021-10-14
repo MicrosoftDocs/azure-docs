@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 09/25/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
 ---
@@ -57,15 +57,11 @@ In the following REST API calls, we use `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, `LO
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `TOKEN` with your own value. You can retrieve this token with the following command:
 
-```bash
-TOKEN=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="get_access_token":::
 
-The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2021-03-01-preview`. Set the API version as a variable to accommodate future versions:
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
-```bash
-API_VERSION="2021-03-01-preview"
-```
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="api_version":::
 
 ### Get storage account details
 
@@ -74,12 +70,6 @@ To register the model and code, first they need to be uploaded to a storage acco
 You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
-
-Get the storage key:
-
-```bash
-AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
-```
 
 ### Upload & register code
 

@@ -1,25 +1,24 @@
 ---
 title: Labeling images and text documents
 title.suffix: Azure Machine Learning
-description: Learn how to use the data labeling tools to rapidly prepare text or image data for a Machine Learning in a data labeling project.
+description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 10/21/2021
 ms.custom: data4ml
 ---
 
 # Labeling images and text documents
 
-After your project administrator [creates a data labeling project](./how-to-create-labeling-projects.md#create-a-data-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator creates an [image data labeling project](./how-to-create-image-labeling-projects.md) or [text data labeling project](./how-to-create-text-labeling-projects.md) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
 > * The labeling tools
 > * How to use the tools for specific labeling tasks
-
 
 ## Prerequisites
 
@@ -58,7 +57,7 @@ Machine learning algorithms may be triggered during your labeling. If these algo
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 
-## Image tasks
+## <a name="image-tasks"></a> Image tasks
 
 For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
 
@@ -158,14 +157,14 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## Annotate text (preview)
+## <a name="label-text"></a>Label text (preview)
 
 > [!IMPORTANT]
 > Text labeling is in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When annotating text, use the toolbar to:
+When tagging text, use the toolbar to:
 
 * Increase or decrease the text size
 * Change the font

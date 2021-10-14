@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Tips to help you succeed with batch endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
-ms.date: 05/05/2021
+ms.date: 10/21/2021
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
 
 ---

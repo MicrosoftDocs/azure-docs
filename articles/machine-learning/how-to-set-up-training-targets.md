@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
 ---
@@ -56,7 +56,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an experiment in your workspace.
+Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiemnt is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment

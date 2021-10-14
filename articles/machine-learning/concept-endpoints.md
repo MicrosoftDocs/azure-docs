@@ -1,16 +1,16 @@
 ---
-title: What are endpoints (preview)
+title: What are endpoints (preview)?
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints (preview) to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.date: 09/25/2021
+ms.date: 10/21/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -34,7 +34,7 @@ After you train a machine learning model, you need to deploy the model so that o
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
 An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
-- Authentication using 'key & token' based auth 
+- Authentication using "key & token" based auth 
 - SSL termination 
 - Traffic allocation between deployments 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)

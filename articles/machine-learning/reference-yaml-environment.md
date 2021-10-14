@@ -9,11 +9,13 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) environment YAML schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -52,19 +54,21 @@ ms.reviewer: laobri
 
 The `az ml environment` command can be used for managing Azure Machine Learning environments.
 
-## Schema
+## Examples
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/environment). Several are shown below.
 
-# [JSON](#tab/json)
+## YAML: local Docker build context
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/environment.schema.json":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
 
-# [YAML](#tab/yaml)
+## YAML: Docker image
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/environment.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
 
----
+## YAML: Docker image plus conda file
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
 
 ## Next steps
 

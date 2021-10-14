@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: 'How to configure the required inbound and outbound network traffic when using a secure Azure Machine Learning workspace.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/14/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python
 ---
 
