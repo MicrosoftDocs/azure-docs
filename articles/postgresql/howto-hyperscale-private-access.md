@@ -75,6 +75,13 @@ To create a private endpoint to a node in an existing server group, open the
 1. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
    **Region**. Enter a **Name** for the endpoint, such as `my-server-group-eq`.
 
+	> [!NOTE]
+	>
+	> Unless you have a good reason to choose otherwise, we recommend picking a
+	> subscription and region that match those of your server group.  The
+	> default values for the form fields may not be correct; check them and
+	> update if necessary.
+
 2. Select **Next: Resource >**. In the **Target sub-resource** choose the target
    node of the server group. Generally `coordinator` is the desired node.
 
