@@ -6,7 +6,7 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 08/11/2021
+ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
@@ -32,7 +32,6 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 - Existing Availability Set applications
 
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
-
 
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
