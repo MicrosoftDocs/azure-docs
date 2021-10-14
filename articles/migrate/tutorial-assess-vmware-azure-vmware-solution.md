@@ -178,9 +178,6 @@ The assessment summary shows the estimated compute and storage cost of running s
 
 Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png" alt-text="Confidence rating":::
-
-
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]

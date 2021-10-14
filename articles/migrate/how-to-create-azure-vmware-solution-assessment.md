@@ -174,8 +174,6 @@ This view shows the estimated cost of running servers in Azure VMware Solution (
 
 When you run performance-based assessments, a confidence rating is assigned to the assessment.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png" alt-text="Confidence rating":::
-
 - A rating from 1-star (lowest) to 5-star (highest) is awarded.
 - The confidence rating helps you estimate the reliability of the size recommendations provided by the assessment.
 - The confidence rating is based on the availability of data points needed to compute the assessment.
