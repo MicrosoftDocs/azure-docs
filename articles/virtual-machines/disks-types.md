@@ -19,7 +19,7 @@ ms.custom: references_regions
 Azure managed disks currently offers four disk types, each intended to address a specific customer scenario:
 
 - Ultra disks
-- Premium SSDs (solid state drives)
+- Premium SSDs (solid-state drives)
 - Standard SSDs
 - Standard HDDs (hard disk drives)
 
@@ -81,15 +81,61 @@ Ultra disks are designed to provide submillisecond latencies and target IOPS and
 
 ### Limitations of ultra disks
 
-<!--
+<!--Begin include file-->
+
+For now, ultra disks have additional limitations, they are as follows:
+
+The only infrastructure redundancy options currently available to ultra disks are availability zones. VMs using any other redundancy options cannot attach an ultra disk.
+
+The following table outlines the regions ultra disks are available in, as well as their corresponding availability options:
+
+> [!NOTE]
+> If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
+
 | Redundancy options | Regions |
 |--------------------|---------|
 | **Single VMs** | Australia Central<br/>Brazil South<br/>Central India<br/>East Asia<br/>Germany West Central<br/>Korea Central<br/>North Central US<br/>South Central US<br/>US Gov Arizona<br/>US Gov Virginia<br/>US Gov Texas<br/>West US |
 | **Two availability zones** | Australia East<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>Japan East<br/>North Europe<br/>Southeast Asia<br/>UK South<br/>West Europe<br/>West US 2 |
 | **Three availability zones** | France Central |
--->
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+- Are only supported on the following VM series:
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
+    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
+    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
+- Not every VM size is available in every supported region with ultra disks.
+- Are only available as data disks. 
+- Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+- Can only be created as empty disks.
+- Doesn't currently support disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
+- Doesn't currently support integration with Azure Backup or Azure Site Recovery.
+- Only supports un-cached reads and un-cached writes.
+- The current maximum limit for IOPS for a single VM in generally available sizes is 80,000. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
+
+Azure ultra disks offer up to 32 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+
+<!--End include file-->
+
+<!--[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]-->
 
 If you would like to start using ultra disks, see our article on the subject: [Using Azure ultra disks](disks-enable-ultra-ssd.md).
 
