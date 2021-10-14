@@ -24,7 +24,7 @@ The following client operating systems are supported:
 * Windows Server 2016 (64-bit only)
 * Windows Server 2019 (64-bit only)
 * Windows 10
-* Windows 11
+* Windows 11 
 * macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS
