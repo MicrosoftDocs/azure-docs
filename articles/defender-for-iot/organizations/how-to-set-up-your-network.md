@@ -104,7 +104,7 @@ Verify that your organizational security policy allows access to the following:
 | HTTPS | TCP | In/Out | 443 | Sensor and on-premises management console web console | Access to Web console | Client | Sensor and on-premises management console |
 | SSH | TCP | In/Out | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
 
-#### Sensor access to the Azure portal (cloud connected sensors)
+#### Sensor and on-premises management console to the web console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
@@ -139,6 +139,8 @@ These protocols are reliant on the addition of the Access extra capabilities by 
 | DNS |  | In/Out | 53 | DNS | DNS server port | On-premises management console and Sensor | DNS server |
 | WMI | UDP | Out | 135 | Monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 | Tunneling | TCP | In | 9000 </br></br> on top of port 443 </br></br> From the sensor, or end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
+| Proxy | | | 443| Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor| Proxy server |
+| NAT | | | 443|  |  | |  |
 
 ### Plan rack installation
 
