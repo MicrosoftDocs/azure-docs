@@ -1,5 +1,5 @@
 ---
-title: Tutorial to connect, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
+title: Tutorial to connect, configure, activate Azure Stack Edge Pro device GPU in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
@@ -7,11 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 10/13/2021
 ms.author: alkohli
+zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU
+# Tutorial: Configure the device settings for Azure Stack Edge Pro GPU
+
+::: zone pivot="single-node"
+
+::: zone-end
+
+::: zone pivot="two-node"
+
+::: zone-end
 
 This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
 
@@ -28,7 +37,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure device related settings on your Azure Stack Edge Pro device with GPU, make sure that:
+Before you configure device related settings on your Azure Stack Edge Pro device GPU, make sure that:
 
 * For your physical device:
 
