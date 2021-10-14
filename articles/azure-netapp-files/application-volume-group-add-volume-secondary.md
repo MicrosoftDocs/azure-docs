@@ -123,4 +123,11 @@ To add more HANA hosts for a multiple-host SAP HANA system, follow steps in [Add
 
 ## Next steps  
 
-* 
+* [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)
+* [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md)
+* [Deploy the first SAP HANA host using application volume group for SAP HANA](application-volume-group-deploy-first-host.md)
+* [Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA](application-volume-group-add-hosts.md)
+* [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md)
+* [Manage volumes in application volume group](application-volume-group-manage-volumes.md)
+* [Delete an application volume group](application-volume-group-delete.md)
+* [Application volume group FAQs](faq-application-volume-group.md)
