@@ -6,6 +6,7 @@
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
 - name: Quickstart
+  items: 
   - name: Get started with an individual Azure Dev/Test credit
     href: how-to-individual-credit.md
   - name: Create an enterprise Dev/Test subscription
