@@ -21,22 +21,25 @@ In this article, you'll learn how to create an Azure file share that can be acce
 
 You can move your traditional services that require Kerberos authentication to the cloud without making any changes to the authentication stack of the file shares. This does not require you to deploy new on-premises infrastructure or set up domain services. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers. You can use this file share to store FSLogix user profiles for Azure Virtual Desktop.
 
-You can also create an FSLogix profile container in Azure Files with [Azure Active Directory Domain Services (AD DS)](create-profile-container-adds.md) or with [AD DS](create-file-share.md).
+This article describes how to configure Azure Files for authentication using Azure AD. You can also configure Azure Files for authentication with [Azure Active Directory Domain Services (AD DS)](create-profile-container-adds.md) or with [Active Directory Domain Services](create-file-share.md).
 
 ## Prerequisites
 
-- The session host VMs must be using Windows 10, version 2004 or later with the latest cumulative update installed. KB lardghauergbsjfd must be installed.
-- The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need a domain controller.
-- The VMs don't need network line-of-sight to the domain controller.
-- This configuration is not supported with Azure AD Domain Services.
+- The session host VMs must be using one of the following:
+    - Windows 11 ENT single or multi session.
+    - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
+    - 
+- The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect.
 
 > [!IMPORTANT]
-> - This feature is currently only supported in the Azure Commercial cloud.
-> - Azure AD DS doesn't support this configuration.
+> - This feature is currently only supported in the Azure Public cloud.
 
 ## Set up a storage account
 
 First, you'll need to set up an Azure Files storage account if you don't already have one.
+
+> [!NOTE]
+> - A storage account cannot be configured to authenticate with both Azure AD and AD DS or Azure AD DS.
 
 To set up a storage account:
 
@@ -58,7 +61,7 @@ To set up a storage account:
 
 ## Set up Azure Files
 
-The instructions in this section will help you configure Azure Files and Azure AD to support file shares that you access using Azure AD accounts. If you haven’t mounted Azure file shares to your environment before, we highly recommend you run the ASJLASDVADJKFBVADF tool to validate your setup before configuring Azure AD authentication.
+The instructions in this section will help you configure Azure Files and Azure AD to support file shares that you access using Azure AD accounts.
 
 To configure Azure Files:
 
@@ -180,12 +183,12 @@ To configure Azure Files:
     New-AzRmStorageShare -StorageAccount $storageAccountName -Name “<your-share-name-here>” -QuotaGiB 1024 | Out-Null
     ```
     
-6. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning default share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
+6. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
 
     > [!IMPORTANT]
     > Assigning specific permissions to users and user groups is currently only supported with hybrid users and groups. The users and groups must be managed in Active Directory and synced to Azure AD using Azure AD Connect.
 
-7. You can also assign directory and file-level permissions. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored. Learn more at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
+7. You must also assign directory and file-level permissions to ensure users cannot access other user's profile. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored. Learn more at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
 
 ## Session host configuration
 
@@ -198,6 +201,9 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
     ```
     reg add HKLM\Software\Policies\Microsoft\AzureADAccount /v LoadCredKeyFromProfile /t REG_DWORD /d 1
     ```
+
+> [!NOTE]
+> The session hosts don't need network line-of-sight to the domain controller.
 
 ### Configure FSLogix on the session host
 
@@ -219,9 +225,9 @@ First, you'll need to get the Universal Naming Convention (UNC) path of the file
     - Replace the forward slash `/` with a back slash `\`.
     - The resulting UNC path should follow this format: `\\customdomain.file.core.windows.net\<fileshare-name>`
 
-After you've got the UNC path, you'll need to configure FSLogix on your Azure AD-joined session host VM. To configure FSlogix:
+After you've got the UNC path, you'll need to configure FSLogix on your Azure AD-joined session host VM. To configure FSLogix:
 
-1. [Download and install FSLogix](/fslogix/install-ht) on the session host.
+1. [Update or install FSLogix](/fslogix/install-ht) on the session host if needed.
 
 2. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings) to create the **Profiles** and **VHDLocations** registry values. Set the value of **VHDLocations** to the UNC path you generated at the beginning of this section.
 
