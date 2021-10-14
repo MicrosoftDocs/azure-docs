@@ -57,12 +57,14 @@ items:
       href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
-      - name: Get started with Composites
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
-      - name: Get started with Stateful Client
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-      - name: Get started with UI Components
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+    - name: Add voice calling to your client app
+      href: quickstarts/ui-library/get-started-call.md
+    - name: Get started with Composites
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
+    - name: Get started with Stateful Client
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
+    - name: Get started with UI Components
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -131,6 +133,10 @@ items:
         href: concepts/known-issues.md
   - name: UI Library
     items:
+      - name: Mobile UI Library overview
+        href: concepts/ui-library/mobile-ui-library.md
+      - name: Mobile UI Library use cases
+        href: concepts/ui-library/mobile-ui-use-cases.md
       - name: UI Library overview
         href: concepts/ui-library/ui-library-overview.md
       - name: UI Library use cases

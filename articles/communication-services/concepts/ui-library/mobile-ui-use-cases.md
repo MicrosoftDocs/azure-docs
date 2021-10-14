@@ -105,4 +105,8 @@ We expect to add more details on accessibility ahead of the UI Library being in 
 Localization is a key to making products that can be used across the world and by people who speak different languages.
 UI Library will provide out of the box support for some languages and capabilities such as RTL.
 Developers can provide their own localization files to be used for the UI Library.
-These localization capabilities will be added ahead of General Availability.
+These localization capabilities will be added ahead of general availability.
+
+> [!div class="nextstepaction"]
+
+For more information about how to start with the UI Mobile library composites, please follow [our Quickstart guide](../../quickstarts/ui-library/get-started-call.md).

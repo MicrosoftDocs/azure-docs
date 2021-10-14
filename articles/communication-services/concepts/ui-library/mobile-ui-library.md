@@ -28,16 +28,6 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling.md)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
 
-## Installing Mobile UI Library
-
-``` java
-TBD Maven Android repo
-```
-
-``` iOS
-TBD Cocoapods iOS repo
-```
-
 ## Scenarios
 
 ### Joining a video/audio call
@@ -78,13 +68,13 @@ Understanding these requirements will help you choose the right client library:
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
 
-Details about feature availability in the [UI Library is available here](mobile-ui-usesscenarios.md), but key trade-offs are summarized below.
+Details about feature availability in the [UI Library is available here](mobile-ui-use-cases.md), but key trade-offs are summarized below.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
 | Core client libraries | High                      | High                  |         ✔    | ✔                                                                                               |
 
-## Learn and go
+> [!div class="nextstepaction"]
 
-For more information about how to start with the UI Mobile library composites, please follow [our Quickstarts guides TBD](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
+For more information about how to start with the UI Mobile library composites, please follow [our Quickstart guide](../../quickstarts/ui-library/get-started-call.md).
