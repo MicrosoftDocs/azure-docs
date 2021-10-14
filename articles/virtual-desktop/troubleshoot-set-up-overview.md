@@ -3,7 +3,7 @@ title: Azure Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
 ---
