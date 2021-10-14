@@ -218,7 +218,7 @@ The following alerts indicate an issue with a hardware component, such as physic
 |Successfully replaced {0} |Informational |No action is required from you. |
 |{0} is disconnected. |Warning |Verify that '{0}' is cabled properly and the network interface is up. |
 |{0} has failed.<sup>*</sup> |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
-|{0} has failed.<sup>*</sup> |Critical |Verify that '{0}' is cabled properly and the network interface is up.<br>In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, contact Microsoft Support at [http://aka.ms/getazuresupport](azure-stack-edge-contact-microsoft-support.md). |
+|{0} has failed.<sup>*</sup> |Critical |Verify that '{0}' is cabled properly and the network interface is up.<br>In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, contact Microsoft Support at [https://aka.ms/getazuresupport](azure-stack-edge-contact-microsoft-support.md). |
 |Some data on the cache physical disk {0} on node {1} can't be read, preventing us from moving it onto capacity drives. |Warning |Replace the physical disk. |
 |The cache physical disk {0} on node {1} failed some reads or writes, so to protect your data we've moved it onto capacity drives. |Warning | Replace the physical disk. |
 |The physical disk {0} on node {1} failed to read or write multiple times in the last couple of days. If this keeps happening, it could mean that the drive is malfunctioning, damaged, or beginning to fail. |Warning |If the issue persists, consider replacing the physical disk. |
@@ -291,12 +291,12 @@ The following alerts are raised for virtual machines on an Azure Stack Edge devi
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
-|The virtual machine {0} is not operating properly. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
+|The virtual machine {0} is not healthy. |Warning  |To troubleshoot the virtual machine, see https://aka.ms/vmtroubleshoot. |
+|The virtual machine {0} is not operating properly. |Warning  |To troubleshoot the virtual machine, see https://aka.ms/vmtroubleshoot. |
 |Your virtual machine {0} is not running. |Warning  |If the issue persists, delete and redeploy the virtual machine.|
-|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
+|The guest operating system in the virtual machine {0} is unhealthy. |Warning  |To troubleshoot the virtual machine, see https://aka.ms/vmtroubleshoot. |
 |Your virtual machine {0} is almost out of memory. |Warning  |Reduce the memory usage on your virtual machine. |
-|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see http://aka.ms/vmtroubleshoot. |
+|Your virtual machine {0} is not responding to host requests. |Warning |To troubleshoot the virtual machine, see https://aka.ms/vmtroubleshoot. |
 
 
 ## Next steps
