@@ -163,9 +163,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         ServiceBusAdministrationClient client = new ServiceBusAdministrationClient(connectionString);
 
         if (!await client.SubscriptionExistsAsync(topicName, subscriptionName))
-         {
+        {
             await client.SubscriptionExistsAsync(topicName, subscriptionName);
-         };
+        }
     }
     ```
 
