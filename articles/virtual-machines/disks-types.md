@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -16,7 +16,12 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure managed disks currently offers four disk types, each intended to address a specific customer scenario.
+Azure managed disks currently offers four disk types, each intended to address a specific customer scenario:
+
+- Ultra disks
+- Premium SSDs (solid state drives)
+- Standard SSDs
+- Standard HDDs (hard disk drives)
 
 ## Disk comparison
 
@@ -42,12 +47,19 @@ Ultra disks feature a flexible performance configuration model that allows you t
 
 Some key capabilities of ultra disks are:
 
-- **Disk capacity:** Ultra disks capacity ranges from 4 GiB up to 64 TiB.
-- **Disk IOPS:** Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit. 
+### Ultra disk IOPS
+
+Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit.
 
 The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4 GiB ultra disk, the minimum IOPS for that disk is 100, instead of eight.
-- **Disk throughput:** The throughput limit of a single ultra disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
-- You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
+
+For more information about IOPS, see: [Virtual machine and disk performance](disks-performance.md).
+
+### Ultra disk throughput
+
+The throughput limit of a single ultra disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
+
+You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
 
 It's possible for a performance resize operation to fail because of a lack of performance bandwidth capacity.
 
@@ -81,50 +93,50 @@ Ultra disks are designed to provide submillisecond latencies and target IOPS and
 
 If you would like to start using ultra disks, see our article on the subject: [Using Azure ultra disks](disks-enable-ultra-ssd.md).
 
-## Premium SSD
+## Premium SSDs
 
 Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium SSDs, you can migrate existing VM disks to premium SSDs. Premium SSDs are suitable for mission-critical production applications, but you can use them only with compatible VM series.
 
 <!--Is this still accurate?-->To learn more about individual Azure VM types and sizes for Windows or Linux, including size compatibility for premium storage, see [Sizes for virtual machines in Azure](sizes.md). You'll need to check each individual VM size article to determine if it is premium storage-compatible.
 
-### Disk size
+### Premium SSDs size
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Capacity, IOPS, and throughput are guaranteed when a premium storage disk is provisioned. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance. Premium SSDs are designed to provide the single-digit millisecond latencies, target IOPS, and throughput described in the preceding table 99.9% of the time.
 
-## Bursting
+### Premium SSDs Bursting
 
 Premium SSDs offer disk bursting, which provides better tolerance on unpredictable changes of IO patterns. Disk bursting is especially useful during OS disk boot and for applications with spiky traffic. To learn more about how bursting for Azure disks works, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 
-### Transactions
+### Premium SSDs Transactions
 
 For premium SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
 
-## Standard SSD
+## Standard SSDs
 
 Azure standard SSDs are optimized for workloads that need consistent performance at lower IOPS levels. They're an especially good choice for customers with varying workloads supported by on-premises hard disk drive (HDD) solutions. Compared to standard HDDs, standard SSDs deliver better availability, consistency, reliability, and latency. Standard SSDs are suitable for web servers, low IOPS application servers, lightly-used enterprise applications, and non-production workloads. Like standard HDDs, standard SSDs are available on all Azure VMs.
 
-### Disk size
+### Standard SSDs size
 [!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
 
 Standard SSDs are designed to provide single-digit millisecond latencies and the IOPS and throughput up to the limits described in the preceding table 99% of the time. Actual IOPS and throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
-### Transactions
+### Standard SSDs transactions
 
 For standard SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB. These transactions have a billing impact.
 
-### Bursting
+### Standard SSDs Bursting
 
 Standard SSDs offer disk bursting, which provides better tolerance for the unpredictable IO pattern changes. OS boot disks and applications prone to traffic spikes will both benefit from disk bursting. To learn more about how bursting for Azure disks works, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 
-## Standard HDD
+## Standard HDDs
 
 Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. With standard storage, your data is stored on HDDs, and performance may vary more widely than that of SSD-based disks. Standard HDDs are designed to deliver write latencies of less than 10 ms and read latencies of less than 20 ms for most IO operations, though actual performance may vary depending on IO size and workload pattern. When working with VMs, you can use standard HDD disks for dev/test scenarios and less critical workloads. Standard HDDs are available in all Azure regions and can be used with all Azure VMs.
 
-### Disk size
+### Standard HDDs size
 [!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
-### Transactions
+### Standard HDDs Transactions
 
 For Standard HDDs, each IO operation is considered as a single transaction, whatever the I/O size. These transactions have a billing impact.
 
