@@ -80,7 +80,7 @@ conceptualContent:
                  url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
                - itemType: get-started
                  text: Using the Form Recognizer Studio
-                 url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"   
+                 url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
            - title: Layout
              links:
@@ -226,7 +226,22 @@ conceptualContent:
                  text: Using the Sample Labeling tool
                  url: "concept-custom.md#try-it-sample-labeling-tool"
 
-                     
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with Form Recognizer SDK in your favorite programming language.
+  items:
+  - title: C#/.NET
+    imageSrc: media/index/logo_Csharp.svg
+    url: /dotnet/api/overview/azure/AI.FormRecognizer-readme
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable
+  - title: JavaScript/Node.js
+    imageSrc: media/index/logo_nodejs.svg
+    url: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest
+  - title: Python
+    imageSrc: media/index/logo_python.svg
+    url: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python
 
 
     # - title: Microsoft tech community
