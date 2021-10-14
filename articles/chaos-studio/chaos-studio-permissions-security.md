@@ -21,7 +21,7 @@ First, a chaos experiment is an Azure resource that is deployed to a region, res
 
 Second, a chaos experiment has a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that executes faults on a resource. When you create an experiment, the system-assigned managed identity is created in your Azure Active Directory tenant with no permissions. Before running your chaos experiment, you must grant its identity [appropriate permissions](chaos-studio-fault-providers.md) to all target resources. If the experiment identity does not have appropriate permission to a resource, it will not be able to execute a fault against that resource.
 
-Finally, each resource must be onboarded to Chaos Studio as [a target with corresponding capabilities enabled](chaos-studio-targets-capabilities.md). If a target or the capability for the fault being executed do not exist, the experiment fails without impacting the resource.
+Finally, each resource must be onboarded to Chaos Studio as [a target with corresponding capabilities enabled](chaos-studio-targets-capabilities.md). If a target or the capability for the fault being executed does not exist, the experiment fails without impacting the resource.
 
 ## Agent authentication
 
