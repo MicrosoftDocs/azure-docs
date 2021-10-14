@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
+ms.date: 10/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -108,7 +108,8 @@ The following diagram illustrates how Azure AD B2C uses a validation technical p
 Each starter pack includes the following files:
 
 - A **Base** file that contains most of the definitions. To help with troubleshooting and long-term maintenance of your policies, try to minimize the number of changes you make to this file.
-- An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Base file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
+- An **Localization** file that holds the localization strings. This policy file is derived from the Base file. Use this file to accommodate different languages to suit your customer needs.
+- An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Localization file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
 - A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task, such as sign-up, sign-in, password reset, or profile edit, requires its own relying party policy file. This policy file is derived from the extensions file.
 
 The inheritance model is as follows:
