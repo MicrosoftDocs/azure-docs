@@ -199,6 +199,21 @@ conceptualContent:
                  text: Using the Sample Labeling tool
                  url: "concept-custom.md#try-it-sample-labeling-tool"
 
+           - title: Responsible use of AI
+             links:
+               - itemType: concept
+                 text: Transparency notes
+                 url: fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+               - itemType: concept
+                 text: Characteristics and limitations
+                 url: fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+               - itemType: concept
+                 text: Guidance for integration and responsible use
+                 url: fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+               - itemType: concept
+                 text: Data privacy, compliance, and security
+                 url: fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+
       - title: Development options
         items:
           - title: 🆕Form Recognizer Studio (preview)
@@ -259,13 +274,13 @@ conceptualContent:
                  url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
                - itemType: get-started
                  text: Analyze Layout
-                 url: quickstarts/try-sdk-rest-api?pivots=programming-language-rest-api#analyze-layout
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout
                - itemType: get-started
                  text: Analyze invoice
                  url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices
                - itemType: get-started
                  text: Analyze receipt
-                 url: quickstarts/try-sdk-rest-api?pivots=programming-language-rest-api#analyze-receipts
+                 url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts
                - itemType: get-started
                  text: Analyze ID document
                  url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents
@@ -278,7 +293,7 @@ conceptualContent:
 
           - title: Form Recognizer client libraries
             links:
-               - itemType: quickstart
+               - itemType: get-started
                  text: C# SDK
                  url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
                - itemType: get-started
