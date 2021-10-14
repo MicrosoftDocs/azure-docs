@@ -12,7 +12,7 @@ keywords: "qna maker, low code chat bots, multi-turn conversations"
 # What is QnA Maker?
 
 > [!NOTE]
-> Newer version of question and answering capability is now available as part of Azure Cognitive Services for Language. For more information see [Azure Cognitive Services for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
+> A newer version of question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
 
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
