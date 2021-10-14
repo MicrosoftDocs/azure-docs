@@ -87,6 +87,8 @@ To change the cluster size on a running premium cache with clustering enabled, s
 
 ![Redis cluster size][redis-cache-redis-cluster-size]
 
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Redis cluster size":::
+
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
 Increasing the cluster size increases max throughput and cache size. Increasing the cluster size doesn't increase the max. connections available to clients.
@@ -197,6 +199,7 @@ Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
+<!-- Images -->
 
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 
