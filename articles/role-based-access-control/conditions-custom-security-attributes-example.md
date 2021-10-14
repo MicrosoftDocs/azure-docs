@@ -1,6 +1,6 @@
 ---
-title: Simplify the management of Azure role assignments by using conditions and custom security attributes (Preview) - Azure ABAC
-description: Simplify the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
+title: Scale the management of Azure role assignments by using conditions and custom security attributes (Preview) - Azure ABAC
+description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
 ms.service: role-based-access-control
@@ -13,7 +13,7 @@ ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Simplify the management of Azure role assignments by using conditions and custom security attributes (Preview)
+# Scale the management of Azure role assignments by using conditions and custom security attributes (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -21,7 +21,7 @@ ms.author: rolyon
 
 Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access.
 
-This article describes a solution to simplify the management of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
+This article describes a solution to scale the management of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
 
 ## Example scenario
 
@@ -88,7 +88,7 @@ The full condition would be similar to the following. The list of actions could 
 
 ## Why use this solution?
 
-This type of solution has multiple benefits. For example, access control is centralized and it is easier to maintain because it reduces the number of role assignments. If your current system uses shared access signature (SAS) tokens and access keys for storage credentials, using Azure RBAC and conditions is more secure. SAS tokens expire on a regularly basis and can be a significant overhead for a DevOps team. Access keys are a security risk to store.
+This type of solution has multiple benefits. For example, access control is centralized and is easier to maintain because it reduces the number of role assignments. If your current system uses shared access signature (SAS) tokens and access keys for storage credentials, using Azure RBAC and conditions is more secure. Azure RBAC has an identity binding that reduces your security risk. SAS tokens expire on a regularly basis and can be a significant overhead for a DevOps team. Access keys are a security risk to store.
 
 - Centralized access control
 - Easier to maintain
