@@ -61,5 +61,5 @@ After setting up alerts, they'll show up back on the *Alerts* page for your inst
 ## Next steps
 
 * For more information about alerts with Azure Monitor, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
-* For information about the Azure Digital Twins metrics, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
-* To see how to enable diagnostics logging for your metrics, see [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md).
+* For information about the Azure Digital Twins metrics, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
+* To see how to enable diagnostics logging for your metrics, see [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).

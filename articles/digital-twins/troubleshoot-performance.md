@@ -21,7 +21,7 @@ If you're experiencing delays or other performance issues when working with Azur
 
 ## Isolate the source of the delay
 
-Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this delay, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
+Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this delay, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
 
 ## Check regions
 
@@ -29,7 +29,7 @@ If your solution uses Azure Digital Twins in combination with other Azure servic
 
 ## Check logs
 
-Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they're consistent, and understand their source.
+Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they're consistent, and understand their source.
 
 ## Check API frequency
 
@@ -47,7 +47,7 @@ Follow these steps:
 ## Next steps
 
 Read about other ways to troubleshoot your Azure Digital Twins instance in the following articles:
-* [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md)
-* [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md).
-* [Troubleshooting: Set up alerts](troubleshoot-alerts.md)
-* [Troubleshooting: Understand your resource health](troubleshoot-resource-health.md)
+* [Troubleshooting: Metrics](troubleshoot-metrics.md)
+* [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
+* [Troubleshooting: Alerts](troubleshoot-alerts.md)
+* [Troubleshooting: Resource health](troubleshoot-resource-health.md)
