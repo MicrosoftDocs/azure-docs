@@ -153,7 +153,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 * [Deploy the first SAP HANA host using application volume group for SAP HANA](application-volume-group-deploy-first-host.md)
 * [Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA](application-volume-group-add-hosts.md)
 * [Add volumes for an SAP HANA system as a secondary database in HSR](application-volume-group-add-volume-secondary.md)
-* [Manage volumes in application volume group](application-volume-group-manage-volumes.md)
+* [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
 

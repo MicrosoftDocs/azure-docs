@@ -229,9 +229,9 @@
       href: application-volume-group-add-hosts.md
     - name: Add volumes for an SAP HANA system as a secondary database in HSR
       href: application-volume-group-add-volume-secondary.md
-    - name: Add volumes for an SAP HANA system as a DR system using cross-region replication
+    - name: Add volumes for an SAP HANA system as a DR system
       href: application-volume-group-disaster-recovery.md
-    - name: Manage volumes in application volume group
+    - name: Manage volumes in an application volume group
       href: application-volume-group-manage-volumes.md
     - name: Delete an application volume group
       href: application-volume-group-delete.md

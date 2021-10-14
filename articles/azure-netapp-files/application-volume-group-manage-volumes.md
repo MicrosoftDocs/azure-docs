@@ -16,7 +16,7 @@ ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: b-juche
 ---
-# Manage volumes in application volume group
+# Manage volumes in an application volume group
 
 You can manage a volume from its volume group. You can resize, delete, or change throughput for the volume. 
 
