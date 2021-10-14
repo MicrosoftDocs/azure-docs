@@ -242,4 +242,4 @@ if __name__ == '__main__':
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).
-- Learn how to [monitor scheduled events for your VMs through Log Analytics](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-event-service)
+- Learn how to [monitor scheduled events for your VMs through Log Analytics](./scheduled-event-service.md)
