@@ -25,7 +25,7 @@ Outbound connectivity to the internet can be enabled in the following ways:
 | 2 | Associating a NAT gateway to the subnet | Static, explicit | Yes | Best | 
 | 3 | Assigning a Public IP to the Virtual Machine | Static, explicit | Yes | OK | 
 | 4 | Using the frontend IP address(es) of a Load Balancer for outbound (and inbound) | Implicit | No | Second worst |
-| 5 | Using default outbound access | Implicit | No | Worst |
+| 5 | Using [default outbound access](../virtual-network/default-outbound-access.md) | Implicit | No | Worst |
 
 ## <a name="outboundrules"></a>Using the frontend IP address of a load balancer for outbound via outbound rules
 
