@@ -18,7 +18,7 @@ These images will be one frame from the video resized to 3 different resolutions
 The generated preview images preserve the aspect ratio of the source footage resolution, therefore the image resolutions may not match the aforementioned set of resolutions exactly.
 Images are only generated and updated while a live pipeline is active and video is being recorded.
 If an event-based video recording pipeline is being used, the images will only be generated when there is an event that has triggered recording.
-Newly generated images will replace the most recent images in the blob storage.
+Newly generated images will replace the most recent images in the blob storage container.
 
 ## Enable video preview images in pipeline topology
 To enable video preview images, it must be defined in the video sink node of the pipeline topology.
