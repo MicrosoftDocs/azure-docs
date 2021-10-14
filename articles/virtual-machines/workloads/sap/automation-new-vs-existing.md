@@ -39,7 +39,7 @@ In this scenario, the automation framework creates all Azure components, and use
 To test this scenario: 
 
 1. Clone the [SAP Deployment Automation Framework](https://github.com/Azure/sap-hana/) repository. 
-1. Copy the sample files to your root folder for parameter files as follows:
+1. Copy the sample files to your root folder for parameter files:
 
     ```azurecli
     cd ~/Azure_SAP_Automated_Deployment
@@ -114,7 +114,7 @@ In this scenario, the automation framework creates all Azure components, but doe
 To test this scenario:
 
 1. Clone the [SAP Deployment Automation Framework](https://github.com/Azure/sap-hana/) repository. 
-1. Copy the sample files to your root folder for parameter files as follows:
+1. Copy the sample files to your root folder for parameter files:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment
@@ -152,7 +152,7 @@ To test this scenario:
     ```
 
 1. Save your changes to the parameter file.
-1. Open the SAP Library folder for the management environment as follows.
+1. Open the SAP Library folder for the management environment.
 
     ```bash
      cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY
@@ -178,7 +178,7 @@ To test this scenario:
     New-SAPSystem --parameterfile .\MGMT-WUS2-SAP_LIBRARY.json -Type sap_library -StorageAccountName mgmtwus2tfstate###   
     ```
 
-1. Open the landscape folder for the management environment as follows.
+1. Open the landscape folder for the management environment.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP02-INFRASTRUCTURE
@@ -208,7 +208,7 @@ To test this scenario:
       -Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz 
     ```
 
-1. Open the SAP system folder as follows.
+1. Open the SAP system folder.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP02-X02
@@ -232,7 +232,7 @@ The following are example existing scenarios that use existing Azure resources.
 > [!IMPORTANT]
 > Modify all example configurations as necessary for your scenario.
 
-### existing scenario with deployer
+### Existing scenario with deployer
 
 In this scenario, the automation framework uses existing Azure components, and uses the [deployer](automation-deployment-framework.md#deployment-components). These existing components include resource groups, storage accounts, virtual networks, subnets, and network security groups. This example deployment contains:
 
@@ -247,7 +247,7 @@ In this scenario, the automation framework uses existing Azure components, and u
   - A web dispatcher using a Microsoft SQL server backend running Windows Server 2016
 
 1. Clone the [SAP Deployment Automation Framework](https://github.com/Azure/sap-hana/) repository. 
-1. Copy the sample files to your root folder for parameter files as follows:
+1. Copy the sample files to your root folder for parameter files:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment
@@ -265,7 +265,7 @@ In this scenario, the automation framework uses existing Azure components, and u
     cd WORKSPACES
     ```
 
-1. Open the workspaces folder as follows.
+1. Open the workspaces folder.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
@@ -295,7 +295,7 @@ In this scenario, the automation framework uses existing Azure components, and u
         -Silent      
     ```
 
-1. Open the workload zone folder for the QA environment as follows.
+1. Open the workload zone folder for the QA environment.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRUCTURE
@@ -322,7 +322,7 @@ In this scenario, the automation framework uses existing Azure components, and u
       -Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz 
     ```
 
-1. Open the SAP system folder for the QA environment as follows.
+1. Open the SAP system folder for the QA environment.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/QA-EUS2-SAP03-X01
@@ -380,7 +380,7 @@ In this scenario, the automation framework uses existing Azure components, but d
     ```
 
 1. Save your changes.
-1. Open the SAP Library folder as follows.
+1. Open the SAP Library folder.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-WUS2-SAP_LIBRARY
@@ -406,7 +406,7 @@ In this scenario, the automation framework uses existing Azure components, but d
     New-SAPSystem --parameterfile .\MGMT-WUS2-SAP_LIBRARY.json -Type sap_library -StorageAccountName mgmtwus2tfstate###   
     ```
 
-1. Open the folder for the production workload zone as follows.
+1. Open the folder for the production workload zone.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/PROD-WUS2-SAP04-INFRASTRUCTURE
@@ -436,7 +436,7 @@ In this scenario, the automation framework uses existing Azure components, but d
             -Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz 
     ```
 
-1. Open the SAP system folder as follows.
+1. Open the SAP system folder.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/PROD-WUS2-SAP04-X03
@@ -444,29 +444,31 @@ In this scenario, the automation framework uses existing Azure components, but d
 
 1. Deploy the SAP system. Run either the Bash or PowerShell command.
 
-```bash
- ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh --parameterfile PROD-WUS2-SAP04-X03.json --type sap_system --auto-approve
-```
-
-```powershell
-New-SAPSystem --parameterfile .\PROD-WUS2-SAP04-X03.json 
-        -Type sap_system
-```
+    ```bash
+     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh --parameterfile PROD-WUS2-SAP04-X03.json --type sap_system --auto-approve
+    ```
+    
+    ```powershell
+    New-SAPSystem --parameterfile .\PROD-WUS2-SAP04-X03.json 
+            -Type sap_system
+    ```
 
 1. For an explanation of this deployment's custom disk configuration, see the following section on [custom disk sizing in existing scenarios](#existing-scenario-with-custom-disk-sizing)
 
-### existing scenario with custom disk sizing
+### Existing scenario with custom disk sizing
 
 This scenario is an extension of the [previous existing scenario that doesn't use a deployer](#existing-scenario-without-deployer).
 
 1. Follow all steps for the [existing scenario without a deployer](#existing-scenario-without-deployer).
-1. Open the folder that contains the custom disk sizing configuration file as follows.
 
-```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/PROD-WUS2-SAP04-X04/X04-Disk_sizes.json
-```
+1. Open the folder that contains the custom disk sizing configuration file.
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/PROD-WUS2-SAP04-X04/X04-Disk_sizes.json
+    ```
 
 1. Open the custom disk sizing configuration file, `PROD-WUS2-SAP04-X04/X04-Disk_sizes.json`, in an editor.
+
 1. Edit the database node `db` for the system. Set the `database.size` attribute to the same disk size as the deployment. For example:
 
     ```json

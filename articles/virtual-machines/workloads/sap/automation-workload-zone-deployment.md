@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Workload zone deployment in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-artifacts).
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
 
 A workload zone combines a virtual network, credentials for [SAP systems](automation-deployment-framework.md#sap-concepts), and a service principal for deploying systems.
 
@@ -43,13 +43,13 @@ You can configure the following parameters for your workload zone. For reference
 
 | Type | Node | Attribute | Description |
 | ---- | ---- | --------- | ----------- |
-| Required | `infrastructure.` | `environment` Designates the workload zone type. The value can be up to five characters. For example, `PROD` for production environments and `NP` for non-production environments. You can also identify environments by a unique Service Principal Name (SPN) or subscription identifier. |
-| Required | `infrastructure.` | `region` Specifies the Azure region in which you're deploying the workload zone. |
-| Optional | `infrastructure.resource_group.` | `arm_id` Specifies the identifier of the Azure resource group for deployment. |
-| Optional | `infrastructure.resource_group.` | `name` Specifies the name of a new resource group to create and use for deployment. |
-| Required | `infrastructure.vnets.sap.` | `name` Specifies the logical name of the virtual network that you're creating. The automation framework's naming convention constructs the full virtual network name based on this value. For example, `SAP01` becomes `NP-WEEU-SAP01-vnet`. |
-| Optional | `infrastructure.vnets.sap.` | `arm_id` Specifies the identifier of the Azure resource group for deployment. If you already set the attribute `arm_id` in the node `infrastructure.resource_group.`, the framework uses that resource group identifier unless you specify another value. |
-| Required in certain cases | `infrastructure.vnets.sap.` | `address_space` Specifies the address space of the virtual network you want to use. Required if the `arm_id` attribute is empty for the nodes `infrastructure.vnets.sap.` and `infrastructure.resource_group.`. |
+| Required | `infrastructure.` | `environment` | Designates the workload zone type. The value can be up to five characters. For example, `PROD` for production environments and `NP` for non-production environments. You can also identify environments by a unique Service Principal Name (SPN) or subscription identifier. |
+| Required | `infrastructure.` | `region` | Specifies the Azure region in which you're deploying the workload zone. |
+| Optional | `infrastructure.resource_group.` | `arm_id` | Specifies the identifier of the Azure resource group for deployment. |
+| Optional | `infrastructure.resource_group.` | `name` | Specifies the name of a new resource group to create and use for deployment. |
+| Required | `infrastructure.vnets.sap.` | `name` | Specifies the logical name of the virtual network that you're creating. The automation framework's naming convention constructs the full virtual network name based on this value. For example, `SAP01` becomes `NP-WEEU-SAP01-vnet`. |
+| Optional | `infrastructure.vnets.sap.` | `arm_id` | Specifies the identifier of the Azure resource group for deployment. If you already set the attribute `arm_id` in the node `infrastructure.resource_group.`, the framework uses that resource group identifier unless you specify another value. |
+| Required in certain cases | `infrastructure.vnets.sap.` | `address_space` | Specifies the address space of the virtual network you want to use. Required if the `arm_id` attribute is empty for the nodes `infrastructure.vnets.sap.` and `infrastructure.resource_group.`. |
 | Optional | `infrastructure.vnets.sap.subnet_admin.` | `name` | Specifies the name of the administrator subnet. |
 | Optional | `infrastructure.vnets.sap.subnet_admin.` | `arm_id` | Specifies the resource identifier of the administrator subnet. |
 | Optional | `infrastructure.vnets.sap.subnet_admin.` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 126 servers. The recommended CIDR prefix is `/25`. However, you must size the CIDR appropriately for your expected usage. |

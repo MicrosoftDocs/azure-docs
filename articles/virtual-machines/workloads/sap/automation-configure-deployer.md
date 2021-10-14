@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure deployer for automation
 
-The [deployer](automation-deployment-framework.md#deployment-artifacts) is an important part of the [SAP automation framework](automation-deployment-framework.md). The deployer is a virtual machine (VM) that executes Terraform and Ansible commands. Configuration for the deployer happens in a parameters file. You create a JSON file with your deployer settings, which the automation framework uses for deployment.
+The [deployer](automation-deployment-framework.md#deployment-components) is an important part of the [SAP automation framework](automation-deployment-framework.md). The deployer is a virtual machine (VM) that executes Terraform and Ansible commands. Configuration for the deployer happens in a parameters file. You create a JSON file with your deployer settings, which the automation framework uses for deployment.
 
 Your deployer's parameter file contains multiple sections. One important section is the infrastructure (`infrastructure`), which sets the Azure region and Azure Virtual Network (Azure VNet) information for your deployer. You create a new virtual network for your deployer, or use an existing virtual network. Another important section is the Azure Key Vault settings (`key_vault`). If you want to use existing key vaults with your deployer, instead of having Terraform create new key vaults, you can add your authentication information to this section.
 

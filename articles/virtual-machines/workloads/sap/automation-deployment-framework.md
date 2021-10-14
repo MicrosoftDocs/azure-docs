@@ -54,7 +54,7 @@ The following diagram shows the relationships between SAP systems, workload zone
 
 :::image type="content" source="./media/automation-deployment-framework/sap-terms.png" alt-text="Diagram of SAP configuration with landscapes, workflow zones, and systems.":::
 
-### Deployment artifacts
+### Deployment components
 
 | Term | Description | Scope |
 | ---- | ----------- | ----- |

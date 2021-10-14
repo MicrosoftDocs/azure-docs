@@ -56,8 +56,9 @@ The automation framework uses or can use the following Azure services, features,
     - New and existing key vaults
     - Customer-managed keys for disk encryption
 
+## Unsupported Azure features
 
-The automation framework **doesn't currently support** the following Azure services, features, or capabilities:
+The automation framework **doesn't support** the following Azure services, features, or capabilities:
 
 - Azure Application Security Groups (ASG)
 - Azure Files for the Network File System (NFS) protocol

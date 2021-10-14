@@ -46,7 +46,7 @@ Verify that you're using the appropriate Azure subscription:
     az account list --output=table | grep -i true
     ```
 
-1. If necessary, [change the active subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) to the subscription you want to use. 
+1. If necessary, [change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) to the subscription you want to use. 
 
 ### Download Terraform
 
@@ -165,11 +165,11 @@ Clone and configure the [automation framework repository](https://github.com/Azu
 
 1. Apply your Terraform execution plan to deploy the resources.
 
-```azurecli-interactive
-terraform apply --auto-approve                                                    \
-                --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                    \
-                ../../../sap-hana/deploy/terraform/bootstrap/sap_deployer/
-```
+    ```azurecli-interactive
+    terraform apply --auto-approve                                                    \
+                    --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                    \
+                    ../../../sap-hana/deploy/terraform/bootstrap/sap_deployer/
+    ```
 
 1. Note the output.
 
@@ -342,14 +342,14 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
 
 1. Create another parameter file called `backend`. Again, follow the default naming conventions. For `resource_group_name`, use the name of the resource group where the storage account with your Terraform state files (`.tfstate`) is located. For `storage_account_name`, replace `<tfstate_storage_account_name>` with the name of the storage account from the SAP Library deployment for `.tfstate` files. For `key`, combine the deployer's resource group name with the extension `.terraform.tfstate`. For example:
 
-```bash
-cat <<EOF > backend
-resource_group_name   = "DEMO-EUS2-SAP_LIBRARY"
-storage_account_name  = "<tfstate_storage_account_name>"
-container_name        = "tfstate"
-key                   = "DEMO-EUS2-DEP00-INFRASTRUCTURE.terraform.tfstate"
-EOF
-```
+    ```bash
+    cat <<EOF > backend
+    resource_group_name   = "DEMO-EUS2-SAP_LIBRARY"
+    storage_account_name  = "<tfstate_storage_account_name>"
+    container_name        = "tfstate"
+    key                   = "DEMO-EUS2-DEP00-INFRASTRUCTURE.terraform.tfstate"
+    EOF
+    ```
 
 1. Initialize Terraform again.
 

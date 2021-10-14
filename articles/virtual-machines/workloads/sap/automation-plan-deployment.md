@@ -18,7 +18,7 @@ There are multiple considerations for running the [SAP deployment automation fra
 
 ## Credentials management
 
-The automation framework uses Azure Active Directory (Azure AD) [Service Principals](#service-principal-creation) for deployment. You can use different deployment credentials for each [workload zone](#workload-zone-structure). The framework keeps these credentials in the [deployer's](automation-deployment-framework.md#deployment-artifacts) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses Azure Active Directory (Azure AD) [Service Principals](#service-principal-creation) for deployment. You can use different deployment credentials for each [workload zone](#workload-zone-structure). The framework keeps these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also uses credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -142,7 +142,7 @@ The SAP library provides storage for SAP installation media, Bill of Material (B
 
 ## Workload zone structure
 
-Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-artifacts) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
+Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
 
 You'll be creating or granting access to the following services in each workload zone:
 
@@ -181,11 +181,11 @@ For more information, see [how to configure the SAP system for automation](autom
 
 When planning a deployment, it's important to consider the overall flow. There are three main steps of an SAP deployment on Azure with the automation framework.
 
-1. Preparing the region. This step deploys artifacts to support the SAP automation framework in a specified Azure region. Some parts of this step are:
+1. Preparing the region. This step deploys components to support the SAP automation framework in a specified Azure region. Some parts of this step are:
     1. Creating the deployment environment
     1. Creating shared storage for Terraform state files
     1. Creating shared storage for SAP installation media
-1. Preparing the workload zone. This step deploys the [workload zone artifacts](#workload-zone-structure), such as the virtual network and key vaults.
+1. Preparing the workload zone. This step deploys the [workload zone components](#workload-zone-structure), such as the virtual network and key vaults.
 1. Deploying the system. This step includes the [infrastructure for the SAP system](#sap-system-setup).
 
 ## Orchestration environment

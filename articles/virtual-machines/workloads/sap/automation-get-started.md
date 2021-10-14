@@ -170,7 +170,7 @@ Read-SAPDeploymentTemplate -Parameterfile .\SYSTEM\DEV-WEEU-SAP01-X00\DEV-WEEU-S
 When you [validate your example deployment](#validate-example-deployment), you receive output with deployment information.
 
 > [!NOTE]
-> The output includes important deployment information. However, the output doesn't include all artifacts about your deployment.
+> The output includes important deployment information. However, the output doesn't include all deployment components.
 
 Sample output:
 
