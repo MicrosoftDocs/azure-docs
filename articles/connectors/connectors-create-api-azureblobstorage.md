@@ -340,7 +340,7 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
 1. On the logic app resource navigation menu, under **Settings**, select **Identity.**
 
-1. On the **System assigned** pane, set **Status** to **On**, which might already be enabled. Under **Permissions**, select **Azure role assignments**.
+1. On the **System assigned** pane, set **Status** to **On**, if not already enabled, select **Save**, and confirm your changes. Under **Permissions**, select **Azure role assignments**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Screenshot showing the Azure portal and logic app resource menu with the 'Identity' settings pane and 'Azure role assignment permissions' button.":::
 
@@ -348,21 +348,19 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="Screenshot showing the logic app role assignments pane with the selected subscription and button to add a new role assignment.":::
 
-1. On the **Add role assignments** pane, set up the new role assignment by using the following steps:
+1. On the **Add role assignments** pane, set up the new role assignment with the following values:
 
-   1. For **Scope**, select **Storage**.
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Scope** | <*resource-scope*> | The resource set where you want to apply the role assignment. For this example, select **Storage**. |
+   | **Subscription** | <*Azure-subscription*> | The Azure subscription for your storage account. |
+   | **Resource** | <*storage-account-name*> | The name for the storage account that you want to access from your logic app workflow. |
+   | **Role** | <*role-to-assign*> | The role that your scenario requires for your workflow to work with the resource. This example requires **Storage Blob Data Contributor**, which allows read, write, and delete access to blob containers and date. For permissions details, move your mouse over the information icon next to a role in the drop-down menu. |||
+   ||||
 
-   1. For **Subscription**, select the subscription for your storage account.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Screenshot of role assignment configuration pane, showing settings for scope, subscription, resource, and role.":::
 
-   1. For **Resource**, select the storage account that you want to access from your logic app workflow.
-
-   1. For **Role**, select the appropriate permissions for your scenario.
-
-      This example uses **Storage Blob Data Contributor**, which allows read, write, and delete access to blob containers and date. For permissions details, move your mouse over the information icon next to a role in the drop-down menu.
-
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Screenshot of role assignment configuration pane, showing settings for scope, subscription, resource, and role.":::
-
-   1. Select **Save** to finish creating the role assignment.
+1. When you're done, select **Save** to finish creating the role assignment.
 
 <a name="enable-managed-identity-support"></a>
 
