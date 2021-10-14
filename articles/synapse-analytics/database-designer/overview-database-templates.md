@@ -37,7 +37,7 @@ A typical database template addresses the core requirements of a specific indust
 
 ## Available database templates 
 
-Currently there are 6 database templates available that customers can leverage to start creating their lake database. 
+Currently there are 6 database templates available within the Azrue Synapse Stuido that customers can leverage to start creating their lake database. 
 
  - **Banking** - For companies who are analyzing banking data.
  - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
