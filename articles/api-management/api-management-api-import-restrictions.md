@@ -159,9 +159,11 @@ This message type is not supported.
 ### WCF wsHttpBinding 
 - SOAP services created with Windows Communication Foundation should use `basicHttpBinding`.
 - `wsHttpBinding` isn't supported.
+
 ### MTOM 
 - Services using `MTOM` *may* work. 
 - Official support isn't offered at this time.
+
 ### Recursion
 - Types defined recursively are not supported by API Management.
 - For example, refer to an array of themselves.
@@ -169,9 +171,7 @@ This message type is not supported.
 ### Multiple Namespaces
 While multiple namespaces can be used in a schema, only the target namespace can be used to define message parts. These namespaces are used to define other input or output elements.
 
-Namespaces other than the target are not preserved. 
-
-Although such a WSDL document can be imported, on export, all message parts will have the WSDL target namespace.
+Namespaces other than the target are not preserved on export. While you can import a WSDL document defining message parts with other namespaces, all message parts will have the WSDL target namespace on export.
 
 ### Arrays 
 SOAP-to-REST transformation supports only wrapped arrays shown in the example below:
