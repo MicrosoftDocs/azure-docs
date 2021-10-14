@@ -1,13 +1,12 @@
 ---
 title: "Reference: Form Recognizer 3.1.1 client library for .NET"
 description: Use the Form Recognizer client library for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 09/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
@@ -87,7 +86,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 * Recognizing form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
 * Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
-* Recognizing common fields from US receipts, business cards, invoices, and identity documents using a pre-trained model on the Form Recognizer service.
+* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 

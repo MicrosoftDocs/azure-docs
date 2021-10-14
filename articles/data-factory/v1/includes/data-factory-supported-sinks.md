@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- services: storage
- author: twooley
- ms.service: storage
+ author: linda33wj
+ ms.service: data-factory
+ ms.subservice: v1
  ms.topic: include
  ms.date: 06/22/2018
- ms.author: twooley
+ ms.author: jingwang
  ms.custom: include file
 ---
 | Category | Data store | 

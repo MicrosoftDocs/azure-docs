@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 07/19/2021
+ms.date: 09/15/2021
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -60,7 +60,8 @@ In summary, you will use Azure Lighthouse to allow a user or group in your Azure
 First, create, or choose a resource group that contains the destination Log Analytics workspace that will receive data from Azure AD B2C. You'll specify the resource group name when you deploy the Azure Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD tenant**.
+1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) or choose an existing one. This example uses a resource group named _azure-ad-b2c-monitor_.
 
 ## 2. Create a Log Analytics workspace
@@ -68,7 +69,8 @@ First, create, or choose a resource group that contains the destination Log Anal
 A **Log Analytics workspace** is a unique environment for Azure Monitor log data. You'll use this Log Analytics workspace to collect data from Azure AD B2C [audit logs](view-audit-logs.md), and then visualize it with queries and workbooks, or create alerts.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD tenant**.
+1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). This example uses a Log Analytics workspace named _AzureAdB2C_, in a resource group named _azure-ad-b2c-monitor_.
 
 ## 3. Delegate resource management
@@ -80,7 +82,8 @@ In this step, you choose your Azure AD B2C tenant as a **service provider**. You
 First, get the **Tenant ID** of your Azure AD B2C directory (also known as the directory ID).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD B2C** tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**, select **Overview**.
 1. Record the **Tenant ID**.
 
@@ -101,12 +104,13 @@ To make management easier, we recommend using Azure AD user _groups_ for each ro
 To create the custom authorization and delegation in Azure Lighthouse, we use an Azure Resource Manager template that grants Azure AD B2C access to the Azure AD resource group you created earlier (for example, _azure-ad-b2c-monitor_). Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD** tenant.
-3. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
+1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
-4. On the **Custom deployment** page, enter the following information:
+1. On the **Custom deployment** page, enter the following information:
 
    | Field                 | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,15 +141,10 @@ After you deploy the template, it can take a few minutes (typically no more than
 After you've deployed the template and waited a few minutes for the resource projection to complete, follow these steps to associate your subscription with your Azure AD B2C directory.
 
 1. Sign out of the Azure portal if you're currently signed in (this allows your session credentials to be refreshed in the next step).
-2. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.
-3. Select the **Directory + Subscription** icon in the portal toolbar.
-4. Select the Azure AD directory that contains the Azure subscription and the _azure-ad-b2c-monitor_ resource group you created.
-
-   ![Switch directory](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-
-5. Verify that you've selected the correct directory and subscription. In this example, all directories and all subscriptions are selected.
-
-   ![All directories selected in Directory & Subscription filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.
+1. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list,  find your Azure AD directory that contains the Azure subscription and the _azure-ad-b2c-monitor_ resource group you created, and then select **Switch**.
+1. Verify that you've selected the correct directory and subscription.
 
 ## 5. Configure diagnostic settings
 
@@ -164,7 +163,8 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 To configure monitoring settings for Azure AD B2C activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
 1. If there are existing settings for the resource, you'll see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or select **Edit** to edit an existing setting. Each setting can have no more than one of each of the destination types.

@@ -1,13 +1,9 @@
 ---
 title: SAP HANA scale-out with standby with Azure NetApp Files on RHEL| Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,7 +11,6 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-
 ---
 
 # Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 
@@ -564,7 +559,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
      * For **Root User Name** [root]: press Enter to accept the default
      * For roles for host hanadb2: enter **1**  (for worker)
      * For **Host Failover Group** for host hanadb2 [default]: press Enter to accept the default
-     * For **Storage Partition Number** for host hanadb2 [<<assign automatically>>]: press Enter to accept the default
+     * For **Storage Partition Number** for host hanadb2 [\<\<assign automatically\>\>]: press Enter to accept the default
      * For **Worker Group** for host hanadb2 [default]: press Enter to accept the default
      * For **Select roles** for host hanadb3: enter **2** (for standby)
      * For **Host Failover Group** for host hanadb3 [default]: press Enter to accept the default

@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/06/2021
+ms.date: 09/16/2021
 ms.author: duau
 ms.custom: seodec18
 
@@ -58,10 +58,7 @@ You can configure your network where some sites connect directly to Azure over S
 
 ![Coexist](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
 
-> [!NOTE]
-> You cannot configure a virtual network as a transit router.
-> 
-> 
+
 
 ## Selecting the steps to use
 There are two different sets of procedures to choose from. The configuration procedure that you select depends on whether you have an existing virtual network that you want to connect to, or you want to create a new virtual network.

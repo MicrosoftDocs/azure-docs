@@ -25,9 +25,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 In part two of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Run and pause the application
-> * Simulate a failure with [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler)
-> * Simulate primary endpoint restoration
+> - Run and pause the application
+> - Simulate a failure with [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler)
+> - Simulate primary endpoint restoration
 
 ## Prerequisites
 

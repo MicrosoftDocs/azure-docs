@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 
@@ -91,23 +91,20 @@ Take the following actions to help mitigate fraudulent sign-ups.
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
    1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
-
-   2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-
-   3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-
-   4. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
+   1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+   1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+   1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+   1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 
-   5. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
+   1. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
 
    > [!NOTE]
    > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
 
-   7. Save the JSON file. In the language details panel, under **Upload new overrides**, select the modified JSON file to upload it.
-
-   8. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
+   1. Save the JSON file. In the language details panel, under **Upload new overrides**, select the modified JSON file to upload it.
+   1. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
 

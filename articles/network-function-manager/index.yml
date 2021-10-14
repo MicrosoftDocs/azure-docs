@@ -42,6 +42,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: REST
+            url: /rest/api/hybridnetwork
           - text: Python SDK
             url: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
           - text: Java SDK

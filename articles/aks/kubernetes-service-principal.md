@@ -35,9 +35,9 @@ You also need Azure PowerShell version 5.0.0 or later installed. Run `Get-Instal
 
 ### [Azure CLI](#tab/azure-cli)
 
-When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure creates a managed identity.
 
-In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a managed identity for the AKS cluster. 
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -45,9 +45,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can generate a new managed identity .
 
-In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a managed identity for the AKS cluster. 
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup

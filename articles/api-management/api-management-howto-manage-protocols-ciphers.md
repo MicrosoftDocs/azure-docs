@@ -3,7 +3,7 @@ title: Manage protocols and ciphers in Azure API Management | Microsoft Docs
 description: Learn how to manage protocols (TLS) and ciphers (DES) in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Manage protocols and ciphers in Azure API Management
@@ -39,7 +39,7 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 1. Click **Save**. Changes will be applied within an hour.  
 
 > [!NOTE]
-> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the [Create/Update API Management Service REST API](https://docs.microsoft.com/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body) article.
+> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the [Create/Update API Management Service REST API](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body) article.
 
 ## Next steps
 

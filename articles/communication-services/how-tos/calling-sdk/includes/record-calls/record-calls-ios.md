@@ -16,7 +16,7 @@ ms.author: rifox
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
 ```swift
-let callRecordingFeature = call.api(RecordingFeature.self)
+let callRecordingFeature = call.api(Features.recording)
 ```
 
 Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingFeature`. It returns `Bool`.
@@ -25,13 +25,13 @@ Then, to check if the call is being recorded, inspect the `isRecordingActive` pr
 let isRecordingActive = callRecordingFeature.isRecordingActive;
 ```
 
-You can also subscribe to recording changes by implementing `RecordingFeatureDelegate` delegate on your class with the event `didChangeRecordingState`:
+You can also subscribe to recording changes by implementing `RecordingCallFeatureDelegate` delegate on your class with the event `didChangeRecordingState`:
 
 ```swift
 callRecordingFeature.delegate = self
 
-// didChangeRecordingState is a member of RecordingFeatureDelegate
-public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
+// didChangeRecordingState is a member of RecordingCallFeatureDelegate
+public func recordingCallFeature(_ recordingCallFeature: RecordingCallFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
     let isRecordingActive = recordingFeature.isRecordingActive
 }
 ```

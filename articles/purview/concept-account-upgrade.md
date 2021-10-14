@@ -42,7 +42,7 @@ When your Purview account is upgraded, your collections will be updated as well.
 
 ### Locate and manage collections
 
-To find your new collections, we'll start in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
+To find your new collections, we'll start in the [Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
 
 Select Data Map > Collections from the left pane to open the collection management page.
 
@@ -93,7 +93,7 @@ For your scheduled scans, you only need to wait for the next run of these scans,
 
 For one-time scans, you'll need to rerun these manually to populate the assets in your collection.
 
-1. In the Purview Studio, open the Data Map, select **Sources**. Select the source you want to scan.
+1. In the [Purview Studio](https://web.purview.azure.com/resource/), open the Data Map, select **Sources**. Select the source you want to scan.
 
     :::image type="content" source="./media/concept-account-upgrade/select-sources.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the sources highlighted." border="true":::
 

@@ -259,8 +259,6 @@
       href: vpn-gateway-activeactive-rm-powershell.md
   - name: Configure zone redundant gateways
     href: create-zone-redundant-vnet-gateway.md
-  - name: Configure packet captures 
-    href: packet-capture.md
   - name: Monitoring
     items:
     - name: Monitoring VPN Gateway
@@ -269,9 +267,12 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on resource logs
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
-  - name: Troubleshoot
-    href: vpn-gateway-troubleshoot.md
+    - name: Configure packet captures 
+      href: packet-capture.md
+  - name: Troubleshooting
     items:
+    - name: Troubleshoot VPN Gateway
+      href: vpn-gateway-troubleshoot.md
     - name: Troubleshoot Azure VPN Gateway using diagnostic logs
       href: troubleshoot-vpn-with-azure-diagnostics.md
     - name: Community-suggested VPN or firewall device settings

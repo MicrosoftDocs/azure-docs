@@ -82,7 +82,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     The output should indicate the models were created successfully.
 
-1. Verify the models were created by running the command `GetModels true`. This command will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited Room model in the results:
+1. Verify the models were created by running the command `GetModels true`. This command will print the full information for all the models that have been uploaded to your Azure Digital Twins instance. Look for the edited Room model in the results:
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot of the result from GetModels, showing the updated Room model." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
@@ -132,6 +132,8 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
     :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Screenshot showing an excerpt from the result of the CreateDigitalTwin commands, which includes floor0, floor1, room0, and room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the room0, room1, floor0, and floor1 twins in the results.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ### Modify a digital twin
 
@@ -183,7 +185,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     
     :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Screenshot of an excerpt from the result of the CreateRelationship commands, which includes relationship0 and relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which will print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```cmd/sh
         GetRelationships floor0
@@ -208,6 +210,8 @@ The twins and relationships you have set up in this tutorial form the following 
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. 
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 Run the following commands in the running project console to answer some questions about the sample environment.
 
 1. **What are all the entities from my environment represented in Azure Digital Twins?** (query all)
@@ -220,7 +224,7 @@ Run the following commands in the running project console to answer some questio
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
-    >[!NOTE]
+    >[!TIP]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), use the longer (complete) query.
 
 1. **What are all the rooms in my environment?** (query by model)

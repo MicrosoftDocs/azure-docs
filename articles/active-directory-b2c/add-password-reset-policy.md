@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -144,6 +144,7 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
         </OutputClaims>
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
       <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
         <Metadata>
@@ -334,6 +335,9 @@ To test the user flow:
 Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs that have several pre-built policies, including sign-up and sign-in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
+
+## Troubleshoot Azure AD B2C user flows and custom policies
+Your application needs to handle certain errors coming from Azure B2C service. Learn [how to troubleshoot Azure AD B2C's user flows and custom policies](troubleshoot.md).
 
 ## Next steps
 

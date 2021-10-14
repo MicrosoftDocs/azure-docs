@@ -95,7 +95,7 @@ In addition to the paths, include the [Mount command arguments](#mount-command-a
 
 To ensure a seamless client mount, pass these settings and arguments in your mount command:
 
-``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | Required settings | Description |
 --- | ---

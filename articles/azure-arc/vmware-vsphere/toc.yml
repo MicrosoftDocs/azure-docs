@@ -1,0 +1,21 @@
+- name: Azure Arc-enabled VMware vSphere
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Arc-enabled VMware vSphere
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Connect vCenter to Arc
+    href: quick-start-connect-vcenter-to-arc-using-script.md
+- name: How-to guides
+  items:
+  - name: Enable VMware vCenter resources in Azure
+    href: browse-and-enable-vcenter-resources-in-azure.md
+  - name: Manage access to VMware resources through Azure RBAC
+    href: manage-access-to-arc-vmware-resources.md
+  - name: Create a virtual machine on VMware vCenter
+    href: quick-start-create-a-vm.md   
+  - name: Perform operations on VMware VMs in Azure
+    href: manage-vmware-vms-in-azure.md
+

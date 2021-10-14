@@ -444,3 +444,11 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
 ```
+
+### Certificate management
+
+Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OpenServiceMesh docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
+
+### Upgrading Envoy
+
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. Information regarding how to update the envoy version can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OpenServiceMesh docs site.

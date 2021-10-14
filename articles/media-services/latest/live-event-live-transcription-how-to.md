@@ -72,7 +72,7 @@ To create a live event with the transcription turned on, send the PUT operation 
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property.
+The operation has the following body (where a basic pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property.
 
 ```
 {
@@ -106,7 +106,7 @@ The operation has the following body (where a pass-through Live Event is created
       }
     },
     "encoding": {
-      "encodingType": "None"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

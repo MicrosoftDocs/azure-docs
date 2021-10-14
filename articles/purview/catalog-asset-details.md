@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 09/27/2021
 ---
 # View, edit and delete assets in Purview catalog
 
@@ -65,7 +65,7 @@ Asset glossary terms are a managed vocabulary for business terms that can be use
 
 ## Editing assets
 
-You can edit an asset by clicking on the edit icon on the top-left corner of the asset.
+You can edit an asset by selecting the edit icon on the top-left corner of the asset.
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="Asset edit and delete buttons":::
 
@@ -83,7 +83,7 @@ If you make a column level update, like adding a description, column level class
 
 ## Deleting assets
 
-You can delete an asset by clicking on the delete icon under the name of the asset.
+You can delete an asset by selecting the delete icon under the name of the asset.
 
 ### Delete behavior explained
 

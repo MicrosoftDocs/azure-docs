@@ -135,6 +135,10 @@ sections:
           
           To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-http-settings.md#cookie-based-affinity) for more information.
           
+      - question: What is considered an active listener versus inactive listener?
+        answer: |
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rules is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
+      
   - name: Performance
     questions:
       - question: How does Application Gateway support high availability and scalability?
@@ -159,7 +163,7 @@ sections:
           
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
-
+        
   - name: Configuration
     questions:
       - question: Is Application Gateway always deployed in a virtual network?
@@ -332,6 +336,9 @@ sections:
           
       - question: How many TLS/SSL certificates does Application Gateway support?
         answer: Application Gateway supports up to 100 TLS/SSL certificates.
+
+      - question: Does Application Gateway have support for OCSP and OCSP stapling?
+        answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates.
 
       - question: How many authentication certificates for backend reencryption does Application Gateway support?
         answer: Application Gateway supports up to 100 authentication certificates.

@@ -53,7 +53,7 @@ To run PowerShell as "Root" in Linux, use the
 ## Validate the configuration package meets requirements
 
 First test that the configuration package meets basic requirements using
-`Get-GuestConfigurationPacakgeComplianceStatus `. The command verifies the
+`Get-GuestConfigurationPackageComplianceStatus `. The command verifies the
 following package requirements.
 
 - MOF is present and valid, at the right location
@@ -64,7 +64,7 @@ following package requirements.
 
 Parameters of the `Get-GuestConfigurationPackageComplianceStatus ` cmdlet:
 
-- **Package**: File path or URI of the guest configuration package.
+- **Path**: File path or URI of the guest configuration package.
 - **Parameter**: Policy parameters provided in hashtable format.
 
 When this command is run for the first time, the guest configuration agent gets
@@ -78,14 +78,14 @@ In Windows, from an elevated PowerShell 7 session.
 
 ```powershell
 # Get the current compliance results for the local machine
-Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip
+Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip
 ```
 
 In Linux, by running PowerShell using sudo.
 
 ```bash
 # Get the current compliance results for the local machine
-sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip'
+sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip'
 ```
 
 The command outputs an object containing the compliance status and details
@@ -109,20 +109,20 @@ the `Set` method can apply settings to a local machine using the command
 
 Parameters of the `Start-GuestConfigurationPackageRemediation` cmdlet:
 
-- **Package**: Full path of the guest configuration package.
+- **Path**: Full path of the guest configuration package.
 
 In Windows, from an elevated PowerShell 7 session.
 
 ```powershell
 # Test applying the configuration to local machine
-Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip
+Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip
 ```
 
 In Linux, by running PowerShell using sudo.
 
 ```bash
 # Test applying the configuration to local machine
-sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip'
+sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip'
 ```
 
 The command won't return output unless errors occur. To troubleshoot details

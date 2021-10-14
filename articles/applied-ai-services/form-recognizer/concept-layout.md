@@ -2,71 +2,82 @@
 title: Layouts - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn concepts related to layout analysis with the Form Recognizer API - usage and limits.
-services: cognitive-services
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
+recommendations: false
 ---
 
-# Form Recognizer Layout service
+# Form Recognizer layout model
 
-Azure Form Recognizer's Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Azure Form Recognizer's Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
-## What does the Layout service do?
+##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
-The Layout API extracts text, tables with table headers included, selection marks, and structure information from documents with exceptional accuracy and returns an organized, structured, JSON response. Documents can be of a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The Layout API will accurately extract the structured output from all of these documents.
+:::image type="content" source="media/layout-demo.gif" alt-text="{alt-text}":::
 
-![Layout example](./media/layout-demo.gif)
+**Data extraction features**
 
-## Try it
+| **Layout model**   | **Text Extraction**   | **Selection Marks**   | **Tables**  |
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  |
 
-To try out the Form Recognizer Layout Service, go to the online sample UI tool:
+## Try Form Recognizer Studio (Preview)
+
+* Form Recognizer studio is available with the preview (v3.0) API.
+
+* Extract tables, check boxes, and text from forms and documents with our Form Recognizer Studio Layout feature:
 
 > [!div class="nextstepaction"]
-> [Try layout model](https://aka.ms/fott-2.1-ga "Start with the layout prebuilt model to extract data from your forms.")
+> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Layout API.
+## Try Form Recognizer Sample labeling tool
 
-![Sample UI screenshot; the text, tables, and selection marks of a document are analyzed](./media/analyze-layout.png)
+You can see how layout data is extracted by trying our Sample Labeling tool. You'll need the following:
+
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+* A form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
+
+> [!div class="nextstepaction"]
+  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+
+  In the Form Recognizer UI:
+
+  1. Select **Use Layout to get text, tables, and selection marks**.
+  1. Select **Local file** from the dropdown menu.
+  1. Upload your file and select **Run Layout**
+
+  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: sample labeling tool dropdown layout file source selection menu.":::
 
 ## Input requirements
 
-[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+* For best results, provide one clear photo or high-quality scan per document.
+* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* The file size must be less than 50 MB.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* The total size of the training data is 500 pages or less.
+* If your PDFs are password-locked, you must remove the lock before submission.
+* For unsupervised learning (without labeled data):
+  * data must contain keys and values.
+  * keys must appear above or to the left of the values; they can't appear below or to the right.
 
-## Analyze Layout
+> [!NOTE]
+> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
-First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) operation. Analyze Layout takes a document (image, TIFF, or PDF file) as the input and extracts the text, tables, selection marks, and structure of the document. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+## Supported languages and locales
 
-|Response header| Result URL |
-|:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}' |
-
-## Get Analyze Layout Result
-
-The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values.
-
-|Field| Type | Possible values |
-|:-----|:----:|:----|
-|status | string | `notStarted`: The analysis operation has not started.<br /><br />`running`: The analysis operation is in progress.<br /><br />`failed`: The analysis operation has failed.<br /><br />`succeeded`: The analysis operation has succeeded.|
-
-Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
-
-When the **status** field has the `succeeded` value, the JSON response will include the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
-
-## Sample JSON output
-
-The response to the *Get Analyze Layout Result* operation is a structured representation of the document with all the information extracted.
-See here for a [sample document file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) and its structured output [sample layout output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json).
-
-The JSON output has two parts:
-
-* `readResults` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
-* `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
+ Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.
 
 ## Features
 
@@ -106,12 +117,22 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 :::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="Layout selected pages output":::
 
+## Form Recognizer preview v3.0
+
+ The Form Recognizer preview introduces several new features and capabilities.
+
+* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+
 ## Next steps
 
-* Try your own layout extraction using the [Form Recognizer Sample UI tool](https://aka.ms/fott-2.1-ga)
-* Complete a [Form Recognizer quickstart](quickstarts/client-library.md#analyze-layout) to get started extracting layouts in the development language of your choice.
+* Complete a Form Recognizer quickstart:
 
-## See also
+  > [!div class="nextstepaction"]
+  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
 
-* [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+* Explore our REST API:
+
+    > [!div class="nextstepaction"]
+    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
