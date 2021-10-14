@@ -5,8 +5,8 @@ description: Learn how to use Azure Machine Learning to deploy a trained ML mode
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: aashishb
-author: aashishb
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: how-to
