@@ -1,5 +1,5 @@
 ---
-title: Fine-tune your analytics rules in Azure Sentinel
+title: Get fine-tuning recommendations for your analytics rules in Azure Sentinel
 description: Learn how to fine-tune your threat detection rules in Azure Sentinel, using automatically generated recommendations, to reduce false positives while maintaining threat detection coverage.
 author: yelevin
 ms.author: yelevin
@@ -9,7 +9,7 @@ ms.date: 10/13/2021
 
 ---
 
-# Fine-tune your analytics rules in Azure Sentinel
+# Get fine-tuning recommendations for your analytics rules in Azure Sentinel
 
 > [!IMPORTANT]
 >
@@ -19,15 +19,15 @@ Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, an
 
 Tuning recommendations and insights are now built in to your analytics rules. This article will explain what these insights show, and how you can implement the recommendations.
 
-## View rule insights
+## View rule insights and tuning recommendations
 
-To see if any of your analytics rules have acquired any insights, select **Analytics** from the Azure Sentinel navigation menu.
+To see if Azure Sentinel has any tuning recommendations for any of your analytics rules, select **Analytics** from the Azure Sentinel navigation menu.
 
-Any rules that have insights will display a lightbulb icon, as shown here:
+Any rules that have recommendations will display a lightbulb icon, as shown here:
 
-:::image type="content" source="media/detection-tuning/rule-list-with-insight.png" alt-text="Screenshot of list of analytics rules with insight indicator." lightbox="media/detection-tuning/rule-list-with-insight.png":::
+:::image type="content" source="media/detection-tuning/rule-list-with-insight.png" alt-text="Screenshot of list of analytics rules with recommendation indicator." lightbox="media/detection-tuning/rule-list-with-insight.png":::
 
-Edit the rule to view the insights, which will appear on the **Set rule logic** tab of the analytics rule wizard, below the **Results simulation** display.
+Edit the rule to view the recommendations along with the other insights. They will appear together on the **Set rule logic** tab of the analytics rule wizard, below the **Results simulation** display.
 
 ### Types of insights
 
@@ -37,15 +37,13 @@ The **Tuning insights** display consists of several panes that you can scroll or
 
     This insight is the result of a Log Analytics query. Selecting any of the numbers will take you to the query in Log Analytics that produced the insight.
 
-1. The second insight pane shows you a list of [entities](entities-in-azure-sentinel.md) that are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
+1. The second insight pane recommends for you a list of [entities](entities-in-azure-sentinel.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
 
-    This insight is produced by Microsoft's advanced data science and machine learning models. This pane's inclusion in the **Tuning insights** display is dependent on there being any results to show.
+    This recommendation is produced by Microsoft's advanced data science and machine learning models. This pane's inclusion in the **Tuning insights** display is dependent on there being any recommendations to show.
 
-1. The third insight pane shows the four most frequently-appearing mapped entities across all alerts produced by this rule. (***OR ACROSS ALL ALERTS ACROSS ALL RULES?***) Entity mapping must be configured on the rule for this insight to produce any results.
+1. The third insight pane shows the four most frequently-appearing mapped entities across all alerts produced by this rule. Entity mapping must be configured on the rule for this insight to produce any results. This insight might help you become aware of any entities that are "hogging the spotlight" and drawing attention away from other ones. You might want to handle these entities separately in a different rule, or you might decide that they are false positives or otherwise noise, and exclude them from the rule.
 
     This insight is the result of a Log Analytics query. Selecting any of the entities will take you to the query in Log Analytics that produced the insight.
-
-
 
 ## Next steps
 

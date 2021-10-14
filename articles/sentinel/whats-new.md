@@ -35,7 +35,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
 
 ### Playbook templates and gallery now available (Public preview)
-
+ 
 A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
 Playbook templates have been developed by the Azure Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [**Azure Sentinel Solution**](sentinel-solutions.md), or in the [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
