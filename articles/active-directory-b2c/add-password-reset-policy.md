@@ -144,6 +144,7 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
         </OutputClaims>
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
       <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
         <Metadata>
