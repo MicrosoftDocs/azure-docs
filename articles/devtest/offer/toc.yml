@@ -6,6 +6,11 @@
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
 - name: Quickstart
+  items: 
+  - name: Get started with an individual Azure Dev/Test credit
+    href: how-to-individual-credit.md
+  - name: Create an enterprise Dev/Test subscription
+    href: create-enterprise-devtest-subscriptions.md    
 - name: Tutorials
   expanded: true
   items: 
@@ -14,13 +19,14 @@
       items:
         - name: Use your own data
           href: tutorial-experiment-bring-data.md
-- name: Samples
 - name: Concepts
   items:
+  - name: GitOps & Azure Dev/Test offer
+    href: gitops-azure-devtest.md  
+  - name: Security & governance
+    href: security-governance-devtest.md    
 - name: How-to guides
   items:
-  - name: Get started with an individual Azure Dev/Test credit
-    href: how-to-individual-credit.md
   - name: Change directory tenants
     href: change-directory-tenants-vss-azure.md
   - name: Remove credit limits 
@@ -29,16 +35,10 @@
     href: add-users-directory.md
   - name: Sign into Azure with GitHub
     href: sign-into-azure-with-github.md
-  - name: Create an enterprise Dev/Test subscription
-    href: create-enterprise-devtest-subscriptions.md
-  - name: GitOps and Azure Dev/Test
-    href: gitops-azure-devtest.md
   - name: Manage and Monitor Dev/Test
     href: manage-monitor-devtest.md
   - name: Manage reliability and performance with Azure Dev/Test
     href: manage-reliability-performance.md
-  - name: Security and governance in Dev/Test
-    href: security-governance-devtest.md
 - name: Resources
   items: 
     - name: Azure roadmap
