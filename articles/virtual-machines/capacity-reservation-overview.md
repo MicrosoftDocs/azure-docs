@@ -75,7 +75,7 @@ Both used and unused capacity reservation are eligible for Reserved Instances te
 |---|---|---|
 | Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three-years|
 | Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
-| Capacity SLA | At GA, capacity reservation will provide capacity guarantee in the specified location (region or availability zone) | Does not provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option does not carry an SLA |
+| Capacity SLA | Provides capacity guarantee in the specified location (region or availability zone) | Does not provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option does not carry an SLA |
 | Region vs Availability Zones | Can be deployed per region or per availability zone | Only available at regional level |
 
 *Eligible for Reserved Instances discount if purchased separately
