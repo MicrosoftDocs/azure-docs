@@ -136,7 +136,7 @@ as they will be suppressed by the Application Insights Java 3.x anyways.
 ## 2.x SDK spring boot starter
 
 There is no Application Insights Java 3.x spring boot starter.
-3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#quickstart)
+3.x setup and configuration follows the same [simple steps](./java-in-process-agent.md#get-started)
 whether you are using spring boot or not.
 
 When upgrading from the Application Insights Java 2.x SDK spring boot starter,

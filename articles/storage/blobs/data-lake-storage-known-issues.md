@@ -52,7 +52,6 @@ These Blob REST APIs aren't supported:
 - [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url)
-- [Put Block List](/rest/api/storageservices/put-block-list)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -64,7 +63,7 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
 
 <a id="known-issues-tools"></a>
 
