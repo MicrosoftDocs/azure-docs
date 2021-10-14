@@ -959,8 +959,11 @@
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
     - name: Orchestration modes 
-      displayName: VMSS, flex, scale set, scale, virtual machine sacle set
+      displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Migration process 
+      displayName: VMSS, flex, scale set, scale, virtual machine scale set
+      href: flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
