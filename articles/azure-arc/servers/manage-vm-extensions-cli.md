@@ -17,7 +17,7 @@ This article shows you how to deploy and uninstall VM extensions, supported by A
 
 ## Install the Azure CLI extension
 
-The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to connect to Azure and manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. These management operations can be performed from your workstation; it is not required to run them directly from the Azure Arc-enabled server.
+The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to connect to Azure and manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. These management operations can be performed from your workstation, you don't need to run them on the Azure Arc-enabled server.
 
 Run the following command to get it:
 

@@ -17,7 +17,7 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. These management operations can be performed from your workstation; it is not required to run them directly from the Azure Arc-enabled server.
+Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. These management operations can be performed from your workstation, you don't need to run them on the Azure Arc-enabled server.
 
 Run the following command on your Azure Arc-enabled server:
 
