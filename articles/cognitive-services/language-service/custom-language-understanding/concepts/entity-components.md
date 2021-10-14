@@ -22,7 +22,7 @@ An entity component determines a way you can extract the entity. An entity can s
 
 ### Learned component
 
-The learned component uses the entity tags you label your utterances with to train a machine learned model. The model learns to predict where the entity is, based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in an utterance, based on the meaning of the words around it and as the words that were labelled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a Learned component.
+The learned component uses the entity tags you label your utterances with to train a machine learned model. The model learns to predict where the entity is, based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in an utterance, based on the meaning of the words around it and as the words that were labeled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a Learned component.
 
 :::image type="content" source="../media/learned-component.png" alt-text="A screenshot showing an example of learned components for entities." lightbox="../media/learned-component.png":::
 

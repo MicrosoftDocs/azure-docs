@@ -62,7 +62,7 @@ In a conversations project, you'll get predictions for both your intents and ent
 ## API response for an orchestration Workflow Project
 
 An orchestration workflow project returns with the response of the top scoring intent, and the response of the service it is connected to.
-- Within the intent, the *targetKind* parameter lets you determine the type of response that was returned by the orchestrator's top intent (conversation, luis, or qna).
+- Within the intent, the *targetKind* parameter lets you determine the type of response that was returned by the orchestrator's top intent (conversation, LUIS, or QnA Maker).
 - You will get the response of the connected service in the *result* parameter. 
 
 Within the request, you can specify additional parameters for each connected service, in the event that the orchestrator routes to that service.
