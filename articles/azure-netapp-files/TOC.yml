@@ -93,8 +93,6 @@
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
-  - name: FAQs about Azure NetApp Files
-    href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
   - name: Storage service add-ons
@@ -103,6 +101,12 @@
     href: volume-hard-quota-guidelines.md
   - name: Azure NetApp Files for Azure Government
     href: azure-government.md
+  - name: FAQs
+    items: 
+    - name: FAQs about Azure NetApp Files
+      href: azure-netapp-files-faqs.md
+    - name: Application volume group FAQs
+      href: faq-application-volume-group.md
 - name: How-to guides
   items: 
   - name: Register and set up
