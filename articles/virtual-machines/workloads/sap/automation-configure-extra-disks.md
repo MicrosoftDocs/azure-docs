@@ -16,7 +16,7 @@ By default, the [SAP deployment automation framework](automation-deployment-fram
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
 
-### Add extra disks to new system
+## Add extra disks to new system
 
 You can add multiple nodes to the structure to create more disks that meet your business requirements. 
 
@@ -74,7 +74,7 @@ The following sample code is an example configuration for the database tier. The
 }
 ```
 
-### Add extra disks to existing system
+## Add extra disks to existing system
 
 If you need to add disks to an already deployed system, you can add a new block to your JSON structure. Include the attribute `append` in this block, and set the value to `true`. For example, in the following sample code, the last block contains the attribute `"append" : true,`. The last block adds a new disk to the database tier, which is already configured in the first `"data"` block in the code.
 
