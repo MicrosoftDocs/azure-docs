@@ -42,12 +42,13 @@ Here are some examples for processing results from queries with multiple pages:
 
 ## Continuation tokens
 
-In the .NET SDK and Java SDK, you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. Continuation tokens are not supported in the Node.js SDK. For the Python SDK, it's supported for single partition queries, and the PK must be specified in the options object because it's not sufficient to have it in the query itself.
+In the .NET SDK,Java SDK and Node.js SDK you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. For the Python SDK, it's supported for single partition queries, and the PK must be specified in the options object because it's not sufficient to have it in the query itself.
 
 Here are some example for using continuation tokens:
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L230)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/2186357a6e6a64b59915d0cf3cba845be4d115c4/sdk/cosmosdb/cosmos/samples/src/BulkUpdateWithSproc.ts#L16-L31)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 If the query returns a continuation token, then there are additional query results.
