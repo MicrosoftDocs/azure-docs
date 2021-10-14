@@ -16,7 +16,7 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
 > [!IMPORTANT]
-> This article is about virtual machine scale sets in Flexible orchestration mode, which we recommend using for all new scale set deployments. To access information about Uniform scale sets, go to [virtual machine scale sets in Uniform orchestration mode](..virtual-machine-scale-sets/overview.md) documentation. 
+> This article is about virtual machine scale sets in Flexible orchestration mode, which we recommend using for all new scale set deployments. To access information about Uniform scale sets, go to [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) documentation. 
 
 
 Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](availability-set-overview.md).
