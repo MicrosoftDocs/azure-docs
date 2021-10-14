@@ -29,3 +29,8 @@ Lake databases use a data lake on the Azure Storage account to store the data of
 ## Database compute
 
 The lake database are exposed in Synapse SQL on demand and Apache Spark. This provides the user with the capability to decouple storage from compute. The metadata that is associated with the lake database makes it easy for different compute engines to not only provide an integrated experience but also use additional information (e.g. relationships) that is originally not supported on the data lake. 
+
+## Next steps
+Continue to explore the capabilities of the database designer using the links below.
+- [Quick start](quick-start-create-lake-database.md)
+- [Database templates Concept](concepts-database-templates.md)
