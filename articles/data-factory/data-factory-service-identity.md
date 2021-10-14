@@ -44,7 +44,7 @@ Managed identity provides the below benefits:
 System-assigned managed identity is generated as follows:
 
 - When creating a data factory or Synapse workspace through **Azure portal or PowerShell**, managed identity will always be created automatically.
-- When creating data factory through **SDK**, managed identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example in [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- When creating data factory or workspace through **SDK**, managed identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object or Identity = new ManagedIdentity" in the Synapse workspace object for creation."  See example in [.NET Quickstart - Create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - When creating data factory or Synapse workspace through **REST API**, managed identity will be created only if you specify "identity" section in request body. See example in [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 If you find your service instance doesn't have a managed identity associated following [retrieve managed identity](#retrieve-managed-identity) instruction, you can explicitly generate one by updating it with identity initiator programmatically:
