@@ -5,7 +5,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 08/24/2021
+ms.date: 10/14/2021
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
@@ -76,7 +76,9 @@ Before you start with LiveData Migrator for Azure, review these [prerequisites](
 
 To perform a migration:
 
-1. Deploy a LiveData Migrator instance from the Azure portal to your on-premises Hadoop cluster. (You do not need to make changes to or restart the cluster.)
+1. Register for the WANdisco resource provider by running `az provider register --namespace Wandisco.Fusion --consent-to-permissions` in the Azure CLI.
+
+2. Deploy a LiveData Migrator instance from the Azure portal to your on-premises Hadoop cluster. (You do not need to make changes to or restart the cluster.)
 
    > [!div class="mx-imgBorder"]
    > ![Create a LiveData Migrator instance](./media/migrate-gen2-wandisco-live-data-platform/create-live-data-migrator.png)
@@ -84,19 +86,19 @@ To perform a migration:
    > [!NOTE]
    > WANdisco LiveData Migrator for Azure provides the option to create a Hadoop Test Cluster.
 
-2. Configure Kerberos details, if applicable.
+3. Configure Kerberos details, if applicable.
 
-3. Define the target Azure Data Lake Storage Gen2-enabled storage account.
+4. Define the target Azure Data Lake Storage Gen2-enabled storage account.
 
    > [!div class="mx-imgBorder"]
    > ![Create a LiveData Migrator target](./media/migrate-gen2-wandisco-live-data-platform/create-target.png)
 
-4. Define the location of the data that you want to migrate, for example: `/user/hive/warehouse`.
+5. Define the location of the data that you want to migrate, for example: `/user/hive/warehouse`.
 
    > [!div class="mx-imgBorder"]
    > ![Create a LiveData Migrator migration](./media/migrate-gen2-wandisco-live-data-platform/create-migration.png)
 
-5. Start the migration.
+6. Start the migration.
 
 Monitor your migration progress through standard Azure tooling including the Azure CLI and Azure portal.
 
