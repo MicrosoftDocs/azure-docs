@@ -36,7 +36,7 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
 
 :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
@@ -169,15 +169,15 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 ## Labeling as tables
 
-While creating your custom models, you may need to extract collections of values from your documents. These collections appear in various formats. For example:
+While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
-* A dynamic collection of values (rows) for a given set of fields (columns)
+* Dynamic or variable count of values (rows) for a given set of fields (columns)
 
-* A fixed collection of values grouped by a second set of fields (rows or columns)
+* Specific collection of values for a given set of fields (columns and/or rows)
 
 ### Label as dynamic table
 
-For labeling dynamic rows of data for a given set of fields:
+Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
 1. Add a new "Table" type label, select "Dynamic table" type, and name your label.
 
@@ -189,7 +189,7 @@ For labeling dynamic rows of data for a given set of fields:
 
 ### Label as fixed table
 
-For labeling fixed collections of data grouped by two sets of fields:
+Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
 1. Create a new "Table" type label, select "Fixed table" type, and name it.
 
