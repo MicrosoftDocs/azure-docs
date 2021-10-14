@@ -126,34 +126,46 @@ az spring-cloud app update --name customers-service \
     --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD} \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 ```
 
 ## Update extra apps
 
 ```azcli
 az spring-cloud app update --name api-gateway \
-    --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
+    --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 az spring-cloud app update --name admin-server \
-    --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
+    --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 az spring-cloud app update --name customers-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD} \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 az spring-cloud app update --name vets-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD} \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 az spring-cloud app update --name visits-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
-        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
+        MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD} \
+    --resource-group ${RESOURCE_GROUP}
+    --service <YOUR SERVICE NAME>
 ```
 
 ## Next steps
