@@ -48,6 +48,10 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 
 ## Sources, Processors and sinks
 
+For information about Video Analyzer sources, processors, and sinks see this [documentation](../pipeline.md#sources-processors-and-sinks)
+
+<details>
+    <summary>Click to expand and see the details about Video source and Endoder processor nodes.</summary>
 ### Source
 
 #### Video Source
@@ -139,11 +143,8 @@ The encoder processor node allows user to specify encoding properties when conve
 
 For example video recorded from a camera configured for [4K resolution](https://en.wikipedia.org/wiki/4K_resolution) may need to be resized to [Full HD (1920x1080)](https://en.wikipedia.org/wiki/1080p) resolution before it is exported to a file.
 
-### Sink
+</details>
 
-#### Video sink
-
-A video sink node enables you to save video and associated metadata to your Video Analyzer cloud resource. Video can be recorded continuously or dis-continuously (based on events). Video sink node can cache video on the edge device if connectivity to cloud is lost and resume uploading when connectivity is restored. You can see the [continuous video recording](https://github.com/mayankchief/azure-docs-pr/blob/ff1773b3a774fac83aee160bc6dec1a1fd4bd022/articles/azure-video-analyzer/video-analyzer-docs/continuous-video-recording.md) article for details on how the properties of this node can be configured.
 
 ## Pipeline job
 
