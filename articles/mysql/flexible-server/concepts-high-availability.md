@@ -112,7 +112,7 @@ Logs in ZRS are accessible even when the primary server is unavailable. This ava
 **Do I need to take any action after a failover?**</br>
 Failovers are fully transparent from the client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
 **What happens when I don't choose a specific zone for my standby replica? Can I change the zone later?**</br>
-If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability Mode** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
+If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
 **Is replication between the primary and standby replicas synchronous?**</br>
  The replication between the primary and the standby is similar to [semisynchronous mode](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) in MySQL. When a transaction is committed, it doesn't necessarily commit to the standby. But when the primary is unavailable, the standby does replicate all data changes from the primary to make sure there's no data loss.</br> 
 **Is there a failover to the standby replica for all unplanned failures?**</br>
@@ -124,7 +124,7 @@ Planned events like scaling of compute and minor version upgrades happen on the 
 **Can I do a point-in-time restore (PITR) of my HA server?**</br>
 You can do a [PITR](./concepts-backup-restore.md#point-in-time-restore) for an HA-enabled Azure Database for MySQL flexible server to a new Azure Database for MySQL flexible server that has HA disabled. If the source server was created with zone-redundant HA, you can enable zone-redundant HA or same-zone HA on the restored server later. If the source server was created with same-zone HA, you can enable only same-zone HA on the restored server.</br>
 **Can I enable HA on a server after I create the server?**</br>
-You can enable same-zone HA after you create the server. Zone-redundant HA needs to be enabled when the server is created.</br> 
+Zone-redundant HA needs to be enabled when the server is created. You can enable same-zone HA after you create the server. Before enabling same zone HA make sure you that the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid)  is set to ON</br> 
 **Can I disable HA for a server after I create it?** </br>
 You can disable HA on a server after you create it. Billing stops immediately.  </br>
 **How can I mitigate downtime?**</br>
@@ -142,6 +142,8 @@ Data-in Replication isn't supported for HA servers. But Data-in Replication for 
 **To reduce downtime, can I fail over to the standby server during server restarts or while scaling up or down?** </br>
 Currently, when you do a scale up or scale down operation, the standby and primary are scaled at the same time. So failing over doesn't help. Allowing scaling up of the standby first, followed by failover, and then scaling up of the primary is on our roadmap but isn't supported yet.</br>
 
+**Can we change the availability mode (Zone-redundant HA/same-zone) of server** </br>
+If you create the server with Zone-redundant HA mode enabled then you can change from Zone-redundant HA to same-zone and vice versa. To change the availability mode, you can set **High Availability** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant or same-zone** and choose **High Availability Mode**.</br>  
 
 ## Next steps
 
