@@ -18,7 +18,7 @@ Azure Logic Apps supports the [*system-assigned* managed identity](../active-dir
 | Logic app resource type | Description |
 |-------------------------|-------------|
 | Consumption | You can enable and use *either* the system-assigned identity or a *single* user-assigned identity at the logic app resource level and connection level. |
-| Standard | Currently, you can use *only* the system-assigned identity, which is automatically enabled. The user-assigned identity is unavailable. |
+| Standard | Currently, you can use *only* the system-assigned identity, which is automatically enabled. The user-assigned identity is currently unavailable. |
 |||
 
 For more information about these different logic app resource types, review the documentation, [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md). To learn about managed identity limits in Azure Logic Apps, review [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity).
@@ -32,23 +32,27 @@ Only specific built-in and managed connector operations that support Azure AD Op
 
 ### [Consumption](#tab/consumption)
 
+The following table lists the operations where you can use either the system-assigned managed identity or user-assigned managed identity in the **Logic App (Consumption)** resource type:
+
 | Operation type | Supported operations |
 |----------------|----------------------|
-| Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p><p> **Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
+| Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
 | Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- Azure Blob Storage <br>- SQL Server |
 |||
 
 ### [Standard](#tab/standard)
 
+The following table lists the operations where you can use the system-assigned managed identity in the **Logic App (Standard)** resource type:
+
 | Operation type | Supported operations |
 |----------------|----------------------|
-| Built-in | - HTTP <br>- HTTP + Webhook <p><p> **Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
+| Built-in | - HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
 | Managed connector (**Preview**) | Single-authentication: <p>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <p>- Azure Blob Storage <br>- SQL Server |
 |||
 
 ---
 
-This article shows how to set up and enable a *system-assigned* or *user-assigned* managed identity on your logic app resource. You don't have to manually create the system-assigned identity, unlike the user-assigned identity. For the user-assigned identity in the **Logic App (Consumption)** resource type, the steps in this article cover setup using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
+This article shows how to enable and set up the *system-assigned* or *user-assigned* managed identity, based on whether you're using the **Logic App (Consumption)** or **Logic App (Standard)** resource type. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity for the **Logic App (Consumption)** resource type. This article includes the steps for the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
@@ -69,7 +73,7 @@ This article shows how to set up and enable a *system-assigned* or *user-assigne
 
   | Logic app resource type | Managed identity support |
   |-------------------------|--------------------------|
-  | Consumption | System-assigned or user-assigned |
+  | Consumption | System-assigned or user-assigned identity |
   | Standard | System-assigned identity (automatically enabled) |
   |||
 
@@ -106,7 +110,7 @@ This article shows how to set up and enable a *system-assigned* or *user-assigne
 
 ### [Standard](#tab/standard)
 
-On a **Logic App (Standard)** resource, the system-assigned identity is automatically enabled. 
+On a **Logic App (Standard)** resource, the system-assigned identity is automatically enabled.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
