@@ -500,11 +500,7 @@
         - name: Contact Microsoft Support
           href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor
-      items:
-      - name: Review alerts
-        href: azure-stack-edge-alerts.md
-      - name: Use metrics charts 
-        href: azure-stack-edge-monitor.md
+      href: azure-stack-edge-monitor.md
     - name: Return device
       href: azure-stack-edge-return-device.md
     - name: Replace device

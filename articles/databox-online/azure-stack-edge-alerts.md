@@ -43,7 +43,7 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
-* [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga)
+<!--* [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga)-->
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-arm-alerts)
 * [Performance alerts](#performance-alerts)
 * [Storage alerts](#storage-alerts)
@@ -51,18 +51,18 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 * [Key vault alerts](#key-vault-alerts)
 * [Hardware alerts](#hardware-alerts)
 * [Update alerts](#update-alerts)
-* [Clustering alerts](#clustering-alerts)
+<!--* [Clustering alerts](#clustering-alerts)-->
 * [Virtual machine alerts](#virtual-machine-alerts)
 
 
-In the alerts tables below:
+<!--In the alerts tables below:
 
 - Alerts for a specific feature are raised only if the feature is supported in that Azure Stack Edge product. For example, you won't see virtual machine alerts on an Azure Stack Edge Pro with FPGA device because those devices don't support VMs.
 
-- Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.
+- Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.-->
 
-<!-->> [!NOTE]
-> In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.-->
+> [!NOTE]
+> In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.
 
 ## Cloud connectivity alerts
 
@@ -100,7 +100,7 @@ The Edge compute alerts in the following table are raised on Azure Stack Edge Pr
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-## Edge compute alerts for FPGA
+<!--## Edge compute alerts for FPGA
 
 The Edge compute alerts in the following table occur only on Azure Stack Edge Pro with FPGA devices.
 
@@ -115,7 +115,7 @@ The Edge compute alerts in the following table occur only on Azure Stack Edge Pr
 |FPGA card temperature is rising. |Warning |This might be because the FPGA card has a high usage. Consider stopping or reducing the workload on the Azure IoT Machine Learning module.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 |Shutting down the FPGA card as the card temperature has exceeded the operating limit! |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 
-<sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
+<sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.-->
 
 ## Local Azure Resource Manager (ARM) alerts
 
@@ -268,7 +268,7 @@ The following alerts relate to Microsoft updates and firmware updates for physic
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
 
 
-## Clustering alerts
+<!--## Clustering alerts
 
 The following alerts are raised for clustering issues on Azure Stack Edge devices.
 
@@ -284,7 +284,7 @@ The following alerts are raised for clustering issues on Azure Stack Edge device
 |Node {0} is down. |Critical |Start or replace the node. |
 |Node {0} is isolated from the cluster due to connectivity issues. |Critical |If isolation persists, check the network(s) or migrate workloads to other nodes. |
 |Node {0} is quarantined by the cluster. |Critical |Try troubleshooting the server and potential network issues. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |
+|Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |-->
 
 
 ## Virtual machine alerts
