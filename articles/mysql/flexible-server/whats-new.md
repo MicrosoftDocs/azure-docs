@@ -19,7 +19,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## October 2021
 
-- **Availability Zones Selection when creating Read replicas**
+- **Geo-redundant backups restore to different Azure regions for DR scenarios**
+
+    The service now provides the added flexibility to choose between locally redundant backup storage and geo-redundant backup storage to provide higher data resiliency. Enabling geo-redundancy empowers customers to recover from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled, customers can perform geo-restore and deploy a new server to the geo-paired geographic region leveraging the original server’s latest available geo-redundant backup. [Learn more](../flexible-server/concepts-backup-restore.md). 
+
+-  **Availability Zones Selection when creating Read replicas**
 
     When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md).
 
@@ -38,6 +42,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Stopping the server for up to 30 days while the server is not in use**
     Azure Database for MySQL Flexible Server now gives you the ability to Stop the server for up to 30 days when not in use and Start the server within this time when you are ready to resume your development. This enables you to develop at your own pace and save development costs on the database servers by paying for the resources only when they are in use. This is important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. When the server is in the Stopped state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again. [Learn more](https://docs.microsoft.com/azure/mysql/flexible-server/concept-servers#stopstart-an-azure-database-for-mysql-flexible-server)
+
+- **Known Issues**
+    - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
 
 ## September 2021
 
