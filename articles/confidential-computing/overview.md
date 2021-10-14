@@ -50,16 +50,18 @@ Running workloads on the cloud requires trust. You give this trust to various pr
 
 **Infrastructure providers**: Trust cloud providers or manage your own on-premise data centers.
 
-
 Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
 
 ### Reducing the attack surface
-The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. 
+The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. 
 
-A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. TEEs reduce your TCB to trusted runtime binaries, code, and libraries. When you use Azure infrastructure and services for confidential computing, you can remove all of Microsoft from your TCB.
+### Reducing the TCB in Azure
 
+When you deploy Azure confidential virtual machines, you can remove Microsoft from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, this requires no code or app changes. 
 
-## Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
+Azure also offers confidential VMs with enclaves. These solutions require more work - potentially changes to configuration policies, or application code. Typically, enclaves allow developers to build solutions with a smaller TCB. Enclaves remove both Microsoft and your own company admin from the TCB. Application enclaves like what Intel SGX provides, reduces your TCB to only trusted runtime binaries, code, and libraries. 
+
+### Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
 
 Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware.  
 
@@ -70,6 +72,8 @@ Azure confidential computing allows you to leverage confidential computing capab
 **Secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 
 **Isolated processing**: Offer a new wave of products that remove liability on private data with blind processing. User data cannot even be retrieved by the service provider. 
+
+Azure offers various [products and services](overview-azure-products.md) for confidential computing. 
 
 ## Next steps
 
