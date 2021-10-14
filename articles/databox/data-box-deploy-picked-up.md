@@ -138,6 +138,8 @@ Take the following steps if you're returning the device in Europe.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 
+    **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](data-box-deploy-picked-up.md&tabs=in-europe#self-managed-shipping).
+
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 
@@ -402,7 +404,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
 
-If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions.
+If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, Germany, Switzerland, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions.
 
 1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
