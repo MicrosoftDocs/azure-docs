@@ -18,14 +18,16 @@ ms.author: b-juche
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
 
-> [!IMPORTANT]
-> Azure NetApp Files application volume group for SAP HANA is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files application volume group for SAP HANA waitlist submission page](https://aka.ms/anfavgpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using application volume group for SAP HANA. 
-
 All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The shared, log-backup, and data-backup volumes will be created only for the first host. All other hosts in a multiple-host environment will share these volumes, and they will add only data and log volumes for each additional host.
 
 This article describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 
-Before you begin, you should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
+## Before you begin
+
+> [!IMPORTANT]
+> Azure NetApp Files application volume group for SAP HANA is currently in preview. You need to submit a waitlist request for accessing the feature through the [**Azure NetApp Files application volume group for SAP HANA waitlist submission page**](https://aka.ms/anfavgpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using application volume group for SAP HANA. 
+
+You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
 ## Steps 
 

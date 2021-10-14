@@ -39,7 +39,7 @@ This article describes the requirements and considerations you need to be aware 
 
 ## Best practices about proximity placement groups
 
-To deploy SAP HANA volumes using the application volume group, you need to use your HANA database VM’s as anchor for a proximity placement group (PPG). It’s recommended that you create an availability set per database and use the **pinning request form** to pin the availability set to a dedicated compute cluster. After pinning, you need to add a PPG to the availability set  and then deploy all hosts of an SAP HANA database using that availability set. Doing so ensures that all virtual machines are at the same location. If the virtual machines are started, the PPG has its anchor.
+To deploy SAP HANA volumes using the application volume group, you need to use your HANA database VM’s as anchor for a proximity placement group (PPG). It’s recommended that you create an availability set per database and use the **[pinning request form](https://aka.ms/HANAPINNING)** to pin the availability set to a dedicated compute cluster. After pinning, you need to add a PPG to the availability set  and then deploy all hosts of an SAP HANA database using that availability set. Doing so ensures that all virtual machines are at the same location. If the virtual machines are started, the PPG has its anchor.
 
 > [!NOTE]
 > The PPG must be in the same resource group as the capacity pool you want to use for the SAP HANA volumes.
