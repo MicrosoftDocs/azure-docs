@@ -47,7 +47,7 @@ The Administrator role has extended permissions in Azure AD. Members of this rol
 1. The Contoso Administrator enables the experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 1. The Contoso Administrator creates or selects existing communication services, which will be used for authentication of the exchanging requests. Azure AD user tokens will be exchanged for Teams access tokens. For more information, see [Create and manage Communication Services resources](./create-communication-resource.md).
 1. The Fabrikam Administrator sets up a new service principal for Communication Services in the Fabrikam tenant. This step is require if the application is missing.
-1. The Fabrikam Administrator grants Communication Services VoIP and or Teams.ManageCalls permission to the Contoso application. This step is required only if the Contoso application isn't verified. 
+1. The Fabrikam Administrator grants Communication Services VoIP and or `Teams.ManageCalls` permission to the Contoso application. This step is required only if the Contoso application isn't verified. 
 
 ### Step 1: Create an Azure AD application registration or select an Azure AD application 
 
