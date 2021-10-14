@@ -139,10 +139,23 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
+1. On **Review + create** pane, review and confirm the logic app resource information. When you're ready, select **Create**.
+
+   ![Screenshot showing "Review + create" pane with logic app information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
+
+   > [!NOTE]
+   > If your source, target, or both are behind a virtual network, you have to set up permissions and access 
+   > after you create the task. In this scenario, this step is required so that the logic app workflow can 
+   > access those resources or entities and perform the replication task.
+
    The task that you created, which is automatically live and running, now appears on the **Tasks** list.
 
    > [!TIP]
    > If the task doesn't appear immediately, try refreshing the tasks list or wait a little before you refresh. On the toolbar, select **Refresh**.
+
+   ![Screenshot showing "Tasks" pane with created replication task.](./media/create-replication-tasks-azure-resources/created-replication-task.png)
+
+1. If your resources are behind a virtual network, remember to set up permissions for the logic app and workflow to access those resources.
 
 ## Set up retry policy
 
@@ -151,3 +164,58 @@ To avoid data loss during an availability event on either side of a replication 
 The policy settings chosen for the example projects in the sample repository configure an exponential backoff strategy with retry intervals from 5 seconds to 15 minutes with infinite retries to avoid data loss.
 
 For Service Bus, review the "using retry support on top of trigger resilience" section to understand the interaction of triggers and the maximum delivery count defined for the queue.
+
+<a name="review-task-history"></a>
+
+## Review task history
+
+This example shows how to view a task's history of workflow runs along with their statuses, inputs, outputs, and other information and continues using the example for a Service Bus queue replication task.
+
+1. In the [Azure portal](https://portal.azure.com), find the Azure resource or entity that has the task history that you want to review.
+
+   For this example, this resource is a Service Bus namespace.
+
+1. On the resource navigation menu, under **Settings**, in the **Automation** section, select **Tasks (preview)**.
+
+1. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
+
+   ![Screenshot that shows a task and the selected "View" option.](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
+
+   The **Runs history** pane shows all the runs for the task along with their statuses, start times, identifiers, and run durations.
+
+   ![Screenshot that shows a task's runs, their statuses, and other information.](./media/create-automation-tasks-azure-resources/view-runs-history.png)
+
+   Here the possible statuses for a run:
+
+   | Status | Description |
+   |--------|-------------|
+   | **Cancelled** | The task was cancelled while running. |
+   | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
+   | **Running** | The task is currently running. |
+   | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
+   | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
+   |||
+
+   For more information, see [Review runs history](monitor-logic-apps.md#review-runs-history)
+
+1. To view the statuses and other information for each step in a run, select that run.
+
+   The **Logic app run** pane opens and shows the underlying workflow that ran.
+
+   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+
+   * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
+
+   ![Screenshot that shows each step in the run, status, and run duration.](./media/create-automation-tasks-azure-resources/runs-history-details.png)
+
+1. To review the inputs and outputs for each step, select the step, which expands.
+
+   This example shows the inputs for the Recurrence trigger, which has no outputs because the trigger only specifies when the workflow runs and provides no outputs for the subsequent actions to process.
+
+   ![Screenshot that shows the expanded trigger and inputs.](./media/create-automation-tasks-azure-resources/view-trigger-inputs.png)
+
+   In contrast, the **Send an email** action has inputs from earlier actions in the workflow and outputs.
+
+   ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
+
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
