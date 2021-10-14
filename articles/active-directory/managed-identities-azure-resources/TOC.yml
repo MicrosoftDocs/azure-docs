@@ -14,6 +14,8 @@
       href: tutorial-linux-vm-access-arm.md
 - name: Tutorials
   items:
+  - name: Access Cosmos
+    href: tutorial-vm-managed-identities-cosmos.md
   - name: Windows VM/VMSS
     items:
     - name: Access Azure Data Lake Store
