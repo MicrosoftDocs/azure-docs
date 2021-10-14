@@ -6,7 +6,7 @@ services: active-directory
 keywords: Azure Active Directory licensing service plans
 documentationcenter: ''
 author: Nicholak-MS
-manager: mtillman
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
