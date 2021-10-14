@@ -139,7 +139,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 Your client application displays the questions with an option for the user to select _the single question_ that most represents their intention.
 
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop.
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using the QnA Maker Train API. This feedback completes the active learning feedback loop.
 
 ## Train API
 
@@ -222,7 +222,7 @@ An example JSON body looks like:
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
 
 * Determine if query should be used for active learning
-* Send query back to QnA Maker's Train API for active learning
+* Send query back to the QnA Maker Train API for active learning
 
 In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
