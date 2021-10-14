@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 11/02/2021
 ---
 # Quickstart: Deploy a Managed Apache Spark Cluster with Azure Databricks
 

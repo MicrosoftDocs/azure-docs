@@ -4,7 +4,7 @@ description: Learn what are the required outbound network rules and FQDNs for Az
 author: christopheranderson
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 11/02/2021
 ms.author: chrande
 
 ---

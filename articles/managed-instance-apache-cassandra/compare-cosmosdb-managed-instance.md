@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 11/02/2021
 ---
 
 # Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB Cassandra API 
