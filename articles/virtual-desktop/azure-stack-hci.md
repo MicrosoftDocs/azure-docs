@@ -13,15 +13,19 @@ manager: femila
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hcioverview.md).
+
 ## Requirements
 
-1. An [Azure Stack HCI cluster registered to Azure Portal](/azure-stack/hci/deploy/register-with-azure).
+In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
-2. An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions.
+- An [Azure Stack HCI cluster registered to Azure Portal](/azure-stack/hci/deploy/register-with-azure).
 
-3. [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+- An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions.
 
-4. A stable connection to your Azure subscription from your on-premises network.
+- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+
+- A stable connection to your Azure subscription from your on-premises network.
 
 ## Set up your deployment
 
@@ -72,11 +76,11 @@ You have two options to download an image:
 
 - Deploy a VM with your preferred OS image, then follow the instructions in [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md).
 
-- Download a Windows VHD from Azure without deploying a VM.
+- Download a Windows Virtual Hard Dsik (VHD) from Azure without deploying a VM.
 
 Downloading a Windows VHD without deploying a VM has several extra steps. To download a VHD from Azure without deploying a VM, you'll need to complete the instructions in the following sections in order.
 
-### Requirements for downloading a VHD without a VM
+## Requirements to download a VHD without a VM
 
 Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands on the Azure command-line interface (CLI).
 
@@ -88,7 +92,7 @@ If this is your first time using Azure CLI, install any required extensions by f
 
 Finally, run the [az version](/cli/azure/reference-index?#az_version) command to make sure your cient is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az_upgrade) command to upgrade to the latest version.
 
-## Search Azure Marketplace for Azure Virtual Desktop images
+### Search Azure Marketplace for Azure Virtual Desktop images
 
 You can find the image you're looking for by using the **Search** function in Azure Marketplace in the Azure portal. To find images specifically for Azure Virtual Desktop, you can run one of the following example queries.
 
@@ -119,11 +123,13 @@ MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 >[!IMPORTANT]
 >Make sure to only use generation 2 ("gen2") images. Azure Virtual Desktop for Azure Stack HCI doesn't support creating a VM with a first-generation ("gen1") image. Avoid SKUs with a "-g1" suffix.
 
-## Create a new managed disk from the Marketplace image
+## Create a new Azure managed disk from the image
 
-Create an Azure Managed Disk from your chosen Marketplace image.
+Next, you'll need to create an Azure managed disk from the image you downloaded from the Azure Marketplace.
 
-1. Set some parameters.
+To create an Azure managed disk:
+
+1. Run the following commands in an azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
 ```azure
 $urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
@@ -131,7 +137,7 @@ $diskName = <disk name> #Name for new disk to be created
 $diskRG = <resource group> #Resource group that contains the new disk
 ```
 
-2. Create the disk and generate a SAS access URL.
+2. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
 
 ```azure
 az disk create -g $diskRG -n $diskName --image-reference $urn
@@ -141,16 +147,17 @@ $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
 
 ## Export a VHD from the managed disk to Azure Stack HCI cluster
 
-This step will export a VHD from the managed disk to your Azure Stack HCI
-cluster, which can then be used to create VMs.
+After that, you'll need to export the VHD you created from the managed disk to your Azure Stack HCI cluster, which will let you create new VMs. You can use the following method in a regular web browser or Storage Explorer.
 
-1. Using the SAS URL of the managed disk created above, a VHD image of the chose Marketplace image can be downloaded.
+To export the VHD:
 
-2. The download will take several minutes to complete. Ensure the copy has completed before proceeding to next steps.
+1. Open a browser and go to the SAS URL of the managed disk you generated in [Create a new Azure managed disk from the image](#create-a-new-azure-managed-disk-from-the-image). You can download the VHD image for the image you downloaded at the Azure Marketplace at this URL.
 
-(Storage Explorer can also be used to download the VHDs)
+2. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
 
 ## Clean up the managed disk
+
+When you're done with your VHD, you'll need to free up space by deleting the managed disk.
 
 To delete the managed disk you created, run these commands:
 
@@ -159,4 +166,10 @@ az disk revoke-access --name $diskName --resource-group $diskRG
 az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
-The deletion takes a couple minutes to complete.
+This command may take a few minutes to finish, so be patient.
+
+## Next steps
+
+If you need to refresh your memory about the basics or pricing information, go to [Azure Virtual Desktop for Azure Stack HCI](azure-stack-hci-overview.md).
+
+If you have additional questions, check out our [FAQ](azure-stack-hci-faq.yml).

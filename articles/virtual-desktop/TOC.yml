@@ -158,8 +158,16 @@
       href: start-virtual-machine-connect-faq.md
   - name: Set drain mode
     href: drain-mode.md
+  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+    items:
+    - name: Set up Azure Stack HCI (preview)
+      href: azure-stack-hci.md
+    - name: Azure Stack HCI FAQ (preview)
+      href: azure-stack-hci-faq.yml
 - name: Concepts
   items:
+  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+    href: azure-stack-hci-overview.md
   - name: Management recommendations
     href: management.md
   - name: Built-in roles

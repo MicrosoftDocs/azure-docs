@@ -72,5 +72,4 @@ If there are any issues you encounter during the preview that aren't on this lis
 
 ## Next steps
 
-Now that you’re familiar with Azure Virtual Desktop for Azure Stack HCI, learn how to deploy this feature at [Set up Azure Virtual Desktop for Azure Stack
-HCI (preview)]().
+Now that you’re familiar with Azure Virtual Desktop for Azure Stack HCI, learn how to deploy this feature at [Set up Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci.md).
