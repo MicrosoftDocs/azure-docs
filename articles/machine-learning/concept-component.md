@@ -25,7 +25,7 @@ Components let you manage and reuse common logic across pipelines.
 
 - **Share and reuse**: Components are automatically shared with users in the same workspace. You can reuse components across pipelines, environments, workspaces, and subscriptions. Built-in version-tracking lets you keep track of changes and reproduce results.
 
-- **CLI support**: Use components to create pipelines in either the CLI 2.0.
+- **CLI support**: Use components to create pipelines in the CLI (v2).
 
 
 ## Define a component (preview)
@@ -157,9 +157,9 @@ model = f"This is a dummy model with id: {str(uuid4())} generated at: {curtime}\
 
 ## Create a component
 
-### Create a component using CLI 2.0
+### Create a component using CLI (v2)
 
-After you define your component specification and Python script files, and [install CLI 2.0 successfully](how-to-configure-cli.md) successfully, you can create the component in your workspaces using:
+After you define your component specification and Python script files, and [install CLI (v2) successfully](how-to-configure-cli.md) successfully, you can create the component in your workspaces using:
 
 ```azurecli
 az ml component create --file my_component.yml --version 1 --resource-group my-resource-group --workspace-name my-workspace
@@ -183,7 +183,7 @@ You can use the Azure CLI (v2) to create a pipeline job. See [Create and run ML 
 
 ## Manage components
 
-You can check component details and manage the component using CLI 2.0. Use `az ml component -h` to get detailed instructions on component command.
+You can check component details and manage the component using CLI (v2). Use `az ml component -h` to get detailed instructions on component command.
 
 ### List components
 
