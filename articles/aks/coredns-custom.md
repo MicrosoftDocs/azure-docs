@@ -123,6 +123,25 @@ data:
     }
 ```
 
+## Azure Private DNS Zone
+
+Similarly to custom domains you may want to use [Azure Private DNS Zone](https://docs.microsoft.com/en-us/azure/dns/private-dns-overview) to resolve DNS names in your environment:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+    azurePrivateDNS.server: | # you may select any name here, but it must end with the .server file extension
+        private.dns.zone.name:53 { # name here has to maych your zone name in Azure
+            errors
+            cache 30
+            forward . 168.63.129.16 # forward all requests to the Azure Private DNS Zone forwarder
+    }
+```
+
 As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
 
 ```console
@@ -153,6 +172,13 @@ data:
         forward . 2.3.4.5
     }
 
+```
+
+As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
+
+```console
+kubectl apply -f corednsms.yaml
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
