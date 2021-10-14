@@ -66,6 +66,8 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 ## Cloud connectivity alerts
 
+The following alerts are raised by a failed connection to an Azure Stack Edge device or when no heartbeat is detected.
+
 | Alert text                       | Severity | Description / Recommended action |
 |----------------------------------|----------|----------------------------------|
 | Could not connect to the Azure.  | Critical | Check your internet connection. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests**. Run the **Internet connectivity** diagnostic test. |
