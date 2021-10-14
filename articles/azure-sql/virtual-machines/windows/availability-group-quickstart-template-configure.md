@@ -233,5 +233,5 @@ To learn more, see:
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server VMs](pricing-guidance.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
+* [What's new in SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
