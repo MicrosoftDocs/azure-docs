@@ -121,7 +121,7 @@ Given that configuration, the following example matching table would result:
 
 ### Routing decision
 
-After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL wewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
+After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL rewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
 
 ## Next steps
 
