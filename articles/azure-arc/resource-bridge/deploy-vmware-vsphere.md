@@ -1,17 +1,47 @@
 ---
 title: Deploy Azure Arc resource bridge (preview) on VMware vSphere
 description: Learn how to deploy Azure Arc resource bridge (preview) to VMware vSphere.
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 ms.topic: overview
 ---
 
 # How to deploy Azure Arc resource bridge (preview) to VMware vSphere
 
-Azure Arc resource bridge (preview) is a fully managed Kubernetes cluster, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions.
+Azure Arc resource bridge (preview) is single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions.
+
+After the Azure Arc resource bridge is deployed, the Arc-enabled virtualization operator is created in the resource bridge as a cluster extension. The Azure Arc resource bridge can host multiple types of Arc-enabled virtualization operators in one instance. Custom Locations are created to surface the virtualization infrastructure by enabling the cluster extensions on them. Future resource creation through the custom location will get tagged with this custom location value. This allows admins to find all the resources in Azure hosted through a single custom location.
+
+The resource bridge supports an IP address assigned using Dynamic Host Configuration Protocol (DHCP) or with a static address. Deploying it requires creating three configuration YAML files:
+
+- **Application.yaml** - This is the primary configuration file that provides a path to the provider configuration and resource configuration YAML files. The file also specifies the network configuration of the resource bridge, and includes generic cluster information that is not provider specific.
+- **Infra.yaml** - A configuration file that includes a set of configuration properties specific to your private cloud provider.
+- **Resource.yaml** - A configuration file that contains all the information related to the Azure Resource Manager resource, such as the subscription name and resource group for the resource bridge in Azure.
+
+You can download the sample configuration files from (download link) or you can also run the `Az arcappliance createconfig` command to create these configuration files, where the command will query the environment, so you can make easy selections through the interactive experience.
+
+To simplify your deployment experience, we also created the `Az arcappliance run` command, which performs the deployment in one command. This command is recommended for a first-time deployment when as part of an evaluate of the resource bridge.
+
+## Install the Azure CLI extension
+
+To connect any Azure Arc-enabled private cloud infrastructures, such as VMware vSphere and Azure Stack HCI, you need to deploy the Azure Arc resource bridge on it. Deploying and configuring the resource bridge is performed using the [Azure Command-Line Interface](/cli/azure) CLI extension `Arcappliance`. The extension isn't shipped as part of Azure CLI and you need to download it.
+
+Run the following command to get it:
+
+```azurecli
+az extension add --name arcappliance
+```
+
+
+
+
+
+
+
+
+
 
 You perform the following to complete the deployment:
 
-- Download the VM image
 - Create three configuration YAML files:
     - **Application.yaml** - This is the primary configuration file that provides a path to the provider configuration and resource configuration YAML files. The file also specifies the network configuration of the resource bridge, and includes generic cluster information that is not provider specific.
     - **Infra.yaml** - A configuration file that includes a set of configuration properties specific to your private cloud provider.
@@ -41,7 +71,7 @@ Before proceeding with installing and configuring the Arc resource bridge (previ
    az login
    ```
 
-3. Run the following command to register the Azure resource provider. 
+3. Run the following command to register the Azure resource provider.
 
    ```azurecli
    az provider register --name Microsoft.ResourceConnector

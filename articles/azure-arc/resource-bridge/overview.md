@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 09/28/2021
+ms.date: 10/14/2021
 ms.topic: overview
 ---
 
@@ -18,7 +18,7 @@ All management operations are performed from Azure, no local configuration is re
 
 ## Overview
 
-Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is composed of three layers:
+Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Azure Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is composed of three layers:
 
 * The base layer that represents the resource bridge and the Arc agents
 * The platform layer that includes the Custom Location and Cluster extension

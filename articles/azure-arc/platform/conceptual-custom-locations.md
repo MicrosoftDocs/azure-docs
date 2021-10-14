@@ -2,7 +2,7 @@
 title: "Overview of Custom Locations with Azure Arc"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 10/04/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
@@ -11,7 +11,7 @@ description: "This article provides a conceptual overview of Custom Locations ca
 
 # What is a Custom location?
 
-As an extension of the Azure location construct, *Custom Locations* provides a way for tenant administrators to use their Azure Arc-enabled Kubernetes clusters, and on-premises VMware vSphere and Azure Stack HCI cloud environments, by abstracting infrastructure details from application developers, database admin users, or other users in the organization. Since Custom Locations is an Azure Resource Manager resource that supports [Role based Access Control](../../role-based-access-control/overview.md) (RBAC), an administrator or operator can determine which users have access to create resource instances on:
+As an extension of the Azure location construct, *Custom Locations* provides a reference as deployment target which administrators can setup, and user can point to, when creating an Azure resource. It abstracts the backend infrastructure details from application developers, database admin users, or other users in the organization. Since Custom Locations is an Azure Resource Manager resource that supports [Role based Access Control](../../role-based-access-control/overview.md) (RBAC), an administrator or operator can determine which users have access to create resource instances on:
 
 * A namespace within a Kubernetes cluster to target deployment of Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale instances.
 * The compute, storage, networking, and other vCenter or Azure Stack HCI resources to deploy and manage VMs.
