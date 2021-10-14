@@ -1,15 +1,15 @@
 ---
-title: Manage user data in Azure Active Directory B2C | Microsoft Docs
+title: Manage user data in Azure Active Directory B2C  
 description: Learn how to delete or export user data in Azure AD B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: msmimart
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2018
-ms.author: kengaderdus
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
