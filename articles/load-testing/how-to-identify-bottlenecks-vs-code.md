@@ -25,7 +25,7 @@ In this article you'll learn how to:
 > - Remove the bottleneck.
 > - Re-run the load test to check performance improvements.
 
-To learn how to do the same in **Azure portal**, see [Identify bottlenecks using Azure portal](tutorial-identify-bottlenecks-in-azure-portal.md).
+To learn how to do the same in **Azure portal**, see [Identify bottlenecks using Azure portal](tutorial-identify-bottlenecks-azure-portal.md).
 
 ## Prerequisites
 
@@ -180,7 +180,7 @@ Now that you've got the load test created and configured, feel free to run it.
 
 You can see the streaming client-side metrics while the test is running which auto refreshes every 5 seconds. You can stop the test by selecting **Stop** and also apply filters to the requests by sampler and errors. You can aggregate the response times for different percentiles.  
 
-:::image type="content" source="./media/how-to-identify-bottlenecks-in-vs-code/azure-load-testing-aggregated-by-percentile.png" alt-text="Azure Load Testing: results by percentile.":::
+:::image type="content" source="./media/how-to-identify-bottlenecks-vs-code/azure-load-testing-aggregated-by-percentile.png" alt-text="Azure Load Testing: results by percentile.":::
 
 Wait until the load test finishes fully before proceeding to the next section.  
 

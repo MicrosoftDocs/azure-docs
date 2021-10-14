@@ -55,7 +55,7 @@ conceptualContent:
         - url: ../machine-learning/how-to-train-cli.md
           itemType: tutorial
           text: Run training code in the cloud (v2 CLI preview)
-        - url: how-to-identify-bottlenecks-in-vs-code.md
+        - url: how-to-identify-bottlenecks-vs-code.md
           itemType: how-to-guide
           text: Tune hyperparameters for model training
         - url: ../machine-learning/how-to-create-machine-learning-pipelines.md

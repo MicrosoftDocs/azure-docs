@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-* An Azure DevOps organization. If you don't have one, you can [create one for free](../../devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Azure DevOps includes Azure Pipelines. If you need help with getting started with Azure Pipelines, see [Create your first pipeline](../../devops/pipelines/create-first-pipeline.md?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).  
+* An Azure DevOps organization. If you don't have one, you can [create one for free](../azure/devops/pipelines/get-started/pipelines-sign-up.md?view=azure-devops&preserve-view=true). Azure DevOps includes Azure Pipelines. If you need help with getting started with Azure Pipelines, see [Create your first pipeline](../devops/pipelines/create-first-pipeline.md?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).  
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).  
 * An existing Azure Load Testing resource. [Follow these steps to create one.](placeholder for doc in draft.)  
 
@@ -50,7 +50,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file [using the syntax shown](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download this file from the input files section on the dashboard as shown below.  
 
-    :::image type="content" source="media/tutorial-continous-regression-testing-in-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+    :::image type="content" source="media/tutorial-continous-regression-testing-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
 
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.  
@@ -61,7 +61,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Install the Azure Load Testing task extension from the Azure DevOps Marketplace on your Azure DevOps organization.  
 
-1. Create an [Azure Resource Manager service connection](../../devops/pipelines/library/service-endpoints.md) for your Azure subscription.  
+1. Create an [Azure Resource Manager service connection](../../../../../devops/pipelines/library/service-endpoints.md?view=azure-devops&tabs=yaml) for your Azure subscription.  
 
 1. After creating the service connection, click on 'Manage Service Principal.' You'll see the details of the Service Principal. Note the Object ID for the Service Principal.  
 

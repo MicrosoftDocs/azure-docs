@@ -13,7 +13,7 @@
     - name: Continuous regression testing in GitHub with Azure Load Testing
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
     - name: Continuous regression testing in Azure Pipelines with Azure Load Testing
-      href: tutorial-continuous-regession-testing-azure-pipelines-azure-load-testing.md
+      href: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
 - name: Reference
   items: 
     - name: CLI 
@@ -26,7 +26,7 @@
   expanded: true
   items: 
     - name: Identify bottlenecks with Visual Studio Code
-      href: how-to-identify-bottlenecks-in-vs-code.md
+      href: how-to-identify-bottlenecks-vs-code.md
     - name: Automation
       items: 
         - name: Azure Pipelines for CI/CD
