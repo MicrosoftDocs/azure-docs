@@ -146,6 +146,17 @@ Data is uploaded into multiple premium performance Blob Storage accounts. Each a
 
 ## Getting started with premium
 
+First, check to make sure your favorite Blob Storage features are compatible with premium block blob storage accounts, then create the account. 
+
+>[!NOTE]
+> You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. 
+
+### Check for Blob Storage feature compatibility
+
+Some Blob Storage features aren't yet supported or have partial support in premium block blob storage accounts. Before choosing premium, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you intend to use are fully supported in your account. Feature support is always expanding so make sure to periodically review this article for updates.
+
+### Create a new Storage account
+
 To create a premium block blob storage account, make sure to choose the **Premium** performance option and the **Block blobs** account type as you create the account.
 
 > [!div class="mx-imgBorder"]
@@ -163,9 +174,7 @@ The following image shows this setting in the **Create storage account** page.
 
 For complete guidance, see [Create a storage account](../common/storage-account-create.md) account.
 
-You can't convert an existing standard general-purpose v2 storage account to a premium block blob storage account. To migrate to a premium block blob storage account, you must create a premium block blob storage account, and migrate the data to the new account. 
 
-To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## See also
 

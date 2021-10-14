@@ -34,9 +34,9 @@ As you move between content sets, you'll notice some slight terminology differen
 
 ## Consider premium
 
-If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using the premium performance tier for your storage account. The premium performance tier makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
+If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using a premium block blob storage account. This type of account makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. The storage costs of premium performance are higher, but transaction costs are lower, so if your workloads execute a large number of transactions, a premium performance block blob account can be economical.
 
-The storage costs of premium performance are higher, but transaction costs are lower, so if your workloads execute a large number of transactions, this tier can be economical. To learn more about this tier, it's cost implications, and to read about real world scenarios where our customers have applied the premium performance tier, see [Premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
+If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. This combination of using premium block blob storage accounts along with a Data Lake Storage enabled account is referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
 
 ## Optimize for data ingest
 
