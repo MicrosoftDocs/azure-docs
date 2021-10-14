@@ -269,7 +269,7 @@ Validate that you're ready by performing the following steps:
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
-Learn more about [how to create and manage Azure storage accounts](./azure/storage/common/storage-account-create).
+Learn more about [how to create and manage Azure storage accounts](/azure/storage/common/storage-account-create.md).
 
 ::: zone pivot="b2c-user-flow"
 
