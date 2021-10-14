@@ -76,6 +76,10 @@
     href: concept-service-internals.md
   - name: Client protocol overview
     href: concept-client-protocols.md
+  - name: High availability
+    items:
+    - name: Resiliency and disaster recovery
+      href: concept-disaster-recovery.md
   - name: Performance considerations
     href: concept-performance.md
   - name: Billing model

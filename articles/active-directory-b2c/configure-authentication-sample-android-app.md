@@ -19,7 +19,7 @@ This article uses a sample Android application (Kotlin and Java) to illustrate h
 
 ## Overview
 
-OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This mobile app sample uses the [Microsoft Authentication Library (MSAL](../active-directory/develop/msal-overview.md) with OIDC authorization code PKCE flow. The MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to mobile apps. 
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This mobile app sample uses the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md) with OIDC authorization code PKCE flow. The MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to mobile apps. 
 
 The sign-in flow involves the following steps:
 
