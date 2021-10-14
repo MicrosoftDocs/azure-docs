@@ -13,17 +13,26 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/12/2021
+ms.date: 10/14/2021
 ms.author: danlep
 ---
 
 # API import restrictions and known issues
 
-## About this list
-
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
-* All the limitations, organized by the import format of the API. 
+* API Management's behavior during OpenAPI import. 
+* Import limitations, organized by the import format of the API. 
 * How OpenAPI export works.
+
+## API Management during OpenAPI import
+
+During OpenAPI import, API Management:
+* Checks specifically for query string parameters marked as required.
+* Converts the query string parameters to template parameters. 
+
+If you prefer a different behavior, you can either: 
+* Manually change via form-based editor, or 
+* Simply remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger import limitations
 
