@@ -45,6 +45,12 @@ You can also filter logs based on time window:
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Azure Firewall Workbook network rule log time window":::
 
+## IDPS logs statistics
+
+This page provides an overview of the IDPS actions count for all traffic that match the IDPS rules: Protocol, Signature ID, Source IP.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-idps.png" alt-text="Azure Firewall Workbook idps log":::
+
 ## Investigations
 
 You can look at the logs and understand more about the resource based on the source IP address. You can get information like virtual machine name and network interface name. It's simple to filter to the resource from the logs.
