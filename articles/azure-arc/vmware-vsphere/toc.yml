@@ -6,10 +6,14 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Connect vCenter to Arc
+  - name: Connect vCenter to Azure Arc
     href: quick-start-connect-vcenter-to-arc-using-script.md
 - name: How-to guides
   items:
+  - name: Deploy
+    items: 
+    - name: Connect vCenter to Azure Arc
+      href: deploy-connect-vcenter-to-arc.md
   - name: Enable VMware vCenter resources in Azure
     href: browse-and-enable-vcenter-resources-in-azure.md
   - name: Manage access to VMware resources through Azure RBAC

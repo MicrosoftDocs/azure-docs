@@ -22,7 +22,7 @@ Deploying the Arc resource bridge (preview) requires creating three configuratio
 There are two supported methods to create these configuration files:
 
 * They are provided in the deployment steps below to copy, edit, and specify on the command-line.
-* You can run the [Az arcappliance createconfig](/cli/azure/arcappliance/createconfig) command to create these configuration files, where the command queries the environment and prompts you to make selections through an interactive experience.
+* You can run the [Az arcappliance createconfig](/cli/azure/arcappliance/createconfig) command to create these configuration files, where the command queries the environment and prompts you to make selections through an interactive experience. See the [how to connect your VMware vCenter to Azure Arc using a helper script](quick-start-connect-vcenter-to-arc-using-script.md).
 
 To simplify your deployment experience, we also created the [Az arcappliance run](/cli/azure/arcappliance/run) command that runs all operations for creation of the Arc resource bridge (preview). This method is recommended for a first-time deployment when evaluating or testing the Arc resource bridge (preview).
 
@@ -132,7 +132,7 @@ The `infra.yaml` file includes specific information to enable deployment of the 
 2. Edit the values for vCenter credentials, and deployment configuration properties required to deploy the VM.
 
 3. Save this file as `infra.yaml` to a local folder.
- 
+
 ### Example of the Resource.yaml
 
 The `resource.yaml` file contains all the information related to the Azure Resource Manager resource definition, such as the the subscription, resource group, resource name, and location for the resource bridge in Azure.
