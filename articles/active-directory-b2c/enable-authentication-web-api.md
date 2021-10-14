@@ -2,13 +2,13 @@
 title: Enable authentication in a web API by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to protect a web API.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---

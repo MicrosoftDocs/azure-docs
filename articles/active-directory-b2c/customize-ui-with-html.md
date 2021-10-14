@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
-manager: celesteDG
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
