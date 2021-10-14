@@ -70,7 +70,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 - Premium SSDs support availability sets. 
-- Premium SSDs support Zone Redundant Storage (ZRS)
+- Premium SSDs Zone Redundant Storage (ZRS) supports Availability Zones. VMs part of FCI can be placed in different availability zones. 
 
 
 **Limitations**: 
