@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ---
 # Create volume replication for Azure NetApp Files

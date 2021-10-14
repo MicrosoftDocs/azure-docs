@@ -13,22 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
-
-<!-- Date TBD--> 
+ 
+## October 2021
 
 * [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) now generally available (GA)
 
     The cross-region replication feature is now generally available. You no longer need to register the feature before using it.
-
-    
-## October 2021
 
 * [Standard network features](configure-network-features.md) (Preview)
 
