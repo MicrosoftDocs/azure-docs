@@ -77,11 +77,11 @@ The following steps create a connected registry in ReadOnly mode whose parent is
 
 ## View connected registry properties
 
-Select a connected registry in the protal to view its properties, such as its connection status (Offline or Online) and whether it has been activated.
+Select a connected registry in the portal to view its properties, such as its connection status (Offline or Online) and whether it has been activated.
 
-:::image type="content" source="media/quickstart-connected-registry-portal/connected-registry-properties.png" alt-text="":::
+:::image type="content" source="media/quickstart-connected-registry-portal/connected-registry-properties.png" alt-text="View connected registry properties":::
 
-From this view you can also generate a connection string, which contains [sync token](overview-connected-registry-access.md#sync-token) credentials used for synchronizing content with the parent registry.
+From this view, you can also generate a connection string, which contains [sync token](overview-connected-registry-access.md#sync-token) credentials used for synchronizing content with the parent registry.
 
 ## Next steps
 
