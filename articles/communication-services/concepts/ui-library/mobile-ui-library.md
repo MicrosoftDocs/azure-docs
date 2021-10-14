@@ -14,38 +14,37 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
+Our UI Mobile Library is an Azure Communication Services capability focused on providing UI components for common business-to-consumer and business-to-business calling interactions. The core focus of the Mobile UI Library are components for [video and voice calling](../voice-video-calling/calling-sdk-features.md). We build on Azure's calling primitives to deliver a complete user experience for calling and meeting experiences on mobile.
 
-UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Mobile UI Library is [video and voice calling](../voice-video-calling/calling-sdk-features.md), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
-
-The UI Mobile Library objective is to provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is lightly, you can take advantage of reduce the development time and engineering complexity.
+The UI Mobile Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
 
 ## Composites
 
-Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
-Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
+Composites are higher-level components composed of smaller components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
+
+Developers can easily instantiate the Composites using an Azure Communication Services access token and the required configuration attributes for call.
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
+| [CallComposite](../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
 
 ## Scenarios
 
 ### Joining a video/audio call
 
-The users can join easily over the call using the *Teams meeting URL* or set up an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live video calling or audio calling without losing the experience of the simplicity and focusing in what really matters.
-
+Users can join easily over the call using the *Teams meeting URL* or they can set up an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability for the user to be part of extensive live video or audio call, without losing the experience of the simplicity and focusing in what really matters.
 
 ### Pre-call experience
 
 As a participant of the calls, you can provide a name and set up a default configuration for audio and video devices, and you're ready to jump into the call.
 
-<img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="75%"/>
+:::image type="content" source="../media/mobile-ui/teams_meet.png" alt-text="Pre-meeting experience.":::
 
 ### Call experience
 
 The calling composite provide an end two end experience, optimizing development time, and focusing into a clean layout.  
 
-<img src="../media/mobile-ui/Calling_composite.png" alt="Meeting experience" width="40%"/>
+:::image type="content" source="../media/mobile-ui/Calling_composite.png" alt-text="Meeting experience.":::
 
 **The calling experience provides all those capabilities in one single composite: *calling composite*, providing a clear path without complex code, and quickly implementing and faster development.**
 

@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add mobile UI library into your app
+title: Quickstart - Add Calling composite into your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to get started with UI Library
+description: In this quickstart, you'll learn how to get started with Call composite from UI Library
 author: jorgegarc
 
 ms.author: jorgegarc

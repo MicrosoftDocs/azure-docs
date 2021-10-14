@@ -7,14 +7,12 @@ ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- Azure Communication Services Token. See [example](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity) 
+- Azure Communication Services Token. See [example](https://docs.microsoft.com/en-ca/azure/communication-services/quickstarts/identity/quick-create-identity) 
 
 ## Setting up
 
@@ -44,7 +42,7 @@ android {
 
 ```groovy
 dependencies {
-    implementation 'com.azure.android:azure-communication-calling-ui-library:1.0.0-alpha.0'
+    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.0'
 }
 ```
 
@@ -60,7 +58,7 @@ dependencyResolutionManagement {
         }
         maven {
             name='github'
-            url = 'https://maven.pkg.github.com/{repository owner}/{repository}'
+            url = 'https://maven.pkg.github.com/Azure/communication-preview'
             credentials {
                 username '<you user name>'
                 password '<you personal access token>'
@@ -69,6 +67,11 @@ dependencyResolutionManagement {
     }
 }
 ```
+
+You need to provide your personal access token that has read:packages scope selected.<br/>
+Also make sure your GitHub user has access to https://github.com/Azure/communication-preview<br/>
+Personal access token can be generated: [here](https://github.com/settings/tokens)
+
 
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -86,7 +89,7 @@ Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll 
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/startUILibraryButton"
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Launch"
@@ -112,9 +115,9 @@ import android.os.Bundle
 import android.widget.Button
 import com.azure.android.communication.common.CommunicationTokenCredential
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions
-import com.azure.android.communication.toolkit.CallCompositeBuilder
-import com.azure.android.communication.toolkit.CallComposite
-import com.azure.android.communication.toolkit.GroupCallOptions
+import com.azure.android.communication.ui.CallCompositeBuilder
+import com.azure.android.communication.ui.CallComposite
+import com.azure.android.communication.ui.GroupCallOptions
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
@@ -122,8 +125,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         
-        val startCallCompositeButton: Button = findViewById(R.id.startUILibraryButton)
-        startCallCompositeButton.setOnClickListener { l -> startCallComposite() }
+        val startButton: Button = findViewById(R.id.startButton)
+        startButton.setOnClickListener { l -> startCallComposite() }
     }
 
     private fun startCallComposite() {
@@ -156,9 +159,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.toolkit.CallCompositeBuilder;
-import com.azure.android.communication.toolkit.CallComposite;
-import com.azure.android.communication.toolkit.GroupCallOptions;
+import com.azure.android.communication.ui.CallCompositeBuilder;
+import com.azure.android.communication.ui.CallComposite;
+import com.azure.android.communication.ui.GroupCallOptions;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -168,9 +171,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button startCallCompositeButton = findViewById(R.id.startUILibraryButton);
+        Button startButton = findViewById(R.id.startButton);
 
-        startCallCompositeButton.setOnClickListener(l -> {
+        startButton.setOnClickListener(l -> {
             startCallComposite();
         });
     }
@@ -197,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 -----
-
 ## Run the code
 
 Build and start application from Android Studio.
@@ -206,20 +208,19 @@ Build and start application from Android Studio.
 - Accept audio permissions and select device, mic, and video settings.
 - Click `Join Call`.
 
-![Launch Toolkit](../../media/composite-android.gif)
+![Launch](../../media/composite-android.gif)
 
 ## Object Model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Android UI:
 
 | Name                                                               | Description                                                                                  |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
 | [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
-| [CallingEventHandler](#subscribe-events-from-ui-library)           | Injected as optional in CallingEventHandler to receive events from CallComposite.             |
-| [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                              |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                           |
-| [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.             |
+| [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
+| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
+| [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 
 ## [Create Call Composite](#create-call-composite)
 
@@ -265,16 +266,16 @@ CommunicationTokenCredential communicationTokenCredential = new CommunicationTok
 
 Refer to the [user access token](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity) documentation if you don't already have a token available.
 
------
-
 ## Setup Group Call or Teams Meeting Options
 
 Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
 
 ### [Group Call](#group-call)
 
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
+Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.<
+
 Replace `"GROUP_CALL_ID"` with your group id for your call.
+
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -299,11 +300,11 @@ GroupCallOptions options = new GroupCallOptions(
 );
 ```
 -----
-
 ### [Teams Meeting](#teams-meeting)
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
 Replace `"TEAMS_MEETING_LINK"` with your group id for your call.
+
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -329,11 +330,11 @@ TeamsMeetingOptions options = new TeamsMeetingOptions(
 ```
 
 -----
-
 ### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+
+The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## [Launch](#launch)
@@ -354,9 +355,9 @@ callComposite.launch(options);
 
 -----
 
-## [Subscribe events from UI Library](#subscribe-events-from-ui-library)
+## [Subscribe on events from `CallComposite`](#subscribe-events-from-composite)
 
-To receive events, inject a handler to `CallCompositeBuilder`.
+To receive events, inject a handler to the `CallCompositeBuilder`.
 
 #### [Kotlin](#tab/kotlin)
 
