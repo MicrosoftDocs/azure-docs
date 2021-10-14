@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Language Understanding (LUIS) documentation
-summary: Newer version of Language Understanding capabilities are now available as part of Azure Cognitive Services for Language. For more information see [Azure Cognitive Services for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Custom Language Understanding](../language-service/custom-language-understanding/overview.md), [Custom Text Extraction](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md). 
+summary: A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Custom Language Understanding](../language-service/custom-language-understanding/overview.md), [Custom Text Extraction](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
 
 metadata:
   ms.topic: landing-page
