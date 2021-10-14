@@ -54,6 +54,12 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 
 ## Create a scale set
 
+Create a resource group for the scale set.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name myVMSSRG -Location EastUS
+```
+
 
 Create IP address configuration.
 
@@ -101,11 +107,11 @@ Add-AzVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
    -NetworkApiVersion '2020-11-01'
     ```
 
-Create the scale set with the config object.
+Create the scale set with the config object using [New-AzVmss](/powershell/module/az.compute/new-azvmss).
 
 ```azurepowershell-interactive
-New-AzVmss -ResourceGroupName $rgname
-   -Name $vmssName `
+New-AzVmss -ResourceGroupName "myVMSSRG"
+   -Name myVMSS `
    -VirtualMachineScaleSet $vmssConfig
 ```
 
@@ -113,7 +119,13 @@ This step might take a few minutes to complete.
 
 ## View VMs in a scale set
 
+Use [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) to see all of the VMs that are part of a scale set.
 
+```azurepowershell-interactive
+Get-AzVmssVM `
+  -ResourceGroupName "myVMSSRG" `
+  -VMScaleSetName "myVMSS"
+```
 
 ## Add a VM to a scale set
 
