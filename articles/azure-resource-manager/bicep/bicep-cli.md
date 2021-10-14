@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ---
 # Bicep CLI commands
 

@@ -73,7 +73,7 @@ module stgModule  'br/CoreModules:storage:v1' = {
 When using an alias in the module reference, you must use the format:
 
 ```bicep
-br/<alias>:<file-name>:<tag>
+br/<alias>:<file>:<tag>
 ```
 
 Define your aliases to the folder that contains modules, not the file itself. The file name must be included in the reference to the module.
