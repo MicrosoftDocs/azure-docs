@@ -53,7 +53,7 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 - Choose **Next: Disks >**
 - Continue filling out information as needed and in the **Management** tab find the **Identity** section and check the box next to **System assigned managed identity**
 
-:::image type="content" source="media/how-to-manage-identities-vm-cosmos/create-vm-system-assigned-managed-identities.png" alt-text="Image showing how to enable system assigned managed identities while creating a VM":::
+:::image type="content" source="media/how-to-manage-identities-vm-cosmos/create-vm-system-assigned-managed-identities.png" alt-text="Image showing how to enable system assigned managed identities while creating a VM.":::
 
 For more information, review the Azure virtual machines documentation:
 
@@ -213,7 +213,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ---
 
-## Create a Cosmos DB Account
+## Create a Cosmos DB account
 
 Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need a Cosmos DB account available where you have administrative rights. If you need to create a Cosmos DB account for this tutorial the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
 
@@ -263,7 +263,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 
 When the role assignment step completes, you should see results similar to the ones shown below.
 
-:::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
+:::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment.":::
 
 # [Azure CLI](#tab/azure-cli)
 
