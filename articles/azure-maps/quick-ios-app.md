@@ -10,7 +10,7 @@ services: azure-maps
 manager: eriklind
 ---
 
-#  Create an iOS app (Public Preview)
+# Create an iOS app (Public Preview)
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
@@ -59,8 +59,10 @@ Once your Maps account is successfully created, retrieve the primary key that en
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 > [!Note]
+>This quickstart uses the Shared Key authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory authentication](azure/active-directory/authentication/overview-authentication).
+<!--
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
-
+-->
 ![Get the subscription key.](./media/ios-sdk/quick-ios-app/get-key.png)
 
 ## Create a project in Xcode
@@ -81,15 +83,20 @@ See the [Creating an Xcode Project for an App](https://developer.apple.com/docum
 
 The next step in building your application is to install the Azure Maps iOS SDK. Complete these steps to install the SDK:
 
-1. In **Project navigator** select project file
+1. With the desired Xcode iOS project selected in the **Project navigator** select the **+** button to **Add package dependency**.
 
-2. In opened **Project Editor** select project
+   ![Add package dependency.](./media/ios-sdk/quick-ios-app/xcode-add-package-dependency.png)
 
-3. Switch to **Swift Package** tab
+2. Enter the following in the resulting dialog:
+   * Enter `https://github.com/Azure/azure-maps-ios-sdk-distribution.git` in the search bar that appears in the top right corner.
+   * Select `Up to Next Major Version` in the **Dependency Rule** field.
+   * Enter `1.0.0-pre.1` into the **Dependency Rule** version field.
 
-4. Add Azure Maps iOS SDK: `{link goes here}`
+   ![Add an iOS project.](./media/ios-sdk/quick-ios-app/xcode-dependency-rule.png)
 
-   ![Add an iOS project.](./media/ios-sdk/quick-ios-app/add-project.png)
+3. Once the package alongside its dependencies is resolved, select the **Add Package** button to complete the dependency setup.
+
+   ![Add an iOS project.](./media/ios-sdk/quick-ios-app/xcode-add-package.png)
 
 ## Add MapControl view
 
