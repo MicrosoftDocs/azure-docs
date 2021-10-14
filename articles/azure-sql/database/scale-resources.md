@@ -33,20 +33,17 @@ Azure SQL Database offers the [DTU-based purchasing model](service-tiers-dtu.md)
 - The [DTU-based purchasing model](service-tiers-dtu.md) offers a blend of compute, memory, and I/O resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. This purchasing model offers three service tiers: General Purpose, Business Critical, and Hyperscale.
 
-With a few exceptions, databases can be "migrated" across service tiers as well. As an example, you can build your first app on a small, single database at a low cost per month in the Serverless service tier, and then change its service tier manually or programmatically at any time to the Hyperscale service tier, to meet the needs of your solution.
+The service tier for databases can be changed. As an example, you can build your first app on a single database using the serverless compute tier to reduce sizing uncertainty and potentially reduce costs. If at any time serverless does not provide the best price or performance fit, then the database can be moved to provisioned compute tier.
 
 > [!NOTE]
+> Notable exceptions where you cannot change the service tier of a database are:
 > 1. Databases in the Hyperscale service tier cannot currently be changed to a different service tier.
 > 2. Databases using features which are [only available](features-comparison.md#features-of-sql-database-and-sql-managed-instance) in the Business Critical / Premium service tiers, cannot be changed to use the General Purpose service tier.
 
-You can dyamically adjust the resources allocated to your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them. Please refer to the [note](#impact-of-scale-up-or-scale-down-operations) on the potential impact that a scale operation might have on an application.
+You can adjust the resources allocated to your database by changing the service objective to meet workload demands. This also enables you to only pay for the resources that you need, when you need them. Please refer to the [note](#impact-of-scale-up-or-scale-down-operations) on the potential impact that a scale operation might have on an application.
 
 > [!NOTE]
 > Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling with a minimal downtime. Single databases in Azure SQL Database can be scaled manually, or in the case of the [Serverless tier](serverless-tier-overview.md), set to automatically scale the compute resources. [Elastic pools](elastic-pool-overview.md), which allow databases to share resources in a pool, can currently only be scaled manually.
-
-You can change [DTU service tiers](service-tiers-dtu.md) or [vCore characteristics](resource-limits-vcore-single-databases.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, consider using the [Serverless tier](serverless-tier-overview.md) if you have a single database. If you have a number of databases, each with different load patterns, you might consider elastic pools where resources are shared among multiple databases in the pool.
-
-![Intro to SQL Database: Single database DTUs by tier and level](./media/scale-resources/single_db_dtus.png)
 
 Azure SQL Database offers the ability to dynamically scale your databases:
 
@@ -59,7 +56,7 @@ Azure SQL Managed Instance allows you to scale as well:
 
 ## Impact of scale up or scale down operations
 
-Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](single-database-scale.md#impact).
+Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](single-database-scale.md#impact). At this time, existing connections to the database are terminated, and any open transactions will be rolled back.
 
 > [!NOTE]
 > It is not recommended to scale your managed instance if a long-running transaction, such as data import, data processing jobs, index rebuild, etc., is running, or if you have any active connection on the instance. To prevent the scaling from taking longer time to complete than usual, you should scale the instance upon the completion of all long-running operations.
