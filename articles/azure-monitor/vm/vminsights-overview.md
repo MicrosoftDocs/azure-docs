@@ -15,7 +15,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 VM insights supports Windows and Linux operating systems on the following machines:
 
 - Azure virtual machines
-- Azure virtual machine scale sets
+- Azure virtual machine scale sets in Uniform orchestration mode
 - Hybrid virtual machines connected with Azure Arc
 - On-premises virtual machines
 - Virtual machines hosted in another cloud environment
