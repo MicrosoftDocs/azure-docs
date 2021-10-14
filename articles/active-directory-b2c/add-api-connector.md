@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/24/2021
 
 ms.author: mimart
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type

@@ -2,7 +2,7 @@
 title: Add a native client application - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add a native client application to your Active Directory B2C tenant.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.author: mimart

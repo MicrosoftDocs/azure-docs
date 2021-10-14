@@ -3,7 +3,7 @@ title: Cookie definitions
 titleSuffix: Azure AD B2C
 description: Provides definitions for the cookies used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

@@ -2,7 +2,7 @@
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external sources using APIs.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

@@ -2,7 +2,7 @@
 title: Enable a web application that calls web API options by using Azure Active Directory B2C
 description:  This article discusses how to enable the use of a web application that calls web API options in several ways.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity

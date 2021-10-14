@@ -3,7 +3,7 @@ title: Publish your Azure Active Directory B2C app to the Azure Active Directory
 description: Learn how to list an Azure AD B2C app that supports single sign-on in the Azure Active Directory app gallery.
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

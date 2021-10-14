@@ -3,7 +3,7 @@ title: Define an OAuth1 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth 1.0 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

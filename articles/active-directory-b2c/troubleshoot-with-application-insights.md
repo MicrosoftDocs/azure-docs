@@ -3,7 +3,7 @@ title: Troubleshoot custom policies with Application Insights
 titleSuffix: Azure AD B2C
 description: How to set up Application Insights to trace the execution of your custom policies.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

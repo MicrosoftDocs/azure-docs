@@ -3,7 +3,7 @@ title: Add AD FS as an OpenID Connect identity provider by using custom policies
 titleSuffix: Azure AD B2C
 description: Set up AD FS 2016 using the OpenID Connect protocol and custom policies in Azure Active Directory B2C
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

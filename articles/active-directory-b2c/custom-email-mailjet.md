@@ -3,7 +3,7 @@ title: Custom email verification with Mailjet
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with Mailjet to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

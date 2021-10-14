@@ -3,7 +3,7 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

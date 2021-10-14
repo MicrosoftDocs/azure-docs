@@ -3,7 +3,7 @@ title: Configure a force password reset flow in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to set up a forced password reset flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

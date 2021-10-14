@@ -2,7 +2,7 @@
 title: UserInfo endpoint | Microsoft Docs
 description: Define a UserInfo endpoint in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

@@ -2,7 +2,7 @@
 title: Enable Angular application options by using Azure Active Directory B2C
 description:  Enable the use of Angular application options in several ways.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity

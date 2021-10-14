@@ -2,7 +2,7 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

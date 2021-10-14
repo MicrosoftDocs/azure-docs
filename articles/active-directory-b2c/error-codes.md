@@ -3,7 +3,7 @@ title: Error code reference
 titleSuffix: Azure AD B2C
 description: A list of the error codes that can be returned by the Azure Active Directory B2C service.
 services: B2C
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

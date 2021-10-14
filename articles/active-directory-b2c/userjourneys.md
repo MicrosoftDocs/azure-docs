@@ -2,7 +2,7 @@
 title: UserJourneys | Microsoft Docs
 description: Specify the UserJourneys element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory

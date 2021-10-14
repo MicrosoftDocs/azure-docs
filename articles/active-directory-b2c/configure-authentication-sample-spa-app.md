@@ -2,7 +2,7 @@
 title: Configure authentication in a sample single-page application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a single-page application.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity

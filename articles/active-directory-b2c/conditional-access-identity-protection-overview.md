@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 05/28/2021
 
 ms.author: mimart
-author: msmimart
+author: kengaderdus
 manager: celested
 
 ms.collection: M365-identity-device-management

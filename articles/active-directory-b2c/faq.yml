@@ -3,7 +3,7 @@ metadata:
   title: 'Frequently asked questions (FAQ) for Azure Active Directory B2C'
   description: Answers to frequently asked questions about Azure Active Directory B2C.
   services: active-directory-b2c
-  author: msmimart
+  author: kengaderdus
   manager: CelesteDG
   
   ms.service: active-directory
