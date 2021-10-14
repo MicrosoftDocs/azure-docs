@@ -40,20 +40,28 @@ With the new model, Batch pools in accounts that use simplified compute node com
 
 Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API will report the base set of dependencies, depending upon the Batch account pool communication model. User-specific workloads may need additional rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry, etc.) or endpoints like the Microsoft package repository for virtual file system mounting functionality.  
 
+## Benefits of the new model
+
+Azure Batch users who [opt in to the new communication model](#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication) benefit from simplification of networking connections and rules.
+
+Simplified compute node communication helps reduce security risks by removing the requirement to open ports for inbound communication from the internet. Only a single outbound rule to a well-known Service Tag is required for baseline operation.
+
+The new model also provides more fine-grained data exfiltration control, since outbound communication to Storage.*region* is no longer required. You can explicitly lock down outbound communication to Azure Storage if required for your workflow (such as AppPackage storage accounts, other storage accounts for resource files or output files, or other similar scenarios).
+
+Even if your workloads are not currently impacted by the changes (as described in the next section), you may still want to [opt in to use simplified compute node communication](#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication) now. This will ensure your Batch workloads are ready for any future improvements enabled by this model.
+
 ## Scope of impact
 
-In many cases, this new communication model will not affect your Batch workloads. However, simplified compute node communication will have an impact for the following cases:
+In many cases, this new communication model will not directly affect your Batch workloads. However, simplified compute node communication will have an impact for the following cases:
 
 1. Users who specify a Virtual Network as part of creating a Batch pool and do one or both of the following:
    1. Explicitly disable outbound network traffic rules that are incompatible with simplified compute node communication.
    1. Use UDRs and firewall rules that are incompatible with simplified compute node communication.
 1. Users who enable software firewalls on compute nodes and explicitly disable outbound traffic in software firewall rules which are incompatible with simplified compute node communication.
 
-If either of these cases applies to your Batch workloads, and you would like to opt in to the preview, please follow the steps outlined in the [Required network configuration changes](#required-network-configuration-changes) section below.
+If either of these cases applies to you, and you would like to opt in to the preview, follow the steps outlined in the next section to ensure that your Batch workloads can still function under the new model.
 
-If neither of the cases above applies to you, you can [opt in to use simplified compute node communication](#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication) for your Batch accounts now, without taking any additional action. Alternately, you can do nothing and wait until the communication model is implemented across all Batch accounts.
-
-## Required network configuration changes
+### Required network configuration changes
 
 For impacted users, the following set of steps are required to migrate to the new communication model:
 
@@ -69,13 +77,13 @@ For impacted users, the following set of steps are required to migrate to the ne
    1. Create new pools and validate that the new pools are working correctly. Migrate your workload to the new pools and delete any earlier pools.
    1. Resize all existing pools to zero nodes and scale back out.
 1. After confirming that all previous pools have been either deleted or scaled to zero and back out, query the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints) to confirm that no outbound rule to Azure Storage for the region exists (excluding any autostorage accounts if linked to your Batch account).
-1. Modify all applicable networking configuration to the Simplified Compute Node Communication rules, at the minimum (please note any additional rules needed as discussed above): 
+1. Modify all applicable networking configuration to the Simplified Compute Node Communication rules, at the minimum (please note any additional rules needed as discussed above):
    - Inbound:
      - None
    - Outbound:
      - Destination port 443 over TCP to BatchNodeManagement.*region*
 
-If you follow these steps, but later want to stop using simplified compute node communication, you'll need to do the following:: 
+If you follow these steps, but later want to stop using simplified compute node communication, you'll need to do the following:
 
 1. [Opt out of simplified compute node communication](#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication) as described below.
 1. Migrate your workload to new pools, or resize existing pools and scale back out (see step 4 above).
@@ -105,7 +113,7 @@ Use the following options when creating your request.
 1. Make any other required selections on the page, then select **Next**.
 1. Review your request details, then select **Create** to submit your support request.
 
-After your request has been submitted, you should see the change within *XX hours or days??**.
+After your request has been submitted, you will be notified once the account has been opted in (or out).
 
 ## Current limitations
 
