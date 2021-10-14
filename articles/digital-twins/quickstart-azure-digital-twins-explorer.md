@@ -107,7 +107,7 @@ For this quickstart, the model files are already written and validated for you. 
 * Floor
 * Room
 
-#### Upload the models (.json)
+#### Upload the models (.json files)
 
 Follow these steps to upload models (the *.json* files you downloaded earlier).
 
@@ -143,7 +143,7 @@ In this section, you'll upload pre-created twins that are connected into a pre-c
 * Floor1
     - Contains Room1
 
-#### Import the graph (.xlsx)
+#### Import the graph (.xlsx file)
 
 Follow these steps to import the graph (the *.xlsx* file you downloaded earlier).
 
