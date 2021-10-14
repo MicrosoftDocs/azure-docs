@@ -286,7 +286,7 @@ When using `customize`:
 The customize section is an array. Azure Image Builder will run through the customizers in sequential order. Any failure in any customizer will fail the build process. 
 
 > [!NOTE]
-> Inline commands can be viewed in the image template definition and by Microsoft Support when helping with a support case. If you have sensitive information, it should be moved into scripts in Azure Storage, where access requires authentication.
+> Inline commands can be viewed in the image template definition. If you have sensitive information (including passwords, SAS token, authentication tokens, etc), it should be moved into scripts in Azure Storage, where access requires authentication.
  
 ### Shell customizer
 
@@ -322,7 +322,7 @@ Customize properties:
     * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
 > [!NOTE]
-> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition, and these are also visible to Microsoft Support in the event of a support case for troubleshooting purposes. If you have sensitive commands or values, it is strongly recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
+> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition. If you have sensitive commands or values (including passwords, SAS token, authentication tokens etc), it is strongly recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
 
 #### Super user privileges
 For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
