@@ -86,7 +86,10 @@ To send data to immutable storage, set the immutable policy for the storage acco
 
 The storage account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
 
-Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. The export rule setting creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
+Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. A container is created for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
+
+> [!NOTE]
+> It's recommended to use separate storage account for proper ingress rate allocation and reducing throttling, failures and latency events.
 
 Starting 15-October 2021, blobs are stored in 5 minutes folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such case would be PT05M_#.json*, where # is the incremental blob count.
 
@@ -102,15 +105,14 @@ The event hub namespace needs to be in the same region as your workspace.
 
 Data is sent to your event hub as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
+> [!NOTE]
+> - 'Basic' event hub tier supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and some logs in your workspace might exceed it and be dropped. Use 'Standard', 'Premium' or 'Dedicated' tiers for export destination.
+> - The volume of exported data increases over time and consequence scaling is required for higher ingress rates. Use the **Auto-inflate** feature to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
+> - Use separate event hub namespace for proper ingress rate allocation and reducing throttling, failures and latency events.
+> - Data export can't reach event hub resources when virtual networks are enabled. You have to enable the **Allow trusted Microsoft services** to bypass this firewall setting in event hub, to grant access to your Event Hubs resources.
+
 > [!IMPORTANT]
 > The [number of supported event hubs per 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, either split the tables between several export rules to different event hub namespaces, or provide event hub name in the export rule and export all tables to that event hub.
-
-Considerations for event hub namespace:
-1. The 'Basic' event hub SKU supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and some logs in your workspace might exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
-2. The volume of exported data often increases over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
-
-> [!NOTE]
-> Azure Monitor data export can't access event hub resources when virtual networks are enabled. You have to enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub, so that Azure Monitor data export is granted access to your Event Hubs resources. 
 
 ## Enable data export
 The following steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
@@ -156,28 +158,24 @@ Data export destinations have limits and they should be monitored to minimize ex
     | storage-name | Account | Ingress | Sum | 80% of max storage ingress rate. For example: it's 60Gbps for general-purpose v2 in West US |
   
 1. Remediation action
-    - Use separate event hub namespace for export
+    - Use separate storage account for export
     - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
     - Split tables between additional storage accounts
 
 #### Recommendations for event hub
 
-1. Configure alert on the metric below with the following settings: 
-   - `Operator` Grater than
-   - `Aggregation type` Total
-   - `Aggregation granularity (period)` 5 minutes
-   - `Frequency of evaluation` Every 5 minutes
+1. Configure [metric alerts](../../event-hubs/monitor-event-hubs-reference.ms):
   
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per 5 minutes. For example, it's 1MB/s per TU |
-    | namespaces-name | Event Hub standard metrics | Incoming messages | Sum | 80% of max events per 5 minutes. For example, it's 1000/s per TU |
-    | namespaces-name | Event Hub standard metrics | Throttling requests | Sum | Between 1% to 5% of request |
+    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per 5 minutes. For example, it's 1MB/s per unit (TU or PU) |
+    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per 5 minutes. For example, it's 1000/s per unit (TU or PU) |
+    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% to 5% of request |
 
 1. Remediation action
-   - Increase the number of throttling units (TUs)
+   - Increase the number of units (TU or PU)
    - Split tables between additional namespaces
-   - Use Premium event hub tier for higher throughput
+   - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
 
