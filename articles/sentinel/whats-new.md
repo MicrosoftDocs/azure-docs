@@ -47,13 +47,13 @@ For more information, see the [Azure Sentinel pricing](https://azure.microsoft.c
 
 ### Content hub and new solutions (Public preview)
 
-Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
 :::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
 
-The following list includes highlights of new solutions added to the Content hub:
+The following list includes highlights of new, out-of-the-box solutions added to the Content hub:
 
 :::row:::
    :::column span="":::
