@@ -126,8 +126,8 @@ Production machine learning models need to be auditable (if not reproducible). I
 
 You can specify the `code.local_path` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
 
-> [!TIP]
-> The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot.
+> [!WARNING]
+> The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot. The limits for snapshot size are 300 MB or 2000 files.
 
 Let's look at a job that specifies code:
 
@@ -343,7 +343,7 @@ For more sweep options, see the [sweep job YAML syntax reference](reference-yaml
 
 ## Distributed training
 
-Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed training. See the [distributed section of the command job YAML syntax reference](reference-yaml-job-command.md) for details.
+Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed training. See the [distributed section of the command job YAML syntax reference](reference-yaml-job-command.md#distribution-configurations) for details.
 
 As an example, you can train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/cli-preview/jobs/single-step/pytorch/cifar-distributed/).
 
