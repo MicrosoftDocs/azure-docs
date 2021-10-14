@@ -1,6 +1,6 @@
 ---
 title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
-description: Describes using application volume group to add volumes for an SAP HANA system as a secondary database in HANA System Replication (HSR).
+description: Describes using application volume group to add volumes for an SAP HANA system as disaster recovery (DR) system.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -135,7 +135,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 8. Click each volume with the DP type to specify the **Source volume ID**. See [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id) for details. 
  
-    You can optionally change the default replication schedule of a volume. See [Replication schedules, RTO, and RPO](#Replication-schedules-RTO-and-RPO) for the replication schedule options. 
+    You can optionally change the default replication schedule of a volume. See [Replication schedules, RTO, and RPO](#replication-schedules-rto-and-rpo) for the replication schedule options. 
 
     [ ![Screenshot that shows the Replication tab in Create a Volume Group page.](../media/azure-netapp-files/application-cross-region-replication-tab.png) ](../media/azure-netapp-files/application-cross-region-replication-tab.png#lightbox)
 

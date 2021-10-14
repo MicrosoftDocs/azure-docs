@@ -84,7 +84,7 @@ Before you begin, you should understand the [requirements and considerations for
 
     Click **Next: Volumes**. 
 
-    [ ![Screenshot that shows how to add tags.](../media/azure-netapp-files/application-protocols-tag.png) ](../media/azure-netapp-files/application-protocols-tag.png#lightbox)
+    [ ![Screenshot that shows the protocols tags.](../media/azure-netapp-files/application-protocols-tag.png) ](../media/azure-netapp-files/application-protocols-tag.png#lightbox)
 
 7. The **Volumes** tab summarizes the volumes that are being created with proposed volume name, quota, and throughput. 
 

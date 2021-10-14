@@ -105,7 +105,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     The volume naming convention includes an `"HA-"` prefix to indicate that the volume belong to the secondary system of an HSR setup.
 
-    [ ![Screenshot that shows the Volumes section of the Volume Group tab.](../media/azure-netapp-files/application-secondary-volumes-tags.png) ](../media/azure-netapp-files/application-secondary-volumes-tags.png#lightbox)
+    [ ![Screenshot that shows the Volume Group tab.](../media/azure-netapp-files/application-secondary-volumes-tags.png) ](../media/azure-netapp-files/application-secondary-volumes-tags.png#lightbox)
 
 7. In the **Volumes** tab, you can select each volume to view or change the volume details, including the protocol and tag for the volume.
 
@@ -113,7 +113,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     This action only marks the primary volume; it does not validate the provided resource ID.
 
-    [ ![Screenshot that shows the Volumes section of the Volume Group tab.](../media/azure-netapp-files/application-secondary-volumes-tag-details.png) ](../media/azure-netapp-files/application-secondary-volumes-tag-details.png#lightbox)
+    [ ![Screenshot that shows the tag details.](../media/azure-netapp-files/application-secondary-volumes-tag-details.png) ](../media/azure-netapp-files/application-secondary-volumes-tag-details.png#lightbox)
 
     Click **Volumes** to return to the Volumes overview page.  
 
