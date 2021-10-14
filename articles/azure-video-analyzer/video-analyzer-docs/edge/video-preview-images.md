@@ -15,8 +15,11 @@ These images will be one frame from the video resized to 3 different resolutions
   * 640 x 360 = medium
   * 1280 x 720 = large
 
-The generated preview images preserve the aspect ratio of the source footage resolution, therefore the image resolutions may not match the aforementioned set of resolutions exactly.
-Images are only generated and updated while a live pipeline is active and video is being recorded.
+>[NOTE]
+>The generated preview images preserve the aspect ratio of the source footage resolution, therefore the image resolutions may not match the aforementioned set of resolutions exactly.
+
+
+Video preview images are generated at the first frame when recording starts and then periodically at the same time of segment upload. Images are only generated and updated while a live pipeline is active and video is being recorded.
 If an event-based video recording pipeline is being used, the images will only be generated when there is an event that has triggered recording.
 Newly generated images will replace the most recent images in the blob storage container.
 
