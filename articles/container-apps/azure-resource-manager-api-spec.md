@@ -17,13 +17,11 @@ Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) 
 
 | Property | Description | Data type |
 |---|---|--|
-| `id` | The unique identifier of the container app. See the explanation below for more details. **This is a required property.** | string |
 | `name` | The Container Apps application name. This name is used at the end of the `id` property in the ARM template file. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
-| `kind` | Always `containerapps` ARM endpoint determines which API to forward to  | string |
+| `type` | Always `Microsoft.Web/containerApps` ARM endpoint determines which API to forward to  | string |
 
-The `id` value takes the following form:
 
 ```console
 /subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/containerapps/<CONTAINER_APP_NAME>
