@@ -1,0 +1,274 @@
+---
+title: Configure custom naming module for the automation framework
+description: Explanation of how to implement custom naming conventions for the SAP Deployment Automation Framework on Azure.
+author: kimforss
+ms.author: kimforss
+ms.reviewer: kimforss
+ms.date: 10/14/2021
+ms.topic: conceptual
+ms.service: virtual-machines-sap
+---
+
+# Configure custom naming module
+
+The [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md) uses standard naming conventions. You can use these [standard naming conventions](automation-naming.md) with enterprise scenarios. However, you can also use custom naming logic by modifying the naming module.
+
+The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `../../../deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. You can manage and change all resource names from this module.
+
+There are multiple files within the module for:
+
+- Virtual machine (VM) and computer names (`vm.tf`)
+- Resource groups (`resourcegroup.tf`)
+- Key vaults (`keyvault.tf`)
+- Resource suffixes (`variables_local.tf`)
+
+All four deployment types in the automation framework use the naming module:
+
+- SAP deployer deployments use resource names with the prefix `deployer_`
+- SAP library deployments use resource names with the prefix `library`
+- SAP landscape deployments use resource names with the prefix `vnet_`
+- SAP system deployments use resource names with the prefix `sdu_`
+
+## Module input
+
+The module input uses parameters as follows to create names:
+
+```json
+module "sap_namegenerator" {
+  source           = "../../terraform-units/modules/sap_namegenerator"
+  environment      = var.infrastructure.environment
+  location         = var.infrastructure.region
+  codename         = lower(try(var.infrastructure.codename, ""))
+  random_id        = module.common_infrastructure.random_id
+  sap_vnet_name    = local.vnet_logical_name
+  sap_sid          = local.sap_sid
+  db_sid           = local.db_sid
+  app_ostype       = local.app_ostype
+  anchor_ostype    = local.anchor_ostype
+  db_ostype        = local.db_ostype
+  db_server_count  = local.db_server_count
+  app_server_count = local.app_server_count
+  web_server_count = local.webdispatcher_count
+  scs_server_count = local.scs_server_count
+  app_zones        = local.app_zones
+  scs_zones        = local.scs_zones
+  web_zones        = local.web_zones
+  db_zones         = local.db_zones
+  resource_offset  = try(var.options.resource_offset, 0)
+}
+```
+
+## Module output
+
+The module outputs a data structure with all names to pass on to the other Terraform modules. For example:
+
+```json
+output "naming" {
+  value = {
+    prefix = {
+      DEPLOYER = local.deployer_name
+      SDU      = length(var.custom_prefix) > 0 ? var.custom_prefix : local.sdu_name
+      VNET     = local.landscape_name
+      LIBRARY  = local.library_name
+    }
+    storageaccount_names = {
+      DEPLOYER = local.deployer_storageaccount_name
+      SDU      = local.sdu_storageaccount_name
+      VNET = {
+        landscape_storageaccount_name = local.landscape_storageaccount_name
+        witness_storageaccount_name   = local.witness_storageaccount_name
+      }
+
+      LIBRARY = {
+        library_storageaccount_name        = local.library_storageaccount_name
+        terraformstate_storageaccount_name = local.terraformstate_storageaccount_name
+      }
+    }
+    keyvault_names = {
+      DEPLOYER = {
+        private_access = local.deployer_private_keyvault_name
+        user_access    = local.deployer_user_keyvault_name
+      }
+      LIBRARY = {
+        private_access = local.library_private_keyvault_name
+        user_access    = local.library_user_keyvault_name
+      }
+      SDU = {
+        private_access = local.sdu_private_keyvault_name
+        user_access    = local.sdu_user_keyvault_name
+      }
+      VNET = {
+        private_access = local.landscape_private_keyvault_name
+        user_access    = local.landscape_user_keyvault_name
+      }
+    }
+    virtualmachine_names = {
+      APP_COMPUTERNAME         = local.app_computer_names
+      APP_SECONDARY_DNSNAME    = local.app_secondary_dnsnames
+      APP_VMNAME               = local.app_server_vm_names
+      ANCHOR_COMPUTERNAME      = local.anchor_computer_names
+      ANCHOR_SECONDARY_DNSNAME = local.anchor_secondary_dnsnames
+      ANCHOR_VMNAME            = local.anchor_vm_names
+      ANYDB_COMPUTERNAME       = concat(local.anydb_computer_names, local.anydb_computer_names_ha)
+      ANYDB_SECONDARY_DNSNAME  = concat(local.anydb_secondary_dnsnames, local.anydb_secondary_dnsnames_ha)
+      ANYDB_VMNAME             = concat(local.anydb_vm_names, local.anydb_vm_names_ha)
+      DEPLOYER                 = local.deployer_vm_names
+      HANA_COMPUTERNAME        = concat(local.hana_computer_names, local.hana_computer_names_ha)
+      HANA_SECONDARY_DNSNAME   = concat(local.hana_secondary_dnsnames, local.hana_secondary_dnsnames_ha)
+      HANA_VMNAME              = concat(local.hana_server_vm_names, local.hana_server_vm_names_ha)
+      ISCSI_COMPUTERNAME       = local.iscsi_server_names
+      OBSERVER_COMPUTERNAME    = local.observer_computer_names
+      OBSERVER_VMNAME          = local.observer_vm_names
+      SCS_COMPUTERNAME         = local.scs_computer_names
+      SCS_SECONDARY_DNSNAME    = local.scs_secondary_dnsnames
+      SCS_VMNAME               = local.scs_server_vm_names
+      WEB_COMPUTERNAME         = local.web_computer_names
+      WEB_SECONDARY_DNSNAME    = local.web_secondary_dnsnames
+      WEB_VMNAME               = local.web_server_vm_names
+    }
+
+    ppg_names = local.ppg_names
+    
+    app_avset_names = local.app_avset_names
+    scs_avset_names = local.scs_avset_names
+    web_avset_names = local.web_avset_names
+    db_avset_names  = local.db_avset_names
+
+    resource_suffixes = var.resource_suffixes
+
+    separator = local.separator
+  }
+}
+```
+
+## Prepare Terraform environment
+
+To prepare your Terraform environment for custom naming, you first need to create custom naming module.
+
+1. Create a root-level folder in your Terraform environment. For example, `Azure_Deployment`.
+1. Navigate to your new root-level folder.
+1. Create a folder within the root-level folder called `Workspaces`.
+1. Navigate to the `Workspaces` folder.
+1. Clone the [automation framework repository](https://github.com/Azure/sap-hana) into the `Workspaces` folder. This step creates a new folder `sap-hana`.
+1. Navigate to the `sap-hana` folder.
+1. Check out the appropriate branch in git.
+1. Navigate to `\deploy\terraform\terraform-units\modules` within the `sap-hana` folder.
+1. Copy the folder `sap_namegenerator` to a new folder within the `Workspaces` folder. For example, `\Workspaces\Contoso_naming`.
+
+Next, you need to point your other Terraform module files to your custom naming module. These module files include:
+
+- `deploy\terraform\run\sap_system\module.tf`
+- `deploy\terraform\bootstrap\sap_deployer\module.tf`
+- `deploy\terraform\bootstrap\sap_library\module.tf`
+- `deploy\terraform\run\sap_library\module.tf`
+- `deploy\terraform\run\sap_deployer\module.tf`
+
+For each file, change the source for the module `sap_namegenerator` to point to your new naming module's location. For example `module "sap_namegenerator" { source        = "../../terraform-units/modules/sap_namegenerator"` becomes `module "sap_namegenerator" { source        = "../../../../workspaces/Contoso_naming"`.
+
+## Change resource group naming logic
+
+To change your resource group's naming logic, navigate to your custom naming module folder (for example, `Workspaces\Contoso_naming`). Then, edit the file `resourcegroup.tf`. Modify the following code with your own naming logic.
+
+```json
+locals {
+
+  // Resource group naming
+  sdu_name = length(var.codename) > 0 ? (
+    upper(format("%s-%s-%s_%s-%s", local.env_verified, local.location_short, local.sap_vnet_verified, var.codename, var.sap_sid))) : (
+    upper(format("%s-%s-%s-%s", local.env_verified, local.location_short, local.sap_vnet_verified, var.sap_sid))
+  )
+
+  deployer_name  = upper(format("%s-%s-%s", local.deployer_env_verified, local.deployer_location_short, local.dep_vnet_verified))
+  landscape_name = upper(format("%s-%s-%s", local.landscape_env_verified, local.location_short, local.sap_vnet_verified))
+  library_name   = upper(format("%s-%s", local.library_env_verified, local.location_short))
+
+  // Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique.
+  deployer_storageaccount_name       = substr(replace(lower(format("%s%s%sdiag%s", local.deployer_env_verified, local.deployer_location_short, local.dep_vnet_verified, local.random_id_verified)), "/[^a-z0-9]/", ""), 0, var.azlimits.stgaccnt)
+  landscape_storageaccount_name      = substr(replace(lower(format("%s%s%sdiag%s", local.landscape_env_verified, local.location_short, local.sap_vnet_verified, local.random_id_verified)), "/[^a-z0-9]/", ""), 0, var.azlimits.stgaccnt)
+  library_storageaccount_name        = substr(replace(lower(format("%s%ssaplib%s", local.library_env_verified, local.location_short, local.random_id_verified)), "/[^a-z0-9]/", ""), 0, var.azlimits.stgaccnt)
+  sdu_storageaccount_name            = substr(replace(lower(format("%s%s%sdiag%s", local.env_verified, local.location_short, local.sap_vnet_verified, local.random_id_verified)), "/[^a-z0-9]/", ""), 0, var.azlimits.stgaccnt)
+  terraformstate_storageaccount_name = substr(replace(lower(format("%s%stfstate%s", local.library_env_verified, local.location_short, local.random_id_verified)), "/[^a-z0-9]/", ""), 0, var.azlimits.stgaccnt)
+
+}
+```
+
+## Change resource suffixes
+
+To change your resource suffixes, navigate to your custom naming module folder (for example, `Workspaces\Contoso_naming`). Then, edit the file `variables_local.tf`. Modify the following map with your own resource suffixes.
+
+> [!NOTE]
+> Only change the map **values**. Don't change the map **key**, which the Terraform code uses.
+> For example, if you want to rename the administrator network interface component, change `"admin-nic"           = "-admin-nic"` to `"admin-nic"           = "yourNICname"`.
+
+```json
+variable resource_suffixes {
+  type        = map(string)
+  description = "Extension of resource name"
+
+  default = {
+    "admin_nic"           = "-admin-nic"
+    "admin_subnet"        = "admin-subnet"
+    "admin_subnet_nsg"    = "adminSubnet-nsg"
+    "app_alb"             = "app-alb"
+    "app_avset"           = "app-avset"
+    "app_subnet"          = "app-subnet"
+    "app_subnet_nsg"      = "appSubnet-nsg"
+    "db_alb"              = "db-alb"
+    "db_alb_bepool"       = "dbAlb-bePool"
+    "db_alb_feip"         = "dbAlb-feip"
+    "db_alb_hp"           = "dbAlb-hp"
+    "db_alb_rule"         = "dbAlb-rule_"
+    "db_avset"            = "db-avset"
+    "db_nic"              = "-db-nic"
+    "db_subnet"           = "db-subnet"
+    "db_subnet_nsg"       = "dbSubnet-nsg"
+    "deployer_rg"         = "-INFRASTRUCTURE"
+    "deployer_state"      = "_DEPLOYER.terraform.tfstate"
+    "deployer_subnet"     = "_deployment-subnet"
+    "deployer_subnet_nsg" = "_deployment-nsg"
+    "iscsi_subnet"        = "iscsi-subnet"
+    "iscsi_subnet_nsg"    = "iscsiSubnet-nsg"
+    "library_rg"          = "-SAP_LIBRARY"
+    "library_state"       = "_SAP-LIBRARY.terraform.tfstate"
+    "kv"                  = ""
+    "msi"                 = "-msi"
+    "nic"                 = "-nic"
+    "osdisk"              = "-OsDisk"
+    "pip"                 = "-pip"
+    "ppg"                 = "-ppg"
+    "sapbits"             = "sapbits"
+    "storage_nic"         = "-storage-nic"
+    "storage_subnet"      = "_storage-subnet"
+    "storage_subnet_nsg"  = "_storageSubnet-nsg"
+    "scs_alb"             = "scs-alb"
+    "scs_alb_bepool"      = "scsAlb-bePool"
+    "scs_alb_feip"        = "scsAlb-feip"
+    "scs_alb_hp"          = "scsAlb-hp"
+    "scs_alb_rule"        = "scsAlb-rule_"
+    "scs_avset"           = "scs-avset"
+    "scs_ers_feip"        = "scsErs-feip"
+    "scs_ers_hp"          = "scsErs-hp"
+    "scs_ers_rule"        = "scsErs-rule_"
+    "scs_scs_rule"        = "scsScs-rule_"
+    "sdu_rg"              = ""
+    "tfstate"             = "tfstate"
+    "vm"                  = ""
+    "vnet"                = "-vnet"
+    "vnet_rg"             = "-INFRASTRUCTURE"
+    "web_alb"             = "web-alb"
+    "web_alb_bepool"      = "webAlb-bePool"
+    "web_alb_feip"        = "webAlb-feip"
+    "web_alb_hp"          = "webAlb-hp"
+    "web_alb_inrule"      = "webAlb-inRule"
+    "web_avset"           = "web-avset"
+    "web_subnet"          = "web-subnet"
+    "web_subnet_nsg"      = "webSubnet-nsg"
+
+  }
+}
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about naming conventions](automation-naming.md)
