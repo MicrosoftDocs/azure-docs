@@ -160,7 +160,7 @@ Data export destinations have limits and they should be monitored to minimize ex
 
 #### Recommendations for event hub
 
-1. Configure [metric alerts](../../event-hubs/monitor-event-hubs-reference.ms):
+1. Configure [metric alerts](../../event-hubs/monitor-event-hubs-reference.md):
   
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
