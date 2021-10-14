@@ -401,7 +401,7 @@
       - name: Define projections
         href: knowledge-store-projections-examples.md 
       - name: Projection example
-        href: knowledge-store-projection-example-2.md
+        href: knowledge-store-projection-example-long.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI

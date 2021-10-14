@@ -28,7 +28,7 @@ Projections are defined under the "knowledgeStore" property of a skillset.
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
     "projections": [
       {
-        "tables": [  ],
+        "tables": [ ],
         "objects": [ ],
         "files": [ ]
       }
@@ -40,9 +40,9 @@ If you need more background before getting started, review [this check list](kno
 > [!TIP]
 > When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing charges.
 
-## Projection requirements
+## Requirements
 
-All projections have source and destination properties. The source is content from an enrichment tree created during skillset execution. The destination is the name of the object that will be created and loaded in Azure Storage.
+All projections have source and destination properties. The source is always content from an enrichment tree created during skillset execution. The destination is the name of the object that will be created and loaded in Azure Storage.
 
 With the exception of file projections, which store binary files, the source must be:
 
@@ -254,246 +254,35 @@ The following example projects all normalized images extracted from the document
 ]
 ```
 
-## Projecting to multiple types
-
-A more complex scenario might require you to project content across projection types. For example, projecting key phrases and entities to tables, saving OCR results of text and layout text as objects, and then projecting the images as files.
-
-Steps for multiple projection types:
-
-1. Create data shapes to use for each projection.
-1. Create a table with a row for each document.
-1. Create a table related to the document table with each key phrase identified as a row in this table.
-1. Create a table related to the document table with each entity identified as a row in this table.
-1. Create an object projection with the layout text for each image.
-1. Create a file projection, projecting each extracted image.
-1. Create a cross-reference table that contains references to the document table, object projection with the layout text, and the file projection.
-
-### Step 1: Shape data for cross-projection
-
-To get the shapes needed for table, object, and file projections, start by adding a new Shaper skill that creates a shaped object called `crossProjection`. 
-
-```json
-{
-    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "ShaperForCrossProjection",
-    "description": null,
-    "context": "/document",
-    "inputs": [
-        {
-            "name": "metadata_storage_name",
-            "source": "/document/metadata_storage_name",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "keyPhrases",
-            "source": null,
-            "sourceContext": "/document/merged_content/keyphrases/*",
-            "inputs": [
-                {
-                    "name": "KeyPhrases",
-                    "source": "/document/merged_content/keyphrases/*"
-                }
-
-            ]
-        },
-        {
-            "name": "entities",
-            "source": null,
-            "sourceContext": "/document/merged_content/entities/*",
-            "inputs": [
-                {
-                    "name": "Entities",
-                    "source": "/document/merged_content/entities/*/name"
-                }
-
-            ]
-        },
-        {
-            "name": "images",
-            "source": null,
-            "sourceContext": "/document/normalized_images/*",
-            "inputs": [
-                {
-                    "name": "image",
-                    "source": "/document/normalized_images/*"
-                },
-                {
-                    "name": "layoutText",
-                    "source": "/document/normalized_images/*/layoutText"
-                },
-                {
-                    "name": "ocrText",
-                    "source": "/document/normalized_images/*/text"
-                }
-                ]
-        }
- 
-    ],
-    "outputs": [
-        {
-            "name": "output",
-            "targetName": "crossProjection"
-        }
-    ]
-}
-```
-
-### Step 2: Define table, object, and file projections
-
-From the consolidated crossProjection object, slice the object into multiple tables, capture the OCR output as blobs, and then save the image as files (also in Blob storage).
-
-```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-            {
-            "tables": [
-                {
-                    "tableName": "crossDocument",
-                    "generatedKeyName": "Id",
-                    "source": "/document/crossProjection"
-                },
-                {
-                    "tableName": "crossEntities",
-                    "generatedKeyName": "EntityId",
-                    "source": "/document/crossProjection/entities/*"
-                },
-                {
-                    "tableName": "crossKeyPhrases",
-                    "generatedKeyName": "KeyPhraseId",
-                    "source": "/document/crossProjection/keyPhrases/*"
-                },
-                {
-                    "tableName": "crossReference",
-                    "generatedKeyName": "CrossId",
-                    "source": "/document/crossProjection/images/*"
-                }
-                    
-            ],
-            "objects": [
-                {
-                    "storageContainer": "crossobject",
-                    "generatedKeyName": "crosslayout",
-                    "source": null,
-                    "sourceContext": "/document/crossProjection/images/*/layoutText",
-                    "inputs": [
-                        {
-                            "name": "OcrLayoutText",
-                            "source": "/document/crossProjection/images/*/layoutText"
-                        }
-                    ]
-                }
-            ],
-            "files": [
-                {
-                    "storageContainer": "crossimages",
-                    "generatedKeyName": "crossimages",
-                    "source": "/document/crossProjection/images/*/image"
-                }
-            ]
-        }
-    ]
-}
-```
-
-Object projections require a container name for each projection. Object projections and file projections cannot share a container. 
-
-### Relationships among table, object, and file projections
-
-This example also highlights another feature of projections. By defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files). This allows you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. 
-
-If you do not want the data related, define the projections in different projection groups. For example, the following snippet will result in the tables being related, but without relationships between the tables and the object (OCR text) projections. 
-
-Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard, and another projection group for capturing data used to train a machine learning model wrapped in a custom skill.
-
-When building projections of different types, file and object projections are generated first, and the paths are added to the tables.
-
-```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-        {
-            "tables": [
-                {
-                    "tableName": "unrelatedDocument",
-                    "generatedKeyName": "Documentid",
-                    "source": "/document/projectionShape"
-                },
-                {
-                    "tableName": "unrelatedKeyPhrases",
-                    "generatedKeyName": "KeyPhraseid",
-                    "source": "/document/projectionShape/keyPhrases"
-                }
-            ],
-            "objects": [
-                
-            ],
-            "files": []
-        }, 
-        {
-            "tables": [],
-            "objects": [
-                {
-                    "storageContainer": "unrelatedocrtext",
-                    "source": null,
-                    "sourceContext": "/document/normalized_images/*/text",
-                    "inputs": [
-                        {
-                            "name": "ocrText",
-                            "source": "/document/normalized_images/*/text"
-                        }
-                    ]
-                },
-                {
-                    "storageContainer": "unrelatedocrlayout",
-                    "source": null,
-                    "sourceContext": "/document/normalized_images/*/layoutText",
-                    "inputs": [
-                        {
-                            "name": "ocrLayoutText",
-                            "source": "/document/normalized_images/*/layoutText"
-                        }
-                    ]
-                }
-            ],
-            "files": []
-        }
-    ]
-}
-```
-
 ## Test projections
 
 You can process projections by following these steps:
 
 1. Set the knowledge store's `storageConnectionString` property to a valid V2 general purpose storage account connection string.  
 
-1. Update the skillset by issuing a [PUT request](/rest/api/searchservice/update-skillset).
+1. [Update the skillset](/rest/api/searchservice/update-skillset) by issuing a PUT request with your projection definition in the body of the skillset.
 
-1. After updating the skillset, [run the indexer](/rest/api/searchservice/run-indexer). 
+1. [Run the indexer](/rest/api/searchservice/run-indexer) to put the skillset into execution. 
 
-1. Monitor indexer execution to check progress and catch any errors.
+1. [Monitor indexer execution](search-howto-monitor-indexers.md) to check progress and catch any errors.
 
-1. In Azure Storage, [use Storage Explorer](knowledge-store-view-storage-explorer.md) to verify object creation.
+1. [Use Storage Explorer](knowledge-store-view-storage-explorer.md) to verify object creation in Azure Storage.
 
 1. If you are projecting tables, [import them into Power BI](knowledge-store-connect-power-bi.md) for table manipulation and visualization. In most cases, Power BI will auto-discover the relationships among tables.
 
-## Common Issues
+## Common issues
 
-When defining a projection, there are a few common issues that can cause unanticipated results. Check for these issues if the output in knowledge store isn't what you expect.
+Omitting any of the following steps can result in unexpected outcomes. Check for the following conditions if your output doesn't look right.
 
-+ String enrichments are not shaped into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. So at projection time, make sure to transform the enrichment into a valid JSON object with a name and a value.
++ String enrichments are not shaped into valid JSON. When strings are enriched, for example `merged_content` enriched with key phrases, the enriched property is represented as a child of `merged_content` within the enrichment tree. The default representation is not well-formed JSON. At projection time, make sure to transform the enrichment into a valid JSON object with a name and a value. Using a Shaper skill or defining inline shapes will help resolve this issue.
 
 + Omission of `/*` at the end of a source path. If the source of a projection is `/document/projectionShape/keyPhrases`, the key phrases array is projected as a single object/row. Instead, set the source path to `/document/projectionShape/keyPhrases/*` to yield a single row or object for each of the key phrases.
 
-+ Path syntax errors. Path selectors are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector.
++ Path syntax errors. [Path selectors](cognitive-search-concept-annotations-syntax) are case-sensitive and can lead to missing input warnings if you do not use the exact case for the selector. 
 
 ## Next steps
 
-The examples in this article demonstrate common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
-
-As you explore new features, consider incremental enrichment as your next step. Incremental enrichment is based on caching, which lets you reuse any enrichments that are not otherwise affected by a skillset modification. This is especially useful for pipelines that include OCR and image analysis.
+The next step walks you through shaping and projection of output from a rich skillset. If your skillset is complex, the following article provides examples of both shapes and projections.
 
 > [!div class="nextstepaction"]
-> [Configure caching for incremental enrichment i](search-howto-incremental-index.md)
+> [Detailed example of shapes and projections](knowledge-store-projection-example-long.md)
