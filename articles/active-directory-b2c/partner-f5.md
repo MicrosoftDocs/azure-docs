@@ -360,7 +360,7 @@ One optional step for improving the user login experience would be to suppress t
 
    ![Screenshot shows optimized login flow](./media/partner-f5/optimized-login-flow.png)
 
-  Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
+   Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
 
 2. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)** and select the **Per-Session Policy** Edit link for the application’s policy object.
 
