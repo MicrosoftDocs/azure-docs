@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/13/2021
 ms.author: panosper
 ms.custom: seodec18,references_regions
 ---
@@ -17,7 +17,7 @@ ms.custom: seodec18,references_regions
 
 The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
+The Speech portal, where you can perform custom configurations to your speech experience for all regions, is available here: https://speech.microsoft.com
 
 Keep in mind the following points when considering regions:
 
@@ -86,11 +86,27 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities throug
 
 ### Speaker Recognition
 
-Speaker Recognition is currently only available in the `westus` region.
+Available regions for **Speaker Recognition** are the following:
+
+| Geography | Region           | Region identifier |
+| ------------- | ---------------- | -------------------- |
+| Americas     | Central US   | `centralus` |
+| Americas     | East US   | `eastus`  |
+| Americas     | East US 2  | `eastus2`  |
+| Americas     | West Central US  | `westcentralus`  |
+| Americas     | West US  | `westus`  |
+| Americas     | West US 2  | `westus2`  |
+| Asia Pacific  | East Asia   | `eastasia` |
+| Asia Pacific  | Southeast Asia   | `southeastasia` |
+| Asia Pacific  | Central India   | `centralindia` |
+| Australia     | Australia East   | `australiaeast` |
+| Europe     | North Europe   | `northeurope` |
+| Europe     | West Europe   | `westeurope` |
+| Europe     | UK South   | `uksouth` |
 
 ## REST APIs
 
-The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
+The Speech service also exposes REST endpoints for speech-to-text, text-to-speech and speaker recognition requests.
 
 ### Speech-to-text
 
@@ -114,3 +130,8 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+### Speaker Recognition
+
+For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
+

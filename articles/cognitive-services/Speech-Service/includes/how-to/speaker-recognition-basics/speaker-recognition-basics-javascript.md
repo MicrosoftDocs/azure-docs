@@ -17,7 +17,7 @@ For a high-level look at Speech Recognition concepts, see the [overview](../../.
 
 ## Skip to samples on GitHub
 
-If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/fa6428a0837779cbeae172688e0286625e340942/quickstart/javascript/node/speaker-recognition) on GitHub.
+If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition) on GitHub.
 
 ## Prerequisites
 

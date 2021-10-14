@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), [Speech translation](#speech-translation) and [Speaker Recognition](#speaker-recognition) service offerings.
 
 ## Speech-to-text
 
@@ -600,23 +600,24 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Speaker Recognition
 
-See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We have tuned and evaluated the model on the languages and locales that appear in the following table. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
-|English (US)  |  en-US  |  yes  |  yes  |  yes |
-|Chinese (Mandarin, simplified) | zh-CN     |     n/a |     yes |     yes|
-|English (Australia)     | en-AU     | n/a     | yes     | yes|
-|English (Canada)     | en-CA     | n/a |     yes |     yes|
-|English (UK)     | en-GB     | n/a     | yes     | yes|
-|French (Canada)     | fr-CA     | n/a     | yes |     yes|
-|French (France)     | fr-FR     | n/a     | yes     | yes|
-|German (Germany)     | de-DE     | n/a     | yes     | yes|
-|Italian | it-IT     |     n/a     | yes |     yes|
-|Japanese     | ja-JP | n/a     | yes     | yes|
-|Portuguese (Brazil) | pt-BR |     n/a |     yes |     yes|
-|Spanish (Mexico)     | es-MX     | n/a |     yes |     yes|
-|Spanish (Spain)     | es-ES | n/a     | yes |     yes|
+|English (US)  |  `en-US`  |  yes  |  yes  |  yes |
+|Chinese (Mandarin, simplified) | `zh-CN`     |     n/a |     yes |     yes|
+|English (Australia)     | `en-AU`    | n/a     | yes     | yes|
+|English (Canada)     | `en-CA`     | n/a |     yes |     yes|
+|English (India)     | `en-IN`     | n/a |     yes |     yes|
+|English (UK)     | `en-GB`     | n/a     | yes     | yes|
+|French (Canada)     | `fr-CA`     | n/a     | yes |     yes|
+|French (France)     | `fr-FR`     | n/a     | yes     | yes|
+|German (Germany)     | `de-DE`     | n/a     | yes     | yes|
+|Italian | `it-IT`     |     n/a     | yes |     yes|
+|Japanese     | `ja-JP` | n/a     | yes     | yes|
+|Portuguese (Brazil) | `pt-BR` |     n/a |     yes |     yes|
+|Spanish (Mexico)     | `es-MX`     | n/a |     yes |     yes|
+|Spanish (Spain)     | `es-ES` | n/a     | yes |     yes|
 
 ## Custom Keyword and Keyword Verification
 
