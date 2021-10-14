@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Storage service endpoint policies
-description: Learn how to protect Azure SQL Managed Instance against exfiltration to invalid Azure Storage accounts.
+title: Configure service endpoint policies
+description: Configure Azure Storage service endpoint policies to protect Azure SQL Managed Instance against exfiltration to unauthorized Azure Storage accounts.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -10,14 +10,11 @@ ms.topic: how-to
 author: zoran-rilak-msft
 ms.author: zoranrilak
 ms.reviewer: mathoma
-ms.date: 09/24/2021
+ms.date: 11/02/2021
 ---
 
-<<<<<<< HEAD
-# Configure service endpoint policies for Azure SQL Managed Instance
-=======
-# Configure Azure Storage service endpoint policies (Preview) for Azure SQL Managed Instance
->>>>>>> d835b9568568ed03361ec694ad98760268e0a79f
+
+# Configure service endpoint policies (Preview) for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Virtual Network (VNet) Azure Storage [service endpoint policies](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) allow you to filter egress virtual network traffic to Azure Storage, restricting data transfers to specific storage accounts.
@@ -48,7 +45,7 @@ Enabling service endpoint policies for your SQL Managed Instance has the followi
 
 ## Prepare storage inventory
 
-Before you begin configuring service endpoint policies on a subnet, compose a list of storage accounts that should be accessible by the managed instances in that subnet.
+Before you begin configuring service endpoint policies on a subnet, compose a list of storage accounts that the managed instance should have access to in that subnet.
 
 The following is a list of workflows that may contact Azure Storage:
 
@@ -61,7 +58,7 @@ The following is a list of workflows that may contact Azure Storage:
 - [Log Replay Service migration](log-replay-service-migrate.md) to Azure SQL Managed Instance.
 - Synchronizing tables using [transactional replication](replication-transactional-overview.md).
 
-Note the account name, resource group, and subscription for any storage account that participates in these, or any other workflows that access storage. 
+Note the account name, resource group, and subscription for any storage account that participates in these, or any other, workflows that access storage. 
 
 
 ## Configure policies
@@ -111,7 +108,7 @@ To create a service endpoint policy, follow these steps:
 1.	Select **Review + Create**. Validate the information and select **Create**. To make further edits, select **Previous**.
 
    > [!TIP]
-   > First, configure policies to allow access to entire subscriptions. Validate the configuration by ensuring that all workflows operate normally. Then you can reconfigure policies to allow individual storage accounts, or accounts in a resource group. To do so, select **Single account** or **All accounts in resource group** in the _Scope:_ field instead and fill in the other fields accordingly.
+   > First, configure policies to allow access to entire subscriptions. Validate the configuration by ensuring that all workflows operate normally. Then, optionally, reconfigure policies to allow individual storage accounts, or accounts in a resource group. To do so, select **Single account** or **All accounts in resource group** in the _Scope:_ field instead and fill in the other fields accordingly.
 
 ### Associate policy with subnet
 
