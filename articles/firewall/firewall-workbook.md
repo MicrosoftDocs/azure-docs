@@ -45,7 +45,7 @@ You can also filter logs based on time window:
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Azure Firewall Workbook network rule log time window":::
 
-## IDPS logs statistics
+## IDPS log statistics
 
 This page provides an overview of the IDPS actions count for all traffic that match the IDPS rules: Protocol, Signature ID, Source IP.
 
