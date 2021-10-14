@@ -169,7 +169,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Screenshot of the 'Module Twin Settings' pane on the 'Add IoT Edge Module' page.":::   
 
-To help with monitoring the module, you can add the following *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
+    To help with monitoring the module, you can add the following *recommended* properties to the JSON code. For more information, see [monitoring and logging](monitor-log-edge.md).
     
     ```
     "diagnosticsEventsOutputName": "diagnostics",
