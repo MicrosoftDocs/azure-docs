@@ -5,6 +5,8 @@ description: Learn how to use a custom container to use open-source servers in A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
@@ -51,41 +53,47 @@ cd azureml-examples/cli
 
 Define environment variables:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="initialize_variables":::
 
 ## Download a TensorFlow model
 
 Download and unzip a model that divides an input by two and adds 2 to the result:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
 
 ## Run a TF Serving image locally to test that it works
 
 Use docker to run your image locally for testing:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
 
 ### Check that you can send liveness and scoring requests to the image
 
 First, check that the container is "alive," meaning that the process inside the container is still running. You should get a 200 (OK) response.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_liveness_locally":::
 
 Then, check that you can get predictions about unlabeled data:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_scoring_locally":::
 
 ### Stop the image
 
 Now that you've tested locally, stop the image:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="stop_image":::
 
-## Create a YAML file for your endpoint
+## Create a YAML file for your endpoint and deployment
 
-You can configure your cloud deployment using YAML. Take a look at the sample YAML for this endpoint:
+You can configure your cloud deployment using YAML. Take a look at the sample YAML for this example:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+__tfserving-endpoint.yml__
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+
+__tfserving-deployment.yml__
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
 
 There are a few important concepts to notice in this YAML:
 
@@ -110,10 +118,10 @@ azureml-examples
       online
         custom-container
           half_plus_two
-          tfserving-endpoint.yml    
+          tfserving-deployment.yml    
 ```     
 
-and `tfserving-endpoint.yml` contains:
+and `tfserving-deployment.yml` contains:
 
 ```
 model:
@@ -122,34 +130,72 @@ model:
     local_path: ./half_plus_two
 ```
 
-then your model will be located at the following location in your endpoint:
+then your model will be located at the following location in your deployment:
 
 ```
 var 
   azureml-app
     azureml-models
-      tfserving-endpoint
+      tfserving-deployment
         1
           half_plus_two
 ```
 
-### Create the endpoint
+You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
 
-Now that you've understood how the YAML was constructed, create your endpoint. This command can take a few minutes to complete.
+So, for example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="create_endpoint":::
+```YAML
+name: tfserving-deployment
+endpoint_name: tfserving-endpoint
+model:
+  name: tfserving-mounted
+  version: 1
+  local_path: ./half_plus_two
+model_mount_path: /tfserving-model-mount
+.....
+```
+then your model will be located at the following location in your deployment:
+
+```
+var 
+  tfserving-model-mount
+    tfserving-deployment
+      1
+        half_plus_two
+```
+
+### Create your endpoint and deployment
+
+Now that you've understood how the YAML was constructed, create your endpoint.
+
+```YAML
+az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custom-container/tfserving-endpoint.yml
+```
+
+Creating a deployment may take few minutes.
+
+```YAML
+az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml
+```
 
 ### Invoke the endpoint
 
 Once your deployment completes, see if you can make a scoring request to the deployed endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
 ### Delete endpoint and model
 
 Now that you've successfully scored with your endpoint, you can delete it:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="delete_endpoint_and_model":::
+```YAML
+az ml online-endpoint delete --name tfserving-endpoint
+```
+
+```YAML
+az ml model delete -n tfserving-mounted --version 1
+```
 
 ## Next steps
 
