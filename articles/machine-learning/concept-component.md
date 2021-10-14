@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 # What is an Azure Machine Learning component (preview)?
 
-An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see Create and run machine learning pipelines with the Azure Machine Learning CLI). Components can do tasks such as data processing, model training, model scoring, and so on.
+An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-component-pipelines-cli.md)). Components can do tasks such as data processing, model training, model scoring, and so on.
 
 A component is analogous to a function - it has a name, parameters, expects input, and returns output. For more information on creating a component, see [create a component](#define-a-component-preview).
 
