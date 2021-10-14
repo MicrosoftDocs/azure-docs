@@ -1,7 +1,7 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 10/12/2021
+ms.date: 10/14/2021
 ms.topic: how-to
 ---
 
@@ -133,8 +133,12 @@ If you are under the impression that certain devices are not actively communicat
 
 1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
 
-1. Select **XXXXX** to add a filter on the Last activity column.
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity.":::
 
-1. Enter a custom date range.
+1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-icon.png" border="false"::: to add a filter on the last activity column.
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity-filter.png" alt-text="Screenshot of the add filter screen where you can select the time period to see the last activity.":::
+
+1. Enter a time period, or a custom date range, and select **Apply**.
 
 ## See next
