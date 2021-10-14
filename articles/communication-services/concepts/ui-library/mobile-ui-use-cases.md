@@ -50,8 +50,7 @@ For more information on authentication, see [Authentication](../authentication.m
 For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
-<img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="600"/> 
-
+:::image type="content" source="../media/mobile-ui/teams_meet.png" alt-text="Pre-meeting experience":::
 
 ## Theming
 
@@ -59,7 +58,7 @@ The UI Library Calling Composite for iOS and Android provides interfaces for dev
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-|  <img alt="android theming" src="../media/mobile-ui/android_color.png" width="75%"/>     | <img alt="iOS theming" src="../media/mobile-ui/ios_dark.png" width="50%" /> |
+| :::image type="content" source="../media/mobile-ui/android_color.png" alt-text="android theming"::: | :::image type="content" source="../media/mobile-ui/ios_dark.png" alt-text="iOS theming":::  |
 
 
 ## Screen size
@@ -68,14 +67,14 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 |Split mode | Tablet mode|
 |---------|---------|
-| <img alt="split screen" src="../media/mobile-ui/meet_splitscreen.png" width="80%"/>      | <img alt="tablet mode" src="../media/mobile-ui/tablet_landscape.png" width="80%"/>  |
+| :::image type="content" source="../media/mobile-ui/meet_splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../media/mobile-ui/tablet_landscape.png" alt-text="tablet mode"::: |
 
 ## Recommended Architecture
 
 Composite are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
 trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
 
-<img alt="recommended architecture diagram" src="../media/mobile-ui/ui-library-architecture.png" width="80%" />
+:::image type="content" source="../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
 
 These client libraries also require the context for the call they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
