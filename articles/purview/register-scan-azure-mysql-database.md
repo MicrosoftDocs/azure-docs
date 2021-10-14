@@ -18,7 +18,7 @@ This article outlines how to register an Azure MySQL database, as well as how to
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Share**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No | No |
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No | [Data Factory Lineage](how-to-link-azure-data-factory.md) |
 
 ## Prerequisites
 
@@ -102,10 +102,6 @@ To create and run a new scan, do the following:
 :::image type="content" source="media/register-scan-azure-mysql/07-review-your-scan.png" alt-text="review your scan" border="true":::
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
-
-> [!NOTE]
-> * Deleting your scan does not delete assets created from previous Azure MySQL Database scans.
-> * The asset will no longer be updated with schema changes if your source table has changed and you re-scan the source table after editing the description in the schema tab of Purview.
 
 ## Next steps
 

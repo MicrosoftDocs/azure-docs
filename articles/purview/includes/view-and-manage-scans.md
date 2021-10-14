@@ -32,3 +32,7 @@ To manage or delete a scan, do the following:
 1. You can cancel an in progress scan by selecting **Cancel scan run**.
 
 1. You can delete your scan by selecting **Delete scan**.
+
+> [!NOTE]
+> * Deleting your scan does not delete catalog assets created from previous scans.
+> * The asset will no longer be updated with schema changes if your source table has changed and you re-scan the source table after editing the description in the schema tab of Purview.
