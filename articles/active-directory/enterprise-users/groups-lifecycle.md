@@ -4,7 +4,7 @@ description: How to set up expiration for Microsoft 365 groups in Azure Active D
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/13/2021
 ms.author: curtand                   
-ms.reviewer: krbain
+ms.reviewer: jodah
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -101,9 +101,9 @@ If groups are not automatically renewed, email notifications such as this one ar
 From the **Renew group** notification email, group owners can directly access the group details page in the [Access Panel](https://account.activedirectory.windowsazure.com/r#/applications). There, the users can get more information about the group such as its description, when it was last renewed, when it will expire, and also the ability to renew the group. The group details page now also includes links to the Microsoft 365 group resources, so that the group owner can conveniently view the content and activity in their group.
 
 >[!Important]
-> If there is any problem with the notification emails, and they are not sent out or they are delayed, be assured that Microsoft will never delete a group before the last email is sent.
+> If there is any problem with the notification emails, and they aren't sent out or they are delayed, be assured that Microsoft will never delete a group before the last email is sent.
 
-When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Microsoft 365 group owners informing them about the expiration and subsequent deletion of their Microsoft 365 group. 
+When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Microsoft 365 group owners informing them about the expiration and subsequent deletion of their Microsoft 365 group.
 
 ![Group deletion email notifications](./media/groups-lifecycle/deletion-notification.png)
 
