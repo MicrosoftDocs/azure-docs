@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 10/13/2021
 ms.author: jasteppe
 ---
 
@@ -31,21 +31,21 @@ It's important that you have the following prerequisites completed before you be
 
 1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Healthcare APIs workspace resource name in the **Search** bar field.
  
-   ![Screenshot of entering the workspace resource name in the search bar field](media/select-workspace-resource-group.png#lightbox)
+   ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
 
 2. Select the **IoT connectors** blade.
 
-   ![Screenshot of IoT connectors blade](media/iot-connector-blade.png#lightbox)
+   ![Screenshot of IoT connectors blade.](media/iot-connector-blade.png#lightbox)
 
 3. Next, select **Add IoT connector**.
 
-   ![Screenshot of add IoT connectors](media/add-iot-connector.png#lightbox)
+   ![Screenshot of add IoT connectors.](media/add-iot-connector.png#lightbox)
 
 ## Configure IoT connector to ingest data
 
 Under the **Basics** tab, complete the required fields under **Instance details**.
 
-![IoT configure instance details](media/basics-instance-details.png#lightbox)
+![Screenshot of IoT configure instance details.](media/basics-instance-details.png#lightbox)
 
 1. Enter the **IoT connector name**.
 
@@ -61,7 +61,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
    The Consumer Group name is located by using the **Search** bar to go to the Event Hubs instance that you've deployed and by selecting the  **Consumer groups** blade.
 
-   ![Consumer group name](media/consumer-group-name.png#lightbox)
+   ![Screenshot of Consumer group name.](media/consumer-group-name.png#lightbox)
 
    For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
@@ -69,7 +69,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
     The **Fully Qualified Namespace** is the **Host name** located on your Event Hubs Namespace's **Overview** page.
 
-    ![Fully qualified namespace](media/event-hub-hostname.png#lightbox)  
+    ![Screenshot of Fully qualified namespace.](media/event-hub-hostname.png#lightbox)  
 
     For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
@@ -88,7 +88,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 1. Under the **Device Mapping** tab, enter the Device mapping JSON code associated with your IoT connector.
 
-   ![Configure device mapping](media/configure-device-mapping.png#lightbox)
+   ![Screenshot of Configure device mapping.](media/configure-device-mapping.png#lightbox)
 
 2. Select **Next: Destination >** to configure the destination properties associated with your IoT connector.
 
@@ -96,13 +96,13 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 Under the **Destination** tab, enter the destination properties associated with the IoT connector.
 
-   ![Configure destination properties](media/configure-destination-properties.png#lightbox)
+   ![Screenshot of Configure destination properties.](media/configure-destination-properties.png#lightbox)
 
 1. Enter the Azure Resource ID of the **FHIR service**.
 
    The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
 
-    ![Enter FHIR server name](media/fhir-service-resource-id.png#lightbox) 
+    ![Screenshot of Enter FHIR server name.](media/fhir-service-resource-id.png#lightbox) 
 
 2. Enter the **Destination Name**.
 
@@ -135,7 +135,7 @@ Tags are name and value pairs used for categorizing resources. For more informat
 
 Under the **Tags** tab, enter the tag properties associated with the IoT connector.
 
-   ![Tag properties](media/tag-properties.png#lightbox)
+   ![Screenshot of Tag properties.](media/tag-properties.png#lightbox)
  
 1. Enter a **Name**.
 2. Enter a **Value**.
@@ -143,7 +143,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT connect
 
    You should notice a **Validation success** message like what's shown in the image below. 
 
-   ![Validation success message](media/iot-connector-validation-success.png#lightbox) 
+   ![Screenshot of Validation success message.](media/iot-connector-validation-success.png#lightbox) 
 
    > [!NOTE]
    > If your IoT connector didn’t validate, review the validation failure message, and troubleshoot the issue. It’s recommended that you review the properties under each IoT connector tab that you've configured.
@@ -152,7 +152,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT connect
 
    The newly deployed IoT connector will display inside your Azure resource group.
 
-   ![Deployed IoT connector listed in the Azure Recent resources list](media/azure-resources-iot-connector-deployed.png#lightbox)  
+   ![Screenshot of Deployed IoT connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
     Now that your IoT connector has been deployed, we're going to walk through the steps of assigning permissions to access the Event Hub and the FHIR service. 
 
@@ -166,15 +166,15 @@ To ensure that your IoT connector works properly, it must have granted access pe
 
 2. Select the **Access control (IAM)** blade, and then select **+ Add**.   
 
-   ![Screenshot of access control of Event Hubs Namespace](media/access-control-blade-add.png#lightbox)
+   ![Screenshot of access control of Event Hubs Namespace.](media/access-control-blade-add.png#lightbox)
 
 3. Select **Add role assignment**.
 
-   ![Screenshot of add role assignment](media/event-hub-add-role-assignment.png#lightbox)
+   ![Screenshot of add role assignment.](media/event-hub-add-role-assignment.png#lightbox)
  
 4. Select the **Role**, and then select **Azure Event Hubs Data Receiver**.
 
-   ![Screenshot of add role assignment required fields](media/event-hub-add-role-assignment-fields.png#lightbox)
+   ![Screenshot of add role assignment required fields.](media/event-hub-add-role-assignment-fields.png#lightbox)
 
    The Azure Event Hubs Data Receiver role allows the IoT connector that's being assigned this role to receive data from this Event Hub.
 
@@ -192,7 +192,7 @@ To ensure that your IoT connector works properly, it must have granted access pe
 
    After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This message indicates that the IoT connector can now read from the Event Hub.
 
-   ![Screenshot of added role assignment message](media/event-hub-added-role-assignment.png#lightbox)
+   ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png#lightbox)
 
 For more information about authoring access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 
@@ -204,7 +204,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
 3. Select **Add role assignment**.
 
-  ![Screenshot of add role assignment for the FHIR service](media/fhir-service-add-role-assignment.png#lightbox)
+  ![Screenshot of add role assignment for the FHIR service.](media/fhir-service-add-role-assignment.png#lightbox)
 
 4. Select the **Role**, and then select **FHIR Data Writer**.
 
@@ -218,7 +218,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
 6. Select **Save**.
 
-   ![Screenshot of FHIR service added role assignment message](media/fhir-service-added-role-assignment.png#lightbox)
+   ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-assignment.png#lightbox)
 
    For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
 
