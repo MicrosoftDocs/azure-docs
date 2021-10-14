@@ -43,7 +43,6 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 * [Cloud connectivity alerts](#cloud-connectivity-alerts)
 * [Edge compute alerts](#edge-compute-alerts)
-<!--* [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga)-->
 * [Local Azure Resource Manager alerts](#local-azure-resource-manager-arm-alerts)
 * [Performance alerts](#performance-alerts)
 * [Storage alerts](#storage-alerts)
@@ -51,15 +50,7 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 * [Key vault alerts](#key-vault-alerts)
 * [Hardware alerts](#hardware-alerts)
 * [Update alerts](#update-alerts)
-<!--* [Clustering alerts](#clustering-alerts)-->
 * [Virtual machine alerts](#virtual-machine-alerts)
-
-
-<!--In the alerts tables below:
-
-- Alerts for a specific feature are raised only if the feature is supported in that Azure Stack Edge product. For example, you won't see virtual machine alerts on an Azure Stack Edge Pro with FPGA device because those devices don't support VMs.
-
-- Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.-->
 
 > [!NOTE]
 > In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the table has an alert entry for each of the events.
@@ -76,7 +67,7 @@ The following alerts are raised by a failed connection to an Azure Stack Edge de
 
 ## Edge compute alerts
 
-The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. <!--For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga).-->
+The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
@@ -102,22 +93,6 @@ The Edge compute alerts in the following table are raised on Azure Stack Edge Pr
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
-<!--## Edge compute alerts for FPGA
-
-The Edge compute alerts in the following table occur only on Azure Stack Edge Pro with FPGA devices.
-
-|Alert text |Severity |Description / Recommended action |
-|-----------|---------|---------------------------------|
-|FPGA on your device is unhealthy. |Critical |This may be due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA driver software is not running. | Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA configuration has an issue.<sup>*</sup> |Critical |We've detected an unsupported FPGA card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA configuration has an issue.<sup>*</sup> |Critical |This may be due to one of the following reasons:<ol><li>Image on the FPGA is not valid.</li><li>FPGA card isn't seated properly.</li><li>Underlying issues with the FPGA driver.</li></ol>To resolve the issue, redeploy the Azure IoT Edge module. Once the issue is resolved, the alert goes away.<br>If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA configuration has an issue.<sup>*</sup> |Critical |As your Azure IoT Machine Learning module starts up, you may see this transient issue. Wait a few minutes to see if the issue resolves.<br>If the issue persists, do the following:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA configuration has an issue.<sup>*</sup> |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|FPGA card temperature is rising. |Warning |This might be because the FPGA card has a high usage. Consider stopping or reducing the workload on the Azure IoT Machine Learning module.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-|Shutting down the FPGA card as the card temperature has exceeded the operating limit! |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
-
-<sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.-->
 
 ## Local Azure Resource Manager (ARM) alerts
 
@@ -158,6 +133,7 @@ The following alerts indicate performance issues related to storage or to CPU, m
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
+
 ## Storage alerts
 
 The following alerts are for issues that occur when accessing or uploading data to Azure Storage.
@@ -176,6 +152,7 @@ The following alerts are for issues that occur when accessing or uploading data 
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and click **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
+
 
 ## Security alerts
 
@@ -207,6 +184,7 @@ The following alerts relate to your Azure Key Vault configuration.
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
+
 ## Hardware alerts
 
 The following alerts indicate an issue with a hardware component, such as physical disk, NIC, or power supply unit, on an Azure Stack Edge device.
@@ -214,7 +192,7 @@ The following alerts indicate an issue with a hardware component, such as physic
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |{0} on {1} has failed. |Critical |This is because the power supply is not connected properly or has failed. Take the following steps to resolve this issue:<ol><li>Make sure that the power supply connection is proper.</li><li>[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement power supply unit. |
-|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to http://www.microsoft.com/2.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to https://www.microsoft.com/2.<!--Need new link target. This one goes nowhere--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |{0} is powered off. |Warning |Connect the Power Supply Unit to a Power Distribution Unit. |
 |One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
@@ -268,25 +246,6 @@ The following alerts relate to Microsoft updates and firmware updates for physic
 |Started a disk firmware update. |Informational |No action is required from you. |
 |Successfully updated the disk firmware. |Informational |No action is required from you. |
 |A physical disk firmware rollout is in progress. PercentComplete = {0}. |Informational |This is an informational event. No action is required at this time. |
-
-
-<!--## Clustering alerts
-
-The following alerts are raised for clustering issues on Azure Stack Edge devices.
-
-**Clustering is in private preview. These alerts will not be included in the initial publication. We may comment out this section until Clustering goes to public preview.**
-
-|Alert text |Severity |Description / Recommended action |
-|-----------|---------|---------------------------------|
-|The cluster quorum witness resource is offline. |Critical |Take the following steps:<ol><li>Check the witness resource.</li><li>Start or replace failed nodes on your device.</li></ol> |
-|Cluster resource is down. |Critical |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
-|Cluster resource '{0}' is down. |Critical |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
-|Cluster resource '{0}' is down. Your device will continue to run IO, but you cannot use the local web UI to manage the device. |Warning |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
-|Cluster resource '{0}' is down. The device will not run any scheduled operations. |Warning |If the issue persists, collect a log package and [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). For more information, go to [Use the local web UI to collect a log package](azure-stack-edge-troubleshoot.md#collect-support-package). |
-|Node {0} is down. |Critical |Start or replace the node. |
-|Node {0} is isolated from the cluster due to connectivity issues. |Critical |If isolation persists, check the network(s) or migrate workloads to other nodes. |
-|Node {0} is quarantined by the cluster. |Critical |Try troubleshooting the server and potential network issues. If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Node {0} needs to sync its storage. |Warning |Wait while we sync the storage. Don't remove any disks or restart any nodes in the cluster. |-->
 
 
 ## Virtual machine alerts
