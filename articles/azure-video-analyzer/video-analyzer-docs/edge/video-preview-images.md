@@ -67,12 +67,12 @@ In the storage account associated with your Video Analyzer,
 The files, **small.jpg**, **medium.jpg**, and **large.jpg**, representing the 3 different dimensions can be accessed and downloaded.  
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/edge/video-preview-images/images-sizes-storage-account.png" alt-text="Three different image sizes":::
+> :::image type="content" source="./edge/media/video-preview-images/images-sizes-storage-account.png" alt-text="Three different image sizes":::
 
 To view the timestamp at which the images were generated, select one of the images and the value for **timestamp** will be listed under **Metadata**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/edge/video-preview-images/image-timestamp.png" alt-text="Image timestamp":::
+> :::image type="content" source="./edge/media/video-preview-images/image-timestamp.png" alt-text="Image timestamp":::
 
 
 
