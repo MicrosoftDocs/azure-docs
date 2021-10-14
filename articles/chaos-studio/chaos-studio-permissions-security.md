@@ -59,6 +59,6 @@ Azure Chaos Studio does not support Service Tags or Private Link.
 Chaos Studio encrypts all data by default. Chaos Studio only accepts input for system properties like managed identity object IDs, experiment/step/branch names, and fault parameters (for example, the network port range to block in a network disconnect fault). These properties shouldn't be used to store sensitive data such as payment information or passwords. For more on how Chaos Studio protects your data, see [the Azure customer data protection article](../security/fundamentals/protection-customer-data.md).
 
 ## Next steps
-Now that you understand what a chaos experiment is you are ready to:
-- [Learn about faults and actions](chaos-studio-faults-actions.md)
+Now that you understand how to secure your chaos experiment you are ready to:
 - [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first Azure Kubernetes Service experiment](chaos-studio-tutorial-aks.md)
