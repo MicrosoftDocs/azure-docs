@@ -73,6 +73,12 @@
       href: cross-region-replication-introduction.md
     - name: Requirements and considerations for cross-region replication
       href: cross-region-replication-requirements-considerations.md
+  - name: Application volume groups
+    items: 
+    - name: Understand application volume group for SAP HANA
+      href: application-volume-group-introduction.md
+    - name: Requirements and considerations for application volume group for SAP HANA
+      href: application-volume-group-considerations.md
   - name: Solutions
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -211,6 +217,20 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+  - name: Manage application volume groups
+    items: 
+    - name: Deploy the first SAP HANA host
+      href: application-volume-group-deploy-first-host.md
+    - name: Add hosts to a multiple-host SAP HANA system
+      href: application-volume-group-add-hosts.md
+    - name: Add volumes for an SAP HANA system as a secondary database in HSR
+      href: application-volume-group-add-volume-secondary.md
+    - name: Add volumes for an SAP HANA system as a DR system using cross-region replication
+      href: application-volume-group-disaster-recovery.md
+    - name: Manage volumes in application volume group
+      href: application-volume-group-manage-volumes.md
+    - name: Delete an application volume group
+      href: application-volume-group-delete.md
   - name: Develop
     items:
     - name: REST API
