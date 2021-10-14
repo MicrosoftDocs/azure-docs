@@ -31,11 +31,6 @@ Prerequisites for this tutorial are:
 * [Video Analyzer account](create-video-analyzer-account.md).
 * Have completed [Quickstart: Detect motion, record video to Video Analyzer](detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records video to the Video Analyzer account.
 
-## Set up Azure resources
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
-
 ## Overview
 
 Video Analyzer can record videos from an RTSP source and in the Video Analyzer account these videos are recorded in a segmented archive.  The segmented archive format allows unbounded duration of video recording, however, in some cases it is necessary to save a portion of video as an MP4 so that it can be individually archived, downloaded, or played outside of the Video Analyzer ecosystem.   
