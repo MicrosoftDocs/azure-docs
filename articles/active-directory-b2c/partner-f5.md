@@ -358,17 +358,17 @@ One optional step for improving the user login experience would be to suppress t
 
 1. Navigate to **Access** > **Guided Configuration** and select the small padlock icon on the far right of the row for the header-based application to unlock the strict configuration
 
-  ![Screenshot shows optimized login flow](./media/partner-f5/optimized-login-flow.png)
+   ![Screenshot shows optimized login flow](./media/partner-f5/optimized-login-flow.png)
 
   Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
 
 2. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)** and select the **Per-Session Policy** Edit link for the application’s policy object.
 
-  ![Screenshot shows access profiles](./media/partner-f5/access-profile.png)
+   ![Screenshot shows access profiles](./media/partner-f5/access-profile.png)
 
 3. Select the small cross to delete the OAuth Logon Page policy object and when prompted choose to connect to the previous node.
 
-  ![Screenshot shows OAuth logon page](./media/partner-f5/oauth-logon.png)
+   ![Screenshot shows OAuth logon page](./media/partner-f5/oauth-logon.png)
 
 4. Select **Apply Access Policy** in the top left-hand corner and close the visual editor tab.
 The next attempt at connecting to the application should take you straight to the Azure AD B2C sign-in page.
