@@ -123,13 +123,14 @@ Run an assessment as follows:
 
 An AVS assessment describes:
 
-- AVS readiness: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
-- Number of AVS nodes: Estimated number of AVS nodes required to run the servers.
-- Utilization across AVS nodes: Projected CPU, memory, and storage utilization across all nodes.
-    - Utilization includes upfront factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
+- **Azure VMware Solution (AVS) readiness**: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
+- **Number of Azure VMware Solution nodes**: Estimated number of Azure VMware Solution nodes required to run the servers.
+- **Utilization across AVS nodes**: Projected CPU, memory, and storage utilization across all nodes.
+    - Utilization includes up front factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
 NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75GB of RAM and 722GB of storage before 
-compression and deduplication. 
-- Monthly cost estimation: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises servers.
+compression and deduplication.
+    - Limiting factor determines the number of hosts/nodes required to accommodate the resources.
+- **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
 ## View an assessment
 
@@ -141,7 +142,7 @@ To view an assessment:
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
-1. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+1. Review the assessment summary. You can click on  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties, or recalculate the assessment.
  
 
 ### Review readiness
@@ -177,7 +178,8 @@ The assessment summary shows the estimated compute and storage cost of running s
 
 Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-![Confidence rating](./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png" alt-text="Confidence rating":::
+
 
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
