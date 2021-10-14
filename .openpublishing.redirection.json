@@ -224,6 +224,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/whats-new-docs.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
       "redirect_document_id": false
@@ -392,6 +397,16 @@
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
       "redirect_url": "/articles/load-balancer/concepts",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
@@ -1455,7 +1470,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
-      "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+      "redirect_url": "/azure/active-directory-b2c/add-password-reset-policy",
       "redirect_document_id": true
     },
     {
@@ -5894,6 +5909,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+      "redirect_url": "/azure/storage/common/storage-account-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
@@ -6674,8 +6694,23 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
-      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+      "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/how-to-request-transit-data.md",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/mobility-coverage.md ",
+      "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
+      "redirect_url": "/azure/azure-maps",
       "redirect_document_id": false
     },
     {
@@ -28129,9 +28164,14 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blobs/storage-blob-storage-tiers.md",
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/access-tiers-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
+      "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
@@ -46412,7 +46452,61 @@
       "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-python.md",
       "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/try-sample-label-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/client-library.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-receipts.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-receipt",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-business-cards.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-business-card",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-identification-cards.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-id-document",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-invoice",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md",
+      "redirect_url": "/azure/app-service/environment/integrate-with-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-environment-with-internal-load-balancer.md",
+      "redirect_url": "/azure/app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-an-app-service-environment.md",
+      "redirect_url": "/azure/app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
+      "redirect_url": "/azure/app-service/environment/using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
+      "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
     }
-
   ]
 }

@@ -30,7 +30,7 @@ To view and copy your storage account access keys or connection string from the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. Under **Security + networking**, select **Access keys**. The access keys pane shows your access keys and the complete connection string for each key. The values are hidden by default.
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
 3. Select **Show keys** to show your access keys and connection strings and to enable buttons to copy the values.
 
@@ -91,7 +91,19 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-The ability to set a key expiration policy by using the Azure portal is not yet available. You can use either PowerShell or Azure CLI.
+To create a key expiration policy in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
+
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+
+3. Select the **Set rotation reminder** link.
+
+4. In **Set a reminder to rotate access keys**, select the **Enable key rotation reminders** checkbox and set a frequency for the reminder.
+
+5. Select **Save**.
+
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Screenshot showing how to create a key expiration policy in the Azure portal":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -200,7 +212,7 @@ To rotate your storage account access keys in the Azure portal:
 
 2. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-3. Under **Settings**, select **Access keys**.
+3. Under **Security + networking**, select **Access keys**.
 
 4. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
 

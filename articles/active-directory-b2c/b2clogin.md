@@ -3,14 +3,14 @@ title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

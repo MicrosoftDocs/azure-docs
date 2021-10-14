@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a blob with PowerShell
+title: 'Quickstart: Upload, download, and list blobs - Azure PowerShell'
 titleSuffix: Azure Storage
 description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage

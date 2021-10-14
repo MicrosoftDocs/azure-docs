@@ -8,10 +8,10 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 09/16/2021
+  ms.date: 10/13/2021
   ms.author: banders
     
-title: Azure Cost Management + Billing frequently asked questions (FAQ)
+title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
 sections:
   - name: General billing questions
@@ -51,7 +51,7 @@ sections:
           See [Assign access to Cost Management data](costs/assign-access-acm-data.md).
       - question: What partner offers are supported by Cost Management?
         answer: |
-          Cost Management is available for partners whose customers that have an Azure Plan. By enabling a policy setting, partners can allow their customers to view cost information. For more information, see [Get started with Azure Cost Management for partners](costs/get-started-partners.md). Classic CSP isn't support by Cost Management.
+          Cost Management is available for partners whose customers that have an Azure Plan. By enabling a policy setting, partners can allow their customers to view cost information. For more information, see [Get started with Cost Management for partners](costs/get-started-partners.md). Classic CSP isn't support by Cost Management.
       - question: How can I see forecasted costs?
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
@@ -84,7 +84,7 @@ sections:
           See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.
       - question: As a CSP partner, is Cost Management supported on Classic CSP offer in Azure Plan?
         answer: |
-          Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Azure Cost Management will be available only for the direct partners and indirect providers of customers who are on Azure Plan. 
+          Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing will be available only for the direct partners and indirect providers of customers who are on Azure Plan. 
       - question: As a CSP partner (global admin), how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
         answer: |
           See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a global admin of a direct partner or an indirect provider, you can view the costs in the customer tenant regardless of the policy.
@@ -97,10 +97,10 @@ sections:
       - question: What are the supported offer types in Cost Management?
         answer: |
           See [Supported Microsoft Azure offers](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
-      - question: How soon can I see my cost and usage data in Azure Cost Management?
+      - question: How soon can I see my cost and usage data in Cost Management?
         answer: |
           See [Cost and usage data updates and retention](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
-      - question: Can I find all my cost related information in Azure Cost Management?
+      - question: Can I find all my cost related information in Cost Management?
         answer: |
           See [Costs included in Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
       - question: Are allocated costs factored into budgets and forecast views?
@@ -118,6 +118,9 @@ sections:
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
           <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+      - question: Can I view New Commerce license and consumption products besides Azure in Cost Management?
+        answer: |
+          Yes. Partners with an MCA agreement can buy New Commerce license and consumption products in the Partner Center. The products are invoiced along with your Azure products and you can view the charges in Cost Management. The "Provider" dimension helps to distinguish between Azure and license-based products like Microsoft 365 and Dynamics 365.
 
   - name: Cost Management + Billing API questions
     questions:
@@ -142,7 +145,7 @@ sections:
       - question: How do I see reservation savings?
         answer: |
           There are a couple of ways to view your savings.
-          -  If you're an EA customer, you can use the Azure Cost Management Power BI App for EA to view the [RI Savings report](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
+          -  If you're an EA customer, you can use the Cost Management Power BI App for EA to view the [RI Savings report](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
           -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
       - question: How do I view reservation underutilization?
         answer: |
@@ -318,7 +321,7 @@ sections:
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
       - question: Can I perform analyses using Power BI?
         answer: |
-          Yes, you can use the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create powerful, customized visualizations and reports that help you better understand your Azure spend. If you are on an Enterprise Agreement (EA), you can also utilize the [Azure Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Azure Cost Management template app comes with premade reports to assist you with monitor costs, service usage trends, and identifying cost optimization options to reduce your expenditures.               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
+          Yes, you can use the [Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create powerful, customized visualizations and reports that help you better understand your Azure spend. If you are on an Enterprise Agreement (EA), you can also utilize the [Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Cost Management template app comes with premade reports to assist you with monitor costs, service usage trends, and identifying cost optimization options to reduce your expenditures.               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |

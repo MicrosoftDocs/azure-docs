@@ -1,6 +1,7 @@
 ---
-title: Manage user and admin permissions - Azure Active Directory | Microsoft Docs
+title: Manage user and admin permissions
 description: Learn how to review and manage permissions for the application on Azure AD. For example, revoke all permissions granted to an application.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
