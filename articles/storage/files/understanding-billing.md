@@ -77,8 +77,8 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
 | Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
-| Burst credits | `BurstLimit * 3600` |
+| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
 | Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
 
@@ -86,14 +86,14 @@ The following table illustrates a few examples of these formulae for the provisi
 
 | Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Ingress (MiB/sec) | Egress (MiB/sec) |
 |-|-|-|-|-|-|
-| 100 | 500 | Up to 4,000 | 14,400,000 | 44 | 66 |
-| 500 | 900 | Up to 4,000 | 14,400,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,272 | 15,379,200 | 81 | 122 |
-| 5,120 | 5,520 | Up to 16,560 | 59,616,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 31,920 | 114,912,000 | 450 | 675 |
-| 33,792 | 34,192 | Up to 100,000 | 360,000,000 | 1,392 | 2,088 |
-| 51,200 | 51,600 | Up to 100,000 | 360,000,000 | 2,088 | 3,132 |
-| 102,400 | 100,000 | Up to 100,000 | 360,000,000 | 4,136 | 6,204 |
+| 100 | 500 | Up to 4,000 | 12,600,000 | 44 | 66 |
+| 500 | 900 | Up to 4,000 | 11,160,000 | 60 | 90 |
+| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 81 | 122 |
+| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 450 | 675 |
+| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 1,392 | 2,088 |
+| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 2,088 | 3,132 |
+| 102,400 | 100,000 | Up to 100,000 | 0 | 4,136 | 6,204 |
 
 Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 

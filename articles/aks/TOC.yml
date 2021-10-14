@@ -190,6 +190,8 @@
               href: spot-node-pool.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use WebAssembly System Interface (WASI) node pools
+              href: use-wasi-node-pools.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
