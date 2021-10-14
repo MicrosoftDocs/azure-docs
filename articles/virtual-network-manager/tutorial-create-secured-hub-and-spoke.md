@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 
 # Tutorial: Create a secured hub and spoke network
 
-In this tutorial, you'll create a hub and spoke network topology using Azure Virtual Network Manager. You'll then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with a remote virtual network using VPN. You'll also configure a security configuration to block outbound traffic to the internet on port 80 and 443. Lastly you'll verify that the configurations got applied correctly by looking at the virtual network and virtual machine settings.
+In this tutorial, you'll create a hub and spoke network topology using Azure Virtual Network Manager. You'll then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. You'll also configure a security configuration to block outbound network traffic to the internet on port 80 and 443. Lastly you'll verify that the configurations were applied correctly by looking at the virtual network and virtual machine settings.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -21,18 +21,19 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create multiple virtual networks.
+> * Deploy a virtual network gateway.
 > * Create a hub and spoke network topology.
 > * Enable spoke network group features.
-> * Create a security configuration block traffic to port 80 and 443.
-> * Test connectivity between resources in the virtual network and to the Internet.
+> * Create a security configuration blocking traffic on port 80 and 443.
+> * Verify configurations were applied.
 
 ## Prerequisite
 
-* Before you can complete the steps in this tutorial, you must first create an Azure Virtual Network Manager instance. For more information, see [Create Virtual Network Manager](create-virtual-network-manager-portal.md).
+* Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
 
 ## Create virtual networks
 
-This procedure walks you through creating three virtual networks. Two of which will be in the *West US* region and one will be in the *East US* region.
+This procedure walks you through creating three virtual networks. One will be in the *West US* region and the other two will be in the *East US* region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -65,7 +66,7 @@ This procedure walks you through creating three virtual networks. Two of which w
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/create-vnet-validation.png" alt-text="Screenshot of validation page for hub and spoke virtual network.":::
 
-1. Repeat steps 2-5 to create two more virtual networks into the same resource group. Enter the following information:
+1. Repeat steps 2-5 to create two more virtual networks into the same resource group with the following information:
 
     **Second virtual network**:
     * Name: **VNet-A-EastUS**
@@ -83,13 +84,15 @@ This procedure walks you through creating three virtual networks. Two of which w
 
 ## Deploy a virtual network gateway
 
-1. Select **+ Create a resource** and search for **Virtual network gateway**. Then select **Create** to begin configuring the virtual network.
+Deploy a VPN virtual network gateway into the hub virtual network. This virtual network gateway is required for the spokes to *Use the hub as a gateway* setting.
+
+1. Select **+ Create a resource** and search for **Virtual network gateway**. Then select **Create** to begin configuring the virtual network gateway.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/create-gateway.png" alt-text="Screenshot of create a virtual network gateway page.":::
 
 1. On the *Basics* tab, enter or select the following settings:
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create a virtual network gateway basics tab." lightbox="./media/tutorial-create-secured-hub-and-spoke/gateway-basics-expanded.png":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create the virtual network gateway basics tab." lightbox="./media/tutorial-create-secured-hub-and-spoke/gateway-basics-expanded.png":::
 
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete.
 
@@ -105,12 +108,12 @@ This procedure walks you through creating three virtual networks. Two of which w
 
 1. On the *Basics* tab, enter the following information:
 
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of create a network group basics tab.":::
+
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myNetworkGroupB** for the network group name. |
     | Description | Provide a description explaining what this network group is used for. |
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of create a network group basics tab.":::
 
 1. Select the **Conditional statements** tab. Then for the *Parameter* select **Name** from the drop-down. For the *Operator* select **Contains**. Enter **VNet-** for the *Condition*. This conditional statement will add the three previously created virtual networks into this network group.
 
@@ -134,7 +137,7 @@ This procedure walks you through creating three virtual networks. Two of which w
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-menu.png" alt-text="Screenshot of configuration drop-down menu.":::
 
-1. Enter or select the following information for the connectivity configuration:
+1. Enter and select the following information for the connectivity configuration:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
@@ -160,43 +163,37 @@ This procedure walks you through creating three virtual networks. Two of which w
 
     | Setting | Value |
     | ------- | ----- |
-    | Transitivity | Select the checkbox for **Enable peering within network group**. This setting will allow spoke virtual network in the network group of the same region to communicate with each other directly. |
+    | Transitivity | Select the checkbox for **Enable peering within network group**. This setting will allow spoke virtual networks in the network group in the same region to communicate with each other directly. |
     | Global Mesh | Leave this option unchecked. |
     | Gateway | Select **Use hub as a gateway**. |
 
-## Deploy connectivity configuration
+## Deploy the connectivity configuration
 
-Ensure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment will fail.
+Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment will fail. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployments.png" alt-text="Screenshot of deployments page in Network Manager.":::
 
-1. Select the following settings:
+1. Select the configuration type of **Connectivity** and the **HubA** configuration you created in the last section. Then select **West US** and **East US** as the target region and select **Deploy**.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-configuration.png" alt-text="Screenshot of deploy a configuration page.":::
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Configuration type | Select the type of configuration you want to deploy. This example will use the **Connectivity** configuration created in the last section. |
-    | Configurations | Select the **HubA** configuration created from the previous section. |
-    | Target regions | Select the region to deploy this configuration to. Select **West US** and **East US** to apply configuration to virtual networks in both regions. |
-
-1. Select **Deploy** and then select **OK** to confirm you want to overwrite any existing configuration. 
+1. Select **OK** to confirm you want to overwrite any existing configuration and deploy the security admin configuration. 
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
 
-1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. You should now see the deployment show up in the list for those regions. The deployment of the configuration can take about 15-20 minutes to complete.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
 ## Create security configuration
 
-1. Select **Configuration** under *Settings*, then select **+ Add a configuration**.
+1. Select **Configuration** under *Settings* again, then select **+ Add a configuration**.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-security-configuration.png" alt-text="Screenshot of adding another configuration for Network Manager.":::
 
-1. Select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
+1. This time select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/security-drop-down.png" alt-text="Screenshot of SecurityAdmin in drop-down menu.":::
 
@@ -208,7 +205,7 @@ Ensure the virtual network gateway has been successfully deployed before deployi
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-rule-collection.png" alt-text="Screenshot of add a rule collection page.":::
 
-1. Enter or select the following settings, then select **Add**:
+1. Enter and select the following settings, then select **Add**:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-rule.png" alt-text="Screenshot of add a rule page.":::
 
@@ -220,13 +217,13 @@ Ensure the virtual network gateway has been successfully deployed before deployi
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/create-configuration.png" alt-text="Screenshot of add button to create configuration.":::
 
-## Deploy security admin configuration
+## Deploy the security admin configuration
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployments.png" alt-text="Screenshot of security deployments page in Network Manager.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployments.png" alt-text="Screenshot of security deployments page in Virtual Network Manager.":::
 
-1. Select the configuration type of **SecurityAdmin** and the configuration you created in the last section. Then chose the region(s) you would like to deploy this configuration to and select **Deploy**.
+1. Select the configuration type of **SecurityAdmin** and the **mySecurityConfig** configuration you created in the last section. Then select **West US** and **East US** as the target region and select **Deploy**.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
 
@@ -246,9 +243,9 @@ Ensure the virtual network gateway has been successfully deployed before deployi
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-connectivity-configuration.png" alt-text="Screenshot of connectivity configuration applied to the virtual network.":::
 
-1. Select **Peerings** under *Settings*. You'll see virtual network peerings created by Network Manager with *ANM* in the name.
+1. Select **Peerings** under *Settings*. You'll see virtual network peerings created by Virtual Network Manager with *AVNM* in the name.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Network Manager.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Virtual Network Manager.":::
 
 1. Select the **SecurityAdmin** tab to see the security admin rules applied to this virtual network.
 
