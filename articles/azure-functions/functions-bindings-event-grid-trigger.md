@@ -25,9 +25,11 @@ For information on setup and configuration details, see the [overview](./functio
 
 For an HTTP trigger example, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). 
 
-The type of the input or output parameter used with an Event Grid trigger or binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function ([in-process](functions-dotnet-class-library.md), [isolated process](dotnet-isolated-process-guide.md), or [C# script](functions-reference-csharp.md)). To learn more, see [Usage](#usage).
+The type of the input or output parameter used with an Event Grid trigger or binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
 
-The code in this reference defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+* [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
+* [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
+ *[C# script](functions-reference-csharp.md)): used primarily when creating C# functions in the Azure portal.
 
 # [In-process](#tab/in-process)
 
@@ -56,7 +58,6 @@ namespace Company.Function
 
 The following example shows a Functions version 3.x function that uses an `EventGridEvent` binding parameter:
 
-
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.EventGrid.Models;
@@ -75,7 +76,6 @@ namespace Company.Function
     }
 }
 ```
-
 
 The following example shows a function that uses a  `JObject`  binding parameter:
 
@@ -101,11 +101,11 @@ namespace Company.Function
 ```
 # [Isolated process](#tab/isolated-process)
 
-In isolated process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
+When running your C# function in an isolated process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
 
-This custom type is used in both the trigger and an Event Grid output binding:
+The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
 
@@ -382,27 +382,17 @@ The following table explains the binding configuration properties that you set i
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used. 
 
-# [In-process/C# script](#tab/in-process+csharp-script)
+# [In-process](#tab/in-process)
 
-| Type | Version 3+ | Version 2+ | Version 1 |
-| --- | --- | --- | --- |
-| **[Azure.Messaging.CloudEvent][CloudEvent]** |✔ |X|X| 
-| **[Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]** | ✔ | ✔<sup>*</sup>|X|
-| **Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent** |X|✔ |X |
-| **Newtonsoft.Json.Linq.JObject** | ✔ |✔ |✔ |
-| **[System.String](/dotnet/api/system.string)** | ✔ |✔ |✔ |
-
-<sup>*</sup> Requires the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package. To use the newer type, fully qualify the [EventGridEvent] type name by prefixing it with `Microsoft.Azure.EventGrid.Models`.
-
-The [EventGridEvent] type is specific to Event Grid and defines properties for the fields common to all event types. The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
-
-[CloudEvent] is based on the [CloudEvents standard](https://cloudevents.io/) and is intended to be more interoperable between cloud-based messaging providers.
-
-See the [Example section](#example) for examples of using the various parameter types.
+[!INCLUDE [functions-event-grid-csharp-usage](../../includes/functions-event-grid-csharp-usage.md)]
 
 # [Isolated process](#tab/isolated-process)
 
 Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
+
+# [C# script](#tab/csharp-script)
+
+[!INCLUDE [functions-event-grid-csharp-usage](../../includes/functions-event-grid-csharp-usage.md)]
 
 ---
 
