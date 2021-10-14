@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Classifying a job
 
-Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker requirements of a Job.
+Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker selectors of a Job.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -26,10 +26,10 @@ Learn to use a classification policy in Job Router to dynamically define the que
 
 ## Static classification
 
-When creating a Job with the SDK, specify the queue, priority, and worker requirements only; this method is known as **static classification**. The following example would place a Job in the `XBOX_DEFAULT_QUEUE` with a priority of `1` and require workers to have a skill of `XBOX_Hardware` greater than or equal to `5`.
+When creating a Job with the SDK, specify the queue, priority, and worker selectors only; this method is known as **static classification**. The following example would place a Job in the `XBOX_DEFAULT_QUEUE` with a priority of `1` and require workers to have a skill of `XBOX_Hardware` greater than or equal to `5`.
 
 > [!NOTE]
-> A Job can be [reclassified after submission](#reclassify-a-job-after-submission) even if it was initially created without a classification policy. In this case, Job Router will evaluate the policy's behavior against the **labels** and make the necessary adjustments to the queue, priority, and worker requirements.
+> A Job can be [reclassified after submission](#reclassify-a-job-after-submission) even if it was initially created without a classification policy. In this case, Job Router will evaluate the policy's behavior against the **labels** and make the necessary adjustments to the queue, priority, and worker selectors.
 
 ```csharp
 var job = await client.CreateJobAsync(
@@ -37,7 +37,7 @@ var job = await client.CreateJobAsync(
     channelReference: "my_custom_reference_number",
     queueId: "XBOX_DEFAULT_QUEUE",
     priority: 1,
-    workerRequirements: new List<RouterRequirement>()
+    workerSelectors: new List<RouterRequirement>()
     {
         new (
             key: "XBOX_Hardware",
@@ -51,52 +51,30 @@ var job = await client.CreateJobAsync(
 
 ## Dynamic classification
 
-As described above, an easy way of submitting a Job is to specify the priority, queue, and worker requirements during submission. When doing so, the sender needs to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
+As described above, an easy way of submitting a Job is to specify the Priority, Queue, and Worker Selectors during submission. When doing so, the sender needs to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
 
 ### Create a classification policy
 
-The following classification policy will use the low-code **PowerFx** expression language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`. Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+The following classification policy will use the low-code [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`. Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
 
 ```csharp
 var policy = await client.SetClassificationPolicyAsync(
     id: "XBOX_NA_QUEUE_Priority_1_10",
     name: "Select XBOX Queue and set priority to 1 or 10",
-    defaultQueueId: "DEFAULT_QUEUE",
     queueSelector: new QueueIdSelector(
-        new ExpressionRule()
-        {
-            Expression = $"If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")"
-        }
+        new ExpressionRule("If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")")
     ),
-    workerSelector: new List<LabelSelectorAttachment>
+    workerSelectors: new List<LabelSelectorAttachment>
     {
-        new StaticLabelSelector(new LabelSelector(
-                        key: "Language",
-                        @operator: LabelOperator.Equal,
-                        value: "English")
+        new StaticLabelSelector(
+            new LabelSelector(
+                key: "Language",
+                @operator: LabelOperator.Equal,
+                value: "English")
         )
     },
-    prioritizationRule: new ExpressionRule()
-    {
-        Expression = "If(job.Hardware_VIP = true, 10, 1)"
-    }
-);
-    id: "XBOX_NA_QUEUE_Priority_1_10",
-    name: "Select XBOX Queue and set priority to 1 or 10",
-    defaultQueueId: "DEFAULT_QUEUE",
-    queueSelectionPolicy: new QueueIdentitySelectionPolicy(
-        new ExpressionRuleContainer()
-        {
-            Language = ExpressionLanguage.PowerFx,
-            Expression = $"If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")"
-        }
-    ),
-    workerRequirementAttachments: new List<RequirementAttachment>(),
-    prioritizationRules: new ExpressionRuleContainer()
-    {
-        Language = ExpressionLanguage.PowerFx,
-        Expression = "If(job.Hardware_VIP = true, 10, 1)"
-    }
+    prioritizationRule: new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
+    defaultQueueId: "DEFAULT_QUEUE"
 );
 ```
 

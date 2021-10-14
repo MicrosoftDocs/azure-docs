@@ -72,7 +72,7 @@ Azure Communication Services Job Router maintains and uses the status of a Worke
 
 Azure Communication Services Job Router applies flexible Policies to attach dynamic behavior to various aspects of the system. Depending on the policy, a Job's Labels can be consumed & evaluated to alter a Job's priority, which Queue it should be in, and much more. Certain Policies in the Job Router offer inline function processing using PowerFx, or for more complex scenarios, a callback to an Azure Function.
 
-**Classification policy -** A classification policy helps Job Router define the Queue, the Priority, and can alter the Worker Requirements when the sender is unable or unaware of these parameters at the time of submission. For more information about classification, see the [job classification page](../../how-tos/router-sdk/job-classification.md).
+**Classification policy -** A classification policy helps Job Router define the Queue, the Priority, and can alter the Worker Selectors when the sender is unable or unaware of these parameters at the time of submission. For more information about classification, see the [classification concepts](classification-concepts.md) page.
 
 **Distribution policy -** When the Job Router receives a new Job, the Distribution Policy is used to locate a suitable Worker and manage the Job Offers. Workers are selected using different **modes**, and based on the policy, Job Router can notify one or more Workers concurrently.
 
@@ -80,6 +80,8 @@ Azure Communication Services Job Router applies flexible Policies to attach dyna
 
 ## Next steps
 
+- [Router Rule concepts](router-rule-concepts.md)
+- [Classification concepts](classification-concepts.md)
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
