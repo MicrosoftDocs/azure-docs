@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -440,6 +440,8 @@ For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" targ
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

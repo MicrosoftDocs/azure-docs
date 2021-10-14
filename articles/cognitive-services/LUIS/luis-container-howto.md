@@ -376,6 +376,8 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 ## Billing
 
 The LUIS container sends billing information to Azure, using a _Cognitive Services_ resource on your Azure account.

@@ -162,6 +162,9 @@ If you run the container with an output [mount](anomaly-detector-container-confi
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
+
 ## Billing
 
 The Anomaly Detector containers send billing information to Azure, using an _Anomaly Detector_ resource on your Azure account.

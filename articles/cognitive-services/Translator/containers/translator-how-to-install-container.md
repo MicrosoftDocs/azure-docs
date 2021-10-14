@@ -155,6 +155,8 @@ There are several ways to validate that the container is running:
 
 :::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
 
+[!INCLUDE [Diagnostic container](../../containers/includes/diagnostics-container.md)]
+
 ## Text translation code samples
 
 ### Translate text with swagger

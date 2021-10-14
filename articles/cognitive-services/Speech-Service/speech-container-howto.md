@@ -674,7 +674,8 @@ When starting or running the container, you may experience issues. Use an output
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-[!INCLUDE [Request access to public preview](../containers/includes/diagnostics-container.md)]
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## Billing
 
