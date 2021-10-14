@@ -76,6 +76,29 @@ When you use the `WithIosKeychainSecurityGroup()` API, MSAL automatically append
 
 For more information, see the [iOS entitlements documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
+#### Troubleshooting KeyChain access
+
+If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example: 
+
+```csharp
+var queryRecord = new SecRecord(SecKind.GenericPassword)
+{
+    Service = "",
+    Account = "SomeTeamId",
+    Accessible = SecAccessible.Always
+};
+
+SecRecord match = SecKeyChain.QueryAsRecord(queryRecord, out SecStatusCode resultCode);
+
+if (resultCode == SecStatusCode.ItemNotFound)
+{
+    SecKeyChain.Add(queryRecord);
+    match = SecKeyChain.QueryAsRecord(queryRecord, out resultCode);
+}
+
+// Make sure that  resultCode == SecStatusCode.Success
+```
+
 ### Enable token cache sharing across iOS applications
 
 Starting in MSAL 2.x, you can specify a keychain access group to persist the token cache across multiple applications. This setting enables you to share the token cache among several applications that have the same keychain access group. You can share the token cache among [ADAL.NET](https://aka.ms/adal-net) applications, MSAL.NET Xamarin.iOS applications, and native iOS applications that were developed in [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) or [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).

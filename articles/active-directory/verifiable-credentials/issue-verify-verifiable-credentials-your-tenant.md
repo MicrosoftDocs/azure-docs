@@ -3,7 +3,7 @@ title: Tutorial - Issue and verify verifiable credentials using your Azure tenan
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
