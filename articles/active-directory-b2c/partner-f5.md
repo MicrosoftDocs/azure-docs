@@ -343,7 +343,7 @@ You will then be redirected to sign up and authenticate against your Azure AD B2
 
 ### Supplemental configurations
 
-#### Single Log-Out (SLO)
+**Single Log-Out (SLO)**
 
 Azure AD B2C fully supports IdP and application sign out through various [mechanisms](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#single-sign-out).
 Having your application’s sign-out function call the Azure AD B2C log-out endpoint would be one way of achieving SLO. That way we can be sure Azure AD B2C issues a final redirect to the BIG-IP to ensure the APM session between the user and the application has also been terminated.
@@ -354,7 +354,7 @@ In either case your Azure AD B2C tenant would need to know the APM’s logout en
 
 2. Add the APM’s post logout URI: https://<mysite.com>/my.logout.php3, where <mysite.com> is the BIG-IP FQDN for your own header-based application.
 
-#### Optimized login flow
+**Optimized login flow**
 
 One optional step for improving the user login experience would be to suppress the OAuth logon prompt displayed to users before Azure AD pre-authentication. 
 
