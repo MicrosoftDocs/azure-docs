@@ -560,6 +560,15 @@ You can deploy the explainer along with the original model and use it at inferen
 ## Troubleshooting
 
 * **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently do not support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features. 
+* **Supported explanations features matrix**
+
+Supported explanation tab | Raw features (dense) | Raw features (sparse) | Engineered features (dense) | Engineered features (sparse)
+:----- | :--- | :--- | :---- | :---- |
+Model performance   | Supported (not forecasting) | Supported (not forecasting)  | Supported | Supported |
+Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+ Aggregatge feature importance | Supported | Supported | Supported | Supported |
+ Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+
 
 * **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is not supported for forecasting because of complexity in their data pipelines.
 
