@@ -191,6 +191,12 @@ In this fashion, creating a geo-replica can provide multiple additional read-onl
 > [!NOTE]
 > There is no automatic round-robin or any other load-balanced routing between the replicas of a geo-replicated secondary database, with the exception of a Hyperscale geo-replica with more than one HA replica. In that case, sessions with read-only intent are distributed over all HA replicas of a geo-replica.
 
+## Considerations for some features on read-only replicas
+A non-exhaustive list of the behavior of some features on read-only replicas is below:
+* Auditing on read-only replicas is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see [SQL Database Audit Log Format](./audit-log-format.md).
+* Query Performance Insights relies on data from the [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=azuresqldb-current) feature, which currently does not track activity on the read-only replica. In short, Query Performance Insights will not show queries which execute on the read-only replica.
+* Automatic Tuning relies on the Query Store, as detailed in the [Automatic Tuning paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf). As Query Store does not currently track query activity on the read-only replica, Automatic Tuning is mainly focused on the primary (read/write) copy of the database.
+
 ## Next steps
 
 - For information about SQL Database Hyperscale offering, see [Hyperscale service tier](service-tier-hyperscale.md).
