@@ -298,7 +298,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Updated portal URIs to include tenant for authentication
     + Removed experiment name from run URIs to avoid redirects
     + Updated experiment URO to use experiment ID.
-    + Bug fixes for attaching remote compute using az cli
+    + Bug fixes for attaching remote compute using az CLI
     + Updated portal URIs to include tenant for authentication.
     + Added support to understand File Dataset partitions based on glob structure.
   + **azureml-interpret**
@@ -1361,7 +1361,7 @@ Get started [here](./how-to-run-jupyter-notebooks.md)
 + Accessibility and Localization improvements
 + Command Palette
 + Additional Keyboard Shortcuts
-+ Autosave
++ Auto save
 + Improved performance and reliability
 
 Access the following web-based authoring tools from the studio:
