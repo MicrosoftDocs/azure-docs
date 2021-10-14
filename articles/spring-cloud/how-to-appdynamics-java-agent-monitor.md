@@ -10,11 +10,6 @@ ms.custom: devx-track-java
 ---
 # How to monitor Azure Spring Cloud applications with AppDynamics Java agent (Preview)
 
-> [!Note]
-> This document is in progress and will undergo further editorial review.  
-> Remove this section before publish.
-
-
 This feature enables monitoring of Azure Spring Cloud apps with the AppDynamics Java agent.
 
 With the AppDynamics Java agent, you can:
