@@ -91,7 +91,8 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 3. In the **Volume group** tab, provide information for creating the volume group:
 
     * **Proximity placement group (PPG)**:  
-        Specifies that the data and shared volumes are to be created close to the disaster recovery VMs. Even if you do not need the VM’s for replication you need to start at least one VM to anchor the PPG while provisioning the volumes.
+        Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
+        Even if you do not need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
     * **Capacity pool**:  
         All volumes will be placed in a single manual QoS capacity pool.   
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
