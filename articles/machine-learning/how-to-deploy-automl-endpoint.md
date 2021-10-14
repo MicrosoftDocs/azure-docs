@@ -128,31 +128,31 @@ __automl_deployment.yml__
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 
 1. Create a file `automl_endpoint.yml` and `automl_deployment.yml` and paste the contents of the above example.
+
 1. Change the value of the `name` of the endpoint. The endpoint name needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
+
 1. In the `automl_deployment` file, change the value of the keys at the following paths:
 
-| Path | Change to |
-| --- | --- |
-| `model:local_path` | The path to the `model.pkl` file you downloaded |
-| `code_configuration:code:local_path` | The directory in which you placed the scoring file | 
-| `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`) |
-| `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`) |
+    | Path | Change to |
+    | --- | --- |
+    | `model:local_path` | The path to the `model.pkl` file you downloaded. |
+    | `code_configuration:code:local_path` | The directory in which you placed the scoring file. | 
+    | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
+    | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
-> [!NOTE]
-> For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
+    > [!NOTE]
+    > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
 
 3. From the command line, run: 
 
-```azurecli
-az ml online-endpoint create -f automl_endpoint.yml
-```
-
-```azurecli
-az ml online-deployment create -f automl_deployment.yml
-```
+    ```azurecli
+    az ml online-endpoint create -f automl_endpoint.yml
+    az ml online-deployment create -f automl_deployment.yml
+    ```
+    
 ---
 
-Once you've created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 ## Next steps
 
