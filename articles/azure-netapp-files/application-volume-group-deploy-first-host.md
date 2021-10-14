@@ -39,7 +39,7 @@ You should understand the [requirements and considerations for application volum
 
     [ ![Screenshot that shows the Create Volume Group window.](../media/azure-netapp-files/application-volume-group-create-group.png) ](../media/azure-netapp-files/application-volume-group-create-group.png#lightbox)
 
-3. In the **SAP HANA** tab, provide HANA specific information:   
+3. In the **SAP HANA** tab, provide HANA-specific information:   
 
     * **SAP ID (SID**):    
         The three alphanumeric-character SAP HANA system identifier.
@@ -91,7 +91,7 @@ You should understand the [requirements and considerations for application volum
 
     The Volumes tab also shows that only the data, log, and shared volumes will be created close to the HANA VMs.  The other volumes (data-backup and log-backup) are created at a different location within the region.
 
-    The creation for the data-backup and log-backup volumes are optional.
+    The creation for the data-backup and log-backup volumes is optional.
 
     [ ![Screenshot that shows a list of volumes being created.](../media/azure-netapp-files/application-volume-list.png) ](../media/azure-netapp-files/application-volume-list.png#lightbox)
 

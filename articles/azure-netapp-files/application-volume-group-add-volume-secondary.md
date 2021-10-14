@@ -43,7 +43,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 1. From your NetApp account, select **Application volume groups**, and click **+Add Group**. Then, in Deployment Type, select **SAP HANA** and click **Next**. 
 
-2. In the **SAP HANA** tab, provide HANA specific information. 
+2. In the **SAP HANA** tab, provide HANA-specific information. 
 
     > [!IMPORTANT]
     > Be sure to select the **HSR secondary** option to indicate that you are creating a replication secondary system for the HANA system.  
@@ -103,7 +103,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 6. The **Volumes** tab displays information about the volumes that are being created.  
 
-    The volume naming convention includes an `"HA-"` prefix to indicate that the volume belong to the secondary system of an HSR setup.
+    The volume naming convention includes an `"HA-"` prefix to indicate that the volume belongs to the secondary system of an HSR setup.
 
     [ ![Screenshot that shows the Volume Group tab.](../media/azure-netapp-files/application-secondary-volumes-tags.png) ](../media/azure-netapp-files/application-secondary-volumes-tags.png#lightbox)
 

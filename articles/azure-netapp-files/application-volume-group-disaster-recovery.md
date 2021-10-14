@@ -1,6 +1,6 @@
 ---
 title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
-description: Describes using application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
+description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
-This article describes using application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system. This configuration uses Azure NetApp Files cross-region replication functionality.
+This article describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system. This configuration uses Azure NetApp Files cross-region replication functionality.
 
 ## Cross-region replication between the source and destination HANA servers
 
@@ -61,7 +61,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 1. From your NetApp account, select **Application volume groups**, and click **+Add Group**. Then, in Deployment Type, select **SAP HANA** and click **Next**. 
 
-2. In the **SAP HANA** tab, provide HANA specific information. 
+2. In the **SAP HANA** tab, provide HANA-specific information. 
 
     > [!IMPORTANT]
     > Be sure to select the **Disaster recovery destination** option to indicate that you are creating a HANA system as a cross-region replication destination.  
