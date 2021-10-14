@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -149,7 +149,7 @@ Take the following steps if returning the device in Europe.
 
 1. Write down the Inbound ID number provided by Azure Data Box Operations, and paste it onto the unit, where it is clearly visible, near the return label.
 1. Note the name of the shipment carrier and tracking number found on the return label.
-1. Schedule a pickup. To schedule a pickup, contact the carrier online or by phone, and provide them with the return tracking number as shown in the E-ink display or your printed label.
+1. Schedule a pickup using either UPS or CMS. To schedule a pickup, contact the carrier online or by phone, and provide them with the return tracking number as shown in the E-ink display or your printed label.
 1. If any issues come up while you're scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Provide the order name and the issue encountered in the **Subject** line.
 
 
@@ -433,6 +433,8 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
    > - Required information for return may vary by region. 
    > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](data-box-portal-customer-managed-shipping.md) for detailed instructions. 
 
+::: zone target="chromeless"
+
 ## Verify data upload to Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -441,6 +443,14 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
  
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
+::: zone-end
+
+---
+
+::: zone target="docs"
+
 ## Verify data upload to Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
