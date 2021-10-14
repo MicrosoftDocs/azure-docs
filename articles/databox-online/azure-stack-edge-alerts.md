@@ -62,7 +62,7 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 - Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.-->
 
 > [!NOTE]
-> In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.
+> In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the table has an alert entry for each of the events.
 
 ## Cloud connectivity alerts
 
@@ -74,7 +74,7 @@ The following tables list some of the Azure Stack Edge alerts that you might run
 
 ## Edge compute alerts
 
-The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga).  
+The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. <!--For compute alerts on an Azure Stack Edge Pro with FPGA device, see [Edge compute alerts for FPGA](#edge-compute-alerts-for-fpga).-->
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
