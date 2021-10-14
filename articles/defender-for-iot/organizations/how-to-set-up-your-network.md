@@ -104,24 +104,24 @@ Verify that your organizational security policy allows access to the following:
 | HTTPS | TCP | In/Out | 443 | Sensor and on-premises management console web console | Access to Web console | Client | Sensor and on-premises management console |
 | SSH | TCP | In/Out | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
 
-#### Sensor and on-premises management console to the web console
+#### Sensor access to Azure portal
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS / Websocket | TCP | In/Out | 443 | Sensor and on-premises management console web console | Access to Web console | Client | Sensor and on-premises management console |
+| HTTPS / Websocket | TCP | In/Out | 443 | The sensor's access to the Azure portal through a connection through Proxy| Access to Azure Portal | Sensor | Azure portal |
+| HTTPS / Websocket | TCP | In/Out | 443 | Sensor to Azure connection through NAT | Access to Azure Portal | Sensor | Azure portal |
 
 #### Sensor access to the on-premises management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
 | SSL | TCP | In/Out | 443 | Sensor and on-premises management console | The connection between the sensor and the Central Management | Sensor | On-premises management console |
-| NTP | UDP | In/Out | 123 | Time Sync | Connects the on-premises management console to an external NTP server | Sensor | NTP |
+| NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console | Sensor | On-premises management console |
 
 #### Time Sync
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| NTP | UDP | In | 123 | Time Sync | Uses the on-premises management console as NTP to the sensor | Sensor | on-premises management console |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
 
 #### (Optional) Defender for IoT extra services
