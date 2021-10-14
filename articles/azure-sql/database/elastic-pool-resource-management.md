@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/8/2021
+ms.date: 10/13/2021
 ---
 
 # Resource management in dense elastic pools
@@ -104,9 +104,7 @@ If used pool space (total size of data in all databases in a pool, not including
 
 **Avoid overly dense servers**. Azure SQL Database [supports](./resource-limits-logical-server.md) up to 5000 databases per server. Customers using elastic pools with thousands of databases may consider placing multiple elastic pools on a single server, with the total number of databases up to the supported limit. However, servers with many thousands of databases create operational challenges. Operations that require enumerating all databases on a server, for example viewing databases in the portal, will be slower. Operational errors, such as incorrect modification of server level logins or firewall rules, will affect a larger number of databases. Accidental deletion of the server will require assistance from Microsoft Support to recover databases on the deleted server, and will cause a prolonged outage for all affected databases.
 
-We recommend limiting the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, we recommend placing a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
-
-In the past, certain scenarios involving moving databases in, out, or between elastic pools on the same server were faster than when moving databases between servers. Currently, all database moves execute at the same speed regardless of source and destination server.
+It is recommended to limit the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, place a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
 
 ## Examples
 
