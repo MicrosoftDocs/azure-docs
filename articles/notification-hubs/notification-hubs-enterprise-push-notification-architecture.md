@@ -94,9 +94,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         // Create the topic if it does not exist already
         ServiceBusAdministrationClient client = new ServiceBusAdministrationClient(connectionString);
 
-        if (!await client.TopicExistsAsync(sampleTopic))
+        if (!await client.TopicExistsAsync(topicName))
         {
-            await client.CreateTopicAsync(sampleTopic);
+            await client.CreateTopicAsync(topicName);
         }
     }
     ```
@@ -107,7 +107,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
     public static sync Task SendMessageAsync(string connectionString)
     {
         await using var client = new ServiceBusClient(connectionString);
-        ServiceBusSender sender = client.CreateSender(sampleTopic);
+        ServiceBusSender sender = client.CreateSender(topicName);
 
         // Sends random messages every 10 seconds to the topic
         string[] messages =
@@ -162,9 +162,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         // Create the subscription if it does not exist already
         ServiceBusAdministrationClient client = new ServiceBusAdministrationClient(connectionString);
 
-        if (!await client.SubscriptionExistsAsync(sampleTopic, sampleSubscription))
+        if (!await client.SubscriptionExistsAsync(topicName, subscriptionName))
          {
-            await client.SubscriptionExistsAsync(sampleTopic, sampleSubscription);
+            await client.SubscriptionExistsAsync(topicName, subscriptionName);
          };
     }
     ```
@@ -181,7 +181,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
                 (hubConnectionString, "enterprisepushservicehub");
 
         ServiceBusClient Client = new ServiceBusClient(connectionString);
-        ServiceBusReceiver receiver = Client.CreateReceiver(sampleTopic, sampleSubscription);
+        ServiceBusReceiver receiver = Client.CreateReceiver(topicName, subscriptionName);
 
         // Continuously process messages received from the subscription
         while (true)
