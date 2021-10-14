@@ -57,13 +57,19 @@ We recommend performing load tests with your expected production workloads to as
 
 ## Validate content
 
-The `validate-content` policy validates the size or content type of a request or response body against the API schema. Supported content types: JSON, XML, SOAP.
+The `validate-content` policy validates the size or content type of a request or response body against the API schema. The following table shows the supported content types and corresponding API schemas used in API definitions.
+
+|Content type  | Schema |
+|---------|---------|
+|JSON     |  OpenAPI   |
+|XML     | XSD |
+|SOAP     |   WSDL  |
 
 ### Policy statement
 
 ```xml
 <validate-content unspecified-content-type-action="ignore|prevent|detect" max-size="size in bytes" size-exceeded-action="ignore|prevent|detect" errors-variable-name="variable name">
-    <content type="content type string, for example: application/json, application/hal+json, application/soap+xml" validate-as="json|xml|soap" schema-id="schema id" schema-ref="path to data object" action="ignore|prevent|detect" />
+    <content type="content type string, for example: application/json, application/hal+json, application/soap+xml" validate-as="json|xml|soap" action="ignore|prevent|detect" />
 </validate-content>
 ```
 
@@ -84,12 +90,11 @@ In the following example, the JSON payload in requests and responses is validate
 
 The following example validates a SOAP 1.2 API's request or response in prevention mode. Messages with payloads larger than 100 KB are blocked. 
 
-Content types other than "application/soap+xml", including messages without the `Content-Type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the WSDL schema and the custom “cat-schema” XSD schema. If validation fails, the request or response is blocked. 
+Content types other than "application/soap+xml", including messages without the `Content-Type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the WSDL schema. If validation fails, the request or response is blocked. 
 
 ```xml
 <validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent"> 
     <content type="application/soap+xml" validate-as="soap" action="prevent" /> 
-    <content type="application/soap+xml" validate-as="soap" schema-id="cat-schema" action="prevent" /> 
 </validate-content>
 ```
 
@@ -111,8 +116,6 @@ Content types other than "application/soap+xml", including messages without the 
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | type | Content type to execute body validation for, checked against the `Content-Type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
 | validate-as | Validation engine to use for validation of the body of a request or response with a matching content type. Supported values: "json", "xml", "soap". "xml" validates the request or response body against an XSD schema. "soap” extracts the body element from the SOAP envelope and then validates it against an XSD schema.  |  Yes     |  N/A  |
-| schema-id | Identifier of an XSD or JSON schema. If not specified, the body is validated against the default schema provided in the API definition (for example, WSDL for a SOAP API).    |  No  | N/A |
-| schema-ref |  Path to the data type object in the schema that the body is validated against. It can’t be specified for an XSD schema and is optional for a JSON schema.   |  No  | N/A |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
