@@ -33,7 +33,7 @@ Azure Load Balancing integrates with Azure networking to avoid load tests being 
 > [!NOTE]
 > This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
 
-## How to identify performance bottlenecks using ahigh-scale load test?
+## How to identify performance bottlenecks using high-scale load tests?
 
 Performance bottlenecks often remain undetected until the application is experiencing high load. You can create a high-scale load test to simulate large numbers of *virtual users* simultaneously accessing your application endpoints.
 
