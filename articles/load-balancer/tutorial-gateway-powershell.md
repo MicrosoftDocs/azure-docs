@@ -21,6 +21,7 @@ In this tutorial, you learn how to:
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
+> * Chain a load balancer frontend to gateway load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
@@ -30,6 +31,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
+    - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
 - Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -251,6 +254,48 @@ New-AzLoadBalancer @lb
 
 The load balancer is ready for NVAs in the backend pool.
 
+## Chain load balancer frontend to gateway load balancer
+
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+
+Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to chain the gateway load balancer frontend to your existing load balancer.
+
+```azurepowershell-interactive
+## Place the gateway load balancer configuration into a variable. ##
+$par1 = @{
+    ResourceGroupName = 'TutorGwLB-rg'
+    Name = 'myLoadBalancer-gw'
+}
+$gwlb = Get-AzLoadBalancer @par1
+
+## Place the existing load balancer into a variable. ##
+$par2 = @{
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Name = 'myLoadBalancer'
+}
+$lb = Get-AzLoadBalancer @par2
+
+## Place the existing public IP for the existing load balancer into a variable.
+$par3 = @{
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Name = 'myPublicIP'
+}
+$publicIP = Get-AzPublicIPAddress @par3
+
+## Chain the gateway load balancer to your existing load balancer frontend. ##
+$par4 = @{
+    Name = 'myFrontEndIP'
+    PublicIPAddress = $publicIP
+    LoadBalancer = $lb
+    GatewayLoadBalancerId = $gwlb.FrontendIpConfigurations.Id
+}
+$config = Set-AzLoadBalancerFrontendIpConfig @par4
+
+$config | Set-AzLoadBalancer
+
+```
 
 ## Clean up resources
 
