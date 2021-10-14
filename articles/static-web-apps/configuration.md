@@ -197,7 +197,7 @@ The example file structure below, the following outcomes are possible with this 
 
 ## Global headers
 
-The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each response, unless overridden by a [route header](#route-headers) rule, otherwise the union of both the headers from the route and the global headers is returned.
+The `globalHeaders` section provides a set of HTTP headers applied to each response, unless overridden by a [route header](#route-headers) rule, otherwise the union of both the headers from the route and the global headers is returned.
 
 See the [example configuration file](#example-configuration-file) for usage examples.
 
