@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 10/14/2021
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -64,6 +64,9 @@ In the current CI/CD flow, the user experience is the intermediary to create the
 
 > [!NOTE]
 > You can continue to use the existing mechanism, which is the `adf_publish` branch, or you can use the new flow. Both are supported.
+
+> [!NOTE]
+> The **Include in ARM template** configuration for global parameters is not supported when using automated publishing and will result in the factory’s Git configuration being removed after the ARM template deployment. Instead, use the [PowerShell script method](author-global-parameters.md#cicd) to deploy global parameters in your Azure pipelines.
 
 ## Package overview
 
