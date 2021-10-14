@@ -13,13 +13,13 @@ ms.date: 10/15/2021
 
 # Detailed example of shapes and projections in a knowledge store
 
-This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection decisions when you want to fully express the output of a rich skillset in Azure Storage.
+This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection steps required for fully expressing the output of a rich skillset in a [knowledge store](knowledge-store-concept-intro.md).
 
 If your application requirements call for multiple skills and projections, this example can give you a better understanding of how to shape and project your content.
 
 ## Example skillset
 
-To understand the intersection between data shapes and projections, review the following skillset as the basis for enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
+To understand the intersection between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
 
 Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and Shaper skills.
 

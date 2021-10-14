@@ -35,7 +35,7 @@ Recall that projections are defined under the "knowledgeStore" property of a ski
     ]
 ```
 
-If you need more background before getting started, review [this check list](knowledge-store-projection-overview.md#checklist-for-working-with-projections) for tips and workflow.
+If you need more background before getting started, review [this check list](knowledge-store-projection-overview.md#checklist-for-getting-started) for tips and workflow.
 
 > [!TIP]
 > When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing charges.
