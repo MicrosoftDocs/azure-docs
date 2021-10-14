@@ -13,18 +13,6 @@ Resiliency and disaster recovery is a common need for online systems. Azure Web 
 
 Your service instance is a regional service and the instance is running in one region. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region. This article will explain some of the strategies you can use to deploy the service to allow for disaster recovery.
 
-## Basic concepts
-
-### Client workflow
-
-When using Web PubSub service, the general workflow is:
-1. WebSocket Client talks to the server to get the Web PubSub service endpoint. We call this step **negotiate** in this article.
-2. Client connects to the Web PubSub service
-
-### Service health check
-
-Web PubSub service provides a [health check API](/rest/api/webpubsub) for its health check. For example, for a Web PubSub service `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call this endpoint to check if the service is healthy.
-
 ## High available architecture for Web PubSub service
 
 In order to have cross region resiliency for Web PubSub service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
@@ -35,7 +23,7 @@ Inside each pair app server and Web PubSub service are located in the same regio
 
 To better illustrate the architecture, we call Web PubSub service the "primary" service to the app server in the same pair. And we call Web PubSub services in other pairs as the "secondary" services to the app server.
 
-The app server can use **service health check API** to detect if its "primary" service is down, and use **negotiate** step to failover the clients to other healthy "secondary" services:
+The application server uses [service health check API](/rest/api/webpubsub/health-api/get-service-status) to detect if its "primary" and "secondary" services are healthy or not. For example, for a Web PubSub service called `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call the endpoints or call the endpoints on demand to check if the endpoints are healthy. WebSocket clients usually **negotiate** with it's application server first to get the URL connecting to the Web PubSub service, and the application uses this **negotiate** step to failover the clients to other healthy "secondary" services. Detailed steps as below:
 
 1. When a client **negotiate** with the app server, app server SHOULD only return primary Web PubSub service endpoints so in normal case clients only connect to primary endpoints.
 
