@@ -231,16 +231,16 @@ tools:
   summary: Get started with Form Recognizer SDK in your favorite programming language.
   items:
   - title: C#/.NET
-    imageSrc: media/index/logo_Csharp.svg
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
     url: /dotnet/api/overview/azure/AI.FormRecognizer-readme
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable
   - title: JavaScript/Node.js
-    imageSrc: media/index/logo_nodejs.svg
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
     url: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest
   - title: Python
-    imageSrc: media/index/logo_python.svg
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python
 
 
