@@ -35,7 +35,7 @@ A typical database template addresses the core requirements of a specific indust
 
 
 
-# Available database templates 
+## Available database templates 
 
 Currently there are 6 database templates available that customers can leverage to start creating their lake database. 
 
@@ -48,3 +48,6 @@ Currently there are 6 database templates available that customers can leverage t
 
 As emission and carbon management has become a very important topic in all industires we have included those components in all the available database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
+## Next steps
+- [Learn more about database templates](concepts-database-templates.md)
+- [Quick start](quick-start-create-lake-database.md)
