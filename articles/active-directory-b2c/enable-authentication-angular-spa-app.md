@@ -107,12 +107,12 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },
      cache: {
-         cacheLocation: BrowserCacheLocation.LocalStorage,.
+         cacheLocation: BrowserCacheLocation.LocalStorage,
          storeAuthStateInCookie: isIE, 
      },
      system: {
@@ -129,7 +129,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/api/tasks.read"],
   },
 }
 export const loginRequest = {
