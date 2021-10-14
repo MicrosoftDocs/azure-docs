@@ -2148,6 +2148,8 @@
         href: uservoice-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
+      - name: VECOS Releezme Locker management system
+        href: vecos-releezme-locker-management-system-tutorial.md  
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Veracode
