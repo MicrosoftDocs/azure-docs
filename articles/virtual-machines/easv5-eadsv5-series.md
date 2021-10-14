@@ -15,7 +15,7 @@ ms.date: 10/8/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Easv5-series and Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processor in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running most memory optimized workloads. The Easv5 VMs offer a diskless alternative with no local temp disk. 
+The Easv5-series and Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> processor in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running most memory optimized workloads.
 
 ## Easv5-series
 
