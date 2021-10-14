@@ -3,7 +3,7 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definition of the ClaimsTransformations element in the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

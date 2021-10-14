@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 services: B2C
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

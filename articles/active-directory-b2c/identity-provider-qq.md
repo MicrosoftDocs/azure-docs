@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with a QQ account using Azure Active Directory
 description: Provide sign-up and sign-in to customers with QQ accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

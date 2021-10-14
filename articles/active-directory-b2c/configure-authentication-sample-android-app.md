@@ -3,7 +3,7 @@ title: Configure authentication in a sample Android application by using Azure A
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Android application.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference

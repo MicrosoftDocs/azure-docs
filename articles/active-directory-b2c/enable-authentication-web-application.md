@@ -3,7 +3,7 @@ title: Enable authentication in a web app by using Azure Active Directory B2C bu
 description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference

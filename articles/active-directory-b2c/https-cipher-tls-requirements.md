@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Notes for developers on HTTPS cipher suite and TLS requirements when interacting with web API endpoints.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

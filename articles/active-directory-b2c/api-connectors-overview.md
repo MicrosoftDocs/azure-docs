@@ -9,7 +9,7 @@ ms.date: 07/05/2021
 
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---

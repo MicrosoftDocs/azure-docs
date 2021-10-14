@@ -3,7 +3,7 @@ title: Define custom attributes in Azure Active Directory B2C | Microsoft Docs
 description: Define custom attributes for your application in Azure Active Directory B2C to collect information about your customers.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

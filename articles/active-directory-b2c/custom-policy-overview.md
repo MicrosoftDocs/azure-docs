@@ -3,7 +3,7 @@ title: Azure Active Directory B2C custom policy overview | Microsoft Docs
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

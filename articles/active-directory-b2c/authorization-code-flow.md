@@ -3,7 +3,7 @@ title: Authorization code flow - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

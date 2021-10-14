@@ -3,7 +3,7 @@ title: Enable authentication in an Angular application by using Azure Active Dir
 description:  Use the building blocks of Azure Active Directory B2C to sign in and sign up users in an Angular application.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference

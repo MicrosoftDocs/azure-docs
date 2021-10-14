@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

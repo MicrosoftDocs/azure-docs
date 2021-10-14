@@ -3,7 +3,7 @@ title: Language customization in Azure Active Directory B2C
 description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with the Twilio Verify API. Comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

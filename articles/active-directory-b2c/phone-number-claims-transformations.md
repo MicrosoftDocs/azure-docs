@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Custom policy reference for phone number claims transformations in Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

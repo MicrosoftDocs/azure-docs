@@ -3,7 +3,7 @@ title: Enable age gating in Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to identify minors using your application.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

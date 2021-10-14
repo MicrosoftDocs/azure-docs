@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn tips for securing phone-based multi-factor authentication (MFA) in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to

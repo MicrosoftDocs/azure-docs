@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to set up a one-time password (OTP) scenario by using Azure AD B2C custom policies.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

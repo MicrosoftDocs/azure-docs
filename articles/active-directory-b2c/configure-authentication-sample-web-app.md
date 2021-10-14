@@ -3,7 +3,7 @@ title: Configure authentication in a sample web application by using Azure Activ
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application.
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference

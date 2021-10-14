@@ -4,7 +4,7 @@ description: Learn how to list an Azure AD B2C app that supports single sign-on 
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
