@@ -1,6 +1,6 @@
 ---
-title: Create a lake database in Azure Synapse.
-description: Learn how to explore, customize and create a lake database from database template. 
+title: Modify a lake database using the database designer.
+description: Learn how to view, customize, and publish a lake database using the database designer. 
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics

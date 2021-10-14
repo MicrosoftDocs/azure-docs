@@ -1,6 +1,6 @@
 ---
-title: Create a lake database in Azure Synapse.
-description: Learn how to explore, customize and create a lake database from database template. 
+title: Create an empty lake database in Azure Synapse.
+description: Learn how to create an empty lake database that can be easily added to.
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
