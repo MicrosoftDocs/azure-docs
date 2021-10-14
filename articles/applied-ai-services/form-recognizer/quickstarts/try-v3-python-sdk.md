@@ -257,7 +257,7 @@ def analyze_layout():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document("prebuilt-layout", formUrl)
+    poller = document_analysis_client.begin_analyze_document_from_url("prebuilt-layout", formUrl)
     result = poller.result()
 
     for idx, style in enumerate(result.styles):
@@ -300,38 +300,40 @@ def analyze_layout():
                 )
             )
 
-        for table_idx, table in enumerate(result.tables):
+    for table_idx, table in enumerate(result.tables):
+        print(
+            "Table # {} has {} rows and {} columns".format(
+                table_idx, table.row_count, table.column_count
+            )
+        )
+        for region in table.bounding_regions:
             print(
-                "Table # {} has {} rows and {} columns".format(
-                    table_idx, table.row_count, table.column_count
+                "Table # {} location on page: {} is {}".format(
+                    table_idx,
+                    region.page_number,
+                    format_bounding_box(region.bounding_box),
                 )
             )
-            for region in table.bounding_regions:
+        for cell in table.cells:
+            print(
+                "...Cell[{}][{}] has content '{}'".format(
+                    cell.row_index,
+                    cell.column_index,
+                    cell.content,
+                )
+            )
+            for region in cell.bounding_regions:
                 print(
-                    "Table # {} location on page: {} is {}".format(
-                        table_idx,
+                    "...content on page {} is within bounding box '{}'".format(
                         region.page_number,
                         format_bounding_box(region.bounding_box),
                     )
                 )
-            for cell in table.cells:
-                print(
-                    "...Cell[{}][{}] has content '{}'".format(
-                        cell.row_index,
-                        cell.column_index,
-                        cell.content,
-                    )
-                )
-                for region in cell.bounding_regions:
-                    print(
-                        "...content on page {} is within bounding box '{}'".format(
-                            region.page_number,
-                            format_bounding_box(region.bounding_box),
-                        )
-                    )
 
-        print("----------------------------------------")
+    print("----------------------------------------")
 
+
+if __name__ == "__main__":
     analyze_layout()
 
 ```
@@ -358,13 +360,27 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 
 ```python
 
+def format_bounding_region(bounding_regions):
+    if not bounding_regions:
+        return "N/A"
+    return ", ".join("Page #{}: {}".format(region.page_number, format_bounding_box(region.bounding_box)) for region in bounding_regions)
+
+def format_bounding_box(bounding_box):
+    if not bounding_box:
+        return "N/A"
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+
+
 def analyze_invoice():
-    # sample form document
-    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+   
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
-    poller = document_analysis_client.begin_analyze_document("prebuilt-invoice", formUrl, locale="en-US")
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
+    
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-document", formUrl)
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):
@@ -504,7 +520,9 @@ def analyze_invoice():
             unit = item.value.get("Unit")
             if unit:
                 print(
-                    "......Unit: {} has confidence: {}".format(unit.value, unit.confidence)
+                    "......Unit: {} has confidence: {}".format(
+                        unit.value, unit.confidence
+                    )
                 )
             unit_price = item.value.get("UnitPrice")
             if unit_price:
@@ -529,7 +547,9 @@ def analyze_invoice():
                 )
             tax = item.value.get("Tax")
             if tax:
-                print("......Tax: {} has confidence: {}".format(tax.value, tax.confidence))
+                print(
+                    "......Tax: {} has confidence: {}".format(tax.value, tax.confidence)
+                )
             amount = item.value.get("Amount")
             if amount:
                 print(
@@ -610,6 +630,7 @@ def analyze_invoice():
                 )
             )
 
+if __name__ == "__main__":
     analyze_invoice()
 ```
 
