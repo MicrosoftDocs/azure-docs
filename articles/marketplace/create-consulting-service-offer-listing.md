@@ -1,6 +1,6 @@
 ---
-title: How to configure your consulting service offer listing details in Microsoft Partner Center
-description: Learn how to configure your consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
+title: Configure consulting service offer listing details for the commercial marketplace
+description: Configure consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
 author:  Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ---
 
-# How to configure your consulting service offer listing details
+# Configure consulting service offer listing details
 
 The information you provide on the **Offer listing** page of Partner Center will be displayed in the Microsoft commercial marketplace online stores. This includes your offer name, description, media, and other marketing assets.
 

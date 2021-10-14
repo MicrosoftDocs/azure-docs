@@ -102,7 +102,7 @@ To delete one or more rules you've created, use the suppression rules page.
 
 ## Create and manage suppression rules with the API
 
-You can create, view, or delete alert suppression rules via Security Center's REST API. 
+You can create, view, or delete alert suppression rules via the Security Center REST API. 
 
 The relevant HTTP methods for suppression rules in the REST API are:
 

@@ -364,7 +364,7 @@ After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
