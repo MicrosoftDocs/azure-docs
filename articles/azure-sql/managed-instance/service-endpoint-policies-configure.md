@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 ms.date: 09/24/2021
 ---
 
-# Configure Azure Storage service endpoint policies for Azure SQL Managed Instance
+# Configure service endpoint policies for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Virtual Network (VNet) Azure Storage [service endpoint policies](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) allow you to filter egress virtual network traffic to Azure Storage, restricting data transfers to specific storage accounts.
