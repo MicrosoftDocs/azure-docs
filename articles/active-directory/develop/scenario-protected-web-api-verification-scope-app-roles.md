@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 10/14/2021
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to write a protected web API using the Microsoft identity platform for developers.
