@@ -257,7 +257,8 @@ def analyze_layout():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url("prebuilt-layout", formUrl)
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-document", formUrl)
     result = poller.result()
 
     for idx, style in enumerate(result.styles):
@@ -266,75 +267,6 @@ def analyze_layout():
                 "handwritten" if style.is_handwritten else "no handwritten"
             )
         )
-
-    for page in result.pages:
-        print("----Analyzing layout from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
-
-        for line_idx, line in enumerate(page.lines):
-            print(
-                "...Line # {} has text content '{}' within bounding box '{}'".format(
-                    line_idx,
-                    line.content,
-                    format_bounding_box(line.bounding_box),
-                )
-            )
-
-        for word in page.words:
-            print(
-                "...Word '{}' has a confidence of {}".format(
-                    word.content, word.confidence
-                )
-            )
-
-        for selection_mark in page.selection_marks:
-            print(
-                "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
-                    selection_mark.state,
-                    format_bounding_box(selection_mark.bounding_box),
-                    selection_mark.confidence,
-                )
-            )
-
-    for table_idx, table in enumerate(result.tables):
-        print(
-            "Table # {} has {} rows and {} columns".format(
-                table_idx, table.row_count, table.column_count
-            )
-        )
-        for region in table.bounding_regions:
-            print(
-                "Table # {} location on page: {} is {}".format(
-                    table_idx,
-                    region.page_number,
-                    format_bounding_box(region.bounding_box),
-                )
-            )
-        for cell in table.cells:
-            print(
-                "...Cell[{}][{}] has content '{}'".format(
-                    cell.row_index,
-                    cell.column_index,
-                    cell.content,
-                )
-            )
-            for region in cell.bounding_regions:
-                print(
-                    "...content on page {} is within bounding box '{}'".format(
-                        region.page_number,
-                        format_bounding_box(region.bounding_box),
-                    )
-                )
-
-    print("----------------------------------------")
-
-
-if __name__ == "__main__":
-    analyze_layout()
 
 ```
 
@@ -372,13 +304,13 @@ def format_bounding_box(bounding_box):
 
 
 def analyze_invoice():
-   
+
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     document_analysis_client = DocumentAnalysisClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
-    
+
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-document", formUrl)
     invoices = poller.result()
