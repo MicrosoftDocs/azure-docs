@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: 'Tutorial: Identify performance bottlenecks'
       itemType: get-started
-      url: tutorial-identify-bottlenecks-in-azure-portal.md
+      url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
     - title: Set up resources
       itemType: get-started
