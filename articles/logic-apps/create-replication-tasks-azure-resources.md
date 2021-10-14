@@ -133,9 +133,8 @@ This example shows how to create a replication task for Service Bus queues.
    > [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying 
    > workflow apply only to the task that you created, not the task template.
    >
-   > For example, if you name your task `Fabrikam-Service-Bus-Replication-Task`, but you later edit 
-   > the underlying workflow to replicate to an Event Hubs namespace, you can't change the task name 
-   > to `Fabrikam-Service-Bus-Event-Hubs-Replication-Task`.
+   > For example, if you name your task `fabrikam-rep-weu-wus`, but you later edit the underlying 
+   > workflow for a different purpose, you can't change the task name to match.
 
    ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
@@ -179,11 +178,11 @@ This example shows how to view a task's history of workflow runs along with thei
 
 1. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
 
-   ![Screenshot that shows a task and the selected "View" option.](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
+   ![Screenshot that shows the "Tasks" pane, a replication task, and the selected "View" option.](./media/create-replication-tasks-azure-resources/view-runs-for-task.png)
 
    The **Runs history** pane shows all the runs for the task along with their statuses, start times, identifiers, and run durations.
 
-   ![Screenshot that shows a task's runs, their statuses, and other information.](./media/create-automation-tasks-azure-resources/view-runs-history.png)
+   ![Screenshot that shows a task's runs, their statuses, and other information.](./media/create-replication-tasks-azure-resources/view-runs-history.png)
 
    Here the possible statuses for a run:
 
@@ -202,20 +201,20 @@ This example shows how to view a task's history of workflow runs along with thei
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
-   * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
+   - Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
-   ![Screenshot that shows each step in the run, status, and run duration.](./media/create-automation-tasks-azure-resources/runs-history-details.png)
+   ![Screenshot that shows each step in the run, status, and run duration.](./media/create-replication-tasks-azure-resources/runs-history-details.png)
 
 1. To review the inputs and outputs for each step, select the step, which expands.
 
    This example shows the inputs for the Recurrence trigger, which has no outputs because the trigger only specifies when the workflow runs and provides no outputs for the subsequent actions to process.
 
-   ![Screenshot that shows the expanded trigger and inputs.](./media/create-automation-tasks-azure-resources/view-trigger-inputs.png)
+   ![Screenshot that shows the expanded trigger and inputs.](./media/create-replication-tasks-azure-resources/view-trigger-inputs.png)
 
    In contrast, the **Send an email** action has inputs from earlier actions in the workflow and outputs.
 
-   ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
+   ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-replication-tasks-azure-resources/view-action-inputs-outputs.png)
 
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
