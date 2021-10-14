@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Add Mobile calling composite over an Android app using the Mobile UI library for iOS
-description: In this tutorial, you learn how to use the AMobile UI library for iOS
+description: In this tutorial, you learn how to use the Mobile UI library for iOS
 author: jorgegarc
-ms.author: jorgegarc
+ms.author: palatter
 ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
 - A deployed Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- Azure Communication Services Token. [See example.](https://docs.microsoft.com/en-ca/azure/communication-services/quickstarts/identity/quick-create-identity)
+- Azure Communication Services Token. [See example.](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity)
 
 ## Setting up
 
@@ -149,7 +149,7 @@ Initialize a `CommunicationTokenCredential` instance inside the `startCallCompos
 let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 ```
 
-Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
+Refer to the [user access token](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity) documentation if you don't already have a token available.
 
 ### Setup Group Call or Teams Meeting Options
 

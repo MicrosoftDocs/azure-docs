@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Add Mobile calling composite over an Android app using the Mobile UI library for Android
-description: In this tutorial, you learn how to use the AMobile UI library for Android
+description: In this tutorial, you learn how to use the Mobile UI library for Android
 author: jorgegarc
-ms.author: jorgegarc
+ms.author: pprystinka
 ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- Azure Communication Services Token. See [example](https://docs.microsoft.com/en-ca/azure/communication-services/quickstarts/identity/quick-create-identity) 
+- Azure Communication Services Token. See [example](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity) 
 
 ## Setting up
 
@@ -260,7 +260,7 @@ CommunicationTokenCredential communicationTokenCredential = new CommunicationTok
 
 ```
 
-Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
+Refer to the [user access token](https://docs.microsoft.com/azure/communication-services/quickstarts/identity/quick-create-identity) documentation if you don't already have a token available.
 
 ## Setup Group Call or Teams Meeting Options
 

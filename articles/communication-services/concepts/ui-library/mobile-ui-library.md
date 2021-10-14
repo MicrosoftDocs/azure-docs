@@ -26,7 +26,7 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling.md)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
+| [CallComposite](../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
 
 ## Scenarios
 
@@ -55,7 +55,7 @@ Mobile Composites are initialized using Azure Communication Services access toke
 
 ### More details
 
-If you need more details about mobile composites, please visit [use cases site](mobile-ui-usesscenarios.md) to discover more.
+If you need more details about mobile composites, please visit [use cases site](mobile-ui-use-cases.md) to discover more.
 
 ***We expect to add more scenarios ahead of the UI Library being in General Availability.***
 
