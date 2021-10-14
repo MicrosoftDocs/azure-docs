@@ -1,6 +1,6 @@
 ---
 title: Plan a consulting service offer for the commercial marketplace 
-description: Plan a new consulting service offer for Microsoft AppSource or Azure Marketplace using Partner Center.
+description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ---
 
-# Plan a consulting service offer in the commercial marketplace
+# Plan a consulting service offer
 
-This article introduces the different options and requirements for publishing consulting service offers to the Microsoft commercial marketplace. Read this article to prepare your offer for publishing with Partner Center.
+This article introduces the different options and requirements for publishing a consulting service offer to the commercial marketplace. Read this article to prepare your offer for publishing using Partner Center.
 
 ## What’s a consulting service?
 

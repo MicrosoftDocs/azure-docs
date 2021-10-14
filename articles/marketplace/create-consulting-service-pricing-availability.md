@@ -1,6 +1,6 @@
 ---
-title: How to configure your consulting service pricing and availability in Microsoft Partner Center
-description: Learn how to configure your consulting service offer price details and market availability in the Microsoft commercial marketplace using Partner Center. 
+title: Configure your consulting service pricing and availability for the commercial marketplace
+description: Configure your consulting service offer price details and market availability in the Microsoft commercial marketplace using Partner Center. 
 author:  Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ---
 
-# How to configure your consulting service pricing and availability
+# Configure your consulting service pricing and availability
 
 This article explains how to define the market availability and the pricing details for your consulting service offer in the Microsoft commercial marketplace.
 
