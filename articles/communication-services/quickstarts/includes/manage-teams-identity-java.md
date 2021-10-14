@@ -90,11 +90,10 @@ The first step in the token exchange flow is getting a token for your Teams user
 
 ```java
 String appId = "Contoso's_Application_ID";
-String authority = "https://login.microsoftonline.com/common";
+String authority = "https://login.microsoftonline.com/Contoso's_Tenant_ID";
 
 PublicClientApplication pca = PublicClientApplication.builder(appId)
         .authority(authority)
-        .setTokenCacheAccessAspect(tokenCacheAspect)
         .build();
 
 String redirectUri = "http://localhost";
@@ -106,7 +105,7 @@ InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .scopes(scope)
                     .build();
 
-IAuthenticationResult result = pca.acquireToken(parameters);
+IAuthenticationResult result = pca.acquireToken(parameters)get();
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -116,14 +115,12 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
-// Your can find your endpoint and access key from your resource in the Azure portal
-String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-String accessKey = "SECRET";
+// Your can find your connection string from your resource in the Azure portal
+String connectionString = "<connection_string>";
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-        .endpoint(endpoint)
-        .credential(new AzureKeyCredential(accessKey))
-        .buildClient();
+    .connectionString(connectionString)
+    .buildClient();
 ```
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
@@ -132,16 +129,12 @@ Use the `exchangeTeamsToken` method to issue an access token for the Teams user 
 
 ```java
 var accessToken = communicationIdentityClient.exchangeTeamsToken(result.getAccessToken());
-System.out.println("Token: " + accessToken.getAccessToken());
+System.out.println("Token: " + accessToken.getToken());
 ```
 
 ## Run the code
 
 Navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command.
-
-```console
-mvn compile
-```
 
 Then, build the package.
 

@@ -82,7 +82,7 @@ The first step in the token exchange flow is getting a token for your Teams user
 const msalConfig = {
     auth: {
         clientId: "Contoso's_Application_ID",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Contoso's_Tenant_ID",
     }
 };
 
