@@ -35,7 +35,7 @@ Review the following checklist for a brief overview of the storage best practice
 - Place data, log, and tempdb files on separate drives.
     - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssd)
-      - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) for the transaction log. 
+      - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disks) for the transaction log.
       - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD `D:\` drive for most SQL Server workloads after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, consider sizing up the VM. See [Data file caching policies](#data-file-caching-policies) for more information.
@@ -121,11 +121,11 @@ For more information, see [Performance tiers for managed disks](../../../virtual
 
 ## Azure ultra disk
 
-If there is a need for submillisecond response times with reduced latency consider using [Azure ultra disk](../../../virtual-machines/disks-types.md#ultra-disk) for the SQL Server log drive, or even the data drive for applications that are extremely sensitive to I/O latency. 
+If there is a need for submillisecond response times with reduced latency consider using [Azure ultra disk](../../../virtual-machines/disks-types.md#ultra-disks) for the SQL Server log drive, or even the data drive for applications that are extremely sensitive to I/O latency.
 
 Ultra disk can be configured where capacity and IOPS can scale independently. With ultra disk administrators can provision a disk with the capacity, IOPS, and throughput requirements based on application needs. 
 
-Ultra disk is not supported on all VM series and has other limitations such as region availability, redundancy, and support for Azure Backup. To learn more, see [Using Azure ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md) for a full list of limitations. 
+Ultra disk is not supported on all VM series and has other limitations such as region availability, redundancy, and support for Azure Backup. To learn more, see [Using Azure ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md) for a full list of limitations.
 
 ## Standard HDDs and SSDs
 
